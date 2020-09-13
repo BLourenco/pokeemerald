@@ -49,7 +49,7 @@ BerryTree_EventScript_CheckBerryStage1:: @ 82743B1
 	special ObjectEventInteractionGetBerryCountString
 	checkitem ITEM_WAILMER_PAIL, 1
 	compare VAR_RESULT, 0
-	goto_if_eq BerryTree_EventScript_DontWater
+	goto_if_eq BerryTree_EventScript_DontWaterStage1
 	msgbox BerryTree_Text_BerryGrowthStage1, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq BerryTree_EventScript_WaterBerry
@@ -61,7 +61,7 @@ BerryTree_EventScript_CheckBerryStage2:: @ 82743C1
 	special ObjectEventInteractionGetBerryName
 	checkitem ITEM_WAILMER_PAIL, 1
 	compare VAR_RESULT, 0
-	goto_if_eq BerryTree_EventScript_DontWater
+	goto_if_eq BerryTree_EventScript_DontWaterStage2
 	msgbox BerryTree_Text_BerryGrowthStage2, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq BerryTree_EventScript_WaterBerry
@@ -73,7 +73,7 @@ BerryTree_EventScript_CheckBerryStage3:: @ 82743D1
 	special ObjectEventInteractionGetBerryName
 	checkitem ITEM_WAILMER_PAIL, 1
 	compare VAR_RESULT, 0
-	goto_if_eq BerryTree_EventScript_DontWater
+	goto_if_eq BerryTree_EventScript_DontWaterStage3
 	msgbox BerryTree_Text_BerryGrowthStage3, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq BerryTree_EventScript_WaterBerry
@@ -86,7 +86,7 @@ BerryTree_EventScript_CheckBerryStage4:: @ 82743E1
 	special ObjectEventInteractionGetBerryName
 	checkitem ITEM_WAILMER_PAIL, 1
 	compare VAR_RESULT, 0
-	goto_if_eq BerryTree_EventScript_DontWater
+	goto_if_eq BerryTree_EventScript_DontWaterStage4
 	msgbox BerryTree_Text_BerryGrowthStage4, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq BerryTree_EventScript_WaterBerry
@@ -154,6 +154,34 @@ BerryTree_EventScript_DontWater:: @ 82744BE
 	releaseall
 	end
 
+BerryTree_EventScript_DontWaterStage1::
+	message BerryTree_Text_BerryGrowthStage1NoWailerPail
+	waitmessage
+	waitbuttonpress
+	releaseall
+	end
+
+BerryTree_EventScript_DontWaterStage2::
+	message BerryTree_Text_BerryGrowthStage2NoWailerPail
+	waitmessage
+	waitbuttonpress
+	releaseall
+	end
+
+BerryTree_EventScript_DontWaterStage3::
+	message BerryTree_Text_BerryGrowthStage3NoWailerPail
+	waitmessage
+	waitbuttonpress
+	releaseall
+	end
+
+BerryTree_EventScript_DontWaterStage4::
+	message BerryTree_Text_BerryGrowthStage4NoWailerPail
+	waitmessage
+	waitbuttonpress
+	releaseall
+	end
+
 BerryTree_EventScript_ItemUseWailmerPail:: @ 82744C0
 	special ObjectEventInteractionGetBerryTreeData
 	lockall
@@ -188,6 +216,19 @@ BerryTree_Text_BerryGrowthStage3: @ 827458A
 BerryTree_Text_BerryGrowthStage4: @ 82745AB
 	.string "These {STR_VAR_1} flowers are blooming\n"
 	.string "{STR_VAR_2}. Want to water them?$"
+
+BerryTree_Text_BerryGrowthStage1NoWailerPail:
+	.string "One {STR_VAR_1} was planted here.$"
+
+BerryTree_Text_BerryGrowthStage2NoWailerPail:
+	.string "{STR_VAR_1} has sprouted.$"
+
+BerryTree_Text_BerryGrowthStage3NoWailerPail:
+	.string "This {STR_VAR_1} plant is growing taller.$"
+
+BerryTree_Text_BerryGrowthStage4NoWailerPail:
+	.string "These {STR_VAR_1} flowers are blooming\n"
+	.string "{STR_VAR_2}.$"
 
 BerryTree_Text_CareAdverbGreat: @ 82745CD
 	.string "very beautifully$"
