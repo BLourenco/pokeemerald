@@ -5060,7 +5060,7 @@ BattleScript_LocalBattleLostPrintWhiteOut::
 	waitmessage 0x40
 	end2
 BattleScript_LocalBattleLostEnd::
-	printstring STRINGID_PLAYERLOSTAGAINSTENEMYTRAINER
+	printstring STRINGID_PLAYERLOSTAGAINSTTRAINER
 	waitmessage 0x40
 	getmoneyreward
 	printstring STRINGID_PLAYERPAIDPRIZEMONEY
