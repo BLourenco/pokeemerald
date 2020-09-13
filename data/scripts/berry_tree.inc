@@ -128,6 +128,7 @@ BerryTree_EventScript_PickBerry:: @ 8274448
 	playfanfare MUS_OBTAIN_BERRY
 	waitmessage
 	waitfanfare
+	waitbuttonpress
 	release
 	end
 
