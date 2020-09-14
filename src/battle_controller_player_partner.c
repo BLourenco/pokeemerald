@@ -309,15 +309,16 @@ static void CompleteOnInactiveTextPrinter(void)
 
 // the whole exp task is copied&pasted from player controller
 #define tExpTask_monId      data[0]
-#define tExpTask_gainedExp  data[1]
-#define tExpTask_bank       data[2]
+#define tExpTask_battler    data[1]
+#define tExpTask_gainedExp1 data[2]
+#define tExpTask_gainedExp2 data[3]
 #define tExpTask_frames     data[10]
 
 static void Task_GiveExpToMon(u8 taskId)
 {
     u32 monId = (u8)(gTasks[taskId].tExpTask_monId);
-    u8 battlerId = gTasks[taskId].tExpTask_bank;
-    s16 gainedExp = gTasks[taskId].tExpTask_gainedExp;
+    u8 battlerId = gTasks[taskId].tExpTask_battler;
+    s32 gainedExp = ((s32)gTasks[taskId].tExpTask_gainedExp1 & 0x0000FFFF) | ((s32)gTasks[taskId].tExpTask_gainedExp2 << 16);
 
     if (IsDoubleBattle() == TRUE || monId != gBattlerPartyIndexes[battlerId]) // give exp without the expbar
     {
@@ -329,15 +330,15 @@ static void Task_GiveExpToMon(u8 taskId)
 
         if (currExp + gainedExp >= nextLvlExp)
         {
-            u8 savedActiveBank;
+            u8 savedActiveBattler;
 
             SetMonData(mon, MON_DATA_EXP, &nextLvlExp);
             CalculateMonStats(mon);
             gainedExp -= nextLvlExp - currExp;
-            savedActiveBank = gActiveBattler;
+            savedActiveBattler = gActiveBattler;
             gActiveBattler = battlerId;
             BtlController_EmitTwoReturnValues(1, RET_VALUE_LEVELED_UP, gainedExp);
-            gActiveBattler = savedActiveBank;
+            gActiveBattler = savedActiveBattler;
 
             if (IsDoubleBattle() == TRUE
              && ((u16)(monId) == gBattlerPartyIndexes[battlerId] || (u16)(monId) == gBattlerPartyIndexes[battlerId ^ BIT_FLANK]))
@@ -362,8 +363,8 @@ static void Task_GiveExpToMon(u8 taskId)
 static void Task_PrepareToGiveExpWithExpBar(u8 taskId)
 {
     u8 monIndex = gTasks[taskId].tExpTask_monId;
-    s32 gainedExp = gTasks[taskId].tExpTask_gainedExp;
-    u8 battlerId = gTasks[taskId].tExpTask_bank;
+    s32 gainedExp = ((s32)gTasks[taskId].tExpTask_gainedExp1 & 0x0000FFFF) | ((s32)gTasks[taskId].tExpTask_gainedExp2 << 16);
+    u8 battlerId = gTasks[taskId].tExpTask_battler;
     struct Pokemon *mon = &gPlayerParty[monIndex];
     u8 level = GetMonData(mon, MON_DATA_LEVEL);
     u16 species = GetMonData(mon, MON_DATA_SPECIES);
@@ -387,13 +388,13 @@ static void sub_81BB4E4(u8 taskId)
     else
     {
         u8 monId = gTasks[taskId].tExpTask_monId;
-        s16 gainedExp = gTasks[taskId].tExpTask_gainedExp;
-        u8 battlerId = gTasks[taskId].tExpTask_bank;
-        s16 r4;
+        s32 gainedExp = ((s32)gTasks[taskId].tExpTask_gainedExp1 & 0x0000FFFF) | ((s32)gTasks[taskId].tExpTask_gainedExp2 << 16);
+        u8 battlerId = gTasks[taskId].tExpTask_battler;
+        s32 newExpPoints;
 
-        r4 = MoveBattleBar(battlerId, gHealthboxSpriteIds[battlerId], EXP_BAR, 0);
+        newExpPoints = MoveBattleBar(battlerId, gHealthboxSpriteIds[battlerId], EXP_BAR, 0);
         SetHealthboxSpriteVisible(gHealthboxSpriteIds[battlerId]);
-        if (r4 == -1)
+        if (newExpPoints == -1)
         {
             u8 level;
             s32 currExp;
@@ -408,15 +409,15 @@ static void sub_81BB4E4(u8 taskId)
 
             if (currExp + gainedExp >= expOnNextLvl)
             {
-                u8 savedActiveBank;
+                u8 savedActiveBattler;
 
                 SetMonData(&gPlayerParty[monId], MON_DATA_EXP, &expOnNextLvl);
                 CalculateMonStats(&gPlayerParty[monId]);
                 gainedExp -= expOnNextLvl - currExp;
-                savedActiveBank = gActiveBattler;
+                savedActiveBattler = gActiveBattler;
                 gActiveBattler = battlerId;
                 BtlController_EmitTwoReturnValues(1, RET_VALUE_LEVELED_UP, gainedExp);
-                gActiveBattler = savedActiveBank;
+                gActiveBattler = savedActiveBattler;
                 gTasks[taskId].func = sub_81BB628;
             }
             else
@@ -432,7 +433,7 @@ static void sub_81BB4E4(u8 taskId)
 
 static void sub_81BB628(u8 taskId)
 {
-    u8 battlerId = gTasks[taskId].tExpTask_bank;
+    u8 battlerId = gTasks[taskId].tExpTask_battler;
     u8 monIndex = gTasks[taskId].tExpTask_monId;
 
     if (IsDoubleBattle() == TRUE && monIndex == gBattlerPartyIndexes[battlerId ^ BIT_FLANK])
@@ -444,7 +445,7 @@ static void sub_81BB628(u8 taskId)
 
 static void sub_81BB688(u8 taskId)
 {
-    u8 battlerId = gTasks[taskId].tExpTask_bank;
+    u8 battlerId = gTasks[taskId].tExpTask_battler;
 
     if (!gBattleSpritesDataPtr->healthBoxesData[battlerId].specialAnimActive)
     {
@@ -468,7 +469,7 @@ static void DestroyExpTaskAndCompleteOnInactiveTextPrinter(u8 taskId)
 
     monIndex = gTasks[taskId].tExpTask_monId;
     GetMonData(&gPlayerParty[monIndex], MON_DATA_LEVEL);  // Unused return value
-    battlerId = gTasks[taskId].tExpTask_bank;
+    battlerId = gTasks[taskId].tExpTask_battler;
     gBattlerControllerFuncs[battlerId] = CompleteOnInactiveTextPrinter;
     DestroyTask(taskId);
 }
@@ -1599,23 +1600,25 @@ static void PlayerPartnerHandleExpUpdate(void)
     }
     else
     {
-        s16 expPointsToGive;
+        s32 expPointsToGive;
         u8 taskId;
 
         LoadBattleBarGfx(1);
         GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES);  // unused return value
-        expPointsToGive = gBattleResources->bufferA[gActiveBattler][2] | (gBattleResources->bufferA[gActiveBattler][3] << 8);
+        expPointsToGive = T1_READ_32(&gBattleResources->bufferA[gActiveBattler][2]);
         taskId = CreateTask(Task_GiveExpToMon, 10);
         gTasks[taskId].tExpTask_monId = monId;
-        gTasks[taskId].tExpTask_gainedExp = expPointsToGive;
-        gTasks[taskId].tExpTask_bank = gActiveBattler;
+        gTasks[taskId].tExpTask_gainedExp1 = (s16)expPointsToGive;
+        gTasks[taskId].tExpTask_gainedExp2 = (s16)((expPointsToGive & 0xFFFF0000) >> 16);
+        gTasks[taskId].tExpTask_battler = gActiveBattler;
         gBattlerControllerFuncs[gActiveBattler] = nullsub_21;
     }
 }
 
 #undef tExpTask_monId
-#undef tExpTask_gainedExp
-#undef tExpTask_bank
+#undef tExpTask_gainedExp1
+#undef tExpTask_gainedExp2
+#undef tExpTask_battler
 #undef tExpTask_frames
 
 static void PlayerPartnerHandleStatusIconUpdate(void)

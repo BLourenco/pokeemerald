@@ -1219,14 +1219,16 @@ void BtlController_EmitHealthBarUpdate(u8 bufferId, u16 hpValue)
     PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 4);
 }
 
-// why is the argument u16 if it's being cast to s16 anyway?
-void BtlController_EmitExpUpdate(u8 bufferId, u8 partyId, u16 expPoints)
+
+void BtlController_EmitExpUpdate(u8 bufferId, u8 partyId, u32 expPoints)
 {
     sBattleBuffersTransferData[0] = CONTROLLER_EXPUPDATE;
     sBattleBuffersTransferData[1] = partyId;
-    sBattleBuffersTransferData[2] = (s16)expPoints;
-    sBattleBuffersTransferData[3] = ((s16)expPoints & 0xFF00) >> 8;
-    PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 4);
+    sBattleBuffersTransferData[2] = (s32)expPoints;
+    sBattleBuffersTransferData[3] = ((s32)expPoints & 0x0000FF00) >> 8;
+    sBattleBuffersTransferData[4] = ((s32)expPoints & 0x00FF0000) >> 16;
+    sBattleBuffersTransferData[5] = ((s32)expPoints & 0xFF000000) >> 24;
+    PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 6);
 }
 
 void BtlController_EmitStatusIconUpdate(u8 bufferId, u32 status1, u32 status2)

@@ -3426,6 +3426,7 @@ static void Cmd_getexp(void)
     case 1: // calculate experience points to redistribute
         {
             u16 calculatedExp;
+            u8 divisor;
             s32 viaSentIn;
 
             for (viaSentIn = 0, i = 0; i < PARTY_SIZE; i++)
@@ -3446,7 +3447,12 @@ static void Cmd_getexp(void)
                     viaExpShare++;
             }
 
-            calculatedExp = gBaseStats[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / 7;
+            if (B_EXP_GAIN_FORMULA == GEN_5 || B_EXP_GAIN_FORMULA >= GEN_7)
+                divisor = 5;
+            else
+                divisor = 7;
+
+            calculatedExp = gBaseStats[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / divisor;
 
             if (viaExpShare) // at least one mon is getting exp via exp share
             {
@@ -3516,9 +3522,33 @@ static void Cmd_getexp(void)
 
                     if (holdEffect == HOLD_EFFECT_EXP_SHARE)
                         gBattleMoveDamage += gExpShareExp;
-                    if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
-                        gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
                     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && B_TRAINER_EXP_MULTIPLIER <= GEN_7)
+                        gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
+
+                    /*
+                        Calculate the scalar using an approximation of the Scaled Formula.
+                        The actual formula requires calculating a value raised to the power of 2.5
+                        but we don't have access to math.h, so to approximate the calculation
+                        I take the average of the value raised to the power of 2 and the same value raised
+                        to the power of 3. I'm no mathematician, but ploting the results compared to the actual
+                        formula results showed it was pretty close, so it's good enough for me!
+                        Bulbapedia page: https://bulbapedia.bulbagarden.net/wiki/Experience#Gain_formula
+                    */
+                    if (B_EXP_GAIN_FORMULA == GEN_5 || B_EXP_GAIN_FORMULA >= GEN_7)
+                    {
+                        u8 getterMonLevel = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL);
+                        u8 faintedBattlerLevel = gBattleMons[gBattlerFainted].level;
+                        u8 divTop = (faintedBattlerLevel + faintedBattlerLevel + 10);
+                        u8 divBottom = (faintedBattlerLevel + getterMonLevel + 10);
+                        u16 divTopPow2 = divTop*divTop;
+                        u16 divBottomPow2 = divBottom*divBottom;
+                        u32 divTopPow3 = divTop*divTop*divTop;
+                        u32 divBottomPow3 = divBottom*divBottom*divBottom;
+                        gBattleMoveDamage = (gBattleMoveDamage * (((float)divTopPow2/divBottomPow2) + ((float)divTopPow3/divBottomPow3)) / 2) + 1;
+                    }
+
+                    
+                    if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
 
                     if (IsTradedMon(&gPlayerParty[gBattleStruct->expGetterMonId]))
@@ -3560,7 +3590,7 @@ static void Cmd_getexp(void)
                     PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gBattleStruct->expGetterBattlerId, gBattleStruct->expGetterMonId);
                     // buffer 'gained' or 'gained a boosted'
                     PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
-                    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gBattleMoveDamage);
+                    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 6, gBattleMoveDamage);
 
                     PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
                     MonGainEVs(&gPlayerParty[gBattleStruct->expGetterMonId], gBattleMons[gBattlerFainted].species);
