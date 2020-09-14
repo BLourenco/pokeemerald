@@ -76,7 +76,7 @@ static void (*const sDebugMenuActions[])(u8) =
     [DEBUG_MENU_ITEM_GIVE_MONEY] = DebugAction_GiveMoney,
     [DEBUG_MENU_ITEM_GIVE_BADGE] = DebugAction_GiveBadge,
     [DEBUG_MENU_ITEM_TOGGLE_TRAINER_SIGHT] = DebugAction_ToggleTrainerSight,
-    [DEBUG_MENU_ITEM_TOGGLE_COLLISION] = NULL,
+    [DEBUG_MENU_ITEM_TOGGLE_COLLISION] = DebugAction_ToggleCollision,
     [DEBUG_MENU_ITEM_WARP] = NULL,
     [DEBUG_MENU_ITEM_CANCEL] = DebugAction_Cancel
 };
@@ -175,6 +175,7 @@ static void DebugAction_GivePokemon(u8 taskId)
 static void DebugAction_GiveItem(u8 taskId)
 {
     AddBagItem(ITEM_RARE_CANDY,99);
+    AddBagItem(ITEM_MASTER_BALL,99);
     Debug_DestroyMainMenu(taskId);
 }
 
@@ -203,6 +204,16 @@ static void DebugAction_ToggleTrainerSight(u8 taskId)
         FlagClear(FLAG_SYS_TOGGLE_TRAINER_SIGHT);
     else
         FlagSet(FLAG_SYS_TOGGLE_TRAINER_SIGHT);
+
+    Debug_DestroyMainMenu(taskId);
+}
+
+static void DebugAction_ToggleCollision(u8 taskId)
+{
+    if (FlagGet(FLAG_SYS_TOGGLE_COLLISION))
+        FlagClear(FLAG_SYS_TOGGLE_COLLISION);
+    else
+        FlagSet(FLAG_SYS_TOGGLE_COLLISION);
 
     Debug_DestroyMainMenu(taskId);
 }

@@ -614,7 +614,7 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
 {
     u8 collision = CheckForPlayerAvatarCollision(direction);
 
-    if (collision)
+    if (collision && !FlagGet(FLAG_SYS_TOGGLE_COLLISION))
     {
         if (collision == COLLISION_LEDGE_JUMP)
         {
@@ -637,7 +637,7 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
 
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
     {
-    // speed 2 is fast, same speed as running
+        // speed 2 is fast, same speed as running
         PlayerGoSpeed2(direction);
         return;
     }
