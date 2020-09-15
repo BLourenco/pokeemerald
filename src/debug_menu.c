@@ -174,8 +174,9 @@ static void DebugAction_GivePokemon(u8 taskId)
 
 static void DebugAction_GiveItem(u8 taskId)
 {
-    AddBagItem(ITEM_RARE_CANDY,99);
-    AddBagItem(ITEM_MASTER_BALL,99);
+    u16 i;
+    for (i = 1; i < ITEMS_COUNT; i++)
+        AddBagItem(i,99);
     Debug_DestroyMainMenu(taskId);
 }
 
