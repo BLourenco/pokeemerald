@@ -1,9 +1,25 @@
-# dunsparce9's Faster Berry Interactions
+# About this branch
+This branch adds 3 new pockets to the bag based on changes to it from later generations:
+* Medicine (HP, PP and status recovery items)
+* Power-Up (Vitamins and evolution items)
+* Battle Items (X items, Pokédoll/FluffyTail and hold items with battle effects)
 
-Commit: https://github.com/dunsparce9/pokeemerald-tweaks/commit/40685e
+The new order for the pockets is the following:
+* Items
+* Medicine
+* Poké Balls
+* Battle Items
+* Berries
+* Power-Up
+* TMs & HMs
+* Key Items
 
-PokeCommunity Thread: https://www.pokecommunity.com/showpost.php?p=10164065&postcount=82
+However, it reuses the original pocket sprites until I'm able to get new ones for the new pockets.
 
-Demonstration Video: https://streamable.com/fsn46f
+To-Do:
+* New bag sprites.
 
-Removes a lot of the messages and Yes/No prompts when trying to plant/water/harvest berries.
+## My Edits
+* Renamed the **Battle Items** pocket to **Competitive**
+* Renamed the **Power-Up** pocket to **Training**
+* Reorganized some items into different pockets

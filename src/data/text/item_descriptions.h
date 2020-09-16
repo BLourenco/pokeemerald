@@ -2129,6 +2129,11 @@ static const u8 sGracideaDesc[] = _(
     "it are offered as a\n"
     "token of gratitude.");
 
+static const u8 sOddKeystoneDesc[] = _(
+    "A strange stone.\n"
+    "Voices can be heard\n"
+    "from it on occasion.");
+
 static const u8 sBugMemoryDesc[] = _(
     "A disc with Bug\n"
     "type data. It swaps\n"
