@@ -2382,20 +2382,6 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_MICLE_BERRY] =
-    {
-        .name = _("Micle Berry"),
-        .itemId = ITEM_MICLE_BERRY,
-        .price = 20,
-        .holdEffect = HOLD_EFFECT_NONE, // Placeholder
-        .holdEffectParam = 4,
-        .description = sMicleBerryDesc,
-        .pocket = POCKET_BERRIES,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .secondaryId = 0,
-    },
-
     [ITEM_ENIGMA_BERRY] =
     {
         .name = _("Enigma Berry"),
@@ -2647,6 +2633,20 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .secondaryId = 0,
     },
+
+    // [ITEM_MICLE_BERRY] =
+    // {
+    //     .name = _("Micle Berry"),
+    //     .itemId = ITEM_MICLE_BERRY,
+    //     .price = 20,
+    //     .holdEffect = HOLD_EFFECT_NONE, // Placeholder
+    //     .holdEffectParam = 4,
+    //     .description = sMicleBerryDesc,
+    //     .pocket = POCKET_BERRIES,
+    //     .type = 4,
+    //     .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    //     .secondaryId = 0,
+    // },
 
     [ITEM_ROSELI_BERRY] =
     {
