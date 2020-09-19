@@ -2557,9 +2557,23 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         SetBoxMonData(boxMon, MON_DATA_SPDEF_IV, &iv);
     }
 
-    if (gBaseStats[species].abilities[1])
+    if (gBaseStats[species].abilities[1] || gBaseStats[species].abilityHidden) // Has more than 1 ability
     {
-        value = personality & 1;
+        if (gBaseStats[species].abilities[1] && gBaseStats[species].abilityHidden) // Has all 3 abilities
+        {
+            value = (personality & 0x111) % 3; // 3/8 for Ability 1, 3/8 for Ability 2, 2/8 for Hidden Ability
+        }
+        else if (!gBaseStats[species].abilityHidden) // Abilities 1 & 2, no hidden
+        {
+            value = personality & 1;
+        }
+        else if (!gBaseStats[species].abilities[1]) // Ability 1 & Hidden, no Ability 2
+        {
+            value = (personality & 0x111) % 3;
+            if (value == 1)
+                value = 0; // Force ability 2 to be ability 1
+        }
+
         SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
     }
 
