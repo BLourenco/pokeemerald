@@ -513,8 +513,8 @@ const struct Item gItems[] =
     {
         .name = _("Hyper Potion"),
         .itemId = ITEM_HYPER_POTION,
-        .price = 1200,
-        .holdEffectParam = 200,
+        .price = 1500,
+        .holdEffectParam = 120,
         .description = sHyperPotionDesc,
         .pocket = POCKET_MEDICINE,
         .type = 1,
