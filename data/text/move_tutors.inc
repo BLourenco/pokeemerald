@@ -38,10 +38,9 @@ MoveTutor_Text_EchoedVoiceReceived: @ 82C726E
 	.string "getting stronger and stronger!$"
 
 MoveTutor_NaturePowerGift: @ 82C72B6
-	.string "Ah, young one!\p"
 	.string "I see you've travelled very far, and\n"
 	.string "through many of the natural\l"
-	.string "environments the make up HOENN.\p"
+	.string "environments that make up HOENN.\p"
 	.string "Your POKéMON can harness the power\n"
 	.string "of nature in battle to perform attacks\l"
 	.string "of various types and power with this.$"

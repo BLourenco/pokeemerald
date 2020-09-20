@@ -18,12 +18,12 @@ SlateportCity_PokemonFanClub_EventScript_SwaggerReceived:: @ 82C7F74
 MauvilleCity_EventScript_SmackDownTM:: @ 82C7F7E
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM69, MoveTutor_EventScript_SmackDownReceived
+	goto_if_set FLAG_RECEIVED_TM63, MoveTutor_EventScript_SmackDownReceived
 	msgbox MoveTutor_Text_SmackDownGift, MSGBOX_DEFAULT
-	giveitem ITEM_TM69
+	giveitem ITEM_TM63
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM69
+	setflag FLAG_RECEIVED_TM63
 	release
 	end
 

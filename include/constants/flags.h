@@ -463,7 +463,7 @@
 #define FLAG_SHOWN_AURORA_TICKET             0x1AF
 #define FLAG_SHOWN_OLD_SEA_MAP               0x1B0
 #define FLAG_RECEIVED_TM87                   0x1B1
-#define FLAG_RECEIVED_TM69                   0x1B2
+#define FLAG_RECEIVED_TM63                   0x1B2
 #define FLAG_RECEIVED_TM100                  0x1B3
 #define FLAG_RECEIVED_TM96                   0x1B4
 #define FLAG_RECEIVED_TM67                   0x1B5
