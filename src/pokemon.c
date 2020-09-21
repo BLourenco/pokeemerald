@@ -772,7 +772,7 @@ const u16 gSpeciesToNationalPokedexNum[NUM_SPECIES] = // Assigns all species to 
 	SPECIES_TO_NATIONAL(BRONZOR),
 	SPECIES_TO_NATIONAL(BRONZONG),
 	SPECIES_TO_NATIONAL(BONSLY),
-	SPECIES_TO_NATIONAL(MIMEJR),
+	SPECIES_TO_NATIONAL(MIME_JR),
 	SPECIES_TO_NATIONAL(HAPPINY),
 	SPECIES_TO_NATIONAL(CHATOT),
 	SPECIES_TO_NATIONAL(SPIRITOMB),
@@ -1863,7 +1863,7 @@ static const u8 sMonFrontAnimIdsTable[NUM_SPECIES - 1] =
     [SPECIES_BRONZOR - 1] = 0x4E,
     [SPECIES_BRONZONG - 1] = 0x51,
     [SPECIES_BONSLY - 1] = 0x52,
-    [SPECIES_MIMEJR - 1] = 0x40,
+    [SPECIES_MIME_JR - 1] = 0x40,
     [SPECIES_HAPPINY - 1] = 0x45,
     [SPECIES_CHATOT - 1] = 0x19,
     [SPECIES_SPIRITOMB - 1] = 0x3A,
@@ -6228,20 +6228,7 @@ bool8 TryIncrementMonLevel(struct Pokemon *mon)
 u32 CanMonLearnTMHM(struct Pokemon *mon, u8 tm)
 {
     u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
-    if (species == SPECIES_EGG)
-    {
-        return 0;
-    }
-    else if (tm < 32)
-    {
-        u32 mask = 1 << tm;
-        return gTMHMLearnsets[species][0] & mask;
-    }
-    else
-    {
-        u32 mask = 1 << (tm - 32);
-        return gTMHMLearnsets[species][1] & mask;
-    }
+    return CanSpeciesLearnTMHM(species, tm);
 }
 
 u32 CanSpeciesLearnTMHM(u16 species, u8 tm)
@@ -6255,10 +6242,20 @@ u32 CanSpeciesLearnTMHM(u16 species, u8 tm)
         u32 mask = 1 << tm;
         return gTMHMLearnsets[species][0] & mask;
     }
-    else
+    else if (tm < 64)
     {
         u32 mask = 1 << (tm - 32);
         return gTMHMLearnsets[species][1] & mask;
+    }
+    else if (tm < 96)
+    {
+        u32 mask = 1 << (tm - 64);
+        return gTMHMLearnsets[species][2] & mask;
+    }
+    else
+    {
+        u32 mask = 1 << (tm - 96);
+        return gTMHMLearnsets[species][3] & mask;
     }
 }
 
