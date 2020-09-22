@@ -36,13 +36,18 @@
 #define SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR   6
 #define SCROLL_MULTI_BERRY_POWDER_VENDOR                   7
 #define SCROLL_MULTI_BF_RECEPTIONIST                       8
-#define SCROLL_MULTI_BF_MOVE_TUTOR_1                       9
-#define SCROLL_MULTI_BF_MOVE_TUTOR_2                      10
-#define SCROLL_MULTI_SS_TIDAL_DESTINATION                 11
-#define SCROLL_MULTI_BATTLE_TENT_RULES                    12
+#define SCROLL_MULTI_BF_MOVE_TUTOR_FREE                    9
+#define SCROLL_MULTI_BF_MOVE_TUTOR_SPECIAL                10
+#define SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_1              11
+#define SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_2              12
+#define SCROLL_MULTI_BF_MOVE_TUTOR_STATUS                 13
+#define SCROLL_MULTI_BF_MOVE_TUTOR_SUPPORT                14
+#define SCROLL_MULTI_BF_MOVE_TUTOR_SWSH_IOA               15
+#define SCROLL_MULTI_SS_TIDAL_DESTINATION                 16
+#define SCROLL_MULTI_BATTLE_TENT_RULES                    17
 
 #define MAX_SCROLL_MULTI_ON_SCREEN 6
-#define MAX_SCROLL_MULTI_LENGTH 16
+#define MAX_SCROLL_MULTI_LENGTH 20
 
 // Dept Store Floor Numbers
 #define DEPT_STORE_FLOORNUM_B4F       0

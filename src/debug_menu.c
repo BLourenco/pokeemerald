@@ -196,6 +196,7 @@ static void DebugAction_GiveBadge(u8 taskId)
     FlagSet(FLAG_BADGE06_GET);
     FlagSet(FLAG_BADGE07_GET);
     FlagSet(FLAG_BADGE08_GET);
+    FlagSet(FLAG_LANDMARK_BATTLE_FRONTIER);
     Debug_DestroyMainMenu(taskId);
 }
 

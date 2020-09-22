@@ -1992,10 +1992,30 @@ static u16 GetTutorMove(u8 tutor)
 
 static bool8 CanLearnTutorMove(u16 species, u8 tutor)
 {
-    if (sTutorLearnsets[species] & (1 << tutor))
-        return TRUE;
-    else
+    if (species == SPECIES_EGG)
+    {
         return FALSE;
+    }
+    else if (tutor < 32)
+    {
+        u32 mask = 1 << tutor;
+        return sTutorLearnsets[species][0] & mask;
+    }
+    else if (tutor < 64)
+    {
+        u32 mask = 1 << (tutor - 32);
+        return sTutorLearnsets[species][1] & mask;
+    }
+    else if (tutor < 96)
+    {
+        u32 mask = 1 << (tutor - 64);
+        return sTutorLearnsets[species][2] & mask;
+    }
+    else
+    {
+        u32 mask = 1 << (tutor - 96);
+        return sTutorLearnsets[species][3] & mask;
+    }
 }
 
 static void InitPartyMenuWindows(u8 layout)
