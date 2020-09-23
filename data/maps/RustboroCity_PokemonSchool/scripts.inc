@@ -188,7 +188,7 @@ RustboroCity_PokemonSchool_EventScript_ScottGreetHasBadge:: @ 8214082
 
 RustboroCity_PokemonSchool_EventScript_ScottNoticeBadge:: @ 8214090
 	msgbox RustboroCity_PokemonSchool_Text_ScottStoneBadge, MSGBOX_DEFAULT
-	goto RustboroCity_PokemonSchool_EventScript_MetScottAfterBadge
+	release
 	end
 
 RustboroCity_PokemonSchool_EventScript_MetScottAfterBadge:: @ 821409E
