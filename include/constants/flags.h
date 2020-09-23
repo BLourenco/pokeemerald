@@ -370,8 +370,8 @@
 #define FLAG_MET_BATTLE_FRONTIER_GAMBLER     0x157
 #define FLAG_ENABLE_MR_STONE_POKENAV         0x158
 #define FLAG_NURSE_MENTIONS_GOLD_CARD        0x159
-#define FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR  0x15A
-#define FLAG_MET_FRONTIER_SWIMMER_MOVE_TUTOR 0x15B
+#define FLAG_MET_FRONTIER_MOVE_TUTOR_FREE    0x15A
+#define FLAG_MET_FRONTIER_MOVE_TUTOR_SPECIAL 0x15B
 
 // Trainer Rematch Flags
 #define FLAG_MATCH_CALL_REGISTERED           0x15C
@@ -510,12 +510,12 @@
 #define FLAG_DEFEATED_HO_OH                  0x1DC
 #define FLAG_DEFEATED_LUGIA                  0x1DD
 
-#define FLAG_UNUSED_0x1DE                    0x1DE // Unused Flag
-#define FLAG_UNUSED_0x1DF                    0x1DF // Unused Flag
-#define FLAG_UNUSED_0x1E0                    0x1E0 // Unused Flag
-#define FLAG_UNUSED_0x1E1                    0x1E1 // Unused Flag
-#define FLAG_UNUSED_0x1E2                    0x1E2 // Unused Flag
-#define FLAG_UNUSED_0x1E3                    0x1E3 // Unused Flag
+#define FLAG_MET_FRONTIER_MOVE_TUTOR_OFFENSE_1 0x1DE
+#define FLAG_MET_FRONTIER_MOVE_TUTOR_OFFENSE_2 0x1DF
+#define FLAG_MET_FRONTIER_MOVE_TUTOR_STATUS    0x1E0
+#define FLAG_MET_FRONTIER_MOVE_TUTOR_SUPPORT   0x1E1
+#define FLAG_MET_FRONTIER_MOVE_TUTOR_SWSH_IOA  0x1E2
+#define FLAG_UNUSED_0x1E3                      0x1E3 // Unused Flag
 
 // Mystery Gift Flags (Unknown)
 #define FLAG_MYSTERY_EVENT_DONE              0x1E4

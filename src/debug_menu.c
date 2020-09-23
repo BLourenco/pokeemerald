@@ -182,7 +182,8 @@ static void DebugAction_GiveItem(u8 taskId)
 
 static void DebugAction_GiveMoney(u8 taskId)
 {
-    AddMoney(&gSaveBlock1Ptr->money,999999);
+    AddMoney(&gSaveBlock1Ptr->money, 999999);
+    gSaveBlock2Ptr->frontier.battlePoints = 9999;
     Debug_DestroyMainMenu(taskId);
 }
 
@@ -196,6 +197,7 @@ static void DebugAction_GiveBadge(u8 taskId)
     FlagSet(FLAG_BADGE06_GET);
     FlagSet(FLAG_BADGE07_GET);
     FlagSet(FLAG_BADGE08_GET);
+    FlagSet(FLAG_LANDMARK_BATTLE_FRONTIER);
     Debug_DestroyMainMenu(taskId);
 }
 

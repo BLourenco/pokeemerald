@@ -10,37 +10,148 @@
 #define AILMENT_PKRS  6
 #define AILMENT_FNT   7
 
-#define TUTOR_MOVE_MEGA_PUNCH      0
-#define TUTOR_MOVE_SWORDS_DANCE    1    // Swords Dance now a TM
-#define TUTOR_MOVE_MEGA_KICK       2
-#define TUTOR_MOVE_BODY_SLAM       3
-#define TUTOR_MOVE_DOUBLE_EDGE     4    // Now a Frontier Tutor
-#define TUTOR_MOVE_COUNTER         5
-#define TUTOR_MOVE_SEISMIC_TOSS    6
-#define TUTOR_MOVE_MIMIC           7    // Now a Frontier Tutor
-#define TUTOR_MOVE_METRONOME       8    // Now a Frontier Tutor
-#define TUTOR_MOVE_SOFT_BOILED     9
-#define TUTOR_MOVE_DREAM_EATER     10   // Dream Eater now a TM
-#define TUTOR_MOVE_THUNDER_WAVE    11   // Thunder Wave now a TM
-#define TUTOR_MOVE_EXPLOSION       12   // Explosion now a TM
-#define TUTOR_MOVE_ROCK_SLIDE      13   // Rock Slide now a TM
-#define TUTOR_MOVE_SUBSTITUTE      14   // Substitute now a TM
-#define TUTOR_MOVE_DYNAMIC_PUNCH   15   // Now a Frontier Tutor
-#define TUTOR_MOVE_ROLLOUT         16   // Now a Frontier Tutor
-#define TUTOR_MOVE_PSYCH_UP        17
-#define TUTOR_MOVE_SNORE           18
-#define TUTOR_MOVE_ICY_WIND        19
-#define TUTOR_MOVE_ENDURE          20
-#define TUTOR_MOVE_MUD_SLAP        21
-#define TUTOR_MOVE_ICE_PUNCH       22
-#define TUTOR_MOVE_SWAGGER         23   // Swagger now a TM
-#define TUTOR_MOVE_SLEEP_TALK      24   // Sleep Talk now a TM
-#define TUTOR_MOVE_SWIFT           25
-#define TUTOR_MOVE_DEFENSE_CURL    26
-#define TUTOR_MOVE_THUNDER_PUNCH   27
-#define TUTOR_MOVE_FIRE_PUNCH      28
-#define TUTOR_MOVE_FURY_CUTTER     29   // Now a Frontier Tutor
-#define TUTOR_MOVE_COUNT           30
+//
+// TUTOR MOVES
+//
+
+#define MOVE_TUTOR_FREE         0   // Man NPC
+#define MOVE_TUTOR_SPECIAL      1   // Female Elder NPC
+#define MOVE_TUTOR_OFFENSE_1    2   // Black Belt NPC
+#define MOVE_TUTOR_OFFENSE_2    3   // Black Belt NPC
+#define MOVE_TUTOR_STATUS       4   // Maniac NPC
+#define MOVE_TUTOR_SUPPORT      5   // Woman NPC
+#define MOVE_TUTOR_SWSH_IOA     6   // ???
+
+#define MOVE_TUTOR_COUNT        7
+
+// Emerald Frontier Tutor Moves (that haven't become TMs in Gen. 7)
+#define TUTOR_MOVE_DEFENSE_CURL	    0
+#define TUTOR_MOVE_SOFT_BOILED	    1
+#define TUTOR_MOVE_MUD_SLAP	        2
+#define TUTOR_MOVE_SWIFT	        3
+#define TUTOR_MOVE_SEISMIC_TOSS	    4
+#define TUTOR_MOVE_MEGA_PUNCH	    5
+#define TUTOR_MOVE_MEGA_KICK	    6
+#define TUTOR_MOVE_ENDURE	        7
+#define TUTOR_MOVE_PSYCH_UP	        8
+#define TUTOR_MOVE_BODY_SLAM	    9
+#define TUTOR_MOVE_COUNTER	        10
+#define TUTOR_MOVE_DYNAMIC_PUNCH	11
+#define TUTOR_MOVE_DOUBLE_EDGE	    12
+#define TUTOR_MOVE_ROLLOUT	        13
+#define TUTOR_MOVE_FURY_CUTTER	    14
+#define TUTOR_MOVE_METRONOME	    15
+#define TUTOR_MOVE_MIMIC	        16
+
+// Special Tutor Moves
+#define TUTOR_MOVE_GRASS_PLEDGE	    17
+#define TUTOR_MOVE_FIRE_PLEDGE	    18
+#define TUTOR_MOVE_WATER_PLEDGE	    19
+#define TUTOR_MOVE_FRENZY_PLANT	    20
+#define TUTOR_MOVE_BLAST_BURN	    21
+#define TUTOR_MOVE_HYDRO_CANNON	    22
+#define TUTOR_MOVE_DRACO_METEOR	    23
+#define TUTOR_MOVE_RELIC_SONG	    24
+#define TUTOR_MOVE_SECRET_SWORD	    25
+#define TUTOR_MOVE_DRAGON_ASCENT	26
+
+// Offensive 1/2 Tutor Moves
+#define TUTOR_MOVE_UPROAR	        27
+#define TUTOR_MOVE_SNORE	        28
+#define TUTOR_MOVE_BOUNCE	        29
+#define TUTOR_MOVE_LOW_KICK	        30
+#define TUTOR_MOVE_THUNDER_PUNCH	31
+#define TUTOR_MOVE_FIRE_PUNCH	    32
+#define TUTOR_MOVE_ICE_PUNCH	    33
+#define TUTOR_MOVE_DRAIN_PUNCH	    34
+#define TUTOR_MOVE_HEAT_WAVE	    35
+#define TUTOR_MOVE_EARTH_POWER	    36
+#define TUTOR_MOVE_KNOCK_OFF	    37
+#define TUTOR_MOVE_SUPER_FANG	    38
+#define TUTOR_MOVE_DUAL_CHOP	    39
+#define TUTOR_MOVE_THROAT_CHOP	    40
+#define TUTOR_MOVE_SKY_DROP	        41
+#define TUTOR_MOVE_ENDEAVOR	        42
+#define TUTOR_MOVE_LIQUIDATION	    43
+#define TUTOR_MOVE_SLUDGE_WAVE	    44
+
+// Offensive 2/2 Tutor Moves
+#define TUTOR_MOVE_BUG_BITE	        45
+#define TUTOR_MOVE_FLING	        46
+#define TUTOR_MOVE_DRILL_RUN	    47
+#define TUTOR_MOVE_IRON_HEAD	    48
+#define TUTOR_MOVE_ZEN_HEADBUTT	    49
+#define TUTOR_MOVE_SIGNAL_BEAM	    50
+#define TUTOR_MOVE_BRUTAL_SWING	    51
+#define TUTOR_MOVE_HYPER_VOICE	    52
+#define TUTOR_MOVE_AQUA_TAIL	    53
+#define TUTOR_MOVE_DRAGON_PULSE	    54
+#define TUTOR_MOVE_SEED_BOMB	    55
+#define TUTOR_MOVE_LAST_RESORT	    56
+#define TUTOR_MOVE_FOUL_PLAY	    57
+#define TUTOR_MOVE_STOMPING_TANTRUM	58
+#define TUTOR_MOVE_OUTRAGE	        59
+#define TUTOR_MOVE_SUPERPOWER	    60
+#define TUTOR_MOVE_GUNK_SHOT	    61
+#define TUTOR_MOVE_SKY_ATTACK	    62
+
+// Status Tutor Moves
+#define TUTOR_MOVE_BIND	            63
+#define TUTOR_MOVE_INFESTATION	    64
+#define TUTOR_MOVE_COVET	        65
+#define TUTOR_MOVE_BLOCK	        66
+#define TUTOR_MOVE_QUASH	        67
+#define TUTOR_MOVE_ROLE_PLAY	    68
+#define TUTOR_MOVE_PAIN_SPLIT	    69
+#define TUTOR_MOVE_GASTRO_ACID	    70
+#define TUTOR_MOVE_WORRY_SEED	    71
+#define TUTOR_MOVE_SPITE	        72
+#define TUTOR_MOVE_TRICK	        73
+#define TUTOR_MOVE_EMBARGO	        74
+#define TUTOR_MOVE_MAGIC_COAT	    75
+#define TUTOR_MOVE_TELEKINESIS	    76
+#define TUTOR_MOVE_ELECTROWEB	    77
+#define TUTOR_MOVE_ICY_WIND	        78
+
+// Support Tutor Moves
+#define TUTOR_MOVE_HONE_CLAWS	    79
+#define TUTOR_MOVE_IRON_DEFENSE	    80
+#define TUTOR_MOVE_LASER_FOCUS	    81
+#define TUTOR_MOVE_HEAL_BELL	    82
+#define TUTOR_MOVE_MAGIC_ROOM	    83
+#define TUTOR_MOVE_WONDER_ROOM	    84
+#define TUTOR_MOVE_GRAVITY	        85
+#define TUTOR_MOVE_MAGNET_RISE	    86
+#define TUTOR_MOVE_RECYCLE	        87
+#define TUTOR_MOVE_AFTER_YOU	    88
+#define TUTOR_MOVE_HELPING_HAND	    89
+#define TUTOR_MOVE_SYNTHESIS	    90
+#define TUTOR_MOVE_DEFOG	        91
+#define TUTOR_MOVE_ALLY_SWITCH	    92
+#define TUTOR_MOVE_TAILWIND	        93
+#define TUTOR_MOVE_STEALTH_ROCK	    94
+
+// Isle of Armor Moves
+// #define TUTOR_MOVE_TERRAIN_PULSE	95
+// #define TUTOR_MOVE_BURNING_JEALOUSY	96
+// #define TUTOR_MOVE_FLIP_TURN	    97
+// #define TUTOR_MOVE_GRASSY_GLIDE	    98
+// #define TUTOR_MOVE_RISING_VOLTAGE	99
+// #define TUTOR_MOVE_COACHING	        100
+// #define TUTOR_MOVE_SCORCHING_SANDS	101
+// #define TUTOR_MOVE_DUAL_WINGBEAT	102
+// #define TUTOR_MOVE_METEOR_BEAM	    103
+// #define TUTOR_MOVE_SKITTER_SMACK	104
+// #define TUTOR_MOVE_TRIPLE_AXEL	    105
+// #define TUTOR_MOVE_CORROSIVE_GAS	106
+// #define TUTOR_MOVE_EXPANDING_FORCE	107
+// #define TUTOR_MOVE_POLTERGEIST	    108
+// #define TUTOR_MOVE_SCALE_SHOT	    109
+// #define TUTOR_MOVE_LASH_OUT	        110
+// #define TUTOR_MOVE_STEEL_ROLLER	    111
+// #define TUTOR_MOVE_MISTY_EXPLOSION	112
+
+#define TUTOR_MOVE_COUNT            95
 
 #define PARTY_LAYOUT_SINGLE          0
 #define PARTY_LAYOUT_DOUBLE          1

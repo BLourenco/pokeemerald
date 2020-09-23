@@ -2397,10 +2397,59 @@ void ShowScrollableMultichoice(void)
             task->tKeepOpenAfterSelect = FALSE;
             task->tTaskId = taskId;
             break;
-        case SCROLL_MULTI_BF_MOVE_TUTOR_1:
-        case SCROLL_MULTI_BF_MOVE_TUTOR_2:
+        case SCROLL_MULTI_BF_MOVE_TUTOR_FREE:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 18;
+            task->tLeft = 15;
+            task->tTop = 1;
+            task->tWidth = 14;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tTaskId = taskId;
+            break;
+        case SCROLL_MULTI_BF_MOVE_TUTOR_SPECIAL:
             task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
             task->tNumItems = 11;
+            task->tLeft = 15;
+            task->tTop = 1;
+            task->tWidth = 14;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tTaskId = taskId;
+            break;
+        case SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_1:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 19;
+            task->tLeft = 15;
+            task->tTop = 1;
+            task->tWidth = 14;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tTaskId = taskId;
+            break;
+        case SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_2:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 19;
+            task->tLeft = 15;
+            task->tTop = 1;
+            task->tWidth = 14;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tTaskId = taskId;
+            break;
+        case SCROLL_MULTI_BF_MOVE_TUTOR_STATUS:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 17;
+            task->tLeft = 15;
+            task->tTop = 1;
+            task->tWidth = 14;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tTaskId = taskId;
+            break;
+        case SCROLL_MULTI_BF_MOVE_TUTOR_SUPPORT:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 17;
             task->tLeft = 15;
             task->tTop = 1;
             task->tWidth = 14;
@@ -2541,32 +2590,123 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_ExchangeService,
         gText_Exit
     },
-    [SCROLL_MULTI_BF_MOVE_TUTOR_1] = 
+    [SCROLL_MULTI_BF_MOVE_TUTOR_FREE] = 
     {
-        gText_Softboiled16BP,
-        gText_SeismicToss24BP,
-        gText_DreamEater24BP,
-        gText_MegaPunch24BP,
-        gText_MegaKick48BP,
-        gText_BodySlam48BP,
-        gText_RockSlide48BP,
-        gText_Counter48BP,
-        gText_ThunderWave48BP,
-        gText_SwordsDance48BP,
+        gText_DefenseCurlFree,
+        gText_SoftboiledFree,
+        gText_MudSlapFree,
+        gText_SwiftFree,
+        gText_SeismicTossFree,
+        gText_MegaPunchFree,
+        gText_MegaKickFree,
+        gText_EndureFree,
+        gText_PsychUpFree,
+        gText_BodySlamFree,
+        gText_CounterFree,
+        gText_DynamicPunchFree,
+        gText_DoubleEdgeFree,
+        gText_RolloutFree,
+        gText_FuryCutterFree,
+        gText_MetronomeFree,
+        gText_MimicFree,
         gText_Exit
     },
-    [SCROLL_MULTI_BF_MOVE_TUTOR_2] = 
+    [SCROLL_MULTI_BF_MOVE_TUTOR_SPECIAL] = 
     {
-        gText_DefenseCurl16BP,
-        gText_Snore24BP,
-        gText_MudSlap24BP,
-        gText_Swift24BP,
-        gText_IcyWind24BP,
-        gText_Endure48BP,
-        gText_PsychUp48BP,
-        gText_IcePunch48BP,
-        gText_ThunderPunch48BP,
-        gText_FirePunch48BP,
+        gText_GrassPledge4BP,
+        gText_FirePledge4BP,
+        gText_WaterPledge4BP,
+        gText_FrenzyPlant8BP,
+        gText_BlastBurn8BP,
+        gText_HydroCannon8BP,
+        gText_DracoMeteor12BP,
+        gText_RelicSong16BP,
+        gText_SecretSword16BP,
+        gText_DragonAscent16BP,
+        gText_Exit
+    },
+    [SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_1] =
+    {
+        gText_Uproar4BP,
+        gText_Snore4BP,
+        gText_Bounce8BP,
+        gText_LowKick8BP,
+        gText_ThunderPunch8BP,
+        gText_FirePunch8BP,
+        gText_IcePunch8BP,
+        gText_DrainPunch8BP,
+        gText_HeatWave12BP,
+        gText_EarthPower12BP,
+        gText_KnockOff12BP,
+        gText_SuperFang12BP,
+        gText_DualChop12BP,
+        gText_ThroatChop12BP,
+        gText_SkyDrop16BP,
+        gText_Endeavor16BP,
+        gText_Liquidation16BP,
+        gText_SludgeWave16BP,
+        gText_Exit
+    },
+    [SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_2] =
+    {
+        gText_BugBite4BP,
+        gText_Fling4BP,
+        gText_DrillRun8BP,
+        gText_IronHead8BP,
+        gText_ZenHeadbutt8BP,
+        gText_SignalBeam8BP,
+        gText_BrutalSwing8BP,
+        gText_HyperVoice8BP,
+        gText_AquaTail12BP,
+        gText_DragonPulse12BP,
+        gText_SeedBomb12BP,
+        gText_LastResort12BP,
+        gText_FoulPlay12BP,
+        gText_StompingTantrum12BP,
+        gText_Outrage16BP,
+        gText_Superpower16BP,
+        gText_GunkShot16BP,
+        gText_SkyAttack16BP,
+        gText_Exit
+    },
+    [SCROLL_MULTI_BF_MOVE_TUTOR_STATUS] =
+    {
+        gText_Bind4BP,
+        gText_Infestation4BP,
+        gText_Covet4BP,
+        gText_Block8BP,
+        gText_Quash8BP,
+        gText_RolePlay8BP,
+        gText_PainSplit8BP,
+        gText_GastroAcid8BP,
+        gText_WorrySeed8BP,
+        gText_Spite8BP,
+        gText_Trick8BP,
+        gText_Embargo8BP,
+        gText_MagicCoat8BP,
+        gText_Telekinesis8BP,
+        gText_Electroweb12BP,
+        gText_IcyWind12BP,
+        gText_Exit
+    },
+    [SCROLL_MULTI_BF_MOVE_TUTOR_SUPPORT] =
+    {
+        gText_HoneClaws4BP,
+        gText_IronDefense4BP,
+        gText_LaserFocus4BP,
+        gText_HealBell8BP,
+        gText_MagicRoom8BP,
+        gText_WonderRoom8BP,
+        gText_Gravity8BP,
+        gText_MagnetRise8BP,
+        gText_Recycle8BP,
+        gText_AfterYou8BP,
+        gText_HelpingHand8BP,
+        gText_Synthesis8BP,
+        gText_Defog8BP,
+        gText_AllySwitch8BP,
+        gText_Tailwind12BP,
+        gText_StealthRock12BP,
         gText_Exit
     },
     [SCROLL_MULTI_SS_TIDAL_DESTINATION] =
@@ -3145,43 +3285,172 @@ static void HideFrontierExchangeCornerItemIcon(u16 menu, u16 unused)
     }
 }
 
-static const u16 sBattleFrontier_TutorMoves1[] =
+static const u16 sBattleFrontier_TutorMoves_Free[] =
 { 
-    MOVE_SOFT_BOILED, 
-    MOVE_SEISMIC_TOSS, 
-    MOVE_DREAM_EATER, 
-    MOVE_MEGA_PUNCH, 
-    MOVE_MEGA_KICK, 
-    MOVE_BODY_SLAM, 
-    MOVE_ROCK_SLIDE, 
-    MOVE_COUNTER, 
-    MOVE_THUNDER_WAVE, 
-    MOVE_SWORDS_DANCE 
+    MOVE_DEFENSE_CURL,
+    MOVE_SOFT_BOILED,
+    MOVE_MUD_SLAP,
+    MOVE_SWIFT,
+    MOVE_SEISMIC_TOSS,
+    MOVE_MEGA_PUNCH,
+    MOVE_MEGA_KICK,
+    MOVE_ENDURE,
+    MOVE_PSYCH_UP,
+    MOVE_BODY_SLAM,
+    MOVE_COUNTER,
+    MOVE_DYNAMIC_PUNCH,
+    MOVE_DOUBLE_EDGE,
+    MOVE_ROLLOUT,
+    MOVE_FURY_CUTTER,
+    MOVE_METRONOME,
+    MOVE_MIMIC 
 };
 
-static const u16 sBattleFrontier_TutorMoves2[] =
+static const u16 sBattleFrontier_TutorMoves_Special[] =
 { 
-    MOVE_DEFENSE_CURL, 
-    MOVE_SNORE, 
-    MOVE_MUD_SLAP, 
-    MOVE_SWIFT, 
-    MOVE_ICY_WIND, 
-    MOVE_ENDURE, 
-    MOVE_PSYCH_UP, 
-    MOVE_ICE_PUNCH, 
-    MOVE_THUNDER_PUNCH, 
-    MOVE_FIRE_PUNCH 
+    MOVE_GRASS_PLEDGE,
+    MOVE_FIRE_PLEDGE,
+    MOVE_WATER_PLEDGE,
+    MOVE_FRENZY_PLANT,
+    MOVE_BLAST_BURN,
+    MOVE_HYDRO_CANNON,
+    MOVE_RELIC_SONG,
+    MOVE_SECRET_SWORD,
+    MOVE_DRACO_METEOR,
+    MOVE_DRAGON_ASCENT
 };
+
+static const u16 sBattleFrontier_TutorMoves_Offense1[] =
+{
+    MOVE_UPROAR,
+    MOVE_SNORE,
+    MOVE_BOUNCE,
+    MOVE_LOW_KICK,
+    MOVE_THUNDER_PUNCH,
+    MOVE_FIRE_PUNCH,
+    MOVE_ICE_PUNCH,
+    MOVE_DRAIN_PUNCH,
+    MOVE_HEAT_WAVE,
+    MOVE_EARTH_POWER,
+    MOVE_KNOCK_OFF,
+    MOVE_SUPER_FANG,
+    MOVE_DUAL_CHOP,
+    MOVE_THROAT_CHOP,
+    MOVE_SKY_DROP,
+    MOVE_ENDEAVOR,
+    MOVE_LIQUIDATION,
+    MOVE_SLUDGE_WAVE,
+};
+
+static const u16 sBattleFrontier_TutorMoves_Offense2[] =
+{
+    MOVE_BUG_BITE,
+    MOVE_FLING,
+    MOVE_DRILL_RUN,
+    MOVE_IRON_HEAD,
+    MOVE_ZEN_HEADBUTT,
+    MOVE_SIGNAL_BEAM,
+    MOVE_BRUTAL_SWING,
+    MOVE_HYPER_VOICE,
+    MOVE_AQUA_TAIL,
+    MOVE_DRAGON_PULSE,
+    MOVE_SEED_BOMB,
+    MOVE_LAST_RESORT,
+    MOVE_FOUL_PLAY,
+    MOVE_STOMPING_TANTRUM,
+    MOVE_OUTRAGE,
+    MOVE_SUPERPOWER,
+    MOVE_GUNK_SHOT,
+    MOVE_SKY_ATTACK,
+};
+
+static const u16 sBattleFrontier_TutorMoves_Status[] =
+{
+    MOVE_BIND,
+    MOVE_INFESTATION,
+    MOVE_COVET,
+    MOVE_BLOCK,
+    MOVE_QUASH,
+    MOVE_ROLE_PLAY,
+    MOVE_PAIN_SPLIT,
+    MOVE_GASTRO_ACID,
+    MOVE_WORRY_SEED,
+    MOVE_SPITE,
+    MOVE_TRICK,
+    MOVE_EMBARGO,
+    MOVE_MAGIC_COAT,
+    MOVE_TELEKINESIS,
+    MOVE_ELECTROWEB,
+    MOVE_ICY_WIND,
+};
+
+static const u16 sBattleFrontier_TutorMoves_Support[] =
+{
+    MOVE_HONE_CLAWS,
+    MOVE_IRON_DEFENSE,
+    MOVE_LASER_FOCUS,
+    MOVE_HEAL_BELL,
+    MOVE_MAGIC_ROOM,
+    MOVE_WONDER_ROOM,
+    MOVE_GRAVITY,
+    MOVE_MAGNET_RISE,
+    MOVE_RECYCLE,
+    MOVE_AFTER_YOU,
+    MOVE_HELPING_HAND,
+    MOVE_SYNTHESIS,
+    MOVE_DEFOG,
+    MOVE_ALLY_SWITCH,
+    MOVE_TAILWIND,
+    MOVE_STEALTH_ROCK,
+};
+
+// static const u16 sBattleFrontier_TutorMoves_SwSh_IoA[] =
+// {
+//     MOVE_TERRAIN_PULSE,
+//     MOVE_BURNING_JEALOUSY,
+//     MOVE_FLIP_TURN,
+//     MOVE_GRASSY_GLIDE,
+//     MOVE_RISING_VOLTAGE,
+//     MOVE_COACHING,
+//     MOVE_SCORCHING_SANDS,
+//     MOVE_DUAL_WINGBEAT,
+//     MOVE_METEOR_BEAM,
+//     MOVE_SKITTER_SMACK,
+//     MOVE_TRIPLE_AXEL,
+//     MOVE_CORROSIVE_GAS,
+//     MOVE_EXPANDING_FORCE,
+//     MOVE_POLTERGEIST,
+//     MOVE_SCALE_SHOT,
+//     MOVE_LASH_OUT,
+//     MOVE_STEEL_ROLLER,
+//     MOVE_MISTY_EXPLOSION
+// };
 
 void BufferBattleFrontierTutorMoveName(void)
 {
-    if (gSpecialVar_0x8005 != 0)
+    switch (gSpecialVar_0x8005)
     {
-        StringCopy(gStringVar1, gMoveNames[sBattleFrontier_TutorMoves2[gSpecialVar_0x8004]]);
-    }
-    else
-    {
-        StringCopy(gStringVar1, gMoveNames[sBattleFrontier_TutorMoves1[gSpecialVar_0x8004]]);
+        case MOVE_TUTOR_FREE:
+            StringCopy(gStringVar1, gMoveNames[sBattleFrontier_TutorMoves_Free[gSpecialVar_0x8004]]);
+            break;
+        case MOVE_TUTOR_SPECIAL:
+            StringCopy(gStringVar1, gMoveNames[sBattleFrontier_TutorMoves_Special[gSpecialVar_0x8004]]);
+            break;
+        case MOVE_TUTOR_OFFENSE_1:
+            StringCopy(gStringVar1, gMoveNames[sBattleFrontier_TutorMoves_Offense1[gSpecialVar_0x8004]]);
+            break;
+        case MOVE_TUTOR_OFFENSE_2:
+            StringCopy(gStringVar1, gMoveNames[sBattleFrontier_TutorMoves_Offense2[gSpecialVar_0x8004]]);
+            break;
+        case MOVE_TUTOR_STATUS:
+            StringCopy(gStringVar1, gMoveNames[sBattleFrontier_TutorMoves_Status[gSpecialVar_0x8004]]);
+            break;
+        case MOVE_TUTOR_SUPPORT:
+            StringCopy(gStringVar1, gMoveNames[sBattleFrontier_TutorMoves_Support[gSpecialVar_0x8004]]);
+            break;
+        // case MOVE_TUTOR_SWSH_IOA:
+        //     StringCopy(gStringVar1, gMoveNames[sBattleFrontier_TutorMoves_Swsh_IoA[gSpecialVar_0x8004]]);
+        //     break;
     }
 }
 
@@ -3198,7 +3467,13 @@ static void ShowBattleFrontierTutorWindow(u8 menu, u16 selection)
         .baseBlock = 28,
     };
 
-    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1 || menu == SCROLL_MULTI_BF_MOVE_TUTOR_2)
+    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_FREE || 
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_SPECIAL ||
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_1 ||
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_2 ||
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_STATUS ||
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_SUPPORT ||
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_SWSH_IOA )
     {
         if (gSpecialVar_0x8006 == 0)
         {
@@ -3211,46 +3486,161 @@ static void ShowBattleFrontierTutorWindow(u8 menu, u16 selection)
 
 static void ShowBattleFrontierTutorMoveDescription(u8 menu, u16 selection)
 {
-    static const u8 *const sBattleFrontier_TutorMoveDescriptions1[] = 
-    {
-        BattleFrontier_Lounge7_Text_SoftboiledDesc,
-        BattleFrontier_Lounge7_Text_SeismicTossDesc,
-        BattleFrontier_Lounge7_Text_DreamEaterDesc,
-        BattleFrontier_Lounge7_Text_MegaPunchDesc,
-        BattleFrontier_Lounge7_Text_MegaKickDesc,
-        BattleFrontier_Lounge7_Text_BodySlamDesc,
-        BattleFrontier_Lounge7_Text_RockSlideDesc,
-        BattleFrontier_Lounge7_Text_CounterDesc,
-        BattleFrontier_Lounge7_Text_ThunderWaveDesc,
-        BattleFrontier_Lounge7_Text_SwordsDanceDesc,
-        gText_Exit,
-    };
-
-    static const u8 *const sBattleFrontier_TutorMoveDescriptions2[] = 
+    static const u8 *const sBattleFrontier_TutorMoveDescriptions_Free[] = 
     {
         BattleFrontier_Lounge7_Text_DefenseCurlDesc,
-        BattleFrontier_Lounge7_Text_SnoreDesc,
+        BattleFrontier_Lounge7_Text_SoftboiledDesc,
         BattleFrontier_Lounge7_Text_MudSlapDesc,
         BattleFrontier_Lounge7_Text_SwiftDesc,
-        BattleFrontier_Lounge7_Text_IcyWindDesc,
+        BattleFrontier_Lounge7_Text_SeismicTossDesc,
+        BattleFrontier_Lounge7_Text_MegaPunchDesc,
+        BattleFrontier_Lounge7_Text_MegaKickDesc,
         BattleFrontier_Lounge7_Text_EndureDesc,
         BattleFrontier_Lounge7_Text_PsychUpDesc,
-        BattleFrontier_Lounge7_Text_IcePunchDesc,
-        BattleFrontier_Lounge7_Text_ThunderPunchDesc,
-        BattleFrontier_Lounge7_Text_FirePunchDesc,
+        BattleFrontier_Lounge7_Text_BodySlamDesc,
+        BattleFrontier_Lounge7_Text_CounterDesc,
+        BattleFrontier_Lounge7_Text_DynamicPunchDesc,
+        BattleFrontier_Lounge7_Text_DoubleEdgeDesc,
+        BattleFrontier_Lounge7_Text_RolloutDesc,
+        BattleFrontier_Lounge7_Text_FuryCutterDesc,
+        BattleFrontier_Lounge7_Text_MetronomeDesc,
+        BattleFrontier_Lounge7_Text_MimicDesc,
         gText_Exit,
     };
 
-    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1 || menu == SCROLL_MULTI_BF_MOVE_TUTOR_2)
+    static const u8 *const sBattleFrontier_TutorMoveDescriptions_Special[] = 
+    {
+        BattleFrontier_Lounge7_Text_GrassPledgeDesc,
+        BattleFrontier_Lounge7_Text_FirePledgeDesc,
+        BattleFrontier_Lounge7_Text_WaterPledgeDesc,
+        BattleFrontier_Lounge7_Text_FrenzyPlantDesc,
+        BattleFrontier_Lounge7_Text_BlastBurnDesc,
+        BattleFrontier_Lounge7_Text_HydroCannonDesc,
+        BattleFrontier_Lounge7_Text_DracoMeteorDesc,
+        BattleFrontier_Lounge7_Text_RelicSongDesc,
+        BattleFrontier_Lounge7_Text_SecretSwordDesc,
+        BattleFrontier_Lounge7_Text_DragonAscentDesc,
+        gText_Exit,
+    };
+
+    static const u8 *const sBattleFrontier_TutorMoveDescriptions_Offense1[] = 
+    {
+        BattleFrontier_Lounge7_Text_UproarDesc,
+        BattleFrontier_Lounge7_Text_SnoreDesc,
+        BattleFrontier_Lounge7_Text_BounceDesc,
+        BattleFrontier_Lounge7_Text_LowKickDesc,
+        BattleFrontier_Lounge7_Text_ThunderPunchDesc,
+        BattleFrontier_Lounge7_Text_FirePunchDesc,
+        BattleFrontier_Lounge7_Text_IcePunchDesc,
+        BattleFrontier_Lounge7_Text_DrainPunchDesc,
+        BattleFrontier_Lounge7_Text_HeatWaveDesc,
+        BattleFrontier_Lounge7_Text_EarthPowerDesc,
+        BattleFrontier_Lounge7_Text_KnockOffDesc,
+        BattleFrontier_Lounge7_Text_SuperFangDesc,
+        BattleFrontier_Lounge7_Text_DualChopDesc,
+        BattleFrontier_Lounge7_Text_ThroatChopDesc,
+        BattleFrontier_Lounge7_Text_SkyDropDesc,
+        BattleFrontier_Lounge7_Text_EndeavorDesc,
+        BattleFrontier_Lounge7_Text_LiquidationDesc,
+        BattleFrontier_Lounge7_Text_SludgeWaveDesc,
+        gText_Exit,
+    };
+
+    static const u8 *const sBattleFrontier_TutorMoveDescriptions_Offense2[] = 
+    {
+        BattleFrontier_Lounge7_Text_BugBiteDesc,
+        BattleFrontier_Lounge7_Text_FlingDesc,
+        BattleFrontier_Lounge7_Text_DrillRunDesc,
+        BattleFrontier_Lounge7_Text_IronHeadDesc,
+        BattleFrontier_Lounge7_Text_ZenHeadbuttDesc,
+        BattleFrontier_Lounge7_Text_SignalBeamDesc,
+        BattleFrontier_Lounge7_Text_BrutalSwingDesc,
+        BattleFrontier_Lounge7_Text_HyperVoiceDesc,
+        BattleFrontier_Lounge7_Text_AquaTailDesc,
+        BattleFrontier_Lounge7_Text_DragonPulseDesc,
+        BattleFrontier_Lounge7_Text_SeedBombDesc,
+        BattleFrontier_Lounge7_Text_LastResortDesc,
+        BattleFrontier_Lounge7_Text_FoulPlayDesc,
+        BattleFrontier_Lounge7_Text_StompingTantrumDesc,
+        BattleFrontier_Lounge7_Text_OutrageDesc,
+        BattleFrontier_Lounge7_Text_SuperpowerDesc,
+        BattleFrontier_Lounge7_Text_GunkShotDesc,
+        BattleFrontier_Lounge7_Text_SkyAttackDesc,
+        gText_Exit,
+    };
+
+    static const u8 *const sBattleFrontier_TutorMoveDescriptions_Status[] = 
+    {
+        BattleFrontier_Lounge7_Text_BindDesc,
+        BattleFrontier_Lounge7_Text_InfestationDesc,
+        BattleFrontier_Lounge7_Text_CovetDesc,
+        BattleFrontier_Lounge7_Text_BlockDesc,
+        BattleFrontier_Lounge7_Text_QuashDesc,
+        BattleFrontier_Lounge7_Text_RolePlayDesc,
+        BattleFrontier_Lounge7_Text_PainSplitDesc,
+        BattleFrontier_Lounge7_Text_GastroAcidDesc,
+        BattleFrontier_Lounge7_Text_WorrySeedDesc,
+        BattleFrontier_Lounge7_Text_SpiteDesc,
+        BattleFrontier_Lounge7_Text_TrickDesc,
+        BattleFrontier_Lounge7_Text_EmbargoDesc,
+        BattleFrontier_Lounge7_Text_MagicCoatDesc,
+        BattleFrontier_Lounge7_Text_TelekinesisDesc,
+        BattleFrontier_Lounge7_Text_ElectrowebDesc,
+        BattleFrontier_Lounge7_Text_IcyWindDesc,
+        gText_Exit,
+    };
+
+    static const u8 *const sBattleFrontier_TutorMoveDescriptions_Support[] = 
+    {
+        BattleFrontier_Lounge7_Text_HoneClawsDesc,
+        BattleFrontier_Lounge7_Text_IronDefenseDesc,
+        BattleFrontier_Lounge7_Text_LaserFocusDesc,
+        BattleFrontier_Lounge7_Text_HealBellDesc,
+        BattleFrontier_Lounge7_Text_MagicRoomDesc,
+        BattleFrontier_Lounge7_Text_WonderRoomDesc,
+        BattleFrontier_Lounge7_Text_GravityDesc,
+        BattleFrontier_Lounge7_Text_MagnetRiseDesc,
+        BattleFrontier_Lounge7_Text_RecycleDesc,
+        BattleFrontier_Lounge7_Text_AfterYouDesc,
+        BattleFrontier_Lounge7_Text_HelpingHandDesc,
+        BattleFrontier_Lounge7_Text_SynthesisDesc,
+        BattleFrontier_Lounge7_Text_DefogDesc,
+        BattleFrontier_Lounge7_Text_AllySwitchDesc,
+        BattleFrontier_Lounge7_Text_TailwindDesc,
+        BattleFrontier_Lounge7_Text_StealthRockDesc,
+        gText_Exit,
+    };
+
+    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_FREE || 
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_SPECIAL ||
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_1 ||
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_2 ||
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_STATUS ||
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_SUPPORT ||
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_SWSH_IOA )
     {
         FillWindowPixelRect(sTutorMoveAndElevatorWindowId, PIXEL_FILL(1), 0, 0, 96, 48);
-        if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_2)
+
+        switch (menu)
         {
-            AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, 1, sBattleFrontier_TutorMoveDescriptions2[selection], 0, 1, 0, NULL);
-        }
-        else
-        {
-            AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, 1, sBattleFrontier_TutorMoveDescriptions1[selection], 0, 1, 0, NULL);
+            case SCROLL_MULTI_BF_MOVE_TUTOR_FREE:
+                AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, 1, sBattleFrontier_TutorMoveDescriptions_Free[selection], 0, 1, 0, NULL);
+                break;
+            case SCROLL_MULTI_BF_MOVE_TUTOR_SPECIAL:
+                AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, 1, sBattleFrontier_TutorMoveDescriptions_Special[selection], 0, 1, 0, NULL);
+                break;
+            case SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_1:
+                AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, 1, sBattleFrontier_TutorMoveDescriptions_Offense1[selection], 0, 1, 0, NULL);
+                break;
+            case SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_2:
+                AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, 1, sBattleFrontier_TutorMoveDescriptions_Offense2[selection], 0, 1, 0, NULL);
+                break;
+            case SCROLL_MULTI_BF_MOVE_TUTOR_STATUS:
+                AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, 1, sBattleFrontier_TutorMoveDescriptions_Status[selection], 0, 1, 0, NULL);
+                break;
+            case SCROLL_MULTI_BF_MOVE_TUTOR_SUPPORT:
+                AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, 1, sBattleFrontier_TutorMoveDescriptions_Support[selection], 0, 1, 0, NULL);
+                break;
         }
     }
 }
@@ -3294,32 +3684,71 @@ void GetBattleFrontierTutorMoveIndex(void)
     moveTutor = VarGet(VAR_TEMP_E);
     moveIndex = VarGet(VAR_TEMP_D);
 
-    if (moveTutor != 0)
+    i = 0;
+    bool8 foundMove = FALSE;
+    do
     {
-        i = 0;
-        do
+        switch (moveTutor)
         {
-            if (gTutorMoves[i] == sBattleFrontier_TutorMoves2[moveIndex])
-            {
-                gSpecialVar_0x8005 = i;
+            case MOVE_TUTOR_FREE:
+                if (gTutorMoves[i] == sBattleFrontier_TutorMoves_Free[moveIndex])
+                {
+                    gSpecialVar_0x8005 = i;
+                    foundMove = TRUE;
+                    break;
+                }
                 break;
-            }
-            i++;
-        } while (i < TUTOR_MOVE_COUNT);
-    }
-    else
-    {
-        i = 0;
-        do
-        {
-            if (gTutorMoves[i] == sBattleFrontier_TutorMoves1[moveIndex])
-            {
-                gSpecialVar_0x8005 = i;
+            case MOVE_TUTOR_SPECIAL:
+                if (gTutorMoves[i] == sBattleFrontier_TutorMoves_Special[moveIndex])
+                {
+                    gSpecialVar_0x8005 = i;
+                    foundMove = TRUE;
+                    break;
+                }
                 break;
-            }
-            i++;
-        } while (i < TUTOR_MOVE_COUNT);
-    }
+            case MOVE_TUTOR_OFFENSE_1:
+                if (gTutorMoves[i] == sBattleFrontier_TutorMoves_Offense1[moveIndex])
+                {
+                    gSpecialVar_0x8005 = i;
+                    foundMove = TRUE;
+                    break;
+                }
+                break;
+            case MOVE_TUTOR_OFFENSE_2:
+                if (gTutorMoves[i] == sBattleFrontier_TutorMoves_Offense2[moveIndex])
+                {
+                    gSpecialVar_0x8005 = i;
+                    foundMove = TRUE;
+                    break;
+                }
+                break;
+            case MOVE_TUTOR_STATUS:
+                if (gTutorMoves[i] == sBattleFrontier_TutorMoves_Status[moveIndex])
+                {
+                    gSpecialVar_0x8005 = i;
+                    foundMove = TRUE;
+                    break;
+                }
+                break;
+            case MOVE_TUTOR_SUPPORT:
+                if (gTutorMoves[i] == sBattleFrontier_TutorMoves_Support[moveIndex])
+                {
+                    gSpecialVar_0x8005 = i;
+                    foundMove = TRUE;
+                    break;
+                }
+                break;
+            // case MOVE_TUTOR_SWSH_IOA:
+            //     if (gTutorMoves[i] == sBattleFrontier_TutorMoves_SwSh_IoA[moveIndex])
+            //     {
+            //         gSpecialVar_0x8005 = i;
+            //         foundMove = TRUE;
+            //         break;
+            //     }
+            //     break;
+        } 
+        i++;
+    } while (i < TUTOR_MOVE_COUNT && foundMove == FALSE);
 }
 
 // Never called
