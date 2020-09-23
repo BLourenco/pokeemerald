@@ -511,7 +511,7 @@ BattleFrontier_Lounge7_EventScript_TeachTutorMove:: @ 8265696
 	special ChooseMonForMoveTutor
 	waitstate
 	compare VAR_RESULT, FALSE
-	goto_if_eq BattleFrontier_Lounge7_EventScript_CancelChooseMon
+	goto_if_eq BattleFrontier_Lounge7_EventScript_ChooseMove
 	msgbox BattleFrontier_Lounge7_Text_IllTakeBattlePoints, MSGBOX_DEFAULT
 	copyvar VAR_0x8004, VAR_0x8008
 	special TakeFrontierBattlePoints
@@ -530,6 +530,20 @@ BattleFrontier_Lounge7_EventScript_ChooseNewMove:: @ 82656CA
 	compare VAR_TEMP_E, 4
 	goto_if_eq BattleFrontier_Lounge7_EventScript_ChooseNewTutorMove_Status
 	goto BattleFrontier_Lounge7_EventScript_ChooseNewTutorMove_Support
+	end
+
+BattleFrontier_Lounge7_EventScript_ChooseMove:: @ 82656CA
+	compare VAR_TEMP_E, 0
+	goto_if_eq BattleFrontier_Lounge7_EventScript_ChooseTutorMove_Free
+	compare VAR_TEMP_E, 1
+	goto_if_eq BattleFrontier_Lounge7_EventScript_ChooseTutorMove_Special
+	compare VAR_TEMP_E, 2
+	goto_if_eq BattleFrontier_Lounge7_EventScript_ChooseTutorMove_Offense1
+	compare VAR_TEMP_E, 3
+	goto_if_eq BattleFrontier_Lounge7_EventScript_ChooseTutorMove_Offense2
+	compare VAR_TEMP_E, 4
+	goto_if_eq BattleFrontier_Lounge7_EventScript_ChooseTutorMove_Status
+	goto BattleFrontier_Lounge7_EventScript_ChooseTutorMove_Support
 	end
 
 @ SHARED TUTOR DIALOG
