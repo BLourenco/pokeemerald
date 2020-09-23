@@ -2,7 +2,7 @@
 
 LavaridgeTown_PokemonCenter_1F_MapScripts:: @ 81FFAFA
 	map_script MAP_SCRIPT_ON_TRANSITION, LavaridgeTown_PokemonCenter_1F_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
+	@ BattleFrontier_ScottsHouse_EventScript_Give4BattlePoint
 	.byte 0
 
 LavaridgeTown_PokemonCenter_1F_OnTransition: @ 81FFB05

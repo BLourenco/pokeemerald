@@ -2,7 +2,7 @@
 
 SootopolisCity_PokemonCenter_1F_MapScripts:: @ 82264F1
 	map_script MAP_SCRIPT_ON_TRANSITION, SootopolisCity_PokemonCenter_1F_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
+	@ BattleFrontier_ScottsHouse_EventScript_Give4BattlePoint
 	.byte 0
 
 SootopolisCity_PokemonCenter_1F_OnTransition: @ 82264FC
