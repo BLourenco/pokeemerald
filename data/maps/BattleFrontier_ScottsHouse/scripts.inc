@@ -166,36 +166,36 @@ BattleFrontier_ScottsHouse_EventScript_WelcomeToFrontier:: @ 8263943
 	applymovement LOCALID_SCOTT, Common_Movement_FacePlayer
 	waitmovement 0
 	msgbox BattleFrontier_ScottsHouse_Text_HaveThisAsMementoOfOurPathsCrossing, MSGBOX_DEFAULT
-	compare VAR_SCOTT_STATE, 13
-	goto_if_eq BattleFrontier_ScottsHouse_EventScript_Give4BattlePoints
+	compare VAR_SCOTT_STATE, 12
+	goto_if_eq BattleFrontier_ScottsHouse_EventScript_Give16BattlePoints
 	compare VAR_SCOTT_STATE, 9
-	goto_if_ge BattleFrontier_ScottsHouse_EventScript_Give3BattlePoints
+	goto_if_ge BattleFrontier_ScottsHouse_EventScript_Give12BattlePoints
 	compare VAR_SCOTT_STATE, 6
-	goto_if_ge BattleFrontier_ScottsHouse_EventScript_Give2BattlePoints
-	goto BattleFrontier_ScottsHouse_EventScript_Give1BattlePoint
+	goto_if_ge BattleFrontier_ScottsHouse_EventScript_Give8BattlePoints
+	goto BattleFrontier_ScottsHouse_EventScript_Give4BattlePoint
 	end
 
-BattleFrontier_ScottsHouse_EventScript_Give4BattlePoints:: @ 82639BC
+BattleFrontier_ScottsHouse_EventScript_Give16BattlePoints:: @ 82639BC
+	buffernumberstring 0, 16
+	setvar VAR_0x8004, 16
+	goto BattleFrontier_ScottsHouse_EventScript_GiveBattlePoints
+	end
+
+BattleFrontier_ScottsHouse_EventScript_Give12BattlePoints:: @ 82639CB
+	buffernumberstring 0, 12
+	setvar VAR_0x8004, 12
+	goto BattleFrontier_ScottsHouse_EventScript_GiveBattlePoints
+	end
+
+BattleFrontier_ScottsHouse_EventScript_Give8BattlePoints:: @ 82639DA
+	buffernumberstring 0, 8
+	setvar VAR_0x8004, 8
+	goto BattleFrontier_ScottsHouse_EventScript_GiveBattlePoints
+	end
+
+BattleFrontier_ScottsHouse_EventScript_Give4BattlePoint:: @ 82639E9
 	buffernumberstring 0, 4
 	setvar VAR_0x8004, 4
-	goto BattleFrontier_ScottsHouse_EventScript_GiveBattlePoints
-	end
-
-BattleFrontier_ScottsHouse_EventScript_Give3BattlePoints:: @ 82639CB
-	buffernumberstring 0, 3
-	setvar VAR_0x8004, 3
-	goto BattleFrontier_ScottsHouse_EventScript_GiveBattlePoints
-	end
-
-BattleFrontier_ScottsHouse_EventScript_Give2BattlePoints:: @ 82639DA
-	buffernumberstring 0, 2
-	setvar VAR_0x8004, 2
-	goto BattleFrontier_ScottsHouse_EventScript_GiveBattlePoints
-	end
-
-BattleFrontier_ScottsHouse_EventScript_Give1BattlePoint:: @ 82639E9
-	buffernumberstring 0, 1
-	setvar VAR_0x8004, 1
 	goto BattleFrontier_ScottsHouse_EventScript_GiveBattlePoints
 	end
 
