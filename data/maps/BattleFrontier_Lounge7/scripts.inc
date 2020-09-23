@@ -250,7 +250,7 @@ BattleFrontier_Lounge7_EventScript_ChooseTutorMove_Offense2:: @ 8265474
 	message BattleFrontier_Lounge7_Text_TeachWhichMove
 	waitmessage
 	special ShowBattlePointsWindow
-	setvar VAR_TEMP_E, 2
+	setvar VAR_TEMP_E, 3
 	setvar VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_2
 	setvar VAR_0x8006, 0
 	special ShowScrollableMultichoice
@@ -282,7 +282,7 @@ BattleFrontier_Lounge7_EventScript_ChooseTutorMove_Offense2:: @ 8265474
 BattleFrontier_Lounge7_EventScript_ChooseNewTutorMove_Offense2:: @ 826551F
 	message BattleFrontier_Lounge7_Text_TeachWhichMove
 	waitmessage
-	setvar VAR_TEMP_E, 2
+	setvar VAR_TEMP_E, 3
 	setvar VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_2
 	setvar VAR_0x8006, 1
 	special ShowScrollableMultichoice
@@ -332,7 +332,7 @@ BattleFrontier_Lounge7_EventScript_ChooseTutorMove_Status:: @ 8265474
 	message BattleFrontier_Lounge7_Text_TeachWhichMove
 	waitmessage
 	special ShowBattlePointsWindow
-	setvar VAR_TEMP_E, 2
+	setvar VAR_TEMP_E, 4
 	setvar VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_STATUS
 	setvar VAR_0x8006, 0
 	special ShowScrollableMultichoice
@@ -362,7 +362,7 @@ BattleFrontier_Lounge7_EventScript_ChooseTutorMove_Status:: @ 8265474
 BattleFrontier_Lounge7_EventScript_ChooseNewTutorMove_Status:: @ 826551F
 	message BattleFrontier_Lounge7_Text_TeachWhichMove
 	waitmessage
-	setvar VAR_TEMP_E, 2
+	setvar VAR_TEMP_E, 4
 	setvar VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_STATUS
 	setvar VAR_0x8006, 1
 	special ShowScrollableMultichoice
@@ -410,7 +410,7 @@ BattleFrontier_Lounge7_EventScript_ChooseTutorMove_Support:: @ 8265474
 	message BattleFrontier_Lounge7_Text_TeachWhichMove
 	waitmessage
 	special ShowBattlePointsWindow
-	setvar VAR_TEMP_E, 2
+	setvar VAR_TEMP_E, 5
 	setvar VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_SUPPORT
 	setvar VAR_0x8006, 0
 	special ShowScrollableMultichoice
@@ -440,7 +440,7 @@ BattleFrontier_Lounge7_EventScript_ChooseTutorMove_Support:: @ 8265474
 BattleFrontier_Lounge7_EventScript_ChooseNewTutorMove_Support:: @ 826551F
 	message BattleFrontier_Lounge7_Text_TeachWhichMove
 	waitmessage
-	setvar VAR_TEMP_E, 2
+	setvar VAR_TEMP_E, 5
 	setvar VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_SUPPORT
 	setvar VAR_0x8006, 1
 	special ShowScrollableMultichoice
