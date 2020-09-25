@@ -59,7 +59,7 @@ EventScript_ResetAllBerries:: @ 827149D
 	setberrytree 46, ITEM_TO_BERRY(ITEM_FIGY_BERRY), BERRY_STAGE_BERRIES	@ Route 120, North of Southwest pond, Left-most
 	setberrytree 45, ITEM_TO_BERRY(ITEM_WIKI_BERRY), BERRY_STAGE_BERRIES	@ Route 120, North of Southwest pond, Left-middle
 	setberrytree 44, ITEM_TO_BERRY(ITEM_MAGO_BERRY), BERRY_STAGE_BERRIES	@ Route 120, North of Southwest pond, Right-middle
-	setberrytree 43, ITEM_TO_BERRY(ITEM_AQUAV_BERRY), BERRY_STAGE_BERRIES	@ Route 120, North of Southwest pond, Right-most
+	setberrytree 43, ITEM_TO_BERRY(ITEM_AGUAV_BERRY), BERRY_STAGE_BERRIES	@ Route 120, North of Southwest pond, Right-most
 	setberrytree 47, ITEM_TO_BERRY(ITEM_PERSIM_BERRY), BERRY_STAGE_BERRIES	@ Route 121, West-most soil patch, Left-most
 	setberrytree 48, ITEM_TO_BERRY(ITEM_ASPEAR_BERRY), BERRY_STAGE_BERRIES	@ Route 121, West-most soil patch, Left-middle
 	setberrytree 49, ITEM_TO_BERRY(ITEM_RAWST_BERRY), BERRY_STAGE_BERRIES	@ Route 121, West-most soil patch, Right-middle
