@@ -22,19 +22,8 @@ OldaleTown_Mart_Pokemart_Basic: @ 81FC260
 	end
 
 OldaleTown_Mart_ExpandedItems:: @ 81FC26C
-	pokemart OldaleTown_Mart_Pokemart_Expanded
+	pokemart 0
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
-	end
-
-	.align 2
-OldaleTown_Mart_Pokemart_Expanded: @ 81FC27C
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_POTION
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_AWAKENING
-	.2byte ITEM_NONE
 	release
 	end
 
