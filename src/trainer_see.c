@@ -177,7 +177,7 @@ bool8 CheckForTrainersWantingBattle(void)
 {
     u8 i;
 
-    if (FlagGet(FLAG_SYS_TOGGLE_TRAINER_SIGHT))
+    if (FlagGet(FLAG_SYS_COLLISIONS_DISABLED))
         return FALSE;
 
     gNoOfApproachingTrainers = 0;

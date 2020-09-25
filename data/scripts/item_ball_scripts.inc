@@ -190,6 +190,10 @@ Route119_EventScript_ItemElixir2:: @ 8290F3B
 	finditem ITEM_ELIXIR
 	end
 
+FortreeCity_EventScript_ItemTM86:: @ 8290F3B
+	finditem ITEM_TM86_GRASS_KNOT
+	end
+
 Route120_EventScript_ItemNugget:: @ 8290F48
 	finditem ITEM_NUGGET
 	end
@@ -354,8 +358,8 @@ GraniteCave_1F_EventScript_ItemEscapeRope:: @ 8291150
 	finditem ITEM_ESCAPE_ROPE
 	end
 
-GraniteCave_B1F_EventScript_ItemPokeBall:: @ 829115D
-	finditem ITEM_POKE_BALL
+GraniteCave_B1F_EventScript_ItemTM66:: @ 829115D
+	finditem ITEM_TM66_PAYBACK
 	end
 
 GraniteCave_B2F_EventScript_ItemRepel:: @ 829116A
@@ -368,6 +372,10 @@ GraniteCave_B2F_EventScript_ItemRareCandy:: @ 8291177
 
 JaggedPass_EventScript_ItemBurnHeal:: @ 8291184
 	finditem ITEM_BURN_HEAL
+	end
+
+JaggedPass_EventScript_ItemTM94:: @ 8291184
+	finditem ITEM_TM94_FLAME_CHARGE
 	end
 
 FieryPath_EventScript_ItemFireStone:: @ 8291191

@@ -13,6 +13,7 @@
 #include "sound.h"
 #include "strings.h"
 #include "task.h"
+#include "wild_encounter.h"
 #include "constants/items.h"
 #include "constants/songs.h"
 #include "constants/species.h"
@@ -26,7 +27,6 @@ static void DebugAction_GivePokemon(u8);
 static void DebugAction_GiveItem(u8);
 static void DebugAction_GiveMoney(u8);
 static void DebugAction_GiveBadge(u8);
-static void DebugAction_ToggleTrainerSight(u8);
 static void DebugAction_ToggleCollision(u8);
 static void DebugAction_Warp(u8);
 static void DebugAction_Cancel(u8);
@@ -39,7 +39,6 @@ enum {
     DEBUG_MENU_ITEM_GIVE_ITEM,
     DEBUG_MENU_ITEM_GIVE_MONEY,
     DEBUG_MENU_ITEM_GIVE_BADGE,
-    DEBUG_MENU_ITEM_TOGGLE_TRAINER_SIGHT,
     DEBUG_MENU_ITEM_TOGGLE_COLLISION,
     DEBUG_MENU_ITEM_WARP,
     DEBUG_MENU_ITEM_CANCEL,
@@ -50,7 +49,6 @@ static const u8 gDebugText_Give_Pokemon[] = _("Give Pokémon");
 static const u8 gDebugText_Give_Item[] = _("Give Item");
 static const u8 gDebugText_Give_Money[] = _("Give Money");
 static const u8 gDebugText_Give_Badge[] = _("Give Badge");
-static const u8 gDebugText_Toggle_Trainer_Sight[] = _("Trainer Sight");
 static const u8 gDebugText_Toggle_Collision[] = _("Collision");
 static const u8 gDebugText_Warp[] = _("Warp");
 static const u8 gDebugText_Cancel[] = _("Cancel");
@@ -62,7 +60,6 @@ static const struct ListMenuItem sDebugMenuItems[] =
     [DEBUG_MENU_ITEM_GIVE_ITEM] = {gDebugText_Give_Item, DEBUG_MENU_ITEM_GIVE_ITEM},
     [DEBUG_MENU_ITEM_GIVE_MONEY] = {gDebugText_Give_Money, DEBUG_MENU_ITEM_GIVE_MONEY},
     [DEBUG_MENU_ITEM_GIVE_BADGE] = {gDebugText_Give_Badge, DEBUG_MENU_ITEM_GIVE_BADGE},
-    [DEBUG_MENU_ITEM_TOGGLE_TRAINER_SIGHT] = {gDebugText_Toggle_Trainer_Sight, DEBUG_MENU_ITEM_TOGGLE_TRAINER_SIGHT},
     [DEBUG_MENU_ITEM_TOGGLE_COLLISION] = {gDebugText_Toggle_Collision, DEBUG_MENU_ITEM_TOGGLE_COLLISION},
     [DEBUG_MENU_ITEM_WARP] = {gDebugText_Warp, DEBUG_MENU_ITEM_WARP},
     [DEBUG_MENU_ITEM_CANCEL] = {gDebugText_Cancel, DEBUG_MENU_ITEM_CANCEL}
@@ -75,7 +72,6 @@ static void (*const sDebugMenuActions[])(u8) =
     [DEBUG_MENU_ITEM_GIVE_ITEM] = DebugAction_GiveItem,
     [DEBUG_MENU_ITEM_GIVE_MONEY] = DebugAction_GiveMoney,
     [DEBUG_MENU_ITEM_GIVE_BADGE] = DebugAction_GiveBadge,
-    [DEBUG_MENU_ITEM_TOGGLE_TRAINER_SIGHT] = DebugAction_ToggleTrainerSight,
     [DEBUG_MENU_ITEM_TOGGLE_COLLISION] = DebugAction_ToggleCollision,
     [DEBUG_MENU_ITEM_WARP] = NULL,
     [DEBUG_MENU_ITEM_CANCEL] = DebugAction_Cancel
@@ -168,7 +164,7 @@ static void DebugTask_HandleMainMenuInput(u8 taskId)
 
 static void DebugAction_GivePokemon(u8 taskId)
 {
-    ScriptGiveMon(SPECIES_MEW, 100, ITEM_NONE, 0, 0, 0);
+    ScriptGiveMon(SPECIES_MEWTWO, 100, ITEM_NONE, 0, 0, 0);
     Debug_DestroyMainMenu(taskId);
 }
 
@@ -201,22 +197,18 @@ static void DebugAction_GiveBadge(u8 taskId)
     Debug_DestroyMainMenu(taskId);
 }
 
-static void DebugAction_ToggleTrainerSight(u8 taskId)
-{
-    if (FlagGet(FLAG_SYS_TOGGLE_TRAINER_SIGHT))
-        FlagClear(FLAG_SYS_TOGGLE_TRAINER_SIGHT);
-    else
-        FlagSet(FLAG_SYS_TOGGLE_TRAINER_SIGHT);
-
-    Debug_DestroyMainMenu(taskId);
-}
-
 static void DebugAction_ToggleCollision(u8 taskId)
 {
-    if (FlagGet(FLAG_SYS_TOGGLE_COLLISION))
-        FlagClear(FLAG_SYS_TOGGLE_COLLISION);
+    if (FlagGet(FLAG_SYS_COLLISIONS_DISABLED))
+    {
+        FlagClear(FLAG_SYS_COLLISIONS_DISABLED);
+        DisableWildEncounters(FALSE);
+    }
     else
-        FlagSet(FLAG_SYS_TOGGLE_COLLISION);
+    {
+        FlagSet(FLAG_SYS_COLLISIONS_DISABLED);
+        DisableWildEncounters(TRUE);
+    }    
 
     Debug_DestroyMainMenu(taskId);
 }
