@@ -83,9 +83,9 @@ EventScript_ResetAllBerries:: @ 827149D
 	setberrytree 72, ITEM_TO_BERRY(ITEM_GREPA_BERRY), BERRY_STAGE_BERRIES	@ Route 123, Berry Master's Garden, S Plot, Right 
 	setberrytree 73, ITEM_TO_BERRY(ITEM_TAMATO_BERRY), BERRY_STAGE_BERRIES	@ Route 123, Berry Master's Garden, SE Plot, Left
 	setberrytree 74, ITEM_TO_BERRY(ITEM_TAMATO_BERRY), BERRY_STAGE_BERRIES	@ Route 123, Berry Master's Garden, SE Plot, Right
-	setberrytree 87, ITEM_TO_BERRY(ITEM_SITRUS_BERRY), BERRY_STAGE_BERRIES	@ Route 123, West-most soil patch, Left
-	setberrytree 88, ITEM_TO_BERRY(ITEM_RAWST_BERRY), BERRY_STAGE_BERRIES	@ Route 123, West-most soil patch, Middle
-	setberrytree 89, ITEM_TO_BERRY(ITEM_SITRUS_BERRY), BERRY_STAGE_BERRIES	@ Route 123, West-most soil patch, Right
+	setberrytree 87, ITEM_TO_BERRY(ITEM_SITRUS_BERRY), BERRY_STAGE_BERRIES	@ Route 123, East-most soil patch, Left
+	setberrytree 88, ITEM_TO_BERRY(ITEM_RAWST_BERRY), BERRY_STAGE_BERRIES	@ Route 123, East-most soil patch, Middle
+	setberrytree 89, ITEM_TO_BERRY(ITEM_SITRUS_BERRY), BERRY_STAGE_BERRIES	@ Route 123, East-most soil patch, Right
 	setberrytree 82, ITEM_TO_BERRY(ITEM_LIECHI_BERRY), BERRY_STAGE_BERRIES	@ Route 130, Mirage Island
 	return
 
