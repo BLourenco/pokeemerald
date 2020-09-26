@@ -1223,8 +1223,8 @@
 #define FLAG_ITEM_ROUTE_119_TM__62                                  0x497
 #define FLAG_ITEM_SEAFLOOR_CAVERN_ROOM_6_TM_55                      0x498
 #define FLAG_ITEM_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM_TM_79              0x499
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
+#define FLAG_ITEM_SAFARI_ZONE_NORTH_TM_53                           0x49A
+#define FLAG_ITEM_SAFARI_ZONE_NORTHEAST_TM_93                       0x49B
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag

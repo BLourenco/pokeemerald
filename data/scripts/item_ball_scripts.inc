@@ -485,6 +485,10 @@ SafariZone_Northwest_EventScript_ItemTM22:: @ 82912BC
 SafariZone_North_EventScript_ItemCalcium:: @ 82912C9
 	finditem ITEM_CALCIUM
 	end
+	
+SafariZone_North_EventScript_ItemTM53::
+	finditem ITEM_TM53_ENERGY_BALL
+	end
 
 SafariZone_Southwest_EventScript_ItemMaxRevive:: @ 82912D6
 	finditem ITEM_MAX_REVIVE
@@ -492,6 +496,10 @@ SafariZone_Southwest_EventScript_ItemMaxRevive:: @ 82912D6
 
 SafariZone_Northeast_EventScript_ItemNugget:: @ 82912E3
 	finditem ITEM_NUGGET
+	end
+
+SafariZone_Northeast_EventScript_ItemTM93::
+	finditem ITEM_TM93_WILD_CHARGE
 	end
 
 SafariZone_Southeast_EventScript_ItemBigPearl:: @ 82912F0
