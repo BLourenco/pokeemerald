@@ -156,7 +156,7 @@
       "flag": "FLAG_ITEM_ROUTE_134_CARBOS"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL_TM",
       "x": 22,
       "y": 27,
       "elevation": 3,
@@ -165,11 +165,17 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route134_EventScript_ItemStarPiece",
-      "flag": "FLAG_ITEM_ROUTE_134_STAR_PIECE"
+      "script": "Route134_EventScript_ItemTM80",
+      "flag": "FLAG_ITEM_ROUTE_134_TM_80"
     }
   ],
-  "warp_events": [],
-  "coord_events": [],
-  "bg_events": []
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

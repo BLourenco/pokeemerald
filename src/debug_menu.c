@@ -164,12 +164,15 @@ static void DebugTask_HandleMainMenuInput(u8 taskId)
 
 static void DebugAction_GivePokemon(u8 taskId)
 {
-    ScriptGiveMon(SPECIES_MEWTWO, 100, ITEM_NONE, 0, 0, 0);
+    FlagSet(FLAG_SYS_POKEMON_GET);
+    ScriptGiveMon(SPECIES_MEWTWO, 70, ITEM_NONE, 0, 0, 0);
     Debug_DestroyMainMenu(taskId);
 }
 
 static void DebugAction_GiveItem(u8 taskId)
-{
+{    
+    FlagSet(FLAG_SYS_POKEDEX_GET);
+    FlagSet(FLAG_SYS_POKENAV_GET);
     u16 i;
     for (i = 1; i < ITEMS_COUNT; i++)
         AddBagItem(i,99);

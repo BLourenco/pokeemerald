@@ -190,7 +190,11 @@ Route119_EventScript_ItemElixir2:: @ 8290F3B
 	finditem ITEM_ELIXIR
 	end
 
-FortreeCity_EventScript_ItemTM86:: @ 8290F3B
+Route119_EventScript_ItemTM62::
+	finditem ITEM_TM62_ACROBATICS
+	end
+
+FortreeCity_EventScript_ItemTM86::
 	finditem ITEM_TM86_GRASS_KNOT
 	end
 
@@ -302,8 +306,8 @@ Route134_EventScript_ItemCarbos:: @ 829109A
 	finditem ITEM_CARBOS
 	end
 
-Route134_EventScript_ItemStarPiece:: @ 82910A7
-	finditem ITEM_STAR_PIECE
+Route134_EventScript_ItemTM80:: @ 82910A7
+	finditem ITEM_TM80_ROCK_SLIDE
 	end
 
 PetalburgCity_EventScript_ItemMaxRevive:: @ 82910B4
@@ -370,6 +374,10 @@ GraniteCave_B2F_EventScript_ItemRareCandy:: @ 8291177
 	finditem ITEM_RARE_CANDY
 	end
 
+MtChimney_EventScript_ItemTM59:: @ 8291177
+	finditem ITEM_TM59_INCINERATE
+	end
+
 JaggedPass_EventScript_ItemBurnHeal:: @ 8291184
 	finditem ITEM_BURN_HEAL
 	end
@@ -406,8 +414,8 @@ MeteorFalls_B1F_2R_EventScript_ItemTM02:: @ 82911DF
 	finditem ITEM_TM02
 	end
 
-NewMauville_Inside_EventScript_ItemUltraRope:: @ 82911EC
-	finditem ITEM_ULTRA_BALL
+NewMauville_Inside_EventScript_ItemTM72:: @ 82911EC
+	finditem ITEM_TM72_VOLT_SWITCH
 	end
 
 NewMauville_Inside_EventScript_ItemEscapeRope:: @ 82911F9
@@ -515,7 +523,11 @@ MtPyre_Exterior_EventScript_ItemMaxPotion:: @ 829133E
 	end
 
 MtPyre_Exterior_EventScript_ItemTM48:: @ 829134B
-	finditem ITEM_TM48
+	finditem ITEM_TM48_SKILL_SWAP
+	end
+
+MtPyre_Summit_EventScript_ItemTM61:: @ 829134B
+	finditem ITEM_TM61_WILL_O_WISP
 	end
 
 AquaHideout_B1F_EventScript_ItemMasterBall:: @ 8291358
@@ -530,8 +542,8 @@ AquaHideout_B1F_EventScript_ItemMaxElixir:: @ 8291372
 	finditem ITEM_MAX_ELIXIR
 	end
 
-AquaHideout_B2F_EventScript_ItemNestBall:: @ 829137F
-	finditem ITEM_NEST_BALL
+AquaHideout_B2F_EventScript_ItemTM97:: @ 829137F
+	finditem ITEM_TM97_DARK_PULSE
 	end
 
 AquaHideout_B2F_EventScript_ItemMasterBall:: @ 829138C
@@ -562,6 +574,10 @@ ShoalCave_LowTideStairsRoom_EventScript_ItemIceHeal:: @ 82913DA
 	finditem ITEM_ICE_HEAL
 	end
 
+ShoalCave_LowTideLowerRoom_EventScript_ItemTM79:: @ 82913DA
+	finditem ITEM_TM79_FROST_BREATH
+	end
+
 ShoalCave_LowTideIceRoom_EventScript_ItemTM07:: @ 82913E7
 	finditem ITEM_TM07
 	end
@@ -570,8 +586,12 @@ ShoalCave_LowTideIceRoom_EventScript_ItemNeverMeltIce:: @ 82913F4
 	finditem ITEM_NEVER_MELT_ICE
 	end
 
+SeafloorCavern_Room6_EventScript_ItemTM55:: @ 8291401
+	finditem ITEM_TM55_SCALD
+	end
+
 SeafloorCavern_Room9_EventScript_ItemTM26:: @ 8291401
-	finditem ITEM_TM26
+	finditem ITEM_TM26_EARTHQUAKE
 	end
 
 Route110_TrickHousePuzzle1_EventScript_ItemOrangeMail:: @ 829140E
@@ -614,8 +634,8 @@ VictoryRoad_1F_EventScript_ItemMaxElixir:: @ 8291483
 	finditem ITEM_MAX_ELIXIR
 	end
 
-VictoryRoad_1F_EventScript_ItemPPUp:: @ 8291490
-	finditem ITEM_PP_UP
+VictoryRoad_1F_EventScript_ItemTM81:: @ 8291490
+	finditem ITEM_TM81_X_SCISSOR
 	end
 
 VictoryRoad_B1F_EventScript_ItemTM29:: @ 829149D
