@@ -200,15 +200,9 @@ static void DebugAction_GiveBadge(u8 taskId)
 static void DebugAction_ToggleCollision(u8 taskId)
 {
     if (FlagGet(FLAG_SYS_COLLISIONS_DISABLED))
-    {
         FlagClear(FLAG_SYS_COLLISIONS_DISABLED);
-        DisableWildEncounters(FALSE);
-    }
     else
-    {
         FlagSet(FLAG_SYS_COLLISIONS_DISABLED);
-        DisableWildEncounters(TRUE);
-    }    
 
     Debug_DestroyMainMenu(taskId);
 }
