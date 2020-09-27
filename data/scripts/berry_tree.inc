@@ -203,15 +203,15 @@ BerryTree_Text_ItsSoftLoamySoil: @ 82744F0
 
 BerryTree_Text_BerryGrowthStage1: @ 8274560
 	.string "One {STR_VAR_1} was planted here.\n"
-	.string "Want to water it with the WAILMER PAIL?$"
+	.string "Want to water it with the Wailmer Pail?$"
 
 BerryTree_Text_BerryGrowthStage2: @ 8274579
 	.string "{STR_VAR_1} has sprouted.\n"
-	.string "Want to water it with the WAILMER PAIL?$"
+	.string "Want to water it with the Wailmer Pail?$"
 
 BerryTree_Text_BerryGrowthStage3: @ 827458A
 	.string "This {STR_VAR_1} plant is growing taller.\n"
-	.string "Want to water it with the WAILMER PAIL?$"
+	.string "Want to water it with the Wailmer Pail?$"
 
 BerryTree_Text_BerryGrowthStage4: @ 82745AB
 	.string "These {STR_VAR_1} flowers are blooming\n"
@@ -243,7 +243,7 @@ BerryTree_Text_PickedTheBerry: @ 827461B
 	.string "{PLAYER} picked the {STR_VAR_2} {STR_VAR_1}.$"
 
 BerryTree_Text_BerryPocketFull: @ 827468F
-	.string "The BAG's BERRIES POCKET is full.\p"
+	.string "The Bag's Berries Pocket is full.\p"
 	.string "The {STR_VAR_1} couldn't be taken.$"
 
 BerryTree_Text_ExclamationPoint: @ 8274744

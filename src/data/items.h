@@ -1140,7 +1140,7 @@ const struct Item gItems[] =
 
     [ITEM_X_DEFENSE] =
     {
-        .name = _("X Defend"),
+        .name = _("X Defense"),
         .itemId = ITEM_X_DEFENSE,
         .price = 2000,
         .description = sXDefendDesc,
@@ -3857,7 +3857,7 @@ const struct Item gItems[] =
 
     [ITEM_POKEBLOCK_CASE] =
     {
-        .name = _("{POKEBLOCK} CASE"),
+        .name = _("{POKEBLOCK} Case"),
         .itemId = ITEM_POKEBLOCK_CASE,
         .price = 0,
         .description = sPokeblockCaseDesc,
