@@ -12,12 +12,12 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_STEVEN",
       "x": 19,
-      "y": 3,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -31,12 +31,16 @@
   "warp_events": [
     {
       "x": 10,
-      "y": 29,
+      "y": 45,
       "elevation": 3,
       "dest_map": "MAP_METEOR_FALLS_1F_1R",
       "dest_warp_id": 5
     }
   ],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }
