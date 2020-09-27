@@ -650,8 +650,8 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_2             (FLAG_HIDDEN_ITEMS_START + 0x5D)
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_3             (FLAG_HIDDEN_ITEMS_START + 0x5E)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
+#define FLAG_HIDDEN_ITEM_DEWFORD_COVE_HEART_SCALE            0x264
+#define FLAG_HIDDEN_ITEM_DEWFORD_COVE_NUGGET                 0x265
 #define FLAG_UNUSED_0x266  0x266 // Unused Flag
 #define FLAG_UNUSED_0x267  0x267 // Unused Flag
 #define FLAG_UNUSED_0x268  0x268 // Unused Flag
@@ -1225,8 +1225,8 @@
 #define FLAG_ITEM_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM_TM_79              0x499
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_TM_53                           0x49A
 #define FLAG_ITEM_SAFARI_ZONE_NORTHEAST_TM_93                       0x49B
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
+#define FLAG_ITEM_DEWFORD_COVE_TM_99                                0x49C
+#define FLAG_ITEM_DEWFORD_COVE_COVER_FOSSIL                         0x49D
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
 #define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
 #define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
@@ -1500,7 +1500,7 @@
 
 #define FLAG_RECEIVED_POKEDEX_FROM_BIRCH            (SYSTEM_FLAGS + 0x84)
 
-#define FLAG_UNUSED_0x8E5                           (SYSTEM_FLAGS + 0x85) // Unused Flag
+#define FLAG_LANDMARK_DEWFORD_COVE                  (SYSTEM_FLAGS + 0x85)
 #define FLAG_UNUSED_0x8E6                           (SYSTEM_FLAGS + 0x86) // Unused Flag
 #define FLAG_UNUSED_0x8E7                           (SYSTEM_FLAGS + 0x87) // Unused Flag
 #define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag

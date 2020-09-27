@@ -374,6 +374,14 @@ GraniteCave_B2F_EventScript_ItemRareCandy:: @ 8291177
 	finditem ITEM_RARE_CANDY
 	end
 
+DewfordCove_EventScript_ItemCoverFossil::
+	finditem ITEM_COVER_FOSSIL
+	end
+
+DewfordCove_EventScript_ItemTM99::
+	finditem ITEM_TM99_DAZZLING_GLEAM
+	end
+
 MtChimney_EventScript_ItemTM59:: @ 8291177
 	finditem ITEM_TM59_INCINERATE
 	end

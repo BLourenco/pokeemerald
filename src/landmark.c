@@ -39,6 +39,7 @@ static const u8 LandmarkName_MtPyre[] = _("MT. PYRE");
 static const u8 LandmarkName_ShoalCave[] = _("SHOAL CAVE");
 static const u8 LandmarkName_SeafloorCavern[] = _("SEAFLOOR CAVERN");
 static const u8 LandmarkName_GraniteCave[] = _("GRANITE CAVE");
+static const u8 LandmarkName_DewfordCove[] = _("DEWFORD COVE");
 static const u8 LandmarkName_OceanCurrent[] = _("OCEAN CURRENT");
 static const u8 LandmarkName_LanettesHouse[] = _("LANETTE'S HOUSE");
 static const u8 LandmarkName_FieryPath[] = _("FIERY PATH");
@@ -82,6 +83,7 @@ static const struct Landmark Landmark_MtPyre = {LandmarkName_MtPyre, -1};
 static const struct Landmark Landmark_ShoalCave = {LandmarkName_ShoalCave, -1};
 static const struct Landmark Landmark_SeafloorCavern = {LandmarkName_SeafloorCavern, FLAG_LANDMARK_SEAFLOOR_CAVERN};
 static const struct Landmark Landmark_GraniteCave = {LandmarkName_GraniteCave, -1};
+static const struct Landmark Landmark_DewfordCove = {LandmarkName_DewfordCove, FLAG_LANDMARK_DEWFORD_COVE};
 static const struct Landmark Landmark_OceanCurrent = {LandmarkName_OceanCurrent, -1};
 static const struct Landmark Landmark_LanettesHouse = {LandmarkName_LanettesHouse, FLAG_LANDMARK_LANETTES_HOUSE};
 static const struct Landmark Landmark_FieryPath = {LandmarkName_FieryPath, FLAG_LANDMARK_FIERY_PATH};
@@ -125,9 +127,10 @@ static const struct Landmark *const Landmarks_Route105_0[]  =
     NULL,
 };
 
-static const struct Landmark *const Landmarks_Route106_1[]  =
+static const struct Landmark *const Landmarks_Route106_2[]  =
 {
     &Landmark_GraniteCave,
+    &Landmark_DewfordCove,
     NULL,
 };
 
@@ -342,7 +345,7 @@ static const struct LandmarkList gLandmarkLists[] =
     {MAPSEC_ROUTE_104, 0, Landmarks_Route104_0},
     {MAPSEC_ROUTE_104, 1, Landmarks_Route104_1},
     {MAPSEC_ROUTE_105, 0, Landmarks_Route105_0},
-    {MAPSEC_ROUTE_106, 1, Landmarks_Route106_1},
+    {MAPSEC_ROUTE_106, 2, Landmarks_Route106_2},
     {MAPSEC_ROUTE_108, 0, Landmarks_Route108_0},
     {MAPSEC_ROUTE_109, 0, Landmarks_Route109_0},
     {MAPSEC_ROUTE_110, 0, Landmarks_Route110_0},
