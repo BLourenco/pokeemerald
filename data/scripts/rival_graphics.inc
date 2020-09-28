@@ -29,7 +29,7 @@ EventScript_SetupRivalOnBikeGfxIdFemale:: @ 8271F13
 EventScript_SetupRivalOnBikeGfxIdMale:: @ 8271F19
 	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_RIVAL_BRENDAN_MACH_BIKE
 	return
-
+	
 @ Unused
 Common_EventScript_SetupRivalGfxIdSameGender:: @ 8271F1F
 	checkplayergender

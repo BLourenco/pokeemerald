@@ -4420,6 +4420,16 @@
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/DewfordCove/border.bin",
       "blockdata_filepath": "data/layouts/DewfordCove/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRY_ASHLANDS",
+      "name": "DryAshlands_Layout",
+      "width": 58,
+      "height": 38,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/DryAshlands/border.bin",
+      "blockdata_filepath": "data/layouts/DryAshlands/map.bin"
     }
   ]
 }
