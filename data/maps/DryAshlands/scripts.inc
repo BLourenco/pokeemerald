@@ -62,7 +62,10 @@ DryAshlands_EventScript_RivalScene::
 	applymovement LOCALID_RIVAL, Common_Movement_Delay48
 	waitmovement 0
 	delay 30
-	call DryAshlands_EventScript_RivalApproachPlayer
+	applymovement LOCALID_RIVAL, DryAshlands_Movement_RivalApproachPlayer
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
+	waitmovement 0
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq DryAshlands_EventScript_MayBattle
@@ -88,17 +91,17 @@ DryAshlands_EventScript_MayBattle:: @ 81EF7EB
 	end
 
 DryAshlands_EventScript_MayBattleTreecko:: @ 81EF81A
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_TREECKO, DryAshlands_Text_MayDefeated
+	trainerbattle_no_intro TRAINER_MAY_DRY_ASHLANDS_TREECKO, DryAshlands_Text_MayDefeated
 	goto DryAshlands_EventScript_MayDefeated
 	end
 
 DryAshlands_EventScript_MayBattleTorchic:: @ 81EF82A
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_TORCHIC, DryAshlands_Text_MayDefeated
+	trainerbattle_no_intro TRAINER_MAY_DRY_ASHLANDS_TORCHIC, DryAshlands_Text_MayDefeated
 	goto DryAshlands_EventScript_MayDefeated
 	end
 
 DryAshlands_EventScript_MayBattleMudkip:: @ 81EF83A
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_MUDKIP, DryAshlands_Text_MayDefeated
+	trainerbattle_no_intro TRAINER_MAY_DRY_ASHLANDS_MUDKIP, DryAshlands_Text_MayDefeated
 	goto DryAshlands_EventScript_MayDefeated
 	end
 
@@ -118,17 +121,17 @@ DryAshlands_EventScript_BrendanBattle:: @ 81EF865
 	end
 
 DryAshlands_EventScript_BrendanBattleTreecko:: @ 81EF894
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_110_TREECKO, DryAshlands_Text_BrendanDefeated
+	trainerbattle_no_intro TRAINER_BRENDAN_DRY_ASHLANDS_TREECKO, DryAshlands_Text_BrendanDefeated
 	goto DryAshlands_EventScript_BrendanDefeated
 	end
 
 DryAshlands_EventScript_BrendanBattleTorchic:: @ 81EF8A4
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_110_TORCHIC, DryAshlands_Text_BrendanDefeated
+	trainerbattle_no_intro TRAINER_BRENDAN_DRY_ASHLANDS_TORCHIC, DryAshlands_Text_BrendanDefeated
 	goto DryAshlands_EventScript_BrendanDefeated
 	end
 
 DryAshlands_EventScript_BrendanBattleMudkip:: @ 81EF8B4
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_110_MUDKIP, DryAshlands_Text_BrendanDefeated
+	trainerbattle_no_intro TRAINER_BRENDAN_DRY_ASHLANDS_MUDKIP, DryAshlands_Text_BrendanDefeated
 	goto DryAshlands_EventScript_BrendanDefeated
 	end
 
@@ -159,11 +162,6 @@ DryAshlands_EventScript_RivalExit:: @ 81EF8EC
 	fadedefaultbgm
 	releaseall
 	end
-
-DryAshlands_EventScript_RivalApproachPlayer:: @ 81EF94E
-	applymovement LOCALID_RIVAL, DryAshlands_Movement_RivalApproachPlayer
-	waitmovement 0
-	return
 
 DryAshlands_EventScript_MoveRival:: @ 81EF990
 	setobjectxyperm LOCALID_RIVAL_ON_BIKE, 43, 18
