@@ -199,54 +199,28 @@ DryAshlands_Text_ToughWaterPokemon:
 	.string "Pokémon you find elsewhere in Hoenn.$"
 
 DryAshlands_Text_MayLetsBattle:
-	.string "May: Hi, {PLAYER}{KUN}, long time no see!\p"
-	.string "While I was searching for other\n"
-	.string "Pokémon, my Pokémon grew stronger.\p"
-	.string "So…\n"
-	.string "How about a little battle?$"
+	.string "May: Hi, {PLAYER}{KUN}, let's battle!$"
 
 DryAshlands_Text_MayDefeated:
 	.string "Yikes!\n"
 	.string "You're better than I expected!$"
 
 DryAshlands_Text_MayTakeThis: 
-	.string "May: {PLAYER}{KUN}, you've been busy\n"
-	.string "training, too, haven't you?\p"
-	.string "I think you deserve a reward!\n"
-	.string "This is from me!$"
+	.string "May: {PLAYER}{KUN}, take this.$"
 
 DryAshlands_Text_MayExplainItemfinder: @ 81EFD58
-	.string "May: That's an Itemfinder.\p"
-	.string "Try it out. If there is an item that's\n"
-	.string "not visible, it emits a sound.\p"
-	.string "Okay, {PLAYER}{KUN}, let's meet again!\p"
-	.string "I know it's a little silly coming from\n"
-	.string "me, but I think you should train a lot\l"
-	.string "harder for the next time.$"
+	.string "May: That's an item.$"
 
 DryAshlands_Text_BrendanLetsBattle: @ 81EFE3F
-	.string "Brendan: Hey, {PLAYER}.\n"
-	.string "So this is where you were.\l"
-	.string "How's it going?\p"
-	.string "Have you been raising your Pokémon?\n"
-	.string "I'll check for you.$"
+	.string "Brendan: Hey, {PLAYER}, let's battle!$"
 
 DryAshlands_Text_BrendanDefeated: @ 81EFEB4
 	.string "Hmm…\n"
 	.string "You're pretty good.$"
 
 DryAshlands_Text_BrendanTakeThis: @ 81EFECD
-	.string "Brendan: {PLAYER}, you've trained\n"
-	.string "without me noticing…\p"
-	.string "Good enough!\n"
-	.string "Here, take this.$"
+	.string "Brendan: {PLAYER}, take this.$"
 
 DryAshlands_Text_BrendanExplainItemfinder: @ 81EFF1C
-	.string "Brendan: That's an Itemfinder.\p"
-	.string "Use it to root around for items that\n"
-	.string "aren't visible.\p"
-	.string "If it senses something, it emits\n"
-	.string "a sound.\p"
-	.string "Anyway, I'm off to look for new\n"
-	.string "Pokémon.$"
+	.string "Brendan: That's an item.$"
 
