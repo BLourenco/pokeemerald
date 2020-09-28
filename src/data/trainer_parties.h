@@ -12434,3 +12434,75 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
     .species = SPECIES_KYOGRE,
     }
 };
+
+static const struct TrainerMonNoItemDefaultMoves sParty_Liam[] = {
+    {
+    .iv = 0,
+    .lvl = 19,
+    .species = SPECIES_RHYDON,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_Cormac[] = {
+    {
+    .iv = 0,
+    .lvl = 18,
+    .species = SPECIES_CUBONE,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_Ingrid[] = {
+    {
+    .iv = 0,
+    .lvl = 18,
+    .species = SPECIES_SPINDA,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_BrendanDryAshlandsTreecko[] = {
+    {
+        .iv = 0,
+        .lvl = 20,
+        .species = SPECIES_COMBUSKEN,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_BrendanDryAshlandsTorchic[] = {
+    {
+        .iv = 0,
+        .lvl = 20,
+        .species = SPECIES_MARSHTOMP,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_BrendanDryAshlandsMudkip[] = {
+    {
+        .iv = 0,
+        .lvl = 20,
+        .species = SPECIES_GROVYLE,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_MayDryAshlandsTreecko[] = {
+    {
+        .iv = 0,
+        .lvl = 20,
+        .species = SPECIES_COMBUSKEN,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_MayDryAshlandsTorchic[] = {
+    {
+        .iv = 0,
+        .lvl = 20,
+        .species = SPECIES_MARSHTOMP,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_MayDryAshlandsMudkip[] = {
+    {
+        .iv = 0,
+        .lvl = 20,
+        .species = SPECIES_GROVYLE,
+    }
+};

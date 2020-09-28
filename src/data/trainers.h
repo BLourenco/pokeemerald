@@ -11968,4 +11968,130 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_MayLinkPlaceholder),
         .party = {.NoItemDefaultMoves = sParty_MayLinkPlaceholder},
     },
+
+    [TRAINER_LIAM] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_NINJA_BOY,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_NINJA_BOY,
+        .trainerName = _("Liam"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .partySize = ARRAY_COUNT(sParty_Liam),
+        .party = {.NoItemDefaultMoves = sParty_Liam},
+    },
+
+    [TRAINER_CORMAC] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_CAMPER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_CAMPER,
+        .trainerName = _("Cormac"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .partySize = ARRAY_COUNT(sParty_Cormac),
+        .party = {.NoItemDefaultMoves = sParty_Cormac},
+    },
+
+    [TRAINER_INGRID] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_PICNICKER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_PICNICKER,
+        .trainerName = _("Ingrid"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = 0,
+        .partySize = ARRAY_COUNT(sParty_Ingrid),
+        .party = {.NoItemDefaultMoves = sParty_Ingrid},
+    },
+
+    [TRAINER_BRENDAN_DRY_ASHLANDS_TREECKO] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerName = _("Brendan"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_BrendanDryAshlandsTreecko),
+        .party = {.NoItemDefaultMoves = sParty_BrendanDryAshlandsTreecko},
+    },
+
+    [TRAINER_BRENDAN_DRY_ASHLANDS_TORCHIC] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerName = _("Brendan"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_BrendanDryAshlandsTorchic),
+        .party = {.NoItemDefaultMoves = sParty_BrendanDryAshlandsTorchic},
+    },
+
+    [TRAINER_BRENDAN_DRY_ASHLANDS_MUDKIP] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_BRENDAN,
+        .trainerName = _("Brendan"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_BrendanDryAshlandsMudkip),
+        .party = {.NoItemDefaultMoves = sParty_BrendanDryAshlandsMudkip},
+    },
+
+    [TRAINER_MAY_DRY_ASHLANDS_TREECKO] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("May"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_MayDryAshlandsTreecko),
+        .party = {.NoItemDefaultMoves = sParty_MayDryAshlandsTreecko},
+    },
+
+    [TRAINER_MAY_DRY_ASHLANDS_TORCHIC] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("May"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_MayDryAshlandsTorchic),
+        .party = {.NoItemDefaultMoves = sParty_MayDryAshlandsTorchic},
+    },
+
+    [TRAINER_MAY_DRY_ASHLANDS_MUDKIP] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("May"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE | AI_SCRIPT_TRY_TO_FAINT | AI_SCRIPT_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_MayDryAshlandsMudkip),
+        .party = {.NoItemDefaultMoves = sParty_MayDryAshlandsMudkip},
+    },
 };

@@ -90,6 +90,14 @@ Route113_EventScript_ItemHyperPotion:: @ 8290DF6
 	finditem ITEM_HYPER_POTION
 	end
 
+DryAshlands_EventScript_ItemTM89::
+	finditem ITEM_TM89_U_TURN
+	end
+
+DryAshlands_EventScript_ItemProtector::
+	finditem ITEM_PROTECTOR
+	end
+
 Route114_EventScript_ItemRareCandy:: @ 8290E03
 	finditem ITEM_RARE_CANDY
 	end

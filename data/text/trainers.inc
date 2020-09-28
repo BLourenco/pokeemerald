@@ -1786,6 +1786,40 @@ Route113_Text_WyattPostBattle: @ 829A65D
 	.string "Aren't you just the coolest?\n"
 	.string "Humph!$"
 
+DryAshlands_Text_LiamIntro:
+	.string "If you want to use the bridge, you\n"
+	.string "will have to defeat me first!$"
+
+DryAshlands_Text_LiamDefeat:
+	.string "Ack! Downed in one fell swoop!$"
+
+DryAshlands_Text_LiamPostBattle:
+	.string "You didn't actually have to beat me\n"
+	.string "if you wanted to use the bridge.\p"
+	.string "I just like to mess with people.$"
+
+DryAshlands_Text_CormacIntro:
+	.string "Only the toughest can survive in\n"
+	.string "these ashlands. How tough are you?$"
+
+DryAshlands_Text_CormacDefeat:
+	.string "I guess you are pretty tough…$"
+
+DryAshlands_Text_CormacPostBattle:
+	.string "You'll have no problem hanging around\n"
+	.string "these parts, that's for sure.$"
+
+DryAshlands_Text_IngridIntro:
+	.string "My Pokémon and I are covered in soot.\n"
+	.string "Let's shake it off with a battle!$"
+
+DryAshlands_Text_IngridDefeat:
+	.string "All clean now.$"
+
+DryAshlands_Text_IngridPostBattle:
+	.string "You may want to avoid camping overnight\n"
+	.string "here. You'll wake up buried in soot.$"
+
 Route114_Text_LennyIntro: @ 829A6B1
 	.string "Yodelayhihoo!\p"
 	.string "… …\p"

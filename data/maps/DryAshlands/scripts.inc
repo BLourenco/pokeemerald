@@ -1,5 +1,5 @@
-.set LOCALID_RIVAL, 7
-.set LOCALID_RIVAL_ON_BIKE, 8
+.set LOCALID_RIVAL, 6
+.set LOCALID_RIVAL_ON_BIKE, 7
 
 DryAshlands_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, DryAshlands_OnResume
@@ -14,14 +14,41 @@ DryAshlands_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	call Common_EventScript_SetupRivalOnBikeGfxId
 	end
-    
+
+DryAshlands_EventScript_RouteSign::
+	msgbox DryAshlands_Text_RouteSign, MSGBOX_SIGN
+	end
+
+DryAshlands_EventScript_Fisherman:: @ 81F218A
+	msgbox DryAshlands_Text_ToughWaterPokemon, MSGBOX_NPC
+	end
+
+DryAshlands_EventScript_NorthPointSign::
+	msgbox DryAshlands_Text_NorthPointSign, MSGBOX_SIGN
+	end
+  
 DryAshlands_EventScript_RivalTrigger::
 	goto DryAshlands_EventScript_RivalScene
+	end
+
+DryAshlands_EventScript_Liam::
+	trainerbattle_single TRAINER_LIAM, DryAshlands_Text_LiamIntro, DryAshlands_Text_LiamDefeat
+	msgbox DryAshlands_Text_LiamPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+DryAshlands_EventScript_Ingrid::
+	trainerbattle_single TRAINER_INGRID, DryAshlands_Text_IngridIntro, DryAshlands_Text_IngridDefeat
+	msgbox DryAshlands_Text_IngridPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+DryAshlands_EventScript_Cormac::
+	trainerbattle_single TRAINER_CORMAC, DryAshlands_Text_CormacIntro, DryAshlands_Text_CormacDefeat
+	msgbox DryAshlands_Text_CormacPostBattle, MSGBOX_AUTOCLOSE
 	end
     
 @ Redo the following events
 
-DryAshlands_EventScript_RivalScene:: @ 81EF76E
+DryAshlands_EventScript_RivalScene::
 	lockall
 	checkplayergender
 	compare VAR_RESULT, MALE
@@ -158,18 +185,33 @@ DryAshlands_Movement_RivalExit: @ 81EF9B2
 	walk_fast_left
 	step_end
 
-DryAshlands_Text_MayLetsBattle: @ 81EFC48
+DryAshlands_Text_RouteSign:
+	.string "The Ash Drylands\n"
+	.string "{DOWN_ARROW} Route 113$"
+
+DryAshlands_Text_NorthPointSign:
+	.string "If you walk up to the edge of\n"
+	.string "this cliff, you'll have reached the\l"
+	.string "northernmost point in Hoenn!$"
+
+DryAshlands_Text_ToughWaterPokemon:
+	.string "The falling ash from Mt. Chimney\n"
+	.string "makes these waters inhabitable to\l"
+	.string "many of the usual water-dwelling\l"
+	.string "Pokémon you find elsewhere in Hoenn.$"
+
+DryAshlands_Text_MayLetsBattle:
 	.string "May: Hi, {PLAYER}{KUN}, long time no see!\p"
 	.string "While I was searching for other\n"
 	.string "Pokémon, my Pokémon grew stronger.\p"
 	.string "So…\n"
 	.string "How about a little battle?$"
 
-DryAshlands_Text_MayDefeated: @ 81EFCCB
+DryAshlands_Text_MayDefeated:
 	.string "Yikes!\n"
 	.string "You're better than I expected!$"
 
-DryAshlands_Text_MayTakeThis: @ 81EFCF1
+DryAshlands_Text_MayTakeThis: 
 	.string "May: {PLAYER}{KUN}, you've been busy\n"
 	.string "training, too, haven't you?\p"
 	.string "I think you deserve a reward!\n"

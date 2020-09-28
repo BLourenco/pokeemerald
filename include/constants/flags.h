@@ -652,9 +652,9 @@
 
 #define FLAG_HIDDEN_ITEM_DEWFORD_COVE_HEART_SCALE            0x264
 #define FLAG_HIDDEN_ITEM_DEWFORD_COVE_NUGGET                 0x265
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
+#define FLAG_HIDDEN_ITEM_DRY_ASHLANDS_RARE_BONE              0x266
+#define FLAG_HIDDEN_ITEM_DRY_ASHLANDS_RARE_CANDY             0x267
+#define FLAG_HIDDEN_ITEM_DRY_ASHLANDS_REVIVAL_HERB           0x268
 #define FLAG_UNUSED_0x269  0x269 // Unused Flag
 #define FLAG_UNUSED_0x26A  0x26A // Unused Flag
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
@@ -1227,8 +1227,8 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTHEAST_TM_93                       0x49B
 #define FLAG_ITEM_DEWFORD_COVE_TM_99                                0x49C
 #define FLAG_ITEM_DEWFORD_COVE_COVER_FOSSIL                         0x49D
-#define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
-#define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
+#define FLAG_ITEM_DRY_ASHLANDS_TM_89                                0x49E
+#define FLAG_ITEM_DRY_ASHLANDS_PROTECTOR                            0x49F
 #define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
 #define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
 #define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
