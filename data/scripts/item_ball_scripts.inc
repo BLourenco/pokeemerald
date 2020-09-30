@@ -78,8 +78,8 @@ Route112_EventScript_ItemNugget:: @ 8290DCF
 	finditem ITEM_NUGGET
 	end
 
-Route113_EventScript_ItemMaxEther:: @ 8290DDC
-	finditem ITEM_MAX_ETHER
+Route113_EventScript_ItemTM32:: @ 8290DDC
+	finditem ITEM_TM32
 	end
 
 Route113_EventScript_ItemSuperRepel:: @ 8290DE9

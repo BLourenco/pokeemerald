@@ -1,3 +1,5 @@
+.set LOCALID_GLASS_WORKER, 18
+
 Route113_MapScripts:: @ 81F2153
 	map_script MAP_SCRIPT_ON_RESUME, Route113_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, Route113_OnTransition
@@ -23,6 +25,141 @@ Route113_EventScript_CheckSetAshWeather:: @ 81F216A
 
 Route113_EventScript_DontSetAshWeather:: @ 81F2189
 	return
+
+Route113_EventScript_GlassWorkerTrigger1:: @ 81EF74D
+	setvar VAR_0x8008, 1
+	goto Route113_EventScript_GlassWorkerScene
+	end
+
+Route113_EventScript_GlassWorkerTrigger2:: @ 81EF758
+	setvar VAR_0x8008, 2
+	goto Route113_EventScript_GlassWorkerScene
+	end
+
+Route113_EventScript_GlassWorkerTrigger3:: @ 81EF763
+	setvar VAR_0x8008, 3
+	goto Route113_EventScript_GlassWorkerScene
+	end
+
+Route113_EventScript_GlassWorkerScene::
+	lockall
+	faceplayer
+	applymovement LOCALID_GLASS_WORKER, Common_Movement_WalkInPlaceFastestRight
+	waitmovement 0
+	playse SE_PIN
+	applymovement LOCALID_GLASS_WORKER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_GLASS_WORKER, Common_Movement_Delay48
+	waitmovement 0
+	delay 30
+	compare VAR_0x8008, 1
+	call_if_eq Route113_EventScript_GlassWorkerApproachPlayer1
+	compare VAR_0x8008, 2
+	call_if_eq Route113_EventScript_GlassWorkerApproachPlayer2
+	compare VAR_0x8008, 3
+	call_if_eq Route113_EventScript_GlassWorkerApproachPlayer3
+	msgbox Route113_Text_GoCollectAshWithThis, MSGBOX_DEFAULT
+	giveitem ITEM_SOOT_SACK
+	setvar VAR_GLASS_WORKSHOP_STATE, 1
+	msgbox Route113_Text_ExplainSootSack, MSGBOX_DEFAULT
+	closemessage
+	compare VAR_0x8008, 1
+	call_if_eq Route113_EventScript_GlassWorkerExit1
+	compare VAR_0x8008, 2
+	call_if_eq Route113_EventScript_GlassWorkerExit2
+	compare VAR_0x8008, 3
+	call_if_eq Route113_EventScript_GlassWorkerExit3
+	removeobject LOCALID_GLASS_WORKER
+	releaseall
+	end
+
+Route113_EventScript_GlassWorkerApproachPlayer1:: @ 81EF94E
+	applymovement LOCALID_GLASS_WORKER, Route113_Movement_GlassWorkerApproachPlayer1
+	waitmovement 0
+	return
+
+Route113_EventScript_GlassWorkerApproachPlayer2:: @ 81EF959
+	applymovement LOCALID_GLASS_WORKER, Route113_Movement_GlassWorkerApproachPlayer2
+	waitmovement 0
+	return
+
+Route113_EventScript_GlassWorkerApproachPlayer3:: @ 81EF964
+	applymovement LOCALID_GLASS_WORKER, Route113_Movement_GlassWorkerApproachPlayer3
+	waitmovement 0
+	return
+
+Route113_EventScript_GlassWorkerExit1:: @ 81EF96F
+	applymovement LOCALID_GLASS_WORKER, Route113_Movement_GlassWorkerExit1
+	waitmovement 0
+	return
+
+Route113_EventScript_GlassWorkerExit2:: @ 81EF96F
+	applymovement LOCALID_GLASS_WORKER, Route113_Movement_GlassWorkerExit2
+	waitmovement 0
+	return
+
+Route113_EventScript_GlassWorkerExit3:: @ 81EF96F
+	applymovement LOCALID_GLASS_WORKER, Route113_Movement_GlassWorkerExit3
+	waitmovement 0
+	return
+
+Route113_Movement_GlassWorkerApproachPlayer1: @ 81EF9A8
+	walk_up
+	walk_right
+	walk_right
+	walk_in_place_fastest_right
+	step_end
+
+Route113_Movement_GlassWorkerApproachPlayer2: @ 81EF9AC
+	walk_right
+	walk_right
+	step_end
+
+Route113_Movement_GlassWorkerApproachPlayer3: @ 81EF9AE
+	walk_down
+	walk_right
+	walk_right
+	walk_in_place_fastest_right
+	step_end
+
+Route113_Movement_GlassWorkerExit1: @ 81EF9BA
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	step_end
+
+Route113_Movement_GlassWorkerExit2: @ 81EF9BA
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	step_end
+
+Route113_Movement_GlassWorkerExit3: @ 81EF9BA
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	step_end
 
 Route113_EventScript_Gentleman:: @ 81F218A
 	msgbox Route113_Text_AshCanBeFashionedIntoGlass, MSGBOX_NPC
@@ -136,6 +273,24 @@ Route113_EventScript_Wyatt:: @ 81F2344
 	trainerbattle_single TRAINER_WYATT, Route113_Text_WyattIntro, Route113_Text_WyattDefeat
 	msgbox Route113_Text_WyattPostBattle, MSGBOX_AUTOCLOSE
 	end
+
+Route113_Text_GoCollectAshWithThis: @ 826F19D
+	.string "This area is covered in volcanic ash,\n"
+	.string "huff-puff!\p"
+	.string "I'm specially gifted, huff-puff.\p"
+	.string "I make glass out of volcanic ash\n"
+	.string "and make items, huff-puff.\p"
+	.string "Go collect ashes with this, huff-puff.$"
+
+Route113_Text_ExplainSootSack: @ 826F252
+	.string "Just take that Soot Sack and walk\n"
+	.string "through the grass, huff-puff.\p"
+	.string "And it will fill up with the volcanic ash,\n"
+	.string "huff-puff.\p"
+	.string "Once you think you've collected a good\n"
+	.string "amount, come see me, huff-puff.\p"
+	.string "My workshop is at the other end of this\n"
+	.string "route, huff-puff.$"
 
 Route113_Text_AshCanBeFashionedIntoGlass: @ 81F235B
 	.string "Wahahaha! Today's technology is a\n"

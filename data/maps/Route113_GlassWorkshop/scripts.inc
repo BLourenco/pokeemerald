@@ -341,9 +341,9 @@ Route113_GlassWorkshop_Text_NotEnoughAshNeedX: @ 826F34E
 	.string "Hmmm…\n"
 	.string "There's not enough ash here, huff-puff.\l"
 	.string "I can't make glass with this, huff-puff.\p"
-	.string "Let's see… {STR_VAR_1} is the number of steps\n"
-	.string "you'll need to walk for me to make you\l"
-	.string "a Blue Flute, huff-puff.$"
+	.string "Let's see… You need an additional\n"
+	.string "{STR_VAR_1} grams of ash for me to make\l"
+	.string "you a Blue Flute, huff-puff.$"
 
 Route113_GlassWorkshop_Text_WhichGlassItemWoudYouLike: @ 826F40A
 	.string "Oh!\n"
@@ -367,9 +367,9 @@ Route113_GlassWorkshop_Text_NotEnoughAshToMakeItem: @ 826F543
 	.string "A {STR_VAR_1}, huff-puff?\p"
 	.string "There's not enough ash here to make\n"
 	.string "that, though, huff-puff.\p"
-	.string "Let's see… {STR_VAR_2} is the number of steps\n"
-	.string "you'll need to walk through volcanic ash\l"
-	.string "for me to make that item, huff-puff.\p"
+	.string "Let's see… You need an additional\n"
+	.string "{STR_VAR_2} grams of ash for me to make\l"
+	.string "you that item, huff-puff.$"
 	.string "Which item would you rather have me\n"
 	.string "make instead, huff-puff?$"
 

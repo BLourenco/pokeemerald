@@ -12,6 +12,7 @@
 #include "main.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
+#include "random.h"
 #include "script.h"
 #include "secret_base.h"
 #include "sound.h"
@@ -629,7 +630,9 @@ static void AshGrassPerStepCallback(u8 taskId)
             {
                 ashGatherCount = GetVarPointer(VAR_ASH_GATHER_COUNT);
                 if (*ashGatherCount < 9999)
-                    (*ashGatherCount)++;
+                    (*ashGatherCount) = (*ashGatherCount) + (Random() % 3) + 1;
+                if (*ashGatherCount > 9999)
+                    (*ashGatherCount) = 9999;
             }
         }
     }

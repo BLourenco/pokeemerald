@@ -12438,15 +12438,15 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayLinkPlaceholder[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_Liam[] = {
     {
     .iv = 0,
-    .lvl = 19,
-    .species = SPECIES_RHYDON,
+    .lvl = 21,
+    .species = SPECIES_RHYHORN,
     }
 };
 
 static const struct TrainerMonNoItemDefaultMoves sParty_Cormac[] = {
     {
     .iv = 0,
-    .lvl = 18,
+    .lvl = 19,
     .species = SPECIES_CUBONE,
     }
 };
@@ -12454,7 +12454,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Cormac[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_Ingrid[] = {
     {
     .iv = 0,
-    .lvl = 18,
+    .lvl = 19,
     .species = SPECIES_SPINDA,
     }
 };
@@ -12462,7 +12462,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_Ingrid[] = {
 static const struct TrainerMonNoItemDefaultMoves sParty_BrendanDryAshlandsTreecko[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 25,
         .species = SPECIES_COMBUSKEN,
     }
 };
@@ -12470,7 +12470,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BrendanDryAshlandsTreeck
 static const struct TrainerMonNoItemDefaultMoves sParty_BrendanDryAshlandsTorchic[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 25,
         .species = SPECIES_MARSHTOMP,
     }
 };
@@ -12478,7 +12478,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BrendanDryAshlandsTorchi
 static const struct TrainerMonNoItemDefaultMoves sParty_BrendanDryAshlandsMudkip[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 25,
         .species = SPECIES_GROVYLE,
     }
 };
@@ -12486,7 +12486,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BrendanDryAshlandsMudkip
 static const struct TrainerMonNoItemDefaultMoves sParty_MayDryAshlandsTreecko[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 25,
         .species = SPECIES_COMBUSKEN,
     }
 };
@@ -12494,7 +12494,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayDryAshlandsTreecko[] 
 static const struct TrainerMonNoItemDefaultMoves sParty_MayDryAshlandsTorchic[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 25,
         .species = SPECIES_MARSHTOMP,
     }
 };
@@ -12502,7 +12502,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayDryAshlandsTorchic[] 
 static const struct TrainerMonNoItemDefaultMoves sParty_MayDryAshlandsMudkip[] = {
     {
         .iv = 0,
-        .lvl = 20,
+        .lvl = 25,
         .species = SPECIES_GROVYLE,
     }
 };

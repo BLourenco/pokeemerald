@@ -237,6 +237,7 @@ const u8 gText_ItemFinderNearby[] = _("Huh?\nThe Itemfinder's responding!\pThere
 const u8 gText_ItemFinderOnTop[] = _("Oh!\nThe Itemfinder's shaking wildly!{PAUSE_UNTIL_PRESS}");
 const u8 gText_ItemFinderNothing[] = _("… … … …Nope!\nThere's no response.{PAUSE_UNTIL_PRESS}");
 const u8 gText_CoinCase[] = _("Your coins:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS}");
+const u8 gText_SootSack[] = _("Soot collected:\n{STR_VAR_1}g{PAUSE_UNTIL_PRESS}");
 const u8 gText_BootedUpTM[] = _("Booted up a TM.");
 const u8 gText_BootedUpHM[] = _("Booted up an HM.");
 const u8 gText_TMHMContainedVar1[] = _("It contained\n{STR_VAR_1}.\pTeach {STR_VAR_1}\nto a Pokémon?");

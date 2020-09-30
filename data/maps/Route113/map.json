@@ -32,10 +32,10 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
-      "x": 66,
-      "y": 12,
+      "x": 82,
+      "y": 7,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -96,7 +96,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL_TM",
       "x": 53,
       "y": 7,
       "elevation": 3,
@@ -105,8 +105,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route113_EventScript_ItemMaxEther",
-      "flag": "FLAG_ITEM_ROUTE_113_MAX_ETHER"
+      "script": "Route113_EventScript_ItemTM32",
+      "flag": "FLAG_ITEM_ROUTE_113_TM_32"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -250,6 +250,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
+      "x": 66,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_ROUTE_113_GLASS_WORKER"
     }
   ],
   "warp_events": [
@@ -436,6 +449,33 @@
       "y": 7,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_GLASS_WORKSHOP_STATE",
+      "var_value": "0",
+      "script": "Route113_EventScript_GlassWorkerTrigger1"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_GLASS_WORKSHOP_STATE",
+      "var_value": "0",
+      "script": "Route113_EventScript_GlassWorkerTrigger2"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_GLASS_WORKSHOP_STATE",
+      "var_value": "0",
+      "script": "Route113_EventScript_GlassWorkerTrigger3"
     }
   ],
   "bg_events": [
@@ -491,7 +531,7 @@
       "x": 22,
       "y": 5,
       "elevation": 3,
-      "item": "ITEM_TM32",
+      "item": "ITEM_MAX_ETHER",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_TM_32"
     },
     {
