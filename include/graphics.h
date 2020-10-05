@@ -6520,6 +6520,8 @@ extern const u32 gItemIcon_JawFossil[];
 extern const u32 gItemIconPalette_JawFossil[];
 extern const u32 gItemIcon_SailFossil[];
 extern const u32 gItemIconPalette_SailFossil[];
+extern const u32 gItemIcon_StrangeSouvenir[];
+extern const u32 gItemIconPalette_StrangeSouvenir[];
 // Gen 7 Items
 extern const u32 gItemIcon_ProtectivePads[];
 extern const u32 gItemIconPalette_ProtectivePads[];

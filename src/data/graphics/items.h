@@ -1423,6 +1423,9 @@ const u32 gItemIconPalette_JawFossil[] = INCBIN_U32("graphics/items/icon_palette
 const u32 gItemIcon_SailFossil[] = INCBIN_U32("graphics/items/icons/sail_fossil.4bpp.lz");
 const u32 gItemIconPalette_SailFossil[] = INCBIN_U32("graphics/items/icon_palettes/sail_fossil.gbapal.lz");
 
+const u32 gItemIcon_StrangeSouvenir[] = INCBIN_U32("graphics/items/icons/strange_souvenir.4bpp.lz");
+const u32 gItemIconPalette_StrangeSouvenir[] = INCBIN_U32("graphics/items/icon_palettes/strange_souvenir.gbapal.lz");
+
 // Gen 7 Items
 
 const u32 gItemIcon_ProtectivePads[] = INCBIN_U32("graphics/items/icons/protective_pads.4bpp.lz");

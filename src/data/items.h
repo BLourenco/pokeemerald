@@ -7968,6 +7968,18 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
+    [ITEM_STRANGE_SOUVENIR] =
+    {
+        .name = _("Souvenir"),
+        .itemId = ITEM_STRANGE_SOUVENIR,
+        .price = 0,        
+        .description = sStrangeSouvenirDesc,
+        .pocket = POCKET_TRAINING,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+
     [ITEM_PROTECTIVE_PADS] =
     {
         .name = _("Protect Pads"), // Shortened name from Protective Pads

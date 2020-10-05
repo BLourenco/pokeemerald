@@ -608,6 +608,7 @@ const u32 *const gItemIconTable[][2] =
     [ITEM_WEAKNESS_POLICY] = {gItemIcon_WeaknessPolicy, gItemIconPalette_WeaknessPolicy},
     [ITEM_JAW_FOSSIL] = {gItemIcon_JawFossil, gItemIconPalette_JawFossil},
     [ITEM_SAIL_FOSSIL] = {gItemIcon_SailFossil, gItemIconPalette_SailFossil},
+    [ITEM_STRANGE_SOUVENIR] = {gItemIcon_StrangeSouvenir, gItemIconPalette_StrangeSouvenir},
 	// Gen 7 Items
     [ITEM_PROTECTIVE_PADS] = {gItemIcon_ProtectivePads, gItemIconPalette_ProtectivePads},
     [ITEM_TERRAIN_EXTENDER] = {gItemIcon_TerrainExtender, gItemIconPalette_TerrainExtender},

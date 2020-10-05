@@ -2968,6 +2968,11 @@ static const u8 sMegaBraceletDesc[] = _(
     "a Mega Stone to Mega\n"
     "Evolve in battle.");
 
+static const u8 sStrangeSouvenirDesc[] = _(
+    "A strange souvenir.\n"
+    "When held, certain\n"
+    "Pokémon can evolve.");
+
 static const u8 sProtectPadsDesc[] = _(
     "Guard the holder\n"
     "from contact move\n"
