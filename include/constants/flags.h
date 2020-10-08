@@ -655,7 +655,7 @@
 #define FLAG_HIDDEN_ITEM_DRY_ASHLANDS_RARE_BONE              0x266
 #define FLAG_HIDDEN_ITEM_DRY_ASHLANDS_RARE_CANDY             0x267
 #define FLAG_HIDDEN_ITEM_DRY_ASHLANDS_REVIVAL_HERB           0x268
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
+#define FLAG_HIDDEN_ITEM_RUSTURF_TUNNEL_2F_PP_UP             0x269
 #define FLAG_UNUSED_0x26A  0x26A // Unused Flag
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
@@ -1229,9 +1229,9 @@
 #define FLAG_ITEM_DEWFORD_COVE_COVER_FOSSIL                         0x49D
 #define FLAG_ITEM_DRY_ASHLANDS_TM_89                                0x49E
 #define FLAG_ITEM_DRY_ASHLANDS_PROTECTOR                            0x49F
-#define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
-#define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
-#define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
+#define FLAG_ITEM_RUSTURF_TUNNEL_2F_TM_83                           0x4A0
+#define FLAG_ITEM_RUSTURF_TUNNEL_2F_BACK_ROOM_DOME_FOSSIL           0x4A1
+#define FLAG_ITEM_RUSTURF_TUNNEL_2F_DAWN_STONE                      0x4A2
 #define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
 #define FLAG_UNUSED_0x4A4                                           0x4A4 // Unused Flag
 #define FLAG_UNUSED_0x4A5                                           0x4A5 // Unused Flag
