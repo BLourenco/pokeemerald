@@ -197,7 +197,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_TUBER_M",
       "x": 24,
-      "y": 18,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -210,7 +210,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_TUBER_F",
       "x": 25,
-      "y": 18,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -347,7 +347,9 @@
       "dest_warp_id": 0
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",

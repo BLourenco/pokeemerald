@@ -86,9 +86,6 @@ $(TILESETGFXDIR)/secondary/rustboro/tiles.4bpp: %.4bpp: %.png
 $(TILESETGFXDIR)/secondary/dewford/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 503
 
-$(TILESETGFXDIR)/secondary/slateport/tiles.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 504
-
 $(TILESETGFXDIR)/secondary/mauville/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 503
 
