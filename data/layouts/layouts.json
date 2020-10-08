@@ -4430,6 +4430,26 @@
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/DryAshlands/border.bin",
       "blockdata_filepath": "data/layouts/DryAshlands/map.bin"
+    },
+    {
+      "id": "LAYOUT_RUSTURF_TUNNEL_2F",
+      "name": "RusturfTunnel_2F_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/RusturfTunnel_2F/border.bin",
+      "blockdata_filepath": "data/layouts/RusturfTunnel_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_RUSTURF_TUNNEL_2F_BACK_ROOM",
+      "name": "RusturfTunnel_2F_BackRoom_Layout",
+      "width": 9,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/RusturfTunnel_2F_BackRoom/border.bin",
+      "blockdata_filepath": "data/layouts/RusturfTunnel_2F_BackRoom/map.bin"
     }
   ]
 }

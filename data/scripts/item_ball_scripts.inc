@@ -366,6 +366,18 @@ RusturfTunnel_EventScript_ItemMaxEther:: @ 8291143
 	finditem ITEM_MAX_ETHER
 	end
 
+RusturfTunnel_2F_EventScript_ItemDawnStone:: @ 8291143
+	finditem ITEM_DAWN_STONE
+	end
+
+RusturfTunnel_2F_EventScript_ItemTM83:: @ 8291143
+	finditem ITEM_TM83_LEECH_LIFE
+	end
+
+RusturfTunnel_2F_BackRoom_EventScript_ItemDomeFossil:: @ 8291143
+	finditem ITEM_DOME_FOSSIL
+	end
+
 GraniteCave_1F_EventScript_ItemEscapeRope:: @ 8291150
 	finditem ITEM_ESCAPE_ROPE
 	end

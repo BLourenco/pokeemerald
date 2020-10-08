@@ -433,7 +433,9 @@
     "TerraCave_End",
     "AlteringCave",
     "MeteorFalls_StevensCave",
-    "DryAshlands"
+    "DryAshlands",
+    "RusturfTunnel_2F",
+    "RusturfTunnel_2F_BackRoom"
   ],
   "gMapGroup25": [
     "SecretBase_RedCave1",
