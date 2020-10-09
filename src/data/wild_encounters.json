@@ -1208,7 +1208,7 @@
               {
                 "min_level": 18,
                 "max_level": 20,
-                "species": "SPECIES_BUNNELBY"
+                "species": "SPECIES_SANDSHREW"
               },
               {
                 "min_level": 18,
@@ -11906,52 +11906,52 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
                 "species": "SPECIES_DRATINI"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_BARBOACH"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_BASCULIN"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
               }
             ]
           },
@@ -12061,27 +12061,27 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_BARBOACH"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
                 "species": "SPECIES_WOOPER"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
               }
             ]
           }
@@ -12305,6 +12305,75 @@
                 "min_level": 28,
                 "max_level": 30,
                 "species": "SPECIES_AUDINO"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_RED_CLAY_TUNNELS",
+          "base_label": "gRedClayTunnels",
+          "land_mons": {
+            "encounter_rate": 5,
+            "mons": [
+              {
+                "min_level": 18,
+                "max_level": 20,
+                "species": "SPECIES_DIGLETT"
+              },
+              {
+                "min_level": 18,
+                "max_level": 20,
+                "species": "SPECIES_DIGLETT"
+              },
+              {
+                "min_level": 18,
+                "max_level": 19,
+                "species": "SPECIES_BUNNELBY"
+              },
+              {
+                "min_level": 18,
+                "max_level": 19,
+                "species": "SPECIES_BUNNELBY"
+              },
+              {
+                "min_level": 18,
+                "max_level": 20,
+                "species": "SPECIES_DRILBUR"
+              },
+              {
+                "min_level": 18,
+                "max_level": 20,
+                "species": "SPECIES_DRILBUR"
+              },
+              {
+                "min_level": 18,
+                "max_level": 20,
+                "species": "SPECIES_DUNSPARCE"
+              },
+              {
+                "min_level": 18,
+                "max_level": 20,
+                "species": "SPECIES_DUNSPARCE"
+              },
+              {
+                "min_level": 18,
+                "max_level": 20,
+                "species": "SPECIES_DUNSPARCE"
+              },
+              {
+                "min_level": 18,
+                "max_level": 20,
+                "species": "SPECIES_FERROSEED"
+              },
+              {
+                "min_level": 18,
+                "max_level": 20,
+                "species": "SPECIES_FERROSEED"
+              },
+              {
+                "min_level": 18,
+                "max_level": 20,
+                "species": "SPECIES_FERROSEED"
               }
             ]
           }

@@ -3,7 +3,7 @@
   "name": "DewfordCove",
   "layout": "LAYOUT_DEWFORD_COVE",
   "music": "MUS_ROUTE104",
-  "region_map_section": "MAPSEC_ROUTE_106",
+  "region_map_section": "MAPSEC_DEWFORD_COVE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",

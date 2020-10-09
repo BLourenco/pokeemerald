@@ -90,6 +90,10 @@ Route113_EventScript_ItemHyperPotion:: @ 8290DF6
 	finditem ITEM_HYPER_POTION
 	end
 
+Route113_EventScript_ItemTM74:: @ 8290DF6
+	finditem ITEM_TM74_GYRO_BALL
+	end
+
 DryAshlands_EventScript_ItemTM89::
 	finditem ITEM_TM89_U_TURN
 	end
@@ -98,8 +102,12 @@ DryAshlands_EventScript_ItemProtector::
 	finditem ITEM_PROTECTOR
 	end
 
-Route114_EventScript_ItemRareCandy:: @ 8290E03
+DryAshlands_EventScript_ItemRareCandy::
 	finditem ITEM_RARE_CANDY
+	end
+
+Route114_EventScript_ItemSkullFossil:: @ 8290E03
+	finditem ITEM_SKULL_FOSSIL
 	end
 
 Route114_EventScript_ItemProtein:: @ 8290E10

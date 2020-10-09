@@ -1058,7 +1058,7 @@
 #define FLAG_ITEM_ROUTE_112_NUGGET                                  0x3F3
 #define FLAG_ITEM_ROUTE_113_TM_32                                   0x3F4
 #define FLAG_ITEM_ROUTE_113_SUPER_REPEL                             0x3F5
-#define FLAG_ITEM_ROUTE_114_RARE_CANDY                              0x3F6
+#define FLAG_ITEM_ROUTE_114_SKULL_FOSSIL                            0x3F6
 #define FLAG_ITEM_ROUTE_114_PROTEIN                                 0x3F7
 #define FLAG_ITEM_ROUTE_115_SUPER_POTION                            0x3F8
 #define FLAG_ITEM_ROUTE_115_TM_01                                   0x3F9
@@ -1232,8 +1232,8 @@
 #define FLAG_ITEM_RUSTURF_TUNNEL_2F_TM_83                           0x4A0
 #define FLAG_ITEM_RUSTURF_TUNNEL_2F_BACK_ROOM_DOME_FOSSIL           0x4A1
 #define FLAG_ITEM_RUSTURF_TUNNEL_2F_DAWN_STONE                      0x4A2
-#define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
-#define FLAG_UNUSED_0x4A4                                           0x4A4 // Unused Flag
+#define FLAG_ITEM_ROUTE_113_TM_74                                   0x4A3
+#define FLAG_ITEM_DRY_ASHLANDS_RARE_CANDY                           0x4A4
 #define FLAG_UNUSED_0x4A5                                           0x4A5 // Unused Flag
 #define FLAG_UNUSED_0x4A6                                           0x4A6 // Unused Flag
 #define FLAG_UNUSED_0x4A7                                           0x4A7 // Unused Flag
@@ -1501,8 +1501,8 @@
 #define FLAG_RECEIVED_POKEDEX_FROM_BIRCH            (SYSTEM_FLAGS + 0x84)
 
 #define FLAG_LANDMARK_DEWFORD_COVE                  (SYSTEM_FLAGS + 0x85)
-#define FLAG_UNUSED_0x8E6                           (SYSTEM_FLAGS + 0x86) // Unused Flag
-#define FLAG_UNUSED_0x8E7                           (SYSTEM_FLAGS + 0x87) // Unused Flag
+#define FLAG_LANDMARK_DRY_ASHLANDS                  (SYSTEM_FLAGS + 0x86)
+#define FLAG_LANDMARK_RED_CLAY_TUNNELS              (SYSTEM_FLAGS + 0x87)
 #define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag
 #define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // Unused Flag
 #define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag

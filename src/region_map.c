@@ -131,7 +131,7 @@ static const u16 sRegionMap_SpecialPlaceLocations[][2] =
 {
     {MAPSEC_UNDERWATER_105,             MAPSEC_ROUTE_105},
     {MAPSEC_UNDERWATER_124,             MAPSEC_ROUTE_124},
-    {MAPSEC_UNDERWATER_125,             MAPSEC_ROUTE_129}, // BUG: Map will incorrectly display the name of Route 129 when diving on Route 125 (for Marine Cave only)
+    {MAPSEC_UNDERWATER_125,             MAPSEC_ROUTE_125}, // BUG: Map will incorrectly display the name of Route 129 when diving on Route 125 (for Marine Cave only)
     {MAPSEC_UNDERWATER_126,             MAPSEC_ROUTE_126},
     {MAPSEC_UNDERWATER_127,             MAPSEC_ROUTE_127},
     {MAPSEC_UNDERWATER_128,             MAPSEC_ROUTE_128},
@@ -152,6 +152,8 @@ static const u16 sRegionMap_SpecialPlaceLocations[][2] =
     {MAPSEC_ALTERING_CAVE,              MAPSEC_ROUTE_103},
     {MAPSEC_ARTISAN_CAVE,               MAPSEC_ROUTE_103},
     {MAPSEC_ABANDONED_SHIP,             MAPSEC_ROUTE_108},
+    {MAPSEC_DRY_ASHLANDS,               MAPSEC_ROUTE_113},
+    {MAPSEC_RED_CLAY_TUNNELS,           MAPSEC_ROUTE_114},
     {MAPSEC_NONE,                       MAPSEC_NONE}
 };
 

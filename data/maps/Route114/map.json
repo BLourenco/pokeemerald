@@ -130,17 +130,17 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
       "x": 7,
-      "y": 6,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route114_EventScript_ItemRareCandy",
-      "flag": "FLAG_ITEM_ROUTE_114_RARE_CANDY"
+      "script": "Route114_EventScript_ItemSkullFossil",
+      "flag": "FLAG_ITEM_ROUTE_114_SKULL_FOSSIL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -170,8 +170,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 19,
-      "y": 11,
+      "x": 18,
+      "y": 14,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -183,8 +183,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POOCHYENA",
-      "x": 19,
-      "y": 12,
+      "x": 18,
+      "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -408,9 +408,30 @@
     },
     {
       "x": 7,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 7,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_RED_CLAY_TUNNELS",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 17,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_RED_CLAY_TUNNELS",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 20,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_RED_CLAY_TUNNELS",
       "dest_warp_id": 0
     }
   ],

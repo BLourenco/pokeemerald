@@ -1069,3 +1069,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/RusturfTunnel_2F/scripts.inc"
 
 	.include "data/maps/RusturfTunnel_2F_BackRoom/scripts.inc"
+
+	.include "data/maps/RedClayTunnels/scripts.inc"

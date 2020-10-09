@@ -1,0 +1,90 @@
+{
+  "id": "MAP_RED_CLAY_TUNNELS",
+  "name": "RedClayTunnels",
+  "layout": "LAYOUT_RED_CLAY_TUNNELS",
+  "music": "MUS_RG_SEVII_DUNGEON",
+  "region_map_section": "MAPSEC_RED_CLAY_TUNNELS",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 7,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE114",
+      "dest_warp_id": 7
+    },
+    {
+      "x": 8,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE114",
+      "dest_warp_id": 7
+    },
+    {
+      "x": 14,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_RED_CLAY_TUNNELS",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 55,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE113",
+      "dest_warp_id": 7
+    },
+    {
+      "x": 56,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE113",
+      "dest_warp_id": 7
+    },
+    {
+      "x": 64,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE113",
+      "dest_warp_id": 8
+    },
+    {
+      "x": 65,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE113",
+      "dest_warp_id": 8
+    },
+    {
+      "x": 74,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_DRY_ASHLANDS",
+      "dest_warp_id": 5
+    },
+    {
+      "x": 75,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_DRY_ASHLANDS",
+      "dest_warp_id": 5
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

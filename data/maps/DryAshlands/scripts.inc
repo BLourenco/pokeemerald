@@ -13,6 +13,7 @@ DryAshlands_OnResume:
 DryAshlands_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	call Common_EventScript_SetupRivalOnBikeGfxId
+	setflag FLAG_LANDMARK_DRY_ASHLANDS
 	end
 
 DryAshlands_EventScript_RouteSign::
