@@ -405,6 +405,7 @@
 #define MAP_RUSTURF_TUNNEL_2F                        (109 | (24 << 8))
 #define MAP_RUSTURF_TUNNEL_2F_BACK_ROOM              (110 | (24 << 8))
 #define MAP_RED_CLAY_TUNNELS                         (111 | (24 << 8))
+#define MAP_RED_CLAY_TUNNELS_WEST                    (112 | (24 << 8))
 
 // Map Group 25
 #define MAP_SECRET_BASE_RED_CAVE1           (0 | (25 << 8))

@@ -4460,6 +4460,16 @@
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/RedClayTunnels/border.bin",
       "blockdata_filepath": "data/layouts/RedClayTunnels/map.bin"
+    },
+    {
+      "id": "LAYOUT_RED_CLAY_TUNNELS_WEST",
+      "name": "RedClayTunnels_West_Layout",
+      "width": 42,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/RedClayTunnels_West/border.bin",
+      "blockdata_filepath": "data/layouts/RedClayTunnels_West/map.bin"
     }
   ]
 }
