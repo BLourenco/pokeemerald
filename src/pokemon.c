@@ -10,6 +10,7 @@
 #include "battle_setup.h"
 #include "battle_tower.h"
 #include "data.h"
+#include "dexnav.h"
 #include "event_data.h"
 #include "evolution_scene.h"
 #include "field_specials.h"
@@ -2462,6 +2463,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     u32 personality;
     u32 value;
     u16 checksum;
+    u32 shinyValue;
 
     ZeroBoxMonData(boxMon);
 
@@ -2469,7 +2471,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         personality = fixedPersonality;
     else
         personality = Random32();
-
+    
     //Determine original trainer ID
     if (otIdType == OT_ID_RANDOM_NO_SHINY) //Pokemon cannot be shiny
     {
@@ -2485,7 +2487,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         value = fixedOtId;
     }
     else //Player is the OT
-    {
+    {        
         value = gSaveBlock2Ptr->playerTrainerId[0]
               | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
               | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
@@ -2501,6 +2503,14 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
                 shinyValue = HIHALF(value) ^ LOHALF(value) ^ HIHALF(personality) ^ LOHALF(personality);
                 rolls++;
             } while (shinyValue >= SHINY_ODDS && rolls < SHINY_CHARM_REROLLS);
+        }
+        
+        if (FlagGet(FLAG_SYS_DEXNAV_SEARCH) && DexNavTryMakeShinyMon())
+        {            
+            do {
+                personality = Random32();
+                shinyValue = HIHALF(value) ^ LOHALF(value) ^ HIHALF(personality) ^ LOHALF(personality);
+            } while (shinyValue >= SHINY_ODDS);
         }
     }
 
@@ -3128,9 +3138,9 @@ void CalculateMonStats(struct Pokemon *mon)
         newMaxHP = (((n + hpEV / 4) * level) / 100) + level + 10;
     }
 
-    gBattleScripting.field_23 = newMaxHP - oldMaxHP;
-    if (gBattleScripting.field_23 == 0)
-        gBattleScripting.field_23 = 1;
+    gBattleScripting.levelUpHP = newMaxHP - oldMaxHP;
+    if (gBattleScripting.levelUpHP == 0)
+        gBattleScripting.levelUpHP = 1;
 
     SetMonData(mon, MON_DATA_MAX_HP, &newMaxHP);
 
@@ -4962,19 +4972,21 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                                 break;
                             }
                         }
+
+                        // Get amount of HP to restore
                         dataUnsigned = itemEffect[var_3C++];
                         switch (dataUnsigned)
                         {
-                        case 0xFF:
+                        case ITEM6_HEAL_FULL:
                             dataUnsigned = GetMonData(mon, MON_DATA_MAX_HP, NULL) - GetMonData(mon, MON_DATA_HP, NULL);
                             break;
-                        case 0xFE:
+                        case ITEM6_HEAL_HALF:
                             dataUnsigned = GetMonData(mon, MON_DATA_MAX_HP, NULL) / 2;
                             if (dataUnsigned == 0)
                                 dataUnsigned = 1;
                             break;
-                        case 0xFD:
-                            dataUnsigned = gBattleScripting.field_23;
+                        case ITEM6_HEAL_LVL_UP:
+                            dataUnsigned = gBattleScripting.levelUpHP;
                             break;
                         }
                         if (GetMonData(mon, MON_DATA_MAX_HP, NULL) != GetMonData(mon, MON_DATA_HP, NULL))
@@ -6949,6 +6961,9 @@ void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)
         if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_SPINDA)
             gSaveBlock2Ptr->pokedex.spindaPersonality = personality;
     }
+    
+    if (caseId == FLAG_SET_SEEN)
+        TryIncrementSpeciesSearchLevel(nationalNum);    //encountering pokemon increments its search level
 }
 
 const u8 *GetTrainerClassNameFromId(u16 trainerId)

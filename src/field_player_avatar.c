@@ -140,6 +140,8 @@ static void AlignFishingAnimationFrames(void);
 
 static u8 sub_808D38C(struct ObjectEvent *object, s16 *a1);
 
+static void PlayerGoSlow(u8 direction);
+
 // .rodata
 
 static bool8 (*const sForcedMovementTestFuncs[])(u8) =
@@ -636,12 +638,21 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
 
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
     {
-        // speed 2 is same speed as running, speed 4 is Mach Bike speed
-        if (heldKeys & B_BUTTON)
+        if (FlagGet(FLAG_SYS_DEXNAV_SEARCH) && (heldKeys & A_BUTTON))
+        {
+            gPlayerAvatar.creeping = TRUE;
+            PlayerGoSpeed1(direction);
+        }
+        else if (heldKeys & B_BUTTON)
+        {
+            gPlayerAvatar.creeping = FALSE;
             PlayerGoSpeed4(direction);
+        }
         else
+        {
+            gPlayerAvatar.creeping = FALSE;
             PlayerGoSpeed2(direction);
-
+        }
         return;
     }
 
@@ -661,6 +672,19 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
             return;
         }
         
+    }
+    else if (FlagGet(FLAG_SYS_DEXNAV_SEARCH))
+    {
+        if (heldKeys & A_BUTTON)
+        {
+            gPlayerAvatar.creeping = TRUE;
+            PlayerGoSlow(direction);
+        }
+        else
+        {
+            gPlayerAvatar.creeping = FALSE;
+            PlayerGoSpeed1(direction);
+        }
     }
     else
     {
@@ -970,6 +994,12 @@ void PlayerSetAnimId(u8 movementActionId, u8 copyableMovement)
         PlayerSetCopyableMovement(copyableMovement);
         ObjectEventSetHeldMovement(&gObjectEvents[gPlayerAvatar.objectEventId], movementActionId);
     }
+}
+
+// slow speed
+static void PlayerGoSlow(u8 direction)
+{
+    PlayerSetAnimId(GetWalkSlowMovementAction(direction), 2);
 }
 
 // normal speed (1 speed)

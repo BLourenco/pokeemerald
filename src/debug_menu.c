@@ -173,6 +173,7 @@ static void DebugAction_GiveItem(u8 taskId)
 {    
     FlagSet(FLAG_SYS_POKEDEX_GET);
     FlagSet(FLAG_SYS_POKENAV_GET);
+    FlagSet(FLAG_SYS_DEXNAV_GET);
     u16 i;
     for (i = 1; i < ITEMS_COUNT; i++)
         AddBagItem(i,99);
