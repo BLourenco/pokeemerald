@@ -80,7 +80,7 @@ MeteorFalls_1F_2R_Text_NicolasPostBattle: @ 822C6A3
 
 MeteorFalls_1F_2R_Text_NicolasRegister: @ 822C6F6
 	.string "I want to know more about your power.\n"
-	.string "Let me register you in my Pokénav.$"
+	.string "Let me register you in my PokéNav.$"
 
 MeteorFalls_1F_2R_Text_NicolasRematchIntro: @ 822C73F
 	.string "Since we met, we have trained hard\n"

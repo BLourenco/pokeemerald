@@ -1376,7 +1376,7 @@ SlateportCity_Text_LetsRegisterEachOther: @ 81DF12B
 
 SlateportCity_Text_RegisteredScott: @ 81DF1A6
 	.string "Registered this Scott person\n"
-	.string "in the Pokénav.$"
+	.string "in the PokéNav.$"
 
 SlateportCity_Text_KeepEyeOnTrainersBeSeeingYou: @ 81DF1D3
 	.string "Scott: What I'd like to do is tag along\n"

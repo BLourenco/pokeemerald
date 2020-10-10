@@ -380,7 +380,7 @@ MauvilleCity_Gym_Text_ExplainShockWave: @ 820E844
 
 MauvilleCity_Gym_Text_RegisteredWattson: @ 820E8B5
 	.string "Registered Gym Leader Wattson\n"
-	.string "in the Pokénav.$"
+	.string "in the PokéNav.$"
 
 MauvilleCity_Gym_Text_WattsonPostBattle: @ 820E8E3
 	.string "I swell with optimism, seeing a promising\n"

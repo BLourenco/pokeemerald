@@ -1002,17 +1002,17 @@ Route110_Text_HeardYouInstallMatchCall: @ 81F0AFF
 	.string "Oh, I see!\n"
 	.string "You two are running separately.\l"
 	.string "Well, that's fine.\p"
-	.string "Oh, yes, I heard that your Pokénav\n"
+	.string "Oh, yes, I heard that your PokéNav\n"
 	.string "had the Match Call system installed.\p"
 	.string "Well, then, I should register you in\n"
-	.string "my Pokénav as well.\p"
+	.string "my PokéNav as well.\p"
 	.string "That way, even when we're apart,\n"
 	.string "I can rate your Pokédex anytime.\p"
 	.string "… … … … … …$"
 
 Route110_Text_RegisteredBirchInPokenav: @ 81F0C0C
 	.string "Registered Prof. Birch\n"
-	.string "in the Pokénav.$"
+	.string "in the PokéNav.$"
 
 Route110_Text_KeepAnEyeOutForRival: @ 81F0C33
 	.string "Prof. Birch: {PLAYER}{KUN}…\p"

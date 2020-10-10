@@ -54,7 +54,7 @@ FallarborTown_ContestHall_Text_MonAllTheseRibbons: @ 8200791
 	.string "See!\n"
 	.string "My Pokémon won all these Ribbons!\p"
 	.string "Have your Pokémon earned any Ribbons?\n"
-	.string "You can check them on your Pokénav.$"
+	.string "You can check them on your PokéNav.$"
 
 @ Unused
 FallarborTown_ContestHall_Text_CantWinEverywhere: @ 8200802

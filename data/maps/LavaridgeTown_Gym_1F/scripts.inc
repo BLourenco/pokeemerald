@@ -359,7 +359,7 @@ LavaridgeTown_Gym_1F_Text_ExplainOverheat: @ 81FF45C
 
 LavaridgeTown_Gym_1F_Text_RegisteredFlannery: @ 81FF517
 	.string "Registered Gym Leader Flannery\n"
-	.string "in the Pokénav.$"
+	.string "in the PokéNav.$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryPostBattle: @ 81FF546
 	.string "Your power reminds me of someone…\p"

@@ -414,12 +414,12 @@ PetalburgWoods_Text_PeopleRespectYou: @ 822E889
 PetalburgWoods_Text_IWantRematch1: @ 822E8C3
 	.string "I want a rematch when my Bug\n"
 	.string "Pokémon grow up!\p"
-	.string "I'm registering you in my Pokénav!$"
+	.string "I'm registering you in my PokéNav!$"
 
 PetalburgWoods_Text_IWantRematch2: @ 822E914
 	.string "I want a rematch when my Bug \n"
 	.string "Pokémon grow up!\p"
-	.string "I'm registering you in my Pokénav!$"
+	.string "I'm registering you in my PokéNav!$"
 
 PetalburgWoods_Text_MyPokemonHaveGrown: @ 822E966
 	.string "My Bug Pokémon have grown.\n"

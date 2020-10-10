@@ -43,7 +43,7 @@ MtPyre_6F_Text_ValerieRegister: @ 8231E43
 	.string "Fufufu… I lost the match, but…\n"
 	.string "I have this little ability…\p"
 	.string "Without ever laying my hands on\n"
-	.string "your Pokénav… Hiyah!$"
+	.string "your PokéNav… Hiyah!$"
 
 MtPyre_6F_Text_ValerieRematchIntro: @ 8231EB3
 	.string "Behind you…\n"

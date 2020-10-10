@@ -1160,14 +1160,14 @@ RustboroCity_Text_PleaseComeWithMe: @ 81E1A21
 RustboroCity_Text_MayHiLetsRegister: @ 81E1A49
 	.string "May: Oh, hi, {PLAYER}{KUN}!\p"
 	.string "You had a Match Call feature put\n"
-	.string "on your Pokénav!\p"
+	.string "on your PokéNav!\p"
 	.string "Let's register each other so we can\n"
 	.string "contact one another anytime!\p"
 	.string "… … … … … …$"
 
 RustboroCity_Text_RegisteredMay: @ 81E1ADB
 	.string "Registered May\n"
-	.string "in the Pokénav.$"
+	.string "in the PokéNav.$"
 
 RustboroCity_Text_MayPassedBrineyWantToBattle: @ 81E1AFA
 	.string "May: Oh, by the way, I passed\n"
@@ -1207,14 +1207,14 @@ RustboroCity_Text_MayMrBrineyHint: @ 81E1CE7
 RustboroCity_Text_BrendanHiLetsRegister: @ 81E1D7D
 	.string "Brendan: Oh, hey, {PLAYER}!\p"
 	.string "You had a Match Call feature put\n"
-	.string "on your Pokénav! Cool!\p"
+	.string "on your PokéNav! Cool!\p"
 	.string "Let's register each other so we can\n"
 	.string "get in touch anytime!\p"
 	.string "… … … … … …$"
 
 RustboroCity_Text_RegisteredBrendan: @ 81E1E11
 	.string "Registered Brendan\n"
-	.string "in the Pokénav.$"
+	.string "in the PokéNav.$"
 
 RustboroCity_Text_BrendanPassedBrineyWantToBattle: @ 81E1E34
 	.string "Brendan: By the way, {PLAYER}, I walked\n"
@@ -1289,25 +1289,38 @@ RustboroCity_Text_DevelopedNewPokenavFeature: @ 81E22A5
 	.string "I've been developing an added feature\n"
 	.string "for the Pokénav…\p"
 	.string "And it turned out great!\p"
-	.string "{PLAYER}, may I see that Pokénav?\n"
+	.string "{PLAYER}, may I see that PokéNav?\n"
 	.string "The one our President gave you?$"
 
 RustboroCity_Text_AddedMatchCallPleaseCallMrStone: @ 81E2331
 	.string "There you go, {PLAYER}!\p"
 	.string "I added a new feature named\n"
-	.string "Match Call to your Pokénav.\p"
+	.string "Match Call to your PokéNav.\p"
 	.string "Using the Match Call feature,\n"
 	.string "you can chat with people who have\l"
-	.string "been registered in your Pokénav.\p"
+	.string "been registered in your PokéNav.\p"
 	.string "{PLAYER}, our President Stone should\n"
-	.string "be registered in your Pokénav.\p"
+	.string "be registered in your PokéNav.\p"
 	.string "Test it out.\n"
 	.string "Please give our President a call.$"
 
 RustboroCity_Text_PleaseSelectPokenav: @ 81E2449
-	.string "Please select the Pokénav.$"
+	.string "Please select the PokéNav.$"
 
 RustboroCity_Text_IdBetterGetBackToWork: @ 81E2464
+	.string "You may have noticed another new\n"
+	.string "option below the PokéNav called\l"
+	.string "the DexNav.\p"
+	.string "It's not much use here in the city,\n"
+	.string "but try it out where ever Pokémon\l"
+	.string "can be found.\p"
+	.string "It'll allow you to track down\n"
+	.string "specific Pokémon, and every encounter\l"
+	.string "with that same Pokemon increases its\l"
+	.string "Search Level.\p"
+	.string "Higher Search Levels means a better\n"
+	.string "chance to find Pokémon with special\l"
+	.string "moves, hidden abilities, and items!\p"
 	.string "Okay, I'd better get back to work.\n"
 	.string "Please take care, {PLAYER}!$"
 

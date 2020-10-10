@@ -79,7 +79,7 @@ MtPyre_3F_Text_GabriellePostBattle: @ 823199B
 MtPyre_3F_Text_GabrielleRegister: @ 8231A49
 	.string "I would like to see your Pokémon\n"
 	.string "when they grow up some more…\p"
-	.string "Please, I need to see your Pokénav.$"
+	.string "Please, I need to see your PokéNav.$"
 
 MtPyre_3F_Text_GabrielleRematchIntro: @ 8231AAB
 	.string "Oh, it's you…\p"
