@@ -5045,7 +5045,6 @@ bool32 CanBattlerSwitch(u32 battlerId)
 
     if (BATTLE_TWO_VS_ONE_OPPONENT && GetBattlerSide(battlerId) == B_SIDE_OPPONENT)
     {
-<<<<<<< HEAD
         battlerIn1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
         battlerIn2 = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
         party = gEnemyParty;
@@ -5060,10 +5059,6 @@ bool32 CanBattlerSwitch(u32 battlerId)
         }
 
         ret = (i != PARTY_SIZE);
-=======
-        gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 2);
-        return;
->>>>>>> master
     }
 
     if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
@@ -8975,17 +8970,10 @@ static void Cmd_forcerandomswitch(void)
     s32 i;
     s32 battler1PartyId = 0;
     s32 battler2PartyId = 0;
-<<<<<<< HEAD
-    s32 lastMonId = 0; // + 1
-    s32 firstMonId = 0;
-    s32 monsCount = 0;
-    struct Pokemon *party = NULL;
-=======
     s32 firstMonId;
     s32 lastMonId = 0; // + 1
     s32 monsCount;
     struct Pokemon* party = NULL;
->>>>>>> master
     s32 validMons = 0;
     s32 minNeeded;
 
@@ -9121,21 +9109,8 @@ static void Cmd_forcerandomswitch(void)
 
             do
             {
-<<<<<<< HEAD
                 i = Random() % monsCount;
                 i += firstMonId;
-=======
-                do
-                {
-                    do
-                    {
-                        i = Random() % monsCount;
-                        i += firstMonId;
-                    } while (i == battler2PartyId || i == battler1PartyId);
-                } while (GetMonData(&party[i], MON_DATA_SPECIES) == SPECIES_NONE
-                       || GetMonData(&party[i], MON_DATA_IS_EGG) == TRUE
-                       || GetMonData(&party[i], MON_DATA_HP) == 0); // Should be one while loop, conjoined by an ||, but that doesn't match. Equivalent logic though
->>>>>>> master
             }
             while (i == battler2PartyId
                    || i == battler1PartyId
