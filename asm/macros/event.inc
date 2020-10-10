@@ -1613,8 +1613,8 @@
 	.2byte \item
 	.2byte \quantity
 	.endm
-
-	.macro showdescription
+    
+    .macro showdescription
     .byte 0xe3
     .endm
     
