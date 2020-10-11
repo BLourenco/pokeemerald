@@ -401,6 +401,36 @@ u32 FldEff_LongGrass(void)
     return 0;
 }
 
+u32 FldEff_LongGrass2(void)
+{
+    s16 x;
+    s16 y;
+    u8 spriteId;
+    struct Sprite *sprite;
+
+    x = gFieldEffectArguments[0];
+    y = gFieldEffectArguments[1];
+    SetSpritePosToOffsetMapCoords(&x, &y, 8, 8);
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_LONG_GRASS_2], x, y, 0);
+    if (spriteId != MAX_SPRITES)
+    {
+        sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.priority = ZCoordToPriority(gFieldEffectArguments[2]);
+        sprite->data[0] = gFieldEffectArguments[2];
+        sprite->data[1] = gFieldEffectArguments[0];
+        sprite->data[2] = gFieldEffectArguments[1];
+        sprite->data[3] = gFieldEffectArguments[4];
+        sprite->data[4] = gFieldEffectArguments[5];
+        sprite->data[5] = gFieldEffectArguments[6];
+        if (gFieldEffectArguments[7])
+        {
+            SeekSpriteAnim(sprite, 6);
+        }
+    }
+    return 0;
+}
+
 void UpdateLongGrassFieldEffect(struct Sprite *sprite)
 {
     u8 mapNum;
@@ -425,6 +455,43 @@ void UpdateLongGrassFieldEffect(struct Sprite *sprite)
     if (TryGetObjectEventIdByLocalIdAndMap(localId, mapNum, mapGroup, &objectEventId) || !MetatileBehavior_IsLongGrass(metatileBehavior) || (sprite->data[7] && sprite->animEnded))
     {
         FieldEffectStop(sprite, FLDEFF_LONG_GRASS);
+    }
+    else
+    {
+        objectEvent = &gObjectEvents[objectEventId];
+        if ((objectEvent->currentCoords.x != sprite->data[1] || objectEvent->currentCoords.y != sprite->data[2]) && (objectEvent->previousCoords.x != sprite->data[1] || objectEvent->previousCoords.y != sprite->data[2]))
+        {
+            sprite->data[7] = TRUE;
+        }
+        UpdateObjectEventSpriteVisibility(sprite, 0);
+        sub_81561FC(sprite, sprite->data[0], 0);
+    }
+}
+
+void UpdateLongGrass2FieldEffect(struct Sprite *sprite)
+{
+    u8 mapNum;
+    u8 mapGroup;
+    u8 metatileBehavior;
+    u8 localId;
+    u8 objectEventId;
+    struct ObjectEvent *objectEvent;
+
+    mapNum = sprite->data[5] >> 8;
+    mapGroup = sprite->data[5];
+    if (gCamera.active && (gSaveBlock1Ptr->location.mapNum != mapNum || gSaveBlock1Ptr->location.mapGroup != mapGroup))
+    {
+        sprite->data[1] -= gCamera.x;
+        sprite->data[2] -= gCamera.y;
+        sprite->data[5] = ((u8)gSaveBlock1Ptr->location.mapNum << 8) | (u8)gSaveBlock1Ptr->location.mapGroup;
+    }
+    localId = sprite->data[3] >> 8;
+    mapNum = sprite->data[3];
+    mapGroup = sprite->data[4];
+    metatileBehavior = MapGridGetMetatileBehaviorAt(sprite->data[1], sprite->data[2]);
+    if (TryGetObjectEventIdByLocalIdAndMap(localId, mapNum, mapGroup, &objectEventId) || !MetatileBehavior_IsLongGrass(metatileBehavior) || (sprite->data[7] && sprite->animEnded))
+    {
+        FieldEffectStop(sprite, FLDEFF_LONG_GRASS_2);
     }
     else
     {

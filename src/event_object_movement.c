@@ -76,12 +76,14 @@ static void ObjectEventUpdateMetatileBehaviors(struct ObjectEvent*);
 static void GetGroundEffectFlags_Reflection(struct ObjectEvent*, u32*);
 static void GetGroundEffectFlags_TallGrassOnSpawn(struct ObjectEvent*, u32*);
 static void GetGroundEffectFlags_LongGrassOnSpawn(struct ObjectEvent*, u32*);
+static void GetGroundEffectFlags_LongGrass2OnSpawn(struct ObjectEvent*, u32*);
 static void GetGroundEffectFlags_SandHeap(struct ObjectEvent*, u32*);
 static void GetGroundEffectFlags_ShallowFlowingWater(struct ObjectEvent*, u32*);
 static void GetGroundEffectFlags_ShortGrass(struct ObjectEvent*, u32*);
 static void GetGroundEffectFlags_HotSprings(struct ObjectEvent*, u32*);
 static void GetGroundEffectFlags_TallGrassOnBeginStep(struct ObjectEvent*, u32*);
 static void GetGroundEffectFlags_LongGrassOnBeginStep(struct ObjectEvent*, u32*);
+static void GetGroundEffectFlags_LongGrass2OnBeginStep(struct ObjectEvent*, u32*);
 static void GetGroundEffectFlags_Tracks(struct ObjectEvent*, u32*);
 static void GetGroundEffectFlags_Puddle(struct ObjectEvent*, u32*);
 static void GetGroundEffectFlags_Ripple(struct ObjectEvent*, u32*);
@@ -7468,6 +7470,7 @@ static void GetAllGroundEffectFlags_OnSpawn(struct ObjectEvent *objEvent, u32 *f
     GetGroundEffectFlags_ShallowFlowingWater(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
+    //GetGroundEffectFlags_LongGrass2OnSpawn(objEvent, flags);
 }
 
 static void GetAllGroundEffectFlags_OnBeginStep(struct ObjectEvent *objEvent, u32 *flags)
@@ -7482,6 +7485,7 @@ static void GetAllGroundEffectFlags_OnBeginStep(struct ObjectEvent *objEvent, u3
     GetGroundEffectFlags_Puddle(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
+    //GetGroundEffectFlags_LongGrass2OnBeginStep(objEvent, flags);
 }
 
 static void GetAllGroundEffectFlags_OnFinishStep(struct ObjectEvent *objEvent, u32 *flags)
@@ -7545,6 +7549,18 @@ static void GetGroundEffectFlags_LongGrassOnBeginStep(struct ObjectEvent *objEve
 {
     if (MetatileBehavior_IsLongGrass(objEvent->currentMetatileBehavior))
         *flags |= GROUND_EFFECT_FLAG_LONG_GRASS_ON_MOVE;
+}
+
+static void GetGroundEffectFlags_LongGrass2OnSpawn(struct ObjectEvent *objEvent, u32 *flags)
+{
+    if (MetatileBehavior_IsLongGrass(objEvent->currentMetatileBehavior))
+        *flags |= GROUND_EFFECT_FLAG_LONG_GRASS_2_ON_SPAWN;
+}
+
+static void GetGroundEffectFlags_LongGrass2OnBeginStep(struct ObjectEvent *objEvent, u32 *flags)
+{
+    if (MetatileBehavior_IsLongGrass(objEvent->currentMetatileBehavior))
+        *flags |= GROUND_EFFECT_FLAG_LONG_GRASS_2_ON_MOVE;
 }
 
 static void GetGroundEffectFlags_Tracks(struct ObjectEvent *objEvent, u32 *flags)
@@ -7934,6 +7950,32 @@ void GroundEffect_StepOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *s
     FieldEffectStart(FLDEFF_LONG_GRASS);
 }
 
+void GroundEffect_SpawnOnLongGrass2(struct ObjectEvent *objEvent, struct Sprite *sprite)
+{
+    gFieldEffectArguments[0] = objEvent->currentCoords.x;
+    gFieldEffectArguments[1] = objEvent->currentCoords.y;
+    gFieldEffectArguments[2] = objEvent->previousElevation;
+    gFieldEffectArguments[3] = 2;
+    gFieldEffectArguments[4] = objEvent->localId << 8 | objEvent->mapNum;
+    gFieldEffectArguments[5] = objEvent->mapGroup;
+    gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
+    gFieldEffectArguments[7] = 1;
+    FieldEffectStart(FLDEFF_LONG_GRASS_2);
+}
+
+void GroundEffect_StepOnLongGrass2(struct ObjectEvent *objEvent, struct Sprite *sprite)
+{
+    gFieldEffectArguments[0] = objEvent->currentCoords.x;
+    gFieldEffectArguments[1] = objEvent->currentCoords.y;
+    gFieldEffectArguments[2] = objEvent->previousElevation;
+    gFieldEffectArguments[3] = 2;
+    gFieldEffectArguments[4] = (objEvent->localId << 8) | objEvent->mapNum;
+    gFieldEffectArguments[5] = objEvent->mapGroup;
+    gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
+    gFieldEffectArguments[7] = 0;
+    FieldEffectStart(FLDEFF_LONG_GRASS_2);
+}
+
 void GroundEffect_WaterReflection(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
     SetUpReflection(objEvent, sprite, 0);
@@ -8123,7 +8165,10 @@ static void (*const sGroundEffectFuncs[])(struct ObjectEvent *objEvent, struct S
     GroundEffect_JumpLandingDust,       // GROUND_EFFECT_FLAG_LAND_ON_NORMAL_GROUND
     GroundEffect_ShortGrass,            // GROUND_EFFECT_FLAG_SHORT_GRASS
     GroundEffect_HotSprings,            // GROUND_EFFECT_FLAG_HOT_SPRINGS
-    GroundEffect_Seaweed                // GROUND_EFFECT_FLAG_SEAWEED
+    GroundEffect_Seaweed,               // GROUND_EFFECT_FLAG_SEAWEED
+    
+    //GroundEffect_SpawnOnLongGrass2,     // GROUND_EFFECT_FLAG_LONG_GRASS_2_ON_SPAWN
+    //GroundEffect_StepOnLongGrass2       // GROUND_EFFECT_FLAG_LONG_GRASS_2_ON_MOVE
 };
 
 static void DoFlaggedGroundEffects(struct ObjectEvent *objEvent, struct Sprite *sprite, u32 flags)

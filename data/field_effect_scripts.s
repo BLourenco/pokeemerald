@@ -23,6 +23,7 @@ gFieldEffectScriptPointers:: @ 82DB9D4
 	.4byte gFieldEffectScript_Splash                    @ FLDEFF_SPLASH
 	.4byte gFieldEffectScript_JumpSmallSplash           @ FLDEFF_JUMP_SMALL_SPLASH
 	.4byte gFieldEffectScript_LongGrass                 @ FLDEFF_LONG_GRASS
+	.4byte gFieldEffectScript_LongGrass2                 @ FLDEFF_LONG_GRASS_2
 	.4byte gFieldEffectScript_JumpLongGrass             @ FLDEFF_JUMP_LONG_GRASS
 	.4byte gFieldEffectScript_ShakingGrass               @ FLDEFF_SHAKING_GRASS
 	.4byte gFieldEffectScript_ShakingGrass2              @ FLDEFF_SHAKING_LONG_GRASS
@@ -144,6 +145,10 @@ gFieldEffectScript_JumpSmallSplash:: @ 82DBB60
 
 gFieldEffectScript_LongGrass:: @ 82DBB6A
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect1, FldEff_LongGrass
+	field_eff_end
+
+gFieldEffectScript_LongGrass2::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect2, FldEff_LongGrass2
 	field_eff_end
 
 gFieldEffectScript_JumpLongGrass:: @ 82DBB74

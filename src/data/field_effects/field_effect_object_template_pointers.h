@@ -14,6 +14,7 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_JumpBigSplash;
 const struct SpriteTemplate gFieldEffectObjectTemplate_Splash;
 const struct SpriteTemplate gFieldEffectObjectTemplate_JumpSmallSplash;
 const struct SpriteTemplate gFieldEffectObjectTemplate_LongGrass;
+const struct SpriteTemplate gFieldEffectObjectTemplate_LongGrass2;
 const struct SpriteTemplate gFieldEffectObjectTemplate_JumpLongGrass;
 const struct SpriteTemplate gFieldEffectObjectTemplate_UnusedGrass;
 const struct SpriteTemplate gFieldEffectObjectTemplate_UnusedGrass2;
@@ -54,6 +55,7 @@ const struct SpriteTemplate *const gFieldEffectObjectTemplatePointers[] = {
     [FLDEFFOBJ_SPLASH]                = &gFieldEffectObjectTemplate_Splash,
     [FLDEFFOBJ_JUMP_SMALL_SPLASH]     = &gFieldEffectObjectTemplate_JumpSmallSplash,
     [FLDEFFOBJ_LONG_GRASS]            = &gFieldEffectObjectTemplate_LongGrass,
+    [FLDEFFOBJ_LONG_GRASS_2]          = &gFieldEffectObjectTemplate_LongGrass2,
     [FLDEFFOBJ_JUMP_LONG_GRASS]       = &gFieldEffectObjectTemplate_JumpLongGrass,
     [FLDEFFOBJ_UNUSED_GRASS]          = &gFieldEffectObjectTemplate_UnusedGrass,
     [FLDEFFOBJ_UNUSED_GRASS_2]        = &gFieldEffectObjectTemplate_UnusedGrass2,

@@ -2,7 +2,7 @@
   "id": "MAP_OVERGROWN_FOREST",
   "name": "OvergrownForest",
   "layout": "LAYOUT_OVERGROWN_FOREST",
-  "music": "MUS_RG_VIRIDIAN_FOREST",
+  "music": "MUS_RG_SEVII_CAVE",
   "region_map_section": "MAPSEC_OVERGROWN_FOREST",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",
