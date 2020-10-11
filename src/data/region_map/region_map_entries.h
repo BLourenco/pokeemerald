@@ -201,6 +201,7 @@ static const u8 sMapName_TrainerHill[] = _("Trainer Hill");
 static const u8 sMapName_DewfordCove[] = _("Dewford Cove");
 static const u8 sMapName_DryAshlands[] = _("Dry Ashlands");
 static const u8 sMapName_RedClayTunnels[] = _("Red Clay Tunnels");
+static const u8 sMapName_OvergrownForest[] = _("Overgrown Forest");
 
 const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_ABANDONED_SHIP]             = {6, 14, 1, 1, sMapName_AbandonedShip},
@@ -279,6 +280,7 @@ const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_OLDALE_TOWN]                = {4, 9, 1, 1, sMapName_OldaleTown},
     [MAPSEC_ONE_ISLAND]                 = {0, 0, 1, 1, sMapName_OneIsland},
     [MAPSEC_OUTCAST_ISLAND]             = {0, 0, 1, 1, sMapName_OutcastIsland},
+    [MAPSEC_OVERGROWN_FOREST]           = {14, 6, 2, 1, sMapName_OvergrownForest},
     [MAPSEC_PACIFIDLOG_TOWN]            = {17, 10, 1, 1, sMapName_PacifidlogTown},
     [MAPSEC_PALLET_TOWN]                = {0, 0, 1, 1, sMapName_PalletTown},
     [MAPSEC_PATTERN_BUSH]               = {0, 0, 1, 1, sMapName_PatternBush},

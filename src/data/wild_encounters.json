@@ -12484,6 +12484,110 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_OVERGROWN_FOREST",
+          "base_label": "gOvergrownForest",
+          "headbutt_mons": {
+            "encounter_rate": 50,
+            "mons": [
+              {
+                "min_level": 37,
+                "max_level": 39,
+                "species": "SPECIES_BEAUTIFLY"
+              },
+              {
+                "min_level": 37,
+                "max_level": 39,
+                "species": "SPECIES_DUSTOX"
+              },
+              {
+                "min_level": 37,
+                "max_level": 39,
+                "species": "SPECIES_NOCTOWL"
+              },
+              {
+                "min_level": 37,
+                "max_level": 39,
+                "species": "SPECIES_MURKROW"
+              },
+              {
+                "min_level": 37,
+                "max_level": 39,
+                "species": "SPECIES_PINSIR"
+              },
+              {
+                "min_level": 37,
+                "max_level": 39,
+                "species": "SPECIES_TOUCANNON"
+              }
+            ]
+          },
+          "land_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_BRELOOM"
+              },
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_VIGOROTH"
+              },
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_VIGOROTH"
+              },
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_SCYTHER"
+              },
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_URSARING"
+              },
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_PANGORO"
+              },
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_PARASECT"
+              },
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_PARASECT"
+              },
+              {
+                "min_level": 34,
+                "max_level": 34,
+                "species": "SPECIES_SAWSBUCK"
+              },
+              {
+                "min_level": 34,
+                "max_level": 34,
+                "species": "SPECIES_SAWSBUCK"
+              },
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_CHANSEY"
+              },
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_KANGASKHAN"
+              }
+            ]
+          }
         }
       ]
     },

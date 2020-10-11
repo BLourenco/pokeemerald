@@ -1070,3 +1070,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/RedClayTunnels/scripts.inc"
 	.include "data/maps/RedClayTunnels_West/scripts.inc"
     
+
+	.include "data/maps/OvergrownForest/scripts.inc"
