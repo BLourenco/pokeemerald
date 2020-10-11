@@ -1835,7 +1835,7 @@
       "id": "LAYOUT_NEW_MAUVILLE_ENTRANCE",
       "name": "NewMauville_Entrance_Layout",
       "width": 9,
-      "height": 9,
+      "height": 21,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/NewMauville_Entrance/border.bin",
