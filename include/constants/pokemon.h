@@ -328,7 +328,7 @@
 
 #define EVO_ITEM_HOLD        0x001F // Pokemon levels up, holds specified item
 
-#define EVOS_PER_MON 12
+#define EVOS_PER_MON 13
 
 #define NUM_MALE_LINK_FACILITY_CLASSES   8
 #define NUM_FEMALE_LINK_FACILITY_CLASSES 8
