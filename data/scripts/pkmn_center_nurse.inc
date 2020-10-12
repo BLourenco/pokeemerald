@@ -5,11 +5,11 @@ Common_EventScript_PkmnCenterNurse:: @ 827191E
     specialvar VAR_RESULT, CountPlayerTrainerStars
     compare VAR_RESULT, 4
     goto_if_eq EventScript_PkmnCenterNurse_GoldCard
-    msgbox gText_WouldYouLikeToRestYourPkmn, MSGBOX_YESNO
-    compare VAR_RESULT, YES
-    goto_if_eq EventScript_PkmnCenterNurse_HealPkmn
-    compare VAR_RESULT, NO
-    goto_if_eq EventScript_PkmnCenterNurse_Goodbye
+    @msgbox gText_WouldYouLikeToRestYourPkmn, MSGBOX_YESNO
+    @compare VAR_RESULT, YES
+    goto EventScript_PkmnCenterNurse_HealPkmn
+    @compare VAR_RESULT, NO
+    @goto_if_eq EventScript_PkmnCenterNurse_Goodbye
     end
 
 EventScript_PkmnCenterNurse_Goodbye:: @ 8271954
@@ -19,15 +19,15 @@ EventScript_PkmnCenterNurse_Goodbye:: @ 8271954
 @ VAR_0x8004 is 1 when player has Gold Card; jumps are identical
 EventScript_PkmnCenterNurse_HealPkmn:: @ 827195A
     incrementgamestat GAME_STAT_USED_POKECENTER
-    compare VAR_0x8004, 0
-    call_if_eq EventScript_PkmnCenterNurse_IllTakeYourPkmn
-    compare VAR_0x8004, 1
-    call_if_eq EventScript_PkmnCenterNurse_IllTakeYourPkmn2
-    waitmessage
+    @compare VAR_0x8004, 0
+    @call_if_eq EventScript_PkmnCenterNurse_IllTakeYourPkmn
+    @compare VAR_0x8004, 1
+    @call_if_eq EventScript_PkmnCenterNurse_IllTakeYourPkmn2
+    @waitmessage
     call EventScript_PkmnCenterNurse_TakeAndHealPkmn
     goto_if_unset FLAG_POKERUS_EXPLAINED, EventScript_PkmnCenterNurse_CheckPokerus
     goto EventScript_PkmnCenterNurse_ReturnPkmn
-    end
+    return
 
 EventScript_PkmnCenterNurse_IllTakeYourPkmn:: @ 8271987
     message gText_IllTakeYourPkmn
@@ -61,14 +61,15 @@ EventScript_PkmnCenterNurse_CheckTrainerHillAndUnionRoom:: @ 82719B1
 
 @ VAR_0x8004 is 1 when player has Gold Card
 EventScript_PkmnCenterNurse_ReturnPkmn:: @ 82719E2
-    compare VAR_0x8004, 1
-    goto_if_eq EventScript_PkmnCenterNurse_ReturnPkmn2
-    message gText_RestoredPkmnToFullHealth
-    waitmessage
+    @compare VAR_0x8004, 1
+    @goto_if_eq EventScript_PkmnCenterNurse_ReturnPkmn2
+    @message gText_RestoredPkmnToFullHealth
+    @waitmessage
     applymovement VAR_0x800B, EventScript_PkmnCenterNurse_Bow
     waitmovement 0
-    message gText_WeHopeToSeeYouAgain
-    return
+    @message gText_WeHopeToSeeYouAgain
+    call EventScript_PkmnCenterNurse_PlayerTurn
+    end
 
 EventScript_PkmnCenterNurse_ReturnPkmn2:: @ 8271A03
     message gText_ThankYouForWaiting
@@ -95,7 +96,7 @@ EventScript_PkmnCenterNurse_CheckPokerus:: @ 8271A43
     goto_if_eq EventScript_PkmnCenterNurse_ExplainPokerus
     compare VAR_RESULT, FALSE
     goto_if_eq EventScript_PkmnCenterNurse_ReturnPkmn
-    end
+    return
 
 EventScript_PkmnCenterNurse_ExplainPokerus:: @ 8271A5F
     message gText_PokerusExplanation
@@ -127,6 +128,13 @@ EventScript_PkmnCenterNurse_AskForUsual:: @ 8271AAC
 EventScript_PkmnCenterNurse_GoldCardHealPkmn:: @ 8271AC5
     setvar VAR_0x8004, 1
     goto EventScript_PkmnCenterNurse_HealPkmn
+    end
+
+EventScript_PkmnCenterNurse_PlayerTurn::
+    closemessage
+    applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+    waitmovement 0
+    release
     end
 
 EventScript_PkmnCenterNurse_Bow: @ 8271AD0
