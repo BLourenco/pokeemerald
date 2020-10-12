@@ -5750,6 +5750,9 @@ extern const u32 gItemIconPalette_Star[];
 extern const u32 gItemIcon_StarPiece[];
 extern const u32 gItemIcon_Nugget[];
 extern const u32 gItemIconPalette_Nugget[];
+
+extern const u32 gItemIcon_BigNugget[];
+extern const u32 gItemIconPalette_BigNugget[];
 extern const u32 gItemIcon_HeartScale[];
 extern const u32 gItemIconPalette_HeartScale[];
 // Mail

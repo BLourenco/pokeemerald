@@ -583,6 +583,11 @@ static const u8 sNuggetDesc[] = _(
     "gold. Can be sold at\n"
     "a high price.");
 
+static const u8 sBigNuggetDesc[] = _(
+    "A massive nugget of\n"
+    "pure gold. Fetches\n"
+    "a very high price.");
+
 static const u8 sHeartScaleDesc[] = _(
     "A lovely scale.\n"
     "It is coveted by\n"

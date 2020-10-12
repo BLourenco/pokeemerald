@@ -1594,6 +1594,18 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
+    [ITEM_BIG_NUGGET] =
+    {
+        .name = _("Big Nugget"),
+        .itemId = ITEM_BIG_NUGGET,
+        .price = 20000,
+        .description = sBigNuggetDesc,
+        .pocket = POCKET_ITEMS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+
     [ITEM_HEART_SCALE] =
     {
         .name = _("Heart Scale"),
