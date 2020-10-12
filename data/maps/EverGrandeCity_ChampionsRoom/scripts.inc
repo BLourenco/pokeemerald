@@ -277,24 +277,24 @@ EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech: @ 8228F66
 	.string "Hoenn region…$"
 
 EverGrandeCity_ChampionsRoom_Text_MayAdvice: @ 82290CA
-	.string "May: {PLAYER}{KUN}!\p"
+	.string "{RIVAL}: {PLAYER}{KUN}!\p"
 	.string "Here's some advice before you challenge\n"
 	.string "the Champion…$"
 
 EverGrandeCity_ChampionsRoom_Text_MayItsAlreadyOver: @ 822910B
-	.string "May: Huh?\n"
+	.string "{RIVAL}: Huh?\n"
 	.string "What, what, what?\p"
 	.string "{PLAYER}{KUN}…\n"
 	.string "Could it be that…\l"
 	.string "It's already over?$"
 
 EverGrandeCity_ChampionsRoom_Text_BrendanAdvice: @ 8229152
-	.string "Brendan: {PLAYER}!\p"
+	.string "{RIVAL}: {PLAYER}!\p"
 	.string "How would you like some advice before\n"
 	.string "you challenge the Champion?…$"
 
 EverGrandeCity_ChampionsRoom_Text_BrendanYouveWon: @ 82291A2
-	.string "Brendan: {PLAYER}…\p"
+	.string "{RIVAL}: {PLAYER}…\p"
 	.string "Are you trying to tell me…\n"
 	.string "You've beaten the Champion?$"
 
@@ -333,7 +333,7 @@ EverGrandeCity_ChampionsRoom_Text_WallaceWaitOutside: @ 82293EB
 	.string "Prof. Birch.$"
 
 EverGrandeCity_ChampionsRoom_Text_MayCongratulations: @ 8229479
-	.string "May: Groan…\p"
+	.string "{RIVAL}: Groan…\p"
 	.string "… … … … … … … …\n"
 	.string "… … … … … … … …\p"
 	.string "I'm just joking! That's okay!\n"
@@ -342,7 +342,7 @@ EverGrandeCity_ChampionsRoom_Text_MayCongratulations: @ 8229479
 	.string "Honestly, congratulations!$"
 
 EverGrandeCity_ChampionsRoom_Text_BrendanCongratulations: @ 82294F5
-	.string "Brendan: Whaaaat?! … … … … …\n"
+	.string "{RIVAL}: Whaaaat?! … … … … …\n"
 	.string "… … … … … … … …\p"
 	.string "It can't be helped if that's the rule.\p"
 	.string "{PLAYER}, way to go!\n"

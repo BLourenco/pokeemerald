@@ -103,6 +103,20 @@ LittlerootTown_BrendansHouse_1F_EventScript_YoureNewNeighbor:: @ 81F785E
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
 	applymovement LOCALID_RIVAL_MOM, LittlerootTown_BrendansHouse_1F_Movement_RivalMomApproach
 	waitmovement 0
+	msgbox RivalsHouse_1F_Text_AreYouLookingForSomeone, MSGBOX_DEFAULT
+	call LittlerootTown_BrendansHouse_1F_EventScript_NameYourRival
+	end
+
+LittlerootTown_BrendansHouse_1F_EventScript_NameYourRival::
+	special NameRival
+	waitstate
+	msgbox RivalHouse_1F_Text_ConfirmName, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LittlerootTown_BrendansHouse_1F_EventScript_NameYourRival
+	call LittlerootTown_BrendansHouse_1F_EventScript_RivalNameConfirmed
+	end
+
+LittlerootTown_BrendansHouse_1F_EventScript_RivalNameConfirmed::
 	special GetRivalSonDaughterString
 	msgbox RivalsHouse_1F_Text_OhYoureTheNewNeighbor, MSGBOX_DEFAULT
 	setflag FLAG_MET_RIVAL_MOM

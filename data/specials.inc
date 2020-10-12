@@ -536,3 +536,5 @@ gSpecials:: @ 81DBA64
 	def_special CloseDeptStoreElevatorWindow
 	def_special TrySetBattleTowerLinkType
 	def_special HeadbuttWildEncounter
+    def_special NameRival
+

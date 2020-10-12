@@ -424,7 +424,7 @@ LilycoveCity_EventScript_DontKnowAboutBerryBlender:: @ 81E3058
 	return
 
 LilycoveCity_Text_MayShoppingLetsBattle: @ 81E3061
-	.string "May: Oh, hey?\n"
+	.string "{RIVAL}: Oh, hey?\n"
 	.string "{PLAYER}{KUN}, are you shopping, too?\p"
 	.string "I bought a whole bunch of Dolls and\n"
 	.string "Posters.\p"
@@ -437,17 +437,17 @@ LilycoveCity_Text_MayShoppingLetsBattle: @ 81E3061
 	.string "me your Pokémon, {PLAYER}{KUN}.$"
 
 LilycoveCity_Text_MayNotRaisingPokemon: @ 81E318D
-	.string "May: Oh, why? {PLAYER}{KUN}, haven't you\n"
+	.string "{RIVAL}: Oh, why? {PLAYER}{KUN}, haven't you\n"
 	.string "been raising your Pokémon?\p"
 	.string "That's not a very good showing as a\n"
 	.string "Trainer…$"
 
 LilycoveCity_Text_MayBattleMe: @ 81E31F5
-	.string "May: Come on, battle with me, so I can\n"
+	.string "{RIVAL}: Come on, battle with me, so I can\n"
 	.string "check out your Pokémon!$"
 
 LilycoveCity_Text_MayWontBeBeaten: @ 81E3234
-	.string "May: The Pokémon I raised won't be\n"
+	.string "{RIVAL}: The Pokémon I raised won't be\n"
 	.string "beaten by your Pokémon, {PLAYER}{KUN}!$"
 
 LilycoveCity_Text_MayDefeat: @ 81E3275
@@ -458,7 +458,7 @@ LilycoveCity_Text_MayDefeat: @ 81E3275
 	.string "strong, {PLAYER}{KUN}, didn't it?$"
 
 LilycoveCity_Text_MayGoingBackToLittleroot: @ 81E32FB
-	.string "May: I'm thinking of going back to\n"
+	.string "{RIVAL}: I'm thinking of going back to\n"
 	.string "Littleroot soon.\p"
 	.string "I've caught a decent group of Pokémon,\n"
 	.string "and my Pokédex is coming along, so\l"
@@ -494,7 +494,7 @@ LilycoveCity_Text_MayYouGoingToBattleFrontier: @ 81E353A
 	.string "See you!$"
 
 LilycoveCity_Text_BrendanShoppingLetsBattle: @ 81E3608
-	.string "Brendan: Oh, hey, it's {PLAYER}.\p"
+	.string "{RIVAL}: Oh, hey, it's {PLAYER}.\p"
 	.string "I'm running an errand for my dad.\n"
 	.string "No, I'm not buying any Dolls.\p"
 	.string "Anyways, it's been a while.\p"
@@ -502,15 +502,15 @@ LilycoveCity_Text_BrendanShoppingLetsBattle: @ 81E3608
 	.string "raising Pokémon better?$"
 
 LilycoveCity_Text_BrendanNoConfidence: @ 81E36BF
-	.string "Brendan: Oh, what's the matter?\n"
+	.string "{RIVAL}: Oh, what's the matter?\n"
 	.string "Don't have the confidence?$"
 
 LilycoveCity_Text_BrendanBattleMe: @ 81E36FA
-	.string "Brendan: Want to battle to see who's\n"
+	.string "{RIVAL}: Want to battle to see who's\n"
 	.string "been raising Pokémon better?$"
 
 LilycoveCity_Text_BrendanWontBeBeaten: @ 81E373C
-	.string "Brendan: Aww, but you know I'm not\n"
+	.string "{RIVAL}: Aww, but you know I'm not\n"
 	.string "going to lose to no {PLAYER}.$"
 
 LilycoveCity_Text_BrendanDefeat: @ 81E3777
@@ -520,7 +520,7 @@ LilycoveCity_Text_BrendanDefeat: @ 81E3777
 	.string "on you as a Trainer…$"
 
 LilycoveCity_Text_BrendanGoingBackToLittleroot: @ 81E37D7
-	.string "Brendan: I…\n"
+	.string "{RIVAL}: I…\n"
 	.string "I plan on going home to Littleroot.\p"
 	.string "You know I'm helping out my dad on his\n"
 	.string "Pokédex. It's coming together pretty\l"

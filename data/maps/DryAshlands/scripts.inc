@@ -200,28 +200,28 @@ DryAshlands_Text_ToughWaterPokemon:
 	.string "Pokémon you find elsewhere in Hoenn.$"
 
 DryAshlands_Text_MayLetsBattle:
-	.string "May: Hi, {PLAYER}{KUN}, let's battle!$"
+	.string "{RIVAL}: Hi, {PLAYER}{KUN}, let's battle!$"
 
 DryAshlands_Text_MayDefeated:
 	.string "Yikes!\n"
 	.string "You're better than I expected!$"
 
 DryAshlands_Text_MayTakeThis: 
-	.string "May: {PLAYER}{KUN}, take this.$"
+	.string "{RIVAL}: {PLAYER}{KUN}, take this.$"
 
 DryAshlands_Text_MayExplainItemfinder: @ 81EFD58
-	.string "May: That's an item.$"
+	.string "{RIVAL}: That's an item.$"
 
 DryAshlands_Text_BrendanLetsBattle: @ 81EFE3F
-	.string "Brendan: Hey, {PLAYER}, let's battle!$"
+	.string "{RIVAL}: Hey, {PLAYER}, let's battle!$"
 
 DryAshlands_Text_BrendanDefeated: @ 81EFEB4
 	.string "Hmm…\n"
 	.string "You're pretty good.$"
 
 DryAshlands_Text_BrendanTakeThis: @ 81EFECD
-	.string "Brendan: {PLAYER}, take this.$"
+	.string "{RIVAL}: {PLAYER}, take this.$"
 
 DryAshlands_Text_BrendanExplainItemfinder: @ 81EFF1C
-	.string "Brendan: That's an item.$"
+	.string "{RIVAL}: That's an item.$"
 

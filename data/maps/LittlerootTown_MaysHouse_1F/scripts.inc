@@ -102,6 +102,20 @@ LittlerootTown_MaysHouse_1F_EventScript_YoureNewNeighbor:: @ 81F89AE
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestRight
 	applymovement LOCALID_RIVAL_MOM, LittlerootTown_MaysHouse_1F_Movement_RivalMomApproach
 	waitmovement 0
+	msgbox RivalsHouse_1F_Text_AreYouLookingForSomeone, MSGBOX_DEFAULT
+	call LittlerootTown_MaysHouse_1F_EventScript_NameYourRival
+	end
+
+LittlerootTown_MaysHouse_1F_EventScript_NameYourRival::
+	special NameRival
+	waitstate
+	msgbox RivalHouse_1F_Text_ConfirmName, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LittlerootTown_MaysHouse_1F_EventScript_NameYourRival
+	call LittlerootTown_MaysHouse_1F_EventScript_RivalNameConfirmed
+	end
+
+LittlerootTown_MaysHouse_1F_EventScript_RivalNameConfirmed::
 	special GetRivalSonDaughterString
 	msgbox RivalsHouse_1F_Text_OhYoureTheNewNeighbor, MSGBOX_DEFAULT
 	setflag FLAG_MET_RIVAL_MOM
@@ -333,17 +347,21 @@ LittlerootTown_MaysHouse_1F_Movement_MayGoUpstairs2: @ 81F8BBF
 	walk_up
 	step_end
 
+RivalsHouse_1F_Text_AreYouLookingForSomeone:
+	.string "Oh, hello. Can I help you? Are you\n"
+	.string "looking for someone?$"
+
+RivalHouse_1F_Text_ConfirmName:
+	.string "You're looking for {RIVAL}?$"
+
 RivalsHouse_1F_Text_OhYoureTheNewNeighbor: @ 81F8BC5
-	.string "Oh, hello. And you are?\p"
 	.string "… … … … … … … … …\n"
 	.string "… … … … … … … … …\p"
-	.string "Oh, you're {PLAYER}{KUN}, our new next-door\n"
-	.string "neighbor! Hi!\p"
-	.string "We have a {STR_VAR_1} about the same\n"
-	.string "age as you.\p"
+	.string "Oh, that means you must be {PLAYER}{KUN},\n"
+	.string "our new next-door neighbor! Hi!\p"
 	.string "Our {STR_VAR_1} was excited about making\n"
 	.string "a new friend.\p"
-	.string "Our {STR_VAR_1} is upstairs, I think.$"
+	.string "{RIVAL} is upstairs, I think.$"
 
 RivalsHouse_1F_Text_LikeChildLikeFather: @ 81F8CA5
 	.string "Like child, like father.\p"
@@ -379,7 +397,7 @@ RivalsHouse_1F_Text_MayWhoAreYou: @ 81F8EC6
 	.string "… … … … … … … …\p"
 	.string "Oh, you're {PLAYER}{KUN}.\n"
 	.string "So your move was today.\p"
-	.string "Um… I'm May.\n"
+	.string "Um… I'm {RIVAL}.\n"
 	.string "Glad to meet you!\p"
 	.string "I…\n"
 	.string "I have this dream of becoming friends\l"
@@ -406,7 +424,7 @@ RivalsHouse_1F_Text_BrendanWhoAreYou: @ 81F90B4
 	.string "Dad, Prof. Birch, said that our new\n"
 	.string "next-door neighbor is a Gym Leader's\l"
 	.string "kid, so I assumed you'd be a guy.\p"
-	.string "My name's Brendan.\n"
+	.string "My name's {RIVAL}.\n"
 	.string "So, hi, neighbor!\p"
 	.string "Huh? Hey, {PLAYER}, don't you have\n"
 	.string "a Pokémon?\p"
