@@ -153,8 +153,8 @@ RustboroCity_DevonCorp_3F_Movement_PlayerApproachDesk: @ 8212566
 RustboroCity_DevonCorp_3F_EventScript_MrStone:: @ 821256C
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_EXP_SHARE, RustboroCity_DevonCorp_3F_EventScript_MrStoneAfterFavor
-	goto_if_set FLAG_DELIVERED_STEVEN_LETTER, RustboroCity_DevonCorp_3F_EventScript_GiveExpShare
+	goto_if_set FLAG_RECEIVED_EEVEE, RustboroCity_DevonCorp_3F_EventScript_MrStoneAfterFavor
+	goto_if_set FLAG_DELIVERED_STEVEN_LETTER, RustboroCity_DevonCorp_3F_EventScript_GiveEevee
 	msgbox RustboroCity_DevonCorp_3F_Text_CountingOnYou, MSGBOX_DEFAULT
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
@@ -162,13 +162,52 @@ RustboroCity_DevonCorp_3F_EventScript_MrStone:: @ 821256C
 	release
 	end
 
-RustboroCity_DevonCorp_3F_EventScript_GiveExpShare:: @ 8212595
+RustboroCity_DevonCorp_3F_EventScript_GiveEevee:: @ 8212595
 	msgbox RustboroCity_DevonCorp_3F_Text_ThankYouForDeliveringLetter, MSGBOX_DEFAULT
-	giveitem ITEM_EXP_SHARE
-	compare VAR_RESULT, FALSE
-	goto_if_eq Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_EXP_SHARE
-	msgbox RustboroCity_DevonCorp_3F_Text_ExplainExpShare, MSGBOX_DEFAULT
+	givemon SPECIES_EEVEE, 5, ITEM_NONE
+	compare VAR_RESULT, 0
+	goto_if_eq RustboroCity_DevonCorp_3F_EventScript_ReceiveEeveeParty
+	compare VAR_RESULT, 1
+	goto_if_eq RustboroCity_DevonCorp_3F_EventScript_ReceiveEeveePC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+RustboroCity_DevonCorp_3F_EventScript_ReceiveEeveeParty::
+	call RustboroCity_DevonCorp_3F_EventScript_ReceivedEeveeFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq RustboroCity_DevonCorp_3F_EventScript_FinishReceivingEevee
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto RustboroCity_DevonCorp_3F_EventScript_FinishReceivingEevee
+	end
+
+RustboroCity_DevonCorp_3F_EventScript_ReceiveEeveePC::
+	call RustboroCity_DevonCorp_3F_EventScript_ReceivedEeveeFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq RustboroCity_DevonCorp_3F_EventScript_TransferEeveeToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto RustboroCity_DevonCorp_3F_EventScript_TransferEeveeToPC
+	end
+
+RustboroCity_DevonCorp_3F_EventScript_TransferEeveeToPC:: @ 8211B5C
+	call Common_EventScript_TransferredToPC
+	goto RustboroCity_DevonCorp_3F_EventScript_FinishReceivingEevee
+	end
+
+RustboroCity_DevonCorp_3F_EventScript_ReceivedEeveeFanfare:: @ 8211B67
+	bufferspeciesname 1, SPECIES_EEVEE
+	playfanfare MUS_OBTAIN_ITEM
+	message RustboroCity_DevonCorp_3F_Text_PlayerReceivedEevee
+	waitmessage
+	waitfanfare
+	bufferspeciesname 0, SPECIES_EEVEE
+	return
+
+RustboroCity_DevonCorp_3F_EventScript_FinishReceivingEevee::
+	setflag FLAG_RECEIVED_EEVEE
+	msgbox RustboroCity_DevonCorp_3F_Text_ExplainEevee, MSGBOX_DEFAULT
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
@@ -251,16 +290,20 @@ RustboroCity_DevonCorp_3F_Text_ThankYouForDeliveringLetter: @ 8212A29
 	.string "Mr. Stone: You delivered my Letter?\n"
 	.string "Thank you kindly!\p"
 	.string "This is my way of thanking you.\n"
-	.string "It should help you, a Trainer.$"
+	.string "One of my most prized Pokémon.$"
 
-RustboroCity_DevonCorp_3F_Text_ExplainExpShare: @ 8212A9E
-	.string "Mr. Stone: A Pokémon holding that\n"
-	.string "Exp. Share will be given some of the\l"
-	.string "Exp Points from battle.\p"
-	.string "It will get Exp Points even if it didn't\n"
-	.string "actually battle.\p"
-	.string "I would say Exp. Share is quite useful\n"
-	.string "for raising weak Pokémon.$"
+RustboroCity_DevonCorp_3F_Text_PlayerReceivedEevee:
+	.string "{PLAYER} received Eevee!$"
+
+RustboroCity_DevonCorp_3F_Text_ExplainEevee: @ 8212A9E
+	.string "Mr. Stone: That's a very special\n"
+	.string "Pokémon. Eevee is known for evolving\l"
+	.string "into multiple different Pokémon when it\l"
+	.string "gets near certain evolution stones!\p"
+	.string "As a collector of rare stones, you can\n"
+	.string "understand why I'm so facinated with\l"
+	.string "that Pokémon.\p"
+	.string "Please take good care of it!$"
 
 RustboroCity_DevonCorp_3F_Text_NotFamiliarWithTrends: @ 8212B78
 	.string "Mr. Stone: Since my youth, I've immersed\n"
