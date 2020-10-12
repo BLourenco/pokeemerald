@@ -99,23 +99,24 @@ EventScript_PkmnCenterNurse_CheckPokerus:: @ 8271A43
     return
 
 EventScript_PkmnCenterNurse_ExplainPokerus:: @ 8271A5F
-    message gText_PokerusExplanation
+    msgbox gText_PokerusExplanation, MSGBOX_DEFAULT
     setflag FLAG_POKERUS_EXPLAINED
+    applymovement VAR_0x800B, EventScript_PkmnCenterNurse_Bow
+    waitmovement 0
+    call EventScript_PkmnCenterNurse_PlayerTurn
     return
 
 EventScript_PkmnCenterNurse_GoldCard:: @ 8271A68
-    goto_if_set FLAG_NURSE_MENTIONS_GOLD_CARD, EventScript_PkmnCenterNurse_AskForUsual
+    goto_if_set FLAG_NURSE_MENTIONS_GOLD_CARD, EventScript_PkmnCenterNurse_HealPkmn
     setflag FLAG_NURSE_MENTIONS_GOLD_CARD
-    msgbox gText_WelcomeCutShort, MSGBOX_DEFAULT
+    @msgbox gText_WelcomeCutShort, MSGBOX_DEFAULT
     playse SE_PIN
     applymovement VAR_0x800B, Common_Movement_ExclamationMark
     waitmovement 0
     applymovement VAR_0x800B, Common_Movement_Delay48
     waitmovement 0
-    msgbox gText_NoticesGoldCard, MSGBOX_YESNO
-    compare VAR_RESULT, YES
-    goto_if_eq EventScript_PkmnCenterNurse_GoldCardHealPkmn
-    message gText_WeHopeToSeeYouAgain2
+    msgbox gText_NoticesGoldCard, MSGBOX_DEFAULT
+    call EventScript_PkmnCenterNurse_HealPkmn
     return
 
 EventScript_PkmnCenterNurse_AskForUsual:: @ 8271AAC
