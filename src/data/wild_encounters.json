@@ -774,7 +774,7 @@
             ]
           },
           "headbutt_mons": {
-            "encounter_rate": 0,
+            "encounter_rate": 50,
             "mons": [
               {
                 "min_level": 13,
@@ -1985,7 +1985,7 @@
           "map": "MAP_PETALBURG_WOODS",
           "base_label": "gPetalburgWoods",
           "headbutt_mons": {
-            "encounter_rate": 50,
+            "encounter_rate": 100,
             "mons": [
               {
                 "min_level": 5,
