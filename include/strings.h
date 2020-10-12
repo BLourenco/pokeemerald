@@ -1079,6 +1079,8 @@ extern const u8 gText_ItemFinderOnTop[];
 extern const u8 gText_CoinCase[];
 extern const u8 gText_SootSack[];
 extern const u8 gText_PowderQty[];
+extern const u8 gText_ExpShareOn[];
+extern const u8 gText_ExpShareOff[];
 extern const u8 gText_BootedUpHM[];
 extern const u8 gText_BootedUpTM[];
 extern const u8 gText_TMHMContainedVar1[];

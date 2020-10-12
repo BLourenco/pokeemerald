@@ -2708,12 +2708,12 @@ const struct Item gItems[] =
     {
         .name = _("Exp. Share"),
         .itemId = ITEM_EXP_SHARE,
-        .price = 3000,
-        .holdEffect = HOLD_EFFECT_EXP_SHARE,
+        .price = 0,
         .description = sExpShareDesc,
-        .pocket = POCKET_TRAINING,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = 2,
+        .fieldUseFunc = ItemUseOutOfBattle_ExpShare,
         .secondaryId = 0,
     },
 
