@@ -469,6 +469,10 @@ static bool8 MapHasMon(const struct WildPokemonHeader *info, u16 species)
         return TRUE;
     if (MonListHasMon(info->rockSmashMonsInfo, species, 5))
         return TRUE;
+    if (MonListHasMon(info->headbuttMonsInfo, species, 6))
+        return TRUE;
+    if (MonListHasMon(info->hiddenMonsInfo, species, 3))
+        return TRUE;
     return FALSE;
 }
 

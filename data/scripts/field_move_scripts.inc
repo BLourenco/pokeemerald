@@ -301,3 +301,61 @@ EventScript_FailSweetScent:: @ 8290CAE
 
 Text_FailSweetScent: @ 8290CB7
 	.string "Looks like there's nothing here…$"
+
+EventScript_Headbutt::
+	lockall
+	@checkpartymove MOVE_HEADBUTT
+	@compare VAR_RESULT, PARTY_SIZE
+	@goto_if_eq EventScript_CantHeadbutt
+	setfieldeffectargument 0, 0 @ The second argument forces the effect to use the first party member (index 0)
+	bufferpartymonnick 0, 0 @ The second argument forces the effect to use the first party member (index 0)
+	buffermovename 1, MOVE_HEADBUTT
+	msgbox Text_WantToHeadbutt, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq EventScript_CancelHeadbutt
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	closemessage
+	dofieldeffect FLDEFF_USE_STRENGTH
+	waitstate
+	delay 5
+	playse SE_M_HEADBUTT
+	waitse
+	delay 16
+	setvar VAR_0x8004, 0  @ vertical pan
+	setvar VAR_0x8005, 2   @ horizontal pan
+	setvar VAR_0x8006, 3  @ num shakes
+	setvar VAR_0x8007, 1   @ shake delay
+	special ShakeCamera
+	waitstate
+	delay 10
+	special HeadbuttWildEncounter
+	compare VAR_RESULT, 0
+	goto_if_eq EventScript_Headbutt_NoEncounter
+	waitstate
+	releaseall
+	end
+
+@ EventScript_CantHeadbutt::
+@ 	msgbox Text_CantHeadbutt, MSGBOX_DEFAULT
+@ 	releaseall
+@ 	end
+
+EventScript_CancelHeadbutt::
+	closemessage
+	releaseall
+	end
+
+EventScript_Headbutt_NoEncounter::
+	msgbox Text_FailHeadbutt, MSGBOX_SIGN
+	releaseall
+	end
+
+Text_WantToHeadbutt::
+	.string "This tree is infested with Pokémon!\n"
+	.string "Do you want to use Headbutt?$"
+
+Text_FailHeadbutt::
+	.string "Nothing fell out.$"
+
+@Text_CantHeadbutt:
+@	.string "maybe u can headbutt this"

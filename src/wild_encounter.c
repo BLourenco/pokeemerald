@@ -381,6 +381,8 @@ enum
     WILD_AREA_WATER,
     WILD_AREA_ROCKS,
     WILD_AREA_FISHING,
+    WILD_AREA_HEADBUTT,
+    WILD_AREA_HIDDEN,
 };
 
 #define WILD_CHECK_REPEL    0x1
@@ -426,6 +428,7 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
         wildMonIndex = ChooseWildMonIndex_WaterRock();
         break;
     case WILD_AREA_ROCKS:
+    case WILD_AREA_HEADBUTT:
         wildMonIndex = ChooseWildMonIndex_WaterRock();
         break;
     }
@@ -796,6 +799,35 @@ void FishingWildEncounter(u8 rod)
     SetPokemonAnglerSpecies(species);
     gIsFishingEncounter = TRUE;
     BattleSetup_StartWildBattle();
+}
+
+void HeadbuttWildEncounter(void)
+{
+    u16 headerId = GetCurrentMapWildMonHeaderId();
+
+    if (headerId != 0xFFFF)
+    {
+        const struct WildPokemonInfo *wildPokemonInfo = gWildMonHeaders[headerId].headbuttMonsInfo;
+
+        if (wildPokemonInfo == NULL)
+        {
+            gSpecialVar_Result = FALSE;
+        }
+        else if (DoWildEncounterRateTest(wildPokemonInfo->encounterRate, 1) == TRUE
+         && TryGenerateWildMon(wildPokemonInfo, WILD_AREA_HEADBUTT, 0) == TRUE)
+        {
+            BattleSetup_StartWildBattle();
+            gSpecialVar_Result = TRUE;
+        }
+        else
+        {
+            gSpecialVar_Result = FALSE;
+        }
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+    }
 }
 
 u16 GetLocalWildMon(bool8 *isWaterMon)
