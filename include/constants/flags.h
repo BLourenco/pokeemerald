@@ -641,9 +641,9 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_121_NUGGET                    (FLAG_HIDDEN_ITEMS_START + 0x28)
 #define FLAG_HIDDEN_ITEM_ROUTE_121_FULL_HEAL                 (FLAG_HIDDEN_ITEMS_START + 0x49)
 #define FLAG_HIDDEN_ITEM_ROUTE_121_MAX_REVIVE                (FLAG_HIDDEN_ITEMS_START + 0x64)
-#define FLAG_HIDDEN_ITEM_ROUTE_123_SUPER_REPEL               (FLAG_HIDDEN_ITEMS_START + 0x07)
+#define FLAG_HIDDEN_ITEM_OVERGROWN_FOREST_MAX_REPEL          (FLAG_HIDDEN_ITEMS_START + 0x07)
 #define FLAG_HIDDEN_ITEM_ROUTE_123_REVIVE                    (FLAG_HIDDEN_ITEMS_START + 0x29)
-#define FLAG_HIDDEN_ITEM_ROUTE_123_HYPER_POTION              (FLAG_HIDDEN_ITEMS_START + 0x4A)
+#define FLAG_HIDDEN_ITEM_OVERGROWN_FOREST_HYPER_POTION       (FLAG_HIDDEN_ITEMS_START + 0x4A)
 #define FLAG_HIDDEN_ITEM_ROUTE_123_PP_UP                     (FLAG_HIDDEN_ITEMS_START + 0x63)
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_1             (FLAG_HIDDEN_ITEMS_START + 0x5C)
@@ -1220,7 +1220,7 @@
 #define FLAG_ITEM_JAGGED_PASS_TM_94                                 0x494
 #define FLAG_ITEM_MT_CHIMNEY_TM_59                                  0x495
 #define FLAG_ITEM_MT_PYRE_TM_61                                     0x496
-#define FLAG_ITEM_ROUTE_119_TM__62                                  0x497
+#define FLAG_ITEM_ROUTE_119_TM_62                                   0x497
 #define FLAG_ITEM_SEAFLOOR_CAVERN_ROOM_6_TM_55                      0x498
 #define FLAG_ITEM_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM_TM_79              0x499
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_TM_53                           0x49A
@@ -1229,15 +1229,15 @@
 #define FLAG_ITEM_DEWFORD_COVE_COVER_FOSSIL                         0x49D
 #define FLAG_ITEM_DRY_ASHLANDS_TM_89                                0x49E
 #define FLAG_ITEM_DRY_ASHLANDS_PROTECTOR                            0x49F
-#define FLAG_ITEM_RUSTURF_TUNNEL_2F_TM_83                           0x4A0
+#define FLAG_ITEM_RUSTURF_TUNNEL_2F_TM_95                           0x4A0
 #define FLAG_ITEM_RUSTURF_TUNNEL_2F_BACK_ROOM_DOME_FOSSIL           0x4A1
 #define FLAG_ITEM_RUSTURF_TUNNEL_2F_DAWN_STONE                      0x4A2
 #define FLAG_ITEM_ROUTE_113_TM_74                                   0x4A3
 #define FLAG_ITEM_DRY_ASHLANDS_RARE_CANDY                           0x4A4
-#define FLAG_UNUSED_0x4A5                                           0x4A5 // Unused Flag
-#define FLAG_UNUSED_0x4A6                                           0x4A6 // Unused Flag
-#define FLAG_UNUSED_0x4A7                                           0x4A7 // Unused Flag
-#define FLAG_UNUSED_0x4A8                                           0x4A8 // Unused Flag
+#define FLAG_ITEM_OVERGROWN_FOREST_ELIXIR                           0x4A5
+#define FLAG_ITEM_OVERGROWN_FOREST_REVIVAL_HERB                     0x4A6
+#define FLAG_ITEM_OVERGROWN_FOREST_TM_83                            0x4A7
+#define FLAG_ITEM_OVERGROWN_FOREST_OLD_AMBER                        0x4A8
 #define FLAG_UNUSED_0x4A9                                           0x4A9 // Unused Flag
 #define FLAG_UNUSED_0x4AA                                           0x4AA // Unused Flag
 #define FLAG_UNUSED_0x4AB                                           0x4AB // Unused Flag
@@ -1503,7 +1503,7 @@
 #define FLAG_LANDMARK_DEWFORD_COVE                  (SYSTEM_FLAGS + 0x85)
 #define FLAG_LANDMARK_DRY_ASHLANDS                  (SYSTEM_FLAGS + 0x86)
 #define FLAG_LANDMARK_RED_CLAY_TUNNELS              (SYSTEM_FLAGS + 0x87)
-#define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag
+#define FLAG_LANDMARK_OVERGROWN_FOREST              (SYSTEM_FLAGS + 0x88)
 #define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // Unused Flag
 #define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
 #define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag

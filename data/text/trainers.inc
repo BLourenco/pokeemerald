@@ -3371,27 +3371,27 @@ Route121_Text_MarcelPostBattle: @ 829FBA8
 	.string "I may have to train my gang some more\n"
 	.string "before entering any Contest.$"
 
-Route123_Text_WendyIntro: @ 829FBEB
+OvergrownForest_Text_WendyIntro: @ 829FBEB
 	.string "Want to determine how strong you are?\n"
 	.string "I'll be the test!$"
 
-Route123_Text_WendyDefeat: @ 829FC23
+OvergrownForest_Text_WendyDefeat: @ 829FC23
 	.string "You passed with flying colors!$"
 
-Route123_Text_WendyPostBattle: @ 829FC42
+OvergrownForest_Text_WendyPostBattle: @ 829FC42
 	.string "To best even me…\n"
 	.string "Your strength is marvelous!$"
 
-Route123_Text_BraxtonIntro: @ 829FC6F
+OvergrownForest_Text_BraxtonIntro: @ 829FC6F
 	.string "You seem to have a big collection\n"
 	.string "of Gym Badges.\p"
 	.string "Let me see if you're actually worthy of\n"
 	.string "those Badges!$"
 
-Route123_Text_BraxtonDefeat: @ 829FCD6
+OvergrownForest_Text_BraxtonDefeat: @ 829FCD6
 	.string "Oh, you're worthy, all right!$"
 
-Route123_Text_BraxtonPostBattle: @ 829FCF4
+OvergrownForest_Text_BraxtonPostBattle: @ 829FCF4
 	.string "You did your Badges proud in that\n"
 	.string "match!$"
 
@@ -3494,46 +3494,46 @@ Route123_Text_YukiNotEnoughMons: @ 82A0224
 	.string "Yuki: It's no fun to battle if you\n"
 	.string "don't have two Pokémon.$"
 
-Route123_Text_KindraIntro: @ 82A025F
+OvergrownForest_Text_KindraIntro: @ 82A025F
 	.string "Mt. Pyre…\n"
 	.string "Where the spirits of Pokémon sleep…\l"
 	.string "Will your Pokémon sleep?$"
 
-Route123_Text_KindraDefeat: @ 82A02A6
+OvergrownForest_Text_KindraDefeat: @ 82A02A6
 	.string "Overflowing with vitality…$"
 
-Route123_Text_KindraPostBattle: @ 82A02C1
+OvergrownForest_Text_KindraPostBattle: @ 82A02C1
 	.string "Mt. Pyre…\n"
 	.string "Where the spirits of Pokémon sleep…\p"
 	.string "It must overflow with a power that\n"
 	.string "soothes spirits…$"
 
-Route123_Text_FernandoIntro: @ 82A0323
+OvergrownForest_Text_FernandoIntro: @ 82A0323
 	.string "I'll turn your lights out while\n"
 	.string "I rip through this tune!$"
 
-Route123_Text_FernandoDefeat: @ 82A035C
+OvergrownForest_Text_FernandoDefeat: @ 82A035C
 	.string "Hey, hold it!\n"
 	.string "I was still playing the intro!$"
 
-Route123_Text_FernandoPostBattle: @ 82A0389
+OvergrownForest_Text_FernandoPostBattle: @ 82A0389
 	.string "You're rock steady.\n"
 	.string "I'd like to write a tune about you.$"
 
-Route123_Text_FernandoRegister: @ 82A03C1
+OvergrownForest_Text_FernandoRegister: @ 82A03C1
 	.string "The next time, lend your ears to\n"
 	.string "the full tune, will you?$"
 
-Route123_Text_FernandoRematchIntro: @ 82A03FB
+OvergrownForest_Text_FernandoRematchIntro: @ 82A03FB
 	.string "Today's the day I'm going to do it!\n"
 	.string "I'll turn out your lights before\l"
 	.string "I finish singing my song!$"
 
-Route123_Text_FernandoRematchDefeat: @ 82A045A
+OvergrownForest_Text_FernandoRematchDefeat: @ 82A045A
 	.string "Hey, hold it!\n"
 	.string "I haven't even hit the chorus!$"
 
-Route123_Text_FernandoPostRematch: @ 82A0487
+OvergrownForest_Text_FernandoPostRematch: @ 82A0487
 	.string "I thought you'd be so enthralled\n"
 	.string "by my tune, you'd lose.$"
 
@@ -3573,30 +3573,30 @@ Route123_Text_FrederickPostBattle: @ 82A0672
 	.string "Contribute to your allowance?\n"
 	.string "Wasn't the prize money enough?$"
 
-Route123_Text_AlbertoIntro: @ 82A06AF
+OvergrownForest_Text_AlbertoIntro: @ 82A06AF
 	.string "I have to tell you, Bird Pokémon\n"
 	.string "are my obsession!\p"
 	.string "Birds are cool!\n"
 	.string "They're the best!$"
 
-Route123_Text_AlbertoDefeat: @ 82A0704
+OvergrownForest_Text_AlbertoDefeat: @ 82A0704
 	.string "Even in defeat, Bird Pokémon are cool!$"
 
-Route123_Text_AlbertoPostBattle: @ 82A072B
+OvergrownForest_Text_AlbertoPostBattle: @ 82A072B
 	.string "I gather Bird Pokémon feathers that\n"
 	.string "scatter during battles.\p"
 	.string "I'm going to make a hat with\n"
 	.string "Bird Pokémon feathers.$"
 
-Route123_Text_EdIntro: @ 82A079B
+OvergrownForest_Text_EdIntro: @ 82A079B
 	.string "When there are no Trainers around,\n"
 	.string "I let my Pokémon battle each other.\l"
 	.string "I watch them.$"
 
-Route123_Text_EdDefeat: @ 82A07F0
+OvergrownForest_Text_EdDefeat: @ 82A07F0
 	.string "I kind of like your Pokémon.$"
 
-Route123_Text_EdPostBattle: @ 82A080D
+OvergrownForest_Text_EdPostBattle: @ 82A080D
 	.string "Hehe, I'm swiping your battling ideas!\n"
 	.string "I think they'll make me better.$"
 

@@ -1,2 +1,54 @@
 OvergrownForest_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, OvergrownForest_OnTransition
 	.byte 0
+
+OvergrownForest_OnTransition:
+	setflag FLAG_LANDMARK_OVERGROWN_FOREST
+	end
+
+OvergrownForest_EventScript_Wendy:: @ 81F61C5
+	trainerbattle_single TRAINER_WENDY, OvergrownForest_Text_WendyIntro, OvergrownForest_Text_WendyDefeat
+	msgbox OvergrownForest_Text_WendyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+OvergrownForest_EventScript_Braxton:: @ 81F61DC
+	trainerbattle_single TRAINER_BRAXTON, OvergrownForest_Text_BraxtonIntro, OvergrownForest_Text_BraxtonDefeat
+	msgbox OvergrownForest_Text_BraxtonPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+OvergrownForest_EventScript_Kindra:: @ 81F6304
+	trainerbattle_single TRAINER_KINDRA, OvergrownForest_Text_KindraIntro, OvergrownForest_Text_KindraDefeat
+	msgbox OvergrownForest_Text_KindraPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+OvergrownForest_EventScript_Alberto:: @ 81F6332
+	trainerbattle_single TRAINER_ALBERTO, OvergrownForest_Text_AlbertoIntro, OvergrownForest_Text_AlbertoDefeat
+	msgbox OvergrownForest_Text_AlbertoPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+OvergrownForest_EventScript_Ed:: @ 81F6349
+	trainerbattle_single TRAINER_ED, OvergrownForest_Text_EdIntro, OvergrownForest_Text_EdDefeat
+	msgbox OvergrownForest_Text_EdPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+OvergrownForest_EventScript_Fernando:: @ 81F63BC
+	trainerbattle_single TRAINER_FERNANDO_1, OvergrownForest_Text_FernandoIntro, OvergrownForest_Text_FernandoDefeat, OvergrownForest_EventScript_RegisterFernando
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	compare VAR_RESULT, TRUE
+	goto_if_eq OvergrownForest_EventScript_RematchFernando
+	msgbox OvergrownForest_Text_FernandoPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+OvergrownForest_EventScript_RegisterFernando:: @ 81F63E8
+	special PlayerFaceTrainerAfterBattle
+	waitmovement 0
+	msgbox OvergrownForest_Text_FernandoRegister, MSGBOX_DEFAULT
+	register_matchcall TRAINER_FERNANDO_1
+	release
+	end
+
+OvergrownForest_EventScript_RematchFernando:: @ 81F6407
+	trainerbattle_rematch TRAINER_FERNANDO_1, OvergrownForest_Text_FernandoRematchIntro, OvergrownForest_Text_FernandoRematchDefeat
+	msgbox OvergrownForest_Text_FernandoPostRematch, MSGBOX_AUTOCLOSE
+	end

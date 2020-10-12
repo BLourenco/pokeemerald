@@ -44,16 +44,6 @@ Route123_EventScript_BerryMastersHouseSign:: @ 81F61BC
 	msgbox Route123_Text_BerryMastersHouse, MSGBOX_SIGN
 	end
 
-Route123_EventScript_Wendy:: @ 81F61C5
-	trainerbattle_single TRAINER_WENDY, Route123_Text_WendyIntro, Route123_Text_WendyDefeat
-	msgbox Route123_Text_WendyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Braxton:: @ 81F61DC
-	trainerbattle_single TRAINER_BRAXTON, Route123_Text_BraxtonIntro, Route123_Text_BraxtonDefeat
-	msgbox Route123_Text_BraxtonPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route123_EventScript_Violet:: @ 81F61F3
 	trainerbattle_single TRAINER_VIOLET, Route123_Text_VioletIntro, Route123_Text_VioletDefeat
 	msgbox Route123_Text_VioletPostBattle, MSGBOX_AUTOCLOSE
@@ -113,24 +103,9 @@ Route123_EventScript_Yuki:: @ 81F62E9
 	msgbox Route123_Text_YukiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route123_EventScript_Kindra:: @ 81F6304
-	trainerbattle_single TRAINER_KINDRA, Route123_Text_KindraIntro, Route123_Text_KindraDefeat
-	msgbox Route123_Text_KindraPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route123_EventScript_Frederick:: @ 81F631B
 	trainerbattle_single TRAINER_FREDRICK, Route123_Text_FrederickIntro, Route123_Text_FrederickDefeat
 	msgbox Route123_Text_FrederickPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Alberto:: @ 81F6332
-	trainerbattle_single TRAINER_ALBERTO, Route123_Text_AlbertoIntro, Route123_Text_AlbertoDefeat
-	msgbox Route123_Text_AlbertoPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Ed:: @ 81F6349
-	trainerbattle_single TRAINER_ED, Route123_Text_EdIntro, Route123_Text_EdDefeat
-	msgbox Route123_Text_EdPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route123_EventScript_Kayley:: @ 81F6360
@@ -151,28 +126,6 @@ Route123_EventScript_Jazmyn:: @ 81F638E
 Route123_EventScript_Davis:: @ 81F63A5
 	trainerbattle_single TRAINER_DAVIS, Route123_Text_DavisIntro, Route123_Text_DavisDefeat
 	msgbox Route123_Text_DavisPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Fernando:: @ 81F63BC
-	trainerbattle_single TRAINER_FERNANDO_1, Route123_Text_FernandoIntro, Route123_Text_FernandoDefeat, Route123_EventScript_RegisterFernando
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	compare VAR_RESULT, TRUE
-	goto_if_eq Route123_EventScript_RematchFernando
-	msgbox Route123_Text_FernandoPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route123_EventScript_RegisterFernando:: @ 81F63E8
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route123_Text_FernandoRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_FERNANDO_1
-	release
-	end
-
-Route123_EventScript_RematchFernando:: @ 81F6407
-	trainerbattle_rematch TRAINER_FERNANDO_1, Route123_Text_FernandoRematchIntro, Route123_Text_FernandoRematchDefeat
-	msgbox Route123_Text_FernandoPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route123_Text_LoveGrassMonsHaveAny: @ 81F641E

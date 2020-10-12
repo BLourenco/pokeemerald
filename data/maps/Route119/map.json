@@ -595,7 +595,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route119_EventScript_ItemTM62",
-      "flag": "FLAG_ITEM_ROUTE_119_TM__62"
+      "flag": "FLAG_ITEM_ROUTE_119_TM_62"
     }
   ],
   "warp_events": [

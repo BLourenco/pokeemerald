@@ -254,16 +254,8 @@ Route123_EventScript_ItemUltraBall:: @ 8290FBD
 	finditem ITEM_ULTRA_BALL
 	end
 
-Route123_EventScript_ItemElixir:: @ 8290FCA
-	finditem ITEM_ELIXIR
-	end
-
 Route123_EventScript_ItemPPUp:: @ 8290FD7
 	finditem ITEM_PP_UP
-	end
-
-Route123_EventScript_ItemRevivalHerb:: @ 8290FE4
-	finditem ITEM_REVIVAL_HERB
 	end
 
 Route124_EventScript_ItemRedShard:: @ 8290FF1
@@ -378,8 +370,8 @@ RusturfTunnel_2F_EventScript_ItemDawnStone:: @ 8291143
 	finditem ITEM_DAWN_STONE
 	end
 
-RusturfTunnel_2F_EventScript_ItemTM83:: @ 8291143
-	finditem ITEM_TM83_LEECH_LIFE
+RusturfTunnel_2F_EventScript_ItemTM95:: @ 8291143
+	finditem ITEM_TM95_SNARL
 	end
 
 RusturfTunnel_2F_BackRoom_EventScript_ItemDomeFossil:: @ 8291143
@@ -604,6 +596,22 @@ Route119_EventScript_ItemMaxElixir:: @ 82913A6
 
 Route119_EventScript_ItemNestBall:: @ 82913B3
 	finditem ITEM_NEST_BALL
+	end
+
+OvergrownForest_EventScript_ItemElixir::
+	finditem ITEM_ELIXIR
+	end
+
+OvergrownForest_EventScript_ItemRevivalHerb::
+	finditem ITEM_REVIVAL_HERB
+	end
+
+OvergrownForest_EventScript_ItemTM83::
+	finditem ITEM_TM83_LEECH_LIFE
+	end
+
+OvergrownForest_EventScript_ItemOldAmber::
+	finditem ITEM_OLD_AMBER
 	end
 
 ShoalCave_LowTideEntranceRoom_EventScript_ItemBigPearl:: @ 82913C0
