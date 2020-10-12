@@ -5493,6 +5493,15 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
         {
             switch (gEvolutionTable[species][i].method)
             {
+            case EVO_LEVEL_RAIN:
+                j = GetCurrentWeather();
+                if (j == WEATHER_RAIN || j == WEATHER_RAIN_THUNDERSTORM || j == WEATHER_DOWNPOUR)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
+            case EVO_MAP:
+                if (gMapHeader.regionMapSectionId == gEvolutionTable[species][i].param)
+                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
+                break;
             case EVO_FRIENDSHIP:
                 if (friendship >= 220)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
@@ -5628,15 +5637,6 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                         }
                     }
                 }
-                break;
-            case EVO_LEVEL_RAIN:
-                j = GetCurrentWeather();
-                if (j == WEATHER_RAIN || j == WEATHER_RAIN_THUNDERSTORM || j == WEATHER_DOWNPOUR)
-                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
-                break;
-            case EVO_MAP:
-                if (gMapHeader.regionMapSectionId == gEvolutionTable[species][i].param)
-                    targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
             }
         }
