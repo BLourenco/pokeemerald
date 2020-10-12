@@ -656,11 +656,11 @@
 #define FLAG_HIDDEN_ITEM_DRY_ASHLANDS_RARE_CANDY             0x267
 #define FLAG_HIDDEN_ITEM_DRY_ASHLANDS_REVIVAL_HERB           0x268
 #define FLAG_HIDDEN_ITEM_RUSTURF_TUNNEL_2F_PP_UP             0x269
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
-#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
+#define FLAG_HIDDEN_ITEM_RED_CLAY_TUNNELS_NUGGET             0x26A
+#define FLAG_HIDDEN_ITEM_RED_CLAY_TUNNELS_RARE_BONE          0x26B
+#define FLAG_HIDDEN_ITEM_RED_CLAY_TUNNELS_REVIVE             0x26C
+#define FLAG_HIDDEN_ITEM_RED_CLAY_TUNNELS_WEST_BIG_NUGGET    0x26D
+#define FLAG_HIDDEN_ITEM_RED_CLAY_TUNNELS_WEST_MAX_REVIVE    0x26E
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
 #define FLAG_UNUSED_0x270  0x270 // Unused Flag
 #define FLAG_UNUSED_0x271  0x271 // Unused Flag
@@ -1238,9 +1238,9 @@
 #define FLAG_ITEM_OVERGROWN_FOREST_REVIVAL_HERB                     0x4A6
 #define FLAG_ITEM_OVERGROWN_FOREST_TM_83                            0x4A7
 #define FLAG_ITEM_OVERGROWN_FOREST_OLD_AMBER                        0x4A8
-#define FLAG_UNUSED_0x4A9                                           0x4A9 // Unused Flag
-#define FLAG_UNUSED_0x4AA                                           0x4AA // Unused Flag
-#define FLAG_UNUSED_0x4AB                                           0x4AB // Unused Flag
+#define FLAG_ITEM_RED_CLAY_TUNNELS_LIGHT_CLAY                       0x4A9
+#define FLAG_ITEM_RED_CLAY_TUNNELS_HARD_STONE                       0x4AA
+#define FLAG_ITEM_RED_CLAY_TUNNELS_WEST_IRON_BALL                   0x4AB
 #define FLAG_UNUSED_0x4AC                                           0x4AC // Unused Flag
 #define FLAG_UNUSED_0x4AD                                           0x4AD // Unused Flag
 #define FLAG_UNUSED_0x4AE                                           0x4AE // Unused Flag

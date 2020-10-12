@@ -422,6 +422,18 @@ FieryPath_EventScript_ItemTM06:: @ 829119E
 	finditem ITEM_TM06
 	end
 
+RedClayTunnels_EventScript_LightClay::
+	finditem ITEM_LIGHT_CLAY
+	end
+
+RedClayTunnels_EventScript_HardStone::
+	finditem ITEM_HARD_STONE
+	end
+
+RedClayTunnels_West_EventScript_IronBall::
+	finditem ITEM_IRON_BALL
+	end
+
 MeteorFalls_1F_1R_EventScript_ItemTM23:: @ 82911AB
 	finditem ITEM_TM23
 	end
