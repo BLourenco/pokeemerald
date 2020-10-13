@@ -479,7 +479,7 @@
     },
     {
       "type": "trigger",
-      "x": 69,
+      "x": 68,
       "y": 11,
       "elevation": 0,
       "var": "VAR_GLASS_WORKSHOP_STATE",
@@ -488,7 +488,7 @@
     },
     {
       "type": "trigger",
-      "x": 69,
+      "x": 68,
       "y": 12,
       "elevation": 0,
       "var": "VAR_GLASS_WORKSHOP_STATE",
@@ -497,7 +497,7 @@
     },
     {
       "type": "trigger",
-      "x": 69,
+      "x": 68,
       "y": 13,
       "elevation": 0,
       "var": "VAR_GLASS_WORKSHOP_STATE",

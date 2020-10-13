@@ -185,7 +185,7 @@ DryAshlands_Movement_RivalExit: @ 81EF9B2
 	step_end
 
 DryAshlands_Text_RouteSign:
-	.string "The Ash Drylands\n"
+	.string "The Dry Ashlands\n"
 	.string "{DOWN_ARROW} Route 113$"
 
 DryAshlands_Text_NorthPointSign:

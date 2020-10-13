@@ -106,18 +106,15 @@ Route113_EventScript_GlassWorkerExit3:: @ 81EF96F
 Route113_Movement_GlassWorkerApproachPlayer1: @ 81EF9A8
 	walk_up
 	walk_right
-	walk_right
 	walk_in_place_fastest_right
 	step_end
 
 Route113_Movement_GlassWorkerApproachPlayer2: @ 81EF9AC
 	walk_right
-	walk_right
 	step_end
 
 Route113_Movement_GlassWorkerApproachPlayer3: @ 81EF9AE
 	walk_down
-	walk_right
 	walk_right
 	walk_in_place_fastest_right
 	step_end
@@ -127,9 +124,9 @@ Route113_Movement_GlassWorkerExit1: @ 81EF9BA
 	walk_left
 	walk_left
 	walk_left
+	walk_up
+	walk_up
 	walk_left
-	walk_up
-	walk_up
 	walk_left
 	walk_left
 	step_end
@@ -139,10 +136,10 @@ Route113_Movement_GlassWorkerExit2: @ 81EF9BA
 	walk_left
 	walk_left
 	walk_left
+	walk_up
+	walk_up
+	walk_up
 	walk_left
-	walk_up
-	walk_up
-	walk_up
 	walk_left
 	walk_left
 	step_end
@@ -152,11 +149,11 @@ Route113_Movement_GlassWorkerExit3: @ 81EF9BA
 	walk_left
 	walk_left
 	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
 	walk_left
-	walk_up
-	walk_up
-	walk_up
-	walk_up
 	walk_left
 	walk_left
 	step_end
@@ -285,8 +282,8 @@ Route113_Text_GoCollectAshWithThis: @ 826F19D
 Route113_Text_ExplainSootSack: @ 826F252
 	.string "Just take that Soot Sack and walk\n"
 	.string "through the grass, huff-puff.\p"
-	.string "And it will fill up with the volcanic ash,\n"
-	.string "huff-puff.\p"
+	.string "And it will fill up with 1-3 grams of\n"
+	.string "volcanic ash per step, huff-puff.\p"
 	.string "Once you think you've collected a good\n"
 	.string "amount, come see me, huff-puff.\p"
 	.string "My workshop is at the other end of this\n"
