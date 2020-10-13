@@ -1,5 +1,6 @@
 .set LOCALID_GRUNT, 3
 .set LOCALID_DEVON_EMPLOYEE, 4
+.set LOCALID_HEADBUTT_GIRL, 14
 
 PetalburgWoods_MapScripts:: @ 822DFD6
 	.byte 0
@@ -112,7 +113,7 @@ PetalburgWoods_EventScript_DevonResearcherFinish:: @ 822E18B
 
 PetalburgWoods_EventScript_RemoveDevonResearcher:: @ 822E1A7
 	removeobject LOCALID_DEVON_EMPLOYEE
-	setvar VAR_PETALBURG_WOODS_STATE, 1
+	setvar VAR_PETALBURG_WOODS_STATE, 2
 	releaseall
 	end
 
@@ -322,6 +323,131 @@ PetalburgWoods_EventScript_JamesRematch:: @ 822E31B
 	msgbox PetalburgWoods_Text_IveBeenTrainingHard, MSGBOX_AUTOCLOSE
 	end
 
+PetalburgWoods_EventScript_HeadbuttGirlTrigger1:: @ 81EF74D
+	setvar VAR_0x8008, 1
+	goto PetalburgWoods_EventScript_HeadbuttGirlScene
+	end
+
+PetalburgWoods_EventScript_HeadbuttGirlTrigger2:: @ 81EF758
+	setvar VAR_0x8008, 2
+	goto PetalburgWoods_EventScript_HeadbuttGirlScene
+	end
+
+PetalburgWoods_EventScript_HeadbuttGirlTrigger3:: @ 81EF763
+	setvar VAR_0x8008, 3
+	goto PetalburgWoods_EventScript_HeadbuttGirlScene
+	end
+
+PetalburgWoods_EventScript_HeadbuttGirlScene::
+	lockall
+	faceplayer
+	applymovement LOCALID_HEADBUTT_GIRL, Common_Movement_WalkInPlaceFastestDown
+	waitmovement 0
+	playse SE_PIN
+	applymovement LOCALID_HEADBUTT_GIRL, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_HEADBUTT_GIRL, Common_Movement_Delay48
+	waitmovement 0
+	delay 30
+	compare VAR_0x8008, 1
+	call_if_eq PetalburgWoods_EventScript_HeadbuttGirlApproachPlayer1
+	compare VAR_0x8008, 2
+	call_if_eq PetalburgWoods_EventScript_HeadbuttGirlApproachPlayer2
+	compare VAR_0x8008, 3
+	call_if_eq PetalburgWoods_EventScript_HeadbuttGirlApproachPlayer3	
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+    waitmovement 0
+	msgbox PetalburgWoods_Text_ExplainHeadbuttTrees, MSGBOX_DEFAULT
+	closemessage
+	compare VAR_0x8008, 1
+	call_if_eq PetalburgWoods_EventScript_HeadbuttGirlExit1
+	compare VAR_0x8008, 2
+	call_if_eq PetalburgWoods_EventScript_HeadbuttGirlExit2
+	compare VAR_0x8008, 3
+	call_if_eq PetalburgWoods_EventScript_HeadbuttGirlExit3
+	setvar VAR_PETALBURG_WOODS_STATE, 1
+	removeobject LOCALID_HEADBUTT_GIRL
+	releaseall
+	end
+
+PetalburgWoods_EventScript_HeadbuttGirlApproachPlayer1:: @ 81EF94E
+	applymovement LOCALID_HEADBUTT_GIRL, PetalburgWoods_Movement_HeadbuttGirlApproachPlayer1
+	waitmovement 0
+	return
+
+PetalburgWoods_EventScript_HeadbuttGirlApproachPlayer2:: @ 81EF959
+	applymovement LOCALID_HEADBUTT_GIRL, PetalburgWoods_Movement_HeadbuttGirlApproachPlayer2
+	waitmovement 0
+	return
+
+PetalburgWoods_EventScript_HeadbuttGirlApproachPlayer3:: @ 81EF964
+	applymovement LOCALID_HEADBUTT_GIRL, PetalburgWoods_Movement_HeadbuttGirlApproachPlayer3
+	waitmovement 0
+	return
+
+PetalburgWoods_EventScript_HeadbuttGirlExit1:: @ 81EF96F
+	applymovement LOCALID_HEADBUTT_GIRL, PetalburgWoods_Movement_HeadbuttGirlExit1
+	waitmovement 0
+	return
+
+PetalburgWoods_EventScript_HeadbuttGirlExit2:: @ 81EF96F
+	applymovement LOCALID_HEADBUTT_GIRL, PetalburgWoods_Movement_HeadbuttGirlExit2
+	waitmovement 0
+	return
+
+PetalburgWoods_EventScript_HeadbuttGirlExit3:: @ 81EF96F
+	applymovement LOCALID_HEADBUTT_GIRL, PetalburgWoods_Movement_HeadbuttGirlExit3
+	waitmovement 0
+	return
+
+PetalburgWoods_Movement_HeadbuttGirlApproachPlayer1: @ 81EF9A8
+	step_end
+
+PetalburgWoods_Movement_HeadbuttGirlApproachPlayer2: @ 81EF9AC
+	walk_down
+	step_end
+
+PetalburgWoods_Movement_HeadbuttGirlApproachPlayer3: @ 81EF9AE
+	walk_down
+	walk_down
+	step_end
+
+PetalburgWoods_Movement_HeadbuttGirlExit1: @ 81EF9BA
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+PetalburgWoods_Movement_HeadbuttGirlExit2: @ 81EF9BA
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+PetalburgWoods_Movement_HeadbuttGirlExit3: @ 81EF9BA
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
 PetalburgWoods_Text_NotAOneToBeFound: @ 822E332
 	.string "Hmmm…\n"
 	.string "Not a one to be found…$"
@@ -478,3 +604,17 @@ PetalburgWoods_Text_TrainerTipsPP: @ 822ED07
 	.string "If a Pokémon runs out of PP, it must be\n"
 	.string "taken to a Pokémon Center.$"
 
+PetalburgWoods_Text_ExplainHeadbuttTrees:
+	.string "Hey! Do you see this tree behind me?\p"
+	.string "It may not be obvious looking at it,\n"
+	.string "but it's home to many Pokémon that\l"
+	.string "you won't find just walking through\l"
+	.string "the tall grass.\p"
+	.string "If you go up to it, you can send out\n"
+	.string "any of your Pokémon to Headbutt it,\l"
+	.string "and you may knock a Pokémon out of it!\p"
+	.string "No matter how much you Headbutt it,\n"
+	.string "Pokémon continue to fall out.\p"
+	.string "Keep trying over an over, because you\n"
+	.string "can find about half a dozen different\l"
+	.string "Pokémon in each area they're found.$"

@@ -774,7 +774,7 @@
             ]
           },
           "headbutt_mons": {
-            "encounter_rate": 50,
+            "encounter_rate": 100,
             "mons": [
               {
                 "min_level": 13,
@@ -1092,7 +1092,7 @@
           "map": "MAP_ROUTE112",
           "base_label": "gRoute112",
           "headbutt_mons": {
-            "encounter_rate": 50,
+            "encounter_rate": 100,
             "mons": [
               {
                 "min_level": 16,
@@ -1449,7 +1449,7 @@
           "map": "MAP_ROUTE116",
           "base_label": "gRoute116",
           "headbutt_mons": {
-            "encounter_rate": 50,
+            "encounter_rate": 100,
             "mons": [
               {
                 "min_level": 7,
@@ -1608,7 +1608,7 @@
             ]
           },
           "headbutt_mons": {
-            "encounter_rate": 0,
+            "encounter_rate": 100,
             "mons": [
               {
                 "min_level": 14,
@@ -2948,7 +2948,7 @@
           "map": "MAP_JAGGED_PASS",
           "base_label": "gJaggedPass",
           "headbutt_mons": {
-            "encounter_rate": 0,
+            "encounter_rate": 100,
             "mons": [
               {
                 "min_level": 22,
@@ -11994,7 +11994,7 @@
             ]
           },
           "headbutt_mons": {
-            "encounter_rate": 50,
+            "encounter_rate": 100,
             "mons": [
               {
                 "min_level": 18,
@@ -12489,7 +12489,7 @@
           "map": "MAP_OVERGROWN_FOREST",
           "base_label": "gOvergrownForest",
           "headbutt_mons": {
-            "encounter_rate": 50,
+            "encounter_rate": 100,
             "mons": [
               {
                 "min_level": 37,

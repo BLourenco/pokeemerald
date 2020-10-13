@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": 19,
+      "x": 20,
       "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -29,7 +29,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": 19,
+      "x": 20,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -182,6 +182,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PetalburgWoods_EventScript_Girl",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
+      "x": 13,
+      "y": 32,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_PETALBURG_WOODS_HEADBUTT_GIRL"
     }
   ],
   "warp_events": [
@@ -235,7 +248,7 @@
       "y": 23,
       "elevation": 3,
       "var": "VAR_PETALBURG_WOODS_STATE",
-      "var_value": "0",
+      "var_value": "1",
       "script": "PetalburgWoods_EventScript_DevonResearcherLeft"
     },
     {
@@ -244,8 +257,35 @@
       "y": 23,
       "elevation": 3,
       "var": "VAR_PETALBURG_WOODS_STATE",
-      "var_value": "0",
+      "var_value": "1",
       "script": "PetalburgWoods_EventScript_DevonResearcherRight"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_WOODS_STATE",
+      "var_value": "0",
+      "script": "PetalburgWoods_EventScript_HeadbuttGirlTrigger1"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_WOODS_STATE",
+      "var_value": "0",
+      "script": "PetalburgWoods_EventScript_HeadbuttGirlTrigger2"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 35,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_WOODS_STATE",
+      "var_value": "0",
+      "script": "PetalburgWoods_EventScript_HeadbuttGirlTrigger3"
     }
   ],
   "bg_events": [
@@ -296,6 +336,70 @@
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PetalburgWoods_EventScript_Sign2"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 31,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EventScript_Headbutt"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 31,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EventScript_Headbutt"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EventScript_Headbutt"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EventScript_Headbutt"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EventScript_Headbutt"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 22,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EventScript_Headbutt"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 23,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EventScript_Headbutt"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 23,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EventScript_Headbutt"
     }
   ]
 }
