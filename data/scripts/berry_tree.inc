@@ -120,24 +120,45 @@ BerryTree_EventScript_CheckBerryFullyGrown:: @ 8274421
 	goto BerryTree_EventScript_PickBerry
 
 BerryTree_EventScript_PickBerry:: @ 8274448
-	special ObjectEventInteractionPickBerryTree
+	special ObjectEventInteractionPickBerryTreeCheckBerryPocket
 	compare VAR_0x8004, 0
 	goto_if_eq BerryTree_EventScript_BerryPocketFull
-	special IncrementDailyPickedBerries
-	special ObjectEventInteractionRemoveBerryTree
+	special ObjectEventInteractionPickBerryTreeCheckItemPocket
+	compare VAR_0x8004, 0
+	goto_if_eq BerryTree_EventScript_ItemPocketFull
+	special ObjectEventInteractionPickBerryTreeGiveBerry
 	message BerryTree_Text_PickedTheBerry
     delay 10
     showberrydesc
 	playfanfare MUS_OBTAIN_BERRY
 	waitmessage
 	waitfanfare
+	message BerryTree_Text_PutAwayBerry
+	waitmessage
 	waitbuttonpress
 	hideitemdesc
+	special IncrementDailyPickedBerries
+	special ObjectEventInteractionRemoveBerryTree
+	switch VAR_0x8005
+	case 0, BerryTree_EventScript_GiveRedApricorn
+	case 1, BerryTree_EventScript_GiveBlueApricorn
+	case 2, BerryTree_EventScript_GivePinkApricorn
+	case 3, BerryTree_EventScript_GiveGreenApricorn
+	case 4, BerryTree_EventScript_GiveYellowApricorn
+	case 5, BerryTree_EventScript_GiveBlackApricorn
+	case 6, BerryTree_EventScript_GiveWhiteApricorn
 	release
 	end
 
 BerryTree_EventScript_BerryPocketFull:: @ 8274470
 	message BerryTree_Text_BerryPocketFull
+	waitmessage
+	waitbuttonpress
+	release
+	end
+
+BerryTree_EventScript_ItemPocketFull:: @ 8274470
+	message BerryTree_Text_ItemPocketFull
 	waitmessage
 	waitbuttonpress
 	release
@@ -198,6 +219,62 @@ BerryTree_EventScript_PlantBerry:: @ 82744DD
 	special IncrementDailyPlantedBerries
 	return
 
+BerryTree_EventScript_GiveRedApricorn::
+	giveitem ITEM_RED_APRICORN, 2
+	compare VAR_RESULT, 0
+	goto_if_eq Common_EventScript_ShowBagIsFull
+	closemessage
+	release
+	end
+
+BerryTree_EventScript_GiveBlueApricorn::
+	giveitem ITEM_BLUE_APRICORN, 2
+	compare VAR_RESULT, 0
+	goto_if_eq Common_EventScript_ShowBagIsFull
+	closemessage
+	release
+	end
+
+BerryTree_EventScript_GivePinkApricorn::
+	giveitem ITEM_PINK_APRICORN, 2
+	compare VAR_RESULT, 0
+	goto_if_eq Common_EventScript_ShowBagIsFull
+	closemessage
+	release
+	end
+
+BerryTree_EventScript_GiveGreenApricorn::
+	giveitem ITEM_GREEN_APRICORN, 2
+	compare VAR_RESULT, 0
+	goto_if_eq Common_EventScript_ShowBagIsFull
+	closemessage
+	release
+	end
+
+BerryTree_EventScript_GiveYellowApricorn::
+	giveitem ITEM_YELLOW_APRICORN, 2
+	compare VAR_RESULT, 0
+	goto_if_eq Common_EventScript_ShowBagIsFull
+	closemessage
+	release
+	end
+
+BerryTree_EventScript_GiveBlackApricorn::
+	giveitem ITEM_BLACK_APRICORN, 2
+	compare VAR_RESULT, 0
+	goto_if_eq Common_EventScript_ShowBagIsFull
+	closemessage
+	release
+	end
+
+BerryTree_EventScript_GiveWhiteApricorn::
+	giveitem ITEM_WHITE_APRICORN, 2
+	compare VAR_RESULT, 0
+	goto_if_eq Common_EventScript_ShowBagIsFull
+	closemessage
+	release
+	end
+
 BerryTree_Text_ItsSoftLoamySoil: @ 82744F0
 	.string "It's soft, loamy soil.$"
 
@@ -242,9 +319,20 @@ BerryTree_Text_CareAdverbGood: @ 82745E5
 BerryTree_Text_PickedTheBerry: @ 827461B
 	.string "{PLAYER} picked the {STR_VAR_2} {STR_VAR_1}.$"
 
+BerryTree_Text_PutAwayBerry: @ 8274630
+	.string "{PLAYER} put away the {STR_VAR_1}\n"
+	.string "in the Bag's Berries Pocket.$"
+
 BerryTree_Text_BerryPocketFull: @ 827468F
 	.string "The Bag's Berries Pocket is full.\p"
 	.string "The {STR_VAR_1} couldn't be taken.$"
+
+BerryTree_Text_ItemPocketFull: @ 827468F
+	.string "{STR_VAR_2} {STR_VAR_3} have grown among\n"
+	.string "the {STR_VAR_1}, but the Bag's\l"
+	.string "Items Pocket is full.\p"	
+	.string "The {STR_VAR_1} and {STR_VAR_3}\n"
+	.string "couldn't be taken.$"
 
 BerryTree_Text_ExclamationPoint: @ 8274744
 	.string "!$"

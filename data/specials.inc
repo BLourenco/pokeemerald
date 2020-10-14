@@ -57,7 +57,10 @@ gSpecials:: @ 81DBA64
 	def_special ObjectEventInteractionGetBerryCountString
 	def_special Bag_ChooseBerry
 	def_special ObjectEventInteractionPlantBerryTree
-	def_special ObjectEventInteractionPickBerryTree
+	def_special ObjectEventInteractionPickBerryTreeCheckBerryPocket	
+	def_special ObjectEventInteractionPickBerryTreeGiveBerry
+	def_special ObjectEventInteractionPickBerryTreeCheckItemPocket
+	def_special ObjectEventInteractionPickBerryTreeGiveApricorn
 	def_special ObjectEventInteractionRemoveBerryTree
 	def_special ObjectEventInteractionWaterBerryTree
 	def_special PlayerHasBerries

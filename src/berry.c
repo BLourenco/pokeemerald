@@ -1681,12 +1681,110 @@ void ObjectEventInteractionPlantBerryTree(void)
     ObjectEventInteractionGetBerryTreeData();
 }
 
-void ObjectEventInteractionPickBerryTree(void)
+void ObjectEventInteractionPickBerryTreeCheckBerryPocket(void)
 {
     u8 id = GetObjectEventBerryTreeId(gSelectedObjectEvent);
     u8 berry = GetBerryTypeByBerryTreeId(id);
 
-    gSpecialVar_0x8004 = AddBagItem(BerryTypeToItemId(berry), GetBerryCountByBerryTreeId(id));
+    gSpecialVar_0x8004 = CheckBagHasSpace(BerryTypeToItemId(berry), GetBerryCountByBerryTreeId(id));
+}
+
+void ObjectEventInteractionPickBerryTreeGiveBerry(void)
+{
+    u8 id = GetObjectEventBerryTreeId(gSelectedObjectEvent);
+    u8 berry = GetBerryTypeByBerryTreeId(id);
+
+    AddBagItem(BerryTypeToItemId(berry), GetBerryCountByBerryTreeId(id));
+}
+
+void ObjectEventInteractionPickBerryTreeCheckItemPocket(void)
+{    
+    u8 id = GetObjectEventBerryTreeId(gSelectedObjectEvent);
+    u8 berry = GetBerryTypeByBerryTreeId(id);
+
+    // Check if the planted berry tree also produces apricorns
+    switch (BerryTypeToItemId(berry))
+    {
+        case ITEM_RAZZ_BERRY:
+        case ITEM_SPELON_BERRY:
+            gSpecialVar_0x8004 = CheckBagHasSpace(ITEM_RED_APRICORN, GetBerryCountByBerryTreeId(id));
+            gSpecialVar_0x8005 = 0;
+            CopyItemNameHandlePlural(ITEM_RED_APRICORN, gStringVar3, GetBerryCountByBerryTreeId(id));
+            break;
+        case ITEM_BLUK_BERRY:
+        case ITEM_PAMTRE_BERRY:
+            gSpecialVar_0x8004 = CheckBagHasSpace(ITEM_BLUE_APRICORN, GetBerryCountByBerryTreeId(id));
+            gSpecialVar_0x8005 = 1;
+            CopyItemNameHandlePlural(ITEM_BLUE_APRICORN, gStringVar3, GetBerryCountByBerryTreeId(id));
+            break;
+        case ITEM_NANAB_BERRY:
+        case ITEM_WATMEL_BERRY:
+            gSpecialVar_0x8004 = CheckBagHasSpace(ITEM_PINK_APRICORN, GetBerryCountByBerryTreeId(id));
+            gSpecialVar_0x8005 = 2;
+            CopyItemNameHandlePlural(ITEM_PINK_APRICORN, gStringVar3, GetBerryCountByBerryTreeId(id));
+            break;
+        case ITEM_WEPEAR_BERRY:
+        case ITEM_DURIN_BERRY:
+            gSpecialVar_0x8004 = CheckBagHasSpace(ITEM_GREEN_APRICORN, GetBerryCountByBerryTreeId(id));
+            gSpecialVar_0x8005 = 3;
+            CopyItemNameHandlePlural(ITEM_GREEN_APRICORN, gStringVar3, GetBerryCountByBerryTreeId(id));
+            break;
+        case ITEM_PINAP_BERRY:
+        case ITEM_BELUE_BERRY:
+            gSpecialVar_0x8004 = CheckBagHasSpace(ITEM_YELLOW_APRICORN, GetBerryCountByBerryTreeId(id));
+            gSpecialVar_0x8005 = 4;
+            CopyItemNameHandlePlural(ITEM_YELLOW_APRICORN, gStringVar3, GetBerryCountByBerryTreeId(id));
+            break;
+        case ITEM_CORNN_BERRY:
+        case ITEM_RABUTA_BERRY:
+            gSpecialVar_0x8004 = CheckBagHasSpace(ITEM_BLACK_APRICORN, GetBerryCountByBerryTreeId(id));
+            gSpecialVar_0x8005 = 5;
+            CopyItemNameHandlePlural(ITEM_BLACK_APRICORN, gStringVar3, GetBerryCountByBerryTreeId(id));
+            break;
+        case ITEM_MAGOST_BERRY:
+        case ITEM_NOMEL_BERRY:
+            gSpecialVar_0x8004 = CheckBagHasSpace(ITEM_WHITE_APRICORN, GetBerryCountByBerryTreeId(id));
+            gSpecialVar_0x8005 = 6;
+            CopyItemNameHandlePlural(ITEM_WHITE_APRICORN, gStringVar3, GetBerryCountByBerryTreeId(id));
+            break;
+        default:
+            gSpecialVar_0x8004 = 1;
+            gSpecialVar_0x8005 = 0xFFFF;
+            break;
+    }  
+}
+
+// Unused
+void ObjectEventInteractionPickBerryTreeGiveApricorn(void)
+{
+    u8 id = GetObjectEventBerryTreeId(gSelectedObjectEvent);
+    u8 berry = GetBerryTypeByBerryTreeId(id);
+
+    switch (gSpecialVar_0x8005)
+    {
+        case 0:
+            AddBagItem(ITEM_RED_APRICORN, GetBerryCountByBerryTreeId(id));
+            break;
+        case 1:
+            AddBagItem(ITEM_BLUE_APRICORN, GetBerryCountByBerryTreeId(id));
+            break;
+        case 2:
+            AddBagItem(ITEM_PINK_APRICORN, GetBerryCountByBerryTreeId(id));
+            break;
+        case 3:
+            AddBagItem(ITEM_GREEN_APRICORN, GetBerryCountByBerryTreeId(id));
+            break;
+        case 4:
+            AddBagItem(ITEM_YELLOW_APRICORN, GetBerryCountByBerryTreeId(id));
+            break;
+        case 5:
+            AddBagItem(ITEM_BLACK_APRICORN, GetBerryCountByBerryTreeId(id));
+            break;
+        case 6:
+            AddBagItem(ITEM_WHITE_APRICORN, GetBerryCountByBerryTreeId(id));
+            break;
+    }
+    
 }
 
 void ObjectEventInteractionRemoveBerryTree(void)
