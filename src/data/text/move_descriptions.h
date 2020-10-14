@@ -1718,7 +1718,7 @@ static const u8 sDEFOGDescription[] = _(
 	"lowers evasion.");
 
 static const u8 sTRICK_ROOMDescription[] = _(
-	"Slower POKéMON get to move\n"
+	"Slower Pokémon get to move\n"
 	"first for 5 turns.");
 
 static const u8 sDRACO_METEORDescription[] = _(
@@ -2183,7 +2183,7 @@ static const u8 sBELCHDescription[] = _(
 
 static const u8 sROTOTILLERDescription[] = _(
 	"Ups the Attack and Sp. Atk\n"
-	"of Grass-type POKéMON.");
+	"of Grass-type Pokémon.");
 
 static const u8 sSTICKY_WEBDescription[] = _(
 	"Weaves a sticky net that\n"
@@ -2243,7 +2243,7 @@ static const u8 sCRAFTY_SHIELDDescription[] = _(
 
 static const u8 sFLOWER_SHIELDDescription[] = _(
 	"Raises the Defense of\n"
-	"Grass-type POKéMON.");
+	"Grass-type Pokémon.");
 
 static const u8 sGRASSY_TERRAINDescription[] = _(
 	"The ground turns to grass\n"
@@ -2315,7 +2315,7 @@ static const u8 sSPIKY_SHIELDDescription[] = _(
 
 static const u8 sAROMATIC_MISTDescription[] = _(
 	"Raises the Sp. Def of a\n"
-	"partner POKéMON.");
+	"partner Pokémon.");
 
 static const u8 sEERIE_IMPULSEDescription[] = _(
 	"Exposes the foe to a pulse\n"
@@ -2455,7 +2455,7 @@ static const u8 sLEAFAGEDescription[] = _(
 
 static const u8 sSPOTLIGHTDescription[] = _(
 	"Makes the foe attack the\n"
-	"spotlighted POKéMON.");
+	"spotlighted Pokémon.");
 
 static const u8 sTOXIC_THREADDescription[] = _(
 	"Attacks with a thread that\n"
