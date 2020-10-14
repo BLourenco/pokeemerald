@@ -5523,19 +5523,6 @@ const struct Item gItems[] =
         .secondaryId = 0,
     },
 
-    [ITEM_OLD_AMBER] =
-    {
-        .name = _("Old Amber"),
-        .itemId = ITEM_OLD_AMBER,
-        .price = 0,
-        .description = sOldAmberDesc,
-        .importance = 1,
-        .pocket = POCKET_KEY_ITEMS,
-        .type = 4,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .secondaryId = 0,
-    },
-
     [ITEM_CARD_KEY] =
     {
         .name = _("Card Key"),
@@ -5607,6 +5594,19 @@ const struct Item gItems[] =
         .itemId = ITEM_DOME_FOSSIL,
         .price = 0,
         .description = sDomeFossilDesc,
+        .importance = 0,
+        .pocket = POCKET_ITEMS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
+
+    [ITEM_OLD_AMBER] =
+    {
+        .name = _("Old Amber"),
+        .itemId = ITEM_OLD_AMBER,
+        .price = 0,
+        .description = sOldAmberDesc,
         .importance = 0,
         .pocket = POCKET_ITEMS,
         .type = 4,
