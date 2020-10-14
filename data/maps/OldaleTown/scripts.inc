@@ -1,6 +1,7 @@
 .set LOCALID_MART_EMPLOYEE, 2
 .set LOCALID_FOOTPRINTS_MAN, 3
 .set LOCALID_RIVAL, 4
+.set LOCALID_APRICORN_WORKER, 5
 
 OldaleTown_MapScripts:: @ 81E8EA2
 	map_script MAP_SCRIPT_ON_TRANSITION, OldaleTown_OnTransition
@@ -11,12 +12,16 @@ OldaleTown_OnTransition: @ 81E8EA8
 	setflag FLAG_VISITED_OLDALE_TOWN
 	call_if_unset FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_BlockWestEntrance
 	call_if_unset FLAG_RECEIVED_POTION_OLDALE, OldaleTown_EventScript_MoveMartEmployee
-	call_if_set FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_SetOldaleState
+	call_if_set FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_CheckApricornWorker
 	end
 
-@ This script seems pointless because nothing uses VAR_OLDALE_TOWN_STATE
-OldaleTown_EventScript_SetOldaleState:: @ 81E8ECC
-	setvar VAR_OLDALE_TOWN_STATE, 1
+OldaleTown_EventScript_CheckApricornWorker::
+	goto_if_unset FLAG_MET_OLDALE_TOWN_APRICORN_WORKER, OldaleTown_EventScript_ShowApricornWorker	
+	setvar VAR_OLDALE_TOWN_STATE, 2
+	return
+
+OldaleTown_EventScript_ShowApricornWorker::
+	clearflag FLAG_HIDE_OLDALE_TOWN_APRICORN_WORKER
 	return
 
 OldaleTown_EventScript_BlockWestEntrance:: @ 81E8ED2
@@ -29,8 +34,94 @@ OldaleTown_EventScript_MoveMartEmployee:: @ 81E8EDE
 	setobjectmovementtype LOCALID_MART_EMPLOYEE, MOVEMENT_TYPE_FACE_DOWN
 	return
 
+OldaleTown_EventScript_ApricornWorkerTrigger1::
+	setvar VAR_0x8008, 1
+	goto OldaleTown_EventScript_ApricornWorkerNoticePlayer
+	end
+
+OldaleTown_EventScript_ApricornWorkerTrigger2::
+	setvar VAR_0x8008, 2
+	goto OldaleTown_EventScript_ApricornWorkerNoticePlayer
+	end
+
+OldaleTown_EventScript_ApricornWorkerNoticePlayer::
+	lockall
+	playse SE_PIN
+	applymovement LOCALID_APRICORN_WORKER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_APRICORN_WORKER, Common_Movement_Delay48
+	waitmovement 0
+	delay 30
+	compare VAR_0x8008, 1
+	call_if_eq OldaleTown_EventScript_ApricornWorkerApproachPlayer1
+	compare VAR_0x8008, 2
+	call_if_eq OldaleTown_EventScript_ApricornWorkerApproachPlayer2
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	waitmovement 0
+	call OldaleTown_EventScript_ApricornWorkerSceneMain
+	end
+
+OldaleTown_EventScript_ApricornWorkerScene::
+	lockall
+	faceplayer
+	call OldaleTown_EventScript_ApricornWorkerSceneMain
+	end
+
+OldaleTown_EventScript_ApricornWorkerSceneMain::
+	msgbox OldaleTown_Text_ApricornWorkerIntroduction, MSGBOX_DEFAULT
+	giveitem ITEM_RAZZ_BERRY
+	compare VAR_RESULT, FALSE
+	call_if_eq OldaleTown_ApricornWorkshop_EventScript_NoRoomForBerries @ Probably won't ever get called during regular gameplay
+	msgbox OldaleTown_Text_ApricornWorkerComeVisit, MSGBOX_DEFAULT
+	closemessage
+	compare VAR_0x8008, 1
+	call_if_eq OldaleTown_EventScript_ApricornWorkerExit1
+	compare VAR_0x8008, 2
+	call_if_eq OldaleTown_EventScript_ApricornWorkerExit2
+	setflag FLAG_MET_OLDALE_TOWN_APRICORN_WORKER
+	setvar VAR_OLDALE_TOWN_STATE, 2
+	call OldaleTown_EventScript_ApricornWorkerEnterHome
+	releaseall
+	end
+
+OldaleTown_EventScript_ApricornWorkerApproachPlayer1::
+	applymovement LOCALID_APRICORN_WORKER, OldaleTown_Movement_ApricornWorkerApproachPlayer1
+	waitmovement 0
+	return
+
+OldaleTown_EventScript_ApricornWorkerApproachPlayer2::
+	applymovement LOCALID_APRICORN_WORKER, OldaleTown_Movement_ApricornWorkerApproachPlayer2
+	waitmovement 0
+	return
+
+OldaleTown_EventScript_ApricornWorkerExit1::
+	applymovement LOCALID_APRICORN_WORKER, OldaleTown_Movement_ApricornWorkerExit1
+	waitmovement 0
+	return
+
+OldaleTown_EventScript_ApricornWorkerExit2::
+	applymovement LOCALID_APRICORN_WORKER, OldaleTown_Movement_ApricornWorkerExit2
+	waitmovement 0
+	return
+
+OldaleTown_EventScript_ApricornWorkerEnterHome::
+	setvar VAR_0x8004, 5
+	setvar VAR_0x8005, 7
+	opendoor VAR_0x8004, VAR_0x8005
+	waitdooranim		
+	applymovement LOCALID_APRICORN_WORKER OldaleTown_Movement_ApricornWorkerEnterHome
+	setflag FLAG_HIDE_OLDALE_TOWN_APRICORN_WORKER	
+	waitmovement 0
+	closedoor VAR_0x8004, VAR_0x8005
+	waitdooranim
+	return
+
 OldaleTown_EventScript_CitySign:: @ 81E8EEA
 	msgbox OldaleTown_Text_CitySign, MSGBOX_SIGN
+	end
+
+OldaleTown_EventScript_ApricornWorkshopSign::
+	msgbox OldaleTown_Text_ApricornWorkshopSign, MSGBOX_SIGN
 	end
 
 OldaleTown_EventScript_Girl:: @ 81E8EF3
@@ -349,6 +440,41 @@ OldaleTown_Movement_ReturnToOriginalPosition: @ 81E918B
 	walk_left
 	step_end
 
+OldaleTown_Movement_ApricornWorkerApproachPlayer1:
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	step_end
+
+OldaleTown_Movement_ApricornWorkerApproachPlayer2:
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	step_end
+
+OldaleTown_Movement_ApricornWorkerExit1:
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	step_end
+
+OldaleTown_Movement_ApricornWorkerExit2:
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+OldaleTown_Movement_ApricornWorkerEnterHome:
+	walk_up
+	set_invisible
+	step_end
+
 OldaleTown_Text_SavingMyProgress: @ 81E918E
 	.string "I want to take a rest, so I'm saving my\n"
 	.string "progress.$"
@@ -401,7 +527,34 @@ OldaleTown_Text_BrendanLetsGoBack: @ 81E948A
 	.string "Lab now.\l"
 	.string "{PLAYER}, you should hustle back, too.$"
 
+OldaleTown_Text_ApricornWorkerIntroduction:
+	.string "Hm? Well look who it is! I thought I\n"
+	.string "recognized that face I saw running\l"
+	.string "back and forth through town.\p"
+	.string "You're Norman's kid, {PLAYER}! My,\n"
+	.string "you've grown a lot since I last saw\l"
+	.string "you back when I still lived in Johto.\p"
+	.string "You probably don't remember me, but I\n"
+	.string "was a friend of your father's. I moved\l"
+	.string "to Hoenn a few years ago to start up\l"
+	.string "my own Apricorn Workshop.\p"
+	.string "I take Apricorns and use them to craft\n"
+	.string "special Poké Balls that even Devon\l"
+	.string "Corp. would be jealous of!\p"
+	.string "But where might one aquire Apricorns?\n"
+	.string "Well, in Hoenn, Apricorns grow off of\l"
+	.string "certain Berry trees. If you plant more\l"
+	.string "of that Berry, you'll grow more of that\l"
+	.string "same type of Apricorn.\p"
+	.string "Here, take this and try for yourself.$"
+
+OldaleTown_Text_ApricornWorkerComeVisit:
+	.string "Come visit when you have some Apricorns\n"
+	.string "and I'll craft some special Poké Balls!$"
+
 OldaleTown_Text_CitySign: @ 81E94DA
 	.string "Oldale Town\n"
 	.string "“Where things start off scarce.”$"
 
+OldaleTown_Text_ApricornWorkshopSign: @ 81E94DA
+	.string "Apricorn Workshop$"

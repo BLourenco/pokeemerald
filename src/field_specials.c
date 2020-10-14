@@ -2479,6 +2479,16 @@ void ShowScrollableMultichoice(void)
             task->tHeight = 12;
             task->tKeepOpenAfterSelect = FALSE;
             task->tTaskId = taskId;
+            break;        
+        case SCROLL_MULTI_APRICORN_WORKSHOP_VENDOR:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 8;
+            task->tLeft = 1;
+            task->tTop = 1;
+            task->tWidth = 9;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tTaskId = taskId;
             break;
         default:
             gSpecialVar_Result = MULTI_B_PRESSED;
@@ -2730,6 +2740,17 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_PokemonMoves,
         gText_Underpowered,
         gText_WhenInDanger,
+        gText_Exit
+    },
+    [SCROLL_MULTI_APRICORN_WORKSHOP_VENDOR] =
+    {
+        gText_LevelBall,
+        gText_LureBall,
+        gText_LoveBall,
+        gText_FriendBall,
+        gText_MoonBall,
+        gText_HeavyBall,
+        gText_FastBall,
         gText_Exit
     }
 };

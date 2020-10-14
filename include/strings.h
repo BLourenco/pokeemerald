@@ -833,6 +833,14 @@ extern const u8 gText_PokemonMoves[];
 extern const u8 gText_Underpowered[];
 extern const u8 gText_WhenInDanger[];
 
+extern const u8 gText_LevelBall[];
+extern const u8 gText_LureBall[];
+extern const u8 gText_LoveBall[];
+extern const u8 gText_FriendBall[];
+extern const u8 gText_MoonBall[];
+extern const u8 gText_HeavyBall[];
+extern const u8 gText_FastBall[];
+
 // Battle Frontier Maniac
 extern const u8 BattleFrontier_Lounge2_Text_SalonMaidenIsThere[];
 extern const u8 BattleFrontier_Lounge2_Text_SalonMaidenSilverMons[];

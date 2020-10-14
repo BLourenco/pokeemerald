@@ -756,29 +756,29 @@ static const u8 sIapapaBerryDesc[] = _(
     "may confuse.");
 
 static const u8 sRazzBerryDesc[] = _(
-    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
-    "to grow Razz.");
+    "to grow Razz Berries\n"
+    "and Red Apricorns.");
 
 static const u8 sBlukBerryDesc[] = _(
-    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
-    "to grow Bluk.");
+    "to grow Bluk Berries\n"
+    "and Blu Apricorns.");
 
 static const u8 sNanabBerryDesc[] = _(
-    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
-    "to grow Nanab.");
+    "to grow Nanab Berries\n"
+    "and Pnk Apricorns.");
 
 static const u8 sWepearBerryDesc[] = _(
-    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
-    "to grow Wepear.");
+    "to grow Wepear Berries\n"
+    "and Grn Apricorns.");
 
 static const u8 sPinapBerryDesc[] = _(
-    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
-    "to grow Pinap.");
+    "to grow Pinap Berries\n"
+    "and Ylw Apricorns.");
 
 static const u8 sPomegBerryDesc[] = _(
     "Makes a Pokémon\n"
@@ -811,49 +811,49 @@ static const u8 sTamatoBerryDesc[] = _(
     "base Speed.");
 
 static const u8 sCornnBerryDesc[] = _(
-    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
-    "to grow Cornn.");
+    "to grow Cornn Berries\n"
+    "and Blk Apricorns.");
 
 static const u8 sMagostBerryDesc[] = _(
-    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
-    "to grow Magost.");
+    "to grow Magost Berries\n"
+    "and Wht Apricorns.");
 
 static const u8 sRabutaBerryDesc[] = _(
-    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
-    "to grow Rabuta.");
+    "to grow Rabuta Berries\n"
+    "and Blk Apricorns.");
 
 static const u8 sNomelBerryDesc[] = _(
-    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
-    "to grow Nomel.");
+    "to grow Nomel Berries\n"
+    "and Wht Apricorns.");
 
 static const u8 sSpelonBerryDesc[] = _(
-    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
-    "to grow Spelon.");
+    "to grow Spelon Berries\n"
+    "and Red Apricorns.");
 
 static const u8 sPamtreBerryDesc[] = _(
-    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
-    "to grow Pamtre.");
+    "to grow Pamtre Berries\n"
+    "and Blu Apricorns.");
 
 static const u8 sWatmelBerryDesc[] = _(
-    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
-    "to grow Watmel.");
+    "to grow Watmel Berries\n"
+    "and Pnk Apricorns.");
 
 static const u8 sDurinBerryDesc[] = _(
-    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
-    "to grow Durin.");
+    "to grow Durin Berries\n"
+    "and Grn Apricorns.");
 
 static const u8 sBelueBerryDesc[] = _(
-    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
-    "to grow Belue.");
+    "to grow Belue Berries\n"
+    "and Ylw Apricorns.");
 
 static const u8 sLiechiBerryDesc[] = _(
     "A hold item that\n"

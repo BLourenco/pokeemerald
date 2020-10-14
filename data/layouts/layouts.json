@@ -4480,6 +4480,16 @@
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/OvergrownForest/border.bin",
       "blockdata_filepath": "data/layouts/OvergrownForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_OLDALE_TOWN_APRICORN_WORKSHOP",
+      "name": "OldaleTown_ApricornWorkshop_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/OldaleTown_ApricornWorkshop/border.bin",
+      "blockdata_filepath": "data/layouts/OldaleTown_ApricornWorkshop/map.bin"
     }
   ]
 }

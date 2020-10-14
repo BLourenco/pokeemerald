@@ -13,7 +13,7 @@ PetalburgCity_House2_Text_NormanBecameGymLeader: @ 8207905
 	.string "Norman became our town's new\n"
 	.string "Gym Leader.\p"
 	.string "I think he called his family over from\n"
-	.string "somewhere far away.$"
+	.string "Olivine City in the Johto region.$"
 
 PetalburgCity_House2_Text_BattledNormanOnce: @ 8207969
 	.string "I battled Norman once, but, whew,\n"
