@@ -881,15 +881,6 @@ static const u8 sTerrainToType[] =
     [BATTLE_TERRAIN_PLAIN]      = TYPE_NORMAL,
 };
 
-// - ITEM_ULTRA_BALL skips Master Ball and ITEM_NONE
-static const u8 sBallCatchBonuses[] =
-{
-    [ITEM_ULTRA_BALL - ITEM_ULTRA_BALL]  = 20,
-    [ITEM_GREAT_BALL - ITEM_ULTRA_BALL]  = 15,
-    [ITEM_POKE_BALL - ITEM_ULTRA_BALL]   = 10,
-    [ITEM_SAFARI_BALL - ITEM_ULTRA_BALL] = 15
-};
-
 // In Battle Palace, moves are chosen based on the pokemons nature rather than by the player
 // Moves are grouped into "Attack", "Defense", or "Support" (see PALACE_MOVE_GROUP_*)
 // Each nature has a certain percent chance of selecting a move from a particular group
@@ -11703,10 +11694,23 @@ static void Cmd_handleballthrow(void)
         else
             catchRate = gBaseStats[gBattleMons[gBattlerTarget].species].catchRate;
 
-        if (gLastUsedItem > ITEM_SAFARI_BALL)
+        switch (gLastUsedItem)
         {
-            switch (gLastUsedItem)
-            {
+            case ITEM_POKE_BALL:
+            case ITEM_PREMIER_BALL:
+            case ITEM_LUXURY_BALL:
+            case ITEM_HEAL_BALL:
+            case ITEM_FRIEND_BALL:
+            case ITEM_CHERISH_BALL:
+                ballMultiplier = 10;
+                break;
+            case ITEM_GREAT_BALL:
+            case ITEM_SAFARI_BALL:
+                ballMultiplier = 15;
+                break;
+            case ITEM_ULTRA_BALL:
+                ballMultiplier = 20;
+                break;
             case ITEM_NET_BALL:
                 if (IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_WATER) || IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_BUG))
                     ballMultiplier = 30;
@@ -11731,13 +11735,6 @@ static void Cmd_handleballthrow(void)
                 ballMultiplier = gBattleResults.battleTurnCounter + 10;
                 if (ballMultiplier > 40)
                     ballMultiplier = 40;
-                break;
-            case ITEM_LUXURY_BALL:
-            case ITEM_PREMIER_BALL:
-            case ITEM_FRIEND_BALL:
-            case ITEM_HEAL_BALL:
-            case ITEM_CHERISH_BALL:
-                ballMultiplier = 10;
                 break;
             case ITEM_SPORT_BALL:
                 ballMultiplier = 15;
@@ -11798,10 +11795,8 @@ static void Cmd_handleballthrow(void)
                 if ((gLocalTime.hours >= 20 && gLocalTime.hours <= 3) || gMapHeader.cave || gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
                     ballMultiplier = 30;
                 break;
-            }
         }
-        else
-            ballMultiplier = sBallCatchBonuses[gLastUsedItem - ITEM_ULTRA_BALL];
+        
 
         odds = (catchRate * ballMultiplier / 10)
             * (gBattleMons[gBattlerTarget].maxHP * 3 - gBattleMons[gBattlerTarget].hp * 2)
@@ -11820,8 +11815,9 @@ static void Cmd_handleballthrow(void)
             }
             else
             {
-                if (gBattleResults.catchAttempts[gLastUsedItem - ITEM_ULTRA_BALL] < 0xFF)
-                    gBattleResults.catchAttempts[gLastUsedItem - ITEM_ULTRA_BALL]++;
+                u8 index = gLastUsedItem > ITEM_MASTER_BALL ? gLastUsedItem - 2 : gLastUsedItem - 1; // Skip Master Ball
+                if (gBattleResults.catchAttempts[index] < 0xFF)
+                    gBattleResults.catchAttempts[index]++;
             }
         }
 
