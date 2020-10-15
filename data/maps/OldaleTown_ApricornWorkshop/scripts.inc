@@ -24,11 +24,11 @@ OldaleTown_ApricornWorkshop_EventScript_CraftMenu::
 	switch VAR_RESULT
 	case 0, OldaleTown_ApricornWorkshop_EventScript_CraftRedApricorns
 	case 1, OldaleTown_ApricornWorkshop_EventScript_CraftBlueApricorns
-	case 2, OldaleTown_ApricornWorkshop_EventScript_CraftPinkApricorns
+	case 2, OldaleTown_ApricornWorkshop_EventScript_CraftYellowApricorns
 	case 3, OldaleTown_ApricornWorkshop_EventScript_CraftGreenApricorns
-	case 4, OldaleTown_ApricornWorkshop_EventScript_CraftYellowApricorns
-	case 5, OldaleTown_ApricornWorkshop_EventScript_CraftBlackApricorns
-	case 6, OldaleTown_ApricornWorkshop_EventScript_CraftWhiteApricorns
+	case 4, OldaleTown_ApricornWorkshop_EventScript_CraftPinkApricorns
+	case 5, OldaleTown_ApricornWorkshop_EventScript_CraftWhiteApricorns
+	case 6, OldaleTown_ApricornWorkshop_EventScript_CraftBlackApricorns
 	case 7, OldaleTown_ApricornWorkshop_EventScript_ApricornWorkerComeBackAgain
 	case MULTI_B_PRESSED, OldaleTown_ApricornWorkshop_EventScript_ApricornWorkerComeBackAgain
 	release
@@ -219,11 +219,11 @@ OldaleTown_ApricornWorkshop_EventScript_ChooseApricornBallTopic::
 	switch VAR_RESULT
 	case 0, OldaleTown_ApricornWorkshop_EventScript_LevelBall
 	case 1, OldaleTown_ApricornWorkshop_EventScript_LureBall
-	case 2, OldaleTown_ApricornWorkshop_EventScript_LoveBall
+	case 2, OldaleTown_ApricornWorkshop_EventScript_MoonBall
 	case 3, OldaleTown_ApricornWorkshop_EventScript_FriendBall
-	case 4, OldaleTown_ApricornWorkshop_EventScript_MoonBall
-	case 5, OldaleTown_ApricornWorkshop_EventScript_HeavyBall
-	case 6, OldaleTown_ApricornWorkshop_EventScript_FastBall
+	case 4, OldaleTown_ApricornWorkshop_EventScript_LoveBall
+	case 5, OldaleTown_ApricornWorkshop_EventScript_FastBall
+	case 6, OldaleTown_ApricornWorkshop_EventScript_HeavyBall
 	case 7, OldaleTown_ApricornWorkshop_EventScript_ExitTopicSelect
 	case MULTI_B_PRESSED, OldaleTown_ApricornWorkshop_EventScript_ExitTopicSelect
 	end
