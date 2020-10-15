@@ -2746,11 +2746,11 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
     {
         gText_LevelBall,
         gText_LureBall,
-        gText_LoveBall,
-        gText_FriendBall,
         gText_MoonBall,
-        gText_HeavyBall,
+        gText_FriendBall,
+        gText_LoveBall,
         gText_FastBall,
+        gText_HeavyBall,
         gText_Exit
     }
 };
