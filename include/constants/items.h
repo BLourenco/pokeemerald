@@ -29,16 +29,20 @@
 #define ITEM_MOON_BALL	17
 #define ITEM_FRIEND_BALL	18
 #define ITEM_LOVE_BALL	19
-#define ITEM_FAST_BALL	20
-#define ITEM_HEAVY_BALL	21
+#define ITEM_FAST_BALL	24
+#define ITEM_HEAVY_BALL	25
 	
 // Special Balls	
-#define ITEM_SAFARI_BALL	22
-#define ITEM_SPORT_BALL	23
-#define ITEM_PARK_BALL	24
-#define ITEM_DREAM_BALL	25
-#define ITEM_BEAST_BALL	26
-#define ITEM_CHERISH_BALL	27
+#define ITEM_SAFARI_BALL	26
+#define ITEM_BEAST_BALL	27
+
+// Problematic Balls, for some reason these define values crash the game
+#define ITEM_SPORT_BALL	20
+#define ITEM_PARK_BALL	21
+#define ITEM_CHERISH_BALL	22
+#define ITEM_DREAM_BALL	23
+
+#define LAST_BALL ITEM_BEAST_BALL
 	
 // Medicine, HP Recovery	
 #define ITEM_POTION	28
@@ -711,8 +715,6 @@
 
 #define ITEMS_COUNT 619
 #define ITEM_FIELD_ARROW ITEMS_COUNT
-
-#define LAST_BALL ITEM_CHERISH_BALL
 
 #define FIRST_BERRY_INDEX             ITEM_CHERI_BERRY
 #define LAST_BERRY_INDEX              ITEM_MARANGA_BERRY
