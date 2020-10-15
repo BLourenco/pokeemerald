@@ -20,8 +20,8 @@
 	
 // Sinnoh Balls	
 #define ITEM_DUSK_BALL	12
-#define ITEM_QUICK_BALL	13
-#define ITEM_HEAL_BALL	14
+#define ITEM_HEAL_BALL	13
+#define ITEM_QUICK_BALL	14
 	
 // Johto/Apricorn Balls	
 #define ITEM_LEVEL_BALL	15
@@ -33,11 +33,11 @@
 #define ITEM_HEAVY_BALL	21
 	
 // Special Balls	
-#define ITEM_BEAST_BALL	22
-#define ITEM_SAFARI_BALL	23
-#define ITEM_SPORT_BALL	24
-#define ITEM_PARK_BALL	25
-#define ITEM_DREAM_BALL	26
+#define ITEM_SAFARI_BALL	22
+#define ITEM_SPORT_BALL	23
+#define ITEM_PARK_BALL	24
+#define ITEM_DREAM_BALL	25
+#define ITEM_BEAST_BALL	26
 #define ITEM_CHERISH_BALL	27
 	
 // Medicine, HP Recovery	
@@ -192,18 +192,18 @@
 #define ITEM_SAIL_FOSSIL	140
 	
 // Mail	
-#define ITEM_BEAD_MAIL	141
-#define ITEM_DREAM_MAIL	142
-#define ITEM_FAB_MAIL	143
-#define ITEM_GLITTER_MAIL	144
-#define ITEM_HARBOR_MAIL	145
-#define ITEM_MECH_MAIL	146
-#define ITEM_ORANGE_MAIL	147
-#define ITEM_RETRO_MAIL	148
-#define ITEM_SHADOW_MAIL	149
-#define ITEM_TROPIC_MAIL	150
-#define ITEM_WAVE_MAIL	151
-#define ITEM_WOOD_MAIL	152
+#define ITEM_ORANGE_MAIL 141
+#define ITEM_HARBOR_MAIL 142
+#define ITEM_GLITTER_MAIL 143
+#define ITEM_MECH_MAIL 144
+#define ITEM_WOOD_MAIL 145
+#define ITEM_WAVE_MAIL 146
+#define ITEM_BEAD_MAIL 147
+#define ITEM_SHADOW_MAIL 148
+#define ITEM_TROPIC_MAIL 149
+#define ITEM_DREAM_MAIL 150
+#define ITEM_FAB_MAIL 151
+#define ITEM_RETRO_MAIL 152
 	
 // Berries	
 #define ITEM_CHERI_BERRY	153
