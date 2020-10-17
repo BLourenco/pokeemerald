@@ -219,7 +219,7 @@
 #define MAPSEC_DRY_ASHLANDS                 0xD6
 #define MAPSEC_RED_CLAY_TUNNELS             0xD7
 #define MAPSEC_OVERGROWN_FOREST             0xD8
-#define MAPSEC_UNUSED_0_D9                  0xD9
+#define MAPSEC_ROUTE_135                    0xD9
 #define MAPSEC_UNUSED_0_DA                  0xDA
 #define MAPSEC_UNUSED_0_DB                  0xDB
 #define MAPSEC_UNUSED_0_DC                  0xDC

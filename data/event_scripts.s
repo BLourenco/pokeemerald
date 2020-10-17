@@ -1074,3 +1074,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/OvergrownForest/scripts.inc"
 
 	.include "data/maps/OldaleTown_ApricornWorkshop/scripts.inc"
+
+	.include "data/maps/Route135/scripts.inc"

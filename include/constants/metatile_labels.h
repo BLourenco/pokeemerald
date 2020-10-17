@@ -403,6 +403,10 @@
 #define METATILE_Pacifidlog_SubmergedLogs_Horizontal1      0x255
 #define METATILE_Pacifidlog_SubmergedLogs_Vertical0        0x25A
 #define METATILE_Pacifidlog_SubmergedLogs_Vertical1        0x262
+#define METATILE_Pacifidlog_Wailmer0_Alt                   0x2C6
+#define METATILE_Pacifidlog_Wailmer1_Alt                   0x2C7
+#define METATILE_Pacifidlog_Wailmer2                       0x2CE
+#define METATILE_Pacifidlog_Wailmer3                       0x2CF
 
 // gTileset_PetalburgGym
 #define METATILE_PetalburgGym_RoomEntrance_Left   0x210
