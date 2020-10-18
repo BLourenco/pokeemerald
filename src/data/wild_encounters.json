@@ -9522,12 +9522,12 @@
               {
                 "min_level": 43,
                 "max_level": 45,
-                "species": "SPECIES_CRABOMINABLE"
+                "species": "SPECIES_VANILLISH"
               },
               {
                 "min_level": 43,
                 "max_level": 45,
-                "species": "SPECIES_CRABOMINABLE"
+                "species": "SPECIES_VANILLISH"
               },
               {
                 "min_level": 43,
@@ -12682,66 +12682,66 @@
           "map": "MAP_SHOAL_CAVE_SUMMIT",
           "base_label": "gShoalCave_Summit",
           "land_mons": {
-            "encounter_rate": 0,
+            "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 43,
+                "max_level": 45,
                 "species": "SPECIES_ALOLAN_VULPIX"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 43,
+                "max_level": 45,
                 "species": "SPECIES_ALOLAN_VULPIX"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 43,
+                "max_level": 43,
                 "species": "SPECIES_CUBCHOO"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_CUBCHOO"
+                "min_level": 44,
+                "max_level": 45,
+                "species": "SPECIES_BEARTIC"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 43,
+                "max_level": 45,
                 "species": "SPECIES_SNOVER"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 43,
+                "max_level": 45,
                 "species": "SPECIES_SNOVER"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_VANILLITE"
+                "min_level": 43,
+                "max_level": 45,
+                "species": "SPECIES_CRABOMINABLE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_VANILLITE"
+                "min_level": 43,
+                "max_level": 45,
+                "species": "SPECIES_CRABOMINABLE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 43,
+                "max_level": 45,
                 "species": "SPECIES_JYNX"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 43,
+                "max_level": 45,
                 "species": "SPECIES_JYNX"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 43,
+                "max_level": 45,
                 "species": "SPECIES_DELIBIRD"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 43,
+                "max_level": 45,
                 "species": "SPECIES_DELIBIRD"
               }
             ]

@@ -650,6 +650,18 @@ ShoalCave_LowTideIceRoom_EventScript_ItemNeverMeltIce:: @ 82913F4
 	finditem ITEM_NEVER_MELT_ICE
 	end
 
+ShoalCave_Summit_EventScript_ItemIceStone::
+	finditem ITEM_ICE_STONE
+	end
+
+ShoalCave_Summit_EventScript_ItemTM70::
+	finditem ITEM_TM70_AURORA_VEIL
+	end
+
+ShoalCave_Summit_EventScript_ItemSailFossil::
+	finditem ITEM_SAIL_FOSSIL
+	end
+
 SeafloorCavern_Room6_EventScript_ItemTM55:: @ 8291401
 	finditem ITEM_TM55_SCALD
 	end

@@ -106,6 +106,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
                             {EVO_MAP, 216, SPECIES_LEAFEON}, // Overgrown Forest
                             {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_LEAFEON},
                             {EVO_MAP, 67, SPECIES_GLACEON}, // Shoal Cave
+                            {EVO_MAP, 218, SPECIES_GLACEON}, // Shoal Sanctuary
                             {EVO_ITEM, ITEM_ICE_STONE, SPECIES_GLACEON},
                             {EVO_MOVE_TYPE, TYPE_FAIRY, SPECIES_SYLVEON},
                             {EVO_ITEM, ITEM_SHINY_STONE, SPECIES_SYLVEON}},
@@ -438,6 +439,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 	[SPECIES_CHARJABUG]	 = {{EVO_MAP, 62, SPECIES_VIKAVOLT}, // New Mauville
                             {EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_VIKAVOLT}},
 	[SPECIES_CRABRAWLER] = {{EVO_MAP, 67, SPECIES_CRABOMINABLE}, // Shoal Cave
+	                        {EVO_MAP, 218, SPECIES_CRABOMINABLE}, // Shoal Sanctuary
                             {EVO_ITEM, ITEM_ICE_STONE, SPECIES_CRABOMINABLE}},
 	[SPECIES_CUTIEFLY]	 = {{EVO_LEVEL, 25, SPECIES_RIBOMBEE}},
 	[SPECIES_ROCKRUFF]	 = {{EVO_LEVEL_DAY, 25, SPECIES_LYCANROC},

@@ -1241,9 +1241,9 @@
 #define FLAG_ITEM_RED_CLAY_TUNNELS_LIGHT_CLAY                       0x4A9
 #define FLAG_ITEM_RED_CLAY_TUNNELS_HARD_STONE                       0x4AA
 #define FLAG_ITEM_RED_CLAY_TUNNELS_WEST_IRON_BALL                   0x4AB
-#define FLAG_UNUSED_0x4AC                                           0x4AC // Unused Flag
-#define FLAG_UNUSED_0x4AD                                           0x4AD // Unused Flag
-#define FLAG_UNUSED_0x4AE                                           0x4AE // Unused Flag
+#define FLAG_ITEM_SHOAL_SUMMIT_ICE_STONE                            0x4AC
+#define FLAG_ITEM_SHOAL_SUMMIT_TM_70                                0x4AD
+#define FLAG_ITEM_SHOAL_SUMMIT_SAIL_FOSSIL                          0x4AE
 #define FLAG_UNUSED_0x4AF                                           0x4AF // Unused Flag
 #define FLAG_UNUSED_0x4B0                                           0x4B0 // Unused Flag
 #define FLAG_UNUSED_0x4B1                                           0x4B1 // Unused Flag

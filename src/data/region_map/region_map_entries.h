@@ -203,6 +203,7 @@ static const u8 sMapName_DryAshlands[] = _("Dry Ashlands");
 static const u8 sMapName_RedClayTunnels[] = _("Red Clay Tunnels");
 static const u8 sMapName_OvergrownForest[] = _("Overgrown Forest");
 static const u8 sMapName_Route135[] = _("Route 135");
+static const u8 sMapName_ShoalSummit[] = _("Shoal Sanctuary");
 
 const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_ABANDONED_SHIP]             = {6, 14, 1, 1, sMapName_AbandonedShip},
@@ -380,7 +381,8 @@ const struct RegionMapLocation gRegionMapEntries[] = {
     [MAPSEC_SEVII_ISLE_7]               = {0, 0, 1, 1, sMapName_SeviiIsle7},
     [MAPSEC_SEVII_ISLE_8]               = {0, 0, 1, 1, sMapName_SeviiIsle8},
     [MAPSEC_SEVII_ISLE_9]               = {0, 0, 1, 1, sMapName_SeviiIsle9},
-    [MAPSEC_SHOAL_CAVE]                 = {24, 4, 1, 1, sMapName_ShoalCave},
+    [MAPSEC_SHOAL_CAVE]                 = {24, 3, 1, 1, sMapName_ShoalCave},
+    [MAPSEC_SHOAL_SUMMIT]               = {24, 3, 1, 1, sMapName_ShoalSummit},
     [MAPSEC_SILPH_CO]                   = {0, 0, 1, 1, sMapName_SilphCo},
     [MAPSEC_SIX_ISLAND]                 = {0, 0, 1, 1, sMapName_SixIsland},
     [MAPSEC_SKY_PILLAR]                 = {19, 10, 1, 1, sMapName_SkyPillar},
