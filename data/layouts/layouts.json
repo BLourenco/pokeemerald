@@ -1645,7 +1645,7 @@
       "id": "LAYOUT_SHOAL_CAVE_LOW_TIDE_INNER_ROOM",
       "name": "ShoalCave_LowTideInnerRoom_Layout",
       "width": 46,
-      "height": 38,
+      "height": 42,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ShoalCave_LowTideInnerRoom/border.bin",
@@ -1685,7 +1685,7 @@
       "id": "LAYOUT_SHOAL_CAVE_HIGH_TIDE_INNER_ROOM",
       "name": "ShoalCave_HighTideInnerRoom_Layout",
       "width": 46,
-      "height": 38,
+      "height": 42,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ShoalCave_HighTideInnerRoom/border.bin",
@@ -4500,6 +4500,26 @@
       "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/Route135/border.bin",
       "blockdata_filepath": "data/layouts/Route135/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHOAL_CAVE_HIGH_TIDE_SUMMIT_ROOM",
+      "name": "ShoalCave_HighTideSummitRoom_Layout",
+      "width": 9,
+      "height": 6,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ShoalCave_HighTideSummitRoom/border.bin",
+      "blockdata_filepath": "data/layouts/ShoalCave_HighTideSummitRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHOAL_CAVE_SUMMIT",
+      "name": "ShoalCave_Summit_Layout",
+      "width": 40,
+      "height": 47,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ShoalCave_Summit/border.bin",
+      "blockdata_filepath": "data/layouts/ShoalCave_Summit/map.bin"
     }
   ]
 }

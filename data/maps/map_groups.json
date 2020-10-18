@@ -440,7 +440,9 @@
     "RusturfTunnel_2F_BackRoom",
     "RedClayTunnels",
     "RedClayTunnels_West",
-    "OvergrownForest"
+    "OvergrownForest",
+    "ShoalCave_HighTideSummitRoom",
+    "ShoalCave_Summit"
   ],
   "gMapGroup25": [
     "SecretBase_RedCave1",

@@ -1,7 +1,7 @@
 {
-  "id": "MAP_SHOAL_CAVE_HIGH_TIDE_INNER_ROOM",
-  "name": "ShoalCave_HighTideInnerRoom",
-  "layout": "LAYOUT_SHOAL_CAVE_HIGH_TIDE_INNER_ROOM",
+  "id": "MAP_SHOAL_CAVE_HIGH_TIDE_SUMMIT_ROOM",
+  "name": "ShoalCave_HighTideSummitRoom",
+  "layout": "LAYOUT_SHOAL_CAVE_HIGH_TIDE_SUMMIT_ROOM",
   "music": "MUS_MT_PYRE",
   "region_map_section": "MAPSEC_SHOAL_CAVE",
   "requires_flash": false,
@@ -17,7 +17,20 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 4,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_SHOAL_CAVE_LOW_TIDE_INNER_ROOM",
+      "dest_warp_id": 8
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_SHOAL_CAVE_SUMMIT",
+      "dest_warp_id": 0
+    }
   ],
   "coord_events": [
 

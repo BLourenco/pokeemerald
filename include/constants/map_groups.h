@@ -405,6 +405,8 @@
 #define MAP_RED_CLAY_TUNNELS                         (111 | (24 << 8))
 #define MAP_RED_CLAY_TUNNELS_WEST                    (112 | (24 << 8))
 #define MAP_OVERGROWN_FOREST                         (113 | (24 << 8))
+#define MAP_SHOAL_CAVE_HIGH_TIDE_SUMMIT_ROOM         (114 | (24 << 8))
+#define MAP_SHOAL_CAVE_SUMMIT                        (115 | (24 << 8))
 
 // Map Group 25
 #define MAP_SECRET_BASE_RED_CAVE1           (0 | (25 << 8))

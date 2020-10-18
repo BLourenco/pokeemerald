@@ -1076,3 +1076,7 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/OldaleTown_ApricornWorkshop/scripts.inc"
 
 	.include "data/maps/Route135/scripts.inc"
+
+	.include "data/maps/ShoalCave_HighTideSummitRoom/scripts.inc"
+
+	.include "data/maps/ShoalCave_Summit/scripts.inc"
