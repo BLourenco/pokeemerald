@@ -37,6 +37,7 @@ static const u8 LandmarkName_PokemonDayCare[] = _("Pokémon Day Care");
 static const u8 LandmarkName_SafariZoneEntrance[] = _("Safari Zone Entrance");
 static const u8 LandmarkName_MtPyre[] = _("Mt. Pyre");
 static const u8 LandmarkName_ShoalCave[] = _("Shoal Cave");
+static const u8 LandmarkName_ShoalSummit[] = _("Shoal Sanctuary");
 static const u8 LandmarkName_SeafloorCavern[] = _("Seafloor Cavern");
 static const u8 LandmarkName_GraniteCave[] = _("Granite Cave");
 static const u8 LandmarkName_DewfordCove[] = _("Dewford Cove");
@@ -84,6 +85,7 @@ static const struct Landmark Landmark_PokemonDayCare = {LandmarkName_PokemonDayC
 static const struct Landmark Landmark_SafariZoneEntrance = {LandmarkName_SafariZoneEntrance, -1};
 static const struct Landmark Landmark_MtPyre = {LandmarkName_MtPyre, -1};
 static const struct Landmark Landmark_ShoalCave = {LandmarkName_ShoalCave, -1};
+static const struct Landmark Landmark_ShoalSummit = {LandmarkName_ShoalSummit, FLAG_LANDMARK_SHOAL_SUMMIT};
 static const struct Landmark Landmark_SeafloorCavern = {LandmarkName_SeafloorCavern, FLAG_LANDMARK_SEAFLOOR_CAVERN};
 static const struct Landmark Landmark_GraniteCave = {LandmarkName_GraniteCave, -1};
 static const struct Landmark Landmark_DewfordCove = {LandmarkName_DewfordCove, FLAG_LANDMARK_DEWFORD_COVE};
@@ -328,9 +330,10 @@ static const struct Landmark *const Landmarks_Route124_7[]  =
     NULL,
 };
 
-static const struct Landmark *const Landmarks_Route125_2[]  =
+static const struct Landmark *const Landmarks_Route125_0[]  =
 {
     &Landmark_ShoalCave,
+    &Landmark_ShoalSummit,
     NULL,
 };
 
@@ -405,7 +408,7 @@ static const struct LandmarkList gLandmarkLists[] =
     {MAPSEC_ROUTE_123, 0, Landmarks_Route123_0},
     {MAPSEC_ROUTE_122, 1, Landmarks_Route122_0},
     {MAPSEC_ROUTE_124, 7, Landmarks_Route124_7},
-    {MAPSEC_ROUTE_125, 2, Landmarks_Route125_2},
+    {MAPSEC_ROUTE_125, 0, Landmarks_Route125_0},
     {MAPSEC_ROUTE_128, 1, Landmarks_Route128_1},
     {MAPSEC_ROUTE_131, 1, Landmarks_Route131_1},
     {MAPSEC_ROUTE_132, 0, Landmarks_OceanCurrent},

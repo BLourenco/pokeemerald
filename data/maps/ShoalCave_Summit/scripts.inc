@@ -1,5 +1,10 @@
 ShoalCave_Summit_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, ShoalCave_Summit_OnTransition
 	.byte 0
+
+ShoalCave_Summit_OnTransition: @ 823434B
+	setflag FLAG_LANDMARK_SHOAL_SUMMIT
+	end
 
 ShoalCave_Summit_EventScript_Girl::
 	lock
