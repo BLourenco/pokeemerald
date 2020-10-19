@@ -27,32 +27,27 @@ Route118_OnFrame: @ 81F3E0A
 	map_script_2 VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_EndEventAndCleanup_1
 	.2byte 0
 
-Route118_EventScript_GoodRodFisherman:: @ 81F3E14
+Route118_EventScript_SuperRodFisherman:: @ 82225C3
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_GOOD_ROD, Route118_EventScript_ReceivedGoodRod
-	msgbox Route118_Text_YouAgreeGoodRodIsGood, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Route118_EventScript_ReceiveGoodRod
+	goto_if_set FLAG_RECEIVED_SUPER_ROD, Route118_EventScript_ReceivedSuperRod
+	msgbox Route118_Text_YouWantSuperRod, MSGBOX_YESNO
 	compare VAR_RESULT, NO
-	goto_if_eq Route118_EventScript_DeclineGoodRod
-	end
-
-Route118_EventScript_ReceiveGoodRod:: @ 81F3E3E
-	msgbox Route118_Text_IdenticalMindsTakeThis, MSGBOX_DEFAULT
-	giveitem ITEM_GOOD_ROD
-	setflag FLAG_RECEIVED_GOOD_ROD
-	msgbox Route118_Text_TryYourLuckFishing, MSGBOX_DEFAULT
+	goto_if_eq Route118_EventScript_DeclineSuperRod
+	msgbox Route118_Text_SuperRodIsSuper, MSGBOX_DEFAULT
+	giveitem ITEM_SUPER_ROD
+	setflag FLAG_RECEIVED_SUPER_ROD
+	msgbox Route118_Text_TryDroppingRodInWater, MSGBOX_DEFAULT
 	release
 	end
 
-Route118_EventScript_DeclineGoodRod:: @ 81F3E5F
+Route118_EventScript_ReceivedSuperRod:: @ 8222602
+	msgbox Route118_Text_GoAfterSeafloorPokemon, MSGBOX_DEFAULT
+	release
+	end
+
+Route118_EventScript_DeclineSuperRod:: @ 822260C
 	msgbox Route118_Text_DontYouLikeToFish, MSGBOX_DEFAULT
-	release
-	end
-
-Route118_EventScript_ReceivedGoodRod:: @ 81F3E69
-	msgbox Route118_Text_TryCatchingMonWithGoodRod, MSGBOX_DEFAULT
 	release
 	end
 
@@ -274,27 +269,30 @@ Route118_Text_StevenQuestions: @ 81F40BE
 	.string "It would be nice if we were to meet\n"
 	.string "again somewhere.$"
 
-Route118_Text_YouAgreeGoodRodIsGood: @ 81F427B
-	.string "Hmm!\n"
-	.string "A Good Rod is really good!\p"
-	.string "Wouldn't you agree?$"
+Route118_Text_YouWantSuperRod: @ 8222616
+	.string "Hey there, Trainer!\n"
+	.string "A Super Rod really is super!\p"
+	.string "Say all you want, but this baby can\n"
+	.string "catch Pokémon off the seafloor!\p"
+	.string "What do you think?\n"
+	.string "You want it, don't you?$"
 
-Route118_Text_IdenticalMindsTakeThis: @ 81F42AF
-	.string "Hmm!\n"
-	.string "We're of identical minds!\p"
-	.string "Hmm!\n"
-	.string "Take this Good Rod!$"
+Route118_Text_SuperRodIsSuper: @ 82226B6
+	.string "You bet, you bet!\n"
+	.string "After all, a Super Rod is really super!$"
 
-Route118_Text_TryYourLuckFishing: @ 81F42E7
-	.string "Wherever there's water, try your luck\n"
-	.string "at fishing.$"
+Route118_Text_TryDroppingRodInWater: @ 82226F0
+	.string "If there's any water, try dropping in\n"
+	.string "your Rod and see what bites!$"
 
-Route118_Text_DontYouLikeToFish: @ 81F4319
+Route118_Text_DontYouLikeToFish: @ 8222733
+	.string "Hunh?\n"
 	.string "Don't you like to fish?$"
 
-Route118_Text_TryCatchingMonWithGoodRod: @ 81F4331
-	.string "Try catching all sorts of Pokémon\n"
-	.string "with your Good Rod.$"
+Route118_Text_GoAfterSeafloorPokemon: @ 8222751
+	.string "Go after the seafloor Pokémon with\n"
+	.string "your Super Rod.$"
+
 
 Route118_Text_CanCrossRiversWithSurf: @ 81F4367
 	.string "Even if there isn't a boat, you can\n"
