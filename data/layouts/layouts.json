@@ -1305,7 +1305,7 @@
       "id": "LAYOUT_DESERT_RUINS",
       "name": "DesertRuins_Layout",
       "width": 17,
-      "height": 33,
+      "height": 15,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/DesertRuins/border.bin",
@@ -2795,7 +2795,7 @@
       "id": "LAYOUT_ISLAND_CAVE",
       "name": "IslandCave_Layout",
       "width": 17,
-      "height": 33,
+      "height": 15,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/IslandCave/border.bin",
@@ -2805,7 +2805,7 @@
       "id": "LAYOUT_ANCIENT_TOMB",
       "name": "AncientTomb_Layout",
       "width": 17,
-      "height": 33,
+      "height": 15,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/AncientTomb/border.bin",
@@ -4520,6 +4520,36 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ShoalCave_Summit/border.bin",
       "blockdata_filepath": "data/layouts/ShoalCave_Summit/map.bin"
+    },
+    {
+      "id": "LAYOUT_ISLAND_CAVE_CHAMBER",
+      "name": "IslandCave_Chamber_Layout",
+      "width": 17,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/IslandCave_Chamber/border.bin",
+      "blockdata_filepath": "data/layouts/IslandCave_Chamber/map.bin"
+    },
+    {
+      "id": "LAYOUT_ANCIENT_TOMB_CHAMBER",
+      "name": "AncientTomb_Chamber_Layout",
+      "width": 17,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/AncientTomb_Chamber/border.bin",
+      "blockdata_filepath": "data/layouts/AncientTomb_Chamber/map.bin"
+    },
+    {
+      "id": "LAYOUT_DESERT_RUINS_CHAMBER",
+      "name": "DesertRuins_Chamber_Layout",
+      "width": 17,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/DesertRuins_Chamber/border.bin",
+      "blockdata_filepath": "data/layouts/DesertRuins_Chamber/map.bin"
     }
   ]
 }

@@ -442,7 +442,10 @@
     "RedClayTunnels_West",
     "OvergrownForest",
     "ShoalCave_HighTideSummitRoom",
-    "ShoalCave_Summit"
+    "ShoalCave_Summit",
+    "IslandCave_Chamber",
+    "AncientTomb_Chamber",
+    "DesertRuins_Chamber"
   ],
   "gMapGroup25": [
     "SecretBase_RedCave1",

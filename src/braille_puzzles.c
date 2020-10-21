@@ -24,42 +24,42 @@ EWRAM_DATA static u8 sBraillePuzzleCallbackFlag = 0;
 
 static const u8 gRegicePathCoords[][2] =
 {
-    {4,  21},
-    {5,  21},
-    {6,  21},
-    {7,  21},
-    {8,  21},
-    {9,  21},
-    {10, 21},
-    {11, 21},
-    {12, 21},
-    {12, 22},
-    {12, 23},
-    {13, 23},
-    {13, 24},
-    {13, 25},
-    {13, 26},
-    {13, 27},
-    {12, 27},
-    {12, 28},
-    {4,  29},
-    {5,  29},
-    {6,  29},
-    {7,  29},
-    {8,  29},
-    {9,  29},
-    {10, 29},
-    {11, 29},
-    {12, 29},
-    {4,  28},
-    {4,  27},
-    {3,  27},
-    {3,  26},
-    {3,  25},
-    {3,  24},
-    {3,  23},
-    {4,  23},
-    {4,  22},
+    {4,  3},
+    {5,  3},
+    {6,  3},
+    {7,  3},
+    {8,  3},
+    {9,  3},
+    {10, 3},
+    {11, 3},
+    {12, 3},
+    {12, 4},
+    {12, 5},
+    {13, 5},
+    {13, 6},
+    {13, 7},
+    {13, 8},
+    {13, 9},
+    {12, 9},
+    {12, 10},
+    {4,  11},
+    {5,  11},
+    {6,  11},
+    {7,  11},
+    {8,  11},
+    {9,  11},
+    {10, 11},
+    {11, 11},
+    {12, 11},
+    {4,  10},
+    {4,  9},
+    {3,  9},
+    {3,  8},
+    {3,  7},
+    {3,  6},
+    {3,  5},
+    {4,  5},
+    {4,  4},
 };
 
 void SealedChamberShakingEffect(u8);
@@ -244,17 +244,17 @@ bool8 ShouldDoBrailleRegirockEffect(void)
         && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DESERT_RUINS)
         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(DESERT_RUINS))
     {
-        if (gSaveBlock1Ptr->pos.x == 6 && gSaveBlock1Ptr->pos.y == 23)
+        if (gSaveBlock1Ptr->pos.x == 6 && gSaveBlock1Ptr->pos.y == 5)
         {
             sBraillePuzzleCallbackFlag = REGIROCK_PUZZLE;
             return TRUE;
         }
-        else if (gSaveBlock1Ptr->pos.x == 5 && gSaveBlock1Ptr->pos.y == 23)
+        else if (gSaveBlock1Ptr->pos.x == 5 && gSaveBlock1Ptr->pos.y == 5)
         {
             sBraillePuzzleCallbackFlag = REGIROCK_PUZZLE;
             return TRUE;
         }
-        else if (gSaveBlock1Ptr->pos.x == 7 && gSaveBlock1Ptr->pos.y == 23)
+        else if (gSaveBlock1Ptr->pos.x == 7 && gSaveBlock1Ptr->pos.y == 5)
         {
             sBraillePuzzleCallbackFlag = REGIROCK_PUZZLE;
             return TRUE;
@@ -278,12 +278,12 @@ void UseRegirockHm_Callback(void)
 
 void DoBrailleRegirockEffect(void)
 {
-    MapGridSetMetatileIdAt(14, 26, METATILE_Cave_SealedChamberEntrance_TopLeft);
-    MapGridSetMetatileIdAt(15, 26, METATILE_Cave_SealedChamberEntrance_TopMid);
-    MapGridSetMetatileIdAt(16, 26, METATILE_Cave_SealedChamberEntrance_TopRight);
-    MapGridSetMetatileIdAt(14, 27, METATILE_Cave_SealedChamberEntrance_BottomLeft | METATILE_COLLISION_MASK);
-    MapGridSetMetatileIdAt(15, 27, METATILE_Cave_SealedChamberEntrance_BottomMid);
-    MapGridSetMetatileIdAt(16, 27, METATILE_Cave_SealedChamberEntrance_BottomRight | METATILE_COLLISION_MASK);
+    MapGridSetMetatileIdAt(14, 8, METATILE_Cave_SealedChamberEntrance_TopLeft);
+    MapGridSetMetatileIdAt(15, 8, METATILE_Cave_SealedChamberEntrance_TopMid);
+    MapGridSetMetatileIdAt(16, 8, METATILE_Cave_SealedChamberEntrance_TopRight);
+    MapGridSetMetatileIdAt(14, 9, METATILE_Cave_SealedChamberEntrance_BottomLeft | METATILE_COLLISION_MASK);
+    MapGridSetMetatileIdAt(15, 9, METATILE_Cave_SealedChamberEntrance_BottomMid);
+    MapGridSetMetatileIdAt(16, 9, METATILE_Cave_SealedChamberEntrance_BottomRight | METATILE_COLLISION_MASK);
     DrawWholeMapView();
     PlaySE(SE_BANG);
     FlagSet(FLAG_SYS_REGIROCK_PUZZLE_COMPLETED);
@@ -294,7 +294,7 @@ bool8 ShouldDoBrailleRegisteelEffect(void)
 {
     if (!FlagGet(FLAG_SYS_REGISTEEL_PUZZLE_COMPLETED) && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ANCIENT_TOMB) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ANCIENT_TOMB)))
     {
-        if (gSaveBlock1Ptr->pos.x == 8 && gSaveBlock1Ptr->pos.y == 25)
+        if (gSaveBlock1Ptr->pos.x == 8 && gSaveBlock1Ptr->pos.y == 7)
         {
             sBraillePuzzleCallbackFlag = REGISTEEL_PUZZLE;
             return TRUE;
@@ -317,12 +317,12 @@ void UseRegisteelHm_Callback(void)
 
 void DoBrailleRegisteelEffect(void)
 {
-    MapGridSetMetatileIdAt(14, 26, METATILE_Cave_SealedChamberEntrance_TopLeft);
-    MapGridSetMetatileIdAt(15, 26, METATILE_Cave_SealedChamberEntrance_TopMid);
-    MapGridSetMetatileIdAt(16, 26, METATILE_Cave_SealedChamberEntrance_TopRight);
-    MapGridSetMetatileIdAt(14, 27, METATILE_Cave_SealedChamberEntrance_BottomLeft | METATILE_COLLISION_MASK);
-    MapGridSetMetatileIdAt(15, 27, METATILE_Cave_SealedChamberEntrance_BottomMid);
-    MapGridSetMetatileIdAt(16, 27, METATILE_Cave_SealedChamberEntrance_BottomRight | METATILE_COLLISION_MASK);
+    MapGridSetMetatileIdAt(14, 8, METATILE_Cave_SealedChamberEntrance_TopLeft);
+    MapGridSetMetatileIdAt(15, 8, METATILE_Cave_SealedChamberEntrance_TopMid);
+    MapGridSetMetatileIdAt(16, 8, METATILE_Cave_SealedChamberEntrance_TopRight);
+    MapGridSetMetatileIdAt(14, 9, METATILE_Cave_SealedChamberEntrance_BottomLeft | METATILE_COLLISION_MASK);
+    MapGridSetMetatileIdAt(15, 9, METATILE_Cave_SealedChamberEntrance_BottomMid);
+    MapGridSetMetatileIdAt(16, 9, METATILE_Cave_SealedChamberEntrance_BottomRight | METATILE_COLLISION_MASK);
     DrawWholeMapView();
     PlaySE(SE_BANG);
     FlagSet(FLAG_SYS_REGISTEEL_PUZZLE_COMPLETED);
@@ -470,7 +470,7 @@ bool8 ShouldDoBrailleRegicePuzzle(void)
                     return FALSE;
 
                 // This final check is redundant.
-                if (gSaveBlock1Ptr->pos.x == 8 && gSaveBlock1Ptr->pos.y == 21)
+                if (gSaveBlock1Ptr->pos.x == 8 && gSaveBlock1Ptr->pos.y == 3)
                     return TRUE;
                 else
                     return FALSE;

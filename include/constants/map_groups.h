@@ -407,6 +407,9 @@
 #define MAP_OVERGROWN_FOREST                         (113 | (24 << 8))
 #define MAP_SHOAL_CAVE_HIGH_TIDE_SUMMIT_ROOM         (114 | (24 << 8))
 #define MAP_SHOAL_CAVE_SUMMIT                        (115 | (24 << 8))
+#define MAP_ISLAND_CAVE_CHAMBER                      (116 | (24 << 8))
+#define MAP_ANCIENT_TOMB_CHAMBER                     (117 | (24 << 8))
+#define MAP_DESERT_RUINS_CHAMBER                     (118 | (24 << 8))
 
 // Map Group 25
 #define MAP_SECRET_BASE_RED_CAVE1           (0 | (25 << 8))

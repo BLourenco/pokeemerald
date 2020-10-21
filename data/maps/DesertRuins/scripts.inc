@@ -20,12 +20,12 @@ DesertRuins_OnLoad: @ 822D989
 	end
 
 DesertRuins_EventScript_HideRegiEntrance:: @ 822D993
-	setmetatile 7, 19, METATILE_Cave_EntranceCover, 1
-	setmetatile 8, 19, METATILE_Cave_EntranceCover, 1
-	setmetatile 9, 19, METATILE_Cave_EntranceCover, 1
-	setmetatile 7, 20, METATILE_Cave_SealedChamberBraille_Mid, 1
-	setmetatile 8, 20, METATILE_Cave_SealedChamberBraille_Mid, 1
-	setmetatile 9, 20, METATILE_Cave_SealedChamberBraille_Mid, 1
+	setmetatile 7, 1, METATILE_Cave_EntranceCover, 1
+	setmetatile 8, 1, METATILE_Cave_EntranceCover, 1
+	setmetatile 9, 1, METATILE_Cave_EntranceCover, 1
+	setmetatile 7, 2, METATILE_Cave_SealedChamberBraille_Mid, 1
+	setmetatile 8, 2, METATILE_Cave_SealedChamberBraille_Mid, 1
+	setmetatile 9, 2, METATILE_Cave_SealedChamberBraille_Mid, 1
 	return
 
 DesertRuins_OnTransition: @ 822D9CA

@@ -1080,3 +1080,9 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/ShoalCave_HighTideSummitRoom/scripts.inc"
 
 	.include "data/maps/ShoalCave_Summit/scripts.inc"
+
+	.include "data/maps/IslandCave_Chamber/scripts.inc"
+
+	.include "data/maps/AncientTomb_Chamber/scripts.inc"
+
+	.include "data/maps/DesertRuins_Chamber/scripts.inc"

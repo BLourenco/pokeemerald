@@ -166,6 +166,8 @@ static void DebugAction_GivePokemon(u8 taskId)
 {
     FlagSet(FLAG_SYS_POKEMON_GET);
     ScriptGiveMon(SPECIES_MEWTWO, 70, ITEM_NONE, 0, 0, 0);
+    ScriptGiveMon(SPECIES_WAILORD, 70, ITEM_NONE, 0, 0, 0);
+    ScriptGiveMon(SPECIES_RELICANTH, 70, ITEM_NONE, 0, 0, 0);
     Debug_DestroyMainMenu(taskId);
 }
 
