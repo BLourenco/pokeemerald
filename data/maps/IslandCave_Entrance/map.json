@@ -1,0 +1,41 @@
+{
+  "id": "MAP_ISLAND_CAVE_ENTRANCE",
+  "name": "IslandCave_Entrance",
+  "layout": "LAYOUT_ISLAND_CAVE_ENTRANCE",
+  "music": "MUS_SEALED_CHAMBER",
+  "region_map_section": "MAPSEC_ISLAND_CAVE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 21,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE105",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 21,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_ISLAND_CAVE",
+      "dest_warp_id": 0
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

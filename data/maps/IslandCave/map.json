@@ -21,8 +21,8 @@
       "x": 8,
       "y": 11,
       "elevation": 3,
-      "dest_map": "MAP_ROUTE105",
-      "dest_warp_id": 0
+      "dest_map": "MAP_ISLAND_CAVE_ENTRANCE",
+      "dest_warp_id": 1
     },
     {
       "x": 8,

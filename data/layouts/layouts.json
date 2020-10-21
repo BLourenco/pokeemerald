@@ -4550,6 +4550,36 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/DesertRuins_Chamber/border.bin",
       "blockdata_filepath": "data/layouts/DesertRuins_Chamber/map.bin"
+    },
+    {
+      "id": "LAYOUT_DESERT_RUINS_ENTRANCE",
+      "name": "DesertRuins_Entrance_Layout",
+      "width": 40,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/DesertRuins_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/DesertRuins_Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_ISLAND_CAVE_ENTRANCE",
+      "name": "IslandCave_Entrance_Layout",
+      "width": 27,
+      "height": 23,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/IslandCave_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/IslandCave_Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_ANCIENT_TOMB_ENTRANCE",
+      "name": "AncientTomb_Entrance_Layout",
+      "width": 22,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/AncientTomb_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/AncientTomb_Entrance/map.bin"
     }
   ]
 }

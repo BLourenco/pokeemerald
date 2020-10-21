@@ -603,7 +603,7 @@
       "x": 7,
       "y": 55,
       "elevation": 0,
-      "dest_map": "MAP_ANCIENT_TOMB",
+      "dest_map": "MAP_ANCIENT_TOMB_ENTRANCE",
       "dest_warp_id": 0
     },
     {

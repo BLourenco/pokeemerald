@@ -1086,3 +1086,9 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/AncientTomb_Chamber/scripts.inc"
 
 	.include "data/maps/DesertRuins_Chamber/scripts.inc"
+
+	.include "data/maps/DesertRuins_Entrance/scripts.inc"
+
+	.include "data/maps/IslandCave_Entrance/scripts.inc"
+
+	.include "data/maps/AncientTomb_Entrance/scripts.inc"

@@ -445,7 +445,10 @@
     "ShoalCave_Summit",
     "IslandCave_Chamber",
     "AncientTomb_Chamber",
-    "DesertRuins_Chamber"
+    "DesertRuins_Chamber",
+    "DesertRuins_Entrance",
+    "IslandCave_Entrance",
+    "AncientTomb_Entrance"
   ],
   "gMapGroup25": [
     "SecretBase_RedCave1",
