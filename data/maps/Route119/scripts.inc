@@ -19,6 +19,7 @@ Route119_EventScript_TryRemoveKecleon:: @ 81F4439
 	return
 
 Route119_OnTransition: @ 81F444D
+	setflag FLAG_VISITED_ROUTE_119
 	call Common_EventScript_SetupRivalGfxId
 	call Common_EventScript_SetupRivalOnBikeGfxId
 	compare VAR_WEATHER_INSTITUTE_STATE, 1
@@ -520,8 +521,14 @@ Route119_Text_MayPresentForYou: @ 81F4AF3
 
 Route119_Text_MayExplainFly: @ 81F4B56
 	.string "{RIVAL}: Use Fly, and your Pokémon will\n"
-	.string "instantly carry you to any town you've\l"
-	.string "already visited.\p"
+	.string "instantly carry you to any town or\l"
+	.string "route you've already visited.\p"
+	.string "If you Fly to a town, you'll land\n"
+	.string "at the entrance of the local\l"
+	.string "Pokémon Center.\p"
+	.string "If you fly to a route, you'll land\n"
+	.string "in front of the blue sign on that\l"
+	.string "route, like that sign over there.\p"
 	.string "But, to use Fly, you have to get\n"
 	.string "the Gym Badge from Fortree City.\l"
 	.string "That's important, so don't forget.\p"
@@ -552,9 +559,15 @@ Route119_Text_BrendanIllGiveYouThis: @ 81F4D4B
 Route119_Text_BrendanExplainFly: @ 81F4DB5
 	.string "{RIVAL}: Use Fly, and your Pokémon\n"
 	.string "instantly carries you to any town\l"
-	.string "you've already visited.\p"
+	.string "or route you've already visited.\p"
+	.string "If you Fly to a town, you'll land\n"
+	.string "at the entrance of the local\l"
+	.string "Pokémon Center.\p"
+	.string "If you fly to a route, you'll land\n"
+	.string "in front of the blue sign on that\l"
+	.string "route, like that sign over there.\p"
 	.string "But you need the Fortree Gym Badge \n"
-	.string "to do that.\p"
+	.string "before you can Fly around.\p"
 	.string "Anyway, I have to move along.$"
 
 Route119_Text_ScottWayToGoBeSeeingYou: @ 81F4E60
@@ -619,7 +632,7 @@ Route119_Text_CanYourMonMakeSecretBase: @ 81F52B9
 
 Route119_Text_RouteSignFortree: @ 81F530E
 	.string "Route 119\n"
-	.string "{RIGHT_ARROW} Fortree City$"
+	.string "{UP_ARROW} Fortree City$"
 
 Route119_Text_WeatherInstitute: @ 81F5327
 	.string "Weather Institute$"

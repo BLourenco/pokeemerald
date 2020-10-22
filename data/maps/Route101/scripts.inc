@@ -7,6 +7,7 @@ Route101_MapScripts:: @ 81EBCBA
 	.byte 0
 
 Route101_OnTransition: @ 81EBCC5
+	setflag FLAG_VISITED_ROUTE_101
 	call ProfBirch_EventScript_UpdateLocation
 	end
 

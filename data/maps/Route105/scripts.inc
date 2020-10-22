@@ -24,7 +24,12 @@ Route105_OnTransition: @ 81EE21E
 	call_if_eq AbnormalWeather_StartKyogreWeather
 	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_105_SOUTH
 	call_if_eq AbnormalWeather_StartKyogreWeather
+	call_if_set FLAG_BADGE05_GET, Route105_MarkAsVisited
 	end
+
+Route105_MarkAsVisited::	
+	setflag FLAG_VISITED_ROUTE_105
+	return
 
 Route105_OnFrame: @ 81EE240
 	map_script_2 VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_EndEventAndCleanup_1
@@ -82,6 +87,10 @@ Route105_EventScript_AndresRematch:: @ 81EE31F
 	msgbox Route105_Text_AndresRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route105_EventScript_RouteSign::
+	msgbox Route105_Text_RouteSign, MSGBOX_SIGN
+	end
+
 Route104_Text_DadPokenavCall: @ 81EE336
 	.string "… … … … … …\n"
 	.string "… … … … … Beep!\p"
@@ -101,3 +110,8 @@ Route104_Text_DadPokenavCall: @ 81EE336
 Route104_Text_RegisteredDadInPokenav: @ 81EE463
 	.string "Registered Dad Norman\n"
 	.string "in the PokéNav.$"
+
+Route105_Text_RouteSign:
+	.string "Route 105\n"
+	.string "{UP_ARROW} Petalburg City\l"
+	.string "{DOWN_ARROW} Dewford Town$"

@@ -1,5 +1,14 @@
 Route108_MapScripts:: @ 81EE689
+	map_script MAP_SCRIPT_ON_TRANSITION, Route108_OnTransition
 	.byte 0
+
+Route108_OnTransition:
+	call_if_set FLAG_BADGE05_GET, Route108_MarkAsVisited
+	end
+
+Route108_MarkAsVisited::	
+	setflag FLAG_VISITED_ROUTE_108
+	return
 
 Route108_EventScript_Jerome:: @ 81EE68A
 	trainerbattle_single TRAINER_JEROME, Route108_Text_JeromeIntro, Route108_Text_JeromeDefeated
@@ -48,3 +57,11 @@ Route108_EventScript_CoryRematch:: @ 81EE748
 	msgbox Route108_Text_CoryRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route108_EventScript_RouteSign::
+	msgbox Route108_Text_RouteSign, MSGBOX_SIGN
+	end
+
+Route108_Text_RouteSign:
+	.string "Route 108\n"
+	.string "{LEFT_ARROW} Dewford Town\l"
+	.string "{RIGHT_ARROW} Slateport City$"

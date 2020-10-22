@@ -6,6 +6,7 @@ Route103_MapScripts:: @ 81EC38E
 	.byte 0
 
 Route103_OnTransition: @ 81EC399
+	setflag FLAG_VISITED_ROUTE_103
 	call Common_EventScript_SetupRivalGfxId
 	call ProfBirch_EventScript_UpdateLocation
 	end
@@ -203,6 +204,10 @@ Route103_EventScript_RouteSign:: @ 81EC5EB
 	msgbox Route103_Text_RouteSign, MSGBOX_SIGN
 	end
 
+Route103_EventScript_RouteSignEast::
+	msgbox Route103_Text_RouteSignEast, MSGBOX_SIGN
+	end
+
 Route103_EventScript_Daisy:: @ 81EC5F4
 	trainerbattle_single TRAINER_DAISY, Route103_Text_DaisyIntro, Route103_Text_DaisyDefeated
 	msgbox Route103_Text_DaisyPostBattle, MSGBOX_AUTOCLOSE
@@ -357,4 +362,8 @@ Route103_Text_ShortcutToOldale: @ 81ECBB5
 Route103_Text_RouteSign: @ 81ECC1A
 	.string "Route 103\n"
 	.string "{DOWN_ARROW} Oldale Town$"
+
+Route103_Text_RouteSignEast:	
+	.string "Route 103\n"
+	.string "{LEFT_ARROW} Oldale Town$"
 

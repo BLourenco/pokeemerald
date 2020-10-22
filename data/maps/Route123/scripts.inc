@@ -3,6 +3,7 @@ Route123_MapScripts:: @ 81F6147
 	.byte 0
 
 Route123_OnTransition: @ 81F614D
+	setflag FLAG_VISITED_ROUTE_123
 	special SetRoute123Weather
 	end
 

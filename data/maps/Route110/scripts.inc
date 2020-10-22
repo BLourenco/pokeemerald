@@ -14,6 +14,7 @@ Route110_OnResume: @ 81EF279
 	end
 
 Route110_OnTransition: @ 81EF27D
+	setflag FLAG_VISITED_ROUTE_110
 	call Common_EventScript_SetupRivalGfxId
 	call Common_EventScript_SetupRivalOnBikeGfxId
 	compare VAR_CYCLING_CHALLENGE_STATE, 1

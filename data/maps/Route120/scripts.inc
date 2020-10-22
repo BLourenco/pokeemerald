@@ -65,8 +65,14 @@ Route120_EventScript_SetBridgeKecleonMovement:: @ 81F54C8
 	return
 
 Route120_OnTransition: @ 81F54CD
+	@setflag FLAG_VISITED_ROUTE_120 @The Fly point is halfway down the route, need more precise trigger
 	call GabbyAndTy_EventScript_UpdateLocation
 	call Route120_EventScript_SetWeather
+	end
+
+Route120_EventScript_MarkAsVisitedTrigger::
+	setflag FLAG_VISITED_ROUTE_120
+	setvar VAR_ROUTE120_STATE, 1
 	end
 
 Route120_EventScript_SetWeather:: @ 81F54D8
@@ -284,8 +290,8 @@ Route120_EventScript_RouteSignFortree:: @ 81F57C5
 	msgbox Route120_Text_RouteSignFortree, MSGBOX_SIGN
 	end
 
-Route120_EventScript_RouteSign121:: @ 81F57CE
-	msgbox Route120_Text_RouteSign121, MSGBOX_SIGN
+Route120_EventScript_RouteSign::
+	msgbox Route120_Text_RouteSign, MSGBOX_SIGN
 	end
 
 Route120_EventScript_Colin:: @ 81F57D7
@@ -452,6 +458,7 @@ Route120_Text_RouteSignFortree: @ 81F5DCB
 	.string "Route 120\n"
 	.string "{LEFT_ARROW} Fortree City$"
 
-Route120_Text_RouteSign121: @ 81F5DE4
-	.string "{RIGHT_ARROW} Route 121\n"
-	.string "{LEFT_ARROW} Route 120$"
+Route120_Text_RouteSign: @ 81F5DE4
+	.string "Route 120\n"
+	.string "{UP_ARROW} Fortree City\l"
+	.string "{DOWN_ARROW} Route 121$"

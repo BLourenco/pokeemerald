@@ -1,5 +1,14 @@
 Route107_MapScripts:: @ 81EE594
+	map_script MAP_SCRIPT_ON_TRANSITION, Route107_OnTransition
 	.byte 0
+
+Route107_OnTransition:
+	call_if_set FLAG_BADGE05_GET, Route107_MarkAsVisited
+	end
+
+Route107_MarkAsVisited::	
+	setflag FLAG_VISITED_ROUTE_107
+	return
 
 Route107_EventScript_Darrin:: @ 81EE595
 	trainerbattle_single TRAINER_DARRIN, Route107_Text_DarrinIntro, Route107_Text_DarrinDefeated
@@ -53,3 +62,11 @@ Route107_EventScript_Camron:: @ 81EE672
 	msgbox Route107_Text_CamronPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route107_EventScript_RouteSign::
+	msgbox Route107_Text_RouteSign, MSGBOX_SIGN
+	end
+
+Route107_Text_RouteSign:
+	.string "Route 107\n"
+	.string "{LEFT_ARROW} Dewford Town\l"
+	.string "{RIGHT_ARROW} Slateport City$"

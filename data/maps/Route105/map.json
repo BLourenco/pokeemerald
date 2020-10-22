@@ -163,6 +163,14 @@
       "elevation": 3,
       "item": "ITEM_BIG_PEARL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 52,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route105_EventScript_RouteSign"
     }
   ]
 }

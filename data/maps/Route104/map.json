@@ -577,7 +577,7 @@
     },
     {
       "type": "sign",
-      "x": 17,
+      "x": 25,
       "y": 23,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -622,6 +622,14 @@
       "elevation": 3,
       "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_HEART_SCALE"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 23,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route104_EventScript_RouteSignPetalburgWoods"
     }
   ]
 }

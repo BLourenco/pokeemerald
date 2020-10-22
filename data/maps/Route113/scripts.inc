@@ -10,6 +10,7 @@ Route113_OnResume: @ 81F215E
 	end
 
 Route113_OnTransition: @ 81F2161
+	setflag FLAG_VISITED_ROUTE_113
 	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
 	call Route113_EventScript_CheckSetAshWeather
 	end

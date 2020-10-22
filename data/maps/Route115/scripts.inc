@@ -12,6 +12,7 @@ Route115_OnLoad: @ 81F2930
 	end
 
 Route115_OnTransition: @ 81F2947
+	setflag FLAG_VISITED_ROUTE_115
 	compare VAR_SHOULD_END_ABNORMAL_WEATHER, 1
 	call_if_eq AbnormalWeather_EventScript_HideMapNamePopup
 	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_115_WEST

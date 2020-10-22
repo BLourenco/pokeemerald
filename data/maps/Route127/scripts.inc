@@ -5,6 +5,7 @@ Route127_MapScripts:: @ 81F69D9
 	.byte 0
 
 Route127_OnTransition: @ 81F69E9
+	setflag FLAG_VISITED_ROUTE_127
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	compare VAR_SHOULD_END_ABNORMAL_WEATHER, 1
 	call_if_eq AbnormalWeather_EventScript_HideMapNamePopup
@@ -82,3 +83,11 @@ Route127_EventScript_RematchKoji:: @ 81F6B21
 	msgbox Route127_Text_KojiPostRematch, MSGBOX_AUTOCLOSE
 	end
 
+Route127_EventScript_RouteSign::
+	msgbox Route127_Text_RouteSign, MSGBOX_SIGN
+	end
+
+Route127_Text_RouteSign:
+	.string "Route 127\n"
+	.string "{UP_ARROW} Mossdeep City\l"
+	.string "{LEFT_ARROW} Sootopolis City$"

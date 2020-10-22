@@ -17,25 +17,25 @@ PacifidlogTown_OnLoad:
 	end
 
 PacifidlogTown_EventScript_SetWailmerMetatiles:: @ 81E2B6B
-	setmetatile 27, 17, METATILE_Pacifidlog_Wailmer0_Alt, 1
-	setmetatile 28, 17, METATILE_Pacifidlog_Wailmer1_Alt, 1
-	setmetatile 27, 18, METATILE_Pacifidlog_Wailmer2, 1
-	setmetatile 28, 18, METATILE_Pacifidlog_Wailmer3, 1
+	setmetatile 23, 17, METATILE_Pacifidlog_Wailmer0_Alt, 1
+	setmetatile 24, 17, METATILE_Pacifidlog_Wailmer1_Alt, 1
+	setmetatile 23, 18, METATILE_Pacifidlog_Wailmer2, 1
+	setmetatile 24, 18, METATILE_Pacifidlog_Wailmer3, 1
 	
-	setmetatile 28, 19, METATILE_Pacifidlog_Wailmer0_Alt, 1
-	setmetatile 29, 19, METATILE_Pacifidlog_Wailmer1_Alt, 1
-	setmetatile 28, 20, METATILE_Pacifidlog_Wailmer2, 1
-	setmetatile 29, 20, METATILE_Pacifidlog_Wailmer3, 1
+	setmetatile 24, 19, METATILE_Pacifidlog_Wailmer0_Alt, 1
+	setmetatile 25, 19, METATILE_Pacifidlog_Wailmer1_Alt, 1
+	setmetatile 24, 20, METATILE_Pacifidlog_Wailmer2, 1
+	setmetatile 25, 20, METATILE_Pacifidlog_Wailmer3, 1
 	
-	setmetatile 26, 20, METATILE_Pacifidlog_Wailmer0_Alt, 1
-	setmetatile 27, 20, METATILE_Pacifidlog_Wailmer1_Alt, 1
-	setmetatile 26, 21, METATILE_Pacifidlog_Wailmer2, 1
-	setmetatile 27, 21, METATILE_Pacifidlog_Wailmer3, 1
+	setmetatile 22, 20, METATILE_Pacifidlog_Wailmer0_Alt, 1
+	setmetatile 23, 20, METATILE_Pacifidlog_Wailmer1_Alt, 1
+	setmetatile 22, 21, METATILE_Pacifidlog_Wailmer2, 1
+	setmetatile 23, 21, METATILE_Pacifidlog_Wailmer3, 1
 	
-	setmetatile 28, 22, METATILE_Pacifidlog_Wailmer0_Alt, 1
-	setmetatile 29, 22, METATILE_Pacifidlog_Wailmer1_Alt, 1
-	setmetatile 28, 23, METATILE_Pacifidlog_Wailmer2, 1
-	setmetatile 29, 23, METATILE_Pacifidlog_Wailmer3, 1
+	setmetatile 24, 22, METATILE_Pacifidlog_Wailmer0_Alt, 1
+	setmetatile 25, 22, METATILE_Pacifidlog_Wailmer1_Alt, 1
+	setmetatile 24, 23, METATILE_Pacifidlog_Wailmer2, 1
+	setmetatile 25, 23, METATILE_Pacifidlog_Wailmer3, 1
 	return
 
 PacifidlogTown_EventScript_NinjaBoy:: @ 81EBAC3

@@ -1092,3 +1092,9 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/IslandCave_Entrance/scripts.inc"
 
 	.include "data/maps/AncientTomb_Entrance/scripts.inc"
+
+	.include "data/maps/Route130_MirageIsland/scripts.inc"
+
+	.include "data/maps/Route131_SkyPillar/scripts.inc"
+
+	.include "data/maps/Route111_NoMirage_Tower/scripts.inc"

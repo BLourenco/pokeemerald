@@ -217,6 +217,14 @@
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route124_EventScript_HuntersHouseSign"
+    },
+    {
+      "type": "sign",
+      "x": 60,
+      "y": 40,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route124_EventScript_RouteSign"
     }
   ]
 }

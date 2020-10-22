@@ -1,8 +1,17 @@
 Route106_MapScripts:: @ 81EE489
+	map_script MAP_SCRIPT_ON_TRANSITION, Route106_OnTransition
 	.byte 0
+
+Route106_OnTransition:	
+	setflag FLAG_VISITED_ROUTE_106
+	end
 
 Route106_EventScript_TrainerTipsSign:: @ 81EE48A
 	msgbox Route106_Text_TrainerTips, MSGBOX_SIGN
+	end
+
+Route106_EventScript_RouteSign:: @ 81EE48A
+	msgbox Route106_Text_RouteSign, MSGBOX_SIGN
 	end
 
 Route106_EventScript_Douglas:: @ 81EE493
@@ -46,4 +55,9 @@ Route106_Text_TrainerTips: @ 81EE53A
 	.string "Trainer Tips\p"
 	.string "Advice on catching Pokémon with a Rod:\n"
 	.string "Press the A Button if you get a bite.$"
+
+Route106_Text_RouteSign:
+	.string "Route 106\n"
+	.string "{RIGHT_ARROW} Dewford Town\l"
+	.string "{LEFT_ARROW} Granite Cave$"
 

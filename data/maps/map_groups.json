@@ -96,7 +96,10 @@
     "Underwater_Route105",
     "Underwater_Route125",
     "DewfordCove",
-    "Route135"
+    "Route135",
+    "Route130_MirageIsland",
+    "Route131_SkyPillar",
+    "Route111_NoMirage_Tower"
   ],
   "gMapGroup1": [
     "LittlerootTown_BrendansHouse_1F",

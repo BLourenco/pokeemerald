@@ -3,6 +3,7 @@ Route126_MapScripts:: @ 81F68C6
 	.byte 0
 
 Route126_OnTransition: @ 81F68CC
+	setflag FLAG_VISITED_ROUTE_126
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	end
 
@@ -63,3 +64,10 @@ Route126_EventScript_RematchPablo:: @ 81F69C2
 	msgbox Route126_Text_PabloPostRematch, MSGBOX_AUTOCLOSE
 	end
 
+Route126_EventScript_RouteSign::
+	msgbox Route126_Text_RouteSign, MSGBOX_SIGN
+	end
+
+Route126_Text_RouteSign:
+	.string "Route 126\n"
+	.string "{DOWN_ARROW} Sootopolis City$"

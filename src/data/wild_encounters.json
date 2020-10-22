@@ -5877,29 +5877,29 @@
             "encounter_rate": 4,
             "mons": [
               {
-                "min_level": 39,
-                "max_level": 41,
+                "min_level": 30,
+                "max_level": 32,
                 "species": "SPECIES_WAILMER"
               },
               {
-                "min_level": 39,
-                "max_level": 41,
+                "min_level": 30,
+                "max_level": 32,
                 "species": "SPECIES_PELIPPER"
               },
               {
-                "min_level": 39,
-                "max_level": 41,
-                "species": "SPECIES_SKRELP"
+                "min_level": 30,
+                "max_level": 32,
+                "species": "SPECIES_INKAY"
               },
               {
-                "min_level": 39,
-                "max_level": 41,
+                "min_level": 30,
+                "max_level": 32,
                 "species": "SPECIES_CLAUNCHER"
               },
               {
-                "min_level": 39,
-                "max_level": 41,
-                "species": "SPECIES_MALAMAR"
+                "min_level": 30,
+                "max_level": 32,
+                "species": "SPECIES_SKRELP"
               }
             ]
           }

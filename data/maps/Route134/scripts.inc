@@ -1,6 +1,11 @@
 Route134_MapScripts:: @ 81F7644
 	map_script MAP_SCRIPT_ON_RESUME, Route134_OnResume
+	map_script MAP_SCRIPT_ON_TRANSITION, Route134_OnTransition
 	.byte 0
+
+Route134_OnTransition:
+	setflag FLAG_VISITED_ROUTE_134
+	end
 
 Route134_OnResume: @ 81F764A
 	setdivewarp MAP_UNDERWATER_ROUTE134, 255, 8, 6
@@ -51,3 +56,10 @@ Route134_EventScript_Kelvin:: @ 81F770B
 	msgbox Route134_Text_KelvinPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route134_EventScript_RouteSign::
+	msgbox Route134_Text_RouteSign, MSGBOX_SIGN
+	end
+
+Route134_Text_RouteSign:
+	.string "Route 134\n"
+	.string "{LEFT_ARROW} Slateport City$"

@@ -102,6 +102,15 @@ Route124_EventScript_Isabella:: @ 81F6722
 	msgbox Route124_Text_IsabellaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route124_EventScript_RouteSign::
+	msgbox Route124_Text_RouteSign, MSGBOX_SIGN
+	setflag FLAG_VISITED_ROUTE_124
+	end
+
 Route124_Text_HuntersHouse: @ 81F6739
 	.string "Hunter's House$"
 
+Route124_Text_RouteSign:
+	.string "Route 124\n"
+	.string "{LEFT_ARROW} Lilycove City\l"
+	.string "{RIGHT_ARROW} Mossdeep City$"

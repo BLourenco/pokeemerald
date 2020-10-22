@@ -1,5 +1,10 @@
 Route133_MapScripts:: @ 81F75A2
+	map_script MAP_SCRIPT_ON_TRANSITION, Route133_OnTransition
 	.byte 0
+
+Route133_OnTransition:
+	setflag FLAG_VISITED_ROUTE_133
+	end
 
 Route133_EventScript_Franklin:: @ 81F75A3
 	trainerbattle_single TRAINER_FRANKLIN, Route133_Text_FranklinIntro, Route133_Text_FranklinDefeat
@@ -36,3 +41,10 @@ Route133_EventScript_Conor:: @ 81F762D
 	msgbox Route133_Text_ConorPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route133_EventScript_RouteSign::
+	msgbox Route133_Text_RouteSign, MSGBOX_SIGN
+	end
+
+Route133_Text_RouteSign:
+	.string "Route 133\n"
+	.string "{LEFT_ARROW} Slateport City$"

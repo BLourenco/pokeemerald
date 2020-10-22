@@ -2,7 +2,12 @@
 @  These are labeled in DewfordTown/scripts.inc
 
 Route109_MapScripts:: @ 81EE75F
+	map_script MAP_SCRIPT_ON_TRANSITION, Route109_OnTransition
 	.byte 0
+
+Route109_OnTransition:
+	setflag FLAG_VISITED_ROUTE_109
+	end
 
 Route109_EventScript_StartDepartForDewford:: @ 81EE760
 	call EventScript_BackupMrBrineyLocation
@@ -480,6 +485,10 @@ Route109_EventScript_Elijah:: @ 81EEC06
 	msgbox Route109_Text_ElijahPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route109_EventScript_RouteSign::
+	msgbox Route109_Text_RouteSign, MSGBOX_SIGN
+	end
+
 DewfordTown_Text_BrineyLandedInSlateportDeliverGoods: @ 81EEC1D
 	.string "Mr. Briney: Ahoy!\n"
 	.string "We've made land in Slateport!\p"
@@ -566,3 +575,9 @@ Route109_Text_TrainerTipsSign: @ 81EF1D5
 	.string "always have identical stats.\p"
 	.string "Pokémon raised by Trainers are said\n"
 	.string "to grow stronger than wild Pokémon.$"
+
+Route109_Text_RouteSign:
+	.string "Route 109\n"
+	.string "{UP_ARROW} Slateport City\l"
+	.string "{DOWN_ARROW} Dewford Town$"
+	

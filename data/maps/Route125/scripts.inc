@@ -5,6 +5,7 @@ Route125_MapScripts:: @ 81F6748
 	.byte 0
 
 Route125_OnTransition: @ 81F6758
+	setflag FLAG_VISITED_ROUTE_125
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	compare VAR_SHOULD_END_ABNORMAL_WEATHER, 1
 	call_if_eq AbnormalWeather_EventScript_HideMapNamePopup
@@ -87,3 +88,10 @@ Route125_EventScript_Auron:: @ 81F68AF
 	msgbox Route125_Text_AuronPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route125_EventScript_RouteSign::
+	msgbox Route125_Text_RouteSign, MSGBOX_SIGN
+	end
+
+Route125_Text_RouteSign:
+	.string "Shoal Cave\n"
+	.string "{DOWN_ARROW} Mossdeep City$"

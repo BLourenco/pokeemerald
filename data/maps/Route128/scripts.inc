@@ -8,6 +8,7 @@ Route128_MapScripts:: @ 81F6B38
 	.byte 0
 
 Route128_OnTransition: @ 81F6B43
+	setflag FLAG_VISITED_ROUTE_128
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	end
 
@@ -247,6 +248,10 @@ Route128_EventScript_Carlee:: @ 81F6DDE
 	msgbox Route128_Text_CarleePostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route128_EventScript_RouteSign::
+	msgbox Route128_Text_RouteSign, MSGBOX_SIGN
+	end
+
 Route128_Text_ArchieWhatHappened: @ 81F6DF5
 	.string "Archie: What happened…\n"
 	.string "What is this wretched scene…\p"
@@ -306,3 +311,8 @@ Route128_Text_StevenImGoingToSootopolis: @ 81F721B
 	.string "Okay.\n"
 	.string "I'm going to Sootopolis.$"
 
+Route128_Text_RouteSign:
+	.string "Route 128\n"
+	.string "{UP_ARROW} Mossdeep City\l"
+	.string "{RIGHT_ARROW} Evergrande City\l"
+	.string "{DOWN_ARROW} Pacifidlog Town$"

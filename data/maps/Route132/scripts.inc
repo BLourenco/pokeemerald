@@ -1,5 +1,10 @@
 Route132_MapScripts:: @ 81F74E9
+	map_script MAP_SCRIPT_ON_TRANSITION, Route132_OnTransition
 	.byte 0
+
+Route132_OnTransition:
+	setflag FLAG_VISITED_ROUTE_132
+	end
 
 Route132_EventScript_Gilbert:: @ 81F74EA
 	trainerbattle_single TRAINER_GILBERT, Route132_Text_GilbertIntro, Route132_Text_GilbertDefeat
@@ -41,3 +46,10 @@ Route132_EventScript_Makayla:: @ 81F758B
 	msgbox Route132_Text_MakaylaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route132_EventScript_RouteSign::
+	msgbox Route132_Text_RouteSign, MSGBOX_SIGN
+	end
+
+Route132_Text_RouteSign:
+	.string "Route 132\n"
+	.string "{LEFT_ARROW} Slateport City$"

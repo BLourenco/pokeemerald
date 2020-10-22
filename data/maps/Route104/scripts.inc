@@ -17,6 +17,7 @@ Route104_EventScript_StartSailToDewford:: @ 81ECC47
 	end
 
 Route104_OnTransition: @ 81ECC4E
+	setflag FLAG_VISITED_ROUTE_104
 	call Common_EventScript_SetupRivalGfxId
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
@@ -317,6 +318,10 @@ Route104_EventScript_BrineysCottageSign:: @ 81ED018
 
 Route104_EventScript_RouteSignPetalburg:: @ 81ED021
 	msgbox Route104_Text_RouteSignPetalburg, MSGBOX_SIGN
+	end
+
+Route104_EventScript_RouteSignPetalburgWoods:: @ 81ED021
+	msgbox Route104_Text_RouteSignPetalburgWoods, MSGBOX_SIGN
 	end
 
 Route104_EventScript_RouteSignRustboro:: @ 81ED02A
@@ -1086,6 +1091,12 @@ Route104_Text_RouteSignPetalburg: @ 81EDAA1
 Route104_Text_RouteSignRustboro: @ 81EDABC
 	.string "Route 1O4\n"
 	.string "{UP_ARROW} Rustboro City$"
+
+
+Route104_Text_RouteSignPetalburgWoods: @ 81EDABC
+	.string "Route 1O4\n"
+	.string "{UP_ARROW} Rustboro City\l"
+	.string "{DOWN_ARROW} Petalburg City$"
 
 Route104_Text_PrettyPetalFlowShop: @ 81EDAD6
 	.string "Pretty Petal Flower Shop$"

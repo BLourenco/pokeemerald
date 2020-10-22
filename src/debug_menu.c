@@ -28,7 +28,7 @@ static void DebugAction_GiveItem(u8);
 static void DebugAction_GiveMoney(u8);
 static void DebugAction_GiveBadge(u8);
 static void DebugAction_ToggleCollision(u8);
-static void DebugAction_Warp(u8);
+static void DebugAction_Test(u8);
 static void DebugAction_Cancel(u8);
 static void DebugTask_HandleMainMenuInput(u8);
 
@@ -40,7 +40,7 @@ enum {
     DEBUG_MENU_ITEM_GIVE_MONEY,
     DEBUG_MENU_ITEM_GIVE_BADGE,
     DEBUG_MENU_ITEM_TOGGLE_COLLISION,
-    DEBUG_MENU_ITEM_WARP,
+    DEBUG_MENU_ITEM_TEST,
     DEBUG_MENU_ITEM_CANCEL,
 };
 
@@ -50,7 +50,7 @@ static const u8 gDebugText_Give_Item[] = _("Give Item");
 static const u8 gDebugText_Give_Money[] = _("Give Money");
 static const u8 gDebugText_Give_Badge[] = _("Give Badge");
 static const u8 gDebugText_Toggle_Collision[] = _("Collision");
-static const u8 gDebugText_Warp[] = _("Warp");
+static const u8 gDebugText_Test[] = _("Test");
 static const u8 gDebugText_Cancel[] = _("Cancel");
 
 // Ties the name and enum ID together
@@ -61,7 +61,7 @@ static const struct ListMenuItem sDebugMenuItems[] =
     [DEBUG_MENU_ITEM_GIVE_MONEY] = {gDebugText_Give_Money, DEBUG_MENU_ITEM_GIVE_MONEY},
     [DEBUG_MENU_ITEM_GIVE_BADGE] = {gDebugText_Give_Badge, DEBUG_MENU_ITEM_GIVE_BADGE},
     [DEBUG_MENU_ITEM_TOGGLE_COLLISION] = {gDebugText_Toggle_Collision, DEBUG_MENU_ITEM_TOGGLE_COLLISION},
-    [DEBUG_MENU_ITEM_WARP] = {gDebugText_Warp, DEBUG_MENU_ITEM_WARP},
+    [DEBUG_MENU_ITEM_TEST] = {gDebugText_Test, DEBUG_MENU_ITEM_TEST},
     [DEBUG_MENU_ITEM_CANCEL] = {gDebugText_Cancel, DEBUG_MENU_ITEM_CANCEL}
 };
 
@@ -73,7 +73,7 @@ static void (*const sDebugMenuActions[])(u8) =
     [DEBUG_MENU_ITEM_GIVE_MONEY] = DebugAction_GiveMoney,
     [DEBUG_MENU_ITEM_GIVE_BADGE] = DebugAction_GiveBadge,
     [DEBUG_MENU_ITEM_TOGGLE_COLLISION] = DebugAction_ToggleCollision,
-    [DEBUG_MENU_ITEM_WARP] = NULL,
+    [DEBUG_MENU_ITEM_TEST] = DebugAction_Test,
     [DEBUG_MENU_ITEM_CANCEL] = DebugAction_Cancel
 };
 
@@ -165,7 +165,7 @@ static void DebugTask_HandleMainMenuInput(u8 taskId)
 static void DebugAction_GivePokemon(u8 taskId)
 {
     FlagSet(FLAG_SYS_POKEMON_GET);
-    ScriptGiveMon(SPECIES_MEWTWO, 70, ITEM_NONE, 0, 0, 0);
+    ScriptGiveMon(SPECIES_RAYQUAZA, 70, ITEM_NONE, 0, 0, 0);
     ScriptGiveMon(SPECIES_WAILORD, 70, ITEM_NONE, 0, 0, 0);
     ScriptGiveMon(SPECIES_RELICANTH, 70, ITEM_NONE, 0, 0, 0);
     Debug_DestroyMainMenu(taskId);
@@ -178,7 +178,7 @@ static void DebugAction_GiveItem(u8 taskId)
     FlagSet(FLAG_SYS_DEXNAV_GET);
     u16 i;
     for (i = 1; i < ITEMS_COUNT; i++)
-        AddBagItem(i,99);
+        AddBagItem(i,1);
     Debug_DestroyMainMenu(taskId);
 }
 
@@ -191,15 +191,15 @@ static void DebugAction_GiveMoney(u8 taskId)
 
 static void DebugAction_GiveBadge(u8 taskId)
 {
-    FlagSet(FLAG_BADGE01_GET);
-    FlagSet(FLAG_BADGE02_GET);
-    FlagSet(FLAG_BADGE03_GET);
-    FlagSet(FLAG_BADGE04_GET);
-    FlagSet(FLAG_BADGE05_GET);
+    //FlagSet(FLAG_BADGE01_GET);
+    //FlagSet(FLAG_BADGE02_GET);
+    //FlagSet(FLAG_BADGE03_GET);
+    //FlagSet(FLAG_BADGE04_GET);
+    //FlagSet(FLAG_BADGE05_GET);
     FlagSet(FLAG_BADGE06_GET);
-    FlagSet(FLAG_BADGE07_GET);
-    FlagSet(FLAG_BADGE08_GET);
-    FlagSet(FLAG_LANDMARK_BATTLE_FRONTIER);
+    //FlagSet(FLAG_BADGE07_GET);
+    //FlagSet(FLAG_BADGE08_GET);
+    //FlagSet(FLAG_LANDMARK_BATTLE_FRONTIER);
     Debug_DestroyMainMenu(taskId);
 }
 
@@ -209,6 +209,16 @@ static void DebugAction_ToggleCollision(u8 taskId)
         FlagClear(FLAG_SYS_COLLISIONS_DISABLED);
     else
         FlagSet(FLAG_SYS_COLLISIONS_DISABLED);
+
+    Debug_DestroyMainMenu(taskId);
+}
+
+static void DebugAction_Test(u8 taskId)
+{
+    if (FlagGet(FLAG_SYS_CUSTOM_TEST))
+        FlagClear(FLAG_SYS_CUSTOM_TEST);
+    else
+        FlagSet(FLAG_SYS_CUSTOM_TEST);
 
     Debug_DestroyMainMenu(taskId);
 }

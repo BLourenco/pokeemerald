@@ -1,5 +1,10 @@
 Route102_MapScripts:: @ 81EC0E0
+	map_script MAP_SCRIPT_ON_TRANSITION, Route102_OnTransition
 	.byte 0
+
+Route102_OnTransition:
+	setflag FLAG_VISITED_ROUTE_102
+	end
 
 Route102_EventScript_LittleBoy:: @ 81EC0E1
 	msgbox Route102_Text_ImNotVeryTall, MSGBOX_NPC

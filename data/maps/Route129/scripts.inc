@@ -12,6 +12,7 @@ Route129_OnLoad: @ 81F7294
 	end
 
 Route129_OnTransition: @ 81F72AB
+	setflag FLAG_VISITED_ROUTE_129
 	compare VAR_SHOULD_END_ABNORMAL_WEATHER, 1
 	call_if_eq AbnormalWeather_EventScript_HideMapNamePopup
 	compare VAR_SOOTOPOLIS_CITY_STATE, 4
@@ -55,3 +56,12 @@ Route129_EventScript_Clarence:: @ 81F7348
 	msgbox Route129_Text_ClarencePostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route129_EventScript_RouteSign::
+	msgbox Route129_Text_RouteSign, MSGBOX_SIGN
+	end
+
+Route129_Text_RouteSign:
+	.string "Route 129\n"
+	.string "{UP_ARROW} Mossdeep City\l"
+	.string "{RIGHT_ARROW} Evergrande City\l"
+	.string "{LEFT_ARROW} Pacifidlog Town$"

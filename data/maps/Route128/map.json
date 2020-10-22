@@ -196,6 +196,14 @@
       "elevation": 3,
       "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_3"
+    },
+    {
+      "type": "sign",
+      "x": 42,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route128_EventScript_RouteSign"
     }
   ]
 }

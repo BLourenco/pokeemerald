@@ -8,6 +8,7 @@ Route116_MapScripts:: @ 81F2C0C
 	.byte 0
 
 Route116_OnTransition: @ 81F2C1C
+	setflag FLAG_VISITED_ROUTE_116
 	call_if_set FLAG_RECOVERED_DEVON_GOODS, Route116_EventScript_SetWandasBoyfriendPos
 	compare VAR_SHOULD_END_ABNORMAL_WEATHER, 1
 	call_if_eq AbnormalWeather_EventScript_HideMapNamePopup

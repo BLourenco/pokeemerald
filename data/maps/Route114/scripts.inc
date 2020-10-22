@@ -5,6 +5,7 @@ Route114_MapScripts:: @ 81F252F
 	.byte 0
 
 Route114_OnTransition: @ 81F253F
+	setflag FLAG_VISITED_ROUTE_114
 	compare VAR_SHOULD_END_ABNORMAL_WEATHER, 1
 	call_if_eq AbnormalWeather_EventScript_HideMapNamePopup
 	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_114_NORTH
@@ -185,6 +186,10 @@ Route114_EventScript_Kai:: @ 81F27F2
 	msgbox Route114_Text_KaiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route114_EventScript_RouteSign::
+	msgbox Route114_Text_RouteSign, MSGBOX_SIGN
+	end
+
 Route114_Text_AllMyMonDoesIsRoarTakeThis: @ 81F2809
 	.string "All my Pokémon does is Roar…\n"
 	.string "No one dares to come near me…\p"
@@ -209,3 +214,7 @@ Route114_Text_FossilManiacsHouseSign: @ 81F28DB
 Route114_Text_LanettesHouse: @ 81F2910
 	.string "Lanette's House$"
 
+Route114_Text_RouteSign:
+	.string "Route 114\n"
+	.string "{UP_ARROW} Fallarbor Town\l"
+	.string "{DOWN_ARROW} Meteor Falls$"

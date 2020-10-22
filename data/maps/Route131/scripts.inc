@@ -3,6 +3,7 @@ Route131_MapScripts:: @ 81F7404
 	.byte 0
 
 Route131_OnTransition: @ 81F740A
+	setflag FLAG_VISITED_ROUTE_131
 	compare VAR_SOOTOPOLIS_CITY_STATE, 4
 	call_if_ge Route131_EventScript_CheckSetAbnormalWeather
 	call Route131_EventScript_SetLayout
@@ -56,3 +57,10 @@ Route131_EventScript_Kevin:: @ 81F74D2
 	msgbox Route131_Text_KevinPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route131_EventScript_RouteSign::
+	msgbox Route131_Text_RouteSign, MSGBOX_SIGN
+	end
+
+Route131_Text_RouteSign:
+	.string "Route 131\n"
+	.string "{LEFT_ARROW} Pacifidlog Town$"

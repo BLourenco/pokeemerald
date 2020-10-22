@@ -46,9 +46,11 @@ Route111_EventScript_ShowTemporaryMirageTower:: @ 81F0CE4
 	return
 
 Route111_OnTransition: @ 81F0D87
+	setflag FLAG_VISITED_ROUTE_111
 	setvar VAR_TRAINER_HILL_IS_ACTIVE, 0
 	special SetMirageTowerVisibility
-	call_if_unset FLAG_MIRAGE_TOWER_VISIBLE, Route111_EventScript_SetLayoutNoMirageTower
+	call_if_unset FLAG_MIRAGE_TOWER_VISIBLE, Route111_EventScript_SetLayoutNoMirageTower	
+	@call_if_unset FLAG_SYS_CUSTOM_TEST, Route111_EventScript_SetLayoutNoMirageTower
 	compare VAR_MIRAGE_TOWER_STATE, 1
 	call_if_eq Route111_EventScript_SetFallingPlayerGfx
 	compare VAR_MIRAGE_TOWER_STATE, 2

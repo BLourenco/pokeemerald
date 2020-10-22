@@ -3,7 +3,12 @@
 .set LOCALID_GRUNT_3, 14
 
 Route121_MapScripts:: @ 81F5DFC
+	map_script MAP_SCRIPT_ON_TRANSITION, Route121_OnTransition
 	.byte 0
+
+Route121_OnTransition:
+	@setflag FLAG_VISITED_ROUTE_121
+	end
 
 Route121_EventScript_Woman:: @ 81F5DFD
 	msgbox Route121_Text_AheadLoomsMtPyre, MSGBOX_NPC
@@ -33,6 +38,7 @@ Route121_EventScript_AquaGruntsMoveOut:: @ 81F5E18
 	removeobject LOCALID_GRUNT_2
 	removeobject LOCALID_GRUNT_3
 	setvar VAR_ROUTE121_STATE, 1
+	setflag FLAG_VISITED_ROUTE_121
 	releaseall
 	end
 

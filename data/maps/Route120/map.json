@@ -747,6 +747,24 @@
       "y": 75,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY_CLOUDS"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 67,
+      "elevation": 0,
+      "var": "VAR_ROUTE120_STATE",
+      "var_value": "0",
+      "script": "Route120_EventScript_MarkAsVisitedTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 68,
+      "elevation": 0,
+      "var": "VAR_ROUTE120_STATE",
+      "var_value": "0",
+      "script": "Route120_EventScript_MarkAsVisitedTrigger"
     }
   ],
   "bg_events": [
@@ -760,11 +778,11 @@
     },
     {
       "type": "sign",
-      "x": 38,
-      "y": 88,
+      "x": 20,
+      "y": 66,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route120_EventScript_RouteSign121"
+      "script": "Route120_EventScript_RouteSign"
     },
     {
       "type": "secret_base",

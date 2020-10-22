@@ -5,6 +5,7 @@ Route117_MapScripts:: @ 81F397D
 	.byte 0
 
 Route117_OnTransition: @ 81F3983
+	setflag FLAG_VISITED_ROUTE_117
 	call Route117_EventScript_TryMoveDayCareMan
 	end
 
