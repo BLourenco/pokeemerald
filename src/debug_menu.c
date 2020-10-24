@@ -191,15 +191,15 @@ static void DebugAction_GiveMoney(u8 taskId)
 
 static void DebugAction_GiveBadge(u8 taskId)
 {
-    //FlagSet(FLAG_BADGE01_GET);
-    //FlagSet(FLAG_BADGE02_GET);
-    //FlagSet(FLAG_BADGE03_GET);
-    //FlagSet(FLAG_BADGE04_GET);
-    //FlagSet(FLAG_BADGE05_GET);
+    FlagSet(FLAG_BADGE01_GET);
+    FlagSet(FLAG_BADGE02_GET);
+    FlagSet(FLAG_BADGE03_GET);
+    FlagSet(FLAG_BADGE04_GET);
+    FlagSet(FLAG_BADGE05_GET);
     FlagSet(FLAG_BADGE06_GET);
-    //FlagSet(FLAG_BADGE07_GET);
-    //FlagSet(FLAG_BADGE08_GET);
-    //FlagSet(FLAG_LANDMARK_BATTLE_FRONTIER);
+    FlagSet(FLAG_BADGE07_GET);
+    FlagSet(FLAG_BADGE08_GET);
+    FlagSet(FLAG_LANDMARK_BATTLE_FRONTIER);
     Debug_DestroyMainMenu(taskId);
 }
 

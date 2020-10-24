@@ -661,8 +661,8 @@
 #define FLAG_HIDDEN_ITEM_RED_CLAY_TUNNELS_REVIVE             0x26C
 #define FLAG_HIDDEN_ITEM_RED_CLAY_TUNNELS_WEST_BIG_NUGGET    0x26D
 #define FLAG_HIDDEN_ITEM_RED_CLAY_TUNNELS_WEST_MAX_REVIVE    0x26E
-#define FLAG_UNUSED_0x26F  0x26F // Unused Flag
-#define FLAG_UNUSED_0x270  0x270 // Unused Flag
+#define FLAG_HIDDEN_ITEM_ROUTE_135_PEARL                     0x26F
+#define FLAG_HIDDEN_ITEM_ROUTE_135_BIG_PEARL                 0x270
 #define FLAG_UNUSED_0x271  0x271 // Unused Flag
 #define FLAG_UNUSED_0x272  0x272 // Unused Flag
 #define FLAG_UNUSED_0x273  0x273 // Unused Flag
@@ -1244,9 +1244,9 @@
 #define FLAG_ITEM_SHOAL_SUMMIT_ICE_STONE                            0x4AC
 #define FLAG_ITEM_SHOAL_SUMMIT_TM_70                                0x4AD
 #define FLAG_ITEM_SHOAL_SUMMIT_SAIL_FOSSIL                          0x4AE
-#define FLAG_UNUSED_0x4AF                                           0x4AF // Unused Flag
-#define FLAG_UNUSED_0x4B0                                           0x4B0 // Unused Flag
-#define FLAG_UNUSED_0x4B1                                           0x4B1 // Unused Flag
+#define FLAG_ITEM_ROUTE_135_ABSORB_BULB                             0x4AF
+#define FLAG_ITEM_ROUTE_135_TM_84                                   0x4B0
+#define FLAG_ITEM_ROUTE_135_REVIVE                                  0x4B1
 #define FLAG_UNUSED_0x4B2                                           0x4B2 // Unused Flag
 #define FLAG_UNUSED_0x4B3                                           0x4B3 // Unused Flag
 #define FLAG_UNUSED_0x4B4                                           0x4B4 // Unused Flag

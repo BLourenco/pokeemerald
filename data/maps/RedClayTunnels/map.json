@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RedClayTunnels_EventScript_LightClay",
+      "script": "RedClayTunnels_EventScript_ItemLightClay",
       "flag": "FLAG_ITEM_RED_CLAY_TUNNELS_LIGHT_CLAY"
     },
     {
@@ -37,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RedClayTunnels_EventScript_HardStone",
+      "script": "RedClayTunnels_EventScript_ItemHardStone",
       "flag": "FLAG_ITEM_RED_CLAY_TUNNELS_HARD_STONE"
     }
   ],

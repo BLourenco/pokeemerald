@@ -36,11 +36,6 @@ Route125_EventScript_Stan:: @ 81F67BB
 	msgbox Route125_Text_StanPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route125_EventScript_Tanya:: @ 81F67D2
-	trainerbattle_single TRAINER_TANYA, Route125_Text_TanyaIntro, Route125_Text_TanyaDefeat
-	msgbox Route125_Text_TanyaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route125_EventScript_Sharon:: @ 81F67E9
 	trainerbattle_single TRAINER_SHARON, Route125_Text_SharonIntro, Route125_Text_SharonDefeat
 	msgbox Route125_Text_SharonPostBattle, MSGBOX_AUTOCLOSE

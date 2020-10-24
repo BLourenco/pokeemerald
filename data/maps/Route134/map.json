@@ -52,19 +52,6 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
-      "x": 41,
-      "y": 23,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "Route134_EventScript_Aaron",
-      "flag": "0"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
       "x": 24,
       "y": 23,
@@ -88,19 +75,6 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
       "script": "Route134_EventScript_Hitoshi",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 43,
-      "y": 23,
-      "elevation": 1,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "Route134_EventScript_Marley",
       "flag": "0"
     },
     {

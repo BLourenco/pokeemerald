@@ -41,11 +41,6 @@ Route129_EventScript_Allison:: @ 81F7303
 	msgbox Route129_Text_AllisonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route129_EventScript_Reed:: @ 81F731A
-	trainerbattle_single TRAINER_REED, Route129_Text_ReedIntro, Route129_Text_ReedDefeat
-	msgbox Route129_Text_ReedPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route129_EventScript_Tisha:: @ 81F7331
 	trainerbattle_single TRAINER_TISHA, Route129_Text_TishaIntro, Route129_Text_TishaDefeat
 	msgbox Route129_Text_TishaPostBattle, MSGBOX_AUTOCLOSE

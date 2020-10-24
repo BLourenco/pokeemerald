@@ -422,15 +422,15 @@ FieryPath_EventScript_ItemTM06:: @ 829119E
 	finditem ITEM_TM06
 	end
 
-RedClayTunnels_EventScript_LightClay::
+RedClayTunnels_EventScript_ItemLightClay::
 	finditem ITEM_LIGHT_CLAY
 	end
 
-RedClayTunnels_EventScript_HardStone::
+RedClayTunnels_EventScript_ItemHardStone::
 	finditem ITEM_HARD_STONE
 	end
 
-RedClayTunnels_West_EventScript_IronBall::
+RedClayTunnels_West_EventScript_ItemIronBall::
 	finditem ITEM_IRON_BALL
 	end
 
@@ -738,7 +738,7 @@ MagmaHideout_1F_EventScript_ItemRareCandy:: @ 82914DE
 	finditem ITEM_RARE_CANDY
 	end
 
-MagmaHideout_2F_2R_EventScript_MaxElixir:: @ 82914EB
+MagmaHideout_2F_2R_EventScript_ItemMaxElixir:: @ 82914EB
 	finditem ITEM_MAX_ELIXIR
 	end
 
@@ -754,10 +754,22 @@ MagmaHideout_3F_2R_EventScript_ItemPPMax:: @ 8291512
 	finditem ITEM_PP_MAX
 	end
 
-MagmaHideout_4F_EventScript_MaxRevive:: @ 829151F
+MagmaHideout_4F_EventScript_ItemMaxRevive:: @ 829151F
 	finditem ITEM_MAX_REVIVE
 	end
 
 MagmaHideout_3F_3R_EventScript_ItemEscapeRope:: @ 829152C
 	finditem ITEM_ESCAPE_ROPE
+	end
+
+Route135_EventScript_ItemAbsorbBulb::
+	finditem ITEM_ABSORB_BULB
+	end
+
+Route135_EventScript_ItemTM84::
+	finditem ITEM_TM84_POISON_JAB
+	end
+
+Route135_EventScript_ItemRevive::
+	finditem ITEM_REVIVE
 	end

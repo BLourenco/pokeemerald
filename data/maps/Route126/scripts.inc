@@ -27,16 +27,6 @@ Route126_EventScript_Brenda:: @ 81F691B
 	msgbox Route126_Text_BrendaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route126_EventScript_Leonardo:: @ 81F6932
-	trainerbattle_single TRAINER_LEONARDO, Route126_Text_LeonardoIntro, Route126_Text_LeonardoDefeat
-	msgbox Route126_Text_LeonardoPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route126_EventScript_Isobel:: @ 81F6949
-	trainerbattle_single TRAINER_ISOBEL, Route126_Text_IsobelIntro, Route126_Text_IsobelDefeat
-	msgbox Route126_Text_IsobelPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route126_EventScript_Sienna:: @ 81F6960
 	trainerbattle_single TRAINER_SIENNA, Route126_Text_SiennaIntro, Route126_Text_SiennaDefeat
 	msgbox Route126_Text_SiennaPostBattle, MSGBOX_AUTOCLOSE

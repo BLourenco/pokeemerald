@@ -3837,16 +3837,16 @@ Route125_Text_StanPostBattle: @ 82A15D5
 	.string "I was blown away by Horsea's charm,\n"
 	.string "so I started swimming, too.$"
 
-Route125_Text_TanyaIntro: @ 82A1615
+Route135_Text_TanyaIntro: @ 82A1615
 	.string "I'm tired of swimming.\n"
 	.string "Are you up for a battle with me?$"
 
-Route125_Text_TanyaDefeat: @ 82A164D
+Route135_Text_TanyaDefeat: @ 82A164D
 	.string "You're too much!$"
 
 Route125_Text_TanyaPostBattle: @ 82A165E
 	.string "Whew…\n"
-	.string "Which way is it to Mossdeep City?$"
+	.string "Which way is it to Pacifidlog Town?$"
 
 Route125_Text_SharonIntro: @ 82A1686
 	.string "How would you like to take on the\n"
@@ -4029,30 +4029,30 @@ Route126_Text_PabloPostRematch: @ 82A200C
 	.string "You're a great motivator!\l"
 	.string "You have to come back again!$"
 
-Route126_Text_LeonardoIntro: @ 82A2063
+Route135_Text_LeonardoIntro: @ 82A2063
 	.string "I couldn't even swim last year,\n"
 	.string "but now I'm a decent Swimmer.\p"
 	.string "I think I'm capable of anything now.$"
 
-Route126_Text_LeonardoDefeat: @ 82A20C6
+Route135_Text_LeonardoDefeat: @ 82A20C6
 	.string "Sheesh, getting greedy didn't do\n"
 	.string "a thing for me.$"
 
-Route126_Text_LeonardoPostBattle: @ 82A20F7
+Route135_Text_LeonardoPostBattle: @ 82A20F7
 	.string "If you practice at something,\n"
 	.string "you will get better at it.\p"
 	.string "You're young--don't be afraid to\n"
 	.string "try all sorts of things!$"
 
-Route126_Text_IsobelIntro: @ 82A216A
+Route135_Text_IsobelIntro: @ 82A216A
 	.string "If seawater gets up your nose,\n"
 	.string "doesn't it feel terrible?$"
 
-Route126_Text_IsobelDefeat: @ 82A21A3
+Route135_Text_IsobelDefeat: @ 82A21A3
 	.string "Ack! Why, you…\n"
 	.string "Glub!$"
 
-Route126_Text_IsobelPostBattle: @ 82A21B8
+Route135_Text_IsobelPostBattle: @ 82A21B8
 	.string "Ooh, I choked on some water!\n"
 	.string "It's bitter! It's salty!!$"
 
@@ -4104,14 +4104,14 @@ Route127_Text_JonahPostBattle: @ 82A240C
 	.string "It matters not that I catch nothing.\n"
 	.string "The line remains in the water…$"
 
-Route127_Text_HenryIntro: @ 82A2450
+Route135_Text_HenryIntro: @ 82A2450
 	.string "Whoops! Don't tell me I snagged\n"
 	.string "a Surfing Pokémon?$"
 
-Route127_Text_HenryDefeat: @ 82A2483
+Route135_Text_HenryDefeat: @ 82A2483
 	.string "I can't keep up!$"
 
-Route127_Text_HenryPostBattle: @ 82A2494
+Route135_Text_HenryPostBattle: @ 82A2494
 	.string "It'd be a handful if I hooked\n"
 	.string "your tough Pokémon!$"
 
@@ -4238,16 +4238,16 @@ Route128_Text_KatelynPostRematch: @ 82A2BDD
 	.string "You should give serious thought to\n"
 	.string "challenges on Victory Road.$"
 
-Route128_Text_AlexaIntro: @ 82A2C1C
+Route135_Text_AlexaIntro: @ 82A2C1C
 	.string "We've been working so hard to mount\n"
 	.string "a Pokémon League challenge…\p"
 	.string "We can't afford to lose now!$"
 
-Route128_Text_AlexaDefeat: @ 82A2C79
+Route135_Text_AlexaDefeat: @ 82A2C79
 	.string "Oh!\n"
 	.string "How could this happen?!$"
 
-Route128_Text_AlexaPostBattle: @ 82A2C95
+Route135_Text_AlexaPostBattle: @ 82A2C95
 	.string "After all I've done to get here,\n"
 	.string "I won't give up after one setback.$"
 
@@ -4326,15 +4326,15 @@ Route129_Text_AllisonPostBattle: @ 82A3048
 	.string "strength and endurance against\l"
 	.string "Mother Nature!$"
 
-Route129_Text_ReedIntro: @ 82A30CD
+Route135_Text_ReedIntro: @ 82A30CD
 	.string "Say hey, hey!\n"
 	.string "Let's get on with it!$"
 
-Route129_Text_ReedDefeat: @ 82A30F1
+Route135_Text_ReedDefeat: @ 82A30F1
 	.string "Beat, I'm beaten.\n"
 	.string "That's it, done!$"
 
-Route129_Text_ReedPostBattle: @ 82A3114
+Route135_Text_ReedPostBattle: @ 82A3114
 	.string "There's nothing for a loser.\n"
 	.string "Time for me to beat it home.$"
 
@@ -4749,14 +4749,14 @@ Route134_Text_HitoshiPostBattle: @ 82A475D
 	.string "It was I who challenged you, and yet\n"
 	.string "I lost. I am deeply shamed…$"
 
-Route134_Text_AaronIntro: @ 82A479E
-	.string "The savage tide in this area serves to\n"
-	.string "make us stronger than ever.$"
+Route135_Text_AaronIntro: @ 82A479E
+	.string "These swampy waters are home to some\n"
+	.string "very tough Pokemon!$"
 
-Route134_Text_AaronDefeat: @ 82A47E1
+Route135_Text_AaronDefeat: @ 82A47E1
 	.string "I willingly concede defeat.$"
 
-Route134_Text_AaronPostBattle: @ 82A47FD
+Route135_Text_AaronPostBattle: @ 82A47FD
 	.string "We will return for more training at\n"
 	.string "Meteor Falls.\p"
 	.string "If you'd like, you should go, too.\n"
@@ -4776,15 +4776,15 @@ Route134_Text_KelvinPostBattle: @ 82A48BD
 	.string "Actually, I know a fainted Pokémon\n"
 	.string "can still Surf, but it feels wrong.$"
 
-Route134_Text_MarleyIntro: @ 82A4937
+Route135_Text_MarleyIntro: @ 82A4937
 	.string "Can your Pokémon dodge our\n"
 	.string "lightning-quick attacks?$"
 
-Route134_Text_MarleyDefeat: @ 82A496B
+Route135_Text_MarleyDefeat: @ 82A496B
 	.string "I never knew such a technique existed!\n"
 	.string "You've defeated us thoroughly.$"
 
-Route134_Text_MarleyPostBattle: @ 82A49B1
+Route135_Text_MarleyPostBattle: @ 82A49B1
 	.string "I haven't lost my passion for speed.\n"
 	.string "I will try harder.$"
 
