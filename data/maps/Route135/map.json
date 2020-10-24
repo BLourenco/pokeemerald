@@ -292,6 +292,14 @@
       "elevation": 3,
       "item": "ITEM_BIG_PEARL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_135_BIG_PEARL"
+    },
+    {
+      "type": "hidden_item",
+      "x": 17,
+      "y": 55,
+      "elevation": 3,
+      "item": "ITEM_HEART_SCALE",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_135_HEART_SCALE"
     }
   ]
 }
