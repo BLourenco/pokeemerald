@@ -325,8 +325,9 @@
 #define EVO_LEVEL_RAIN       0x001C // Pokémon reaches the specified level while it's raining
 #define EVO_SPECIFIC_MON_IN_PARTY  0x001D // Pokémon levels up with a specified Pokémon in party
 #define EVO_LEVEL_DARK_TYPE_MON_IN_PARTY  0x001E // Pokémon reaches the specified level with a Dark Type Pokémon in party
+#define EVO_TRADE_SPECIFIC_MON            0x001F     // Pokémon is traded for a specified Pokémon
 
-#define EVO_ITEM_HOLD        0x001F // Pokemon levels up, holds specified item
+#define EVO_ITEM_HOLD        0x0020 // Pokemon levels up, holds specified item
 
 #define EVOS_PER_MON 15
 
