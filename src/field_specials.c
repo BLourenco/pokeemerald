@@ -2490,6 +2490,16 @@ void ShowScrollableMultichoice(void)
             task->tKeepOpenAfterSelect = FALSE;
             task->tTaskId = taskId;
             break;
+        case SCROLL_MULTI_DEVON_RESEARCHER_FOSSILS:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 12;
+            task->tLeft = 1;
+            task->tTop = 1;
+            task->tWidth = 9;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tTaskId = taskId;
+            break;
         default:
             gSpecialVar_Result = MULTI_B_PRESSED;
             DestroyTask(taskId);
@@ -2751,6 +2761,21 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_LoveBall,
         gText_FastBall,
         gText_HeavyBall,
+        gText_Exit
+    },
+    [SCROLL_MULTI_DEVON_RESEARCHER_FOSSILS] =
+    {
+        gText_HelixFossil,
+        gText_DomeFossil,
+        gText_OldAmber,
+        gText_RootFossil,
+        gText_ClawFossil,
+        gText_SkullFossil,
+        gText_ArmorFossil,
+        gText_CoverFossil,
+        gText_PlumeFossil,
+        gText_JawFossil,
+        gText_SailFossil,
         gText_Exit
     }
 };
