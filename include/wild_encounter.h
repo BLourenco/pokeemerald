@@ -50,5 +50,6 @@ u16 GetCurrentMapWildMonHeaderId(void);
 u8 ChooseWildMonIndex_Land(void);
 u8 ChooseWildMonIndex_WaterRock(void);
 u8 ChooseHiddenMonIndex(void);
+bool8 TryDoDoubleWildBattle(void);
 
 #endif // GUARD_WILD_ENCOUNTER_H
