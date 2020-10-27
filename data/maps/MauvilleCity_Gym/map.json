@@ -12,11 +12,11 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_GYM",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_WATTSON",
-      "x": 5,
+      "x": 6,
       "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -29,7 +29,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 7,
+      "x": 8,
       "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -42,7 +42,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
-      "x": 1,
+      "x": 2,
       "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -55,7 +55,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 5,
+      "x": 6,
       "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -68,7 +68,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 1,
+      "x": 2,
       "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -81,7 +81,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_2",
-      "x": 7,
+      "x": 8,
       "y": 20,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -94,7 +94,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 7,
+      "x": 8,
       "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -104,18 +104,31 @@
       "trainer_sight_or_berry_tree_id": "1",
       "script": "MauvilleCity_Gym_EventScript_Angelo",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_UNION_ROOM_NURSE",
+      "x": 3,
+      "y": 2,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Common_EventScript_GymNurse",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 4,
+      "x": 5,
       "y": 20,
       "elevation": 0,
       "dest_map": "MAP_MAUVILLE_CITY",
       "dest_warp_id": 0
     },
     {
-      "x": 5,
+      "x": 6,
       "y": 20,
       "elevation": 0,
       "dest_map": "MAP_MAUVILLE_CITY",
@@ -125,7 +138,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 4,
+      "x": 5,
       "y": 12,
       "elevation": 3,
       "var": "VAR_TEMP_0",
@@ -134,7 +147,7 @@
     },
     {
       "type": "trigger",
-      "x": 3,
+      "x": 4,
       "y": 9,
       "elevation": 3,
       "var": "VAR_TEMP_0",
@@ -143,7 +156,7 @@
     },
     {
       "type": "trigger",
-      "x": 0,
+      "x": 1,
       "y": 15,
       "elevation": 3,
       "var": "VAR_TEMP_0",
@@ -152,7 +165,7 @@
     },
     {
       "type": "trigger",
-      "x": 8,
+      "x": 9,
       "y": 9,
       "elevation": 3,
       "var": "VAR_TEMP_0",
@@ -163,7 +176,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 3,
+      "x": 4,
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -171,7 +184,7 @@
     },
     {
       "type": "sign",
-      "x": 6,
+      "x": 7,
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",

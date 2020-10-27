@@ -645,10 +645,10 @@ static void LoadLinkPartnerObjectEventSpritePalette(u8 graphicsId, u8 localEvent
 // NOTE: Coordinates are +7, +7 from actual in-map coordinates
 static const struct UCoords8 sMauvilleGymSwitchCoords[] =
 {
-    { 7, 22},
-    {11, 19},
-    {10, 16},
-    {15, 16}
+    { 8, 22},
+    {12, 19},
+    {11, 16},
+    {16, 16}
 };
 
 // Presses the stepped-on switch and raises the rest
@@ -671,7 +671,7 @@ void MauvilleGymSetDefaultBarriers(void)
     // All switches/barriers are within these coord ranges -7
     for (y = 12; y < 24; y++)
     {
-        for (x = 7; x < 16; x++)
+        for (x = 8; x < 17; x++)
         {
             switch (MapGridGetMetatileIdAt(x, y))
             {
@@ -770,7 +770,7 @@ void MauvilleGymDeactivatePuzzle(void)
     }
     for (y = 12; y < 24; y++)
     {
-        for (x = 7; x < 16; x++)
+        for (x = 8; x < 17; x++)
         {
             switch (MapGridGetMetatileIdAt(x, y))
             {

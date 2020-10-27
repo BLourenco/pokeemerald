@@ -49,3 +49,18 @@ gText_ThankYouForWaiting:: @ 82729F0
 
 gText_WeHopeToSeeYouAgain2:: @ 8272A07
     .string "We hope to see you again!$"
+
+gText_GymNurse_WouldYouLikeToRestYourPkmn::
+    .string "Welcome, challenger!\n"
+    .string "I'm the Gym Nurse.\p"
+    .string "Would you like me to restore your\n"
+    .string "Pokémon to full health?$"
+
+gText_GymNurse_IllTakeYourPkmn::
+    .string "Okay, this will take just a\n"
+    .string "moment…$"
+
+gText_GymNurse_HereYouGo::
+    .string "Thank you for waiting.\n"
+    .string "Your Pokémon are fully healed.\p"
+    .string "Good luck!$"

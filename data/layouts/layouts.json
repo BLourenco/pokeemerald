@@ -884,7 +884,7 @@
     {
       "id": "LAYOUT_MAUVILLE_CITY_GYM",
       "name": "MauvilleCity_Gym_Layout",
-      "width": 10,
+      "width": 12,
       "height": 21,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_MauvilleGym",

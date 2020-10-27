@@ -12,6 +12,22 @@ Common_EventScript_PkmnCenterNurse:: @ 827191E
     @goto_if_eq EventScript_PkmnCenterNurse_Goodbye
     end
 
+Common_EventScript_GymNurse::
+    lock
+    faceplayer
+    msgbox gText_GymNurse_WouldYouLikeToRestYourPkmn, MSGBOX_YESNO
+    compare VAR_RESULT, YES
+    goto_if_eq EventScript_GymNurse_HealPkmn
+    release
+    end
+
+EventScript_GymNurse_HealPkmn::
+    msgbox gText_GymNurse_IllTakeYourPkmn, MSGBOX_DEFAULT
+    call Common_EventScript_OutOfCenterPartyHeal
+    msgbox gText_GymNurse_HereYouGo, MSGBOX_DEFAULT
+    release
+    end
+
 EventScript_PkmnCenterNurse_Goodbye:: @ 8271954
     message gText_WeHopeToSeeYouAgain
     return
