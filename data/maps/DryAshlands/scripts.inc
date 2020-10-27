@@ -1,5 +1,6 @@
 .set LOCALID_RIVAL, 6
 .set LOCALID_RIVAL_ON_BIKE, 7
+.set LOCALID_SUDOWOODO, 10
 
 DryAshlands_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, DryAshlands_OnResume
@@ -8,13 +9,26 @@ DryAshlands_MapScripts::
 
 DryAshlands_OnResume:
 	setstepcallback STEP_CB_ASH
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, DryAshlands_EventScript_TryRemoveSudowoodo
 	end
     
 DryAshlands_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	call Common_EventScript_SetupRivalOnBikeGfxId
 	setflag FLAG_LANDMARK_DRY_ASHLANDS
+	call_if_unset FLAG_DEFEATED_SUDOWOODO_DRY_ASHLASNDS, DryAshlands_EventScript_ShowSudowoodo
 	end
+
+DryAshlands_EventScript_TryRemoveSudowoodo::
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_ne Common_EventScript_NopReturn
+	removeobject VAR_LAST_TALKED
+	return
+
+DryAshlands_EventScript_ShowSudowoodo::
+	clearflag FLAG_HIDE_DRY_ASHLANDS_SUDOWOODO
+	return
 
 DryAshlands_EventScript_RouteSign::
 	msgbox DryAshlands_Text_RouteSign, MSGBOX_SIGN
@@ -46,6 +60,70 @@ DryAshlands_EventScript_Cormac::
 	trainerbattle_single TRAINER_CORMAC, DryAshlands_Text_CormacIntro, DryAshlands_Text_CormacDefeat
 	msgbox DryAshlands_Text_CormacPostBattle, MSGBOX_AUTOCLOSE
 	end
+DryAshlands_EventScript_Sudowoodo:: @ 8242CEA
+	lock
+	faceplayer
+	waitse
+	playse SE_SUDOWOODO_SHAKE
+	applymovement LOCALID_SUDOWOODO, DryAshlands_Movement_SudowoodoShake
+	waitmovement 0
+	release
+	end
+
+DryAshlands_EventScript_WaterSudowoodo:: @ 8242CFC
+	lock
+	faceplayer
+	special DoWateringBerryTreeAnim
+	waitstate
+	waitse
+	playse SE_SUDOWOODO_SHAKE
+	applymovement LOCALID_SUDOWOODO, DryAshlands_Movement_SudowoodoShake
+	waitmovement 0
+	msgbox gText_Sudowoodo_Attacked, MSGBOX_DEFAULT
+	closemessage
+	waitse
+	playmoncry SPECIES_SUDOWOODO, 2
+	delay 40
+	waitmoncry
+	setvar VAR_LAST_TALKED, LOCALID_SUDOWOODO
+	setwildbattle SPECIES_SUDOWOODO, 20, ITEM_NONE
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq DryAshlands_EventScript_DefeatedSudowoodo
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq DryAshlands_EventScript_DefeatedSudowoodo
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq DryAshlands_EventScript_DefeatedSudowoodo
+	setflag FLAG_DEFEATED_SUDOWOODO_DRY_ASHLASNDS
+	release
+	end
+
+DryAshlands_EventScript_DefeatedSudowoodo:: @ 8242D60
+	setflag FLAG_DEFEATED_SUDOWOODO_DRY_ASHLASNDS
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+DryAshlands_Movement_SudowoodoShake: @ 8242D69
+	face_right
+	delay_8
+	face_down
+	delay_8
+	face_left
+	delay_8
+	face_down
+	delay_8
+	face_right
+	delay_8
+	face_down
+	delay_8
+	face_left
+	delay_8
+	face_down
+	step_end
+
     
 @ Redo the following events
 

@@ -782,7 +782,10 @@ static bool8 TryToWaterSudowoodo(void)
 static void ItemUseOnFieldCB_WailmerPailSudowoodo(u8 taskId)
 {
     ScriptContext2_Enable();
-    ScriptContext1_SetupScript(BattleFrontier_OutsideEast_EventScript_WaterSudowoodo);
+    if (gMapHeader.regionMapSectionId == MAPSEC_DRY_ASHLANDS)
+        ScriptContext1_SetupScript(DryAshlands_EventScript_WaterSudowoodo);
+    else
+        ScriptContext1_SetupScript(BattleFrontier_OutsideEast_EventScript_WaterSudowoodo);
     DestroyTask(taskId);
 }
 
