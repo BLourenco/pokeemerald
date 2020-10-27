@@ -9,6 +9,7 @@ NewMauville_Inside_OnResume: @ 82373E7
 	call_if_eq NewMauville_Inside_EventScript_SetBarrierStateBlueButton
 	compare VAR_TEMP_2, 1
 	call_if_eq NewMauville_Inside_EventScript_SetBarrierStateGreenButton
+	call_if_set FLAG_DEFEATED_ROTOM_NEW_MAUVILLE, NewMauville_Inside_EventScript_SetBarrierStateAll
 	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, NewMauville_Inside_EventScript_TryRemoveVoltorb
 	end
 
@@ -41,6 +42,8 @@ NewMauville_Inside_EventScript_ShowVoltorb3:: @ 8237449
 
 NewMauville_Inside_OnLoad: @ 823744D
 	compare VAR_NEW_MAUVILLE_STATE, 2
+	call_if_eq NewMauville_Inside_EventScript_SetBarrierStateRedButton
+	compare VAR_NEW_MAUVILLE_STATE, 3
 	call_if_eq NewMauville_Inside_EventScript_SetGeneratorOffMetatiles
 	end
 
@@ -146,14 +149,14 @@ NewMauville_Inside_EventScript_SetBarrierStateGreenButton:: @ 82375D7
 
 NewMauville_Inside_EventScript_RedButton:: @ 8237725
 	lockall
-	msgbox NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped, MSGBOX_DEFAULT
-	call NewMauville_Inside_EventScript_SetGeneratorOffMetatiles
+	call NewMauville_Inside_EventScript_SetBarrierStateRedButton
+	playse SE_PIN
+	msgbox NewMauville_Inside_Text_SteppedOnSwitchGeneratorStillRunning, MSGBOX_DEFAULT
 	setvar VAR_NEW_MAUVILLE_STATE, 2
 	releaseall
 	end
 
 NewMauville_Inside_EventScript_SetGeneratorOffMetatiles:: @ 823773A
-	setmetatile 33, 6, METATILE_BikeShop_Button_Pressed, 0
 	setmetatile 32, 2, METATILE_BikeShop_Generator_Off_Tile0, 1
 	setmetatile 33, 2, METATILE_BikeShop_Generator_Off_Tile1, 1
 	setmetatile 34, 2, METATILE_BikeShop_Generator_Off_Tile2, 1
@@ -165,16 +168,121 @@ NewMauville_Inside_EventScript_SetGeneratorOffMetatiles:: @ 823773A
 	special DrawWholeMapView
 	return
 
+NewMauville_Inside_EventScript_SetBarrierStateRedButton::
+	setmetatile 33, 6, METATILE_BikeShop_Button_Pressed, 0
+	special DrawWholeMapView
+	return
+
+NewMauville_Inside_EventScript_SetBarrierStateAll::
+	setvar VAR_TEMP_1, 1
+	setvar VAR_TEMP_2, 1
+
+	@ Red barrier opened
+	setmetatile 33, 6, METATILE_BikeShop_Button_Pressed, 0
+	setmetatile 37, 14, METATILE_BikeShop_Barrier_Hidden_Top, 1
+	setmetatile 37, 15, METATILE_BikeShop_Barrier_Hidden_Bottom, 1
+	setmetatile 37, 16, METATILE_BikeShop_Floor_Shadow_Top, 0
+	setmetatile 37, 17, METATILE_BikeShop_Wall_Edge_Top, 0
+
+	@ Blue barrier opened
+	setmetatile 23, 34, METATILE_BikeShop_Barrier_Hidden_Top, 1
+	setmetatile 23, 35, METATILE_BikeShop_Barrier_Hidden_Bottom, 1
+	setmetatile 23, 36, METATILE_BikeShop_Floor_Shadow_Top, 0
+	setmetatile 23, 37, METATILE_BikeShop_Wall_Edge_Top, 0
+	setmetatile 10, 16, METATILE_BikeShop_Barrier_Hidden_Top, 1
+	setmetatile 10, 17, METATILE_BikeShop_Barrier_Hidden_Bottom, 1
+	setmetatile 10, 18, METATILE_BikeShop_Floor_Shadow_Top, 0
+	setmetatile 10, 19, METATILE_BikeShop_Wall_Edge_Top, 0
+	setmetatile 10, 0, METATILE_BikeShop_Barrier_Hidden_Top, 1
+	setmetatile 10, 1, METATILE_BikeShop_Barrier_Hidden_Bottom, 1
+	setmetatile 10, 2, METATILE_BikeShop_Floor_Shadow_Top, 0
+	setmetatile 10, 3, METATILE_BikeShop_Wall_Edge_Top, 0
+	setmetatile 6, 11, METATILE_BikeShop_Button_Pressed, 0
+	setmetatile 13, 10, METATILE_BikeShop_Button_Pressed, 0
+	setmetatile 16, 22, METATILE_BikeShop_Button_Pressed, 0
+	setmetatile 4, 26, METATILE_BikeShop_Button_Pressed, 0
+	setmetatile 30, 38, METATILE_BikeShop_Button_Pressed, 0
+
+	@ Green barrier opened
+	setmetatile 37, 33, METATILE_BikeShop_Barrier_Hidden_Top, 1
+	setmetatile 37, 34, METATILE_BikeShop_Barrier_Hidden_Bottom, 1
+	setmetatile 37, 35, METATILE_BikeShop_Floor_Shadow_Top, 0
+	setmetatile 37, 36, METATILE_BikeShop_Wall_Edge_Top, 0
+	setmetatile 28, 22, METATILE_BikeShop_Barrier_Hidden_Top, 1
+	setmetatile 28, 23, METATILE_BikeShop_Barrier_Hidden_Bottom, 1
+	setmetatile 28, 24, METATILE_BikeShop_Floor_Shadow_Top, 0
+	setmetatile 28, 25, METATILE_BikeShop_Wall_Edge_Top, 0
+	setmetatile 10, 24, METATILE_BikeShop_Barrier_Hidden_Top, 1
+	setmetatile 10, 25, METATILE_BikeShop_Barrier_Hidden_Bottom, 1
+	setmetatile 10, 26, METATILE_BikeShop_Floor_Shadow_Top, 0
+	setmetatile 10, 27, METATILE_BikeShop_Wall_Edge_Top, 0
+	setmetatile 21, 2, METATILE_BikeShop_Barrier_Hidden_Top, 1
+	setmetatile 21, 3, METATILE_BikeShop_Barrier_Hidden_Bottom, 1
+	setmetatile 21, 4, METATILE_BikeShop_Floor_Shadow_Top, 0
+	setmetatile 21, 5, METATILE_BikeShop_Wall_Edge_Top, 0
+	setmetatile 2, 11, METATILE_BikeShop_Button_Pressed, 0
+	setmetatile 17, 10, METATILE_BikeShop_Button_Pressed, 0
+	setmetatile 25, 18, METATILE_BikeShop_Button_Pressed, 0
+	setmetatile 18, 36, METATILE_BikeShop_Button_Pressed, 0
+	
+	special DrawWholeMapView
+	return
+
 NewMauville_Inside_EventScript_Generator:: @ 823778F
 	lockall
-	compare VAR_NEW_MAUVILLE_STATE, 2
+	compare VAR_NEW_MAUVILLE_STATE, 3
 	goto_if_eq NewMauville_Inside_EventScript_GeneratorOff
+	compare VAR_NEW_MAUVILLE_STATE, 2
+	goto_if_eq NewMauville_Inside_EventScript_GeneratorRotomAttacks
 	msgbox NewMauville_Inside_Text_GeneratorRadiatingHeat, MSGBOX_DEFAULT
 	releaseall
 	end
 
 NewMauville_Inside_EventScript_GeneratorOff:: @ 82377A5
 	msgbox NewMauville_Inside_Text_GeneratorQuietedDown, MSGBOX_DEFAULT
+	releaseall
+	end
+
+NewMauville_Inside_EventScript_GeneratorRotomAttacks::
+	msgbox NewMauville_Inside_Text_GeneratorContinuesToRun, MSGBOX_DEFAULT
+	goto NewMauville_Inside_EventScript_Rotom
+	end
+	
+NewMauville_Inside_EventScript_Rotom::
+	lock
+	faceplayer
+	setwildbattle SPECIES_ROTOM, 30, ITEM_NONE
+	waitse
+	playmoncry SPECIES_ROTOM, 2
+	delay 40
+	waitmoncry
+	msgbox NewMauville_Inside_Text_GeneratorRotomAttacks, MSGBOX_DEFAULT
+	@setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	@clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_eq NewMauville_Inside_EventScript_RotomRemoved
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq NewMauville_Inside_EventScript_RotomStillInsideGenerator
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq NewMauville_Inside_EventScript_RotomStillInsideGenerator
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq NewMauville_Inside_EventScript_RotomStillInsideGenerator
+	release
+	end
+
+NewMauville_Inside_EventScript_RotomRemoved::
+	setflag FLAG_DEFEATED_ROTOM_NEW_MAUVILLE
+	call NewMauville_Inside_EventScript_SetGeneratorOffMetatiles
+	msgbox NewMauville_Inside_Text_GeneratorStopped, MSGBOX_DEFAULT
+	call NewMauville_Inside_EventScript_SetBarrierStateAll
+	setvar VAR_NEW_MAUVILLE_STATE, 3
+	releaseall
+	end
+
+NewMauville_Inside_EventScript_RotomStillInsideGenerator::
+	msgbox NewMauville_Inside_Text_RotomStillInside, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -268,10 +376,27 @@ NewMauville_Inside_Text_GeneratorRadiatingHeat: @ 8237896
 NewMauville_Inside_Text_GeneratorQuietedDown: @ 8237916
 	.string "The generator quieted down.$"
 
-NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped: @ 8237932
+NewMauville_Inside_Text_SteppedOnSwitchGeneratorStillRunning: @ 8237932
 	.string "{PLAYER} stepped on the switch.\p"
 	.string "Click…\p"
 	.string "… … … … … … … …\n"
 	.string "… … … … … … … …\p"
-	.string "The generator appears to have\n"
+	.string "What?\n"
+	.string "The generator continues to run!$"
+
+NewMauville_Inside_Text_GeneratorContinuesToRun:
+	.string "The generator continues to run…\p"
+	.string "… … … … … … … …\n"
+	.string "… … … … … … … …$"
+
+NewMauville_Inside_Text_GeneratorRotomAttacks:
+	.string "Whoa! A wild Pokémon jumped out!$"
+
+NewMauville_Inside_Text_GeneratorStopped:
+	.string "The generator seems to have\n"
 	.string "stopped…$"
+
+NewMauville_Inside_Text_RotomStillInside:
+	.string "The Rotom is still inside the\n"
+	.string "generator, preventing it from\l"
+	.string "shutting down!$"

@@ -771,6 +771,16 @@ static const struct MenuAction MultichoiceList_TagMatchType[] =
     {gText_Exit},
 };
 
+const struct MenuAction MultichoiceList_RotomAppliances[] = 
+{
+    {gText_MicrowaveOven},
+    {gText_WashingMachine},
+    {gText_Refrigerator},
+    {gText_ElectricFan},
+    {gText_Lawnmower},
+    {gText_Recall},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -898,6 +908,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SLATEPORT_TENT_RULES]       = MULTICHOICE(MultichoiceList_SlateportTentRules),
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
+    [MULTI_ROTOM_APPLIANCES]           = MULTICHOICE(MultichoiceList_RotomAppliances),
 };
 
 const u8 *const gStdStrings[] =

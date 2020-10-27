@@ -1329,6 +1329,14 @@ const u8 gText_BattleArena[] = _("Battle Arena");
 const u8 gText_BattlePike[] = _("Battle Pike");
 const u8 gText_BattlePyramid[] = _("Battle Pyramid");
 
+// Rotom form options
+const u8 gText_MicrowaveOven[] = _("Microwave Oven");
+const u8 gText_WashingMachine[] = _("Washing Machine");
+const u8 gText_Refrigerator[] = _("Refrigerator");
+const u8 gText_ElectricFan[] = _("Electric Fan");
+const u8 gText_Lawnmower[] = _("Lawnmower");
+const u8 gText_Recall[] = _("Recall");
+
 ALIGNED(4) const u8 gText_FacilitySingle[] = _("{STR_VAR_1} Single");
 ALIGNED(4) const u8 gText_FacilityDouble[] = _("{STR_VAR_1} Double");
 ALIGNED(4) const u8 gText_FacilityMulti[] = _("{STR_VAR_1} Multi");

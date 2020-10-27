@@ -84,6 +84,10 @@
 #define METATILE_BikeShop_Barrier_Green_TopMid     0x2BE
 #define METATILE_BikeShop_Barrier_Hidden_Bottom    0x271
 #define METATILE_BikeShop_Barrier_Hidden_Top       0x269
+#define METATILE_BikeShop_Barrier_Red_Bottom       0x2CC
+#define METATILE_BikeShop_Barrier_Red_BottomMid    0x2CB
+#define METATILE_BikeShop_Barrier_Red_Top          0x2C9
+#define METATILE_BikeShop_Barrier_Red_TopMid       0x2CA
 #define METATILE_BikeShop_Button_Blue              0x236
 #define METATILE_BikeShop_Button_Green             0x22E
 #define METATILE_BikeShop_Button_Pressed           0x24F

@@ -425,8 +425,10 @@ MauvilleCity_EventScript_Wattson:: @ 81DF73A
 	lock
 	faceplayer
 	goto_if_set FLAG_GOT_TM24_FROM_WATTSON, MauvilleCity_EventScript_ReceivedThunderbolt
-	compare VAR_NEW_MAUVILLE_STATE, 2
+	compare VAR_NEW_MAUVILLE_STATE, 3
 	goto_if_eq MauvilleCity_EventScript_CompletedNewMauville
+	compare VAR_NEW_MAUVILLE_STATE, 2
+	goto_if_eq MauvilleCity_EventScript_PushedRedButton
 	goto_if_set FLAG_GOT_BASEMENT_KEY_FROM_WATTSON, MauvilleCity_EventScript_BegunNewMauville
 	msgbox MauvilleCity_Text_WattsonNeedFavorTakeKey, MSGBOX_DEFAULT
 	giveitem ITEM_BASEMENT_KEY
@@ -447,6 +449,11 @@ MauvilleCity_EventScript_CompletedNewMauville:: @ 81DF784
 	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_GOT_TM24_FROM_WATTSON
 	msgbox MauvilleCity_Text_WattsonYoungTakeCharge, MSGBOX_DEFAULT
+	release
+	end
+
+MauvilleCity_EventScript_PushedRedButton::
+	msgbox MauvilleCity_Text_WattsonPressedRedButton, MSGBOX_DEFAULT
 	release
 	end
 
@@ -619,6 +626,19 @@ MauvilleCity_Text_WattsonYoungTakeCharge: @ 81E02AA
 	.string "Wattson: Wahahahaha!\p"
 	.string "It pleases me to no end to see\n"
 	.string "the young step up and take charge!$"
+
+MauvilleCity_Text_WattsonPressedRedButton:
+	.string "Wattson: You're back! Did you\n"
+	.string "switch off the generator?\p"
+	.string "… … … … … …\n"
+	.string "Hmm?\p"
+	.string "You pressed the switch but the\n"
+	.string "generator is still running?\p"
+	.string "That's concerning… I suggest you\n"
+	.string "go back and take a second look at\l"
+	.string "the generator.\p"
+	.string "Maybe there's something wrong with\n"
+	.string "the generator itself.$"
 
 MauvilleCity_Text_NurseHurtMonBackToHealth: @ 81E0301
 	.string "You know, it's cool to have Pokémon\n"
