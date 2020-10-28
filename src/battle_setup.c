@@ -817,6 +817,27 @@ u8 GetTrainerBattleTransition(void)
     if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
         return B_TRANSITION_CHAMPION;
 
+    if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_LEADER)
+    {
+        if (gTrainerBattleOpponent_A == TRAINER_ROXANNE_1)
+            return B_TRANSITION_GYM_BADGE_1;
+        if (gTrainerBattleOpponent_A == TRAINER_BRAWLY_1)
+            return B_TRANSITION_GYM_BADGE_2;
+        if (gTrainerBattleOpponent_A == TRAINER_WATTSON_1)
+            return B_TRANSITION_GYM_BADGE_3;
+        if (gTrainerBattleOpponent_A == TRAINER_FLANNERY_1)
+            return B_TRANSITION_GYM_BADGE_4;
+        if (gTrainerBattleOpponent_A == TRAINER_NORMAN_1)
+            return B_TRANSITION_GYM_BADGE_5;
+        if (gTrainerBattleOpponent_A == TRAINER_WINONA_1)
+            return B_TRANSITION_GYM_BADGE_6;
+        if (gTrainerBattleOpponent_A == TRAINER_TATE_AND_LIZA_1)
+            return B_TRANSITION_GYM_BADGE_7;
+        if (gTrainerBattleOpponent_A == TRAINER_JUAN_1)
+            return B_TRANSITION_GYM_BADGE_8;
+        return B_TRANSITION_POKEBALLS_TRAIL;
+    }
+
     if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ELITE_FOUR)
     {
         if (gTrainerBattleOpponent_A == TRAINER_SIDNEY)

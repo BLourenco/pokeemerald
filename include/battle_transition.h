@@ -67,6 +67,14 @@ enum // TRANSITION_MUGSHOT
 #define B_TRANSITION_FRONTIER_CIRCLES_CROSS_IN_SEQ             39
 #define B_TRANSITION_FRONTIER_CIRCLES_ASYMMETRIC_SPIRAL_IN_SEQ 40
 #define B_TRANSITION_FRONTIER_CIRCLES_SYMMETRIC_SPIRAL_IN_SEQ  41
-#define B_TRANSITION_COUNT                                     42
+#define B_TRANSITION_GYM_BADGE_1                               42
+#define B_TRANSITION_GYM_BADGE_2                               43
+#define B_TRANSITION_GYM_BADGE_3                               44
+#define B_TRANSITION_GYM_BADGE_4                               45
+#define B_TRANSITION_GYM_BADGE_5                               46
+#define B_TRANSITION_GYM_BADGE_6                               47
+#define B_TRANSITION_GYM_BADGE_7                               48
+#define B_TRANSITION_GYM_BADGE_8                               49
+#define B_TRANSITION_COUNT                                     50
 
 #endif // GUARD_BATTLE_TRANSITION_H

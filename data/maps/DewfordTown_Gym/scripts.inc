@@ -144,6 +144,8 @@ DewfordTown_Gym_EventScript_StopCountingTrainers:: @ 81FC7C1
 	return
 
 DewfordTown_Gym_EventScript_Brawly:: @ 81FC7C2
+	call_if_unset FLAG_DEFEATED_DEWFORD_GYM, DewfordTown_Gym_EventScript_AnimateFlashFullBrightness @ The dark overlay interfere's with the battle transition, so clear it before the battle
+	call DewfordTown_Gym_EventScript_SetLightsOn
 	trainerbattle_single TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	compare VAR_RESULT, TRUE
@@ -154,7 +156,8 @@ DewfordTown_Gym_EventScript_Brawly:: @ 81FC7C2
 	end
 
 DewfordTown_Gym_EventScript_BrawlyDefeated:: @ 81FC7F7
-	call DewfordTown_Gym_EventScript_AnimateFlashFullBrightness
+	@call DewfordTown_Gym_EventScript_AnimateFlashFullBrightness
+	call DewfordTown_Gym_EventScript_SetLightsOn
 	message DewfordTown_Gym_Text_ReceivedKnuckleBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare

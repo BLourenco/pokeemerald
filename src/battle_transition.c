@@ -260,6 +260,30 @@ static bool8 TrainerPicCb_SetSlideOffsets(struct Sprite *sprite);
 static bool8 TrainerPicCb_Slide1(struct Sprite *sprite);
 static bool8 TrainerPicCb_Slide2(struct Sprite *sprite);
 static bool8 TrainerPicCb_Slide3(struct Sprite *sprite);
+static void Phase2Task_Badge1Transition(u8 taskId);
+static bool8 Phase2_Badge1Transition_Func1(struct Task *task);
+static bool8 Phase2_Badge1Transition_Func2(struct Task *task);
+static void Phase2Task_Badge2Transition(u8 taskId);
+static bool8 Phase2_Badge2Transition_Func1(struct Task *task);
+static bool8 Phase2_Badge2Transition_Func2(struct Task *task);
+static void Phase2Task_Badge3Transition(u8 taskId);
+static bool8 Phase2_Badge3Transition_Func1(struct Task *task);
+static bool8 Phase2_Badge3Transition_Func2(struct Task *task);
+static void Phase2Task_Badge4Transition(u8 taskId);
+static bool8 Phase2_Badge4Transition_Func1(struct Task *task);
+static bool8 Phase2_Badge4Transition_Func2(struct Task *task);
+static void Phase2Task_Badge5Transition(u8 taskId);
+static bool8 Phase2_Badge5Transition_Func1(struct Task *task);
+static bool8 Phase2_Badge5Transition_Func2(struct Task *task);
+static void Phase2Task_Badge6Transition(u8 taskId);
+static bool8 Phase2_Badge6Transition_Func1(struct Task *task);
+static bool8 Phase2_Badge6Transition_Func2(struct Task *task);
+static void Phase2Task_Badge7Transition(u8 taskId);
+static bool8 Phase2_Badge7Transition_Func1(struct Task *task);
+static bool8 Phase2_Badge7Transition_Func2(struct Task *task);
+static void Phase2Task_Badge8Transition(u8 taskId);
+static bool8 Phase2_Badge8Transition_Func1(struct Task *task);
+static bool8 Phase2_Badge8Transition_Func2(struct Task *task);
 
 // iwram bss vars
 static s16 sUnusedRectangularSpiralVar;
@@ -311,6 +335,30 @@ static const u32 sFrontierSquares_EmptyBg_Tileset[] = INCBIN_U32("graphics/battl
 static const u32 sFrontierSquares_Shrink1_Tileset[] = INCBIN_U32("graphics/battle_transitions/frontier_square_3.4bpp.lz");
 static const u32 sFrontierSquares_Shrink2_Tileset[] = INCBIN_U32("graphics/battle_transitions/frontier_square_4.4bpp.lz");
 static const u32 sFrontierSquares_Tilemap[] = INCBIN_U32("graphics/battle_transitions/frontier_squares.bin");
+static const u16 sGymBadge1_Palette[] = INCBIN_U16("graphics/battle_transitions/badge1.gbapal");
+static const u32 sGymBadge1_Tileset[] = INCBIN_U32("graphics/battle_transitions/badge1.4bpp.lz");
+static const u32 sGymBadge1_Tilemap[] = INCBIN_U32("graphics/battle_transitions/badge1.bin.lz");
+static const u16 sGymBadge2_Palette[] = INCBIN_U16("graphics/battle_transitions/badge2.gbapal");
+static const u32 sGymBadge2_Tileset[] = INCBIN_U32("graphics/battle_transitions/badge2.4bpp.lz");
+static const u32 sGymBadge2_Tilemap[] = INCBIN_U32("graphics/battle_transitions/badge2.bin.lz");
+static const u16 sGymBadge3_Palette[] = INCBIN_U16("graphics/battle_transitions/badge3.gbapal");
+static const u32 sGymBadge3_Tileset[] = INCBIN_U32("graphics/battle_transitions/badge3.4bpp.lz");
+static const u32 sGymBadge3_Tilemap[] = INCBIN_U32("graphics/battle_transitions/badge3.bin.lz");
+static const u16 sGymBadge4_Palette[] = INCBIN_U16("graphics/battle_transitions/badge4.gbapal");
+static const u32 sGymBadge4_Tileset[] = INCBIN_U32("graphics/battle_transitions/badge4.4bpp.lz");
+static const u32 sGymBadge4_Tilemap[] = INCBIN_U32("graphics/battle_transitions/badge4.bin.lz");
+static const u16 sGymBadge5_Palette[] = INCBIN_U16("graphics/battle_transitions/badge5.gbapal");
+static const u32 sGymBadge5_Tileset[] = INCBIN_U32("graphics/battle_transitions/badge5.4bpp.lz");
+static const u32 sGymBadge5_Tilemap[] = INCBIN_U32("graphics/battle_transitions/badge5.bin.lz");
+static const u16 sGymBadge6_Palette[] = INCBIN_U16("graphics/battle_transitions/badge6.gbapal");
+static const u32 sGymBadge6_Tileset[] = INCBIN_U32("graphics/battle_transitions/badge6.4bpp.lz");
+static const u32 sGymBadge6_Tilemap[] = INCBIN_U32("graphics/battle_transitions/badge6.bin.lz");
+static const u16 sGymBadge7_Palette[] = INCBIN_U16("graphics/battle_transitions/badge7.gbapal");
+static const u32 sGymBadge7_Tileset[] = INCBIN_U32("graphics/battle_transitions/badge7.4bpp.lz");
+static const u32 sGymBadge7_Tilemap[] = INCBIN_U32("graphics/battle_transitions/badge7.bin.lz");
+static const u16 sGymBadge8_Palette[] = INCBIN_U16("graphics/battle_transitions/badge8.gbapal");
+static const u32 sGymBadge8_Tileset[] = INCBIN_U32("graphics/battle_transitions/badge8.4bpp.lz");
+static const u32 sGymBadge8_Tilemap[] = INCBIN_U32("graphics/battle_transitions/badge8.bin.lz");
 
 static const TaskFunc sPhase1_Tasks[B_TRANSITION_COUNT] =
 {
@@ -361,6 +409,14 @@ static const TaskFunc sPhase2_Tasks[B_TRANSITION_COUNT] =
     [B_TRANSITION_FRONTIER_CIRCLES_CROSS_IN_SEQ] = Phase2Task_FrontierCirclesCrossInSeq,
     [B_TRANSITION_FRONTIER_CIRCLES_ASYMMETRIC_SPIRAL_IN_SEQ] = Phase2Task_FrontierCirclesAsymmetricSpiralInSeq,
     [B_TRANSITION_FRONTIER_CIRCLES_SYMMETRIC_SPIRAL_IN_SEQ] = Phase2Task_FrontierCirclesSymmetricSpiralInSeq,
+    [B_TRANSITION_GYM_BADGE_1] = Phase2Task_Badge1Transition,
+    [B_TRANSITION_GYM_BADGE_2] = Phase2Task_Badge2Transition,
+    [B_TRANSITION_GYM_BADGE_3] = Phase2Task_Badge3Transition,
+    [B_TRANSITION_GYM_BADGE_4] = Phase2Task_Badge4Transition,
+    [B_TRANSITION_GYM_BADGE_5] = Phase2Task_Badge5Transition,
+    [B_TRANSITION_GYM_BADGE_6] = Phase2Task_Badge6Transition,
+    [B_TRANSITION_GYM_BADGE_7] = Phase2Task_Badge7Transition,
+    [B_TRANSITION_GYM_BADGE_8] = Phase2Task_Badge8Transition,
 };
 
 static const TransitionStateFunc sMainTransitionPhases[] =
@@ -462,6 +518,94 @@ static const TransitionStateFunc sPhase2_Kyogre_Funcs[] =
     Phase2_FramesCountdown,
     Phase2_WeatherDuo_Func6,
     Phase2_WeatherDuo_Func7
+};
+
+static const TransitionStateFunc sPhase2_Badge1_Funcs[] =
+{
+    Phase2_Badge1Transition_Func1,
+    Phase2_Badge1Transition_Func2,
+    Phase2_BigPokeball_Func3,
+    Phase2_BigPokeball_Func4,
+    Phase2_BigPokeball_Func5,
+    Phase2_FramesCountdown,
+    Phase2_BigPokeball_Func6
+};
+
+static const TransitionStateFunc sPhase2_Badge2_Funcs[] =
+{
+    Phase2_Badge2Transition_Func1,
+    Phase2_Badge2Transition_Func2,
+    Phase2_BigPokeball_Func3,
+    Phase2_BigPokeball_Func4,
+    Phase2_BigPokeball_Func5,
+    Phase2_FramesCountdown,
+    Phase2_BigPokeball_Func6
+};
+
+static const TransitionStateFunc sPhase2_Badge3_Funcs[] =
+{
+    Phase2_Badge3Transition_Func1,
+    Phase2_Badge3Transition_Func2,
+    Phase2_BigPokeball_Func3,
+    Phase2_BigPokeball_Func4,
+    Phase2_BigPokeball_Func5,
+    Phase2_FramesCountdown,
+    Phase2_BigPokeball_Func6
+};
+
+static const TransitionStateFunc sPhase2_Badge4_Funcs[] =
+{
+    Phase2_Badge4Transition_Func1,
+    Phase2_Badge4Transition_Func2,
+    Phase2_BigPokeball_Func3,
+    Phase2_BigPokeball_Func4,
+    Phase2_BigPokeball_Func5,
+    Phase2_FramesCountdown,
+    Phase2_BigPokeball_Func6
+};
+
+static const TransitionStateFunc sPhase2_Badge5_Funcs[] =
+{
+    Phase2_Badge5Transition_Func1,
+    Phase2_Badge5Transition_Func2,
+    Phase2_BigPokeball_Func3,
+    Phase2_BigPokeball_Func4,
+    Phase2_BigPokeball_Func5,
+    Phase2_FramesCountdown,
+    Phase2_BigPokeball_Func6
+};
+
+static const TransitionStateFunc sPhase2_Badge6_Funcs[] =
+{
+    Phase2_Badge6Transition_Func1,
+    Phase2_Badge6Transition_Func2,
+    Phase2_BigPokeball_Func3,
+    Phase2_BigPokeball_Func4,
+    Phase2_BigPokeball_Func5,
+    Phase2_FramesCountdown,
+    Phase2_BigPokeball_Func6
+};
+
+static const TransitionStateFunc sPhase2_Badge7_Funcs[] =
+{
+    Phase2_Badge7Transition_Func1,
+    Phase2_Badge7Transition_Func2,
+    Phase2_BigPokeball_Func3,
+    Phase2_BigPokeball_Func4,
+    Phase2_BigPokeball_Func5,
+    Phase2_FramesCountdown,
+    Phase2_BigPokeball_Func6
+};
+
+static const TransitionStateFunc sPhase2_Badge8_Funcs[] =
+{
+    Phase2_Badge8Transition_Func1,
+    Phase2_Badge8Transition_Func2,
+    Phase2_BigPokeball_Func3,
+    Phase2_BigPokeball_Func4,
+    Phase2_BigPokeball_Func5,
+    Phase2_FramesCountdown,
+    Phase2_BigPokeball_Func6
 };
 
 static const TransitionStateFunc sPhase2_PokeballsTrail_Funcs[] =
@@ -1239,6 +1383,46 @@ static void Phase2Task_Kyogre(u8 taskId)
     while (sPhase2_Kyogre_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
 }
 
+static void Phase2Task_Badge1Transition(u8 taskId)
+{
+    while (sPhase2_Badge1_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+}
+
+static void Phase2Task_Badge2Transition(u8 taskId)
+{
+    while (sPhase2_Badge2_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+}
+
+static void Phase2Task_Badge3Transition(u8 taskId)
+{
+    while (sPhase2_Badge3_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+}
+
+static void Phase2Task_Badge4Transition(u8 taskId)
+{
+    while (sPhase2_Badge4_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+}
+
+static void Phase2Task_Badge5Transition(u8 taskId)
+{
+    while (sPhase2_Badge5_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+}
+
+static void Phase2Task_Badge6Transition(u8 taskId)
+{
+    while (sPhase2_Badge6_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+}
+
+static void Phase2Task_Badge7Transition(u8 taskId)
+{
+    while (sPhase2_Badge7_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+}
+
+static void Phase2Task_Badge8Transition(u8 taskId)
+{
+    while (sPhase2_Badge8_Funcs[gTasks[taskId].tState](&gTasks[taskId]));
+}
+
 static void sub_814669C(struct Task *task)
 {
     s32 i;
@@ -1323,6 +1507,126 @@ static bool8 Phase2_BigPokeball_Func1(struct Task *task)
     return FALSE;
 }
 
+static bool8 Phase2_Badge1Transition_Func1(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    task->tFrames = 60;
+    sub_814669C(task);
+    GetBg0TilesDst(&tilemap, &tileset);
+    CpuFill16(0, tilemap, 0x800);
+    LZ77UnCompVram(sGymBadge1_Tileset, tileset);
+    LoadPalette(sGymBadge1_Palette, 0xF0, 0x20);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge2Transition_Func1(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    task->tFrames = 60;
+    sub_814669C(task);
+    GetBg0TilesDst(&tilemap, &tileset);
+    CpuFill16(0, tilemap, 0x800);
+    LZ77UnCompVram(sGymBadge2_Tileset, tileset);
+    LoadPalette(sGymBadge2_Palette, 0xF0, 0x20);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge3Transition_Func1(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    task->tFrames = 60;
+    sub_814669C(task);
+    GetBg0TilesDst(&tilemap, &tileset);
+    CpuFill16(0, tilemap, 0x800);
+    LZ77UnCompVram(sGymBadge3_Tileset, tileset);
+    LoadPalette(sGymBadge3_Palette, 0xF0, 0x20);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge4Transition_Func1(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    task->tFrames = 60;
+    sub_814669C(task);
+    GetBg0TilesDst(&tilemap, &tileset);
+    CpuFill16(0, tilemap, 0x800);
+    LZ77UnCompVram(sGymBadge4_Tileset, tileset);
+    LoadPalette(sGymBadge4_Palette, 0xF0, 0x20);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge5Transition_Func1(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    task->tFrames = 60;
+    sub_814669C(task);
+    GetBg0TilesDst(&tilemap, &tileset);
+    CpuFill16(0, tilemap, 0x800);
+    LZ77UnCompVram(sGymBadge5_Tileset, tileset);
+    LoadPalette(sGymBadge5_Palette, 0xF0, 0x20);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge6Transition_Func1(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    task->tFrames = 60;
+    sub_814669C(task);
+    GetBg0TilesDst(&tilemap, &tileset);
+    CpuFill16(0, tilemap, 0x800);
+    LZ77UnCompVram(sGymBadge6_Tileset, tileset);
+    LoadPalette(sGymBadge6_Palette, 0xF0, 0x20);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge7Transition_Func1(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    task->tFrames = 60;
+    sub_814669C(task);
+    GetBg0TilesDst(&tilemap, &tileset);
+    CpuFill16(0, tilemap, 0x800);
+    LZ77UnCompVram(sGymBadge7_Tileset, tileset);
+    LoadPalette(sGymBadge7_Palette, 0xF0, 0x20);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge8Transition_Func1(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    task->tFrames = 60;
+    sub_814669C(task);
+    GetBg0TilesDst(&tilemap, &tileset);
+    CpuFill16(0, tilemap, 0x800);
+    LZ77UnCompVram(sGymBadge8_Tileset, tileset);
+    LoadPalette(sGymBadge8_Palette, 0xF0, 0x20);
+
+    task->tState++;
+    return FALSE;
+}
+
 static bool8 Phase2_BigPokeball_Func2(struct Task *task)
 {
     s16 i, j;
@@ -1362,6 +1666,102 @@ static bool8 Phase2_Magma_Func2(struct Task *task)
 
     GetBg0TilesDst(&tilemap, &tileset);
     LZ77UnCompVram(sTeamMagma_Tilemap, tilemap);
+    sub_8149F98(gScanlineEffectRegBuffers[0], 0, task->tData4, 132, task->tData5, 160);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge1Transition_Func2(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    GetBg0TilesDst(&tilemap, &tileset);
+    LZ77UnCompVram(sGymBadge1_Tilemap, tilemap);
+    sub_8149F98(gScanlineEffectRegBuffers[0], 0, task->tData4, 132, task->tData5, 160);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge2Transition_Func2(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    GetBg0TilesDst(&tilemap, &tileset);
+    LZ77UnCompVram(sGymBadge2_Tilemap, tilemap);
+    sub_8149F98(gScanlineEffectRegBuffers[0], 0, task->tData4, 132, task->tData5, 160);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge3Transition_Func2(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    GetBg0TilesDst(&tilemap, &tileset);
+    LZ77UnCompVram(sGymBadge3_Tilemap, tilemap);
+    sub_8149F98(gScanlineEffectRegBuffers[0], 0, task->tData4, 132, task->tData5, 160);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge4Transition_Func2(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    GetBg0TilesDst(&tilemap, &tileset);
+    LZ77UnCompVram(sGymBadge4_Tilemap, tilemap);
+    sub_8149F98(gScanlineEffectRegBuffers[0], 0, task->tData4, 132, task->tData5, 160);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge5Transition_Func2(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    GetBg0TilesDst(&tilemap, &tileset);
+    LZ77UnCompVram(sGymBadge5_Tilemap, tilemap);
+    sub_8149F98(gScanlineEffectRegBuffers[0], 0, task->tData4, 132, task->tData5, 160);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge6Transition_Func2(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    GetBg0TilesDst(&tilemap, &tileset);
+    LZ77UnCompVram(sGymBadge6_Tilemap, tilemap);
+    sub_8149F98(gScanlineEffectRegBuffers[0], 0, task->tData4, 132, task->tData5, 160);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge7Transition_Func2(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    GetBg0TilesDst(&tilemap, &tileset);
+    LZ77UnCompVram(sGymBadge7_Tilemap, tilemap);
+    sub_8149F98(gScanlineEffectRegBuffers[0], 0, task->tData4, 132, task->tData5, 160);
+
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 Phase2_Badge8Transition_Func2(struct Task *task)
+{
+    u16 *tilemap, *tileset;
+
+    GetBg0TilesDst(&tilemap, &tileset);
+    LZ77UnCompVram(sGymBadge8_Tilemap, tilemap);
     sub_8149F98(gScanlineEffectRegBuffers[0], 0, task->tData4, 132, task->tData5, 160);
 
     task->tState++;
