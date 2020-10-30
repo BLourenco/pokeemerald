@@ -11,6 +11,7 @@
 #include "string_util.h"
 #include "international_string_util.h"
 #include "pokemon_storage_system.h"
+#include "party_menu.h"
 #include "field_message_box.h"
 #include "easy_chat.h"
 #include "battle.h"
@@ -3457,6 +3458,23 @@ void ChangePokemonNickname_CB(void)
 {
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar2);
     CB2_ReturnToFieldContinueScriptPlayMapMusic();
+}
+
+void ChangePartyPokemonNickname(void)
+{
+    void ChangePartyPokemonNickname_CB(void);
+
+    GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar3);
+    GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar2);
+    DoNamingScreen(NAMING_SCREEN_NICKNAME, gStringVar2, GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES, NULL), GetMonGender(&gPlayerParty[gSpecialVar_0x8004]), GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_PERSONALITY, NULL), ChangePartyPokemonNickname_CB);
+}
+
+void ChangePartyPokemonNickname_CB(void)
+{
+    void CB2_ReturnToPartyMenuFromSummaryScreen(void);
+
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar2);
+    CB2_ReturnToPartyMenuFromSummaryScreen();
 }
 
 void ChangeBoxPokemonNickname(void)
