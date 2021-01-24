@@ -5510,6 +5510,21 @@ extern const u32 gBattleTerrainPalette_StadiumGlacia[];
 extern const u32 gBattleTerrainPalette_StadiumDrake[];
 extern const u32 gBattleTerrainPalette_StadiumWallace[];
 
+// my new battle terrains
+extern const u32 gBattleTerrainPalette_TallGrass_Soot[];
+extern const u32 gBattleTerrainPalette_LongGrass_Overgrown[];
+extern const u32 gBattleTerrainPalette_Cave_Rusturf[];
+extern const u32 gBattleTerrainPalette_Cave_Volcano[];
+extern const u32 gBattleTerrainAnimTiles_Cave_Meteor_Falls[];
+extern const u32 gBattleTerrainAnimTilemap_Cave_Meteor_Falls[];
+extern const u32 gBattleTerrainPalette_Cave_Meteor_Falls[];
+extern const u32 gBattleTerrainPalette_Cave_Clay[];
+extern const u32 gBattleTerrainPalette_Cave_Ice[];
+extern const u32 gBattleTerrainPalette_TallGrass_Cold[];
+extern const u32 gBattleTerrainPalette_Building_Pyre[];
+extern const u32 gBattleTerrainAnimTiles_Building_Pyre[];
+extern const u32 gBattleTerrainAnimTilemap_Building_Pyre[];
+
 // pokedex
 extern const u32 gPokedexInterface_Gfx[];
 extern const u16 gPokedexBgHoenn_Pal[];

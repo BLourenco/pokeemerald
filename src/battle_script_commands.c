@@ -813,16 +813,26 @@ static const u16 sMoveEffectsForbiddenToInstruct[] =
 
 static const u16 sNaturePowerMoves[] =
 {
-    [BATTLE_TERRAIN_GRASS]      = MOVE_STUN_SPORE,
+    [BATTLE_TERRAIN_GRASS]      = MOVE_ENERGY_BALL,
     [BATTLE_TERRAIN_LONG_GRASS] = MOVE_RAZOR_LEAF,
-    [BATTLE_TERRAIN_SAND]       = MOVE_EARTHQUAKE,
+    [BATTLE_TERRAIN_SAND]       = MOVE_EARTH_POWER,
     [BATTLE_TERRAIN_UNDERWATER] = MOVE_HYDRO_PUMP,
     [BATTLE_TERRAIN_WATER]      = MOVE_SURF,
     [BATTLE_TERRAIN_POND]       = MOVE_BUBBLE_BEAM,
     [BATTLE_TERRAIN_MOUNTAIN]   = MOVE_ROCK_SLIDE,
-    [BATTLE_TERRAIN_CAVE]       = MOVE_SHADOW_BALL,
-    [BATTLE_TERRAIN_BUILDING]   = MOVE_SWIFT,
-    [BATTLE_TERRAIN_PLAIN]      = MOVE_SWIFT
+    [BATTLE_TERRAIN_CAVE]       = MOVE_POWER_GEM,
+    [BATTLE_TERRAIN_BUILDING]   = MOVE_TRI_ATTACK,
+    [BATTLE_TERRAIN_PLAIN]      = MOVE_TRI_ATTACK,
+
+    [BATTLE_TERRAIN_GRASS_SOOT]             = MOVE_STUN_SPORE,
+    [BATTLE_TERRAIN_GRASS_COLD]             = MOVE_FREEZE_DRY,
+    [BATTLE_TERRAIN_LONG_GRASS_OVERGROWN]   = MOVE_GRASS_KNOT,
+    [BATTLE_TERRAIN_CAVE_RUSTURF]           = MOVE_UPROAR,
+    [BATTLE_TERRAIN_CAVE_VOLCANO]           = MOVE_LAVA_PLUME,
+    [BATTLE_TERRAIN_CAVE_CLAY]              = MOVE_EARTH_POWER,
+    [BATTLE_TERRAIN_CAVE_ICE]               = MOVE_ICICLE_CRASH,
+    [BATTLE_TERRAIN_CAVE_METEOR_FALLS]      = MOVE_METEOR_MASH,
+    [BATTLE_TERRAIN_BUILDING_PYRE]          = MOVE_SHADOW_BALL
 };
 
 static const u16 sPickupItems[] =
@@ -879,6 +889,16 @@ static const u8 sTerrainToType[] =
     [BATTLE_TERRAIN_CAVE]       = TYPE_ROCK,
     [BATTLE_TERRAIN_BUILDING]   = TYPE_NORMAL,
     [BATTLE_TERRAIN_PLAIN]      = TYPE_NORMAL,
+
+    [BATTLE_TERRAIN_GRASS_SOOT]             = TYPE_GRASS,
+    [BATTLE_TERRAIN_GRASS_COLD]             = TYPE_GRASS,
+    [BATTLE_TERRAIN_LONG_GRASS_OVERGROWN]   = TYPE_GRASS,
+    [BATTLE_TERRAIN_CAVE_RUSTURF]           = TYPE_ROCK,
+    [BATTLE_TERRAIN_CAVE_VOLCANO]           = TYPE_FIRE,
+    [BATTLE_TERRAIN_CAVE_CLAY]              = TYPE_GROUND,
+    [BATTLE_TERRAIN_CAVE_ICE]               = TYPE_ICE,
+    [BATTLE_TERRAIN_CAVE_METEOR_FALLS]      = TYPE_STEEL,
+    [BATTLE_TERRAIN_BUILDING_PYRE]          = TYPE_GHOST,
 };
 
 // In Battle Palace, moves are chosen based on the pokemons nature rather than by the player
@@ -11336,9 +11356,11 @@ static void Cmd_getsecretpowereffect(void)
     switch (gBattleTerrain)
     {
     case BATTLE_TERRAIN_GRASS:
+    case BATTLE_TERRAIN_GRASS_SOOT:
         gBattleScripting.moveEffect = MOVE_EFFECT_POISON;
         break;
     case BATTLE_TERRAIN_LONG_GRASS:
+    case BATTLE_TERRAIN_LONG_GRASS_OVERGROWN:
         gBattleScripting.moveEffect = MOVE_EFFECT_SLEEP;
         break;
     case BATTLE_TERRAIN_SAND:
@@ -11351,12 +11373,21 @@ static void Cmd_getsecretpowereffect(void)
         gBattleScripting.moveEffect = MOVE_EFFECT_ATK_MINUS_1;
         break;
     case BATTLE_TERRAIN_POND:
+    case BATTLE_TERRAIN_GRASS_COLD:
         gBattleScripting.moveEffect = MOVE_EFFECT_SPD_MINUS_1;
         break;
     case BATTLE_TERRAIN_MOUNTAIN:
         gBattleScripting.moveEffect = MOVE_EFFECT_CONFUSION;
+        break;    
+    case BATTLE_TERRAIN_CAVE_VOLCANO:
+        gBattleScripting.moveEffect = MOVE_EFFECT_BURN;   
+        break;     
+    case BATTLE_TERRAIN_CAVE_ICE:
+        gBattleScripting.moveEffect = MOVE_EFFECT_FREEZE;
         break;
     case BATTLE_TERRAIN_CAVE:
+    case BATTLE_TERRAIN_CAVE_RUSTURF:
+    case BATTLE_TERRAIN_CAVE_METEOR_FALLS:
         gBattleScripting.moveEffect = MOVE_EFFECT_FLINCH;
         break;
     default:

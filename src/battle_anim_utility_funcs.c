@@ -109,9 +109,12 @@ void AnimTask_SetCamouflageBlend(u8 taskId)
     switch (gBattleTerrain)
     {
     case BATTLE_TERRAIN_GRASS:
+    case BATTLE_TERRAIN_GRASS_SOOT:
+    case BATTLE_TERRAIN_GRASS_COLD:
         gBattleAnimArgs[4] = RGB(12, 24, 2);
         break;
     case BATTLE_TERRAIN_LONG_GRASS:
+    case BATTLE_TERRAIN_LONG_GRASS_OVERGROWN:
         gBattleAnimArgs[4] = RGB(0, 15, 2);
         break;
     case BATTLE_TERRAIN_SAND:
@@ -124,15 +127,21 @@ void AnimTask_SetCamouflageBlend(u8 taskId)
         gBattleAnimArgs[4] = RGB(11, 22, 31);
         break;
     case BATTLE_TERRAIN_POND:
+    case BATTLE_TERRAIN_CAVE_ICE:
         gBattleAnimArgs[4] = RGB(11, 22, 31);
         break;
     case BATTLE_TERRAIN_MOUNTAIN:
         gBattleAnimArgs[4] = RGB(22, 16, 10);
         break;
     case BATTLE_TERRAIN_CAVE:
+    case BATTLE_TERRAIN_CAVE_RUSTURF:
+    case BATTLE_TERRAIN_CAVE_VOLCANO:
+    case BATTLE_TERRAIN_CAVE_CLAY:
+    case BATTLE_TERRAIN_CAVE_METEOR_FALLS:
         gBattleAnimArgs[4] = RGB(14, 9, 3);
         break;
     case BATTLE_TERRAIN_BUILDING:
+    case BATTLE_TERRAIN_BUILDING_PYRE:
         gBattleAnimArgs[4] = RGB(31, 31, 31);
         break;
     case BATTLE_TERRAIN_PLAIN:

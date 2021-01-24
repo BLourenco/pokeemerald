@@ -86,3 +86,34 @@ const u32 gBattleTerrainAnimTilemap_Building[] = INCBIN_U32("graphics/battle_ter
 
 const u32 gBattleTerrainAnimTiles_Rayquaza[] = INCBIN_U32("graphics/battle_terrain/sky/anim_tiles.4bpp.lz");
 const u32 gBattleTerrainAnimTilemap_Rayquaza[] = INCBIN_U32("graphics/battle_terrain/sky/anim_map.bin.lz");
+
+// Route 113 & Dry Ashlands
+const u32 gBattleTerrainPalette_TallGrass_Soot[] = INCBIN_U32("graphics/battle_terrain/tall_grass/palette_soot.gbapal.lz");
+
+// Overgrown Forest
+const u32 gBattleTerrainPalette_LongGrass_Overgrown[] = INCBIN_U32("graphics/battle_terrain/long_grass/palette_overgrown.gbapal.lz");
+
+// Rusturf Tunnel
+const u32 gBattleTerrainPalette_Cave_Rusturf[] =        INCBIN_U32("graphics/battle_terrain/cave/palette_rusturf.gbapal.lz");
+
+// Fiery Path & Magma Hideout
+const u32 gBattleTerrainPalette_Cave_Volcano[] =        INCBIN_U32("graphics/battle_terrain/cave/palette_volcano.gbapal.lz");
+
+// Meteor Falls
+const u32 gBattleTerrainPalette_Cave_Meteor_Falls[] =       INCBIN_U32("graphics/battle_terrain/cave/palette_meteor_falls.gbapal.lz");
+const u32 gBattleTerrainAnimTiles_Cave_Meteor_Falls[] =     INCBIN_U32("graphics/battle_terrain/cave/anim_tiles_meteor_falls.4bpp.lz");
+const u32 gBattleTerrainAnimTilemap_Cave_Meteor_Falls[] =   INCBIN_U32("graphics/battle_terrain/cave/anim_map_meteor_falls.bin.lz");
+
+// Red Clay Tunnels
+const u32 gBattleTerrainPalette_Cave_Clay[] = INCBIN_U32("graphics/battle_terrain/cave/palette_clay.gbapal.lz");
+
+// Shoal Ice Cave
+const u32 gBattleTerrainPalette_Cave_Ice[] = INCBIN_U32("graphics/battle_terrain/cave/palette_ice.gbapal.lz");
+
+// Shoal Sanctuary
+const u32 gBattleTerrainPalette_TallGrass_Cold[] = INCBIN_U32("graphics/battle_terrain/tall_grass/palette_cold.gbapal.lz");
+
+// Mt. Pyre Interior
+const u32 gBattleTerrainPalette_Building_Pyre[] =       INCBIN_U32("graphics/battle_terrain/building/palette_pyre.gbapal.lz");
+const u32 gBattleTerrainAnimTiles_Building_Pyre[] =     INCBIN_U32("graphics/battle_terrain/building/anim_tiles_pyre.4bpp.lz");
+const u32 gBattleTerrainAnimTilemap_Building_Pyre[] =   INCBIN_U32("graphics/battle_terrain/building/anim_map_pyre.bin.lz");

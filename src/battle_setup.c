@@ -637,15 +637,29 @@ static void CB2_EndScriptedWildBattle(void)
 u8 BattleSetup_GetTerrainId(void)
 {
     u16 tileBehavior;
-    s16 x, y;
+    s16 x, y;    
+    s8 mapNum = gSaveBlock1Ptr->location.mapNum;
 
     PlayerGetDestCoords(&x, &y);
     tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
     if (MetatileBehavior_IsTallGrass(tileBehavior))
-        return BATTLE_TERRAIN_GRASS;
+    {
+        if (mapNum == MAP_NUM(ROUTE113)
+            || mapNum == MAP_NUM(DRY_ASHLANDS))
+            return BATTLE_TERRAIN_GRASS_SOOT;
+        else if (mapNum == MAP_NUM(SHOAL_CAVE_SUMMIT))
+            return BATTLE_TERRAIN_GRASS_COLD;
+        else
+            return BATTLE_TERRAIN_GRASS;
+    }
     if (MetatileBehavior_IsLongGrass(tileBehavior))
-        return BATTLE_TERRAIN_LONG_GRASS;
+    {
+        if (mapNum == MAP_NUM(OVERGROWN_FOREST))
+            return BATTLE_TERRAIN_LONG_GRASS_OVERGROWN;
+        else
+            return BATTLE_TERRAIN_LONG_GRASS;
+    }
     if (MetatileBehavior_IsSandOrDeepSand(tileBehavior))
         return BATTLE_TERRAIN_SAND;
 
@@ -657,9 +671,47 @@ u8 BattleSetup_GetTerrainId(void)
         break;
     case MAP_TYPE_UNDERGROUND:
         if (MetatileBehavior_IsIndoorEncounter(tileBehavior))
-            return BATTLE_TERRAIN_BUILDING;
+        {
+            if (mapNum == MAP_NUM(MT_PYRE_1F)
+                || mapNum == MAP_NUM(MT_PYRE_2F)
+                || mapNum == MAP_NUM(MT_PYRE_3F)
+                || mapNum == MAP_NUM(MT_PYRE_4F)
+                || mapNum == MAP_NUM(MT_PYRE_5F)
+                || mapNum == MAP_NUM(MT_PYRE_6F))
+                return BATTLE_TERRAIN_BUILDING_PYRE;
+            else
+                return BATTLE_TERRAIN_BUILDING;
+        }
         if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
             return BATTLE_TERRAIN_POND;
+
+        if (mapNum == MAP_NUM(RUSTURF_TUNNEL)
+            || mapNum == MAP_NUM(RUSTURF_TUNNEL_2F)
+            || mapNum == MAP_NUM(RUSTURF_TUNNEL_2F_BACK_ROOM))
+            return BATTLE_TERRAIN_CAVE_RUSTURF;
+        if (mapNum == MAP_NUM(FIERY_PATH)
+            || mapNum == MAP_NUM(MAGMA_HIDEOUT_1F)
+            || mapNum == MAP_NUM(MAGMA_HIDEOUT_2F_1R)
+            || mapNum == MAP_NUM(MAGMA_HIDEOUT_2F_2R)
+            || mapNum == MAP_NUM(MAGMA_HIDEOUT_2F_3R)
+            || mapNum == MAP_NUM(MAGMA_HIDEOUT_3F_1R)
+            || mapNum == MAP_NUM(MAGMA_HIDEOUT_3F_2R)
+            || mapNum == MAP_NUM(MAGMA_HIDEOUT_3F_3R)
+            || mapNum == MAP_NUM(MAGMA_HIDEOUT_4F))
+            return BATTLE_TERRAIN_CAVE_VOLCANO;
+        if (mapNum == MAP_NUM(METEOR_FALLS_1F_1R)
+            || mapNum == MAP_NUM(METEOR_FALLS_1F_2R)
+            || mapNum == MAP_NUM(METEOR_FALLS_B1F_1R)
+            || mapNum == MAP_NUM(METEOR_FALLS_B1F_2R)
+            || mapNum == MAP_NUM(METEOR_FALLS_STEVENS_CAVE))
+            return BATTLE_TERRAIN_CAVE_METEOR_FALLS;
+        if (mapNum == MAP_NUM(RED_CLAY_TUNNELS)
+            || mapNum == MAP_NUM(RED_CLAY_TUNNELS_WEST))
+            return BATTLE_TERRAIN_CAVE_CLAY;
+        if (mapNum == MAP_NUM(SHOAL_CAVE_LOW_TIDE_ICE_ROOM)
+            || mapNum == MAP_NUM(ISLAND_CAVE_CHAMBER))
+            return BATTLE_TERRAIN_CAVE_ICE;
+        else
         return BATTLE_TERRAIN_CAVE;
     case MAP_TYPE_INDOOR:
     case MAP_TYPE_SECRET_BASE:

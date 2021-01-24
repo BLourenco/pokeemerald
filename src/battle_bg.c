@@ -689,6 +689,78 @@ static const struct BattleBackground gBattleTerrainTable[] =
         .entryTilemap = gBattleTerrainAnimTilemap_Building,
         .palette = gBattleTerrainPalette_Plain,
     },
+
+    [BATTLE_TERRAIN_GRASS_SOOT] =
+    {
+        .tileset = gBattleTerrainTiles_TallGrass,
+        .tilemap = gBattleTerrainTilemap_TallGrass,
+        .entryTileset = gBattleTerrainAnimTiles_TallGrass,
+        .entryTilemap = gBattleTerrainAnimTilemap_TallGrass,
+        .palette = gBattleTerrainPalette_TallGrass_Soot,
+    },
+
+    [BATTLE_TERRAIN_GRASS_COLD] =
+    {
+        .tileset = gBattleTerrainTiles_TallGrass,
+        .tilemap = gBattleTerrainTilemap_TallGrass,
+        .entryTileset = gBattleTerrainAnimTiles_TallGrass,
+        .entryTilemap = gBattleTerrainAnimTilemap_TallGrass,
+        .palette = gBattleTerrainPalette_TallGrass_Cold,
+    },
+
+    [BATTLE_TERRAIN_LONG_GRASS_OVERGROWN] =
+    {
+        .tileset = gBattleTerrainTiles_LongGrass,
+        .tilemap = gBattleTerrainTilemap_LongGrass,
+        .entryTileset = gBattleTerrainAnimTiles_LongGrass,
+        .entryTilemap = gBattleTerrainAnimTilemap_LongGrass,
+        .palette = gBattleTerrainPalette_LongGrass_Overgrown,
+    },
+
+    [BATTLE_TERRAIN_CAVE_RUSTURF] =
+    {
+        .tileset = gBattleTerrainTiles_Cave,
+        .tilemap = gBattleTerrainTilemap_Cave,
+        .entryTileset = gBattleTerrainAnimTiles_Rayquaza,
+        .entryTilemap = gBattleTerrainAnimTilemap_Rayquaza,
+        .palette = gBattleTerrainPalette_Cave_Rusturf,
+    },
+
+    [BATTLE_TERRAIN_CAVE_VOLCANO] =
+    {
+        .tileset = gBattleTerrainTiles_Cave,
+        .tilemap = gBattleTerrainTilemap_Cave,
+        .entryTileset = gBattleTerrainAnimTiles_Rayquaza,
+        .entryTilemap = gBattleTerrainAnimTilemap_Rayquaza,
+        .palette = gBattleTerrainPalette_Cave_Volcano,
+    },
+
+    [BATTLE_TERRAIN_CAVE_METEOR_FALLS] =
+    {
+        .tileset = gBattleTerrainTiles_Cave,
+        .tilemap = gBattleTerrainTilemap_Cave,
+        .entryTileset = gBattleTerrainAnimTiles_Cave_Meteor_Falls,
+        .entryTilemap = gBattleTerrainAnimTilemap_Cave_Meteor_Falls,
+        .palette = gBattleTerrainPalette_Cave_Meteor_Falls,
+    },   
+
+    [BATTLE_TERRAIN_CAVE_CLAY] =
+    {
+        .tileset = gBattleTerrainTiles_Cave,
+        .tilemap = gBattleTerrainTilemap_Cave,
+        .entryTileset = gBattleTerrainAnimTiles_Cave,
+        .entryTilemap = gBattleTerrainAnimTilemap_Cave,
+        .palette = gBattleTerrainPalette_Cave_Clay,
+    }, 
+
+    [BATTLE_TERRAIN_CAVE_ICE] =
+    {
+        .tileset = gBattleTerrainTiles_Cave,
+        .tilemap = gBattleTerrainTilemap_Cave,
+        .entryTileset = gBattleTerrainAnimTiles_Cave,
+        .entryTilemap = gBattleTerrainAnimTilemap_Cave,
+        .palette = gBattleTerrainPalette_Cave_Ice,
+    },  
 };
 
 static void sub_8035648(void);
