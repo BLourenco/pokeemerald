@@ -1,4 +1,5 @@
 .set LOCALID_SUDOWOODO, 14
+.set LOCALID_DAYCARE_MAN, 27
 
 BattleFrontier_OutsideEast_MapScripts:: @ 8242C04
 	map_script MAP_SCRIPT_ON_RESUME, BattleFrontier_OutsideEast_OnResume
@@ -19,12 +20,32 @@ BattleFrontier_OutsideEast_EventScript_TryRemoveSudowoodo:: @ 8242C19
 BattleFrontier_OutsideEast_OnTransition: @ 8242C2D
 	setvar VAR_BRAVO_TRAINER_BATTLE_TOWER_ON, 0
 	setflag FLAG_HIDE_BATTLE_TOWER_REPORTER
+	call BattleFrontier_OutsideEast_EventScript_TryMoveDayCareMan
 	call_if_unset FLAG_DEFEATED_SUDOWOODO, BattleFrontier_OutsideEast_EventScript_ShowSudowoodo
 	end
 
 BattleFrontier_OutsideEast_EventScript_ShowSudowoodo:: @ 8242C3F
 	clearflag FLAG_HIDE_BATTLE_FRONTIER_SUDOWOODO
 	return
+
+BattleFrontier_OutsideEast_EventScript_TryMoveDayCareManTrigger1::
+	setvar VAR_TEMP_0, 1
+	goto BattleFrontier_OutsideEast_EventScript_TryMoveDayCareMan
+	return
+
+BattleFrontier_OutsideEast_EventScript_TryMoveDayCareManTrigger2::
+	setvar VAR_TEMP_0, 0
+	goto BattleFrontier_OutsideEast_EventScript_TryMoveDayCareMan
+	return
+
+BattleFrontier_OutsideEast_EventScript_TryMoveDayCareMan::
+	goto_if_unset FLAG_PENDING_DAYCARE_FRONTIER_EGG, BattleFrontier_OutsideEast_EventScript_StopMoveDayCareMan
+	setobjectxyperm LOCALID_DAYCARE_MAN, 10, 43
+	return
+BattleFrontier_OutsideEast_EventScript_StopMoveDayCareMan::
+	setobjectxyperm LOCALID_DAYCARE_MAN, 10, 42
+	return
+
 
 BattleFrontier_OutsideEast_EventScript_BattleTowerSign:: @ 8242C43
 	msgbox BattleFrontier_OutsideEast_Text_BattleTowerSign, MSGBOX_SIGN
@@ -220,6 +241,10 @@ BattleFrontier_OutsideEast_EventScript_ExchangeCornerSign:: @ 8242DD7
 	msgbox BattleFrontier_OutsideEast_Text_ExchangeCornerSign, MSGBOX_SIGN
 	end
 
+BattleFrontier_OutsideEast_EventScript_DayCareSign::
+	msgbox BattleFrontier_OutsideEast_Text_DayCareSign, MSGBOX_SIGN
+	end
+
 BattleFrontier_OutsideEast_EventScript_Gentleman:: @ 8242DE0
 	msgbox BattleFrontier_OutsideEast_Text_FrontierNotExclusivelyForToughTrainers, MSGBOX_NPC
 	end
@@ -259,7 +284,7 @@ BattleFrontier_OutsideEast_Text_BattlePyramidSign: @ 8242ECF
 	.string "Advance through the Battle Quest!$"
 
 BattleFrontier_OutsideEast_Text_TutoringServicesSign:
-	.string "Battle Frontier Tutoring Services\n"
+	.string "Move Tutoring Services\n"
 	.string "Learn, re-learn, or forget moves!$"
 
 BattleFrontier_OutsideEast_Text_RankingHallSign: @ 8242F0D
@@ -269,6 +294,10 @@ BattleFrontier_OutsideEast_Text_RankingHallSign: @ 8242F0D
 BattleFrontier_OutsideEast_Text_ExchangeCornerSign: @ 8242F4A
 	.string "Battle Point Exchange Service Corner\n"
 	.string "Exchange your Battle Points!$"
+
+BattleFrontier_OutsideEast_Text_DayCareSign:
+	.string "Pokémon Day Care\n"
+	.string "“Let us raise your Pokémon.”$"
 
 BattleFrontier_OutsideEast_Text_BattleTowerFeelsSpecial: @ 8242F8C
 	.string "Wow!\n"

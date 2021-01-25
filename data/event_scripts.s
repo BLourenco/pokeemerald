@@ -1101,3 +1101,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/Route111_NoMirage_Tower/scripts.inc"
 
 	.include "data/maps/BattleFrontier_TutoringServices/scripts.inc"
+
+	.include "data/maps/BattleFrontier_DayCare/scripts.inc"

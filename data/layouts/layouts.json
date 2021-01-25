@@ -4590,6 +4590,16 @@
       "secondary_tileset": "gTileset_BattleFrontier",
       "border_filepath": "data/layouts/BattleFrontier_TutoringServices/border.bin",
       "blockdata_filepath": "data/layouts/BattleFrontier_TutoringServices/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_FRONTIER_DAY_CARE",
+      "name": "BattleFrontier_DayCare_Layout",
+      "width": 12,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleFrontier",
+      "border_filepath": "data/layouts/BattleFrontier_DayCare/border.bin",
+      "blockdata_filepath": "data/layouts/BattleFrontier_DayCare/map.bin"
     }
   ]
 }

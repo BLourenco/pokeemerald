@@ -87,7 +87,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 33,
+      "x": 34,
       "y": 41,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -103,7 +103,7 @@
       "x": 28,
       "y": 43,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
+      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -126,8 +126,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 13,
-      "y": 44,
+      "x": 12,
+      "y": 46,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -139,8 +139,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 14,
-      "y": 44,
+      "x": 13,
+      "y": 46,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -191,8 +191,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 9,
-      "y": 47,
+      "x": 8,
+      "y": 48,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
       "movement_range_x": 1,
@@ -357,7 +357,7 @@
     },
     {
       "x": 45,
-      "y": 44,
+      "y": 43,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE2",
       "dest_warp_id": 0
@@ -378,7 +378,7 @@
     },
     {
       "x": 53,
-      "y": 44,
+      "y": 43,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE4",
       "dest_warp_id": 0

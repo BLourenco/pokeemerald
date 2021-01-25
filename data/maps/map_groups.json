@@ -606,7 +606,8 @@
     "NavelRock_Down11",
     "NavelRock_Bottom",
     "TrainerHill_Elevator",
-    "BattleFrontier_TutoringServices"
+    "BattleFrontier_TutoringServices",
+    "BattleFrontier_DayCare"
   ],
   "gMapGroup27": [
     "Route104_Prototype",
