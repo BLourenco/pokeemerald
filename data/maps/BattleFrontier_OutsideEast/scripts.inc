@@ -208,6 +208,10 @@ BattleFrontier_OutsideEast_EventScript_Woman3:: @ 8242DC3
 	release
 	end
 
+BattleFrontier_OutsideEast_EventScript_TutoringServicesSign::
+	msgbox BattleFrontier_OutsideEast_Text_TutoringServicesSign, MSGBOX_SIGN
+	end
+
 BattleFrontier_OutsideEast_EventScript_RankingHallSign:: @ 8242DCE
 	msgbox BattleFrontier_OutsideEast_Text_RankingHallSign, MSGBOX_SIGN
 	end
@@ -253,6 +257,10 @@ BattleFrontier_OutsideEast_Text_BattleArenaSign: @ 8242E96
 BattleFrontier_OutsideEast_Text_BattlePyramidSign: @ 8242ECF
 	.string "This is the Battle Pyramid!\n"
 	.string "Advance through the Battle Quest!$"
+
+BattleFrontier_OutsideEast_Text_TutoringServicesSign:
+	.string "Battle Frontier Tutoring Services\n"
+	.string "Learn, re-learn, or forget moves!$"
 
 BattleFrontier_OutsideEast_Text_RankingHallSign: @ 8242F0D
 	.string "Battle Frontier Ranking Hall\n"

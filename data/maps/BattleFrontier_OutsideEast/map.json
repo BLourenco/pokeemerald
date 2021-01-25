@@ -410,8 +410,8 @@
       "dest_warp_id": 0
     },
     {
-      "x": 22,
-      "y": 51,
+      "x": 23,
+      "y": 45,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE5",
       "dest_warp_id": 0
@@ -431,15 +431,8 @@
       "dest_warp_id": 0
     },
     {
-      "x": 14,
+      "x": 23,
       "y": 51,
-      "elevation": 0,
-      "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE8",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 21,
-      "y": 45,
       "elevation": 0,
       "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE9",
       "dest_warp_id": 0
@@ -457,9 +450,18 @@
       "elevation": 0,
       "dest_map": "MAP_ARTISAN_CAVE_1F",
       "dest_warp_id": 0
+    },
+    {
+      "x": 13,
+      "y": 51,
+      "elevation": 0,
+      "dest_map": "MAP_BATTLE_FRONTIER_TUTORING_SERVICES",
+      "dest_warp_id": 0
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -524,6 +526,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 51,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BattleFrontier_OutsideEast_EventScript_TutoringServicesSign"
     }
   ]
 }

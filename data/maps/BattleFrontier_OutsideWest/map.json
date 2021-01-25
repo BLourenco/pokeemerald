@@ -387,7 +387,7 @@
       "x": 5,
       "y": 20,
       "elevation": 0,
-      "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE7",
+      "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE8",
       "dest_warp_id": 0
     },
     {
@@ -412,7 +412,9 @@
       "dest_warp_id": 0
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",

@@ -4580,6 +4580,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/AncientTomb_Entrance/border.bin",
       "blockdata_filepath": "data/layouts/AncientTomb_Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_FRONTIER_TUTORING_SERVICES",
+      "name": "BattleFrontier_TutoringServices_Layout",
+      "width": 15,
+      "height": 11,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleFrontier",
+      "border_filepath": "data/layouts/BattleFrontier_TutoringServices/border.bin",
+      "blockdata_filepath": "data/layouts/BattleFrontier_TutoringServices/map.bin"
     }
   ]
 }
