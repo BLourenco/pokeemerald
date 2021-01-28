@@ -615,7 +615,13 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
 {
     u8 collision = CheckForPlayerAvatarCollision(direction);
 
-    if (collision && !FlagGet(FLAG_SYS_COLLISIONS_DISABLED))
+    
+#if DEBUG //DEBUG
+    if (FlagGet(FLAG_SYS_NO_COLLISION))
+        collision = COLLISION_NONE;
+#endif
+
+    if (collision)
     {
         if (collision == COLLISION_LEDGE_JUMP)
         {

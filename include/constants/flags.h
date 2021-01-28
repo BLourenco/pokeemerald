@@ -41,11 +41,11 @@
 #define FLAG_TEMP_1F     (TEMP_FLAGS_START + 0x1F)
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
         
-#define FLAG_SYS_NO_COLLISION       0x20 // Unused Flag //DEBUG
-#define FLAG_SYS_NO_ENCOUNTER       0x21 // Unused Flag //DEBUG
-#define FLAG_SYS_NO_TRAINER_SEE     0x22 // Unused Flag //DEBUG
-#define FLAG_SYS_NO_BAG_USE         0x23 // Unused Flag //DEBUG
-#define FLAG_SYS_NO_CATCHING        0x24 // Unused Flag //DEBUG
+#define FLAG_UNUSED_0x020    0x20 // Unused Flag
+#define FLAG_UNUSED_0x021    0x21 // Unused Flag
+#define FLAG_UNUSED_0x022    0x22 // Unused Flag
+#define FLAG_UNUSED_0x023    0x23 // Unused Flag
+#define FLAG_UNUSED_0x024    0x24 // Unused Flag
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
@@ -1380,13 +1380,13 @@
 #define FLAG_IS_CHAMPION                            (SYSTEM_FLAGS + 0x1F) // Seems to be related to linking.
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x20)
 
-#define FLAG_SYS_COLLISIONS_DISABLED                (SYSTEM_FLAGS + 0x21) 
-#define FLAG_SYS_DEXNAV_SEARCH                      (SYSTEM_FLAGS + 0x22)
-#define FLAG_SYS_CUSTOM_TEST                        (SYSTEM_FLAGS + 0x23)
-#define FLAG_UNUSED_0x884                           (SYSTEM_FLAGS + 0x24) // Unused Flag
-#define FLAG_UNUSED_0x885                           (SYSTEM_FLAGS + 0x25) // Unused Flag
-#define FLAG_UNUSED_0x886                           (SYSTEM_FLAGS + 0x26) // Unused Flag
-#define FLAG_UNUSED_0x887                           (SYSTEM_FLAGS + 0x27) // Unused Flag
+#define FLAG_SYS_NO_COLLISION                       (SYSTEM_FLAGS + 0x21) 
+#define FLAG_SYS_NO_ENCOUNTER                       (SYSTEM_FLAGS + 0x22)
+#define FLAG_SYS_NO_TRAINER_SEE                     (SYSTEM_FLAGS + 0x23)
+#define FLAG_SYS_NO_BAG_USE                         (SYSTEM_FLAGS + 0x24)
+#define FLAG_SYS_NO_CATCHING                        (SYSTEM_FLAGS + 0x25)
+#define FLAG_SYS_DEXNAV_SEARCH                      (SYSTEM_FLAGS + 0x26)
+#define FLAG_SYS_CUSTOM_TEST                        (SYSTEM_FLAGS + 0x27)
 
 #define FLAG_SYS_USE_FLASH                          (SYSTEM_FLAGS + 0x28)
 #define FLAG_SYS_USE_STRENGTH                       (SYSTEM_FLAGS + 0x29)

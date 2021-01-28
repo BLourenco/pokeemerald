@@ -547,7 +547,7 @@ bool8 StandardWildEncounter(u16 currMetaTileBehavior, u16 previousMetaTileBehavi
     u16 headerId;
     struct Roamer *roamer;
 
-    if (sWildEncountersDisabled == TRUE || FlagGet(FLAG_SYS_COLLISIONS_DISABLED))
+    if (sWildEncountersDisabled == TRUE)
         return FALSE;
 
     headerId = GetCurrentMapWildMonHeaderId();
