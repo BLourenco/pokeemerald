@@ -117,3 +117,6 @@ const u32 gBattleTerrainPalette_TallGrass_Cold[] = INCBIN_U32("graphics/battle_t
 const u32 gBattleTerrainPalette_Building_Pyre[] =       INCBIN_U32("graphics/battle_terrain/building/palette_pyre.gbapal.lz");
 const u32 gBattleTerrainAnimTiles_Building_Pyre[] =     INCBIN_U32("graphics/battle_terrain/building/anim_tiles_pyre.4bpp.lz");
 const u32 gBattleTerrainAnimTilemap_Building_Pyre[] =   INCBIN_U32("graphics/battle_terrain/building/anim_map_pyre.bin.lz");
+
+// Battle Tower
+const u32 gBattleTerrainPalette_Stadium_BattleTower[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battletower.gbapal.lz");
