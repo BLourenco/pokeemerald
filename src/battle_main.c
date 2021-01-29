@@ -4829,10 +4829,10 @@ static void FreeResetData_ReturnToOvOrDoEvolutions(void)
     if (!gPaletteFade.active)
     {
         gIsFishingEncounter = FALSE;
-        if (gDexnavBattle && (gBattleOutcome == B_OUTCOME_WON || gBattleOutcome == B_OUTCOME_CAUGHT) && gSaveBlock1Ptr->dexNavChain < 100)
-            gSaveBlock1Ptr->dexNavChain++;
+        if (gDexnavBattle && (gBattleOutcome == B_OUTCOME_WON || gBattleOutcome == B_OUTCOME_CAUGHT) && gSaveBlock2Ptr->dexNavChain < 100)
+            gSaveBlock2Ptr->dexNavChain++;
         else
-            gSaveBlock1Ptr->dexNavChain = 0;
+            gSaveBlock2Ptr->dexNavChain = 0;
         
         gDexnavBattle = FALSE;
         ResetSpriteData();

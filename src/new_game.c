@@ -209,8 +209,8 @@ void NewGameInitData(void)
     ResetContestLinkResults();
     
     memset(&gSaveBlock2Ptr->itemFlags, 0, sizeof(gSaveBlock2Ptr->itemFlags));
-    memset(gSaveBlock1Ptr->dexNavSearchLevels, 0, sizeof(gSaveBlock1Ptr->dexNavSearchLevels));
-    gSaveBlock1Ptr->dexNavChain = 0;
+    memset(gSaveBlock2Ptr->dexNavSearchLevels, 0, sizeof(gSaveBlock2Ptr->dexNavSearchLevels));
+    gSaveBlock2Ptr->dexNavChain = 0;
     gSaveBlock2Ptr->expShare = TRUE;
 }
 
@@ -219,5 +219,8 @@ static void ResetMiniGamesResults(void)
     CpuFill16(0, &gSaveBlock2Ptr->berryCrush, sizeof(struct BerryCrush));
     SetBerryPowder(&gSaveBlock2Ptr->berryCrush.berryPowderAmount, 0);
     ResetPokeJumpResults();
-    CpuFill16(0, &gSaveBlock2Ptr->berryPick, sizeof(struct BerryPickingResults));
+
+    #ifndef FREE_DODRIO_BERRY_PICKING_RECORDS
+        CpuFill16(0, &gSaveBlock2Ptr->berryPick, sizeof(struct BerryPickingResults));
+    #endif
 }
