@@ -125,4 +125,5 @@ const u32 gBattleTerrainPalette_Stadium_BattleFactory[] = INCBIN_U32("graphics/b
 const u32 gBattleTerrainPalette_Stadium_BattlePike[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battlepike.gbapal.lz");
 const u32 gBattleTerrainPalette_Stadium_BattlePalace[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battlepalace.gbapal.lz");
 const u32 gBattleTerrainPalette_Stadium_BattleArena[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battlearena.gbapal.lz");
-// const u32 gBattleTerrainPalette_Stadium_BattlePyramid[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battlepyramid.gbapal.lz");
+const u32 gBattleTerrainPalette_Stadium_BattlePyramid_Interior[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battlepyramid.gbapal.lz");
+const u32 gBattleTerrainPalette_Stadium_BattlePyramid_Peak[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battlepyramid_peak.gbapal.lz");

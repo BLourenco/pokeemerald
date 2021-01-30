@@ -5530,7 +5530,8 @@ extern const u32 gBattleTerrainPalette_Stadium_BattleFactory[];
 extern const u32 gBattleTerrainPalette_Stadium_BattlePike[];
 extern const u32 gBattleTerrainPalette_Stadium_BattlePalace[];
 extern const u32 gBattleTerrainPalette_Stadium_BattleArena[];
-// extern const u32 gBattleTerrainPalette_Stadium_BattlePyramid[];
+extern const u32 gBattleTerrainPalette_Stadium_BattlePyramid_Interior[];
+extern const u32 gBattleTerrainPalette_Stadium_BattlePyramid_Peak[];
 
 // pokedex
 extern const u32 gPokedexInterface_Gfx[];
