@@ -5525,6 +5525,12 @@ extern const u32 gBattleTerrainPalette_Building_Pyre[];
 extern const u32 gBattleTerrainAnimTiles_Building_Pyre[];
 extern const u32 gBattleTerrainAnimTilemap_Building_Pyre[];
 extern const u32 gBattleTerrainPalette_Stadium_BattleTower[];
+extern const u32 gBattleTerrainPalette_Stadium_BattleDome[];
+// extern const u32 gBattleTerrainPalette_Stadium_BattleFactory[];
+// extern const u32 gBattleTerrainPalette_Stadium_BattlePike[];
+// extern const u32 gBattleTerrainPalette_Stadium_BattlePalace[];
+// extern const u32 gBattleTerrainPalette_Stadium_BattleArena[];
+// extern const u32 gBattleTerrainPalette_Stadium_BattlePyramid[];
 
 // pokedex
 extern const u32 gPokedexInterface_Gfx[];

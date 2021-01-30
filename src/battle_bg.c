@@ -837,6 +837,42 @@ void DrawMainBattleBackground(void)
         LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
         LoadCompressedPalette(gBattleTerrainPalette_Stadium_BattleTower, 0x20, 0x60);
     }
+    else if (gBattleTypeFlags & BATTLE_TYPE_DOME)
+    {
+        LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+        LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+        LoadCompressedPalette(gBattleTerrainPalette_Stadium_BattleDome, 0x20, 0x60);
+    }
+    // else if (gBattleTypeFlags & BATTLE_TYPE_FACTORY)
+    // {
+    //     LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+    //     LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+    //     LoadCompressedPalette(gBattleTerrainPalette_Stadium_BattleFactory, 0x20, 0x60);
+    // }
+    // else if (gBattleTypeFlags & BATTLE_TYPE_PIKE)
+    // {
+    //     LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+    //     LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+    //     LoadCompressedPalette(gBattleTerrainPalette_Stadium_BattlePike, 0x20, 0x60);
+    // }
+    // else if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
+    // {
+    //     LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+    //     LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+    //     LoadCompressedPalette(gBattleTerrainPalette_Stadium_BattlePalace, 0x20, 0x60);
+    // }
+    // else if (gBattleTypeFlags & BATTLE_TYPE_ARENA)
+    // {
+    //     LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+    //     LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+    //     LoadCompressedPalette(gBattleTerrainPalette_Stadium_BattleArena, 0x20, 0x60);
+    // }
+    // else if (gBattleTypeFlags & BATTLE_TYPE_PYRAMID)
+    // {
+    //     LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+    //     LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+    //     LoadCompressedPalette(gBattleTerrainPalette_Stadium_BattlePyramid, 0x20, 0x60);
+    // }
     else if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_x2000000))
     {
         LZDecompressVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));

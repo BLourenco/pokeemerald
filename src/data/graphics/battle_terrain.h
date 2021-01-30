@@ -118,5 +118,11 @@ const u32 gBattleTerrainPalette_Building_Pyre[] =       INCBIN_U32("graphics/bat
 const u32 gBattleTerrainAnimTiles_Building_Pyre[] =     INCBIN_U32("graphics/battle_terrain/building/anim_tiles_pyre.4bpp.lz");
 const u32 gBattleTerrainAnimTilemap_Building_Pyre[] =   INCBIN_U32("graphics/battle_terrain/building/anim_map_pyre.bin.lz");
 
-// Battle Tower
+// Battle Facilities
 const u32 gBattleTerrainPalette_Stadium_BattleTower[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battletower.gbapal.lz");
+const u32 gBattleTerrainPalette_Stadium_BattleDome[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battledome.gbapal.lz");
+// const u32 gBattleTerrainPalette_Stadium_BattleFactory[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battlefactory.gbapal.lz");
+// const u32 gBattleTerrainPalette_Stadium_BattlePike[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battlepike.gbapal.lz");
+// const u32 gBattleTerrainPalette_Stadium_BattlePalace[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battlepalace.gbapal.lz");
+// const u32 gBattleTerrainPalette_Stadium_BattleArena[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battlearena.gbapal.lz");
+// const u32 gBattleTerrainPalette_Stadium_BattlePyramid[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battlepyramid.gbapal.lz");
