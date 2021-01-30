@@ -2328,15 +2328,17 @@ static u32 sub_802745C(u8 arg0)
 
 static void sub_802749C(void)
 {
-    u32 berriesPicked = Min(sub_802745C(gUnknown_02022C98->multiplayerId), 9999);
-    u32 score = Min(sub_80276C0(gUnknown_02022C98->multiplayerId), 999990);
+    #ifndef FREE_DODRIO_BERRY_PICKING_RECORDS
+        u32 berriesPicked = Min(sub_802745C(gUnknown_02022C98->multiplayerId), 9999);
+        u32 score = Min(sub_80276C0(gUnknown_02022C98->multiplayerId), 999990);
 
-    if (gSaveBlock2Ptr->berryPick.bestScore < score)
-        gSaveBlock2Ptr->berryPick.bestScore = score;
-    if (gSaveBlock2Ptr->berryPick.berriesPicked < berriesPicked)
-        gSaveBlock2Ptr->berryPick.berriesPicked = berriesPicked;
-    if (gSaveBlock2Ptr->berryPick.berriesPickedInRow < gUnknown_02022C98->unk114)
-        gSaveBlock2Ptr->berryPick.berriesPickedInRow = gUnknown_02022C98->unk114;
+        if (gSaveBlock2Ptr->berryPick.bestScore < score)
+            gSaveBlock2Ptr->berryPick.bestScore = score;
+        if (gSaveBlock2Ptr->berryPick.berriesPicked < berriesPicked)
+            gSaveBlock2Ptr->berryPick.berriesPicked = berriesPicked;
+        if (gSaveBlock2Ptr->berryPick.berriesPickedInRow < gUnknown_02022C98->unk114)
+            gSaveBlock2Ptr->berryPick.berriesPickedInRow = gUnknown_02022C98->unk114;    
+    #endif
 }
 
 static u8 sub_8027518(u8 arg0)
@@ -2674,9 +2676,16 @@ static void sub_8027BEC(u8 windowId, s32 width)
 {
     s32 i, x, numWidth;
     s32 results[3];
-    results[0] = gSaveBlock2Ptr->berryPick.berriesPicked;
-    results[1] = gSaveBlock2Ptr->berryPick.bestScore;
-    results[2] = gSaveBlock2Ptr->berryPick.berriesPickedInRow;
+    #ifndef FREE_DODRIO_BERRY_PICKING_RECORDS
+        results[0] = gSaveBlock2Ptr->berryPick.berriesPicked;
+        results[1] = gSaveBlock2Ptr->berryPick.bestScore;
+        results[2] = gSaveBlock2Ptr->berryPick.berriesPickedInRow;
+    #else
+        results[0] = 0;
+        results[1] = 0;
+        results[2] = 0;
+    #endif
+
 
     LoadUserWindowBorderGfx_(windowId, 0x21D, 0xD0);
     DrawTextBorderOuter(windowId, 0x21D, 0xD);

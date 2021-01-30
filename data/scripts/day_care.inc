@@ -1,5 +1,15 @@
 .set LOCALID_DAYCARE_LADY, 1
 
+Route117_EventScript_DaycareManStart::
+	setvar VAR_0x8006, 0 @ 0 = Route 117
+	call Route117_EventScript_DaycareMan
+	end
+
+BattleFrontier_OutsideEast_EventScript_DaycareManStart::
+	setvar VAR_0x8006, 1 @ 1 = Battle Frontier
+	call Route117_EventScript_DaycareMan
+	end
+		
 Route117_EventScript_DaycareMan:: @ 8291C18
 	lock
 	faceplayer
@@ -23,7 +33,10 @@ Route117_EventScript_DaycareEggWaiting:: @ 8291C4D
 	compare VAR_RESULT, YES
 	goto_if_eq Route117_EventScript_DaycareAcceptEgg
 	msgbox Route117_Text_IllKeepIt, MSGBOX_DEFAULT
-	clearflag FLAG_PENDING_DAYCARE_EGG
+	compare VAR_0x8006, 0
+	call_if_eq Route117_EventScript_ClearPendingDaycareEggFlag
+	compare VAR_0x8006, 1
+	call_if_eq Route117_EventScript_ClearPendingDaycareFrontierEggFlag
 	special RejectEggFromDayCare
 	release
 	end
@@ -43,9 +56,20 @@ Route117_EventScript_DaycareReceiveEgg:: @ 8291C9D
 	waitbuttonpress
 	msgbox Route117_Text_TakeGoodCareOfIt, MSGBOX_DEFAULT
 	special GiveEggFromDaycare
-	clearflag FLAG_PENDING_DAYCARE_EGG
+	compare VAR_0x8006, 0
+	call_if_eq Route117_EventScript_ClearPendingDaycareEggFlag
+	compare VAR_0x8006, 1
+	call_if_eq Route117_EventScript_ClearPendingDaycareFrontierEggFlag
 	release
 	end
+
+Route117_EventScript_ClearPendingDaycareEggFlag::
+	clearflag FLAG_PENDING_DAYCARE_EGG
+	return
+
+Route117_EventScript_ClearPendingDaycareFrontierEggFlag::
+	clearflag FLAG_PENDING_DAYCARE_FRONTIER_EGG
+	return
 
 Route117_EventScript_CheckMonReceivedMail:: @ 8291CB7
 	specialvar VAR_RESULT, CheckDaycareMonReceivedMail
@@ -77,6 +101,16 @@ Route117_EventScript_CheckOnTwoMons:: @ 8291CE8
 	setvar VAR_0x8004, 1
 	call Route117_EventScript_CheckMonReceivedMail
 	release
+	end
+
+Route117_PokemonDayCare_EventScript_DaycareWomanStart::
+	setvar VAR_0x8006, 0 @ 0 = Route 117
+	call Route117_PokemonDayCare_EventScript_DaycareWoman
+	end
+
+BattleFrontier_DayCare_EventScript_DaycareWomanStart::
+	setvar VAR_0x8006, 1 @ 1 = Battle Frontier
+	call Route117_PokemonDayCare_EventScript_DaycareWoman
 	end
 
 Route117_PokemonDayCare_EventScript_DaycareWoman:: @ 8291D11

@@ -11,21 +11,22 @@
 #include "constants/species.h"
 
 // free saveblock 1 defines
-#define FREE_EXTRA_SEEN_FLAGS           //free up extra pokedex seen flags. Frees up 104 bytes
-//#define FREE_TRAINER_HILL               //frees up trainer hill data. 28 bytes 
-#define FREE_MYSTERY_EVENT_BUFFERS      //frees up mystery event and ramScript. roughly 1880 bytes
-//#define FREE_MATCH_CALL                 //frees up match call data. 104 bytes
-#define FREE_UNION_ROOM_CHAT            //frees up field unk3C88. 210 bytes
-#define FREE_ENIGMA_BERRY               //frees up enigma berry. 52 bytes
-#define FREE_LINK_BATTLE_RECORDS        //frees link battle record data. 88 bytes
-                                        // saveblock1 total: 1846 bytes
+#define FREE_EXTRA_SEEN_FLAGS               //free up extra pokedex seen flags. Frees up 104 bytes
+//#define FREE_TRAINER_HILL                 //frees up trainer hill data. 28 bytes 
+#define FREE_MYSTERY_EVENT_BUFFERS          //frees up mystery event and ramScript. roughly 1880 bytes
+//#define FREE_MATCH_CALL                   //frees up match call data. 104 bytes
+#define FREE_UNION_ROOM_CHAT                //frees up field unk3C88. 210 bytes
+#define FREE_ENIGMA_BERRY                   //frees up enigma berry. 52 bytes
+#define FREE_LINK_BATTLE_RECORDS            //frees link battle record data. 88 bytes
+                                            // saveblock1 total: 1846 bytes
 //free saveblock 2 defines
-#define FREE_BATTLE_TOWER_E_READER      //frees up battle tower e reader trainer data. 188 bytes
-#define FREE_POKEMON_JUMP               //frees up pokemon jump data. 16 bytes
-#define FREE_RECORD_MIXING_HALL_RECORDS //frees up hall records for record mixing. 1032 bytes
-                                        // saveblock2 total: 1236 bytes
+#define FREE_BATTLE_TOWER_E_READER          //frees up battle tower e reader trainer data. 188 bytes
+#define FREE_POKEMON_JUMP_RECORDS           //frees up pokemon jump data. 16 bytes
+#define FREE_DODRIO_BERRY_PICKING_RECORDS   //frees up dodrio berry picking data. 16 bytes
+#define FREE_RECORD_MIXING_HALL_RECORDS     //frees up hall records for record mixing. 1032 bytes
+                                            // saveblock2 total: 1236 bytes
                                         
-                                        //grand total: 3082
+                                            //grand total: 3082
 
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
@@ -506,10 +507,12 @@ struct SaveBlock2
     /*0xB0*/ struct PlayersApprentice playerApprentice;
     /*0xDC*/ struct Apprentice apprentices[APPRENTICE_COUNT];   //272 bytes
     /*0x1EC*/ struct BerryCrush berryCrush;
-    #ifndef FREE_POKEMON_JUMP
-    /*0x1FC*/ struct PokemonJumpResults pokeJump;   //16 bytes
+    #ifndef FREE_POKEMON_JUMP_RECORDS
+    /*0x1FC*/ struct PokemonJumpResults pokeJump;   // 16 bytes
     #endif
-    /*0x20C*/ struct BerryPickingResults berryPick;
+    #ifndef FREE_DODRIO_BERRY_PICKING_RECORDS
+    /*0x20C*/ struct BerryPickingResults berryPick; // 16 bytes
+    #endif
     #ifndef FREE_RECORD_MIXING_HALL_RECORDS
     /*0x21C*/ struct RankingHall1P hallRecords1P[HALL_FACILITIES_COUNT][2][3]; // From record mixing.
     /*0x57C*/ struct RankingHall2P hallRecords2P[2][3]; // From record mixing.
@@ -518,6 +521,9 @@ struct SaveBlock2
     /*0x64C*/ struct BattleFrontier frontier;
     /*0xF2C*/ u8 itemFlags[ITEM_FLAGS_COUNT];
               u8 rivalName[PLAYER_NAME_LENGTH + 1];
+              
+              u8 dexNavSearchLevels[NUM_SPECIES];
+              u8 dexNavChain;
 }; 
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
@@ -1008,6 +1014,7 @@ struct SaveBlock1
     /*0x2e64*/ struct EasyChatPair easyChatPairs[5]; //Dewford trend [0] and some other stuff
     /*0x2e90*/ struct ContestWinner contestWinners[NUM_CONTEST_WINNERS]; // see CONTEST_WINNER_*
     /*0x3030*/ struct DayCare daycare;
+               struct DayCare daycareFrontier;
     #ifndef FREE_LINK_BATTLE_RECORDS
     /*0x3150*/ struct LinkBattleRecords linkBattleRecords;  //88 bytes
     #endif
@@ -1038,9 +1045,6 @@ struct SaveBlock1
     /*0x3D64*/ struct SaveTrainerHill trainerHill;  //12 bytes
     #endif
     /*0x3D70*/ struct WaldaPhrase waldaPhrase;
-               u8 dexNavSearchLevels[NUM_SPECIES];
-               u8 dexNavChain;
-    // sizeof: 0x3D88
 };
 
 extern struct SaveBlock1* gSaveBlock1Ptr;

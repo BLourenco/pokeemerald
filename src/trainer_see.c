@@ -19,7 +19,6 @@
 #include "constants/field_effects.h"
 #include "constants/trainer_types.h"
 
-// this file's functions
 static u8 CheckTrainer(u8 objectEventId);
 static u8 GetTrainerApproachDistance(struct ObjectEvent *trainerObj);
 static u8 CheckPathBetweenTrainerAndPlayer(struct ObjectEvent *trainerObj, u8 approachDistance, u8 direction);
@@ -177,8 +176,10 @@ bool8 CheckForTrainersWantingBattle(void)
 {
     u8 i;
 
-    if (FlagGet(FLAG_SYS_COLLISIONS_DISABLED))
+#if DEBUG //DEBUG
+    if (FlagGet(FLAG_SYS_NO_TRAINER_SEE))
         return FALSE;
+#endif //
 
     gNoOfApproachingTrainers = 0;
     gApproachingTrainerId = 0;

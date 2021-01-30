@@ -71,6 +71,7 @@ Route113_EventScript_GlassWorkerScene::
 	compare VAR_0x8008, 3
 	call_if_eq Route113_EventScript_GlassWorkerExit3
 	removeobject LOCALID_GLASS_WORKER
+	setvar VAR_ROUTE113_STATE, 1
 	releaseall
 	end
 

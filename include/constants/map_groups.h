@@ -574,6 +574,8 @@
 #define MAP_NAVEL_ROCK_DOWN11                               (86 | (26 << 8))
 #define MAP_NAVEL_ROCK_BOTTOM                               (87 | (26 << 8))
 #define MAP_TRAINER_HILL_ELEVATOR                           (88 | (26 << 8))
+#define MAP_BATTLE_FRONTIER_TUTORING_SERVICES               (89 | (26 << 8))
+#define MAP_BATTLE_FRONTIER_DAY_CARE                        (90 | (26 << 8))
 
 // Map Group 27
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))
@@ -615,5 +617,7 @@
 #define MAP_DRY_ASHLANDS_HOUSE (0 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
+
+// static const u8 MAP_GROUP_COUNT[] = {62, 5, 6, 6, 7, 8, 9, 7, 7, 14, 8, 17, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 122, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 0};
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

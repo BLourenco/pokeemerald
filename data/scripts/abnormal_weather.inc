@@ -1,11 +1,11 @@
 AbnormalWeather_EventScript_PlaceTilesRoute114North:: @ 8273913
-	setmetatile 7, 3, METATILE_Fallarbor_RedCaveEntrance_Top, 1
-	setmetatile 7, 4, METATILE_Fallarbor_RedCaveEntrance_Bottom, 0
+	setmetatile 7, 4, METATILE_Fallarbor_RedCaveEntrance_Top, 1
+	setmetatile 7, 5, METATILE_Fallarbor_RedCaveEntrance_Bottom, 0
 	return
 
 AbnormalWeather_EventScript_PlaceTilesRoute114South:: @ 8273926
-	setmetatile 6, 45, METATILE_Fallarbor_BrownCaveEntrance_Top, 1
-	setmetatile 6, 46, METATILE_Fallarbor_BrownCaveEntrance_Bottom, 0
+	setmetatile 6, 47, METATILE_Fallarbor_BrownCaveEntrance_Top, 1
+	setmetatile 6, 48, METATILE_Fallarbor_BrownCaveEntrance_Bottom, 0
 	return
 
 AbnormalWeather_EventScript_PlaceTilesRoute115West:: @ 8273939

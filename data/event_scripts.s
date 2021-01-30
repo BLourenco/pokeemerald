@@ -577,6 +577,8 @@ gStdScripts_End:: @ 81DC2CC
 	.include "data/scripts/new_game.inc"
 	.include "data/scripts/hall_of_fame.inc"
 
+	.include "data/scripts/debug.inc"
+
 EventScript_WhiteOut:: @ 8271857
 	call EverGrandeCity_HallOfFame_EventScript_ResetEliteFour
 	goto EventScript_ResetMrBriney
@@ -1099,3 +1101,7 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/Route131_SkyPillar/scripts.inc"
 
 	.include "data/maps/Route111_NoMirage_Tower/scripts.inc"
+
+	.include "data/maps/BattleFrontier_TutoringServices/scripts.inc"
+
+	.include "data/maps/BattleFrontier_DayCare/scripts.inc"

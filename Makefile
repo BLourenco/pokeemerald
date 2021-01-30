@@ -111,7 +111,7 @@ MAKEFLAGS += --no-print-directory
 # Secondary expansion is required for dependency variables in object rules.
 .SECONDEXPANSION:
 
-.PHONY: all rom clean compare tidy tools mostlyclean clean-tools $(TOOLDIRS) berry_fix libagbsyscall modern
+.PHONY: all rom clean compare tidy tools mostlyclean clean-tools $(TOOLDIRS) berry_fix libagbsyscall modern debug modern_debug
 
 infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst __SPACE__, ,$(line))))
 
@@ -250,6 +250,7 @@ ifeq ($(DINFO),1)
 override CFLAGS += -g
 endif
 
+# DebugMenu
 ifeq ($(DDEBUG),1)
 override ASFLAGS += --defsym DEBUG=1
 override CPPFLAGS += -D DEBUG=1
@@ -340,3 +341,7 @@ berry_fix:
 
 libagbsyscall:
 	@$(MAKE) -C libagbsyscall TOOLCHAIN=$(TOOLCHAIN)
+
+debug: ; @$(MAKE) DDEBUG=1 DINFO=1
+
+modern_debug: ; @$(MAKE) MODERN=1 DDEBUG=1 DINFO=1
