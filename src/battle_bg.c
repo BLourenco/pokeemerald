@@ -721,8 +721,8 @@ static const struct BattleBackground gBattleTerrainTable[] =
     {
         .tileset = gBattleTerrainTiles_Cave,
         .tilemap = gBattleTerrainTilemap_Cave,
-        .entryTileset = gBattleTerrainAnimTiles_Rayquaza,
-        .entryTilemap = gBattleTerrainAnimTilemap_Rayquaza,
+        .entryTileset = gBattleTerrainAnimTiles_Cave,
+        .entryTilemap = gBattleTerrainAnimTilemap_Cave,
         .palette = gBattleTerrainPalette_Cave_Rusturf,
     },
 
