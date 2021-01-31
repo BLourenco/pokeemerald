@@ -90,6 +90,9 @@ const u32 gBattleTerrainAnimTilemap_Rayquaza[] = INCBIN_U32("graphics/battle_ter
 // Route 113 & Dry Ashlands
 const u32 gBattleTerrainPalette_TallGrass_Soot[] = INCBIN_U32("graphics/battle_terrain/tall_grass/palette_soot.gbapal.lz");
 
+// Jagged Pass
+const u32 gBattleTerrainPalette_TallGrass_Jagged_Pass[] = INCBIN_U32("graphics/battle_terrain/tall_grass/palette_jaggedpass.gbapal.lz");
+
 // Overgrown Forest
 const u32 gBattleTerrainPalette_LongGrass_Overgrown[] = INCBIN_U32("graphics/battle_terrain/long_grass/palette_overgrown.gbapal.lz");
 

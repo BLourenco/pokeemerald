@@ -366,6 +366,7 @@
 #define BATTLE_TERRAIN_CAVE_METEOR_FALLS    16
 #define BATTLE_TERRAIN_CAVE_ICE             17
 #define BATTLE_TERRAIN_BUILDING_PYRE        18
+#define BATTLE_TERRAIN_GRASS_JAGGED_PASS    19
 
 // Move targets
 #define MOVE_TARGET_SELECTED            0x0

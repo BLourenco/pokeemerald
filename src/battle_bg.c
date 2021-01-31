@@ -760,7 +760,16 @@ static const struct BattleBackground gBattleTerrainTable[] =
         .entryTileset = gBattleTerrainAnimTiles_Cave,
         .entryTilemap = gBattleTerrainAnimTilemap_Cave,
         .palette = gBattleTerrainPalette_Cave_Ice,
-    },  
+    },      
+
+    [BATTLE_TERRAIN_GRASS_JAGGED_PASS] =
+    {
+        .tileset = gBattleTerrainTiles_TallGrass,
+        .tilemap = gBattleTerrainTilemap_TallGrass,
+        .entryTileset = gBattleTerrainAnimTiles_TallGrass,
+        .entryTilemap = gBattleTerrainAnimTilemap_TallGrass,
+        .palette = gBattleTerrainPalette_TallGrass_Jagged_Pass,
+    },
 };
 
 static void sub_8035648(void);

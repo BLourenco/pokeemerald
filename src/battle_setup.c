@@ -645,9 +645,10 @@ u8 BattleSetup_GetTerrainId(void)
 
     if (MetatileBehavior_IsTallGrass(tileBehavior))
     {
-        if (mapNum == MAP_NUM(ROUTE113)
-            || mapNum == MAP_NUM(DRY_ASHLANDS))
+        if (mapNum == MAP_NUM(ROUTE113) || mapNum == MAP_NUM(DRY_ASHLANDS))
             return BATTLE_TERRAIN_GRASS_SOOT;
+        else if (mapNum == MAP_NUM(JAGGED_PASS)) // Top half of Jagged Pass
+            return BATTLE_TERRAIN_GRASS_JAGGED_PASS;
         else if (mapNum == MAP_NUM(SHOAL_CAVE_SUMMIT))
             return BATTLE_TERRAIN_GRASS_COLD;
         else

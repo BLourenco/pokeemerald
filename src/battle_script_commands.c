@@ -832,7 +832,8 @@ static const u16 sNaturePowerMoves[] =
     [BATTLE_TERRAIN_CAVE_CLAY]              = MOVE_EARTH_POWER,
     [BATTLE_TERRAIN_CAVE_ICE]               = MOVE_ICICLE_CRASH,
     [BATTLE_TERRAIN_CAVE_METEOR_FALLS]      = MOVE_METEOR_MASH,
-    [BATTLE_TERRAIN_BUILDING_PYRE]          = MOVE_SHADOW_BALL
+    [BATTLE_TERRAIN_BUILDING_PYRE]          = MOVE_SHADOW_BALL,
+    [BATTLE_TERRAIN_GRASS_JAGGED_PASS]      = MOVE_STUN_SPORE
 };
 
 static const u16 sPickupItems[] =
@@ -899,6 +900,7 @@ static const u8 sTerrainToType[] =
     [BATTLE_TERRAIN_CAVE_ICE]               = TYPE_ICE,
     [BATTLE_TERRAIN_CAVE_METEOR_FALLS]      = TYPE_STEEL,
     [BATTLE_TERRAIN_BUILDING_PYRE]          = TYPE_GHOST,
+    [BATTLE_TERRAIN_GRASS_JAGGED_PASS]      = TYPE_GRASS,
 };
 
 // In Battle Palace, moves are chosen based on the pokemons nature rather than by the player
@@ -11357,6 +11359,7 @@ static void Cmd_getsecretpowereffect(void)
     {
     case BATTLE_TERRAIN_GRASS:
     case BATTLE_TERRAIN_GRASS_SOOT:
+    case BATTLE_TERRAIN_GRASS_JAGGED_PASS:
         gBattleScripting.moveEffect = MOVE_EFFECT_POISON;
         break;
     case BATTLE_TERRAIN_LONG_GRASS:

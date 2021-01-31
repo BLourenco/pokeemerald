@@ -5512,6 +5512,7 @@ extern const u32 gBattleTerrainPalette_StadiumWallace[];
 
 // my new battle terrains
 extern const u32 gBattleTerrainPalette_TallGrass_Soot[];
+extern const u32 gBattleTerrainPalette_TallGrass_Jagged_Pass[];
 extern const u32 gBattleTerrainPalette_LongGrass_Overgrown[];
 extern const u32 gBattleTerrainPalette_Cave_Rusturf[];
 extern const u32 gBattleTerrainPalette_Cave_Volcano[];
