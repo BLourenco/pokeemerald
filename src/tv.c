@@ -3471,10 +3471,10 @@ void ChangePartyPokemonNickname(void)
 
 void ChangePartyPokemonNickname_CB(void)
 {
-    void CB2_ReturnToPartyMenuFromSummaryScreen(void);
+    void CB2_ReturnToPartyMenuFromNicknameScreen(void);
 
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NICKNAME, gStringVar2);
-    CB2_ReturnToPartyMenuFromSummaryScreen();
+    CB2_ReturnToPartyMenuFromNicknameScreen();
 }
 
 void ChangeBoxPokemonNickname(void)
