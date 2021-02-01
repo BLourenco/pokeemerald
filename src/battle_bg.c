@@ -760,7 +760,16 @@ static const struct BattleBackground gBattleTerrainTable[] =
         .entryTileset = gBattleTerrainAnimTiles_Cave,
         .entryTilemap = gBattleTerrainAnimTilemap_Cave,
         .palette = gBattleTerrainPalette_Cave_Ice,
-    },      
+    },    
+
+    [BATTLE_TERRAIN_STADIUM_PYRE] =
+    {
+        .tileset = gBattleTerrainTiles_Stadium,
+        .tilemap = gBattleTerrainTilemap_Stadium,
+        .entryTileset = gBattleTerrainAnimTiles_Building,
+        .entryTilemap = gBattleTerrainAnimTilemap_Building,
+        .palette = gBattleTerrainPalette_Stadium_Pyre,
+    },    
 
     [BATTLE_TERRAIN_GRASS_JAGGED_PASS] =
     {
@@ -769,6 +778,15 @@ static const struct BattleBackground gBattleTerrainTable[] =
         .entryTileset = gBattleTerrainAnimTiles_TallGrass,
         .entryTilemap = gBattleTerrainAnimTilemap_TallGrass,
         .palette = gBattleTerrainPalette_TallGrass_Jagged_Pass,
+    },    
+
+    [BATTLE_TERRAIN_MOUNTAIN_CHIMNEY] =
+    {
+        .tileset = gBattleTerrainTiles_Rock,
+        .tilemap = gBattleTerrainTilemap_Rock,
+        .entryTileset = gBattleTerrainAnimTiles_Rock,
+        .entryTilemap = gBattleTerrainAnimTilemap_Rock,
+        .palette = gBattleTerrainPalette_Rock_Chimney,
     },
 };
 
@@ -914,14 +932,7 @@ void DrawMainBattleBackground(void)
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {
             u8 trainerClass = gTrainers[gTrainerBattleOpponent_A].trainerClass;
-            if (trainerClass == TRAINER_CLASS_LEADER)
-            {
-                LZDecompressVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));
-                LZDecompressVram(gBattleTerrainTilemap_Building, (void*)(BG_SCREEN_ADDR(26)));
-                LoadCompressedPalette(gBattleTerrainPalette_BuildingLeader, 0x20, 0x60);
-                return;
-            }
-            else if (trainerClass == TRAINER_CLASS_CHAMPION)
+            if (trainerClass == TRAINER_CLASS_CHAMPION)
             {
                 LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
                 LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
@@ -939,9 +950,49 @@ void DrawMainBattleBackground(void)
             LoadCompressedPalette(gBattleTerrainTable[gBattleTerrain].palette, 0x20, 0x60);
             break;
         case MAP_BATTLE_SCENE_GYM:
-            LZDecompressVram(gBattleTerrainTiles_Building, (void*)(BG_CHAR_ADDR(2)));
-            LZDecompressVram(gBattleTerrainTilemap_Building, (void*)(BG_SCREEN_ADDR(26)));
-            LoadCompressedPalette(gBattleTerrainPalette_BuildingGym, 0x20, 0x60);
+            switch (gSaveBlock1Ptr->location.mapGroup)
+            {
+                case 11: // Rustboro
+                    LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+                    LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+                    LoadCompressedPalette(gBattleTerrainPalette_Stadium_Gym1, 0x20, 0x60);
+                    break;
+                case 3: // Dewford
+                    LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+                    LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+                    LoadCompressedPalette(gBattleTerrainPalette_Stadium_Gym2, 0x20, 0x60);
+                    break;
+                case 10: // Mauville
+                    LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+                    LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+                    LoadCompressedPalette(gBattleTerrainPalette_Stadium_Gym3, 0x20, 0x60);
+                    break;
+                case 4: // Lavaridge
+                    LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+                    LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+                    LoadCompressedPalette(gBattleTerrainPalette_Stadium_Gym4, 0x20, 0x60);
+                    break;
+                case 8: // Petalburg
+                    LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+                    LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+                    LoadCompressedPalette(gBattleTerrainPalette_Stadium_Gym5, 0x20, 0x60);
+                    break;
+                case 12: // Fortree
+                    LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+                    LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+                    LoadCompressedPalette(gBattleTerrainPalette_Stadium_Gym6, 0x20, 0x60);
+                    break;
+                case 14: // Mossdeep
+                    LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+                    LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+                    LoadCompressedPalette(gBattleTerrainPalette_Stadium_Gym7, 0x20, 0x60);
+                    break;
+                case 15: // Sootopolis
+                    LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));
+                    LZDecompressVram(gBattleTerrainTilemap_Stadium, (void*)(BG_SCREEN_ADDR(26)));
+                    LoadCompressedPalette(gBattleTerrainPalette_Stadium_Gym8, 0x20, 0x60);
+                    break;
+            }
             break;
         case MAP_BATTLE_SCENE_MAGMA:
             LZDecompressVram(gBattleTerrainTiles_Stadium, (void*)(BG_CHAR_ADDR(2)));

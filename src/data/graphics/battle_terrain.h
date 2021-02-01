@@ -102,6 +102,9 @@ const u32 gBattleTerrainPalette_Cave_Rusturf[] =        INCBIN_U32("graphics/bat
 // Fiery Path & Magma Hideout
 const u32 gBattleTerrainPalette_Cave_Volcano[] =        INCBIN_U32("graphics/battle_terrain/cave/palette_volcano.gbapal.lz");
 
+// Mt. Chimney
+const u32 gBattleTerrainPalette_Rock_Chimney[] = INCBIN_U32("graphics/battle_terrain/rock/palette_chimney.gbapal.lz");
+
 // Meteor Falls
 const u32 gBattleTerrainPalette_Cave_Meteor_Falls[] =       INCBIN_U32("graphics/battle_terrain/cave/palette_meteor_falls.gbapal.lz");
 const u32 gBattleTerrainAnimTiles_Cave_Meteor_Falls[] =     INCBIN_U32("graphics/battle_terrain/cave/anim_tiles_meteor_falls.4bpp.lz");
@@ -117,9 +120,9 @@ const u32 gBattleTerrainPalette_Cave_Ice[] = INCBIN_U32("graphics/battle_terrain
 const u32 gBattleTerrainPalette_TallGrass_Cold[] = INCBIN_U32("graphics/battle_terrain/tall_grass/palette_cold.gbapal.lz");
 
 // Mt. Pyre Interior
-const u32 gBattleTerrainPalette_Building_Pyre[] =       INCBIN_U32("graphics/battle_terrain/building/palette_pyre.gbapal.lz");
-const u32 gBattleTerrainAnimTiles_Building_Pyre[] =     INCBIN_U32("graphics/battle_terrain/building/anim_tiles_pyre.4bpp.lz");
-const u32 gBattleTerrainAnimTilemap_Building_Pyre[] =   INCBIN_U32("graphics/battle_terrain/building/anim_map_pyre.bin.lz");
+const u32 gBattleTerrainPalette_Stadium_Pyre[] =       INCBIN_U32("graphics/battle_terrain/stadium/palette_pyre.gbapal.lz");
+const u32 gBattleTerrainAnimTiles_Stadium_Pyre[] =     INCBIN_U32("graphics/battle_terrain/stadium/anim_tiles_pyre.4bpp.lz");
+const u32 gBattleTerrainAnimTilemap_Stadium_Pyre[] =   INCBIN_U32("graphics/battle_terrain/stadium/anim_map_pyre.bin.lz");
 
 // Battle Facilities
 const u32 gBattleTerrainPalette_Stadium_BattleTower[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battletower.gbapal.lz");
@@ -130,3 +133,13 @@ const u32 gBattleTerrainPalette_Stadium_BattlePalace[] = INCBIN_U32("graphics/ba
 const u32 gBattleTerrainPalette_Stadium_BattleArena[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battlearena.gbapal.lz");
 const u32 gBattleTerrainPalette_Stadium_BattlePyramid_Interior[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battlepyramid.gbapal.lz");
 const u32 gBattleTerrainPalette_Stadium_BattlePyramid_Peak[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_battlepyramid_peak.gbapal.lz");
+
+// Gyms
+const u32 gBattleTerrainPalette_Stadium_Gym1[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_gym1.gbapal.lz");
+const u32 gBattleTerrainPalette_Stadium_Gym2[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_gym2.gbapal.lz");
+const u32 gBattleTerrainPalette_Stadium_Gym3[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_gym3.gbapal.lz");
+const u32 gBattleTerrainPalette_Stadium_Gym4[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_gym4.gbapal.lz");
+const u32 gBattleTerrainPalette_Stadium_Gym5[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_gym5.gbapal.lz");
+const u32 gBattleTerrainPalette_Stadium_Gym6[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_gym6.gbapal.lz");
+const u32 gBattleTerrainPalette_Stadium_Gym7[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_gym7.gbapal.lz");
+const u32 gBattleTerrainPalette_Stadium_Gym8[] = INCBIN_U32("graphics/battle_terrain/stadium/palette_gym8.gbapal.lz");

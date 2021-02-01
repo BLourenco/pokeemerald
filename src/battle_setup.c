@@ -672,17 +672,7 @@ u8 BattleSetup_GetTerrainId(void)
         break;
     case MAP_TYPE_UNDERGROUND:
         if (MetatileBehavior_IsIndoorEncounter(tileBehavior))
-        {
-            if (mapNum == MAP_NUM(MT_PYRE_1F)
-                || mapNum == MAP_NUM(MT_PYRE_2F)
-                || mapNum == MAP_NUM(MT_PYRE_3F)
-                || mapNum == MAP_NUM(MT_PYRE_4F)
-                || mapNum == MAP_NUM(MT_PYRE_5F)
-                || mapNum == MAP_NUM(MT_PYRE_6F))
-                return BATTLE_TERRAIN_BUILDING_PYRE;
-            else
-                return BATTLE_TERRAIN_BUILDING;
-        }
+            return BATTLE_TERRAIN_BUILDING;
         if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
             return BATTLE_TERRAIN_POND;
 
@@ -715,6 +705,15 @@ u8 BattleSetup_GetTerrainId(void)
         else
         return BATTLE_TERRAIN_CAVE;
     case MAP_TYPE_INDOOR:
+        if (mapNum == MAP_NUM(MT_PYRE_1F)
+            || mapNum == MAP_NUM(MT_PYRE_2F)
+            || mapNum == MAP_NUM(MT_PYRE_3F)
+            || mapNum == MAP_NUM(MT_PYRE_4F)
+            || mapNum == MAP_NUM(MT_PYRE_5F)
+            || mapNum == MAP_NUM(MT_PYRE_6F))
+            return BATTLE_TERRAIN_STADIUM_PYRE;
+        else
+            return BATTLE_TERRAIN_BUILDING;
     case MAP_TYPE_SECRET_BASE:
         return BATTLE_TERRAIN_BUILDING;
     case MAP_TYPE_UNDERWATER:
@@ -729,7 +728,10 @@ u8 BattleSetup_GetTerrainId(void)
     if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
         return BATTLE_TERRAIN_POND;
     if (MetatileBehavior_IsMountain(tileBehavior))
-        return BATTLE_TERRAIN_MOUNTAIN;
+        if (mapNum == MAP_NUM(MT_CHIMNEY))
+            return BATTLE_TERRAIN_MOUNTAIN_CHIMNEY;
+        else
+            return BATTLE_TERRAIN_MOUNTAIN;
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
     {
         if (MetatileBehavior_GetBridgeType(tileBehavior))
