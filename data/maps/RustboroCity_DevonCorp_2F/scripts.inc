@@ -117,26 +117,47 @@ RustboroCity_DevonCorp_2F_EventScript_NoticeFossil::
 RustboroCity_DevonCorp_2F_EventScript_WhichFossilToRevive::
 	message RustboroCity_DevonCorp_2F_Text_WhichFossilToRevive
 	waitmessage
-	setvar VAR_0x8009, 0
-	setvar VAR_0x8004, SCROLL_MULTI_DEVON_RESEARCHER_FOSSILS
-	special ShowScrollableMultichoice
-	waitstate
-	switch VAR_RESULT
-	case 0, RustboroCity_DevonCorp_2F_EventScript_ChooseHelixFossil
-	case 1, RustboroCity_DevonCorp_2F_EventScript_ChooseDomeFossil
-	case 2, RustboroCity_DevonCorp_2F_EventScript_ChooseOldAmber
-	case 3, RustboroCity_DevonCorp_2F_EventScript_ChooseRootFossil
-	case 4, RustboroCity_DevonCorp_2F_EventScript_ChooseClawFossil
-	case 5, RustboroCity_DevonCorp_2F_EventScript_ChooseSkullFossil
-	case 6, RustboroCity_DevonCorp_2F_EventScript_ChooseArmorFossil
-	case 7, RustboroCity_DevonCorp_2F_EventScript_ChooseCoverFossil
-	case 8, RustboroCity_DevonCorp_2F_EventScript_ChoosePlumeFossil
-	case 9, RustboroCity_DevonCorp_2F_EventScript_ChooseJawFossil
-	case 10, RustboroCity_DevonCorp_2F_EventScript_ChooseSailFossil
-	case 11, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
-	case MULTI_B_PRESSED, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_ChooseFossilFromBag
 	release
 	end
+
+RustboroCity_DevonCorp_2F_EventScript_ChooseFossilFromBag::
+	fadescreen FADE_TO_BLACK
+    setvar VAR_RESULT, 0
+    special FossilScientistOpenBagMenu
+    waitstate
+    compare VAR_RESULT, 0
+    goto_if_eq RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
+    compare VAR_RESULT, 1
+    goto_if_eq RustboroCity_DevonCorp_2F_EventScript_VerifyItemIsFossil
+    end
+
+RustboroCity_DevonCorp_2F_EventScript_VerifyItemIsFossil::
+	specialvar VAR_RESULT, IsItemFossil
+    compare VAR_RESULT, FALSE
+    goto_if_eq RustboroCity_DevonCorp_2F_EventScript_ThatsNotAFossil
+    compare VAR_RESULT, TRUE
+    goto_if_eq RustboroCity_DevonCorp_2F_EventScript_BufferFossilAndMonNames
+    end
+
+RustboroCity_DevonCorp_2F_EventScript_ThatsNotAFossil::
+	msgbox RustboroCity_DevonCorp_2F_Text_ThatsNotAFossil, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_BufferFossilAndMonNames::
+	switch VAR_ITEM_ID
+	case ITEM_HELIX_FOSSIL, RustboroCity_DevonCorp_2F_EventScript_ChooseHelixFossil
+	case ITEM_DOME_FOSSIL, RustboroCity_DevonCorp_2F_EventScript_ChooseDomeFossil
+	case ITEM_OLD_AMBER, RustboroCity_DevonCorp_2F_EventScript_ChooseOldAmber
+	case ITEM_ROOT_FOSSIL, RustboroCity_DevonCorp_2F_EventScript_ChooseRootFossil
+	case ITEM_CLAW_FOSSIL, RustboroCity_DevonCorp_2F_EventScript_ChooseClawFossil
+	case ITEM_SKULL_FOSSIL, RustboroCity_DevonCorp_2F_EventScript_ChooseSkullFossil
+	case ITEM_ARMOR_FOSSIL, RustboroCity_DevonCorp_2F_EventScript_ChooseArmorFossil
+	case ITEM_COVER_FOSSIL, RustboroCity_DevonCorp_2F_EventScript_ChooseCoverFossil
+	case ITEM_PLUME_FOSSIL, RustboroCity_DevonCorp_2F_EventScript_ChoosePlumeFossil
+	case ITEM_JAW_FOSSIL, RustboroCity_DevonCorp_2F_EventScript_ChooseJawFossil
+	case ITEM_SAIL_FOSSIL, RustboroCity_DevonCorp_2F_EventScript_ChooseSailFossil
 
 RustboroCity_DevonCorp_2F_EventScript_ChooseHelixFossil::
 	setvar VAR_TEMP_2, ITEM_HELIX_FOSSIL
@@ -432,3 +453,9 @@ RustboroCity_DevonCorp_2F_Text_PleaseWaitWhileIRevive:
 RustboroCity_DevonCorp_2F_Text_ComeBackAgain:
 	.string "If you find any more fossils, bring\n"
 	.string "them to me!$"
+
+RustboroCity_DevonCorp_2F_Text_ThatsNotAFossil:
+	.string "Sorry…\n"
+	.string "That doesn't seem to be a fossil.\p"
+	.string "If you do find a fossil, please\n"
+	.string "bring it to me!$"

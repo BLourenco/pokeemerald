@@ -17,6 +17,7 @@
 #define ITEMMENULOCATION_WALLY 10
 #define ITEMMENULOCATION_PCBOX 11
 #define ITEMMENULOCATION_LAST 12
+#define ITEMMENULOCATION_FOSSIL_SCIENTIST 13
 
 #define ITEMMENUACTION_USE           0
 #define ITEMMENUACTION_TOSS          1
@@ -87,6 +88,7 @@ void CB2_GoToItemDepositMenu(void);
 void FavorLadyOpenBagMenu(void);
 void QuizLadyOpenBagMenu(void);
 void ApprenticeOpenBagMenu(void);
+void FossilScientistOpenBagMenu(void);
 void CB2_BagMenuFromBattle(void);
 void SetInitialScrollAndCursorPositions(u8 pocketId);
 void CB2_ReturnToBagMenuPocket(void);

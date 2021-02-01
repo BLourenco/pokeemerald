@@ -128,6 +128,7 @@ static void BagMenu_Deposit_WaitForABPress(u8);
 void CB2_ApprenticeExitBagMenu(void);
 void CB2_FavorLadyExitBagMenu(void);
 void CB2_QuizLadyExitBagMenu(void);
+void CB2_FossilScientistExitBagMenu(void);
 void All_CalculateNItemsAndMaxShowed(void);
 static void SetPocketListPositions(void);
 void UpdatePocketScrollPositions(void);
@@ -324,6 +325,10 @@ static const u8 sContextMenuItems_QuizLady[] = {
     ITEMMENUACTION_CONFIRM_2,   ITEMMENUACTION_CANCEL
 };
 
+static const u8 sContextMenuItems_FossilScientist[] = {
+    ITEMMENUACTION_SHOW,      ITEMMENUACTION_CANCEL
+};
+
 static const TaskFunc gUnknown_08614054[] = {
     [ITEMMENULOCATION_FIELD] =                  Task_ItemContext_FieldOrBattle,
     [ITEMMENULOCATION_BATTLE] =                 Task_ItemContext_FieldOrBattle,
@@ -336,7 +341,8 @@ static const TaskFunc gUnknown_08614054[] = {
     [ITEMMENULOCATION_QUIZ_LADY] =              Task_ItemContext_FieldOrBattle,
     [ITEMMENULOCATION_APPRENTICE] =             Task_ItemContext_FieldOrBattle,
     [ITEMMENULOCATION_WALLY] =                  NULL,
-    [ITEMMENULOCATION_PCBOX] =                  Task_ItemContext_ItemPC_2
+    [ITEMMENULOCATION_PCBOX] =                  Task_ItemContext_ItemPC_2,
+    [ITEMMENULOCATION_FOSSIL_SCIENTIST] =       Task_ItemContext_FieldOrBattle
 };
 
 static const struct YesNoFuncTable sYesNoTossFunctions = {BagMenu_ConfirmToss, BagMenu_CancelToss};
@@ -613,6 +619,33 @@ void QuizLadyOpenBagMenu(void)
     gSpecialVar_Result = FALSE;
 }
 
+void FossilScientistOpenBagMenu(void)
+{
+    GoToBagMenu(ITEMMENULOCATION_FOSSIL_SCIENTIST, ITEMS_POCKET, CB2_FossilScientistExitBagMenu);
+    gSpecialVar_Result = FALSE;
+}
+
+bool8 IsItemFossil(void)
+{
+    switch (gSpecialVar_ItemId)
+    {
+        case ITEM_HELIX_FOSSIL:
+        case ITEM_DOME_FOSSIL:
+        case ITEM_OLD_AMBER:
+        case ITEM_ROOT_FOSSIL:
+        case ITEM_CLAW_FOSSIL:
+        case ITEM_SKULL_FOSSIL:
+        case ITEM_ARMOR_FOSSIL:
+        case ITEM_COVER_FOSSIL:
+        case ITEM_PLUME_FOSSIL:
+        case ITEM_JAW_FOSSIL:
+        case ITEM_SAIL_FOSSIL:
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 void GoToBagMenu(u8 location, u8 pocket, void ( *postExitMenuMainCallback2)())
 {
     gBagMenu = AllocZeroed(sizeof(struct BagMenuStruct));
@@ -629,7 +662,8 @@ void GoToBagMenu(u8 location, u8 pocket, void ( *postExitMenuMainCallback2)())
         if (pocket < POCKETS_COUNT)
             gBagPositionStruct.pocket = pocket;
         if (gBagPositionStruct.location == ITEMMENULOCATION_BERRY_TREE ||
-            gBagPositionStruct.location == ITEMMENULOCATION_BERRY_BLENDER_CRUSH)
+            gBagPositionStruct.location == ITEMMENULOCATION_BERRY_BLENDER_CRUSH ||
+            gBagPositionStruct.location == ITEMMENULOCATION_FOSSIL_SCIENTIST)
             gBagMenu->pocketSwitchDisabled = TRUE;
         gBagMenu->exitCallback = NULL;
         gBagMenu->itemOriginalLocation = 0xFF;
@@ -1580,6 +1614,18 @@ void OpenContextMenu(u8 unused)
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Cancel);
             }
             break;
+        case ITEMMENULOCATION_FOSSIL_SCIENTIST:
+            if (!ItemId_GetImportance(gSpecialVar_ItemId) && gSpecialVar_ItemId != ITEM_ENIGMA_BERRY)
+            {
+                gBagMenu->contextMenuItemsPtr = sContextMenuItems_FossilScientist;
+                gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_FossilScientist);
+            }
+            else
+            {
+                gBagMenu->contextMenuItemsPtr = sContextMenuItems_Cancel;
+                gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Cancel);
+            }
+            break;
         case ITEMMENULOCATION_PARTY:
         case ITEMMENULOCATION_SHOP:
         case ITEMMENULOCATION_BERRY_TREE:
@@ -2382,6 +2428,12 @@ void unknown_ItemMenu_Give2(u8 taskId)
 void CB2_FavorLadyExitBagMenu(void)
 {
     gFieldCallback = FieldCallback_FavorLadyEnableScriptContexts;
+    SetMainCallback2(CB2_ReturnToField);
+}
+
+void CB2_FossilScientistExitBagMenu(void)
+{
+    gFieldCallback = FieldCallback_FavorLadyEnableScriptContexts; // Simply enables both script contexts
     SetMainCallback2(CB2_ReturnToField);
 }
 

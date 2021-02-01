@@ -548,3 +548,5 @@ gSpecials:: @ 81DBA64
 	def_special IsSelectedMonRotom
 	def_special DoesRotomKnowSpecialMove
 	def_special GetRotomNewSpecialMove
+	def_special FossilScientistOpenBagMenu
+	def_special IsItemFossil
