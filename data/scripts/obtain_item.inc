@@ -165,7 +165,8 @@ EventScript_PickUpItem:: @ 8271C3A
 	return
 
 EventScript_PutBattlePyramidItemInBag:: @ 8271C86
-	msgbox gText_PlayerPutItemInBag, MSGBOX_DEFAULT
+	msgbox gText_PlayerPutItemInBag, MSGBOX_DEFAULT	
+	hideitemdesc
 	return
 
 EventScript_FoundTMHM:: @ 8271C8F

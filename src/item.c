@@ -1050,7 +1050,7 @@ void DrawHeaderBox(void)
     u8 *dst;
     bool8 handleFlash = FALSE;
     
-    if (Overworld_GetFlashLevel() > 1)
+    if (Overworld_GetFlashLevel() > 1 || gSaveBlock2Ptr->frontier.pyramidLightRadius > 1)
         handleFlash = TRUE;
     
     if (headerType == 1)
