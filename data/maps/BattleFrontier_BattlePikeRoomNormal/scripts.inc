@@ -296,6 +296,8 @@ BattleFrontier_BattlePikeRoomNormal_EventScript_EnterStatusRoom:: @ 825D605
 	call_if_eq BattleFrontier_BattlePikeRoomNormal_EventScript_DusclopsAttack
 	msgbox BattleFrontier_BattlePikeRoomNormal_Text_AttacksWhenStartled, MSGBOX_DEFAULT
 	closemessage
+	applymovement LOCALID_OBJ_0, BattleFrontier_BattlePikeRoomNormal_Movement_StatusNPCStepAside
+	waitmovement 0
 	releaseall
 	end
 
@@ -436,6 +438,11 @@ BattleFrontier_BattlePikeRoomNormal_Movement_StatusNPCApproachPlayer: @ 825D7A4
 	face_down
 	step_end
 
+BattleFrontier_BattlePikeRoomNormal_Movement_StatusNPCStepAside:
+	walk_left
+	face_up
+	step_end
+
 BattleFrontier_BattlePikeRoomNormal_Movement_MonApproachPlayer: @ 825D7AA
 	walk_fast_down
 	walk_fast_right
@@ -453,6 +460,15 @@ BattleFrontier_BattlePikeRoomNormal_Movement_MonMoveAside: @ 825D7B3
 	walk_left
 BattleFrontier_BattlePikeRoomNormal_Movement_MonFaceRight: @ 825D7B4
 	face_right
+BattleFrontier_BattlePikeRoomNormal_Movement_MonStepBack:
+	delay_16
+	delay_16
+	walk_up
+	face_down
+	step_end
+
+BattleFrontier_BattlePikeRoomNormal_Movement_MonFaceDown:
+    face_down
 	step_end
 
 BattleFrontier_BattlePikeRoomNormal_Movement_HealNPCApproachPlayer: @ 825D7B6
@@ -603,7 +619,7 @@ BattleFrontier_BattlePikeRoomNormal_EventScript_StatusMon:: @ 825D88D
 	msgbox BattleFrontier_BattlePikeRoomNormal_Text_Silence, MSGBOX_DEFAULT
 	closemessage
 	release
-	applymovement LOCALID_OBJ_1, BattleFrontier_BattlePikeRoomNormal_Movement_MonFaceRight
+	applymovement LOCALID_OBJ_1, BattleFrontier_BattlePikeRoomNormal_Movement_MonFaceDown
 	waitmovement 0
 	end
 
