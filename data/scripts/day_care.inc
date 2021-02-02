@@ -21,9 +21,23 @@ Route117_EventScript_DaycareMan:: @ 8291C18
 	goto_if_eq Route117_EventScript_CheckOnOneMon
 	compare VAR_RESULT, DAYCARE_TWO_MONS
 	goto_if_eq Route117_EventScript_CheckOnTwoMons
+	compare VAR_0x8006, 0
+	goto_if_eq Route117_EventScript_SeeWifeIfYoudLikeMeToRaiseMon
+	compare VAR_0x8006, 1
+	goto_if_eq BattleFrontier_EventScript_SeeWifeIfYoudLikeMeToRaiseMon
+	release
+	end
+
+Route117_EventScript_SeeWifeIfYoudLikeMeToRaiseMon::
 	msgbox Route117_Text_SeeWifeIfYoudLikeMeToRaiseMon, MSGBOX_DEFAULT
 	release
 	end
+
+BattleFrontier_EventScript_SeeWifeIfYoudLikeMeToRaiseMon::
+	msgbox BattleFrontier_Text_SeeWifeIfYoudLikeMeToRaiseMon, MSGBOX_DEFAULT
+	release
+	end
+
 
 Route117_EventScript_DaycareEggWaiting:: @ 8291C4D
 	msgbox Route117_Text_DoYouWantEgg, MSGBOX_YESNO
@@ -123,7 +137,27 @@ Route117_PokemonDayCare_EventScript_DaycareWoman:: @ 8291D11
 	goto_if_eq Route117_PokemonDayCare_EventScript_OneMonInDaycare
 	compare VAR_RESULT, DAYCARE_TWO_MONS
 	goto_if_eq Route117_PokemonDayCare_EventScript_TwoMonsInDaycare
+	compare VAR_0x8006, 1
+	goto_if_eq BattleFrontier_PokemonDayCare_EventScript_CheckIfExplainNursery
 	msgbox Route117_PokemonDayCare_Text_WouldYouLikeUsToRaiseAMon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Route117_PokemonDayCare_EventScript_GiveMonToRaise
+	msgbox Route117_PokemonDayCare_Text_FineThenComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+BattleFrontier_PokemonDayCare_EventScript_CheckIfExplainNursery::
+	goto_if_unset FLAG_NURSERY_INTRODUCTION, BattleFrontier_PokemonDayCare_EventScript_NurseryIntro
+	msgbox BattleFrontier_PokemonDayCare_Text_WouldYouLikeUsToRaiseAMon, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq Route117_PokemonDayCare_EventScript_GiveMonToRaise
+	msgbox Route117_PokemonDayCare_Text_FineThenComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+BattleFrontier_PokemonDayCare_EventScript_NurseryIntro::
+	setflag FLAG_NURSERY_INTRODUCTION
+	msgbox BattleFrontier_PokemonDayCare_Text_NurseryWomanIntro, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Route117_PokemonDayCare_EventScript_GiveMonToRaise
 	msgbox Route117_PokemonDayCare_Text_FineThenComeAgain, MSGBOX_DEFAULT
@@ -342,6 +376,13 @@ Route117_Text_SeeWifeIfYoudLikeMeToRaiseMon: @ 8291FCF
 	.string "If you'd like me to raise your Pokémon,\n"
 	.string "have a word with my wife.$"
 
+BattleFrontier_Text_SeeWifeIfYoudLikeMeToRaiseMon:
+	.string "I'm the Nursery Man.\p"
+	.string "I help take care of the Pokémon of\n"
+	.string "Trainers like you.\p"
+	.string "If you want us to take care of your\n"
+	.string "Pokémon, please speak to my wife.$"
+
 Route117_Text_DoYouWantEgg: @ 829205D
 	.string "Ah, it's you!\p"
 	.string "We were raising your Pokémon,\n"
@@ -393,6 +434,26 @@ Route117_PokemonDayCare_Text_WouldYouLikeUsToRaiseAMon: @ 82922F4
 	.string "I'm the Day-Care Lady.\p"
 	.string "We can raise Pokémon for you.\p"
 	.string "Would you like us to raise one?$"
+
+BattleFrontier_PokemonDayCare_Text_NurseryWomanIntro:
+	.string "I'm the Nursery Lady.\p"
+	.string "We operate a bit differently than\n"
+	.string "a regular Day-Care.\p"
+	.string "Since the trainers here are particular\n"
+	.string "about how their Pokémon are raised,\l"
+	.string "we do not train any Pokémon that are\l"
+	.string "left here with us.\p"
+	.string "That means your Pokémon won't get any\n"
+	.string "stronger or learn any moves, though\l"
+	.string "we'll still make sure your Pokémon\l"
+	.string "spend time together.\p"
+	.string "Would you like us to look after one?$"
+
+BattleFrontier_PokemonDayCare_Text_WouldYouLikeUsToRaiseAMon:
+	.string "I'm the Nursery Lady.\p"
+	.string "We can look after your Pokémon\n"
+	.string "for you.\p"
+	.string "Would you like us to look after one?$"
 
 Route117_PokemonDayCare_Text_WhichMonShouldWeRaise: @ 8292349
 	.string "Which Pokémon should we raise for\n"

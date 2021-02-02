@@ -296,8 +296,8 @@ BattleFrontier_OutsideEast_Text_ExchangeCornerSign: @ 8242F4A
 	.string "Exchange your Battle Points!$"
 
 BattleFrontier_OutsideEast_Text_DayCareSign:
-	.string "Pokémon Day Care\n"
-	.string "“Let us raise your Pokémon.”$"
+	.string "Pokémon Nursery\n"
+	.string "“Let us look after your Pokémon.”$"
 
 BattleFrontier_OutsideEast_Text_BattleTowerFeelsSpecial: @ 8242F8C
 	.string "Wow!\n"
