@@ -645,7 +645,7 @@ static void LoadLinkPartnerObjectEventSpritePalette(u8 graphicsId, u8 localEvent
 // NOTE: Coordinates are +7, +7 from actual in-map coordinates
 static const struct UCoords8 sMauvilleGymSwitchCoords[] =
 {
-    { 8, 22},
+    { 9, 22},
     {12, 19},
     {11, 16},
     {16, 16}
