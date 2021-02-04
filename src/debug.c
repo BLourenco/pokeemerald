@@ -75,6 +75,7 @@ enum { // Flags
     DEBUG_FLAG_MENU_ITEM_POKEDEXONOFF,
     DEBUG_FLAG_MENU_ITEM_NATDEXONOFF,
     DEBUG_FLAG_MENU_ITEM_POKENAVONOFF,
+    DEBUG_FLAG_MENU_ITEM_DEXNAVONOFF,
     DEBUG_FLAG_MENU_ITEM_FLYANYWHERE,
     DEBUG_FLAG_MENU_ITEM_GETALLBADGES,
     DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF,
@@ -178,6 +179,7 @@ static void DebugAction_Flags_SetPokedexFlags(u8);
 static void DebugAction_Flags_SwitchDex(u8);
 static void DebugAction_Flags_SwitchNatDex(u8);
 static void DebugAction_Flags_SwitchPokeNav(u8);
+static void DebugAction_Flags_SwitchDexNav(u8);
 static void DebugAction_Flags_ToggleFlyFlags(u8);
 static void DebugAction_Flags_ToggleBadgeFlags(u8);
 static void DebugAction_Flags_CollisionOnOff(u8);
@@ -251,6 +253,7 @@ static const u8 gDebugText_Flags_SetPokedexFlags[] =      _("All Pokédex Flags"
 static const u8 gDebugText_Flags_SwitchDex[] =            _("Pokédex ON/OFF");
 static const u8 gDebugText_Flags_SwitchNationalDex[] =    _("NatDex ON/OFF");
 static const u8 gDebugText_Flags_SwitchPokeNav[] =        _("PokéNav ON/OFF");
+static const u8 gDebugText_Flags_SwitchDexNav[] =         _("DexNav ON/OFF");
 static const u8 gDebugText_Flags_ToggleFlyFlags[] =       _("Fly Flags ON/OFF");
 static const u8 gDebugText_Flags_ToggleAllBadges[] =      _("All badges ON/OFF");
 static const u8 gDebugText_Flags_SwitchCollision[] =      _("Collision ON/OFF");
@@ -357,6 +360,7 @@ static const struct ListMenuItem sDebugMenu_Items_Flags[] =
     [DEBUG_FLAG_MENU_ITEM_POKEDEXONOFF]     = {gDebugText_Flags_SwitchDex,           DEBUG_FLAG_MENU_ITEM_POKEDEXONOFF},
     [DEBUG_FLAG_MENU_ITEM_NATDEXONOFF]      = {gDebugText_Flags_SwitchNationalDex,   DEBUG_FLAG_MENU_ITEM_NATDEXONOFF},
     [DEBUG_FLAG_MENU_ITEM_POKENAVONOFF]     = {gDebugText_Flags_SwitchPokeNav,       DEBUG_FLAG_MENU_ITEM_POKENAVONOFF},
+    [DEBUG_FLAG_MENU_ITEM_DEXNAVONOFF]      = {gDebugText_Flags_SwitchDexNav,        DEBUG_FLAG_MENU_ITEM_DEXNAVONOFF},
     [DEBUG_FLAG_MENU_ITEM_FLYANYWHERE]      = {gDebugText_Flags_ToggleFlyFlags,      DEBUG_FLAG_MENU_ITEM_FLYANYWHERE},
     [DEBUG_FLAG_MENU_ITEM_GETALLBADGES]     = {gDebugText_Flags_ToggleAllBadges,     DEBUG_FLAG_MENU_ITEM_GETALLBADGES},
     [DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF]  = {gDebugText_Flags_SwitchCollision,     DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF},
@@ -410,11 +414,8 @@ static void (*const sDebugMenu_Actions_Flags[])(u8) =
     [DEBUG_FLAG_MENU_ITEM_POKEDEXONOFF]     = DebugAction_Flags_SwitchDex,
     [DEBUG_FLAG_MENU_ITEM_NATDEXONOFF]      = DebugAction_Flags_SwitchNatDex,
     [DEBUG_FLAG_MENU_ITEM_POKENAVONOFF]     = DebugAction_Flags_SwitchPokeNav,
+    [DEBUG_FLAG_MENU_ITEM_DEXNAVONOFF]      = DebugAction_Flags_SwitchDexNav,
     [DEBUG_FLAG_MENU_ITEM_FLYANYWHERE]      = DebugAction_Flags_ToggleFlyFlags,
-    [DEBUG_FLAG_MENU_ITEM_GETALLBADGES]     = DebugAction_Flags_ToggleBadgeFlags,
-    [DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF]  = DebugAction_Flags_CollisionOnOff,
-    [DEBUG_FLAG_MENU_ITEM_ENCOUNTER_ONOFF]  = DebugAction_Flags_EncounterOnOff,
-    [DEBUG_FLAG_MENU_ITEM_TRAINER_SEE_ONOFF]= DebugAction_Flags_TrainerSeeOnOff,
     [DEBUG_FLAG_MENU_ITEM_BAG_USE_ONOFF]    = DebugAction_Flags_BagUseOnOff,
     [DEBUG_FLAG_MENU_ITEM_CATCHING_ONOFF]   = DebugAction_Flags_CatchingOnOff,
 };
@@ -706,6 +707,41 @@ static void DebugAction_Util_Fly(u8 taskId)
     FlagSet(FLAG_VISITED_EVER_GRANDE_CITY);
     FlagSet(FLAG_LANDMARK_POKEMON_LEAGUE);
     FlagSet(FLAG_LANDMARK_BATTLE_FRONTIER);
+    FlagSet(FLAG_VISITED_ROUTE_101);
+    FlagSet(FLAG_VISITED_ROUTE_102);
+    FlagSet(FLAG_VISITED_ROUTE_103);
+    FlagSet(FLAG_VISITED_ROUTE_104);
+    FlagSet(FLAG_VISITED_ROUTE_105);
+    FlagSet(FLAG_VISITED_ROUTE_106);
+    FlagSet(FLAG_VISITED_ROUTE_107);
+    FlagSet(FLAG_VISITED_ROUTE_108);
+    FlagSet(FLAG_VISITED_ROUTE_109);
+    FlagSet(FLAG_VISITED_ROUTE_110);
+    FlagSet(FLAG_VISITED_ROUTE_111);
+    FlagSet(FLAG_VISITED_ROUTE_112);
+    FlagSet(FLAG_VISITED_ROUTE_113);
+    FlagSet(FLAG_VISITED_ROUTE_114);
+    FlagSet(FLAG_VISITED_ROUTE_115);
+    FlagSet(FLAG_VISITED_ROUTE_116);
+    FlagSet(FLAG_VISITED_ROUTE_117);
+    FlagSet(FLAG_VISITED_ROUTE_118);
+    FlagSet(FLAG_VISITED_ROUTE_119);
+    FlagSet(FLAG_VISITED_ROUTE_120);
+    FlagSet(FLAG_VISITED_ROUTE_121);
+    FlagSet(FLAG_VISITED_ROUTE_122);
+    FlagSet(FLAG_VISITED_ROUTE_123);
+    FlagSet(FLAG_VISITED_ROUTE_124);
+    FlagSet(FLAG_VISITED_ROUTE_125);
+    FlagSet(FLAG_VISITED_ROUTE_126);
+    FlagSet(FLAG_VISITED_ROUTE_127);
+    FlagSet(FLAG_VISITED_ROUTE_128);
+    FlagSet(FLAG_VISITED_ROUTE_129);
+    FlagSet(FLAG_VISITED_ROUTE_130);
+    FlagSet(FLAG_VISITED_ROUTE_131);
+    FlagSet(FLAG_VISITED_ROUTE_132);
+    FlagSet(FLAG_VISITED_ROUTE_133);
+    FlagSet(FLAG_VISITED_ROUTE_134);
+    FlagSet(FLAG_VISITED_ROUTE_135);
     Debug_DestroyMenu(taskId);
     SetMainCallback2(CB2_OpenFlyMap);
 }
@@ -897,7 +933,7 @@ static void DebugAction_Util_Warp_SelectWarp(u8 taskId)
 
 static void DebugAction_Util_CheckSaveBlock(u8 taskId)
 {
-    static const u8 gDebugText_SaveBlockSize[] =  _("SaveBlock1 is {STR_VAR_1} bytes long.\nMax size is 15872 bytes.\pSaveBlock2 is {STR_VAR_2} bytes long.\nMax size is 3968 bytes.\pPokemonStorage is {STR_VAR_3} bytes long.\nMax size is 35712 bytes.");
+    static const u8 gDebugText_SaveBlockSize[] =  _("SaveBlock1: {STR_VAR_1} /15872 bytes.\nSaveBlock2: {STR_VAR_2} /3968 bytes.\pPokemonStorage: {STR_VAR_3} /35712 bytes.");
 
     ConvertIntToDecimalStringN(gStringVar1, sizeof(struct SaveBlock1), STR_CONV_MODE_LEFT_ALIGN, 6);
     ConvertIntToDecimalStringN(gStringVar2, sizeof(struct SaveBlock2), STR_CONV_MODE_LEFT_ALIGN, 6);
@@ -1094,6 +1130,17 @@ static void DebugAction_Flags_SwitchPokeNav(u8 taskId)
         PlaySE(SE_PC_LOGIN);
     }
 }
+static void DebugAction_Flags_SwitchDexNav(u8 taskId)
+{
+    if(FlagGet(FLAG_SYS_DEXNAV_GET))
+    {
+        FlagClear(FLAG_SYS_DEXNAV_GET);
+        PlaySE(SE_PC_OFF);
+    }else{
+        FlagSet(FLAG_SYS_DEXNAV_GET);
+        PlaySE(SE_PC_LOGIN);
+    }
+}
 static void DebugAction_Flags_ToggleFlyFlags(u8 taskId)
 {
     // Sound effect
@@ -1119,6 +1166,41 @@ static void DebugAction_Flags_ToggleFlyFlags(u8 taskId)
     FlagToggle(FLAG_VISITED_EVER_GRANDE_CITY);
     FlagToggle(FLAG_LANDMARK_POKEMON_LEAGUE);
     FlagToggle(FLAG_LANDMARK_BATTLE_FRONTIER);
+    FlagToggle(FLAG_VISITED_ROUTE_101);
+    FlagToggle(FLAG_VISITED_ROUTE_102);
+    FlagToggle(FLAG_VISITED_ROUTE_103);
+    FlagToggle(FLAG_VISITED_ROUTE_104);
+    FlagToggle(FLAG_VISITED_ROUTE_105);
+    FlagToggle(FLAG_VISITED_ROUTE_106);
+    FlagToggle(FLAG_VISITED_ROUTE_107);
+    FlagToggle(FLAG_VISITED_ROUTE_108);
+    FlagToggle(FLAG_VISITED_ROUTE_109);
+    FlagToggle(FLAG_VISITED_ROUTE_110);
+    FlagToggle(FLAG_VISITED_ROUTE_111);
+    FlagToggle(FLAG_VISITED_ROUTE_112);
+    FlagToggle(FLAG_VISITED_ROUTE_113);
+    FlagToggle(FLAG_VISITED_ROUTE_114);
+    FlagToggle(FLAG_VISITED_ROUTE_115);
+    FlagToggle(FLAG_VISITED_ROUTE_116);
+    FlagToggle(FLAG_VISITED_ROUTE_117);
+    FlagToggle(FLAG_VISITED_ROUTE_118);
+    FlagToggle(FLAG_VISITED_ROUTE_119);
+    FlagToggle(FLAG_VISITED_ROUTE_120);
+    FlagToggle(FLAG_VISITED_ROUTE_121);
+    FlagToggle(FLAG_VISITED_ROUTE_122);
+    FlagToggle(FLAG_VISITED_ROUTE_123);
+    FlagToggle(FLAG_VISITED_ROUTE_124);
+    FlagToggle(FLAG_VISITED_ROUTE_125);
+    FlagToggle(FLAG_VISITED_ROUTE_126);
+    FlagToggle(FLAG_VISITED_ROUTE_127);
+    FlagToggle(FLAG_VISITED_ROUTE_128);
+    FlagToggle(FLAG_VISITED_ROUTE_129);
+    FlagToggle(FLAG_VISITED_ROUTE_130);
+    FlagToggle(FLAG_VISITED_ROUTE_131);
+    FlagToggle(FLAG_VISITED_ROUTE_132);
+    FlagToggle(FLAG_VISITED_ROUTE_133);
+    FlagToggle(FLAG_VISITED_ROUTE_134);
+    FlagToggle(FLAG_VISITED_ROUTE_135);
 }
 static void DebugAction_Flags_ToggleBadgeFlags(u8 taskId)
 {
@@ -1536,8 +1618,9 @@ static void DebugAction_Give_Item_SelectQuantity(u8 taskId)
 static void DebugAction_Give_AllTMs(u8 taskId)
 {
     u16 i;
-    PlayFanfare(MUS_OBTAIN_TMHM);
-    for (i = ITEM_TM01; i <= ITEM_TM50; i++)
+    //PlayFanfare(MUS_OBTAIN_TMHM);
+    PlaySE(MUS_OBTAIN_ITEM);
+    for (i = ITEM_TM01; i <= ITEM_HM08; i++)
         if(!CheckBagHasItem(i, 1))
             AddBagItem(i, 1);
     Debug_DestroyMenu(taskId);
