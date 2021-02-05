@@ -1324,7 +1324,7 @@ bool8 GetTrainerFlag(void)
         return FlagGet(GetTrainerAFlag());
 }
 
-static void SetBattledTrainersFlags(void)
+void SetBattledTrainersFlags(void)
 {
     if (gTrainerBattleOpponent_B != 0)
         FlagSet(GetTrainerBFlag());

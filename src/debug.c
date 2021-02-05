@@ -81,6 +81,7 @@ enum { // Flags
     DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF,
     DEBUG_FLAG_MENU_ITEM_ENCOUNTER_ONOFF,
     DEBUG_FLAG_MENU_ITEM_TRAINER_SEE_ONOFF,
+    DEBUG_FLAG_MENU_ITEM_AUTO_WIN_ONOFF,
     DEBUG_FLAG_MENU_ITEM_BAG_USE_ONOFF,
     DEBUG_FLAG_MENU_ITEM_CATCHING_ONOFF,
 };
@@ -185,6 +186,7 @@ static void DebugAction_Flags_ToggleBadgeFlags(u8);
 static void DebugAction_Flags_CollisionOnOff(u8);
 static void DebugAction_Flags_EncounterOnOff(u8);
 static void DebugAction_Flags_TrainerSeeOnOff(u8);
+static void DebugAction_Flags_AutoWinOnOff(u8);
 static void DebugAction_Flags_BagUseOnOff(u8);
 static void DebugAction_Flags_CatchingOnOff(u8);
 
@@ -259,6 +261,7 @@ static const u8 gDebugText_Flags_ToggleAllBadges[] =      _("All badges ON/OFF")
 static const u8 gDebugText_Flags_SwitchCollision[] =      _("Collision ON/OFF");
 static const u8 gDebugText_Flags_SwitchEncounter[] =      _("Encounter ON/OFF");
 static const u8 gDebugText_Flags_SwitchTrainerSee[] =     _("TrainerSee ON/OFF");
+static const u8 gDebugText_Flags_SwitchAutoWin[] =        _("Auto-Win ON/OFF");
 static const u8 gDebugText_Flags_SwitchBagUse[] =         _("BagUse ON/OFF");
 static const u8 gDebugText_Flags_SwitchCatching[] =       _("Catching ON/OFF");
 static const u8 gDebugText_Flag[] =                       _("Flag: {STR_VAR_1}   \n{STR_VAR_2}                   \n{STR_VAR_3}");
@@ -366,6 +369,7 @@ static const struct ListMenuItem sDebugMenu_Items_Flags[] =
     [DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF]  = {gDebugText_Flags_SwitchCollision,     DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF},
     [DEBUG_FLAG_MENU_ITEM_ENCOUNTER_ONOFF]  = {gDebugText_Flags_SwitchEncounter,     DEBUG_FLAG_MENU_ITEM_ENCOUNTER_ONOFF},
     [DEBUG_FLAG_MENU_ITEM_TRAINER_SEE_ONOFF]= {gDebugText_Flags_SwitchTrainerSee,    DEBUG_FLAG_MENU_ITEM_TRAINER_SEE_ONOFF},
+    [DEBUG_FLAG_MENU_ITEM_AUTO_WIN_ONOFF]   = {gDebugText_Flags_SwitchAutoWin,       DEBUG_FLAG_MENU_ITEM_AUTO_WIN_ONOFF},
     [DEBUG_FLAG_MENU_ITEM_BAG_USE_ONOFF]    = {gDebugText_Flags_SwitchBagUse,        DEBUG_FLAG_MENU_ITEM_BAG_USE_ONOFF},
     [DEBUG_FLAG_MENU_ITEM_CATCHING_ONOFF]   = {gDebugText_Flags_SwitchCatching,      DEBUG_FLAG_MENU_ITEM_CATCHING_ONOFF},
 };
@@ -420,6 +424,7 @@ static void (*const sDebugMenu_Actions_Flags[])(u8) =
     [DEBUG_FLAG_MENU_ITEM_COLISSION_ONOFF]  = DebugAction_Flags_CollisionOnOff,
     [DEBUG_FLAG_MENU_ITEM_ENCOUNTER_ONOFF]  = DebugAction_Flags_EncounterOnOff,
     [DEBUG_FLAG_MENU_ITEM_TRAINER_SEE_ONOFF]= DebugAction_Flags_TrainerSeeOnOff,
+    [DEBUG_FLAG_MENU_ITEM_AUTO_WIN_ONOFF]   = DebugAction_Flags_AutoWinOnOff,
     [DEBUG_FLAG_MENU_ITEM_BAG_USE_ONOFF]    = DebugAction_Flags_BagUseOnOff,
     [DEBUG_FLAG_MENU_ITEM_CATCHING_ONOFF]   = DebugAction_Flags_CatchingOnOff,
 };
@@ -1252,6 +1257,17 @@ static void DebugAction_Flags_TrainerSeeOnOff(u8 taskId)
         PlaySE(SE_PC_OFF);
     }else{
         FlagSet(FLAG_SYS_NO_TRAINER_SEE);
+        PlaySE(SE_PC_LOGIN);
+    }
+}
+static void DebugAction_Flags_AutoWinOnOff(u8 taskId)
+{
+    if(FlagGet(FLAG_SYS_AUTO_WIN_BATTLES))
+    {
+        FlagClear(FLAG_SYS_AUTO_WIN_BATTLES);
+        PlaySE(SE_PC_OFF);
+    }else{
+        FlagSet(FLAG_SYS_AUTO_WIN_BATTLES);
         PlaySE(SE_PC_LOGIN);
     }
 }

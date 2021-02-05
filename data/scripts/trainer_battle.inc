@@ -48,6 +48,7 @@ EventScript_DoNoIntroTrainerBattle:: @ 82713C2
 	applymovement VAR_LAST_TALKED, Movement_RevealTrainer
 	waitmovement 0
 	special SetUpTrainerEncounterMusic
+	goto_if_set FLAG_SYS_AUTO_WIN_BATTLES, EventScript_SkipNoIntroTrainerBattle
 	trainerbattlebegin
 	gotopostbattlescript
 
@@ -112,6 +113,7 @@ EventScript_ShowTrainerIntroMsg:: @ 827143C
 	goto EventScript_DoTrainerBattle
 
 EventScript_DoTrainerBattle:: @ 8271454
+	goto_if_set FLAG_SYS_AUTO_WIN_BATTLES, EventScript_SkipTrainerBattle
 	trainerbattlebegin
 	@ Below battle mode check only needed in FRLG
 	specialvar VAR_RESULT, GetTrainerBattleMode
@@ -127,6 +129,22 @@ EventScript_DoTrainerBattle:: @ 8271454
 	goto_if_eq EventScript_EndTrainerBattle
 EventScript_EndTrainerBattle:: @ 8271491
 	gotobeatenscript
+	releaseall
+	end
+
+EventScript_SkipTrainerBattle::
+	playse SE_FAINT
+	special SetBattledTrainersFlags
+	fadedefaultbgm
+	gotobeatenscript
+	releaseall
+	end
+
+EventScript_SkipNoIntroTrainerBattle::
+	playse SE_FAINT
+	special SetBattledTrainersFlags
+	fadedefaultbgm
+	gotopostbattlescript
 	releaseall
 	end
 

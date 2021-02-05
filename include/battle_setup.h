@@ -43,6 +43,7 @@ bool32 GetTrainerFlagFromScriptPointer(const u8 *data);
 void SetUpTrainerMovement(void);
 u8 GetTrainerBattleMode(void);
 bool8 GetTrainerFlag(void);
+void SetBattledTrainersFlags(void);
 bool8 HasTrainerBeenFought(u16 trainerId);
 void SetTrainerFlag(u16 trainerId);
 void ClearTrainerFlag(u16 trainerId);
