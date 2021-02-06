@@ -739,7 +739,7 @@ static void Task_ShowAiPoints(u8 taskId)
             {
                 data->aiIconSpriteIds[i] = CreateMonIcon(gBattleMons[i].species,
                                                          SpriteCallbackDummy,
-                                                         95 + (count * 60), 17, 0, 0, FALSE);
+                                                         95 + (count * 60), 17, 0, 0);
                 gSprites[data->aiIconSpriteIds[i]].data[0] = i; // battler id
                 count++;
             }
@@ -748,7 +748,7 @@ static void Task_ShowAiPoints(u8 taskId)
                 data->aiIconSpriteIds[i] = 0xFF;
             }
         }
-        data->aiMonSpriteId = CreateMonPicSprite_HandleDeoxys(gBattleMons[data->aiBattlerId].species,
+        data->aiMonSpriteId = CreateMonPicSprite(gBattleMons[data->aiBattlerId].species,
                                                  gBattleMons[data->aiBattlerId].otId,
                                                  gBattleMons[data->aiBattlerId].personality,
                                                  TRUE,
@@ -1087,7 +1087,7 @@ static void PrintSecondaryEntries(struct BattleDebugMenu *data)
 
     printer.windowId = data->secondaryListWindowId;
     printer.fontId = 1;
-    printer.style = 0;
+    printer.unk = 0;
     printer.letterSpacing = 0;
     printer.lineSpacing = 1;
     printer.fgColor = 2;
@@ -1448,15 +1448,15 @@ static void SetUpModifyArrows(struct BattleDebugMenu *data)
     {
     case LIST_ITEM_ABILITY:
         data->modifyArrows.minValue = 0;
-        data->modifyArrows.maxValue = ABILITIES_COUNT_GEN7 - 1;
+        data->modifyArrows.maxValue = ABILITIES_COUNT_GEN8 - 1;
         data->modifyArrows.maxDigits = 3;
         data->modifyArrows.modifiedValPtr = &gBattleMons[data->battlerId].ability;
-        data->modifyArrows.typeOfVal = VAL_U8;
+        data->modifyArrows.typeOfVal = VAL_U16;
         data->modifyArrows.currValue = gBattleMons[data->battlerId].ability;
         break;
     case LIST_ITEM_MOVES:
         data->modifyArrows.minValue = 0;
-        data->modifyArrows.maxValue = MOVES_COUNT_GEN7 - 1;
+        data->modifyArrows.maxValue = MOVES_COUNT_GEN8 - 1;
         data->modifyArrows.maxDigits = 3;
         if (data->currentSecondaryListItemId == 4)
         {

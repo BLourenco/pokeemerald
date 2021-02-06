@@ -90,7 +90,7 @@ enum { // Vars
 };
 enum { // Give
     DEBUG_GIVE_MENU_ITEM_ITEM,
-    DEBUG_MENU_ITEM_GIVE_ALLTMS,
+    DEBUG_GIVE_MENU_ITEM_ALLITEMS,
     DEBUG_GIVE_MENU_ITEM_POKEMON_SIMPLE,
     DEBUG_GIVE_MENU_ITEM_POKEMON_COMPLEX,
     DEBUG_GIVE_MENU_ITEM_CHEAT,
@@ -197,7 +197,7 @@ static void DebugAction_Vars_SetValue(u8 taskId);
 static void DebugAction_Give_Item(u8 taskId);
 static void DebugAction_Give_Item_SelectId(u8 taskId);
 static void DebugAction_Give_Item_SelectQuantity(u8 taskId);
-static void DebugAction_Give_AllTMs(u8 taskId);
+static void DebugAction_Give_AllItems(u8 taskId);
 static void DebugAction_Give_PokemonSimple(u8 taskId);
 static void DebugAction_Give_PokemonComplex(u8 taskId);
 static void DebugAction_Give_Pokemon_SelectId(u8 taskId);
@@ -277,7 +277,7 @@ static const u8 gDebugText_VariableValueSet[] =      _("Var: {STR_VAR_1}        
 static const u8 gDebugText_Give_GiveItem[] =            _("Give item XXXX");
 static const u8 gDebugText_ItemQuantity[] =             _("Quantity:       \n{STR_VAR_1}    \n\n{STR_VAR_2}");
 static const u8 gDebugText_ItemID[] =                   _("Item Id: {STR_VAR_3}\n{STR_VAR_1}    \n\n{STR_VAR_2}");
-static const u8 gDebugText_Give_AllTMs[] =              _("Give all TMs");
+static const u8 gDebugText_Give_AllItems[] =            _("Give all Items");
 static const u8 gDebugText_Give_GivePokemonSimple[] =   _("Pkm(lvl)");
 static const u8 gDebugText_Give_GivePokemonComplex[] =  _("Pkm(l,s,n,a,IV,mov)");
 static const u8 gDebugText_PokemonID[] =                _("Species: {STR_VAR_3}\n{STR_VAR_1}    \n\n{STR_VAR_2}");
@@ -380,7 +380,7 @@ static const struct ListMenuItem sDebugMenu_Items_Vars[] =
 static const struct ListMenuItem sDebugMenu_Items_Give[] =
 {
     [DEBUG_GIVE_MENU_ITEM_ITEM]             = {gDebugText_Give_GiveItem,            DEBUG_GIVE_MENU_ITEM_ITEM},
-    [DEBUG_MENU_ITEM_GIVE_ALLTMS]           = {gDebugText_Give_AllTMs,              DEBUG_MENU_ITEM_GIVE_ALLTMS},
+    [DEBUG_GIVE_MENU_ITEM_ALLITEMS]         = {gDebugText_Give_AllItems,            DEBUG_GIVE_MENU_ITEM_ALLITEMS},
     [DEBUG_GIVE_MENU_ITEM_POKEMON_SIMPLE]   = {gDebugText_Give_GivePokemonSimple,   DEBUG_GIVE_MENU_ITEM_POKEMON_SIMPLE},
     [DEBUG_GIVE_MENU_ITEM_POKEMON_COMPLEX]  = {gDebugText_Give_GivePokemonComplex,  DEBUG_GIVE_MENU_ITEM_POKEMON_COMPLEX},
     [DEBUG_GIVE_MENU_ITEM_CHEAT]            = {gDebugText_Give_GiveCHEAT,           DEBUG_GIVE_MENU_ITEM_CHEAT},
@@ -435,7 +435,7 @@ static void (*const sDebugMenu_Actions_Vars[])(u8) =
 static void (*const sDebugMenu_Actions_Give[])(u8) =
 {
     [DEBUG_GIVE_MENU_ITEM_ITEM]             = DebugAction_Give_Item,
-    [DEBUG_MENU_ITEM_GIVE_ALLTMS]           = DebugAction_Give_AllTMs,
+    [DEBUG_GIVE_MENU_ITEM_ALLITEMS]           = DebugAction_Give_AllItems,
     [DEBUG_GIVE_MENU_ITEM_POKEMON_SIMPLE]   = DebugAction_Give_PokemonSimple,
     [DEBUG_GIVE_MENU_ITEM_POKEMON_COMPLEX]  = DebugAction_Give_PokemonComplex,
     [DEBUG_GIVE_MENU_ITEM_CHEAT]            = DebugAction_Give_CHEAT,
@@ -1635,14 +1635,13 @@ static void DebugAction_Give_Item_SelectQuantity(u8 taskId)
 }
 
 //TMs
-static void DebugAction_Give_AllTMs(u8 taskId)
+static void DebugAction_Give_AllItems(u8 taskId)
 {
     u16 i;
-    //PlayFanfare(MUS_OBTAIN_TMHM);
     PlaySE(MUS_OBTAIN_ITEM);
-    for (i = ITEM_TM01; i <= ITEM_HM08; i++)
+    for (i = 1; i < ITEMS_COUNT; i++)
         if(!CheckBagHasItem(i, 1))
-            AddBagItem(i, 1);
+            AddBagItem(i, 99);
     Debug_DestroyMenu(taskId);
     EnableBothScriptContexts();
 }
@@ -1697,7 +1696,7 @@ static void DebugAction_Give_PokemonSimple(u8 taskId)
     gTasks[taskId].data[5] = 0;            //Complex?
     FreeMonIconPalettes();                 //Free space for new pallete
     LoadMonIconPalette(gTasks[taskId].data[3]); //Loads pallete for current mon
-    gTasks[taskId].data[6] = CreateMonIcon(gTasks[taskId].data[3], SpriteCB_MonIcon, DEBUG_NUMBER_ICON_X, DEBUG_NUMBER_ICON_Y, 4, 0, TRUE); //Create pokemon sprite
+    gTasks[taskId].data[6] = CreateMonIcon(gTasks[taskId].data[3], SpriteCB_MonIcon, DEBUG_NUMBER_ICON_X, DEBUG_NUMBER_ICON_Y, 4, 0); //Create pokemon sprite
     gSprites[gTasks[taskId].data[6]].oam.priority = 0; //Mon Icon ID
 }
 static void DebugAction_Give_PokemonComplex(u8 taskId)
@@ -1735,7 +1734,7 @@ static void DebugAction_Give_PokemonComplex(u8 taskId)
     gTasks[taskId].data[5] = 1;            //Complex?
     FreeMonIconPalettes();                 //Free space for new palletes
     LoadMonIconPalette(gTasks[taskId].data[3]); //Loads pallete for current mon
-    gTasks[taskId].data[6] = CreateMonIcon(gTasks[taskId].data[3], SpriteCB_MonIcon, DEBUG_NUMBER_ICON_X, DEBUG_NUMBER_ICON_Y, 4, 0, TRUE); //Create pokemon sprite
+    gTasks[taskId].data[6] = CreateMonIcon(gTasks[taskId].data[3], SpriteCB_MonIcon, DEBUG_NUMBER_ICON_X, DEBUG_NUMBER_ICON_Y, 4, 0); //Create pokemon sprite
     gSprites[gTasks[taskId].data[6]].oam.priority = 0; //Mon Icon ID
     gTasks[taskId].data[7] = 0;             //iterator
 }
@@ -1783,7 +1782,7 @@ static void DebugAction_Give_Pokemon_SelectId(u8 taskId)
         FreeAndDestroyMonIconSprite(&gSprites[gTasks[taskId].data[6]]);
         FreeMonIconPalettes(); //Free space for new pallete
         LoadMonIconPalette(gTasks[taskId].data[3]); //Loads pallete for current mon
-        gTasks[taskId].data[6] = CreateMonIcon(gTasks[taskId].data[3], SpriteCB_MonIcon, DEBUG_NUMBER_ICON_X, DEBUG_NUMBER_ICON_Y, 4, 0, TRUE); //Create new pokemon sprite
+        gTasks[taskId].data[6] = CreateMonIcon(gTasks[taskId].data[3], SpriteCB_MonIcon, DEBUG_NUMBER_ICON_X, DEBUG_NUMBER_ICON_Y, 4, 0); //Create new pokemon sprite
         gSprites[gTasks[taskId].data[6]].oam.priority = 0;
     }
 

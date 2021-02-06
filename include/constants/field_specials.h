@@ -42,14 +42,14 @@
 #define SCROLL_MULTI_BF_MOVE_TUTOR_OFFENSE_2              12
 #define SCROLL_MULTI_BF_MOVE_TUTOR_STATUS                 13
 #define SCROLL_MULTI_BF_MOVE_TUTOR_SUPPORT                14
-#define SCROLL_MULTI_BF_MOVE_TUTOR_SWSH_IOA               15
+#define SCROLL_MULTI_BF_MOVE_TUTOR_IOA                    15
 #define SCROLL_MULTI_SS_TIDAL_DESTINATION                 16
 #define SCROLL_MULTI_BATTLE_TENT_RULES                    17
 #define SCROLL_MULTI_APRICORN_WORKSHOP_VENDOR             18
 #define SCROLL_MULTI_DEVON_RESEARCHER_FOSSILS             19
 
 #define MAX_SCROLL_MULTI_ON_SCREEN 6
-#define MAX_SCROLL_MULTI_LENGTH 20
+#define MAX_SCROLL_MULTI_LENGTH 24
 
 // Dept Store Floor Numbers
 #define DEPT_STORE_FLOORNUM_B4F       0

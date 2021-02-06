@@ -81,7 +81,7 @@ EventScript_PkmnCenterNurse_ReturnPkmn:: @ 82719E2
     @goto_if_eq EventScript_PkmnCenterNurse_ReturnPkmn2
     @message gText_RestoredPkmnToFullHealth
     @waitmessage
-    applymovement VAR_0x800B, EventScript_PkmnCenterNurse_Bow
+    applymovement VAR_0x800B, Movement_PkmnCenterNurse_Bow
     waitmovement 0
     @message gText_WeHopeToSeeYouAgain
     call EventScript_PkmnCenterNurse_PlayerTurn
@@ -90,7 +90,7 @@ EventScript_PkmnCenterNurse_ReturnPkmn:: @ 82719E2
 EventScript_PkmnCenterNurse_ReturnPkmn2:: @ 8271A03
     message gText_ThankYouForWaiting
     waitmessage
-    applymovement VAR_0x800B, EventScript_PkmnCenterNurse_Bow
+    applymovement VAR_0x800B, Movement_PkmnCenterNurse_Bow
     waitmovement 0
     message gText_WeHopeToSeeYouAgain2
     return
@@ -101,7 +101,7 @@ EventScript_PkmnCenterNurse_PlayerWaitingInUnionRoom:: @ 8271A19
     setflag FLAG_NURSE_UNION_ROOM_REMINDER
     message CableClub_Text_PlayerIsWaiting
     waitmessage
-    applymovement VAR_0x800B, EventScript_PkmnCenterNurse_Bow
+    applymovement VAR_0x800B, Movement_PkmnCenterNurse_Bow
     waitmovement 0
     message gText_WeHopeToSeeYouAgain
     return
@@ -117,7 +117,7 @@ EventScript_PkmnCenterNurse_CheckPokerus:: @ 8271A43
 EventScript_PkmnCenterNurse_ExplainPokerus:: @ 8271A5F
     msgbox gText_PokerusExplanation, MSGBOX_DEFAULT
     setflag FLAG_POKERUS_EXPLAINED
-    applymovement VAR_0x800B, EventScript_PkmnCenterNurse_Bow
+    applymovement VAR_0x800B, Movement_PkmnCenterNurse_Bow
     waitmovement 0
     call EventScript_PkmnCenterNurse_PlayerTurn
     return
@@ -154,7 +154,7 @@ EventScript_PkmnCenterNurse_PlayerTurn::
     release
     end
 
-EventScript_PkmnCenterNurse_Bow: @ 8271AD0
+Movement_PkmnCenterNurse_Bow: @ 8271AD0
     nurse_joy_bow
     delay_4
     step_end

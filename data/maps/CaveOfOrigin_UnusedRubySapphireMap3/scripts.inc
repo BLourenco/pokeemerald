@@ -3,6 +3,6 @@ CaveOfOrigin_UnusedRubySapphireMap3_MapScripts:: @ 8235798
 	.byte 0
 
 CaveOfOrigin_UnusedRubySapphireMap3_OnTransition: @ 823579E
-	call_if_set FLAG_PENDING_DAYCARE_FRONTIER_EGG, CaveOfOrigin_EventScript_SetTempVars
+	call_if_set FLAG_PENDING_DAYCARE_FRONTIER_EGG, CaveOfOrigin_EventScript_DisableTriggers
 	end
 

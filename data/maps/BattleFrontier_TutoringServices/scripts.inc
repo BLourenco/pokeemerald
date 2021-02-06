@@ -1,4 +1,4 @@
-BattleFrontier_TutoringServices_MapScripts::
+BattleFrontier_TutoringServices_MapScripts:: @ 8265254
 	.byte 0
 
 @ FREE TUTOR SCRIPTS
@@ -46,7 +46,8 @@ BattleFrontier_TutoringServices_EventScript_ChooseTutorMove_Free:: @ 8265284
 	case 14, BattleFrontier_TutoringServices_EventScript_FuryCutter
 	case 15, BattleFrontier_TutoringServices_EventScript_Metronome
 	case 16, BattleFrontier_TutoringServices_EventScript_Mimic
-	case 17, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	case 17, BattleFrontier_TutoringServices_EventScript_PayDay
+	case 18, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	case MULTI_B_PRESSED, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	end
 
@@ -77,7 +78,8 @@ BattleFrontier_TutoringServices_EventScript_ChooseNewTutorMove_Free:: @ 826532F
 	case 14, BattleFrontier_TutoringServices_EventScript_FuryCutter
 	case 15, BattleFrontier_TutoringServices_EventScript_Metronome
 	case 16, BattleFrontier_TutoringServices_EventScript_Mimic
-	case 17, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	case 17, BattleFrontier_TutoringServices_EventScript_PayDay
+	case 18, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	case MULTI_B_PRESSED, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	end
 
@@ -116,10 +118,11 @@ BattleFrontier_TutoringServices_EventScript_ChooseTutorMove_Special:: @ 8265474
 	case 4, BattleFrontier_TutoringServices_EventScript_BlastBurn
 	case 5, BattleFrontier_TutoringServices_EventScript_HydroCannon
 	case 6, BattleFrontier_TutoringServices_EventScript_DracoMeteor
-	case 7, BattleFrontier_TutoringServices_EventScript_RelicSong
-	case 8, BattleFrontier_TutoringServices_EventScript_SecretSword
-	case 9, BattleFrontier_TutoringServices_EventScript_DragonAscent
-	case 10, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	case 7, BattleFrontier_TutoringServices_EventScript_SteelBeam
+	case 8, BattleFrontier_TutoringServices_EventScript_RelicSong
+	case 9, BattleFrontier_TutoringServices_EventScript_SecretSword
+	case 10, BattleFrontier_TutoringServices_EventScript_DragonAscent
+	case 11, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	case MULTI_B_PRESSED, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	end
 
@@ -140,10 +143,11 @@ BattleFrontier_TutoringServices_EventScript_ChooseNewTutorMove_Special:: @ 82655
 	case 4, BattleFrontier_TutoringServices_EventScript_BlastBurn
 	case 5, BattleFrontier_TutoringServices_EventScript_HydroCannon
 	case 6, BattleFrontier_TutoringServices_EventScript_DracoMeteor
-	case 7, BattleFrontier_TutoringServices_EventScript_RelicSong
-	case 8, BattleFrontier_TutoringServices_EventScript_SecretSword
-	case 9, BattleFrontier_TutoringServices_EventScript_DragonAscent
-	case 10, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	case 7, BattleFrontier_TutoringServices_EventScript_SteelBeam
+	case 8, BattleFrontier_TutoringServices_EventScript_RelicSong
+	case 9, BattleFrontier_TutoringServices_EventScript_SecretSword
+	case 10, BattleFrontier_TutoringServices_EventScript_DragonAscent
+	case 11, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	case MULTI_B_PRESSED, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	end
 
@@ -183,17 +187,22 @@ BattleFrontier_TutoringServices_EventScript_ChooseTutorMove_Offense1:: @ 8265474
 	case 5, BattleFrontier_TutoringServices_EventScript_FirePunch
 	case 6, BattleFrontier_TutoringServices_EventScript_IcePunch
 	case 7, BattleFrontier_TutoringServices_EventScript_DrainPunch
-	case 8, BattleFrontier_TutoringServices_EventScript_HeatWave
-	case 9, BattleFrontier_TutoringServices_EventScript_EarthPower
-	case 10, BattleFrontier_TutoringServices_EventScript_KnockOff
-	case 11, BattleFrontier_TutoringServices_EventScript_SuperFang
-	case 12, BattleFrontier_TutoringServices_EventScript_DualChop
-	case 13, BattleFrontier_TutoringServices_EventScript_ThroatChop
-	case 14, BattleFrontier_TutoringServices_EventScript_SkyDrop
-	case 15, BattleFrontier_TutoringServices_EventScript_Endeavor
-	case 16, BattleFrontier_TutoringServices_EventScript_Liquidation
-	case 17, BattleFrontier_TutoringServices_EventScript_SludgeWave
-	case 18, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	case 8, BattleFrontier_TutoringServices_EventScript_TriAttack
+	case 9, BattleFrontier_TutoringServices_EventScript_Avalanche
+	case 10, BattleFrontier_TutoringServices_EventScript_DarkestLariat
+	case 11, BattleFrontier_TutoringServices_EventScript_HeatWave
+	case 12, BattleFrontier_TutoringServices_EventScript_EarthPower
+	case 13, BattleFrontier_TutoringServices_EventScript_KnockOff
+	case 14, BattleFrontier_TutoringServices_EventScript_SuperFang
+	case 15, BattleFrontier_TutoringServices_EventScript_DualChop
+	case 16, BattleFrontier_TutoringServices_EventScript_ThroatChop
+	case 17, BattleFrontier_TutoringServices_EventScript_HighHorsepower
+	case 18, BattleFrontier_TutoringServices_EventScript_SkyDrop
+	case 19, BattleFrontier_TutoringServices_EventScript_Endeavor
+	case 20, BattleFrontier_TutoringServices_EventScript_Liquidation
+	case 21, BattleFrontier_TutoringServices_EventScript_SludgeWave
+	case 22, BattleFrontier_TutoringServices_EventScript_Megahorn
+	case 23, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	case MULTI_B_PRESSED, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	end
 
@@ -215,17 +224,22 @@ BattleFrontier_TutoringServices_EventScript_ChooseNewTutorMove_Offense1:: @ 8265
 	case 5, BattleFrontier_TutoringServices_EventScript_FirePunch
 	case 6, BattleFrontier_TutoringServices_EventScript_IcePunch
 	case 7, BattleFrontier_TutoringServices_EventScript_DrainPunch
-	case 8, BattleFrontier_TutoringServices_EventScript_HeatWave
-	case 9, BattleFrontier_TutoringServices_EventScript_EarthPower
-	case 10, BattleFrontier_TutoringServices_EventScript_KnockOff
-	case 11, BattleFrontier_TutoringServices_EventScript_SuperFang
-	case 12, BattleFrontier_TutoringServices_EventScript_DualChop
-	case 13, BattleFrontier_TutoringServices_EventScript_ThroatChop
-	case 14, BattleFrontier_TutoringServices_EventScript_SkyDrop
-	case 15, BattleFrontier_TutoringServices_EventScript_Endeavor
-	case 16, BattleFrontier_TutoringServices_EventScript_Liquidation
-	case 17, BattleFrontier_TutoringServices_EventScript_SludgeWave
-	case 18, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	case 8, BattleFrontier_TutoringServices_EventScript_TriAttack
+	case 9, BattleFrontier_TutoringServices_EventScript_Avalanche
+	case 10, BattleFrontier_TutoringServices_EventScript_DarkestLariat
+	case 11, BattleFrontier_TutoringServices_EventScript_HeatWave
+	case 12, BattleFrontier_TutoringServices_EventScript_EarthPower
+	case 13, BattleFrontier_TutoringServices_EventScript_KnockOff
+	case 14, BattleFrontier_TutoringServices_EventScript_SuperFang
+	case 15, BattleFrontier_TutoringServices_EventScript_DualChop
+	case 16, BattleFrontier_TutoringServices_EventScript_ThroatChop
+	case 17, BattleFrontier_TutoringServices_EventScript_HighHorsepower
+	case 18, BattleFrontier_TutoringServices_EventScript_SkyDrop
+	case 19, BattleFrontier_TutoringServices_EventScript_Endeavor
+	case 20, BattleFrontier_TutoringServices_EventScript_Liquidation
+	case 21, BattleFrontier_TutoringServices_EventScript_SludgeWave
+	case 22, BattleFrontier_TutoringServices_EventScript_Megahorn
+	case 23, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	case MULTI_B_PRESSED, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	end
 
@@ -259,23 +273,27 @@ BattleFrontier_TutoringServices_EventScript_ChooseTutorMove_Offense2:: @ 8265474
 	switch VAR_RESULT
 	case 0, BattleFrontier_TutoringServices_EventScript_BugBite
 	case 1, BattleFrontier_TutoringServices_EventScript_Fling
-	case 2, BattleFrontier_TutoringServices_EventScript_DrillRun
-	case 3, BattleFrontier_TutoringServices_EventScript_IronHead
-	case 4, BattleFrontier_TutoringServices_EventScript_ZenHeadbutt
-	case 5, BattleFrontier_TutoringServices_EventScript_SignalBeam
-	case 6, BattleFrontier_TutoringServices_EventScript_BrutalSwing
-	case 7, BattleFrontier_TutoringServices_EventScript_HyperVoice
-	case 8, BattleFrontier_TutoringServices_EventScript_AquaTail
-	case 9, BattleFrontier_TutoringServices_EventScript_DragonPulse
-	case 10, BattleFrontier_TutoringServices_EventScript_SeedBomb
-	case 11, BattleFrontier_TutoringServices_EventScript_LastResort
-	case 12, BattleFrontier_TutoringServices_EventScript_FoulPlay
-	case 13, BattleFrontier_TutoringServices_EventScript_StompingTantrum
-	case 14, BattleFrontier_TutoringServices_EventScript_Outrage
-	case 15, BattleFrontier_TutoringServices_EventScript_Superpower
-	case 16, BattleFrontier_TutoringServices_EventScript_GunkShot
-	case 17, BattleFrontier_TutoringServices_EventScript_SkyAttack
-	case 18, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	case 2, BattleFrontier_TutoringServices_EventScript_Reversal
+	case 3, BattleFrontier_TutoringServices_EventScript_DrillRun
+	case 4, BattleFrontier_TutoringServices_EventScript_IronHead
+	case 5, BattleFrontier_TutoringServices_EventScript_ZenHeadbutt
+	case 6, BattleFrontier_TutoringServices_EventScript_SignalBeam
+	case 7, BattleFrontier_TutoringServices_EventScript_BrutalSwing
+	case 8, BattleFrontier_TutoringServices_EventScript_HyperVoice
+	case 9, BattleFrontier_TutoringServices_EventScript_StoredPower
+	case 10, BattleFrontier_TutoringServices_EventScript_AquaTail
+	case 11, BattleFrontier_TutoringServices_EventScript_SeedBomb
+	case 12, BattleFrontier_TutoringServices_EventScript_LastResort
+	case 13, BattleFrontier_TutoringServices_EventScript_FoulPlay
+	case 14, BattleFrontier_TutoringServices_EventScript_StompingTantrum
+	case 15, BattleFrontier_TutoringServices_EventScript_PollenPuff
+	case 16, BattleFrontier_TutoringServices_EventScript_PsychicFangs
+	case 17, BattleFrontier_TutoringServices_EventScript_BodyPress
+	case 18, BattleFrontier_TutoringServices_EventScript_Outrage
+	case 19, BattleFrontier_TutoringServices_EventScript_Superpower
+	case 20, BattleFrontier_TutoringServices_EventScript_GunkShot
+	case 21, BattleFrontier_TutoringServices_EventScript_SkyAttack
+	case 22, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	case MULTI_B_PRESSED, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	end
 
@@ -291,23 +309,27 @@ BattleFrontier_TutoringServices_EventScript_ChooseNewTutorMove_Offense2:: @ 8265
 	switch VAR_RESULT
 	case 0, BattleFrontier_TutoringServices_EventScript_BugBite
 	case 1, BattleFrontier_TutoringServices_EventScript_Fling
-	case 2, BattleFrontier_TutoringServices_EventScript_DrillRun
-	case 3, BattleFrontier_TutoringServices_EventScript_IronHead
-	case 4, BattleFrontier_TutoringServices_EventScript_ZenHeadbutt
-	case 5, BattleFrontier_TutoringServices_EventScript_SignalBeam
-	case 6, BattleFrontier_TutoringServices_EventScript_BrutalSwing
-	case 7, BattleFrontier_TutoringServices_EventScript_HyperVoice
-	case 8, BattleFrontier_TutoringServices_EventScript_AquaTail
-	case 9, BattleFrontier_TutoringServices_EventScript_DragonPulse
-	case 10, BattleFrontier_TutoringServices_EventScript_SeedBomb
-	case 11, BattleFrontier_TutoringServices_EventScript_LastResort
-	case 12, BattleFrontier_TutoringServices_EventScript_FoulPlay
-	case 13, BattleFrontier_TutoringServices_EventScript_StompingTantrum
-	case 14, BattleFrontier_TutoringServices_EventScript_Outrage
-	case 15, BattleFrontier_TutoringServices_EventScript_Superpower
-	case 16, BattleFrontier_TutoringServices_EventScript_GunkShot
-	case 17, BattleFrontier_TutoringServices_EventScript_SkyAttack
-	case 18, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	case 2, BattleFrontier_TutoringServices_EventScript_Reversal
+	case 3, BattleFrontier_TutoringServices_EventScript_DrillRun
+	case 4, BattleFrontier_TutoringServices_EventScript_IronHead
+	case 5, BattleFrontier_TutoringServices_EventScript_ZenHeadbutt
+	case 6, BattleFrontier_TutoringServices_EventScript_SignalBeam
+	case 7, BattleFrontier_TutoringServices_EventScript_BrutalSwing
+	case 8, BattleFrontier_TutoringServices_EventScript_HyperVoice
+	case 9, BattleFrontier_TutoringServices_EventScript_StoredPower
+	case 10, BattleFrontier_TutoringServices_EventScript_AquaTail
+	case 11, BattleFrontier_TutoringServices_EventScript_SeedBomb
+	case 12, BattleFrontier_TutoringServices_EventScript_LastResort
+	case 13, BattleFrontier_TutoringServices_EventScript_FoulPlay
+	case 14, BattleFrontier_TutoringServices_EventScript_StompingTantrum
+	case 15, BattleFrontier_TutoringServices_EventScript_PollenPuff
+	case 16, BattleFrontier_TutoringServices_EventScript_PsychicFangs
+	case 17, BattleFrontier_TutoringServices_EventScript_BodyPress
+	case 18, BattleFrontier_TutoringServices_EventScript_Outrage
+	case 19, BattleFrontier_TutoringServices_EventScript_Superpower
+	case 20, BattleFrontier_TutoringServices_EventScript_GunkShot
+	case 21, BattleFrontier_TutoringServices_EventScript_SkyAttack
+	case 22, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	case MULTI_B_PRESSED, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	end
 
@@ -353,9 +375,10 @@ BattleFrontier_TutoringServices_EventScript_ChooseTutorMove_Status:: @ 8265474
 	case 11, BattleFrontier_TutoringServices_EventScript_Embargo
 	case 12, BattleFrontier_TutoringServices_EventScript_MagicCoat
 	case 13, BattleFrontier_TutoringServices_EventScript_Telekinesis
-	case 14, BattleFrontier_TutoringServices_EventScript_Electroweb
-	case 15, BattleFrontier_TutoringServices_EventScript_IcyWind
-	case 16, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	case 14, BattleFrontier_TutoringServices_EventScript_Charm
+	case 15, BattleFrontier_TutoringServices_EventScript_Electroweb
+	case 16, BattleFrontier_TutoringServices_EventScript_IcyWind
+	case 17, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	case MULTI_B_PRESSED, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	end
 
@@ -383,9 +406,10 @@ BattleFrontier_TutoringServices_EventScript_ChooseNewTutorMove_Status:: @ 826551
 	case 11, BattleFrontier_TutoringServices_EventScript_Embargo
 	case 12, BattleFrontier_TutoringServices_EventScript_MagicCoat
 	case 13, BattleFrontier_TutoringServices_EventScript_Telekinesis
-	case 14, BattleFrontier_TutoringServices_EventScript_Electroweb
-	case 15, BattleFrontier_TutoringServices_EventScript_IcyWind
-	case 16, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	case 14, BattleFrontier_TutoringServices_EventScript_Charm
+	case 15, BattleFrontier_TutoringServices_EventScript_Electroweb
+	case 16, BattleFrontier_TutoringServices_EventScript_IcyWind
+	case 17, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	case MULTI_B_PRESSED, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	end
 
@@ -432,8 +456,11 @@ BattleFrontier_TutoringServices_EventScript_ChooseTutorMove_Support:: @ 8265474
 	case 12, BattleFrontier_TutoringServices_EventScript_Defog
 	case 13, BattleFrontier_TutoringServices_EventScript_AllySwitch
 	case 14, BattleFrontier_TutoringServices_EventScript_Tailwind
-	case 15, BattleFrontier_TutoringServices_EventScript_StealthRock
-	case 16, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	case 15, BattleFrontier_TutoringServices_EventScript_ToxicSpikes
+	case 16, BattleFrontier_TutoringServices_EventScript_StealthRock
+	case 17, BattleFrontier_TutoringServices_EventScript_DragonDance
+	case 18, BattleFrontier_TutoringServices_EventScript_NastyPlot
+	case 19, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	case MULTI_B_PRESSED, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	end
 
@@ -462,11 +489,93 @@ BattleFrontier_TutoringServices_EventScript_ChooseNewTutorMove_Support:: @ 82655
 	case 12, BattleFrontier_TutoringServices_EventScript_Defog
 	case 13, BattleFrontier_TutoringServices_EventScript_AllySwitch
 	case 14, BattleFrontier_TutoringServices_EventScript_Tailwind
-	case 15, BattleFrontier_TutoringServices_EventScript_StealthRock
-	case 16, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	case 15, BattleFrontier_TutoringServices_EventScript_ToxicSpikes
+	case 16, BattleFrontier_TutoringServices_EventScript_StealthRock
+	case 17, BattleFrontier_TutoringServices_EventScript_DragonDance
+	case 18, BattleFrontier_TutoringServices_EventScript_NastyPlot
+	case 19, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	case MULTI_B_PRESSED, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
 	end
 
+BattleFrontier_TutoringServices_EventScript_MoveTutor_IoA:: @ 8265445
+	lock
+	faceplayer
+	setvar VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_IOA
+	goto_if_set FLAG_MET_FRONTIER_MOVE_TUTOR_IOA, BattleFrontier_TutoringServices_EventScript_AlreadyMetTutor_IoA
+	msgbox BattleFrontier_TutoringServices_Text_TutorIntro_IoA, MSGBOX_DEFAULT
+	setflag FLAG_MET_FRONTIER_MOVE_TUTOR_IOA
+	goto BattleFrontier_TutoringServices_EventScript_ChooseTutorMove_IoA
+	end
+
+BattleFrontier_TutoringServices_EventScript_AlreadyMetTutor_IoA:: @ 8265466
+	msgbox BattleFrontier_TutoringServices_Text_TutorWelcomeBack_IoA, MSGBOX_DEFAULT
+	goto BattleFrontier_TutoringServices_EventScript_ChooseTutorMove_IoA
+	end
+
+BattleFrontier_TutoringServices_EventScript_ChooseTutorMove_IoA:: @ 8265474
+	message BattleFrontier_TutoringServices_Text_TeachWhichMove
+	waitmessage
+	special ShowBattlePointsWindow
+	setvar VAR_TEMP_E, 6
+	setvar VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_IOA
+	setvar VAR_0x8006, 0
+	special ShowScrollableMultichoice
+	waitstate
+	copyvar VAR_TEMP_D, VAR_RESULT
+	switch VAR_RESULT
+	case 0, BattleFrontier_TutoringServices_EventScript_TerrainPulse
+	case 1, BattleFrontier_TutoringServices_EventScript_BurningJealousy
+	case 2, BattleFrontier_TutoringServices_EventScript_FlipTurn
+	case 3, BattleFrontier_TutoringServices_EventScript_GrassyGlide
+	case 4, BattleFrontier_TutoringServices_EventScript_RisingVoltage
+	case 5, BattleFrontier_TutoringServices_EventScript_Coaching
+	case 6, BattleFrontier_TutoringServices_EventScript_ScorchingSands
+	case 7, BattleFrontier_TutoringServices_EventScript_DualWingbeat
+	case 8, BattleFrontier_TutoringServices_EventScript_MeteorBeam
+	case 9, BattleFrontier_TutoringServices_EventScript_SkitterSmack
+	case 10, BattleFrontier_TutoringServices_EventScript_TripleAxel
+	case 11, BattleFrontier_TutoringServices_EventScript_CorrosiveGas
+	case 12, BattleFrontier_TutoringServices_EventScript_ExpandingForce
+	case 13, BattleFrontier_TutoringServices_EventScript_Poltergeist
+	case 14, BattleFrontier_TutoringServices_EventScript_ScaleShot
+	case 15, BattleFrontier_TutoringServices_EventScript_LashOut
+	case 16, BattleFrontier_TutoringServices_EventScript_SteelRoller
+	case 17, BattleFrontier_TutoringServices_EventScript_MistyExplosion
+	case 18, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	case MULTI_B_PRESSED, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	end
+
+BattleFrontier_TutoringServices_EventScript_ChooseNewTutorMove_IoA:: @ 826551F
+	message BattleFrontier_TutoringServices_Text_TeachWhichMove
+	waitmessage
+	setvar VAR_TEMP_E, 6
+	setvar VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_IOA
+	setvar VAR_0x8006, 1
+	special ShowScrollableMultichoice
+	waitstate
+	copyvar VAR_TEMP_D, VAR_RESULT
+	switch VAR_RESULT
+	case 0, BattleFrontier_TutoringServices_EventScript_TerrainPulse
+	case 1, BattleFrontier_TutoringServices_EventScript_BurningJealousy
+	case 2, BattleFrontier_TutoringServices_EventScript_FlipTurn
+	case 3, BattleFrontier_TutoringServices_EventScript_GrassyGlide
+	case 4, BattleFrontier_TutoringServices_EventScript_RisingVoltage
+	case 5, BattleFrontier_TutoringServices_EventScript_Coaching
+	case 6, BattleFrontier_TutoringServices_EventScript_ScorchingSands
+	case 7, BattleFrontier_TutoringServices_EventScript_DualWingbeat
+	case 8, BattleFrontier_TutoringServices_EventScript_MeteorBeam
+	case 9, BattleFrontier_TutoringServices_EventScript_SkitterSmack
+	case 10, BattleFrontier_TutoringServices_EventScript_TripleAxel
+	case 11, BattleFrontier_TutoringServices_EventScript_CorrosiveGas
+	case 12, BattleFrontier_TutoringServices_EventScript_ExpandingForce
+	case 13, BattleFrontier_TutoringServices_EventScript_Poltergeist
+	case 14, BattleFrontier_TutoringServices_EventScript_ScaleShot
+	case 15, BattleFrontier_TutoringServices_EventScript_LashOut
+	case 16, BattleFrontier_TutoringServices_EventScript_SteelRoller
+	case 17, BattleFrontier_TutoringServices_EventScript_MistyExplosion
+	case 18, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	case MULTI_B_PRESSED, BattleFrontier_TutoringServices_EventScript_ExitTutorMoveSelect
+	end
 
 @ SHARED TUTOR SCRIPTS
 
@@ -529,7 +638,9 @@ BattleFrontier_TutoringServices_EventScript_ChooseNewMove:: @ 82656CA
 	goto_if_eq BattleFrontier_TutoringServices_EventScript_ChooseNewTutorMove_Offense2
 	compare VAR_TEMP_E, 4
 	goto_if_eq BattleFrontier_TutoringServices_EventScript_ChooseNewTutorMove_Status
-	goto BattleFrontier_TutoringServices_EventScript_ChooseNewTutorMove_Support
+	compare VAR_TEMP_E, 5
+	goto_if_eq BattleFrontier_TutoringServices_EventScript_ChooseNewTutorMove_Support
+	goto BattleFrontier_TutoringServices_EventScript_ChooseNewTutorMove_IoA
 	end
 
 BattleFrontier_TutoringServices_EventScript_ChooseMove:: @ 82656CA
@@ -654,6 +765,21 @@ BattleFrontier_TutoringServices_Text_TutorWelcomeBack_Support:
 	.string "Do you wish to teach your Pokémon\n"
 	.string "some supportive moves?$"
 
+
+BattleFrontier_TutoringServices_Text_TutorIntro_IoA:
+	.string "Hey there!\p"
+	.string "I've got some special moves that\n"
+	.string "I picked up during my travels\l"
+	.string "in the far away region of Galar.\p"
+	.string "I promise you have not seen these\n"
+	.string "moves before anywhere else in Hoenn.\p"
+	.string "Shall I teach your Pokemon a \n"
+	.string "special move from Galar?$"
+
+BattleFrontier_TutoringServices_Text_TutorWelcomeBack_IoA:
+	.string "Shall I teach your Pokemon a \n"
+	.string "special move from Galar?$"
+
 @ MOVE PRICES AND SCRIPTS
 
 BattleFrontier_TutoringServices_EventScript_DefenseCurl::
@@ -741,6 +867,11 @@ BattleFrontier_TutoringServices_EventScript_Mimic::
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
 
+BattleFrontier_TutoringServices_EventScript_PayDay::
+    setvar VAR_0x8008, 0
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
 BattleFrontier_TutoringServices_EventScript_GrassPledge::
     setvar VAR_0x8008, 4
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
@@ -772,6 +903,11 @@ BattleFrontier_TutoringServices_EventScript_HydroCannon::
     end
 
 BattleFrontier_TutoringServices_EventScript_DracoMeteor::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_SteelBeam::
     setvar VAR_0x8008, 12
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
@@ -831,6 +967,21 @@ BattleFrontier_TutoringServices_EventScript_DrainPunch::
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
 
+BattleFrontier_TutoringServices_EventScript_TriAttack::
+    setvar VAR_0x8008, 8
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_Avalanche::
+    setvar VAR_0x8008, 8
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_DarkestLariat::
+    setvar VAR_0x8008, 8
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
 BattleFrontier_TutoringServices_EventScript_HeatWave::
     setvar VAR_0x8008, 12
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
@@ -861,6 +1012,11 @@ BattleFrontier_TutoringServices_EventScript_ThroatChop::
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
 
+BattleFrontier_TutoringServices_EventScript_HighHorsepower::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
 BattleFrontier_TutoringServices_EventScript_SkyDrop::
     setvar VAR_0x8008, 16
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
@@ -881,12 +1037,22 @@ BattleFrontier_TutoringServices_EventScript_SludgeWave::
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
 
+BattleFrontier_TutoringServices_EventScript_Megahorn::
+    setvar VAR_0x8008, 16
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
 BattleFrontier_TutoringServices_EventScript_BugBite::
     setvar VAR_0x8008, 4
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
 
 BattleFrontier_TutoringServices_EventScript_Fling::
+    setvar VAR_0x8008, 4
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_Reversal::
     setvar VAR_0x8008, 4
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
@@ -921,12 +1087,12 @@ BattleFrontier_TutoringServices_EventScript_HyperVoice::
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
 
-BattleFrontier_TutoringServices_EventScript_AquaTail::
-    setvar VAR_0x8008, 12
+BattleFrontier_TutoringServices_EventScript_StoredPower::
+    setvar VAR_0x8008, 8
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
 
-BattleFrontier_TutoringServices_EventScript_DragonPulse::
+BattleFrontier_TutoringServices_EventScript_AquaTail::
     setvar VAR_0x8008, 12
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
@@ -947,6 +1113,21 @@ BattleFrontier_TutoringServices_EventScript_FoulPlay::
     end
 
 BattleFrontier_TutoringServices_EventScript_StompingTantrum::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_PollenPuff::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_PsychicFangs::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_BodyPress::
     setvar VAR_0x8008, 12
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
@@ -1041,6 +1222,11 @@ BattleFrontier_TutoringServices_EventScript_Telekinesis::
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
 
+BattleFrontier_TutoringServices_EventScript_Charm::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
 BattleFrontier_TutoringServices_EventScript_Electroweb::
     setvar VAR_0x8008, 12
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
@@ -1117,11 +1303,16 @@ BattleFrontier_TutoringServices_EventScript_Defog::
     end
 
 BattleFrontier_TutoringServices_EventScript_AllySwitch::
-    setvar VAR_0x8008, 8
+    setvar VAR_0x8008, 12
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
 
 BattleFrontier_TutoringServices_EventScript_Tailwind::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_ToxicSpikes::
     setvar VAR_0x8008, 12
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
@@ -1131,12 +1322,113 @@ BattleFrontier_TutoringServices_EventScript_StealthRock::
     goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
     end
 
+BattleFrontier_TutoringServices_EventScript_DragonDance::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_NastyPlot::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_TerrainPulse::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_BurningJealousy::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_FlipTurn::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_GrassyGlide::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_RisingVoltage::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_Coaching::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_ScorchingSands::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_DualWingbeat::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_MeteorBeam::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_SkitterSmack::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_TripleAxel::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_CorrosiveGas::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_ExpandingForce::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_Poltergeist::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_ScaleShot::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_LashOut::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_SteelRoller::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+BattleFrontier_TutoringServices_EventScript_MistyExplosion::
+    setvar VAR_0x8008, 12
+    goto BattleFrontier_TutoringServices_EventScript_ConfirmMoveSelection
+    end
+
+
 @ MOVE DESCRIPTIONS
 
 BattleFrontier_TutoringServices_Text_DefenseCurlDesc::
 	.string "Curls up to con-\n"
 	.string "ceal weak spots\n"
-	.string "and raise DEFENSE.$"
+	.string "and raise Defense.$"
 
 BattleFrontier_TutoringServices_Text_SoftboiledDesc:: @ 8265E30
 	.string "Recovers up to\n"
@@ -1146,7 +1438,7 @@ BattleFrontier_TutoringServices_Text_SoftboiledDesc:: @ 8265E30
 BattleFrontier_TutoringServices_Text_MudSlapDesc:: @ 8266070
 	.string "Hurls mud in the\n"
 	.string "foe's face to re-\n"
-	.string "duce its accuracy.$"
+	.string "duce its Accuracy.$"
 
 BattleFrontier_TutoringServices_Text_SwiftDesc:: @ 82660A6
 	.string "Sprays star-\n"
@@ -1218,6 +1510,11 @@ BattleFrontier_TutoringServices_Text_MimicDesc::
 	.string "used by the foe\n"
 	.string "for the battle.$"
 
+BattleFrontier_TutoringServices_Text_PayDayDesc::
+	.string "Throws coins at\n"
+	.string "the foe. Money is\n"
+	.string "recovered after.$"
+
 BattleFrontier_TutoringServices_Text_GrassPledgeDesc::
 	.string "Combos with other\n"
 	.string "Pledges for extra\n"
@@ -1248,6 +1545,16 @@ BattleFrontier_TutoringServices_Text_HydroCannonDesc::
 	.string "a watery blast.\n"
 	.string "Must recharge.$"
 
+BattleFrontier_TutoringServices_Text_DracoMeteorDesc::
+	.string "Casts comets onto\n"
+	.string "the foe. Harshly\n"
+	.string "drops Sp. Atk.$"
+
+BattleFrontier_TutoringServices_Text_SteelBeamDesc::
+	.string "Fires a beam of\n"
+	.string "steel at the foe.\n"
+	.string "Hurts the user.$"
+
 BattleFrontier_TutoringServices_Text_RelicSongDesc::
 	.string "The user sings an\n"
 	.string "ancient song. May\n"
@@ -1258,60 +1565,30 @@ BattleFrontier_TutoringServices_Text_SecretSwordDesc::
 	.string "its horn. Deals\n"
 	.string "Physical damage.$"
 
-BattleFrontier_TutoringServices_Text_DracoMeteorDesc::
-	.string "Casts comets onto\n"
-	.string "the foe. Harshly\n"
-	.string "drops Sp. Atk.$"
-
 BattleFrontier_TutoringServices_Text_DragonAscentDesc::
 	.string "Soars upward, then\n"
 	.string "hits at high speed.\n"
 	.string "Lowers defenses.$"
 
-BattleFrontier_TutoringServices_Text_BindDesc::
-	.string "Squeezes the foe\n"
-	.string "for 2 to 5 turns,\n"
-	.string "trapping them.$"
+BattleFrontier_TutoringServices_Text_UproarDesc::
+	.string "Causes an uproar\n"
+	.string "for 2 to 5 turns.\n"
+	.string "Prevents sleeping.$"
 
 BattleFrontier_TutoringServices_Text_SnoreDesc:: @ 826603E
 	.string "A loud attack\n"
 	.string "that can be used\n"
 	.string "only while asleep.$"
 
-BattleFrontier_TutoringServices_Text_HoneClawsDesc::
-	.string "Hones your claws\n"
-	.string "to raise Attack\n"
-	.string "and Accuracy.$"
-
-BattleFrontier_TutoringServices_Text_InfestationDesc::
-	.string "Swarms the foe\n"
-	.string "for 2 to 5 turns,\n"
-	.string "trapping them.$"
-
-BattleFrontier_TutoringServices_Text_BugBiteDesc::
-	.string "Eats the foe's\n"
-	.string "held Berry to\n"
-	.string "gain its effect.$"
-
-BattleFrontier_TutoringServices_Text_CovetDesc::
-	.string "Cutely begs the\n"
-	.string "foe to obtain\n"
-	.string "their held item.$"
+BattleFrontier_TutoringServices_Text_BounceDesc::
+	.string "Bounces up, then\n"
+	.string "down next turn.\n"
+	.string "May paralyze.$"
 
 BattleFrontier_TutoringServices_Text_LowKickDesc::
 	.string "Inflicts more\n"
 	.string "damage on\n"
 	.string "heavier foes.$"
-
-BattleFrontier_TutoringServices_Text_SignalBeamDesc::
-	.string "A strange beam\n"
-	.string "that may confuse\n"
-	.string "the foe.$"
-
-BattleFrontier_TutoringServices_Text_FlingDesc::
-	.string "Throws your item.\n"
-	.string "Power and effect\n"
-	.string "varies per item.$"
 
 BattleFrontier_TutoringServices_Text_ThunderPunchDesc:: @ 8266185
 	.string "An electrified\n"
@@ -1333,6 +1610,31 @@ BattleFrontier_TutoringServices_Text_DrainPunchDesc::
 	.string "absorbs half the\n"
 	.string "damage as HP.$"
 
+BattleFrontier_TutoringServices_Text_TriAttackDesc::
+	.string "An attack that may\n"
+	.string "burn, paralyze,\n"
+	.string "or freeze the foe.$"
+
+BattleFrontier_TutoringServices_Text_AvalancheDesc::
+	.string "Deals double\n"
+	.string "damage if hurt by\n"
+	.string "the foe this turn.$"
+
+BattleFrontier_TutoringServices_Text_DarkestLariatDesc::
+	.string "Swings arms to\n"
+	.string "attack. It ignores\n"
+	.string "stat changes.$"
+
+BattleFrontier_TutoringServices_Text_HeatWaveDesc::
+	.string "Exhales a hot\n"
+	.string "breath on all\n"
+	.string "foes. May burn.$"
+
+BattleFrontier_TutoringServices_Text_EarthPowerDesc::
+	.string "Makes the ground\n"
+	.string "erupt with power.\n"
+	.string "May lower Sp. Def.$"
+
 BattleFrontier_TutoringServices_Text_KnockOffDesc::
 	.string "Knocks the foe's\n"
 	.string "held item away to\n"	
@@ -1347,6 +1649,16 @@ BattleFrontier_TutoringServices_Text_DualChopDesc::
 	.string "Attacks with\n"
 	.string "brutal hits that\n"
 	.string "strike twice.$"
+
+BattleFrontier_TutoringServices_Text_ThroatChopDesc::
+	.string "Chops the throat\n"
+	.string "to disable sound\n"
+	.string "moves for a while.$"
+
+BattleFrontier_TutoringServices_Text_HighHorsepowerDesc::
+	.string "Slams hard into\n"
+	.string "the foe with its\n"
+	.string "entire body.$"
 
 BattleFrontier_TutoringServices_Text_SkyDropDesc::
 	.string "Takes the foe\n"
@@ -1363,25 +1675,30 @@ BattleFrontier_TutoringServices_Text_LiquidationDesc::
 	.string "with water. May\n"
 	.string "lower Defense.$"
 
-BattleFrontier_TutoringServices_Text_ThroatChopDesc::
-	.string "Chops the throat\n"
-	.string "to disable sound\n"
-	.string "moves for a while.$"
+BattleFrontier_TutoringServices_Text_SludgeWaveDesc::
+	.string "Swamps all other\n"
+	.string "Pokémon with\n"
+	.string "sludge. May poison.$"
 
-BattleFrontier_TutoringServices_Text_UproarDesc::
-	.string "Causes an uproar\n"
-	.string "for 2 to 5 turns.\n"
-	.string "Prevents sleeping.$"
+BattleFrontier_TutoringServices_Text_MegahornDesc::
+	.string "A brutal ramming\n"
+	.string "attack using out-\n"
+	.string "thrust horns.$"
 
-BattleFrontier_TutoringServices_Text_BrutalSwingDesc::
-	.string "Violently swings\n"
-	.string "around to hurt all\n"
-	.string "adjacent Pokémon.$"
+BattleFrontier_TutoringServices_Text_BugBiteDesc::
+	.string "Eats the foe's\n"
+	.string "held Berry to\n"
+	.string "gain its effect.$"
 
-BattleFrontier_TutoringServices_Text_BounceDesc::
-	.string "Bounces up, then\n"
-	.string "down next turn.\n"
-	.string "May paralyze.$"
+BattleFrontier_TutoringServices_Text_FlingDesc::
+	.string "Throws your item.\n"
+	.string "Power and effect\n"
+	.string "varies per item.$"
+
+BattleFrontier_TutoringServices_Text_ReversalDesc::
+	.string "The lower the\n"
+	.string "user's HP, the\n"
+	.string "more damage dealt.$"
 
 BattleFrontier_TutoringServices_Text_DrillRunDesc::
 	.string "Spins its body\n"
@@ -1398,50 +1715,65 @@ BattleFrontier_TutoringServices_Text_ZenHeadbuttDesc::
 	.string "headbutt.\n"
 	.string "May flinch.$"
 
-BattleFrontier_TutoringServices_Text_AquaTailDesc::
-	.string "The user swings\n"
-	.string "its tail like a\n"
-	.string "wave to attack.$"
+BattleFrontier_TutoringServices_Text_SignalBeamDesc::
+	.string "A strange beam\n"
+	.string "that may confuse\n"
+	.string "the foe.$"
 
-BattleFrontier_TutoringServices_Text_DragonPulseDesc::
-	.string "Generates a\n"
-	.string "shock wave to\n"
-	.string "attack the foe.$"
-
-BattleFrontier_TutoringServices_Text_SeedBombDesc::
-	.string "Fires a barrage\n"
-	.string "of volatile seeds\n"
-	.string "at the foe.$"
-
-BattleFrontier_TutoringServices_Text_HeatWaveDesc::
-	.string "Exhales a hot\n"
-	.string "breath on all\n"
-	.string "foes. May burn.$"
-
-BattleFrontier_TutoringServices_Text_LastResortDesc::
-	.string "Must use every\n"
-	.string "other known move\n"
-	.string "first.$"
+BattleFrontier_TutoringServices_Text_BrutalSwingDesc::
+	.string "Violently swings\n"
+	.string "around to hurt all\n"
+	.string "adjacent Pokémon.$"
 
 BattleFrontier_TutoringServices_Text_HyperVoiceDesc::
 	.string "A loud attack\n"
 	.string "that uses sound\n"
 	.string "waves to attack.$"
 
+BattleFrontier_TutoringServices_Text_StoredPowerDesc::
+	.string "The higher the\n"
+	.string "user's stats, the\n"
+	.string "damage dealt.$"
+
+BattleFrontier_TutoringServices_Text_AquaTailDesc::
+	.string "The user swings\n"
+	.string "its tail like a\n"
+	.string "wave to attack.$"
+
+BattleFrontier_TutoringServices_Text_SeedBombDesc::
+	.string "Fires a barrage\n"
+	.string "of volatile seeds\n"
+	.string "at the foe.$"
+
+BattleFrontier_TutoringServices_Text_LastResortDesc::
+	.string "Must use every\n"
+	.string "other known move\n"
+	.string "first.$"
+
 BattleFrontier_TutoringServices_Text_FoulPlayDesc::
 	.string "Uses the foe's\n"
 	.string "Attack stat\n"
 	.string "against them.$"
 
-BattleFrontier_TutoringServices_Text_EarthPowerDesc::
-	.string "Makes the ground\n"
-	.string "erupt with power.\n"
-	.string "May lower Sp. Def.$"
-
 BattleFrontier_TutoringServices_Text_StompingTantrumDesc::
 	.string "Stomps around\n"
 	.string "angrily. Stronger\n"
 	.string "after missing.$"
+
+BattleFrontier_TutoringServices_Text_PollenPuffDesc::
+	.string "Damages targeted\n"
+	.string "foe, or heals\n"
+	.string "targeted ally.$"
+
+BattleFrontier_TutoringServices_Text_PsychicFangsDesc::
+	.string "Chomps with\n"
+	.string "psychic fangs.\n"
+	.string "Destroys barriers.$"
+
+BattleFrontier_TutoringServices_Text_BodyPressDesc::
+	.string "Uses the user's\n"
+	.string "Defense stat to.\n"
+	.string "deal damage.$"
 
 BattleFrontier_TutoringServices_Text_OutrageDesc::
 	.string "Rampage for 2 to 3\n"
@@ -1463,10 +1795,20 @@ BattleFrontier_TutoringServices_Text_SkyAttackDesc::
 	.string "weakspots, then\n"
 	.string "attacks next turn.$"
 
-BattleFrontier_TutoringServices_Text_SludgeWaveDesc::
-	.string "Swamps adjacent\n"
-	.string "Pokémon with\n"
-	.string "sludge. May poison.$"
+BattleFrontier_TutoringServices_Text_BindDesc::
+	.string "Squeezes the foe\n"
+	.string "for 2 to 5 turns,\n"
+	.string "trapping them.$"
+
+BattleFrontier_TutoringServices_Text_InfestationDesc::
+	.string "Swarms the foe\n"
+	.string "for 2 to 5 turns,\n"
+	.string "trapping them.$"
+
+BattleFrontier_TutoringServices_Text_CovetDesc::
+	.string "Cutely begs the\n"
+	.string "foe to obtain\n"
+	.string "their held item.$"
 
 BattleFrontier_TutoringServices_Text_BlockDesc::
 	.string "Blocks the foe's\n"
@@ -1477,11 +1819,6 @@ BattleFrontier_TutoringServices_Text_QuashDesc::
 	.string "Suppresses the\n"
 	.string "foe, making it\n"
 	.string "move last.$"
-
-BattleFrontier_TutoringServices_Text_SynthesisDesc::
-	.string "Restores HP.\n"
-	.string "The amount varies\n"
-	.string "with the weather.$"
 
 BattleFrontier_TutoringServices_Text_RolePlayDesc::
 	.string "Mimics the target\n"
@@ -1508,25 +1845,10 @@ BattleFrontier_TutoringServices_Text_SpiteDesc::
 	.string "the PP of the\n"
 	.string "foe's last move.$"
 
-BattleFrontier_TutoringServices_Text_AfterYouDesc::
-	.string "Helps out the\n"
-	.string "target, letting\n"
-	.string "them move next.$"
-
-BattleFrontier_TutoringServices_Text_HelpingHandDesc::
-	.string "Boosts the power\n"
-	.string "of the ally's\n"
-	.string "next move.$"
-
 BattleFrontier_TutoringServices_Text_TrickDesc::
 	.string "Tricks the target\n"
 	.string "into trading\n"
 	.string "held items.$"
-
-BattleFrontier_TutoringServices_Text_RecycleDesc::
-	.string "Recycles a used\n"
-	.string "held item for\n"
-	.string "another use.$"
 
 BattleFrontier_TutoringServices_Text_EmbargoDesc::
 	.string "Prevents the foe\n"
@@ -1538,60 +1860,15 @@ BattleFrontier_TutoringServices_Text_MagicCoatDesc::
 	.string "effects back to\n"
 	.string "the attacker.$"
 
-BattleFrontier_TutoringServices_Text_MagnetRiseDesc::
-	.string "The user levitates\n"
-	.string "in the air with\n"
-	.string "electromagnetism.$"
-
-BattleFrontier_TutoringServices_Text_IronDefenseDesc::
-	.string "Hardens the outer\n"
-	.string "shell to sharply\n"
-	.string "raise Defense.$"
-
 BattleFrontier_TutoringServices_Text_TelekinesisDesc::
 	.string "Makes the foe\n"
 	.string "float. They are\n"
 	.string "easier to hit.$"
 
-BattleFrontier_TutoringServices_Text_HealBellDesc::
-	.string "Chimes soothingly\n"
-	.string "to heal your party\n"
-	.string "of all status.$"
-
-BattleFrontier_TutoringServices_Text_TailwindDesc::
-	.string "Doubles the Speed\n"
-	.string "of your Pokémon\n"
-	.string "for 3 turns.$"
-
-BattleFrontier_TutoringServices_Text_MagicRoomDesc::
-	.string "Hold items lose\n"
-	.string "their effects for\n"
-	.string "5 turns.$"
-
-BattleFrontier_TutoringServices_Text_WonderRoomDesc::
-	.string "Defenses are\n"
-	.string "swapped for\n"
-	.string "5 turns.$"
-
-BattleFrontier_TutoringServices_Text_StealthRockDesc::
-	.string "Sets floating\n"
-	.string "stones that hurt\n"
-	.string "foes switching in.$"
-
-BattleFrontier_TutoringServices_Text_GravityDesc::
-	.string "Gravity is\n"
-	.string "intensified,\n"
-	.string "grounding all.$"
-
-BattleFrontier_TutoringServices_Text_DefogDesc::
-	.string "Clears hazards\n"
-	.string "and screens. Also\n"
-	.string "lowers evasion.$"
-
-BattleFrontier_TutoringServices_Text_AllySwitchDesc::
-	.string "The user switches\n"
-	.string "places with its\n"
-	.string "partner.$"
+BattleFrontier_TutoringServices_Text_CharmDesc::
+	.string "Charms the foe,\n"
+	.string "sharply reducing\n"
+	.string "their Attack.$"
 
 BattleFrontier_TutoringServices_Text_ElectrowebDesc::
 	.string "Snares all foes\n"
@@ -1603,7 +1880,187 @@ BattleFrontier_TutoringServices_Text_IcyWindDesc:: @ 82660D0
 	.string "that lowers all\n"
 	.string "foe's speed.$"
 
+BattleFrontier_TutoringServices_Text_HoneClawsDesc::
+	.string "Hones your claws\n"
+	.string "to raise Attack\n"
+	.string "and Accuracy.$"
+
+BattleFrontier_TutoringServices_Text_IronDefenseDesc::
+	.string "Hardens the outer\n"
+	.string "shell to sharply\n"
+	.string "raise Defense.$"
+
 BattleFrontier_TutoringServices_Text_LaserFocusDesc::
 	.string "Guarentees the\n"
 	.string "next move will be\n"
 	.string "a critical hit.$"
+
+BattleFrontier_TutoringServices_Text_HealBellDesc::
+	.string "Chimes soothingly\n"
+	.string "to heal your party\n"
+	.string "of all status.$"
+
+BattleFrontier_TutoringServices_Text_MagicRoomDesc::
+	.string "Hold items lose\n"
+	.string "their effects for\n"
+	.string "5 turns.$"
+
+BattleFrontier_TutoringServices_Text_WonderRoomDesc::
+	.string "Defenses are\n"
+	.string "swapped for\n"
+	.string "5 turns.$"
+
+BattleFrontier_TutoringServices_Text_GravityDesc::
+	.string "Gravity is\n"
+	.string "intensified,\n"
+	.string "grounding all.$"
+
+BattleFrontier_TutoringServices_Text_MagnetRiseDesc::
+	.string "The user levitates\n"
+	.string "in the air with\n"
+	.string "electromagnetism.$"
+
+BattleFrontier_TutoringServices_Text_RecycleDesc::
+	.string "Recycles a used\n"
+	.string "held item for\n"
+	.string "another use.$"
+
+BattleFrontier_TutoringServices_Text_AfterYouDesc::
+	.string "Helps out the\n"
+	.string "target, letting\n"
+	.string "them move next.$"
+
+BattleFrontier_TutoringServices_Text_HelpingHandDesc::
+	.string "Boosts the power\n"
+	.string "of the ally's\n"
+	.string "next move.$"
+
+BattleFrontier_TutoringServices_Text_SynthesisDesc::
+	.string "Restores HP.\n"
+	.string "The amount varies\n"
+	.string "with the weather.$"
+
+BattleFrontier_TutoringServices_Text_DefogDesc::
+	.string "Clears hazards\n"
+	.string "and screens. Also\n"
+	.string "lowers evasion.$"
+
+BattleFrontier_TutoringServices_Text_AllySwitchDesc::
+	.string "The user switches\n"
+	.string "places with its\n"
+	.string "partner.$"
+
+BattleFrontier_TutoringServices_Text_TailwindDesc::
+	.string "Doubles the Speed\n"
+	.string "of your Pokémon\n"
+	.string "for 3 turns.$"
+
+BattleFrontier_TutoringServices_Text_ToxicSpikesDesc::
+	.string "Sets spikes that\n"
+	.string "poison a foe\n"
+	.string "switching in.$"
+
+BattleFrontier_TutoringServices_Text_StealthRockDesc::
+	.string "Sets floating\n"
+	.string "stones that hurt\n"
+	.string "foes switching in.$"
+
+BattleFrontier_TutoringServices_Text_DragonDanceDesc::
+	.string "A mystical dance\n"
+	.string "that ups Attack\n"
+	.string "and Speed.$"
+
+BattleFrontier_TutoringServices_Text_NastyPlotDesc::
+	.string "User thinks up a\n"
+	.string "plan to sharply\n"
+	.string "raise Sp. Atk.$"
+
+BattleFrontier_TutoringServices_Text_TerrainPulseDesc::
+	.string "Type and power\n"
+	.string "varies depending\n"
+	.string "on the terrain.$"
+
+BattleFrontier_TutoringServices_Text_BurningJealousyDesc::
+	.string "Burns foes that\n"
+	.string "increased stats\n"
+	.string "this turn.$"
+
+BattleFrontier_TutoringServices_Text_FlipTurnDesc::
+	.string "Attacks and\n"
+	.string "rushes back to\n"
+	.string "switch out.$"
+
+BattleFrontier_TutoringServices_Text_GrassyGlideDesc::
+	.string "This attack\n"
+	.string "moves first on\n"
+	.string "Grassy Terrain.$"
+
+BattleFrontier_TutoringServices_Text_RisingVoltageDesc::
+	.string "Deals double\n"
+	.string "damage on\n"
+	.string "Electric Terrain.$"
+
+BattleFrontier_TutoringServices_Text_CoachingDesc::
+	.string "Raises an ally's\n"
+	.string "Attack and\n"
+	.string "Defense stats.$"
+
+BattleFrontier_TutoringServices_Text_ScorchingSandsDesc::
+	.string "Hit the foe with\n"
+	.string "hot sand. May\n"
+	.string "leave a burn.$"
+
+BattleFrontier_TutoringServices_Text_DualWingbeatDesc::
+	.string "User slams the foe\n"
+	.string "with its wings.\n"
+	.string "Hits 2 times.$"
+
+BattleFrontier_TutoringServices_Text_MeteorBeamDesc::
+	.string "Raises Sp. Atk,\n"
+	.string "then attacks on\n"
+	.string "the next turn.$"
+
+BattleFrontier_TutoringServices_Text_SkitterSmackDesc::
+	.string "Skitters behind\n"
+	.string "the foe to attack.\n"
+	.string "Lowers Sp. Atk.$"
+
+BattleFrontier_TutoringServices_Text_TripleAxelDesc::
+	.string "A 3-kick attack.\n"
+	.string "Each hit is more\n"
+	.string "powerful.$"
+
+BattleFrontier_TutoringServices_Text_CorrosiveGasDesc::
+	.string "Highly acidic gas\n"
+	.string "that destroys all\n"
+	.string "other Held Items.$"
+
+BattleFrontier_TutoringServices_Text_ExpandingForceDesc::
+	.string "Ups damage and\n"
+	.string "hits all foes on\n"
+	.string "Psychic Terrain.$"
+
+BattleFrontier_TutoringServices_Text_PoltergeistDesc::
+	.string "Takes control of\n"
+	.string "the foe's item to\n"
+	.string "attack them.$"
+
+BattleFrontier_TutoringServices_Text_ScaleShotDesc::
+	.string "Shoots 2-5 times at\n"
+	.string "the foe. Ups Speed,\n"
+	.string "lowers Defense.$"
+
+BattleFrontier_TutoringServices_Text_LashOutDesc::
+	.string "Double damage\n"
+	.string "if user's stats\n"
+	.string "lowered this turn.$"
+
+BattleFrontier_TutoringServices_Text_SteelRollerDesc::
+	.string "Only usable on\n"
+	.string "terrain. Destroys\n"
+	.string "the terrain.$"
+
+BattleFrontier_TutoringServices_Text_MistyExplosionDesc::
+	.string "User explodes and\n"
+	.string "faints. Ups power\n"
+	.string "on Misty Terrain.$"

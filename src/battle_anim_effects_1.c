@@ -1926,6 +1926,39 @@ const struct SpriteTemplate gEndureEnergySpriteTemplate =
     .callback = AnimEndureEnergy,
 };
 
+const struct SpriteTemplate gBlueEndureEnergySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FOCUS_ENERGY,
+    .paletteTag = ANIM_TAG_SWEAT_BEAD,
+    .oam = &gOamData_AffineOff_ObjNormal_16x32,
+    .anims = gEndureEnergyAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimEndureEnergy,
+};
+
+const struct SpriteTemplate gGreenEndureEnergySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FOCUS_ENERGY,
+    .paletteTag = ANIM_TAG_WHIP_HIT,
+    .oam = &gOamData_AffineOff_ObjNormal_16x32,
+    .anims = gEndureEnergyAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimEndureEnergy,
+};
+
+const struct SpriteTemplate gYellowEndureEnergySpriteTemplate =
+{
+    .tileTag = ANIM_TAG_FOCUS_ENERGY,
+    .paletteTag = ANIM_TAG_PAW_PRINT,
+    .oam = &gOamData_AffineOff_ObjNormal_16x32,
+    .anims = gEndureEnergyAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimEndureEnergy,
+};
+
 const union AnimCmd gSharpenSphereAnimCmds[] =
 {
     ANIMCMD_FRAME(0, 18),
@@ -5040,25 +5073,24 @@ static void AnimProtect(struct Sprite* sprite)
 
 static void AnimProtect_Step(struct Sprite *sprite)
 {
-    int i, savedPal;
+    int i, id, savedPal;
     sprite->data[5] += 96;
     sprite->pos2.x = -(sprite->data[5] >> 8);
     if (++sprite->data[1] > 1)
     {
-        int id;
         sprite->data[1] = 0;
         savedPal = gPlttBufferFaded[sprite->data[2] + 1];
         i = 0;
-        do
+        while (i < 6)
         {
             id = sprite->data[2] + ++i;
             gPlttBufferFaded[id] = gPlttBufferFaded[id + 1];
-        } while (i < 6);
+        }
 
         gPlttBufferFaded[sprite->data[2] + 7] = savedPal;
     }
 
-    if (sprite->data[7] > 6 && sprite->data[0] > 0 && ++sprite->data[6] > 1)
+    if (sprite->data[7] > 6 && sprite->data[0] >0 && ++sprite->data[6] > 1)
     {
         sprite->data[6] = 0;
         sprite->data[7] -= 1;

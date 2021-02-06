@@ -33,6 +33,7 @@
 #include "decoration.h"
 #include "secret_base.h"
 #include "tv.h"
+#include "pokeball.h"
 #include "data.h"
 #include "constants/battle_frontier.h"
 #include "constants/contest.h"
@@ -964,7 +965,7 @@ void GabbyAndTyBeforeInterview(void)
     }
     if (!gBattleResults.usedMasterBall)
     {
-        for (i = 0; i < 11; i ++)
+        for (i = 0; i < POKEBALL_COUNT - 1; i ++)
         {
             if (gBattleResults.catchAttempts[i])
             {
@@ -1136,7 +1137,7 @@ void PutPokemonTodayCaughtOnAir(void)
             sCurTVShowSlot = FindEmptyTVSlotBeyondFirstFiveShowsOfArray(gSaveBlock1Ptr->tvShows);
             if (sCurTVShowSlot != -1 && HasMixableShowAlreadyBeenSpawnedWithPlayerID(TVSHOW_POKEMON_TODAY_CAUGHT, FALSE) != TRUE)
             {
-                for (i = 0; i < 11; i ++)
+                for (i = 0; i < POKEBALL_COUNT - 1; i ++)
                 {
                     ct += gBattleResults.catchAttempts[i];
                 }
@@ -1153,7 +1154,7 @@ void PutPokemonTodayCaughtOnAir(void)
                     }
                     else
                     {
-                        for (i = 0; i < 11; i ++)
+                        for (i = 0; i < POKEBALL_COUNT - 1; i ++)
                         {
                             ct += gBattleResults.catchAttempts[i];
                         }
@@ -1204,7 +1205,7 @@ void PutPokemonTodayFailedOnTheAir(void)
 
     if (!rbernoulli(1, 1))
     {
-        for (i = 0, ct = 0; i < 11; i ++)
+        for (i = 0, ct = 0; i < POKEBALL_COUNT - 1; i ++)
         {
             ct += gBattleResults.catchAttempts[i];
         }
@@ -2092,7 +2093,6 @@ static void sub_80EDE98(TVShow *show)
     u16 k;
     u8 n;
     u8 deco;
-    u8 x;
 
     for (i = 0; i < DECOR_MAX_SECRET_BASE; i ++)
     {
@@ -2236,7 +2236,7 @@ void sub_80EE184(void)
         show->breakingNews.kind = TVSHOW_BREAKING_NEWS;
         show->breakingNews.active = FALSE;
         balls = 0;
-        for (i = 0; i < 11; i ++)
+        for (i = 0; i < POKEBALL_COUNT - 1; i ++)
         {
             balls += gBattleResults.catchAttempts[i];
         }
@@ -2314,7 +2314,7 @@ void TryPutLotteryWinnerReportOnAir(void)
     }
 }
 
-void sub_80EE35C(u16 foeSpecies, u16 species, u8 moveIdx, const u16 *movePtr, u16 betterMove)
+void TryPutBattleSeminarOnAir(u16 foeSpecies, u16 species, u8 moveIdx, const u16 *movePtr, u16 betterMove)
 {
     TVShow *show;
     u8 i;
@@ -4121,7 +4121,6 @@ static void sub_80F0E58(PokeNews *dest[16], PokeNews *src[16])
 static bool8 sub_80F0E84(PokeNews *dest, PokeNews *src, s8 slot)
 {
     u8 i;
-    u8 kind;
 
     if (src->kind == POKENEWS_NONE)
     {
@@ -6628,7 +6627,6 @@ static void DoTVShowSpotTheCuties(void)
 {
     TVShow *show;
     u8 state;
-    u32 playerId;
 
     show = &gSaveBlock1Ptr->tvShows[gSpecialVar_0x8004];
     gSpecialVar_Result = FALSE;
@@ -6733,7 +6731,6 @@ static void DoTVShowPokemonNewsBattleFrontier(void)
 {
     TVShow *show;
     u8 state;
-    u32 playerId;
 
     show = &gSaveBlock1Ptr->tvShows[gSpecialVar_0x8004];
     gSpecialVar_Result = FALSE;
@@ -6882,7 +6879,6 @@ static void DoTVShowWhatsNo1InHoennToday(void)
 {
     TVShow *show;
     u8 state;
-    u32 playerId;
 
     show = &gSaveBlock1Ptr->tvShows[gSpecialVar_0x8004];
     gSpecialVar_Result = FALSE;
