@@ -1459,7 +1459,7 @@
               {
                 "min_level": 7,
                 "max_level": 8,
-                "species": "SPECIES_BURMY_TRASH"
+                "species": "SPECIES_BURMY_TRASH_CLOAK"
               },
               {
                 "min_level": 7,
@@ -1514,7 +1514,7 @@
               {
                 "min_level": 7,
                 "max_level": 8,
-                "species": "SPECIES_ALOLAN_MEOWTH"
+                "species": "SPECIES_MEOWTH_ALOLAN"
               },
               {
                 "min_level": 7,
@@ -2770,12 +2770,12 @@
               {
                 "min_level": 17,
                 "max_level": 19,
-                "species": "SPECIES_ALOLAN_DIGLETT"
+                "species": "SPECIES_DIGLETT_ALOLAN"
               },
               {
                 "min_level": 17,
                 "max_level": 19,
-                "species": "SPECIES_ALOLAN_DIGLETT"
+                "species": "SPECIES_DIGLETT_ALOLAN"
               },
               {
                 "min_level": 17,
@@ -4317,12 +4317,12 @@
               {
                 "min_level": 38,
                 "max_level": 40,
-                "species": "SPECIES_ALOLAN_RATICATE"
+                "species": "SPECIES_RATICATE_ALOLAN"
               },
               {
                 "min_level": 38,
                 "max_level": 40,
-                "species": "SPECIES_ALOLAN_RATICATE"
+                "species": "SPECIES_RATICATE_ALOLAN"
               },
               {
                 "min_level": 38,
@@ -4599,7 +4599,7 @@
               {
                 "min_level": 36,
                 "max_level": 38,
-                "species": "SPECIES_MEOWSTIC_F"
+                "species": "SPECIES_MEOWSTIC_FEMALE"
               }
             ]
           }
@@ -4663,12 +4663,12 @@
               {
                 "min_level": 37,
                 "max_level": 39,
-                "species": "SPECIES_MEOWSTIC_F"
+                "species": "SPECIES_MEOWSTIC_FEMALE"
               },
               {
                 "min_level": 37,
                 "max_level": 39,
-                "species": "SPECIES_MEOWSTIC_F"
+                "species": "SPECIES_MEOWSTIC_FEMALE"
               }
             ]
           }
@@ -7223,27 +7223,27 @@
               {
                 "min_level": 29,
                 "max_level": 29,
-                "species": "SPECIES_ALOLAN_GEODUDE"
+                "species": "SPECIES_GEODUDE_ALOLAN"
               },
               {
                 "min_level": 29,
                 "max_level": 29,
-                "species": "SPECIES_ALOLAN_GEODUDE"
+                "species": "SPECIES_GEODUDE_ALOLAN"
               },
               {
                 "min_level": 30,
                 "max_level": 30,
-                "species": "SPECIES_ALOLAN_GRAVELER"
+                "species": "SPECIES_GRAVELER_ALOLAN"
               },
               {
                 "min_level": 30,
                 "max_level": 30,
-                "species": "SPECIES_ALOLAN_GRAVELER"
+                "species": "SPECIES_GRAVELER_ALOLAN"
               },
               {
                 "min_level": 29,
                 "max_level": 29,
-                "species": "SPECIES_ALOLAN_GEODUDE"
+                "species": "SPECIES_GEODUDE_ALOLAN"
               }
             ]
           }
@@ -7739,7 +7739,7 @@
               {
                 "min_level": 47,
                 "max_level": 50,
-                "species": "SPECIES_ALOLAN_GOLEM"
+                "species": "SPECIES_GOLEM_ALOLAN"
               },
               {
                 "min_level": 47,
@@ -9512,12 +9512,12 @@
               {
                 "min_level": 43,
                 "max_level": 45,
-                "species": "SPECIES_ALOLAN_SANDSHREW"
+                "species": "SPECIES_SANDSHREW_ALOLAN"
               },
               {
                 "min_level": 43,
                 "max_level": 45,
-                "species": "SPECIES_ALOLAN_SANDSHREW"
+                "species": "SPECIES_SANDSHREW_ALOLAN"
               },
               {
                 "min_level": 43,
@@ -10150,12 +10150,12 @@
               {
                 "min_level": 39,
                 "max_level": 41,
-                "species": "SPECIES_ALOLAN_DUGTRIO"
+                "species": "SPECIES_DUGTRIO_ALOLAN"
               },
               {
                 "min_level": 39,
                 "max_level": 41,
-                "species": "SPECIES_ALOLAN_DUGTRIO"
+                "species": "SPECIES_DUGTRIO_ALOLAN"
               }
             ]
           }
@@ -12009,7 +12009,7 @@
               {
                 "min_level": 18,
                 "max_level": 19,
-                "species": "SPECIES_BURMY_SANDY"
+                "species": "SPECIES_BURMY_SANDY_CLOAK"
               },
               {
                 "min_level": 20,
@@ -12687,12 +12687,12 @@
               {
                 "min_level": 43,
                 "max_level": 45,
-                "species": "SPECIES_ALOLAN_VULPIX"
+                "species": "SPECIES_VULPIX_ALOLAN"
               },
               {
                 "min_level": 43,
                 "max_level": 45,
-                "species": "SPECIES_ALOLAN_VULPIX"
+                "species": "SPECIES_VULPIX_ALOLAN"
               },
               {
                 "min_level": 43,
@@ -12825,12 +12825,12 @@
               {
                 "min_level": 40,
                 "max_level": 40,
-                "species": "SPECIES_ALOLAN_SANDSLASH"
+                "species": "SPECIES_SANDSLASH_ALOLAN"
               },
               {
                 "min_level": 40,
                 "max_level": 40,
-                "species": "SPECIES_ALOLAN_SANDSLASH"
+                "species": "SPECIES_SANDSLASH_ALOLAN"
               },
               {
                 "min_level": 40,

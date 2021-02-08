@@ -137,10 +137,10 @@ Route101_Movement_ZigzagoonFaceBirch: @ 81EBDBD
 	step_end
 
 Route101_Movement_EnterScene: @ 81EBDC2
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
+	player_run_up
+	player_run_up
+	player_run_up
+	player_run_up
 	walk_in_place_fastest_left
 	step_end
 

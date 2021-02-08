@@ -1733,7 +1733,7 @@ static const u8 sTM38Desc[] = _(
 static const u8 sTM39Desc[] = _(
     "Stops the foe from\n"
     "moving with rocks.\n"
-    "May lower Speed.");
+    "Lowers Speed.");
 
 static const u8 sTM40Desc[] = _(
     "An extremely fast\n"
