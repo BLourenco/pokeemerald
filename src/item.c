@@ -1055,7 +1055,7 @@ void DrawHeaderBox(void)
     if (Overworld_GetFlashLevel() > 1 || gSaveBlock2Ptr->frontier.pyramidLightRadius > 1)
         handleFlash = TRUE;
     
-    if (headerType == 1)
+    if (item >= FIRST_BERRY_INDEX && item <= LAST_BERRY_INDEX)
         dst = gStringVar3;
     else
         dst = gStringVar1;
