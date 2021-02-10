@@ -550,6 +550,12 @@ SlateportCity_PokemartDecor: @ 81DD1B8
 	.2byte DECOR_RED_BALLOON
 	.2byte DECOR_BLUE_BALLOON
 	.2byte DECOR_YELLOW_BALLOON
+	.2byte DECOR_MUD_BALL
+	.2byte DECOR_BREAKABLE_DOOR
+	.2byte DECOR_SAND_ORNAMENT
+	.2byte DECOR_FENCE_LENGTH
+	.2byte DECOR_FENCE_WIDTH
+	.2byte DECOR_SOLID_BOARD
 	.2byte DECOR_C_LOW_NOTE_MAT
 	.2byte DECOR_D_NOTE_MAT
 	.2byte DECOR_E_NOTE_MAT
@@ -562,20 +568,27 @@ SlateportCity_PokemartDecor: @ 81DD1B8
 	release
 	end
 
-SlateportCity_EventScript_PowerTMClerk:: @ 81DD1D8
+SlateportCity_EventScript_IncenseClerk:: @ 81DD1D8
 	lock
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart SlateportCity_Pokemart_PowerTMs
+	pokemart SlateportCity_Pokemart_Incenses
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
 	.align 2
-SlateportCity_Pokemart_PowerTMs: @ 81DD1F0
-	.2byte ITEM_TM10  @ Hidden Power
-	.2byte ITEM_TM43  @ Secret Power
+SlateportCity_Pokemart_Incenses: @ 81DD1F0
+	.2byte ITEM_SEA_INCENSE
+	.2byte ITEM_WAVE_INCENSE
+	.2byte ITEM_ROSE_INCENSE
+	.2byte ITEM_ROCK_INCENSE
+	.2byte ITEM_ODD_INCENSE
+	.2byte ITEM_LAX_INCENSE
+	.2byte ITEM_FULL_INCENSE
+	.2byte ITEM_PURE_INCENSE
+	.2byte ITEM_LUCK_INCENSE
 	.2byte ITEM_NONE
 	release
 	end
