@@ -742,8 +742,8 @@ MagmaHideout_2F_2R_EventScript_ItemMaxElixir:: @ 82914EB
 	finditem ITEM_MAX_ELIXIR
 	end
 
-MagmaHideout_2F_2R_EventScript_ItemFullRestore:: @ 82914F8
-	finditem ITEM_FULL_RESTORE
+MagmaHideout_2F_2R_EventScript_ItemTM71:: @ 82914F8
+	finditem ITEM_TM71_STONE_EDGE
 	end
 
 MagmaHideout_3F_1R_EventScript_ItemNugget:: @ 8291505
@@ -752,6 +752,10 @@ MagmaHideout_3F_1R_EventScript_ItemNugget:: @ 8291505
 
 MagmaHideout_3F_2R_EventScript_ItemPPMax:: @ 8291512
 	finditem ITEM_PP_MAX
+	end
+
+MagmaHideout_3F_2R_EventScript_ItemTM35::
+	finditem ITEM_TM35_FLAMETHROWER
 	end
 
 MagmaHideout_4F_EventScript_ItemMaxRevive:: @ 829151F
