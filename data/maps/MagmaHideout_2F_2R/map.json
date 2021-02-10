@@ -90,7 +90,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MagmaHideout_2F_2R_EventScript_ItemTM71",
-      "flag": "FLAG_ITEM_MAGMA_HIDEOUT_2F_2R_TM71_STONE_EDGE"
+      "flag": "FLAG_ITEM_MAGMA_HIDEOUT_2F_2R_TM_71"
     }
   ],
   "warp_events": [
