@@ -11,6 +11,25 @@ LavaridgeTown_Mart_EventScript_Clerk:: @ 81FF9CE
 	release
 	end
 
+LavaridgeTown_Mart_EventScript_Clerk2::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart LavaridgeTown_Mart_Pokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+LavaridgeTown_Mart_Pokemart:
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_CHARCOAL
+	.2byte ITEM_FAB_MAIL
+	.2byte ITEM_NONE
+	release
+	end
+
 LavaridgeTown_Mart_EventScript_ExpertM:: @ 81FF9FE
 	msgbox LavaridgeTown_Mart_Text_XSpeedFirstStrike, MSGBOX_NPC
 	end

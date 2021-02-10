@@ -176,6 +176,7 @@ static const u16 sShopInventory_FiveBadges[] = {
     ITEM_SUPER_REPEL,
     ITEM_FLUFFY_TAIL,
     ITEM_HONEY,
+    ITEM_ADRENALINE_ORB,
     ITEM_NONE
 };
 
@@ -198,6 +199,7 @@ static const u16 sShopInventory_SixBadges[] = {
     ITEM_MAX_REPEL,
     ITEM_FLUFFY_TAIL,
     ITEM_HONEY,
+    ITEM_ADRENALINE_ORB,
     ITEM_NONE
 };
 
@@ -222,6 +224,7 @@ static const u16 sShopInventory_SevenBadges[] = {
     ITEM_MAX_REPEL,
     ITEM_FLUFFY_TAIL,
     ITEM_HONEY,
+    ITEM_ADRENALINE_ORB,
     ITEM_NONE
 };
 
@@ -247,6 +250,7 @@ static const u16 sShopInventory_EightBadges[] = {
     ITEM_MAX_REPEL,
     ITEM_FLUFFY_TAIL,
     ITEM_HONEY,
+    ITEM_ADRENALINE_ORB,
     ITEM_NONE
 };
 

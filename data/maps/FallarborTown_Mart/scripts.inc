@@ -11,6 +11,25 @@ FallarborTown_Mart_EventScript_Clerk:: @ 81FFCBF
 	release
 	end
 
+FallarborTown_Mart_EventScript_Clerk2::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart FallarborTown_Mart_Pokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+FallarborTown_Mart_Pokemart:
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_POISON_BARB
+	.2byte ITEM_DREAM_MAIL
+	.2byte ITEM_NONE
+	release
+	end
+
 FallarborTown_Mart_EventScript_Woman:: @ 81FFCF4
 	msgbox FallarborTown_Mart_Text_DecidingSkittyEvolve, MSGBOX_NPC
 	end

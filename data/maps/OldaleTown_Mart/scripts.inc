@@ -15,8 +15,27 @@ OldaleTown_Mart_EventScript_Clerk:: @ 81FC240
 OldaleTown_Mart_Pokemart_Basic: @ 81FC260
 	.2byte ITEM_POTION
 	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_PARALYZE_HEAL
 	.2byte ITEM_AWAKENING
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_NONE
+	release
+	end
+
+OldaleTown_Mart_EventScript_Clerk2:: @ 8267ACC
+	lock
+	faceplayer
+	goto_if_unset FLAG_ADVENTURE_STARTED, OldaleTown_Mart_Clerk2_CurrentlyRestocking
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart OldaleTown_Mart_Pokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+OldaleTown_Mart_Pokemart:
+	.2byte ITEM_SILVER_POWDER
+	.2byte ITEM_RETRO_MAIL
 	.2byte ITEM_NONE
 	release
 	end
@@ -24,6 +43,11 @@ OldaleTown_Mart_Pokemart_Basic: @ 81FC260
 OldaleTown_Mart_ExpandedItems:: @ 81FC26C
 	pokemart 0
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_Mart_Clerk2_CurrentlyRestocking::
+	msgbox OldaleTown_Mart_Text_CurrentlyRestocking, MSGBOX_DEFAULT
 	release
 	end
 
@@ -58,3 +82,6 @@ OldaleTown_Mart_Text_RestoreHPWithPotion: @ 81FC338
 	.string "To prevent your Pokémon from fainting,\n"
 	.string "restore its HP with a Potion.$"
 
+OldaleTown_Mart_Text_CurrentlyRestocking:
+	.string "Sorry! We're currently restocking our\n"
+	.string "inventory. Come back in a little bit!$"

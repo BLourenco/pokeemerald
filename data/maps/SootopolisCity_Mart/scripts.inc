@@ -11,6 +11,25 @@ SootopolisCity_Mart_EventScript_Clerk:: @ 8226795
 	release
 	end
 
+SootopolisCity_Mart_EventScript_Clerk2::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart SootopolisCity_Mart_Pokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+SootopolisCity_Mart_Pokemart:
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_MYSTIC_WATER
+	.2byte ITEM_GLITTER_MAIL
+	.2byte ITEM_NONE
+	release
+	end
+
 SootopolisCity_Mart_EventScript_FatMan:: @ 82267C2
 	lock
 	faceplayer

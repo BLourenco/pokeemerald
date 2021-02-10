@@ -11,6 +11,25 @@ RustboroCity_Mart_EventScript_Clerk:: @ 8214F06
 	release
 	end
 
+RustboroCity_Mart_EventScript_Clerk2::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart RustboroCity_Mart_Pokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+RustboroCity_Mart_Pokemart:
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_HARD_STONE
+	.2byte ITEM_BEAD_MAIL
+	.2byte ITEM_NONE
+	release
+	end
+
 RustboroCity_Mart_EventScript_PokefanF:: @ 8214F74
 	msgbox RustboroCity_Mart_Text_BuyingHealsInCaseOfShroomish, MSGBOX_NPC
 	end

@@ -13,6 +13,28 @@ BattleFrontier_Mart_EventScript_Clerk:: @ 8267ACC
 	release
 	end
 
+BattleFrontier_Mart_EventScript_Clerk2::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart BattleFrontier_Mart_Pokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+BattleFrontier_Mart_Pokemart:
+	.2byte ITEM_HP_UP
+	.2byte ITEM_PROTEIN
+	.2byte ITEM_IRON
+	.2byte ITEM_CALCIUM
+	.2byte ITEM_ZINC
+	.2byte ITEM_CARBOS
+	.2byte ITEM_NONE
+	release
+	end
+
 BattleFrontier_Mart_EventScript_OldMan:: @ 8267B02
 	msgbox BattleFrontier_Mart_Text_ChaperonGrandson, MSGBOX_NPC
 	end
