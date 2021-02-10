@@ -1034,7 +1034,7 @@ static const u8 sMachoBraceDesc[] = _(
 static const u8 sExpShareDesc[] = _(
     "Shares Exp. points\n"
     "among the party.\n"
-    "On by default.");
+    "Can be turned off.");
 
 static const u8 sQuickClawDesc[] = _(
     "A hold item that\n"
