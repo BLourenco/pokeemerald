@@ -37,6 +37,11 @@ LilycoveCity_DepartmentStore_2F_EventScript_ClerkRight:: @ 821FB7A
 LilycoveCity_DepartmentStore_2F_Pokemart2: @ 821FB94
 	.2byte ITEM_LUXURY_BALL
 	.2byte ITEM_BLACK_BELT
+	.2byte ITEM_FIRE_STONE
+	.2byte ITEM_WATER_STONE
+	.2byte ITEM_THUNDER_STONE
+	.2byte ITEM_LEAF_STONE
+	.2byte ITEM_ICE_STONE
 	.2byte ITEM_SHADOW_MAIL
 	.2byte ITEM_NONE
 	release
