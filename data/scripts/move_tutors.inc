@@ -117,20 +117,20 @@ MoveTutor_EventScript_SubstituteReceived:: @ 82C81E4
 	release
 	end
 
-MossdeepCity_EventScript_PowerUpPunchTM:: @ 82C81EE
+MossdeepCity_EventScript_BrickBreakTM:: @ 82C81EE
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM98, MoveTutor_EventScript_PowerUpPunchReceived
-	msgbox MoveTutor_Text_PowerUpPunchGift, MSGBOX_DEFAULT
-	giveitem ITEM_TM98
+	goto_if_set FLAG_RECEIVED_TM31, MoveTutor_EventScript_BrickBreakReceived
+	msgbox MoveTutor_Text_BrickBreakGift, MSGBOX_DEFAULT
+	giveitem ITEM_TM31_BRICK_BREAK
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM98
+	setflag FLAG_RECEIVED_TM31
 	release
 	end
 
-MoveTutor_EventScript_PowerUpPunchReceived:: @ 82C824C
-	msgbox MoveTutor_Text_PowerUpPunchReceived, MSGBOX_DEFAULT
+MoveTutor_EventScript_BrickBreakReceived:: @ 82C824C
+	msgbox MoveTutor_Text_BrickBreakReceived, MSGBOX_DEFAULT
 	release
 	end
 

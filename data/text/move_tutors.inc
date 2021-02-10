@@ -93,7 +93,7 @@ MoveTutor_Text_SubstituteReceived: @ 82C794B
 	.string "own lives to the utmost!\p"
 	.string "I hope you'll get that way, too!$"
 
-MoveTutor_Text_PowerUpPunchGift: @ 82C79A6
+MoveTutor_Text_BrickBreakGift: @ 82C79A6
 	.string "I can't do this anymore!\p"
 	.string "It's utterly hopeless!\p"
 	.string "I'm a Fighting-type Trainer,\n"
@@ -106,9 +106,9 @@ MoveTutor_Text_PowerUpPunchGift: @ 82C79A6
 	.string "Maybe you'll have better luck than\n"
 	.string "I did. Take this.$"
 
-MoveTutor_Text_PowerUpPunchReceived: @ 82C7B4F
+MoveTutor_Text_BrickBreakReceived: @ 82C7B4F
 	.string "I want you to win at the Mossdeep Gym\n"
-	.string "using that PowerUpPunch!$"
+	.string "using that Brick Break!$"
 
 MoveTutor_Text_SwordsDanceGift: @ 82C7B8E
 	.string "Sigh…\p"
