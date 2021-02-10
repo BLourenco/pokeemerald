@@ -1052,7 +1052,7 @@ void DrawHeaderBox(void)
     u8 *dst;
     bool8 handleFlash = FALSE;
     
-    if (Overworld_GetFlashLevel() > 1 || gSaveBlock2Ptr->frontier.pyramidLightRadius > 1)
+    if (Overworld_GetFlashLevel() > 0 || gSaveBlock2Ptr->frontier.pyramidLightRadius > 0)
         handleFlash = TRUE;
     
     if (item >= FIRST_BERRY_INDEX && item <= LAST_BERRY_INDEX)
