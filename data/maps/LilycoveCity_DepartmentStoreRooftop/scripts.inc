@@ -30,13 +30,7 @@ LilycoveCity_DepartmentStoreRooftop_EventScript_SaleWoman:: @ 822022F
 
 	.align 2
 LilycoveCity_DepartmentStoreRooftop_PokemartDecor_ClearOutSale: @ 8220248
-	.2byte DECOR_MUD_BALL
-	.2byte DECOR_FENCE_LENGTH
-	.2byte DECOR_FENCE_WIDTH
 	.2byte DECOR_TIRE
-	.2byte DECOR_BREAKABLE_DOOR
-	.2byte DECOR_SOLID_BOARD
-	.2byte DECOR_SAND_ORNAMENT
 	.2byte DECOR_STAND
 	.2byte DECOR_SLIDE
 	.2byte DECOR_TV
