@@ -662,8 +662,8 @@ ShoalCave_Summit_EventScript_ItemSailFossil::
 	finditem ITEM_SAIL_FOSSIL
 	end
 
-SeafloorCavern_Room6_EventScript_ItemTM55:: @ 8291401
-	finditem ITEM_TM55_SCALD
+SeafloorCavern_Room6_EventScript_ItemTM52:: @ 8291401
+	finditem ITEM_TM52_FOCUS_BLAST
 	end
 
 SeafloorCavern_Room9_EventScript_ItemTM26:: @ 8291401

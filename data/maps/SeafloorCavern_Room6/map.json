@@ -24,8 +24,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SeafloorCavern_Room6_EventScript_ItemTM55",
-      "flag": "FLAG_ITEM_SEAFLOOR_CAVERN_ROOM_6_TM_55"
+      "script": "SeafloorCavern_Room6_EventScript_ItemTM52",
+      "flag": "FLAG_ITEM_SEAFLOOR_CAVERN_ROOM_6_TM_52"
     }
   ],
   "warp_events": [

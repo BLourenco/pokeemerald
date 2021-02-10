@@ -1219,7 +1219,7 @@
 #define FLAG_ITEM_MT_CHIMNEY_TM_59                                  0x495
 #define FLAG_ITEM_MT_PYRE_TM_61                                     0x496
 #define FLAG_ITEM_ROUTE_119_TM_62                                   0x497
-#define FLAG_ITEM_SEAFLOOR_CAVERN_ROOM_6_TM_55                      0x498
+#define FLAG_ITEM_SEAFLOOR_CAVERN_ROOM_6_TM_52                      0x498
 #define FLAG_ITEM_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM_TM_79              0x499
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_TM_53                           0x49A
 #define FLAG_ITEM_SAFARI_ZONE_NORTHEAST_TM_93                       0x49B
