@@ -25,6 +25,8 @@ SootopolisCity_Mart_EventScript_Clerk2::
 SootopolisCity_Mart_Pokemart:
 	.2byte ITEM_DUSK_BALL
 	.2byte ITEM_MYSTIC_WATER
+	.2byte ITEM_TM65_SHADOW_CLAW
+	.2byte ITEM_TM82_DRAGON_TAIL
 	.2byte ITEM_GLITTER_MAIL
 	.2byte ITEM_NONE
 	release

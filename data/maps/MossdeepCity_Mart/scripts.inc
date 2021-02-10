@@ -25,6 +25,11 @@ MossdeepCity_Mart_EventScript_Clerk2::
 MossdeepCity_Mart_Pokemart:
 	.2byte ITEM_DIVE_BALL
 	.2byte ITEM_TWISTED_SPOON
+	.2byte ITEM_SHINY_STONE
+	.2byte ITEM_DAWN_STONE
+	.2byte ITEM_DUSK_STONE
+	.2byte ITEM_TM109_PSYCHO_CUT
+	.2byte ITEM_TM115_PSYCHIC_TERRAIN
 	.2byte ITEM_WAVE_MAIL
 	.2byte ITEM_NONE
 	release

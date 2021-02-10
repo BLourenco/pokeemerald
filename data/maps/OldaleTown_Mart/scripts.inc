@@ -35,6 +35,7 @@ OldaleTown_Mart_EventScript_Clerk2:: @ 8267ACC
 	.align 2
 OldaleTown_Mart_Pokemart:
 	.2byte ITEM_SILVER_POWDER
+	.2byte ITEM_TM54_FALSE_SWIPE
 	.2byte ITEM_RETRO_MAIL
 	.2byte ITEM_NONE
 	release

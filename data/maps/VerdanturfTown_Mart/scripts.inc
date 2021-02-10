@@ -25,6 +25,8 @@ VerdanturfTown_Mart_EventScript_Clerk2::
 VerdanturfTown_Mart_Pokemart:
 	.2byte ITEM_HEAL_BALL
 	.2byte ITEM_MIRACLE_SEED
+	.2byte ITEM_TM03_WATER_PULSE
+	.2byte ITEM_TM112_GRASSY_TERRAIN
 	.2byte ITEM_TROPIC_MAIL
 	.2byte ITEM_NONE
 	release

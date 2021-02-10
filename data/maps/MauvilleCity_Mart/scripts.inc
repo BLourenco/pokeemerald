@@ -25,6 +25,8 @@ MauvilleCity_Mart_EventScript_Clerk2::
 MauvilleCity_Mart_Pokemart:
 	.2byte ITEM_NEST_BALL
 	.2byte ITEM_MAGNET
+	.2byte ITEM_TM57_CHARGE_BEAM
+	.2byte ITEM_TM77_RETALIATE
 	.2byte ITEM_MECH_MAIL
 	.2byte ITEM_NONE
 	release

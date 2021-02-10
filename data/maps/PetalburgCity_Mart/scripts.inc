@@ -24,6 +24,7 @@ PetalburgCity_Mart_EventScript_Clerk2::
 	.align 2
 PetalburgCity_Mart_Pokemart:
 	.2byte ITEM_SILK_SCARF
+	.2byte ITEM_TM111_DRAINING_KISS
 	.2byte ITEM_ORANGE_MAIL
 	.2byte ITEM_NONE
 	release

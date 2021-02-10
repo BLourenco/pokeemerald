@@ -25,6 +25,9 @@ FortreeCity_Mart_EventScript_Clerk2::
 FortreeCity_Mart_Pokemart:
 	.2byte ITEM_QUICK_BALL
 	.2byte ITEM_SHARP_BEAK
+	.2byte ITEM_TM40_AERIAL_ACE
+	.2byte ITEM_TM51_LOW_SWEEP
+	.2byte ITEM_TM110_HEX
 	.2byte ITEM_WOOD_MAIL
 	.2byte ITEM_NONE
 	release

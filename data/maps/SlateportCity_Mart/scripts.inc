@@ -25,6 +25,8 @@ SlateportCity_Mart_EventScript_Clerk2::
 SlateportCity_Mart_Pokemart:
 	.2byte ITEM_NET_BALL
 	.2byte ITEM_SOFT_SAND
+	.2byte ITEM_TM73_THUNDER_WAVE
+	.2byte ITEM_TM76_STRUGGLE_BUG
 	.2byte ITEM_HARBOR_MAIL
 	.2byte ITEM_NONE
 	release

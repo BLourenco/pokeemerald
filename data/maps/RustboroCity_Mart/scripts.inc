@@ -25,6 +25,8 @@ RustboroCity_Mart_EventScript_Clerk2::
 RustboroCity_Mart_Pokemart:
 	.2byte ITEM_REPEAT_BALL
 	.2byte ITEM_HARD_STONE
+	.2byte ITEM_TM34_SHOCK_WAVE
+	.2byte ITEM_TM58_VENOSHOCK
 	.2byte ITEM_BEAD_MAIL
 	.2byte ITEM_NONE
 	release

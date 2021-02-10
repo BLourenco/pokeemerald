@@ -25,6 +25,9 @@ LavaridgeTown_Mart_EventScript_Clerk2::
 LavaridgeTown_Mart_Pokemart:
 	.2byte ITEM_TIMER_BALL
 	.2byte ITEM_CHARCOAL
+	.2byte ITEM_TM106_THUNDER_FANG
+	.2byte ITEM_TM107_ICE_FANG
+	.2byte ITEM_TM108_FIRE_FANG
 	.2byte ITEM_FAB_MAIL
 	.2byte ITEM_NONE
 	release

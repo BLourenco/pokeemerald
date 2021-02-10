@@ -618,3 +618,4 @@ PetalburgWoods_Text_ExplainHeadbuttTrees:
 	.string "Keep trying over an over, because you\n"
 	.string "can find about half a dozen different\l"
 	.string "Pokémon in each area they're found.$"
+	

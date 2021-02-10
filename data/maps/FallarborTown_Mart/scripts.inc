@@ -25,6 +25,11 @@ FallarborTown_Mart_EventScript_Clerk2::
 FallarborTown_Mart_Pokemart:
 	.2byte ITEM_DREAM_BALL
 	.2byte ITEM_POISON_BARB
+	.2byte ITEM_MOON_STONE
+	.2byte ITEM_SUN_STONE
+	.2byte ITEM_TM78_BULLDOZE
+	.2byte ITEM_TM105_MUD_SHOT
+	.2byte ITEM_TM113_MISTY_TERRAIN
 	.2byte ITEM_DREAM_MAIL
 	.2byte ITEM_NONE
 	release
