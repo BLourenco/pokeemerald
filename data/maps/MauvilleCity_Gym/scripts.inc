@@ -78,7 +78,7 @@ MauvilleCity_Gym_EventScript_Wattson:: @ 820DEEB
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	compare VAR_RESULT, TRUE
 	goto_if_eq MauvilleCity_Gym_EventScript_WattsonRematch
-	goto_if_unset FLAG_RECEIVED_TM34, MauvilleCity_Gym_EventScript_GiveShockWave2
+	goto_if_unset FLAG_RECEIVED_TM114, MauvilleCity_Gym_EventScript_GiveElectricTerrain2
 	compare VAR_NEW_MAUVILLE_STATE, 2
 	goto_if_eq MauvilleCity_Gym_EventScript_CompletedNewMauville
 	msgbox MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_DEFAULT
@@ -102,7 +102,7 @@ MauvilleCity_Gym_EventScript_WattsonDefeated:: @ 820DF2B
 	special MauvilleGymDeactivatePuzzle
 	special DrawWholeMapView
 	playse SE_UNLOCK
-	call MauvilleCity_Gym_EventScript_GiveShockWave
+	call MauvilleCity_Gym_EventScript_GiveElectricTerrain
 	closemessage
 	delay 30
 	playfanfare MUS_REGISTER_MATCH_CALL
@@ -114,21 +114,21 @@ MauvilleCity_Gym_EventScript_WattsonDefeated:: @ 820DF2B
 	release
 	end
 
-MauvilleCity_Gym_EventScript_GiveShockWave2:: @ 820DF8D
-	giveitem ITEM_TM34
+MauvilleCity_Gym_EventScript_GiveElectricTerrain2:: @ 820DF8D
+	giveitem ITEM_TM114_ELECTRIC_TERRAIN
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
-	msgbox MauvilleCity_Gym_Text_ExplainShockWave, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM34
+	msgbox MauvilleCity_Gym_Text_ExplainElectricTerrain, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_TM114
 	release
 	end
 
-MauvilleCity_Gym_EventScript_GiveShockWave:: @ 820DFB1
-	giveitem ITEM_TM34
+MauvilleCity_Gym_EventScript_GiveElectricTerrain:: @ 820DFB1
+	giveitem ITEM_TM114_ELECTRIC_TERRAIN
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_BagIsFull
-	msgbox MauvilleCity_Gym_Text_ExplainShockWave, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM34
+	msgbox MauvilleCity_Gym_Text_ExplainElectricTerrain, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_TM114
 	return
 
 MauvilleCity_Gym_EventScript_CompletedNewMauville:: @ 820DFD4
@@ -372,10 +372,12 @@ MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis: @ 820E7AA
 	.string "Hmm…\n"
 	.string "You should take this, too!$"
 
-MauvilleCity_Gym_Text_ExplainShockWave: @ 820E844
-	.string "That TM34 there contains Shock Wave.\p"
-	.string "It's a trustworthy move that never\n"
-	.string "misses! You can count on it!\p"
+MauvilleCity_Gym_Text_ExplainElectricTerrain: @ 820E844
+	.string "That TM114 there contains\n"
+	.string "Electric Terrain.\p"
+	.string "It's a move that electrifies the\n"
+	.string "battlefield, amplifying Electric-type\l"
+	.string "attacks of all grounded Pokemon!\p"
 	.string "… … … … … …$"
 
 MauvilleCity_Gym_Text_RegisteredWattson: @ 820E8B5
