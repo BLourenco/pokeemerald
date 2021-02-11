@@ -129,7 +129,7 @@ BerryTree_EventScript_PickBerry:: @ 8274448
 	special ObjectEventInteractionPickBerryTreeGiveBerry
 	message BerryTree_Text_PickedTheBerry
     delay 10
-    showdescription
+    showpickedberrydesc
 	playfanfare MUS_OBTAIN_BERRY
 	waitmessage
 	waitfanfare

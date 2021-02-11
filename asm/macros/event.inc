@@ -1623,6 +1623,16 @@
     .macro showdescription
     .byte 0xe3
     .endm
+	
+    .macro showitemdesc
+    setvar VAR_0x8003, 0
+    showdescription
+    .endm
+	
+    .macro showpickedberrydesc
+    setvar VAR_0x8003, 1
+    showdescription
+    .endm
     
     .macro hideitemdesc
     .byte 0xe4

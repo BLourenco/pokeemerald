@@ -1047,7 +1047,7 @@ void DrawHeaderBox(void)
 {
     struct WindowTemplate template;
     u16 item = gSpecialVar_0x8006;
-    u8 headerType = gSpecialVar_0x8009;
+    u8 headerType = gSpecialVar_0x8003;
     u8 textY;
     u8 *dst;
     bool8 handleFlash = FALSE;
@@ -1055,7 +1055,7 @@ void DrawHeaderBox(void)
     if (Overworld_GetFlashLevel() > 0 || gSaveBlock2Ptr->frontier.pyramidLightRadius > 0)
         handleFlash = TRUE;
     
-    if (item >= FIRST_BERRY_INDEX && item <= LAST_BERRY_INDEX)
+    if (headerType == 1)
         dst = gStringVar3;
     else
         dst = gStringVar1;

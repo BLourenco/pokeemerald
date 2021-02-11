@@ -78,7 +78,7 @@ EventScript_BufferTrainingPocket::
 EventScript_ObtainedItem:: @ 8271B95
 	message gText_ObtainedTheItem
 	delay 10
-    showdescription
+    showitemdesc
 	waitfanfare
 	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
 	hideitemdesc
@@ -153,7 +153,7 @@ EventScript_PickUpItem:: @ 8271C3A
 	compare VAR_0x8008, 0
 	call_if_eq EventScript_FoundItem
 	delay 10
-    showdescription
+    showitemdesc
 	waitfanfare
 	waitmessage
 	bufferitemnameplural 1, VAR_0x8004, VAR_0x8005
@@ -222,7 +222,7 @@ EventScript_FoundHiddenItem:: @ 8271D1F
 
 EventScript_PutHiddenItemInPocket:: @ 8271D2A
 	delay 10
-    showdescription
+    showitemdesc
 	waitmessage
 	waitfanfare
 	bufferitemnameplural 1, VAR_0x8004, 1
