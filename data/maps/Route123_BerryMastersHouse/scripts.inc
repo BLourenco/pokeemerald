@@ -39,6 +39,7 @@ Route123_BerryMastersHouse_EventScript_BerryMastersWife:: @ 826F8C0
 	lock
 	faceplayer
 	dotimebasedevents
+	goto_if_unset FLAG_RECEIVED_TM102, Route123_BerryMastersHouse_EventScript_GiveNaturalGiftTM
 	goto_if_set FLAG_DAILY_BERRY_MASTERS_WIFE, Route123_BerryMastersHouse_EventScript_ReceivedWifeBerryToday
 	msgbox Route123_BerryMastersHouse_Text_HeardAGoodSayingLately, MSGBOX_DEFAULT
 	setvar VAR_0x8004, EASY_CHAT_TYPE_GOOD_SAYING
@@ -49,6 +50,15 @@ Route123_BerryMastersHouse_EventScript_BerryMastersWife:: @ 826F8C0
 	goto_if_eq Route123_BerryMastersHouse_EventScript_GavePhrase
 	compare VAR_RESULT, FALSE
 	goto_if_eq Route123_BerryMastersHouse_EventScript_CancelPhrase
+	end
+
+Route123_BerryMastersHouse_EventScript_GiveNaturalGiftTM::
+	msgbox Route123_BerryMastersHouse_Text_GiveNaturalGiftTM, MSGBOX_DEFAULT
+	giveitem ITEM_TM102_NATURAL_GIFT
+	compare VAR_RESULT, FALSE
+	goto_if_eq Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_TM102
+	goto Route123_BerryMastersHouse_EventScript_BerryMastersWife
 	end
 
 Route123_BerryMastersHouse_EventScript_CancelPhrase:: @ 826F8F7

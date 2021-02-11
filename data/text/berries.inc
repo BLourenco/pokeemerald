@@ -116,6 +116,11 @@ Route123_BerryMastersHouse_Text_HeardAGoodSayingLately: @ 82A74E6
 	.string "Incidentally, child, have you heard\n"
 	.string "a good saying lately?$"
 
+Route123_BerryMastersHouse_Text_GiveNaturalGiftTM:
+	.string "Berries are nature's gift to people\n"
+	.string "and Pokémon.\p"
+	.string "Make use of that gift with this TM.$"
+
 Route123_BerryMastersHouse_Text_InspirationalTakeThis: @ 82A7583
 	.string "Ah! What a remarkable saying!\n"
 	.string "Inspirational, it is!\p"
