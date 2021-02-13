@@ -1394,7 +1394,7 @@
     {
       "id": "LAYOUT_MT_PYRE_4F",
       "name": "MtPyre_4F_Layout",
-      "width": 13,
+      "width": 22,
       "height": 13,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Facility",

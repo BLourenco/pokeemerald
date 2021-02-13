@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_HEX_MANIAC",
-      "x": 11,
+      "x": 20,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
@@ -29,7 +29,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 3,
+      "x": 12,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -43,46 +43,60 @@
   ],
   "warp_events": [
     {
-      "x": 10,
+      "x": 19,
       "y": 1,
       "elevation": 3,
       "dest_map": "MAP_MT_PYRE_5F",
       "dest_warp_id": 1
     },
     {
-      "x": 2,
+      "x": 11,
       "y": 5,
       "elevation": 3,
       "dest_map": "MAP_MT_PYRE_3F",
       "dest_warp_id": 1
     },
     {
-      "x": 12,
+      "x": 21,
       "y": 10,
       "elevation": 3,
       "dest_map": "MAP_MT_PYRE_5F",
       "dest_warp_id": 3
     },
     {
-      "x": 12,
+      "x": 21,
       "y": 12,
       "elevation": 3,
       "dest_map": "MAP_MT_PYRE_5F",
       "dest_warp_id": 4
     },
     {
-      "x": 9,
+      "x": 18,
       "y": 10,
       "elevation": 3,
       "dest_map": "MAP_MT_PYRE_3F",
       "dest_warp_id": 2
     },
     {
-      "x": 2,
+      "x": 11,
       "y": 12,
       "elevation": 3,
       "dest_map": "MAP_MT_PYRE_3F",
       "dest_warp_id": 3
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_MT_PYRE_EXTERIOR",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_MT_PYRE_EXTERIOR",
+      "dest_warp_id": 0
     }
   ],
   "coord_events": [
