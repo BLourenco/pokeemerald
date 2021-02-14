@@ -233,7 +233,7 @@ RustboroCity_DevonCorp_2F_EventScript_ConfirmFossil::
 	checkitem VAR_TEMP_2, 1
 	compare VAR_RESULT, FALSE
 	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_YouDontHaveThatFossil
-	givemon VAR_TEMP_1, 30, ITEM_NONE
+	givemon VAR_TEMP_1, 25, ITEM_NONE
 	compare VAR_RESULT, 0
 	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_ReceiveFossilMonParty
 	compare VAR_RESULT, 1
