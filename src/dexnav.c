@@ -537,7 +537,7 @@ static void AddSearchWindowText(u16 species, u8 proximity, u8 searchLevel, bool8
         StringExpandPlaceholders(gStringVar4, sText_DexNavChainLong);
     else
         StringExpandPlaceholders(gStringVar4, sText_DexNavChain);
-    AddTextPrinterParameterized3(windowId, 0, SEARCH_ARROW_X - 16, 12, sSearchFontColor, TEXT_SPEED_FF, gStringVar4);
+    AddTextPrinterParameterized3(windowId, 0, SEARCH_ARROW_X - 16, 12, sSearchFontColor, TEXT_SPEED_FF, gStringVar4);    
     
     CopyWindowToVram(sDexNavSearchDataPtr->windowId, 2);
 }
@@ -657,11 +657,11 @@ static bool8 DexNavPickTile(u8 environment, u8 areaX, u8 areaY, bool8 smallScan)
                 continue;
             }
             
-            if (MetatileBehavior_IsEncounterTile(tileBehaviour))
-            {                
-                switch (environment)
+            switch (environment)
+            {
+            case ENCOUNTER_TYPE_LAND:
+                if (MetatileBehavior_IsLandWildEncounter(tileBehaviour))
                 {
-                case ENCOUNTER_TYPE_LAND:
                     if (currMapType == MAP_TYPE_UNDERGROUND)
                     { // inside (cave)
                         if (IsZCoordMismatchAt(gObjectEvents[gPlayerAvatar.spriteId].currentElevation, topX, topY))
@@ -675,20 +675,20 @@ static bool8 DexNavPickTile(u8 environment, u8 areaX, u8 areaY, bool8 smallScan)
                         scale = 100 - (GetPlayerDistance(topX, topY) * 2);
                         weight = (Random() % scale <= 5) && !MapGridIsImpassableAt(topX, topY);
                     }
-                    break;
-                case ENCOUNTER_TYPE_WATER:
-                    if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehaviour))
-                    {
-                        u8 scale = 320 - (smallScan * 200) - (GetPlayerDistance(topX, topY) / 2);
-                        if (IsZCoordMismatchAt(gObjectEvents[gPlayerAvatar.spriteId].currentElevation, topX, topY))
-                            break;
-
-                        weight = (Random() % scale <= 1) && !MapGridIsImpassableAt(topX, topY);
-                    }
-                    break;
-                default:
-                    break;
                 }
+                break;
+            case ENCOUNTER_TYPE_WATER:
+                if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehaviour))
+                {
+                    u8 scale = 320 - (smallScan * 200) - (GetPlayerDistance(topX, topY) / 2);
+                    if (IsZCoordMismatchAt(gObjectEvents[gPlayerAvatar.spriteId].currentElevation, topX, topY))
+                        break;
+
+                    weight = (Random() % scale <= 1) && !MapGridIsImpassableAt(topX, topY);
+                }
+                break;
+            default:
+                break;
             }
             
             if (weight > 0)
@@ -755,9 +755,7 @@ static bool8 TryStartHiddenMonFieldEffect(u8 environment, u8 xSize, u8 ySize, bo
             fldEffId = FLDEFF_WATER_SURFACING;
             break;
         default:
-            //we found a good tile, but somehow ended up here. default effect
-            fldEffId = FLDEFF_BERRY_TREE_GROWTH_SPARKLE;
-            break;
+            return FALSE;
         }
         
         if (fldEffId != 0)
@@ -1219,10 +1217,10 @@ static void CreateDexNavWildMon(u16 species, u8 potential, u8 level, u8 abilityN
     
     CreateWildMon(species, level);  // shiny rate bonus handled in CreateBoxMon
     
-    //Pick potential ivs to set to 31
+    //Pick potential unique ivs to set to 31
     iv[0] = Random() % 6;
-    iv[1] = Random() % 6;
-    iv[2] = Random() % 6;
+    do {iv[1] = Random() % 6;} while (iv[1] == iv[0]);
+    do {iv[2] = Random() % 6;} while (iv[2] == iv[0] || iv[2] == iv[1]);
     if ((iv[0] != iv[1]) && (iv[0] != iv[2]) && (iv[1] != iv[2]))
     {
         if (potential > 2)
@@ -1802,7 +1800,7 @@ static bool8 CapturedAllHiddenMons(u8 headerId)
     
     if (hiddenMonsInfo != NULL)
     {
-        for (i = 0; i < WATER_WILD_COUNT; ++i)
+        for (i = 0; i < HIDDEN_WILD_COUNT; ++i)
         {
             species = hiddenMonsInfo->wildPokemon[i].species;
             if (species != SPECIES_NONE)
@@ -1813,7 +1811,7 @@ static bool8 CapturedAllHiddenMons(u8 headerId)
             }
         }
 
-        if (i >= WATER_WILD_COUNT && count > 0)
+        if (i >= HIDDEN_WILD_COUNT && count > 0)
             return TRUE;
     }
     else
@@ -2093,6 +2091,9 @@ static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES] =
     [TYPE_ICE] = TYPE_ICON_PAL_NUM_1,
     [TYPE_DRAGON] = TYPE_ICON_PAL_NUM_2,
     [TYPE_DARK] = TYPE_ICON_PAL_NUM_0,
+    #ifdef TYPE_FAIRY
+    [TYPE_FAIRY] = TYPE_ICON_PAL_NUM_1, //based on battle_engine
+    #endif
 };
 static void SetTypeIconPosAndPal(u8 typeId, u8 x, u8 y, u8 spriteArrayId)
 {

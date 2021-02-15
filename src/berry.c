@@ -1423,8 +1423,9 @@ void ClearBerryTrees(void)
 
 static bool32 BerryTreeGrow(struct BerryTree *tree)
 {
-    if (tree->growthSparkle)
+    if (tree->stopGrowth)
         return FALSE;
+
     switch (tree->stage)
     {
     case BERRY_STAGE_NO_BERRY:
@@ -1459,7 +1460,7 @@ void BerryTreeTimeUpdate(s32 minutes)
     {
         tree = &gSaveBlock1Ptr->berryTrees[i];
 
-        if (tree->berry && tree->stage && !tree->growthSparkle && (tree->stage != BERRY_STAGE_BERRIES))
+        if (tree->berry && tree->stage && !tree->stopGrowth && (tree->stage != BERRY_STAGE_BERRIES))
         {
             /* if (minutes >= GetStageDurationByBerryType(tree->berry) * 71)
             {
@@ -1488,7 +1489,7 @@ void BerryTreeTimeUpdate(s32 minutes)
     }
 }
 
-void PlantBerryTree(u8 id, u8 berry, u8 stage, bool8 sparkle)
+void PlantBerryTree(u8 id, u8 berry, u8 stage, bool8 allowGrowth)
 {
     struct BerryTree *tree = GetBerryTreeInfo(id);
 
@@ -1502,8 +1503,10 @@ void PlantBerryTree(u8 id, u8 berry, u8 stage, bool8 sparkle)
         tree->minutesUntilNextStage *= 4;
     }
 
-    if (!sparkle)
-        tree->growthSparkle = TRUE;
+    // Stop growth, to keep tree at this stage until the player has seen it
+    // allowGrowth is always true for berry trees the player has planted
+    if (!allowGrowth)
+        tree->stopGrowth = TRUE;
 }
 
 void RemoveBerryTree(u8 id)
@@ -1552,9 +1555,9 @@ void GetBerryCountStringByBerryType(u8 berry, u8* dest, u32 berryCount)
     GetBerryCountString(dest, GetBerryInfo(berry)->name, berryCount);
 }
 
-void ResetBerryTreeSparkleFlag(u8 id)
+void AllowBerryTreeGrowth(u8 id)
 {
-    GetBerryTreeInfo(id)->growthSparkle = FALSE;
+    GetBerryTreeInfo(id)->stopGrowth = FALSE;
 }
 
 static u8 BerryTreeGetNumStagesWatered(struct BerryTree *tree)
@@ -1639,7 +1642,7 @@ void ObjectEventInteractionGetBerryTreeData(void)
 
     id = GetObjectEventBerryTreeId(gSelectedObjectEvent);
     berry = GetBerryTypeByBerryTreeId(id);
-    ResetBerryTreeSparkleFlag(id);
+    AllowBerryTreeGrowth(id);
     localId = gSpecialVar_LastTalked;
     num = gSaveBlock1Ptr->location.mapNum;
     group = gSaveBlock1Ptr->location.mapGroup;
@@ -1790,7 +1793,7 @@ void ObjectEventInteractionPickBerryTreeGiveApricorn(void)
 void ObjectEventInteractionRemoveBerryTree(void)
 {
     RemoveBerryTree(GetObjectEventBerryTreeId(gSelectedObjectEvent));
-    sub_8092EF0(gSpecialVar_LastTalked, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    SetBerryTreeJustPicked(gSpecialVar_LastTalked, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
 }
 
 bool8 PlayerHasBerries(void)
@@ -1798,7 +1801,9 @@ bool8 PlayerHasBerries(void)
     return IsBagPocketNonEmpty(POCKET_BERRIES);
 }
 
-void ResetBerryTreeSparkleFlags(void)
+// Berry tree growth is frozen at their initial stage (usually, fully grown) until the player has seen the tree
+// For all berry trees on screen, allow normal growth
+void SetBerryTreesSeen(void)
 {
     s16 cam_left;
     s16 cam_top;
@@ -1820,7 +1825,7 @@ void ResetBerryTreeSparkleFlags(void)
             cam_left = gObjectEvents[i].currentCoords.x;
             cam_top = gObjectEvents[i].currentCoords.y;
             if (left <= cam_left && cam_left <= right && top <= cam_top && cam_top <= bottom)
-                ResetBerryTreeSparkleFlag(gObjectEvents[i].trainerRange_berryTreeId);
+                AllowBerryTreeGrowth(gObjectEvents[i].trainerRange_berryTreeId);
         }
     }
 }

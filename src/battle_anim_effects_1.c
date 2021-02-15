@@ -4180,7 +4180,7 @@ static void AnimPresent(struct Sprite* sprite)
     sprite->callback = AnimItemSteal_Step1;
 }
 
-static void sub_80FFB90(struct Sprite* sprite)
+static void AnimKnockOffOpponentsItem(struct Sprite* sprite)
 {
     int zero;
     sprite->data[0] += ((sprite->data[3] * 128) / sprite->data[4]);
@@ -4222,7 +4222,7 @@ static void AnimKnockOffItem(struct Sprite* sprite)
         sub_80FF9B8(sprite, 40);
         sprite->data[3] = 3;
         sprite->data[4] = 60;
-        sprite->callback = sub_80FFB90;
+        sprite->callback = AnimKnockOffOpponentsItem;
     }
 }
 
@@ -4837,7 +4837,7 @@ void AnimNeedleArmSpike_Step(struct Sprite* sprite)
     }
 }
 
-static void sub_81009DC(struct Sprite* sprite)
+static void AnimWhipHit_WaitEnd(struct Sprite* sprite)
 {
     if (sprite->animEnded)
         DestroyAnimSprite(sprite);
@@ -4865,7 +4865,7 @@ static void AnimWhipHit(struct Sprite* sprite)
     if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_PLAYER)
         StartSpriteAnim(sprite, 1);
 
-    sprite->callback = sub_81009DC;
+    sprite->callback = AnimWhipHit_WaitEnd;
     SetAnimSpriteInitialXOffset(sprite, gBattleAnimArgs[0]);
     sprite->pos1.y += gBattleAnimArgs[1];
 }

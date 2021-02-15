@@ -7,7 +7,7 @@
 
 #define RAM_SCRIPT_MAGIC 51
 
-extern const u8* gUnknown_020375C0;
+extern const u8* gRamScriptRetAddr;
 
 // ewram bss
 static u8 sScriptContext1Status;
@@ -374,7 +374,7 @@ const u8 *GetRamScript(u8 objectId, const u8 *script)
 {
     #ifndef FREE_MYSTERY_EVENT_BUFFERS
     struct RamScriptData *scriptData = &gSaveBlock1Ptr->ramScript.data;
-    gUnknown_020375C0 = NULL;
+    gRamScriptRetAddr = NULL;
     if (scriptData->magic != RAM_SCRIPT_MAGIC)
         return script;
     if (scriptData->mapGroup != gSaveBlock1Ptr->location.mapGroup)
@@ -390,7 +390,7 @@ const u8 *GetRamScript(u8 objectId, const u8 *script)
     }
     else
     {
-        gUnknown_020375C0 = script;
+        gRamScriptRetAddr = script;
         return scriptData->script;
     }
     #else
