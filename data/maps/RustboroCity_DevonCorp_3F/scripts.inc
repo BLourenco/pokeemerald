@@ -57,6 +57,7 @@ RustboroCity_DevonCorp_3F_EventScript_MeetPresident:: @ 821246E
 	waitfanfare
 	setflag FLAG_SYS_POKENAV_GET
 	setflag FLAG_SYS_DEXNAV_GET
+	setflag FLAG_SYS_DETECTOR_MODE
 	setflag FLAG_RECEIVED_POKENAV
 	setflag FLAG_HIDE_RUSTBORO_CITY_POKEMON_SCHOOL_SCOTT
 	msgbox RustboroCity_DevonCorp_3F_Text_MrStoneExplainPokenavRestUp, MSGBOX_DEFAULT

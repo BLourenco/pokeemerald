@@ -640,12 +640,13 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
 
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
     {
-        if (FlagGet(FLAG_SYS_DEXNAV_SEARCH) && (heldKeys & A_BUTTON))
-        {
-            gPlayerAvatar.creeping = TRUE;
-            PlayerGoSpeed1(direction);
-        }
-        else if (heldKeys & B_BUTTON)
+        // if (FlagGet(FLAG_SYS_DEXNAV_SEARCH) && (heldKeys & A_BUTTON))
+        // {
+        //     gPlayerAvatar.creeping = TRUE;
+        //     PlayerGoSpeed1(direction);
+        // }
+        // else 
+        if (heldKeys & B_BUTTON)
         {
             gPlayerAvatar.creeping = FALSE;
             PlayerGoSpeed4(direction);
@@ -677,12 +678,12 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
     }
     else if (FlagGet(FLAG_SYS_DEXNAV_SEARCH))
     {
-        if (heldKeys & A_BUTTON)
-        {
-            gPlayerAvatar.creeping = TRUE;
-            PlayerGoSlow(direction);
-        }
-        else
+        // if (heldKeys & A_BUTTON)
+        // {
+        //     gPlayerAvatar.creeping = TRUE;
+        //     PlayerGoSlow(direction);
+        // }
+        // else
         {
             gPlayerAvatar.creeping = FALSE;
             PlayerGoSpeed1(direction);

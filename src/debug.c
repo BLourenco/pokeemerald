@@ -1144,9 +1144,11 @@ static void DebugAction_Flags_SwitchDexNav(u8 taskId)
     if(FlagGet(FLAG_SYS_DEXNAV_GET))
     {
         FlagClear(FLAG_SYS_DEXNAV_GET);
+        FlagClear(FLAG_SYS_DETECTOR_MODE);
         PlaySE(SE_PC_OFF);
     }else{
         FlagSet(FLAG_SYS_DEXNAV_GET);
+        FlagSet(FLAG_SYS_DETECTOR_MODE);
         PlaySE(SE_PC_LOGIN);
     }
 }
