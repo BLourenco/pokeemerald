@@ -4414,8 +4414,8 @@
     {
       "id": "LAYOUT_DEWFORD_COVE",
       "name": "DewfordCove_Layout",
-      "width": 34,
-      "height": 20,
+      "width": 40,
+      "height": 26,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/DewfordCove/border.bin",
