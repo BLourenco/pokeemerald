@@ -927,6 +927,26 @@
         {
           "map": "MAP_ROUTE111",
           "base_label": "gRoute111",
+          "hidden_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 25,
+                "max_level": 27,
+                "species": "SPECIES_HIPPOPOTAS"
+              },
+              {
+                "min_level": 25,
+                "max_level": 27,
+                "species": "SPECIES_GIBLE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 27,
+                "species": "SPECIES_DARUMAKA"
+              }
+            ]
+          },
           "land_mons": {
             "encounter_rate": 10,
             "mons": [
@@ -983,7 +1003,7 @@
               {
                 "min_level": 25,
                 "max_level": 27,
-                "species": "SPECIES_CACNEA"
+                "species": "SPECIES_SILICOBRA"
               },
               {
                 "min_level": 25,
@@ -1669,6 +1689,26 @@
                 "min_level": 14,
                 "max_level": 16,
                 "species": "SPECIES_MAREEP"
+              }
+            ]
+          },
+          "hidden_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 14,
+                "max_level": 16,
+                "species": "SPECIES_SUNKERN"
+              },
+              {
+                "min_level": 14,
+                "max_level": 16,
+                "species": "SPECIES_SPRITZEE"
+              },
+              {
+                "min_level": 14,
+                "max_level": 16,
+                "species": "SPECIES_GOSSIFLEUR"
               }
             ]
           },
@@ -2701,7 +2741,7 @@
               {
                 "min_level": 11,
                 "max_level": 12,
-                "species": "SPECIES_ONIX"
+                "species": "SPECIES_DRUDDIGON"
               }
             ]
           },
@@ -12629,11 +12669,6 @@
               {
                 "min_level": 32,
                 "max_level": 34,
-                "species": "SPECIES_URSARING"
-              },
-              {
-                "min_level": 32,
-                "max_level": 34,
                 "species": "SPECIES_PANGORO"
               },
               {
@@ -12644,27 +12679,52 @@
               {
                 "min_level": 32,
                 "max_level": 34,
-                "species": "SPECIES_PARASECT"
-              },
-              {
-                "min_level": 34,
-                "max_level": 34,
-                "species": "SPECIES_SAWSBUCK"
-              },
-              {
-                "min_level": 34,
-                "max_level": 34,
-                "species": "SPECIES_SAWSBUCK"
+                "species": "SPECIES_ORANGURU"
               },
               {
                 "min_level": 32,
                 "max_level": 34,
-                "species": "SPECIES_CHANSEY"
+                "species": "SPECIES_ORANGURU"
+              },
+              {
+                "min_level": 34,
+                "max_level": 34,
+                "species": "SPECIES_PASSIMIAN"
+              },
+              {
+                "min_level": 34,
+                "max_level": 34,
+                "species": "SPECIES_PASSIMIAN"
+              },
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_PHANTUMP"
+              },
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_PUMPKABOO"
+              }
+            ]
+          },
+          "hidden_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_KANGASKHAN"
               },
               {
                 "min_level": 32,
                 "max_level": 34,
                 "species": "SPECIES_KANGASKHAN"
+              },
+              {
+                "min_level": 32,
+                "max_level": 34,
+                "species": "SPECIES_CHANSEY"
               }
             ]
           }
