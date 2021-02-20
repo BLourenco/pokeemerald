@@ -32,13 +32,15 @@ AlteringCave_Hidden_EventScript_SetHidden::
 
 AlteringCave_Hidden_OnWarp:
 	map_script_2 VAR_ALTERING_CAVE_STATE, 1, AlteringCave_Hidden_EventScript_SetAzurillBehindRock
+	map_script_2 VAR_ALTERING_CAVE_STATE, 2, AlteringCave_Hidden_EventScript_SetAzurillBehindRock
+	map_script_2 VAR_ALTERING_CAVE_STATE, 3, AlteringCave_Hidden_EventScript_SetAzurillBehindRock
+	map_script_2 VAR_ALTERING_CAVE_STATE, 4, AlteringCave_Hidden_EventScript_SetAzurillBehindRock
+	map_script_2 VAR_ALTERING_CAVE_STATE, 5, AlteringCave_Hidden_EventScript_SetAzurillBehindRock
 	map_script_2 VAR_ALTERING_CAVE_STATE, 6, AlteringCave_Hidden_EventScript_PlayerFacesUp
 	.2byte 0
 
 AlteringCave_Hidden_EventScript_SetAzurillBehindRock::	
 	setobjectxyperm LOCALID_AZURILL, 18, 18
-	turnobject LOCALID_AZURILL, DIR_WEST
-	removeobject LOCALID_AZURILL
 	end
 
 AlteringCave_Hidden_EventScript_PlayerFacesUp::
