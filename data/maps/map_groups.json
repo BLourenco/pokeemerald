@@ -451,7 +451,9 @@
     "DesertRuins_Chamber",
     "DesertRuins_Entrance",
     "IslandCave_Entrance",
-    "AncientTomb_Entrance"
+    "AncientTomb_Entrance",
+    "AlteringCave_Hidden",
+    "AlteringCave_Revealed"
   ],
   "gMapGroup25": [
     "SecretBase_RedCave1",

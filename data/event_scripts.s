@@ -1105,3 +1105,7 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/BattleFrontier_TutoringServices/scripts.inc"
 
 	.include "data/maps/BattleFrontier_DayCare/scripts.inc"
+
+	.include "data/maps/AlteringCave_Hidden/scripts.inc"
+
+	.include "data/maps/AlteringCave_Revealed/scripts.inc"

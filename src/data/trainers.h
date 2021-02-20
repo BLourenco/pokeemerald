@@ -12094,4 +12094,18 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_MayDryAshlandsMudkip),
         .party = {.NoItemDefaultMoves = sParty_MayDryAshlandsMudkip},
     },
+
+    [TRAINER_OMAR] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC,
+        .trainerName = _("Omar"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+        .partySize = ARRAY_COUNT(sParty_Omar),
+        .party = {.NoItemDefaultMoves = sParty_Omar},
+    },
 };

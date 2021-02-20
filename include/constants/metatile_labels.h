@@ -1,6 +1,9 @@
 #ifndef GUARD_METATILE_LABELS_H
 #define GUARD_METATILE_LABELS_H
 
+// gTileset_AlteringCave
+#define METATILE_AlteringCave_CaveSouthArrowWarp  0x207
+
 // gTileset_BattleArena
 #define METATILE_BattleArena_Door  0x21B
 

@@ -210,8 +210,8 @@
 #define FLAG_DEFEATED_GRUNT_SPACE_CENTER_1F  0xBF
 #define FLAG_RECEIVED_SUN_STONE_MOSSDEEP     0xC0
 #define FLAG_WALLY_SPEECH                    0xC1
-#define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_1   0xC2 // Leftover from the RS version of Puzzle Room 7, functionally unused
-#define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_2   0xC3 //
+#define FLAG_ALTERING_CAVE_REVEALED           0xC2 
+#define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_2   0xC3 // Leftover from the RS version of Puzzle Room 7, functionally unused
 #define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_3   0xC4 //
 #define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_4   0xC5 //
 #define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_5   0xC6 //
@@ -660,7 +660,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_135_PEARL                     0x26F
 #define FLAG_HIDDEN_ITEM_ROUTE_135_BIG_PEARL                 0x270
 #define FLAG_HIDDEN_ITEM_ROUTE_135_HEART_SCALE               0x271
-#define FLAG_UNUSED_0x272  0x272 // Unused Flag
+#define FLAG_HIDDEN_ITEM_ALTERING_CAVE_LUMINOUS_MOSS         0x272
 #define FLAG_UNUSED_0x273  0x273 // Unused Flag
 #define FLAG_UNUSED_0x274  0x274 // Unused Flag
 #define FLAG_UNUSED_0x275  0x275 // Unused Flag
@@ -986,7 +986,7 @@
 #define FLAG_HIDE_ROUTE_128_MAXIE                                   0x3B1
 #define FLAG_HIDE_SEAFLOOR_CAVERN_AQUA_GRUNTS                       0x3B2
 #define FLAG_HIDE_ROUTE_116_DEVON_EMPLOYEE                          0x3B3
-#define FLAG_UNUSED_0x3B4                                           0x3B4 // Unused.
+#define FLAG_HIDE_ALTERING_CAVE_AZURILL                             0x3B4
 #define FLAG_HIDE_RUSTBORO_CITY_DEVON_CORP_3F_EMPLOYEE              0x3B5
 #define FLAG_HIDE_SS_TIDAL_CORRIDOR_MR_BRINEY                       0x3B6
 #define FLAG_HIDE_SS_TIDAL_ROOMS_SNATCH_GIVER                       0x3B7
@@ -1173,12 +1173,12 @@
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_NUGGET                           0x46C
-#define FLAG_ITEM_MOSSDEEP_STEVENS_HOUSE_HM08                       0x46D // Unused Flag, leftover from R/S. HM08 is given to the player directly in Emerald
+#define FLAG_HIDE_ALTERING_CAVE_RUIN_MANIAC                         0x46D
 #define FLAG_ITEM_ROUTE_119_NUGGET                                  0x46E
 #define FLAG_ITEM_ROUTE_104_POTION                                  0x46F
-#define FLAG_UNUSED_0x470                                           0x470 // Unused Flag
+#define FLAG_HIDE_ALTERING_CAVE_HIDDEN_AZURILL                      0x470
 #define FLAG_ITEM_ROUTE_103_PP_UP                                   0x471
-#define FLAG_UNUSED_0x472                                           0x472 // Unused Flag
+#define FLAG_HIDE_ALTERING_CAVE_HIDDEN_RUIN_MANIAC                  0x472
 #define FLAG_ITEM_ROUTE_108_STAR_PIECE                              0x473
 #define FLAG_ITEM_ROUTE_109_POTION                                  0x474
 #define FLAG_ITEM_ROUTE_110_ELIXIR                                  0x475
@@ -1243,8 +1243,8 @@
 #define FLAG_ITEM_ROUTE_135_ABSORB_BULB                             0x4AF
 #define FLAG_ITEM_ROUTE_135_TM_84                                   0x4B0
 #define FLAG_ITEM_ROUTE_135_REVIVE                                  0x4B1
-#define FLAG_UNUSED_0x4B2                                           0x4B2 // Unused Flag
-#define FLAG_UNUSED_0x4B3                                           0x4B3 // Unused Flag
+#define FLAG_ITEM_ALTERING_CAVE_SHINY_STONE                         0x4B2
+#define FLAG_ITEM_ALTERING_CAVE_TM_120                              0x4B3
 #define FLAG_UNUSED_0x4B4                                           0x4B4 // Unused Flag
 #define FLAG_UNUSED_0x4B5                                           0x4B5 // Unused Flag
 #define FLAG_UNUSED_0x4B6                                           0x4B6 // Unused Flag
@@ -1330,14 +1330,16 @@
 // Trainer flags occupy 0x500 - 0x85F, the last 9 of which are unused
 // See constants/opponents.h. The values there + FLAG_TRAINER_FLAG_START are the flag IDs
 
+// Trainer Flags HAVE been extended by 8, unused flag names no longer match their actual flag values. 
+
 #define TRAINER_FLAGS_START                                         0x500
-#define TRAINER_FLAGS_END                                           (TRAINER_FLAGS_START + MAX_TRAINERS_COUNT - 1) // 0x85F
+#define TRAINER_FLAGS_END                                           (TRAINER_FLAGS_START + MAX_TRAINERS_COUNT - 1) // 0x867
 
 // System Flags
 
-#define SYSTEM_FLAGS                                 (TRAINER_FLAGS_END + 1) // 0x860
+#define SYSTEM_FLAGS                                 (TRAINER_FLAGS_END + 1) // 0x868
 
-#define FLAG_SYS_POKEMON_GET                         (SYSTEM_FLAGS + 0x0) // FLAG_0x860
+#define FLAG_SYS_POKEMON_GET                         (SYSTEM_FLAGS + 0x0) // FLAG_0x868
 #define FLAG_SYS_POKEDEX_GET                         (SYSTEM_FLAGS + 0x1)
 #define FLAG_SYS_POKENAV_GET                         (SYSTEM_FLAGS + 0x2)
 #define FLAG_UNUSED_0x863                            (SYSTEM_FLAGS + 0x3) // Unused Flag
@@ -1619,15 +1621,15 @@
 #define FLAG_UNUSED_0x955                           (DAILY_FLAGS_START + 0x35) // Unused Flag
 #define FLAG_UNUSED_0x956                           (DAILY_FLAGS_START + 0x36) // Unused Flag
 #define FLAG_UNUSED_0x957                           (DAILY_FLAGS_START + 0x37) // Unused Flag
-#define FLAG_UNUSED_0x958                           (DAILY_FLAGS_START + 0x38) // Unused Flag
-#define FLAG_UNUSED_0x959                           (DAILY_FLAGS_START + 0x39) // Unused Flag
-#define FLAG_UNUSED_0x95A                           (DAILY_FLAGS_START + 0x3A) // Unused Flag
-#define FLAG_UNUSED_0x95B                           (DAILY_FLAGS_START + 0x3B) // Unused Flag
-#define FLAG_UNUSED_0x95C                           (DAILY_FLAGS_START + 0x3C) // Unused Flag
-#define FLAG_UNUSED_0x95D                           (DAILY_FLAGS_START + 0x3D) // Unused Flag
-#define FLAG_UNUSED_0x95E                           (DAILY_FLAGS_START + 0x3E) // Unused Flag
-#define FLAG_UNUSED_0x95F                           (DAILY_FLAGS_START + 0x3F) // Unused Flag
-#define DAILY_FLAGS_END                             (FLAG_UNUSED_0x95F + (7 - FLAG_UNUSED_0x95F % 8))
+// #define FLAG_UNUSED_0x958                           (DAILY_FLAGS_START + 0x38) // Unused Flag
+// #define FLAG_UNUSED_0x959                           (DAILY_FLAGS_START + 0x39) // Unused Flag
+// #define FLAG_UNUSED_0x95A                           (DAILY_FLAGS_START + 0x3A) // Unused Flag
+// #define FLAG_UNUSED_0x95B                           (DAILY_FLAGS_START + 0x3B) // Unused Flag
+// #define FLAG_UNUSED_0x95C                           (DAILY_FLAGS_START + 0x3C) // Unused Flag
+// #define FLAG_UNUSED_0x95D                           (DAILY_FLAGS_START + 0x3D) // Unused Flag
+// #define FLAG_UNUSED_0x95E                           (DAILY_FLAGS_START + 0x3E) // Unused Flag
+// #define FLAG_UNUSED_0x95F                           (DAILY_FLAGS_START + 0x3F) // Unused Flag
+#define DAILY_FLAGS_END                             (FLAG_UNUSED_0x957 + (7 - FLAG_UNUSED_0x957 % 8))
 
 #define FLAGS_COUNT (DAILY_FLAGS_END + 1)
 

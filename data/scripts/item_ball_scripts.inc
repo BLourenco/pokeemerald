@@ -58,6 +58,14 @@ Route110_EventScript_ItemElixir:: @ 8290D8E
 	finditem ITEM_ELIXIR
 	end
 
+AlteringCave_Hidden_EventScript_ItemShinyStone::
+	finditem ITEM_SHINY_STONE
+	end
+
+AlteringCave_Hidden_EventScript_ItemTM120::
+	finditem ITEM_TM120_POWER_GEM
+	end	
+
 Route111_EventScript_ItemTM37:: @ 8290D9B
 	finditem ITEM_TM37
 	end

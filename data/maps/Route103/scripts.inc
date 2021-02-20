@@ -2,7 +2,6 @@
 
 Route103_MapScripts:: @ 81EC38E
 	map_script MAP_SCRIPT_ON_TRANSITION, Route103_OnTransition
-	map_script MAP_SCRIPT_ON_LOAD, Route103_OnLoad
 	.byte 0
 
 Route103_OnTransition: @ 81EC399
@@ -10,15 +9,6 @@ Route103_OnTransition: @ 81EC399
 	call Common_EventScript_SetupRivalGfxId
 	call ProfBirch_EventScript_UpdateLocation
 	end
-
-Route103_OnLoad: @ 81EC3A4
-	call_if_set FLAG_SYS_GAME_CLEAR, Route103_EventScript_OpenAlteringCave
-	end
-
-Route103_EventScript_OpenAlteringCave:: @ 81EC3AE
-	setmetatile 45, 5, METATILE_General_CaveEntrance_Top, 1
-	setmetatile 45, 6, METATILE_General_CaveEntrance_Bottom, 0
-	return
 
 Route103_EventScript_Rival:: @ 81EC3C1
 	lockall

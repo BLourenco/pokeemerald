@@ -4194,7 +4194,7 @@
     {
       "id": "LAYOUT_ALTERING_CAVE",
       "name": "AlteringCave_Layout",
-      "width": 32,
+      "width": 26,
       "height": 24,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
@@ -4600,6 +4600,26 @@
       "secondary_tileset": "gTileset_BattleFrontier",
       "border_filepath": "data/layouts/BattleFrontier_DayCare/border.bin",
       "blockdata_filepath": "data/layouts/BattleFrontier_DayCare/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALTERING_CAVE_HIDDEN",
+      "name": "AlteringCave_Hidden_Layout",
+      "width": 40,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_AlteringCave",
+      "border_filepath": "data/layouts/AlteringCave_Hidden/border.bin",
+      "blockdata_filepath": "data/layouts/AlteringCave_Hidden/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALTERING_CAVE_REVEALED",
+      "name": "AlteringCave_Revealed_Layout",
+      "width": 40,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_AlteringCave",
+      "border_filepath": "data/layouts/AlteringCave_Revealed/border.bin",
+      "blockdata_filepath": "data/layouts/AlteringCave_Revealed/map.bin"
     }
   ]
 }

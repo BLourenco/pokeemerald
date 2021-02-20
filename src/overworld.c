@@ -1072,6 +1072,17 @@ static bool16 IsInflitratedSpaceCenter(struct WarpData *warp)
     return FALSE;
 }
 
+static bool16 IsAlteringCaveRevealed(struct WarpData *warp)
+{
+    if (FlagGet(FLAG_ALTERING_CAVE_REVEALED) != TRUE)
+        return FALSE;
+    else if (warp->mapGroup != MAP_GROUP(ALTERING_CAVE_HIDDEN))
+        return FALSE;
+    else if (warp->mapNum == MAP_NUM(ALTERING_CAVE_HIDDEN))
+        return TRUE;
+    return FALSE;
+}
+
 u16 GetLocationMusic(struct WarpData *warp)
 {
     if (NoMusicInSotopolisWithLegendaries(warp) == TRUE)
@@ -1082,6 +1093,8 @@ u16 GetLocationMusic(struct WarpData *warp)
         return MUS_ENCOUNTER_MAGMA;
     else if (IsInfiltratedWeatherInstitute(warp) == TRUE)
         return MUS_MT_CHIMNEY;
+    else if (IsAlteringCaveRevealed(warp) == TRUE)
+        return MUS_SEALED_CHAMBER;
     else
         return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
 }

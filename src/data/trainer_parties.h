@@ -12506,3 +12506,16 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayDryAshlandsMudkip[] =
         .species = SPECIES_GROVYLE,
     }
 };
+
+static const struct TrainerMonNoItemDefaultMoves sParty_Omar[] = {
+    {
+    .iv = 50,
+    .lvl = 16,
+    .species = SPECIES_BALTOY,
+    },
+    {
+    .iv = 50,
+    .lvl = 16,
+    .species = SPECIES_BRONZOR,
+    }
+};

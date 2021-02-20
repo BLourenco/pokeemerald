@@ -13,7 +13,7 @@ Route110_TrickHousePuzzle7_OnResume: @ 826E0A6
 	end
 
 Route110_TrickHousePuzzle7_EventScript_UpdateSwitchMetatiles:: @ 826E0AC
-	call_if_set FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_1, Route110_TrickHousePuzzle7_EventScript_SetSwitch1MetatilesOn
+	call_if_set FLAG_ALTERING_CAVE_REVEALED, Route110_TrickHousePuzzle7_EventScript_SetSwitch1MetatilesOn
 	call_if_set FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_2, Route110_TrickHousePuzzle7_EventScript_SetSwitch2MetatilesOn
 	call_if_set FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_3, Route110_TrickHousePuzzle7_EventScript_SetSwitch3MetatilesOn
 	call_if_set FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_4, Route110_TrickHousePuzzle7_EventScript_SetSwitch4MetatilesOn
@@ -74,7 +74,7 @@ Route110_TrickHousePuzzle7_EventScript_SetSwitch5MetatilesOff:: @ 826E185
 Route110_TrickHousePuzzle7_OnTransition: @ 826E198
 	compare VAR_TRICK_HOUSE_PUZZLE_7_STATE_2, 1
 	goto_if_eq Route110_TrickHousePuzzle7_EventScript_TeleportedTransition
-	clearflag FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_1
+	clearflag FLAG_ALTERING_CAVE_REVEALED
 	clearflag FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_2
 	clearflag FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_3
 	clearflag FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_4
@@ -122,12 +122,12 @@ Route110_TrickHousePuzzle7_EventScript_TeleportPad:: @ 826E1ED
 Route110_TrickHousePuzzle7_EventScript_Switch1:: @ 826E1FE
 	lockall
 	delay 32
-	call_if_unset FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_1, Route110_TrickHousePuzzle7_EventScript_SetSwitch1MetatilesOn
-	call_if_set FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_1, Route110_TrickHousePuzzle7_EventScript_SetSwitch1MetatilesOff
+	call_if_unset FLAG_ALTERING_CAVE_REVEALED, Route110_TrickHousePuzzle7_EventScript_SetSwitch1MetatilesOn
+	call_if_set FLAG_ALTERING_CAVE_REVEALED, Route110_TrickHousePuzzle7_EventScript_SetSwitch1MetatilesOff
 	special DrawWholeMapView
 	playse SE_CLICK
-	goto_if_unset FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_1, Route110_TrickHousePuzzle7_EventScript_SetSwitch1On
-	goto_if_set FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_1, Route110_TrickHousePuzzle7_EventScript_SetSwitch1Off
+	goto_if_unset FLAG_ALTERING_CAVE_REVEALED, Route110_TrickHousePuzzle7_EventScript_SetSwitch1On
+	goto_if_set FLAG_ALTERING_CAVE_REVEALED, Route110_TrickHousePuzzle7_EventScript_SetSwitch1Off
 	end
 
 Route110_TrickHousePuzzle7_EventScript_Switch2:: @ 826E22D
@@ -176,12 +176,12 @@ Route110_TrickHousePuzzle7_EventScript_Switch5:: @ 826E2BA
 
 @ All the below switch scripts are unused leftover from R/S
 Route110_TrickHousePuzzle7_EventScript_SetSwitch1On:: @ 826E2E9
-	setflag FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_1
+	setflag FLAG_ALTERING_CAVE_REVEALED
 	releaseall
 	end
 
 Route110_TrickHousePuzzle7_EventScript_SetSwitch1Off:: @ 826E2EE
-	clearflag FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_1
+	clearflag FLAG_ALTERING_CAVE_REVEALED
 	releaseall
 	end
 

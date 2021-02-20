@@ -870,8 +870,17 @@
 #define TRAINER_MAY_DRY_ASHLANDS_MUDKIP      861
 #define TRAINER_MAY_DRY_ASHLANDS_TREECKO     862
 #define TRAINER_MAY_DRY_ASHLANDS_TORCHIC     863
+#define TRAINER_OMAR                         864
+#define TRAINER_UNUSED_865                   865
+#define TRAINER_UNUSED_866                   866
+#define TRAINER_UNUSED_867                   867
+#define TRAINER_UNUSED_868                   868
+#define TRAINER_UNUSED_869                   869
+#define TRAINER_UNUSED_870                   870
+#define TRAINER_UNUSED_871                   871
 
-#define TRAINERS_COUNT                       864
-#define MAX_TRAINERS_COUNT                   864
+
+#define TRAINERS_COUNT                       872
+#define MAX_TRAINERS_COUNT                   872
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

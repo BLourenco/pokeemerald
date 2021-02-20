@@ -2,7 +2,7 @@
   "id": "MAP_ALTERING_CAVE",
   "name": "AlteringCave",
   "layout": "LAYOUT_ALTERING_CAVE",
-  "music": "MUS_RG_SEVII_CAVE",
+  "music": "MUS_PETALBURG_WOODS",
   "region_map_section": "MAPSEC_ALTERING_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -14,19 +14,59 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 20,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_ALTERING_CAVE_RUIN_MANIAC"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_AZURILL",
+      "x": 20,
+      "y": 1,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_ALTERING_CAVE_AZURILL"
+    }
   ],
   "warp_events": [
     {
-      "x": 18,
-      "y": 22,
+      "x": 10,
+      "y": 21,
       "elevation": 0,
       "dest_map": "MAP_ROUTE103",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 20,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_ALTERING_CAVE_HIDDEN",
       "dest_warp_id": 0
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_ALTERING_CAVE_STATE",
+      "var_value": "0",
+      "script": "AlteringCave_EventScript_StartTrigger"
+    }
   ],
   "bg_events": [
 
