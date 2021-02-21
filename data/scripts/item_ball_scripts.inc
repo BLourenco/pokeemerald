@@ -618,8 +618,8 @@ Route119_EventScript_ItemNestBall:: @ 82913B3
 	finditem ITEM_NEST_BALL
 	end
 
-OvergrownForest_EventScript_ItemElixir::
-	finditem ITEM_ELIXIR
+OvergrownForest_EventScript_ItemBigRoot::
+	finditem ITEM_BIG_ROOT
 	end
 
 OvergrownForest_EventScript_ItemRevivalHerb::

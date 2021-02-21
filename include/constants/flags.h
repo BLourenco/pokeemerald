@@ -1230,7 +1230,7 @@
 #define FLAG_ITEM_RUSTURF_TUNNEL_2F_DAWN_STONE                      0x4A2
 #define FLAG_ITEM_ROUTE_113_TM_74                                   0x4A3
 #define FLAG_ITEM_DRY_ASHLANDS_RARE_CANDY                           0x4A4
-#define FLAG_ITEM_OVERGROWN_FOREST_ELIXIR                           0x4A5
+#define FLAG_ITEM_OVERGROWN_FOREST_BIG_ROOT                         0x4A5
 #define FLAG_ITEM_OVERGROWN_FOREST_REVIVAL_HERB                     0x4A6
 #define FLAG_ITEM_OVERGROWN_FOREST_TM_83                            0x4A7
 #define FLAG_ITEM_OVERGROWN_FOREST_OLD_AMBER                        0x4A8
