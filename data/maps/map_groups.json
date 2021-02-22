@@ -99,7 +99,8 @@
     "Route135",
     "Route130_MirageIsland",
     "Route131_SkyPillar",
-    "Route111_NoMirage_Tower"
+    "Route111_NoMirage_Tower",
+    "DewfordCape"
   ],
   "gMapGroup1": [
     "LittlerootTown_BrendansHouse_1F",
@@ -215,7 +216,8 @@
     "RustboroCity_Flat2_1F",
     "RustboroCity_Flat2_2F",
     "RustboroCity_Flat2_3F",
-    "RustboroCity_House3"
+    "RustboroCity_House3",
+    "RustboroCity_DevonCorp_B1F"
   ],
   "gMapGroup12": [
     "FortreeCity_House1",
@@ -453,7 +455,8 @@
     "IslandCave_Entrance",
     "AncientTomb_Entrance",
     "AlteringCave_Hidden",
-    "AlteringCave_Revealed"
+    "AlteringCave_Revealed",
+    "DewfordCape_DevonLab_1F"
   ],
   "gMapGroup25": [
     "SecretBase_RedCave1",

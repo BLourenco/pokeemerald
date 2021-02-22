@@ -914,7 +914,7 @@
     {
       "id": "LAYOUT_RUSTBORO_CITY_DEVON_CORP_1F",
       "name": "RustboroCity_DevonCorp_1F_Layout",
-      "width": 19,
+      "width": 24,
       "height": 9,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Facility",
@@ -4620,6 +4620,36 @@
       "secondary_tileset": "gTileset_AlteringCave",
       "border_filepath": "data/layouts/AlteringCave_Revealed/border.bin",
       "blockdata_filepath": "data/layouts/AlteringCave_Revealed/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEWFORD_CAPE",
+      "name": "DewfordCape_Layout",
+      "width": 55,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/DewfordCape/border.bin",
+      "blockdata_filepath": "data/layouts/DewfordCape/map.bin"
+    },
+    {
+      "id": "LAYOUT_RUSTBORO_CITY_DEVON_CORP_B1F",
+      "name": "RustboroCity_DevonCorp_B1F_Layout",
+      "width": 19,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/RustboroCity_DevonCorp_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/RustboroCity_DevonCorp_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEWFORD_CAPE_DEVON_LAB_1F",
+      "name": "DewfordCape_DevonLab_1F_Layout",
+      "width": 30,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/DewfordCape_DevonLab_1F/border.bin",
+      "blockdata_filepath": "data/layouts/DewfordCape_DevonLab_1F/map.bin"
     }
   ]
 }

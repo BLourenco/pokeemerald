@@ -342,6 +342,14 @@ RustboroCity_EventScript_ItemXDefend:: @ 82910DB
 	finditem ITEM_X_DEFENSE
 	end
 
+RustboroCity_EventScript_ItemUpGrade::
+	finditem ITEM_UP_GRADE
+	end
+
+RustboroCity_EventScript_ItemSecretKey::
+	finditem ITEM_SECRET_KEY
+	end
+
 LilycoveCity_EventScript_ItemMaxRepel:: @ 82910E8
 	finditem ITEM_MAX_REPEL
 	end
@@ -784,4 +792,12 @@ Route135_EventScript_ItemTM84::
 
 Route135_EventScript_ItemRevive::
 	finditem ITEM_REVIVE
+	end
+
+DewfordCape_EventScript_ItemBlackBelt::
+	finditem ITEM_BLACK_BELT
+	end
+
+DewfordCape_EventScript_ItemFloatStone::
+	finditem ITEM_FLOAT_STONE
 	end

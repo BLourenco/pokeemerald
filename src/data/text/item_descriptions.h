@@ -1268,7 +1268,7 @@ static const u8 sSilkScarfDesc[] = _(
 
 static const u8 sUpGradeDesc[] = _(
     "A peculiar box made\n"
-    "by Silph Co.");
+    "by Devon Corp.");
 
 static const u8 sShellBellDesc[] = _(
     "A hold item that\n"
@@ -2193,8 +2193,8 @@ static const u8 sPokeFluteDesc[] = _(
 
 static const u8 sSecretKeyDesc[] = _(
     "The key to the\n"
-    "Cinnabar Island\n"
-    "Gym's entrance.");
+    "entrance of an old\n"
+    "laboratory.");
 
 static const u8 sBikeVoucherDesc[] = _(
     "A voucher for\n"

@@ -4813,3 +4813,96 @@ Route134_Text_HudsonPostBattle: @ 82A4AD8
 	.string "Our boat drifted out to sea.\p"
 	.string "My buddy's a timid fellow, so I'm\n"
 	.string "worried about him.$"
+
+DewfordCape_Text_AntonIntro:
+	.string "Come out, come out,\n"
+	.string "wherever you are!$"
+
+DewfordCape_Text_AntonDefeat:
+	.string "Ouch!$"
+
+DewfordCape_Text_AntonPostBattle:
+	.string "I'm not having much luck\n"
+	.string "finding any bugs in this grass.\p"
+	.string "Maybe they're hiding in the trees?$"
+
+DewfordCape_Text_CurtisIntro:
+	.string "My Pokémon love the ocean air.$"
+
+DewfordCape_Text_CurtisDefeat:
+	.string "Argh… Taken down.$"
+
+DewfordCape_Text_CurtisPostBattle:
+	.string "My Pokémon love the ocean air,\n"
+	.string "but I find it a bit too salty.$"
+
+DewfordCape_Text_RalphIntro:
+	.string "This natural bridge was formed\n"
+	.string "through a process called erosion!$"
+
+DewfordCape_Text_RalphDefeat:
+	.string "I've been eroded!$"
+
+DewfordCape_Text_RalphPostBattle:
+	.string "Over time, the water below will\n"
+	.string "slowly erode away even more of\l"
+	.string "the cliffs.$"
+
+DewfordCape_Text_OttoIntro:
+	.string "Are you ready to light the fire?$"
+
+DewfordCape_Text_OttoDefeat:
+	.string "I've been put out.$"
+
+DewfordCape_Text_OttoPostBattle:
+	.string "Wood and tinder for the fuel.\p"
+	.string "Heat and energy to light it.\p"
+	.string "Water to put it out.\p"
+	.string "You're not ready to light a\n"
+	.string "fire until you have all three.$"
+
+DewfordCape_Text_ReidIntro:
+	.string "Let me show you the\n"
+	.string "results of our training!$"
+
+DewfordCape_Text_ReidDefeat:
+	.string "Not enough training…$"
+
+DewfordCape_Text_ReidPostBattle:
+	.string "Brawly sometimes does his training\n"
+	.string "out here on the cape.\p"
+	.string "To become has strong as him,\n"
+	.string "I must train where he trains.$"
+
+DewfordCape_Text_DinaIntro:
+	.string "Dina: Our Pokémon are a dynamic\n"
+	.string "duo! Their teamwork is unmatched!$"
+
+DewfordCape_Text_DinaDefeat:
+	.string "Dina: Yungoos!$"
+
+DewfordCape_Text_DinaPostBattle:
+	.string "Dina: C'mon, Yungoos. Be nice\n"
+	.string "to Rattata!$"
+
+DewfordCape_Text_JimIntro:
+	.string "Jim: Our Pokémon are a dynamic\n"
+	.string "duo! Their synergy is unmatched!$"
+
+DewfordCape_Text_JimDefeat:
+	.string "Jim: Rattata!$"
+
+DewfordCape_Text_JimPostBattle:
+	.string "Jim: What's the matter, Rattata?\n"
+	.string "Yungoos just wants to play.$"
+
+DewfordCape_Text_DinaNotEnoughMons:
+	.string "Dina: If you want to challenge us, you\n"
+	.string "should bring at least two Pokémon.\p"
+	.string "You'll need a good tag team to win!$"
+
+DewfordCape_Text_JimNotEnoughMons:
+	.string "Jim: If you want to take me on,\n"
+	.string "bring some more Pokémon.\p"
+	.string "You won't be able to overcome our\n"
+	.string "teamwork alone.$"

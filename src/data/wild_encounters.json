@@ -1192,7 +1192,7 @@
               {
                 "min_level": 16,
                 "max_level": 18,
-                "species": "SPECIES_MACHOP"
+                "species": "SPECIES_GROWLITHE"
               },
               {
                 "min_level": 16,
@@ -1554,7 +1554,7 @@
               {
                 "min_level": 7,
                 "max_level": 8,
-                "species": "SPECIES_MEOWTH"
+                "species": "SPECIES_PIDOVE"
               },
               {
                 "min_level": 7,
@@ -3118,12 +3118,17 @@
               {
                 "min_level": 22,
                 "max_level": 24,
-                "species": "SPECIES_MACHOP"
+                "species": "SPECIES_TIMBURR"
               },
               {
                 "min_level": 22,
                 "max_level": 24,
-                "species": "SPECIES_MACHOP"
+                "species": "SPECIES_TIMBURR"
+              },
+              {
+                "min_level": 22,
+                "max_level": 23,
+                "species": "SPECIES_HOUNDOUR"
               },
               {
                 "min_level": 22,
@@ -3133,17 +3138,12 @@
               {
                 "min_level": 22,
                 "max_level": 24,
-                "species": "SPECIES_MIENFOO"
+                "species": "SPECIES_THROH"
               },
               {
                 "min_level": 22,
                 "max_level": 24,
-                "species": "SPECIES_TIMBURR"
-              },
-              {
-                "min_level": 22,
-                "max_level": 24,
-                "species": "SPECIES_TIMBURR"
+                "species": "SPECIES_SAWK"
               },
               {
                 "min_level": 22,
@@ -12708,6 +12708,284 @@
                 "min_level": 13,
                 "max_level": 15,
                 "species": "SPECIES_CARBINK"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_DEWFORD_CAPE",
+          "base_label": "gDewfordCape",
+          "water_mons": {
+            "encounter_rate": 2,
+            "mons": [
+              {
+                "min_level": 30,
+                "max_level": 32,
+                "species": "SPECIES_TENTACRUEL"
+              },
+              {
+                "min_level": 30,
+                "max_level": 32,
+                "species": "SPECIES_PELIPPER"
+              },
+              {
+                "min_level": 30,
+                "max_level": 32,
+                "species": "SPECIES_SHARPEDO"
+              },
+              {
+                "min_level": 30,
+                "max_level": 32,
+                "species": "SPECIES_MANTINE"
+              },
+              {
+                "min_level": 30,
+                "max_level": 32,
+                "species": "SPECIES_OCTILLERY"
+              }
+            ]
+          },
+          "hidden_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_FARFETCHD_GALARIAN"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_NICKIT"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_NICKIT"
+              }
+            ]
+          },
+          "headbutt_mons": {
+            "encounter_rate": 180,
+            "mons": [
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_PANSAGE"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_PANSEAR"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_PANPOUR"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_SCATTERBUG"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_MINCCINO"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_ROOKIDEE"
+              }
+            ]
+          },
+          "land_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_MIENFOO"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_MIENFOO"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_SENTRET"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_PATRAT"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_FARFETCHD"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_FARFETCHD"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_RATTATA_ALOLAN"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_RATTATA_ALOLAN"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_YUNGOOS"
+              },
+              {
+                "min_level": 9,
+                "max_level": 10,
+                "species": "SPECIES_YUNGOOS"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 50,
+            "mons": [
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_LUVDISC"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_WISHIWASHI"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_WISHIWASHI"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_REMORAID"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BRUXISH"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BRUXISH"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BRUXISH"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BRUXISH"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BRUXISH"
+              },
+              {
+                "min_level": 30,
+                "max_level": 30,
+                "species": "SPECIES_BRUXISH"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_DEWFORD_CAPE_DEVON_LAB_1F",
+          "base_label": "gDewfordCape_DevonLab_1F",
+          "land_mons": {
+            "encounter_rate": 5,
+            "mons": [
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_SOLOSIS"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_VOLTORB"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_PORYGON"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_DITTO"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_GRIMER_ALOLAN"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_GRIMER_ALOLAN"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_TRUBBISH"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_TRUBBISH"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_KLEFKI"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_PAWNIARD"
               }
             ]
           }

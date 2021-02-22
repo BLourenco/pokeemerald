@@ -141,6 +141,8 @@
 // gTileset_Dewford
 #define METATILE_Dewford_Door              0x225
 #define METATILE_Dewford_Door_BattleTower  0x25D
+#define METATILE_Dewford_LabDoor           0x312
+#define METATILE_Dewford_LabDoorLocked     0x315
 
 // gTileset_EliteFour
 #define METATILE_EliteFour_EntryDoor_ClosedBottom    0x20E
@@ -287,6 +289,10 @@
 #define METATILE_InsideShip_IntactDoor_Bottom_Interior  0x297
 #define METATILE_InsideShip_IntactDoor_Bottom_Locked    0x233
 #define METATILE_InsideShip_IntactDoor_Bottom_Unlocked  0x22B
+
+// gTileset_Lab
+#define METATILE_Lab_LabStairsLeft_WildEncounter  0x29F
+#define METATILE_Lab_LabTile_WildEncounter        0x297
 
 // gTileset_Lavaridge
 #define METATILE_Lavaridge_AshGrass             0x207

@@ -221,7 +221,7 @@
 #define MAPSEC_OVERGROWN_FOREST             0xD8
 #define MAPSEC_ROUTE_135                    0xD9
 #define MAPSEC_SHOAL_SUMMIT                 0xDA
-#define MAPSEC_UNUSED_0_DB                  0xDB
+#define MAPSEC_DEWFORD_CAPE                 0xDB
 #define MAPSEC_UNUSED_0_DC                  0xDC
 #define MAPSEC_UNUSED_0_DD                  0xDD
 #define MAPSEC_UNUSED_0_DE                  0xDE

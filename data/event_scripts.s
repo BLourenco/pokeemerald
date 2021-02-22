@@ -1109,3 +1109,9 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/AlteringCave_Hidden/scripts.inc"
 
 	.include "data/maps/AlteringCave_Revealed/scripts.inc"
+
+	.include "data/maps/DewfordCape/scripts.inc"
+
+	.include "data/maps/RustboroCity_DevonCorp_B1F/scripts.inc"
+
+	.include "data/maps/DewfordCape_DevonLab_1F/scripts.inc"

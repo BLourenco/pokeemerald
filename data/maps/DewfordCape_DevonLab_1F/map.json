@@ -1,0 +1,41 @@
+{
+  "id": "MAP_DEWFORD_CAPE_DEVON_LAB_1F",
+  "name": "DewfordCape_DevonLab_1F",
+  "layout": "LAYOUT_DEWFORD_CAPE_DEVON_LAB_1F",
+  "music": "MUS_RG_POKE_MANSION",
+  "region_map_section": "MAPSEC_DEWFORD_CAPE",
+  "requires_flash": false,
+  "weather": "WEATHER_SHADE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 15,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_DEWFORD_CAPE",
+      "dest_warp_id": 0
+    },
+    {
+      "x": 14,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_DEWFORD_CAPE",
+      "dest_warp_id": 0
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

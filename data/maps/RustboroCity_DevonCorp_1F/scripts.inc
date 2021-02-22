@@ -1,4 +1,5 @@
 .set LOCALID_STAIR_GUARD, 2
+.set LOCALID_STAIR_GUARD_BASEMENT, 4
 
 RustboroCity_DevonCorp_1F_MapScripts:: @ 8211245
 	map_script MAP_SCRIPT_ON_TRANSITION, RustboroCity_DevonCorp_1F_OnTransition
@@ -9,8 +10,10 @@ RustboroCity_DevonCorp_1F_OnTransition: @ 821124B
 	end
 
 RustboroCity_DevonCorp_1F_EventScript_BlockStairs:: @ 8211255
-	setobjectxyperm LOCALID_STAIR_GUARD, 14, 2
+	setobjectxyperm LOCALID_STAIR_GUARD, 19, 2
 	setobjectmovementtype LOCALID_STAIR_GUARD, MOVEMENT_TYPE_FACE_DOWN
+	setobjectxyperm LOCALID_STAIR_GUARD_BASEMENT, 4, 2
+	setobjectmovementtype LOCALID_STAIR_GUARD_BASEMENT, MOVEMENT_TYPE_FACE_DOWN
 	return
 
 RustboroCity_DevonCorp_1F_EventScript_Employee:: @ 8211261

@@ -41,7 +41,7 @@
 #define FLAG_TEMP_1F     (TEMP_FLAGS_START + 0x1F)
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
         
-#define FLAG_UNUSED_0x020    0x20 // Unused Flag
+#define FLAG_UNLOCKED_DEVON_LAB     0x20
 #define FLAG_UNUSED_0x021    0x21 // Unused Flag
 #define FLAG_UNUSED_0x022    0x22 // Unused Flag
 #define FLAG_UNUSED_0x023    0x23 // Unused Flag
@@ -661,9 +661,9 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_135_BIG_PEARL                 0x270
 #define FLAG_HIDDEN_ITEM_ROUTE_135_HEART_SCALE               0x271
 #define FLAG_HIDDEN_ITEM_ALTERING_CAVE_LUMINOUS_MOSS         0x272
-#define FLAG_UNUSED_0x273  0x273 // Unused Flag
-#define FLAG_UNUSED_0x274  0x274 // Unused Flag
-#define FLAG_UNUSED_0x275  0x275 // Unused Flag
+#define FLAG_HIDDEN_ITEM_DEWFORD_CAPE_RARE_CANDY             0x273
+#define FLAG_HIDDEN_ITEM_DEWFORD_CAPE_IRON                   0x274
+#define FLAG_HIDDEN_ITEM_DEWFORD_CAPE_HEART_SCALE            0x275
 #define FLAG_UNUSED_0x276  0x276 // Unused Flag
 #define FLAG_UNUSED_0x277  0x277 // Unused Flag
 #define FLAG_UNUSED_0x278  0x278 // Unused Flag
@@ -1245,10 +1245,10 @@
 #define FLAG_ITEM_ROUTE_135_REVIVE                                  0x4B1
 #define FLAG_ITEM_ALTERING_CAVE_SHINY_STONE                         0x4B2
 #define FLAG_ITEM_ALTERING_CAVE_TM_120                              0x4B3
-#define FLAG_UNUSED_0x4B4                                           0x4B4 // Unused Flag
-#define FLAG_UNUSED_0x4B5                                           0x4B5 // Unused Flag
-#define FLAG_UNUSED_0x4B6                                           0x4B6 // Unused Flag
-#define FLAG_UNUSED_0x4B7                                           0x4B7 // Unused Flag
+#define FLAG_ITEM_DEVON_CORP_B1F_UP_GRADE                           0x4B4
+#define FLAG_ITEM_DEVON_CORP_B1F_SECRET_KEY                         0x4B5
+#define FLAG_ITEM_DEWFORD_CAPE_BLACK_BELT                           0x4B6
+#define FLAG_ITEM_DEWFORD_CAPE_FLOAT_STONE                          0x4B7
 #define FLAG_UNUSED_0x4B8                                           0x4B8 // Unused Flag
 #define FLAG_UNUSED_0x4B9                                           0x4B9 // Unused Flag
 #define FLAG_UNUSED_0x4BA                                           0x4BA // Unused Flag
@@ -1503,7 +1503,7 @@
 #define FLAG_LANDMARK_RED_CLAY_TUNNELS              (SYSTEM_FLAGS + 0x87)
 #define FLAG_LANDMARK_OVERGROWN_FOREST              (SYSTEM_FLAGS + 0x88)
 #define FLAG_LANDMARK_SHOAL_SUMMIT                  (SYSTEM_FLAGS + 0x89)
-#define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
+#define FLAG_LANDMARK_DEVON_LAB                     (SYSTEM_FLAGS + 0x8A)
 #define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag
 #define FLAG_UNUSED_0x8EC                           (SYSTEM_FLAGS + 0x8C) // Unused Flag
 #define FLAG_UNUSED_0x8ED                           (SYSTEM_FLAGS + 0x8D) // Unused Flag

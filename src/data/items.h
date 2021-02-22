@@ -3186,7 +3186,7 @@ const struct Item gItems[] =
 
     [ITEM_UP_GRADE] =
     {
-        .name = _("Upgrade"),
+        .name = _("Up-Grade"),
         .itemId = ITEM_UP_GRADE,
         .price = 2000,
         .holdEffect = HOLD_EFFECT_UP_GRADE,
@@ -5537,7 +5537,7 @@ const struct Item gItems[] =
 
     [ITEM_SECRET_KEY] =
     {
-        .name = _("Secret Key"),
+        .name = _("Devon Lab Key"),
         .itemId = ITEM_SECRET_KEY,
         .price = 0,
         .description = sSecretKeyDesc,

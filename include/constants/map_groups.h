@@ -68,6 +68,7 @@
 #define MAP_ROUTE130_MIRAGE_ISLAND   (59 | (0 << 8))
 #define MAP_ROUTE131_SKY_PILLAR      (60 | (0 << 8))
 #define MAP_ROUTE111_NO_MIRAGE_TOWER (61 | (0 << 8))
+#define MAP_DEWFORD_CAPE             (62 | (0 << 8))
 
 // Map Group 1
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -184,6 +185,7 @@
 #define MAP_RUSTBORO_CITY_FLAT2_2F          (14 | (11 << 8))
 #define MAP_RUSTBORO_CITY_FLAT2_3F          (15 | (11 << 8))
 #define MAP_RUSTBORO_CITY_HOUSE3            (16 | (11 << 8))
+#define MAP_RUSTBORO_CITY_DEVON_CORP_B1F    (17 | (11 << 8))
 
 // Map Group 12
 #define MAP_FORTREE_CITY_HOUSE1            (0 | (12 << 8))
@@ -422,6 +424,7 @@
 #define MAP_ANCIENT_TOMB_ENTRANCE                    (121 | (24 << 8))
 #define MAP_ALTERING_CAVE_HIDDEN                     (122 | (24 << 8))
 #define MAP_ALTERING_CAVE_REVEALED                   (123 | (24 << 8))
+#define MAP_DEWFORD_CAPE_DEVON_LAB_1F                (124 | (24 << 8))
 
 // Map Group 25
 #define MAP_SECRET_BASE_RED_CAVE1           (0 | (25 << 8))
@@ -620,6 +623,6 @@
 
 #define MAP_GROUPS_COUNT 35
 
-// static const u8 MAP_GROUP_COUNT[] = {62, 5, 6, 6, 7, 8, 9, 7, 7, 14, 8, 17, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 124, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 0};
+// static const u8 MAP_GROUP_COUNT[] = {63, 5, 6, 6, 7, 8, 9, 7, 7, 14, 8, 18, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 125, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 0};
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H
