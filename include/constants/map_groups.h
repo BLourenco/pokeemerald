@@ -425,6 +425,7 @@
 #define MAP_ALTERING_CAVE_HIDDEN                     (122 | (24 << 8))
 #define MAP_ALTERING_CAVE_REVEALED                   (123 | (24 << 8))
 #define MAP_DEWFORD_CAPE_DEVON_LAB_1F                (124 | (24 << 8))
+#define MAP_DEWFORD_CAPE_DEVON_LAB_B1F               (125 | (24 << 8))
 
 // Map Group 25
 #define MAP_SECRET_BASE_RED_CAVE1           (0 | (25 << 8))
@@ -623,6 +624,6 @@
 
 #define MAP_GROUPS_COUNT 35
 
-// static const u8 MAP_GROUP_COUNT[] = {63, 5, 6, 6, 7, 8, 9, 7, 7, 14, 8, 18, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 125, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 0};
+// static const u8 MAP_GROUP_COUNT[] = {63, 5, 6, 6, 7, 8, 9, 7, 7, 14, 8, 18, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 126, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 0};
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

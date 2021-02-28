@@ -291,8 +291,10 @@
 #define METATILE_InsideShip_IntactDoor_Bottom_Unlocked  0x22B
 
 // gTileset_Lab
-#define METATILE_Lab_LabStairsLeft_WildEncounter  0x29F
-#define METATILE_Lab_LabTile_WildEncounter        0x297
+#define METATILE_Lab_WallSwitchBottom_Off  0x377
+#define METATILE_Lab_WallSwitchBottom_On   0x376
+#define METATILE_Lab_WallSwitchTop_Off     0x36F
+#define METATILE_Lab_WallSwitchTop_On      0x36E
 
 // gTileset_Lavaridge
 #define METATILE_Lavaridge_AshGrass             0x207

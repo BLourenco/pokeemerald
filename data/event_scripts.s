@@ -1115,3 +1115,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/RustboroCity_DevonCorp_B1F/scripts.inc"
 
 	.include "data/maps/DewfordCape_DevonLab_1F/scripts.inc"
+
+	.include "data/maps/DewfordCape_DevonLab_B1F/scripts.inc"

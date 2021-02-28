@@ -1,7 +1,7 @@
 {
-  "id": "MAP_DEWFORD_CAPE_DEVON_LAB_1F",
-  "name": "DewfordCape_DevonLab_1F",
-  "layout": "LAYOUT_DEWFORD_CAPE_DEVON_LAB_1F",
+  "id": "MAP_DEWFORD_CAPE_DEVON_LAB_B1F",
+  "name": "DewfordCape_DevonLab_B1F",
+  "layout": "LAYOUT_DEWFORD_CAPE_DEVON_LAB_B1F",
   "music": "MUS_RG_POKE_MANSION",
   "region_map_section": "MAPSEC_DEWFORD_CAPE",
   "requires_flash": false,
@@ -18,25 +18,11 @@
   ],
   "warp_events": [
     {
-      "x": 17,
-      "y": 24,
-      "elevation": 0,
-      "dest_map": "MAP_DEWFORD_CAPE",
-      "dest_warp_id": 0
-    },
-    {
-      "x": 16,
-      "y": 24,
-      "elevation": 0,
-      "dest_map": "MAP_DEWFORD_CAPE",
-      "dest_warp_id": 0
-    },
-    {
       "x": 3,
       "y": 1,
       "elevation": 0,
-      "dest_map": "MAP_DEWFORD_CAPE_DEVON_LAB_B1F",
-      "dest_warp_id": 0
+      "dest_map": "MAP_DEWFORD_CAPE_DEVON_LAB_1F",
+      "dest_warp_id": 2
     }
   ],
   "coord_events": [

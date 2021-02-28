@@ -778,7 +778,7 @@
 // FireRed/LeafGreen
 #define ITEM_OAKS_PARCEL 610
 #define ITEM_POKE_FLUTE 611
-#define ITEM_SECRET_KEY 612
+#define ITEM_SECRET_KEY 612   // Obtainable as the "Devon Lab Key", which opens the Devon Laboratory in Dewford Cape
 #define ITEM_BIKE_VOUCHER 613
 #define ITEM_GOLD_TEETH 614
 #define ITEM_OLD_AMBER 615
