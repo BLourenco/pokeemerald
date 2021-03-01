@@ -1087,7 +1087,7 @@
 #define FLAG_ITEM_METEOR_FALLS_1F_1R_TM_23                          0x414
 #define FLAG_ITEM_METEOR_FALLS_1F_1R_FULL_HEAL                      0x415
 #define FLAG_ITEM_METEOR_FALLS_1F_1R_MOON_STONE                     0x416
-#define FLAG_ITEM_METEOR_FALLS_1F_1R_PP_UP                          0x417
+#define FLAG_ITEM_METEOR_FALLS_1F_1R_PP_MAX                         0x417
 #define FLAG_ITEM_RUSTURF_TUNNEL_POKE_BALL                          0x418
 #define FLAG_ITEM_RUSTURF_TUNNEL_MAX_ETHER                          0x419
 #define FLAG_ITEM_GRANITE_CAVE_1F_ESCAPE_ROPE                       0x41A
@@ -1172,7 +1172,7 @@
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B
-#define FLAG_ITEM_AQUA_HIDEOUT_B1F_NUGGET                           0x46C
+#define FLAG_ITEM_AQUA_HIDEOUT_B1F_DUBIOUS_DISC                     0x46C
 #define FLAG_HIDE_ALTERING_CAVE_RUIN_MANIAC                         0x46D
 #define FLAG_ITEM_ROUTE_119_NUGGET                                  0x46E
 #define FLAG_ITEM_ROUTE_104_POTION                                  0x46F
@@ -1257,11 +1257,11 @@
 #define FLAG_ITEM_DEVON_LAB_B1F_TIMER_BALL                          0x4BD
 #define FLAG_ITEM_DEVON_LAB_B1F_CELL_BATTERY                        0x4BE
 #define FLAG_ITEM_DEVON_LAB_2F_TM_118                               0x4BF
-#define FLAG_UNUSED_0x4C0                                           0x4C0 // Unused Flag
-#define FLAG_UNUSED_0x4C1                                           0x4C1 // Unused Flag
-#define FLAG_UNUSED_0x4C2                                           0x4C2 // Unused Flag
-#define FLAG_UNUSED_0x4C3                                           0x4C3 // Unused Flag
-#define FLAG_UNUSED_0x4C4                                           0x4C4 // Unused Flag
+#define FLAG_ITEM_ROUTE_134_HELIX_FOSSIL                            0x4C0
+#define FLAG_ITEM_METEOR_FALLS_B1F_1R_ARMOR_FOSSIL                  0x4C1
+#define FLAG_ITEM_METEOR_FALLS_1F_2R_DRAGON_SCALE                   0x4C2
+#define FLAG_ITEM_ROUTE_115_JAW_FOSSIL                              0x4C3
+#define FLAG_ITEM_SAFARI_ZONE_NORTHEAST_PLUME_FOSSIL                0x4C4
 #define FLAG_UNUSED_0x4C5                                           0x4C5 // Unused Flag
 #define FLAG_UNUSED_0x4C6                                           0x4C6 // Unused Flag
 #define FLAG_UNUSED_0x4C7                                           0x4C7 // Unused Flag

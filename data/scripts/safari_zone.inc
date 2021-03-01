@@ -280,9 +280,10 @@ SafariZone_Southeast_Text_RichBoy: @ 82A5960
 	.string "from somewhere other than Hoenn.$"
 
 SafariZone_Northeast_Text_Boy: @ 82A59A4
-	.string "I only have a couple Safari Balls left.\p"
-	.string "I'm having a hard time trying to\n"
-	.string "decide what I should catch.$"
+	.string "I got up here using my Mach Bike, but\n"
+	.string "those rails require an Acro Bike.\p"
+	.string "I wonder if I can convince Rydel to\n"
+	.string "lend me both bikes at the same time?$"
 
 SafariZone_Northeast_Text_Woman: @ 82A5A09
 	.string "I heard that you can see Pikachu here.\n"

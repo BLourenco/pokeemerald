@@ -458,8 +458,8 @@ MeteorFalls_1F_1R_EventScript_ItemMoonStone:: @ 82911C5
 	finditem ITEM_MOON_STONE
 	end
 
-MeteorFalls_1F_1R_EventScript_ItemPPUP:: @ 82911D2
-	finditem ITEM_PP_UP
+MeteorFalls_1F_1R_EventScript_ItemPPMax:: @ 82911D2
+	finditem ITEM_PP_MAX
 	end
 
 MeteorFalls_B1F_2R_EventScript_ItemTM02:: @ 82911DF
@@ -594,8 +594,8 @@ AquaHideout_B1F_EventScript_ItemMasterBall:: @ 8291358
 	finditem ITEM_MASTER_BALL
 	end
 
-AquaHideout_B1F_EventScript_ItemNugget:: @ 8291365
-	finditem ITEM_NUGGET
+AquaHideout_B1F_EventScript_ItemDubiousDisc:: @ 8291365
+	finditem ITEM_DUBIOUS_DISC
 	end
 
 AquaHideout_B1F_EventScript_ItemMaxElixir:: @ 8291372
@@ -832,4 +832,24 @@ DewfordCape_DevonLab_B1F_EventScript_ItemCellBattery::
 
 RustboroCity_DevonCorp_B1F_EventScript_ItemMetalCoat::
 	finditem ITEM_METAL_COAT
+	end
+
+Route134_EventScript_ItemHelixFossil::
+	finditem ITEM_HELIX_FOSSIL
+	end
+
+MeteorFalls_B1F_1R_EventScript_ItemArmorFossil::
+	finditem ITEM_ARMOR_FOSSIL
+	end
+
+MeteorFalls_1F_2R_EventScript_ItemDragonScale::
+	finditem ITEM_DRAGON_SCALE
+	end
+
+Route115_EventScript_ItemJawFossil::
+	finditem ITEM_JAW_FOSSIL
+	end
+
+SafariZone_Northeast_EventScript_ItemPlumeFossil::
+	finditem ITEM_PLUME_FOSSIL
 	end
