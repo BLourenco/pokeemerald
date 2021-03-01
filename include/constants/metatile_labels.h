@@ -291,10 +291,18 @@
 #define METATILE_InsideShip_IntactDoor_Bottom_Unlocked  0x22B
 
 // gTileset_Lab
-#define METATILE_Lab_WallSwitchBottom_Off  0x377
-#define METATILE_Lab_WallSwitchBottom_On   0x376
-#define METATILE_Lab_WallSwitchTop_Off     0x36F
-#define METATILE_Lab_WallSwitchTop_On      0x36E
+#define METATILE_Lab_KeySwipe_Locked         0x360
+#define METATILE_Lab_KeySwipe_Unlocked       0x361
+#define METATILE_Lab_KeySwipe_Unpowered      0x368
+#define METATILE_Lab_LabTile_Clean           0x252
+#define METATILE_Lab_LockedDoor_LeftBottom   0x374
+#define METATILE_Lab_LockedDoor_LeftTop      0x36C
+#define METATILE_Lab_LockedDoor_RightBottom  0x375
+#define METATILE_Lab_LockedDoor_RightTop     0x36D
+#define METATILE_Lab_WallSwitchBottom_Off    0x377
+#define METATILE_Lab_WallSwitchBottom_On     0x376
+#define METATILE_Lab_WallSwitchTop_Off       0x36F
+#define METATILE_Lab_WallSwitchTop_On        0x36E
 
 // gTileset_Lavaridge
 #define METATILE_Lavaridge_AshGrass             0x207

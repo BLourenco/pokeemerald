@@ -2213,8 +2213,8 @@ static const u8 sOldAmberDesc[] = _(
 
 static const u8 sCardKeyDesc[] = _(
     "A card-type door\n"
-    "key used in Silph\n"
-    "Co's office.");
+    "key used in the\n"
+    "Devon Laboratory.");
 
 static const u8 sLiftKeyDesc[] = _(
     "An elevator key\n"

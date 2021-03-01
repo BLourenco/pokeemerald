@@ -342,10 +342,6 @@ RustboroCity_EventScript_ItemXDefend:: @ 82910DB
 	finditem ITEM_X_DEFENSE
 	end
 
-RustboroCity_EventScript_ItemUpGrade::
-	finditem ITEM_UP_GRADE
-	end
-
 RustboroCity_EventScript_ItemSecretKey::
 	finditem ITEM_SECRET_KEY
 	end
@@ -800,4 +796,40 @@ DewfordCape_EventScript_ItemBlackBelt::
 
 DewfordCape_EventScript_ItemFloatStone::
 	finditem ITEM_FLOAT_STONE
+	end
+
+DewfordCape_DevonLab_2F_EventScript_ItemUpGrade::
+	finditem ITEM_UP_GRADE
+	end
+
+DewfordCape_DevonLab_2F_EventScript_ItemTM118::
+	finditem ITEM_TM118_SPIKES
+	end
+
+DewfordCape_DevonLab_1F_EventScript_ItemCardKey::
+	finditem ITEM_CARD_KEY
+	end
+
+DewfordCape_DevonLab_1F_EventScript_ItemPotion::
+	finditem ITEM_POTION
+	end
+
+DewfordCape_DevonLab_1F_EventScript_ItemRepeatBall::
+	finditem ITEM_REPEAT_BALL
+	end
+
+DewfordCape_DevonLab_B1F_EventScript_ItemTimerBall::
+	finditem ITEM_TIMER_BALL
+	end
+
+DewfordCape_DevonLab_B1F_EventScript_ItemBlackSludge::
+	finditem ITEM_BLACK_SLUDGE
+	end
+
+DewfordCape_DevonLab_B1F_EventScript_ItemCellBattery::
+	finditem ITEM_CELL_BATTERY
+	end
+
+RustboroCity_DevonCorp_B1F_EventScript_ItemMetalCoat::
+	finditem ITEM_METAL_COAT
 	end

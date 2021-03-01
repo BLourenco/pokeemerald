@@ -41,9 +41,9 @@
 #define FLAG_TEMP_1F     (TEMP_FLAGS_START + 0x1F)
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
         
-#define FLAG_UNLOCKED_DEVON_LAB     0x20
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
-#define FLAG_UNUSED_0x022    0x22 // Unused Flag
+#define FLAG_UNLOCKED_DEVON_LAB         0x20
+#define FLAG_POWERED_ON_DEVON_LAB       0x21
+#define FLAG_UNLOCKED_DEVON_LAB_OFFICE  0x22
 #define FLAG_UNUSED_0x023    0x23 // Unused Flag
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag
@@ -664,9 +664,9 @@
 #define FLAG_HIDDEN_ITEM_DEWFORD_CAPE_RARE_CANDY             0x273
 #define FLAG_HIDDEN_ITEM_DEWFORD_CAPE_IRON                   0x274
 #define FLAG_HIDDEN_ITEM_DEWFORD_CAPE_HEART_SCALE            0x275
-#define FLAG_UNUSED_0x276  0x276 // Unused Flag
-#define FLAG_UNUSED_0x277  0x277 // Unused Flag
-#define FLAG_UNUSED_0x278  0x278 // Unused Flag
+#define FLAG_HIDDEN_ITEM_DEVON_LAB_2F_CALCIUM                0x276
+#define FLAG_HIDDEN_ITEM_DEVON_LAB_1F_SODA_POP               0x277
+#define FLAG_HIDDEN_ITEM_DEVON_LAB_B1F_FULL_HEAL             0x278
 #define FLAG_UNUSED_0x279  0x279 // Unused Flag
 #define FLAG_UNUSED_0x27A  0x27A // Unused Flag
 #define FLAG_UNUSED_0x27B  0x27B // Unused Flag
@@ -1245,18 +1245,18 @@
 #define FLAG_ITEM_ROUTE_135_REVIVE                                  0x4B1
 #define FLAG_ITEM_ALTERING_CAVE_SHINY_STONE                         0x4B2
 #define FLAG_ITEM_ALTERING_CAVE_TM_120                              0x4B3
-#define FLAG_ITEM_DEVON_CORP_B1F_UP_GRADE                           0x4B4
+#define FLAG_ITEM_DEVON_CORP_B1F_METAL_COAT                         0x4B4
 #define FLAG_ITEM_DEVON_CORP_B1F_SECRET_KEY                         0x4B5
 #define FLAG_ITEM_DEWFORD_CAPE_BLACK_BELT                           0x4B6
 #define FLAG_ITEM_DEWFORD_CAPE_FLOAT_STONE                          0x4B7
-#define FLAG_UNUSED_0x4B8                                           0x4B8 // Unused Flag
-#define FLAG_UNUSED_0x4B9                                           0x4B9 // Unused Flag
-#define FLAG_UNUSED_0x4BA                                           0x4BA // Unused Flag
-#define FLAG_UNUSED_0x4BB                                           0x4BB // Unused Flag
-#define FLAG_UNUSED_0x4BC                                           0x4BC // Unused Flag
-#define FLAG_UNUSED_0x4BD                                           0x4BD // Unused Flag
-#define FLAG_UNUSED_0x4BE                                           0x4BE // Unused Flag
-#define FLAG_UNUSED_0x4BF                                           0x4BF // Unused Flag
+#define FLAG_ITEM_DEVON_LAB_2F_UP_GRADE                             0x4B8
+#define FLAG_ITEM_DEVON_LAB_1F_CARD_KEY                             0x4B9
+#define FLAG_ITEM_DEVON_LAB_1F_POTION                               0x4BA
+#define FLAG_ITEM_DEVON_LAB_1F_REPEAT_BALL                          0x4BB
+#define FLAG_ITEM_DEVON_LAB_B1F_BLACK_SLUDGE                        0x4BC
+#define FLAG_ITEM_DEVON_LAB_B1F_TIMER_BALL                          0x4BD
+#define FLAG_ITEM_DEVON_LAB_B1F_CELL_BATTERY                        0x4BE
+#define FLAG_ITEM_DEVON_LAB_2F_TM_118                               0x4BF
 #define FLAG_UNUSED_0x4C0                                           0x4C0 // Unused Flag
 #define FLAG_UNUSED_0x4C1                                           0x4C1 // Unused Flag
 #define FLAG_UNUSED_0x4C2                                           0x4C2 // Unused Flag

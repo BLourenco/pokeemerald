@@ -4,7 +4,7 @@
   "layout": "LAYOUT_DEWFORD_CAPE_DEVON_LAB_B1F",
   "music": "MUS_RG_POKE_MANSION",
   "region_map_section": "MAPSEC_DEWFORD_CAPE",
-  "requires_flash": false,
+  "requires_flash": true,
   "weather": "WEATHER_SHADE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
@@ -14,7 +14,45 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 16,
+      "y": 15,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_ItemBlackSludge",
+      "flag": "FLAG_ITEM_DEVON_LAB_B1F_BLACK_SLUDGE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 24,
+      "y": 2,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_ItemTimerBall",
+      "flag": "FLAG_ITEM_DEVON_LAB_B1F_TIMER_BALL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 5,
+      "y": 17,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_ItemCellBattery",
+      "flag": "FLAG_ITEM_DEVON_LAB_B1F_CELL_BATTERY"
+    }
   ],
   "warp_events": [
     {
@@ -29,6 +67,181 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 23,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_PowerSwitch"
+    },
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_1F_EventScript_RocksMetalDisplay"
+    },
+    {
+      "type": "hidden_item",
+      "x": 12,
+      "y": 4,
+      "elevation": 3,
+      "item": "ITEM_FULL_HEAL",
+      "flag": "FLAG_HIDDEN_ITEM_DEVON_LAB_B1F_FULL_HEAL"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_1F_EventScript_MachineCylindrical"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_1F_EventScript_MachineCylindrical"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_MachineGauges"
+    },
+    {
+      "type": "sign",
+      "x": 24,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_MachineGauges"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_MachineButtons"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_MachineDisplay"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_MachineDisplay"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_MachineDisplay"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_MachineDisplay"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 23,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_MachineBarMeter"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_MachineBarMeter"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_Laptop"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_1F_EventScript_MaintainenceBox"
+    },
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_1F_EventScript_Intercom"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_1F_EventScript_Intercom"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_1F_EventScript_NoFoodNotice"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_1F_EventScript_NoFoodNotice"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_BulletinBoardPPE"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_B1F_EventScript_BulletinBoardLostStapler"
+    }
   ]
 }

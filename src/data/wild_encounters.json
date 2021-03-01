@@ -12816,12 +12816,12 @@
               {
                 "min_level": 9,
                 "max_level": 10,
-                "species": "SPECIES_RATTATA_ALOLAN"
+                "species": "SPECIES_RATTATA"
               },
               {
                 "min_level": 9,
                 "max_level": 10,
-                "species": "SPECIES_RATTATA_ALOLAN"
+                "species": "SPECIES_RATTATA"
               },
               {
                 "min_level": 9,
@@ -12910,27 +12910,12 @@
               {
                 "min_level": 13,
                 "max_level": 14,
-                "species": "SPECIES_RATTATA"
+                "species": "SPECIES_RATTATA_ALOLAN"
               },
               {
                 "min_level": 13,
                 "max_level": 14,
-                "species": "SPECIES_RATTATA"
-              },
-              {
-                "min_level": 13,
-                "max_level": 14,
-                "species": "SPECIES_SOLOSIS"
-              },
-              {
-                "min_level": 13,
-                "max_level": 14,
-                "species": "SPECIES_VOLTORB"
-              },
-              {
-                "min_level": 13,
-                "max_level": 14,
-                "species": "SPECIES_PORYGON"
+                "species": "SPECIES_RATTATA_ALOLAN"
               },
               {
                 "min_level": 13,
@@ -12940,12 +12925,27 @@
               {
                 "min_level": 13,
                 "max_level": 14,
-                "species": "SPECIES_GRIMER_ALOLAN"
+                "species": "SPECIES_DITTO"
               },
               {
                 "min_level": 13,
                 "max_level": 14,
-                "species": "SPECIES_GRIMER_ALOLAN"
+                "species": "SPECIES_PORYGON"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_PORYGON"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_SOLOSIS"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_SOLOSIS"
               },
               {
                 "min_level": 13,
@@ -12965,7 +12965,145 @@
               {
                 "min_level": 13,
                 "max_level": 14,
+                "species": "SPECIES_KLEFKI"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_DEWFORD_CAPE_DEVON_LAB_B1F",
+          "base_label": "gDewfordCape_DevonLab_B1F",
+          "land_mons": {
+            "encounter_rate": 5,
+            "mons": [
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_RATTATA_ALOLAN"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_RATTATA_ALOLAN"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_DITTO"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_PORYGON"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_SOLOSIS"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_VOLTORB"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_GRIMER_ALOLAN"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_GRIMER_ALOLAN"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_TRUBBISH"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_TRUBBISH"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
                 "species": "SPECIES_PAWNIARD"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_PAWNIARD"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_DEWFORD_CAPE_DEVON_LAB_2F",
+          "base_label": "gDewfordCape_DevonLab_2F",
+          "land_mons": {
+            "encounter_rate": 5,
+            "mons": [
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_PORYGON"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_PORYGON"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_RATTATA_ALOLAN"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_RATTATA_ALOLAN"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_DITTO"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_DITTO"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_SOLOSIS"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_SOLOSIS"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_TRUBBISH"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_TRUBBISH"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_KLEFKI"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_KLEFKI"
               }
             ]
           }

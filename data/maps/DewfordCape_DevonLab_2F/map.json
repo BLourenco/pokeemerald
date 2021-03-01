@@ -1,0 +1,106 @@
+{
+  "id": "MAP_DEWFORD_CAPE_DEVON_LAB_2F",
+  "name": "DewfordCape_DevonLab_2F",
+  "layout": "LAYOUT_DEWFORD_CAPE_DEVON_LAB_2F",
+  "music": "MUS_RG_POKE_MANSION",
+  "region_map_section": "MAPSEC_DEWFORD_CAPE",
+  "requires_flash": false,
+  "weather": "WEATHER_SHADE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 3,
+      "y": 2,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DewfordCape_DevonLab_2F_EventScript_ItemDubiousDisc",
+      "flag": "FLAG_ITEM_DEVON_LAB_2F_DUBIOUS_DISC"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL_TM",
+      "x": 12,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DewfordCape_DevonLab_2F_EventScript_ItemTM118",
+      "flag": "FLAG_ITEM_DEVON_LAB_2F_TM_118"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 16,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_DEWFORD_CAPE_DEVON_LAB_1F",
+      "dest_warp_id": 3
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_2F_EventScript_CardKeyTerminal"
+    },
+    {
+      "type": "hidden_item",
+      "x": 1,
+      "y": 11,
+      "elevation": 3,
+      "item": "ITEM_CALCIUM",
+      "flag": "FLAG_HIDDEN_ITEM_DEVON_LAB_2F_CALCIUM"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_1F_EventScript_PrototypesProductsDisplay"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_1F_EventScript_PrototypesProductsDisplay"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DewfordCape_DevonLab_1F_EventScript_RareRocksStonesDisplay"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_EAST",
+      "script": "DewfordCape_DevonLab_1F_EventScript_Computer"
+    }
+  ]
+}
