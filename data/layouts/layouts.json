@@ -1857,7 +1857,7 @@
       "width": 23,
       "height": 21,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Facility",
+      "secondary_tileset": "gTileset_OutsideShip",
       "border_filepath": "data/layouts/AbandonedShip_Deck/border.bin",
       "blockdata_filepath": "data/layouts/AbandonedShip_Deck/map.bin"
     },

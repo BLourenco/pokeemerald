@@ -1749,3 +1749,23 @@ gTilesetPalettes_AlteringCave::
 	.align 2
 gTilesetTiles_AlteringCave::
 	.incbin "data/tilesets/secondary/altering_cave/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_OutsideShip::
+	.incbin "data/tilesets/secondary/outsideship/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/outsideship/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/outsideship/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/outsideship/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/outsideship/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/outsideship/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/outsideship/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/outsideship/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/outsideship/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/outsideship/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/outsideship/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/outsideship/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/outsideship/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_OutsideShip::
+	.incbin "data/tilesets/secondary/outsideship/tiles.4bpp.lz"

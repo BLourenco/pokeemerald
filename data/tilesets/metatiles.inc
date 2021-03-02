@@ -565,3 +565,10 @@ gMetatiles_AlteringCave::
 	.align 1
 gMetatileAttributes_AlteringCave::
 	.incbin "data/tilesets/secondary/altering_cave/metatile_attributes.bin"
+	.align 1
+gMetatiles_OutsideShip::
+	.incbin "data/tilesets/secondary/outsideship/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_OutsideShip::
+	.incbin "data/tilesets/secondary/outsideship/metatile_attributes.bin"

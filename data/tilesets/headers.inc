@@ -841,3 +841,14 @@ gTileset_AlteringCave::
 	.4byte gMetatiles_AlteringCave
 	.4byte gMetatileAttributes_AlteringCave
 	.4byte NULL
+
+	.align 2
+gTileset_OutsideShip::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_OutsideShip
+	.4byte gTilesetPalettes_OutsideShip
+	.4byte gMetatiles_OutsideShip
+	.4byte gMetatileAttributes_OutsideShip
+	.4byte NULL
