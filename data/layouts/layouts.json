@@ -1855,7 +1855,7 @@
       "id": "LAYOUT_ABANDONED_SHIP_DECK",
       "name": "AbandonedShip_Deck_Layout",
       "width": 23,
-      "height": 21,
+      "height": 28,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_OutsideShip",
       "border_filepath": "data/layouts/AbandonedShip_Deck/border.bin",
