@@ -375,3 +375,5 @@ const u16 gObjectEventPal_HoOh[] = INCBIN_U16("graphics/object_events/palettes/h
 
 const u32 gFieldEffectObjectPic_CaveDust[] = INCBIN_U32("graphics/field_effects/pics/cave_dust.4bpp");
 const u16 gFieldEffectObjectPalette_CaveDust[] = INCBIN_U16("graphics/field_effects/palettes/cave_dust.gbapal");
+
+const u16 gFieldEffectObjectPalette_LongGrassOvergrown[] = INCBIN_U16("graphics/field_effects/palettes/long_grass_overgrown.gbapal");

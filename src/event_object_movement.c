@@ -27,6 +27,7 @@
 #include "constants/event_objects.h"
 #include "constants/field_effects.h"
 #include "constants/items.h"
+#include "constants/maps.h"
 #include "constants/mauville_old_man.h"
 #include "constants/trainer_types.h"
 #include "constants/union_room.h"
@@ -7680,7 +7681,14 @@ void GroundEffect_SpawnOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *
     gFieldEffectArguments[5] = objEvent->mapGroup;
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = 1;
-    FieldEffectStart(FLDEFF_LONG_GRASS);
+    if (objEvent->mapGroup == MAP_GROUP(OVERGROWN_FOREST))
+    {
+        FieldEffectStart(FLDEFF_LONG_GRASS_OVERGROWN);
+    }
+    else
+    {
+        FieldEffectStart(FLDEFF_LONG_GRASS);
+    }    
 }
 
 void GroundEffect_StepOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
@@ -7693,7 +7701,14 @@ void GroundEffect_StepOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *s
     gFieldEffectArguments[5] = objEvent->mapGroup;
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = 0;
-    FieldEffectStart(FLDEFF_LONG_GRASS);
+    if (objEvent->mapGroup == MAP_GROUP(OVERGROWN_FOREST))
+    {
+        FieldEffectStart(FLDEFF_LONG_GRASS_OVERGROWN);
+    }
+    else
+    {
+        FieldEffectStart(FLDEFF_LONG_GRASS);
+    }    
 }
 
 void GroundEffect_WaterReflection(struct ObjectEvent *objEvent, struct Sprite *sprite)
