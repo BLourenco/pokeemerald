@@ -8,10 +8,10 @@ Route119_MapScripts:: @ 81F4424
 	.byte 0
 
 Route119_OnResume: @ 81F442F
-	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveKecleon
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveStaticEncounter
 	end
 
-Route119_EventScript_TryRemoveKecleon:: @ 81F4439
+Route119_EventScript_TryRemoveStaticEncounter:: @ 81F4439
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_CAUGHT
 	goto_if_ne Common_EventScript_NopReturn
@@ -24,8 +24,23 @@ Route119_OnTransition: @ 81F444D
 	call Common_EventScript_SetupRivalOnBikeGfxId
 	compare VAR_WEATHER_INSTITUTE_STATE, 1
 	call_if_eq Route119_EventScript_MoveInstituteWorkersDownstairs
+	call_if_unset FLAG_DEFEATED_FOONGUS_1_ROUTE_119, Route119_EventScript_ShowFoongus1
+	call_if_unset FLAG_DEFEATED_FOONGUS_2_ROUTE_119, Route119_EventScript_ShowFoongus2
+	call_if_unset FLAG_DEFEATED_FOONGUS_3_ROUTE_119, Route119_EventScript_ShowFoongus3
 	special SetRoute119Weather
 	end
+
+Route119_EventScript_ShowFoongus1::
+	clearflag FLAG_HIDE_ROUTE_119_FOONGUS_1
+	return
+
+Route119_EventScript_ShowFoongus2::
+	clearflag FLAG_HIDE_ROUTE_119_FOONGUS_2
+	return
+
+Route119_EventScript_ShowFoongus3::
+	clearflag FLAG_HIDE_ROUTE_119_FOONGUS_3
+	return
 
 Route119_EventScript_MoveInstituteWorkersDownstairs:: @ 81F4466
 	setflag FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS
@@ -498,6 +513,87 @@ Route119_EventScript_ScottWonAtFortreeGymCall:: @ 81F49EC
 	clearflag FLAG_SCOTT_CALL_FORTREE_GYM
 	addvar VAR_SCOTT_STATE, 1
 	releaseall
+	end
+	
+Route119_EventScript_Foongus1::
+	lock
+	faceplayer
+	setwildbattle SPECIES_FOONGUS, 35, ITEM_NONE
+	waitse
+	playmoncry SPECIES_FOONGUS, 2
+	delay 40
+	waitmoncry
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Route119_EventScript_DefeatedFoongus1
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq Route119_EventScript_DefeatedFoongus1
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq Route119_EventScript_DefeatedFoongus1
+	setflag FLAG_DEFEATED_FOONGUS_1_ROUTE_119
+	release
+	end
+
+Route119_EventScript_DefeatedFoongus1::
+	setflag FLAG_DEFEATED_FOONGUS_1_ROUTE_119
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+Route119_EventScript_Foongus2::
+	lock
+	faceplayer
+	setwildbattle SPECIES_FOONGUS, 35, ITEM_NONE
+	waitse
+	playmoncry SPECIES_FOONGUS, 2
+	delay 40
+	waitmoncry
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Route119_EventScript_DefeatedFoongus2
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq Route119_EventScript_DefeatedFoongus2
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq Route119_EventScript_DefeatedFoongus2
+	setflag FLAG_DEFEATED_FOONGUS_2_ROUTE_119
+	release
+	end
+
+Route119_EventScript_DefeatedFoongus2::
+	setflag FLAG_DEFEATED_FOONGUS_2_ROUTE_119
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+Route119_EventScript_Foongus3::
+	lock
+	faceplayer
+	setwildbattle SPECIES_FOONGUS, 35, ITEM_NONE
+	waitse
+	playmoncry SPECIES_FOONGUS, 2
+	delay 40
+	waitmoncry
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Route119_EventScript_DefeatedFoongus3
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq Route119_EventScript_DefeatedFoongus3
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq Route119_EventScript_DefeatedFoongus3
+	setflag FLAG_DEFEATED_FOONGUS_3_ROUTE_119
+	release
+	end
+
+Route119_EventScript_DefeatedFoongus3::
+	setflag FLAG_DEFEATED_FOONGUS_3_ROUTE_119
+	goto Common_EventScript_RemoveStaticPokemon
 	end
 
 Route119_Text_MayIntro: @ 81F49FD

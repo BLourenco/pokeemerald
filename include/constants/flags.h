@@ -475,9 +475,9 @@
 #define FLAG_DEFEATED_KYOGRE                 0x1BE
 #define FLAG_DEFEATED_GROUDON                0x1BF
 #define FLAG_DEFEATED_RAYQUAZA               0x1C0
-#define FLAG_UNUSED_0x1C1                    0x1C1 // Unused
-#define FLAG_UNUSED_0x1C2                    0x1C2 // Unused
-#define FLAG_UNUSED_0x1C3                    0x1C3 // Unused
+#define FLAG_HIDE_ROUTE_119_FOONGUS_1        0x1C1
+#define FLAG_HIDE_ROUTE_119_FOONGUS_2        0x1C2
+#define FLAG_HIDE_ROUTE_119_FOONGUS_3        0x1C3
 #define FLAG_UNUSED_0x1C4                    0x1C4 // Unused
 #define FLAG_UNUSED_0x1C5                    0x1C5 // Unused
 #define FLAG_UNUSED_0x1C6                    0x1C6 // Unused
@@ -1586,9 +1586,9 @@
 #define FLAG_UNUSED_0x933                           (DAILY_FLAGS_START + 0x13) // Unused Flag
 #define FLAG_DAILY_APPRENTICE_LEAVES                (DAILY_FLAGS_START + 0x14)
 
-#define FLAG_UNUSED_0x935                           (DAILY_FLAGS_START + 0x15) // Unused Flag
-#define FLAG_UNUSED_0x936                           (DAILY_FLAGS_START + 0x16) // Unused Flag
-#define FLAG_UNUSED_0x937                           (DAILY_FLAGS_START + 0x17) // Unused Flag
+#define FLAG_DEFEATED_FOONGUS_1_ROUTE_119           (DAILY_FLAGS_START + 0x15)
+#define FLAG_DEFEATED_FOONGUS_2_ROUTE_119           (DAILY_FLAGS_START + 0x16)
+#define FLAG_DEFEATED_FOONGUS_3_ROUTE_119           (DAILY_FLAGS_START + 0x17)
 #define FLAG_UNUSED_0x938                           (DAILY_FLAGS_START + 0x18) // Unused Flag
 #define FLAG_UNUSED_0x939                           (DAILY_FLAGS_START + 0x19) // Unused Flag
 #define FLAG_UNUSED_0x93A                           (DAILY_FLAGS_START + 0x1A) // Unused Flag
