@@ -475,12 +475,12 @@
 #define FLAG_DEFEATED_KYOGRE                 0x1BE
 #define FLAG_DEFEATED_GROUDON                0x1BF
 #define FLAG_DEFEATED_RAYQUAZA               0x1C0
-#define FLAG_DEFEATED_VOLTORB_1_NEW_MAUVILLE 0x1C1
-#define FLAG_DEFEATED_VOLTORB_2_NEW_MAUVILLE 0x1C2
-#define FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE 0x1C3
-#define FLAG_DEFEATED_ELECTRODE_1_AQUA_HIDEOUT 0x1C4
-#define FLAG_DEFEATED_ELECTRODE_2_AQUA_HIDEOUT 0x1C5
-#define FLAG_DEFEATED_SUDOWOODO              0x1C6
+#define FLAG_UNUSED_0x1C1                    0x1C1 // Unused
+#define FLAG_UNUSED_0x1C2                    0x1C2 // Unused
+#define FLAG_UNUSED_0x1C3                    0x1C3 // Unused
+#define FLAG_UNUSED_0x1C4                    0x1C4 // Unused
+#define FLAG_UNUSED_0x1C5                    0x1C5 // Unused
+#define FLAG_UNUSED_0x1C6                    0x1C6 // Unused
 #define FLAG_DEFEATED_MEW                    0x1C7
 #define FLAG_DEFEATED_LATIAS_OR_LATIOS       0x1C8
 #define FLAG_CAUGHT_LATIAS_OR_LATIOS         0x1C9
@@ -1012,9 +1012,9 @@
 #define FLAG_HIDE_LILYCOVE_CITY_RIVAL                               0x3CB
 #define FLAG_HIDE_ROUTE_120_STEVEN                                  0x3CC
 #define FLAG_HIDE_SOOTOPOLIS_CITY_STEVEN                            0x3CD
-#define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_1                            0x3CE
-#define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_2                            0x3CF
-#define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_3                            0x3D0
+#define FLAG_HIDE_NEW_MAUVILLE_ELECTRODE_1                            0x3CE
+#define FLAG_HIDE_NEW_MAUVILLE_ELECTRODE_2                            0x3CF
+#define FLAG_HIDE_NEW_MAUVILLE_ELECTRODE_3                            0x3D0
 #define FLAG_HIDE_AQUA_HIDEOUT_B1F_ELECTRODE_1                      0x3D1
 #define FLAG_HIDE_AQUA_HIDEOUT_B1F_ELECTRODE_2                      0x3D2
 #define FLAG_HIDE_OLDALE_TOWN_RIVAL                                 0x3D3
@@ -1167,7 +1167,7 @@
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_MASTER_BALL                      0x464
 #define FLAG_HIDE_ROUTE_111_ROCK_1                                  0x465
 #define FLAG_HIDE_ROUTE_111_ROCK_2                                  0x466 
-#define FLAG_DEFEATED_SUDOWOODO_DRY_ASHLASNDS                       0x467
+#define FLAG_UNUSED_0x467                                           0x467 // UNUSED
 #define FLAG_ITEM_MAGMA_HIDEOUT_3F_2R_TM_35                         0x468
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A
@@ -1567,13 +1567,13 @@
 #define FLAG_UNUSED_0x920                           (DAILY_FLAGS_START + 0x0)  // Unused Flag
 #define FLAG_DAILY_CONTEST_LOBBY_RECEIVED_BERRY     (DAILY_FLAGS_START + 0x1)
 #define FLAG_DAILY_SECRET_BASE                      (DAILY_FLAGS_START + 0x2)
-#define FLAG_UNUSED_0x923                           (DAILY_FLAGS_START + 0x3)  // Unused Flag
-#define FLAG_UNUSED_0x924                           (DAILY_FLAGS_START + 0x4)  // Unused Flag
-#define FLAG_UNUSED_0x925                           (DAILY_FLAGS_START + 0x5)  // Unused Flag
-#define FLAG_UNUSED_0x926                           (DAILY_FLAGS_START + 0x6)  // Unused Flag
-#define FLAG_UNUSED_0x927                           (DAILY_FLAGS_START + 0x7)  // Unused Flag
-#define FLAG_UNUSED_0x928                           (DAILY_FLAGS_START + 0x8)  // Unused Flag
-#define FLAG_UNUSED_0x929                           (DAILY_FLAGS_START + 0x9)  // Unused Flag
+#define FLAG_DEFEATED_ELECTRODE_1_NEW_MAUVILLE      (DAILY_FLAGS_START + 0x3)
+#define FLAG_DEFEATED_ELECTRODE_2_NEW_MAUVILLE      (DAILY_FLAGS_START + 0x4)
+#define FLAG_DEFEATED_ELECTRODE_3_NEW_MAUVILLE      (DAILY_FLAGS_START + 0x5)
+#define FLAG_DEFEATED_ELECTRODE_1_AQUA_HIDEOUT      (DAILY_FLAGS_START + 0x6)
+#define FLAG_DEFEATED_ELECTRODE_2_AQUA_HIDEOUT      (DAILY_FLAGS_START + 0x7)
+#define FLAG_DEFEATED_SUDOWOODO                     (DAILY_FLAGS_START + 0x8)
+#define FLAG_DEFEATED_SUDOWOODO_DRY_ASHLANDS        (DAILY_FLAGS_START + 0x9)
 #define FLAG_DAILY_PICKED_LOTO_TICKET               (DAILY_FLAGS_START + 0xA)
 #define FLAG_DAILY_ROUTE_114_RECEIVED_BERRY         (DAILY_FLAGS_START + 0xB)
 #define FLAG_DAILY_ROUTE_111_RECEIVED_BERRY         (DAILY_FLAGS_START + 0xC)

@@ -16,7 +16,7 @@ DryAshlands_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	call Common_EventScript_SetupRivalOnBikeGfxId
 	setflag FLAG_LANDMARK_DRY_ASHLANDS
-	call_if_unset FLAG_DEFEATED_SUDOWOODO_DRY_ASHLASNDS, DryAshlands_EventScript_ShowSudowoodo
+	call_if_unset FLAG_DEFEATED_SUDOWOODO_DRY_ASHLANDS, DryAshlands_EventScript_ShowSudowoodo
 	end
 
 DryAshlands_EventScript_TryRemoveSudowoodo::
@@ -97,12 +97,12 @@ DryAshlands_EventScript_WaterSudowoodo:: @ 8242CFC
 	goto_if_eq DryAshlands_EventScript_DefeatedSudowoodo
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq DryAshlands_EventScript_DefeatedSudowoodo
-	setflag FLAG_DEFEATED_SUDOWOODO_DRY_ASHLASNDS
+	setflag FLAG_DEFEATED_SUDOWOODO_DRY_ASHLANDS
 	release
 	end
 
 DryAshlands_EventScript_DefeatedSudowoodo:: @ 8242D60
-	setflag FLAG_DEFEATED_SUDOWOODO_DRY_ASHLASNDS
+	setflag FLAG_DEFEATED_SUDOWOODO_DRY_ASHLANDS
 	goto Common_EventScript_RemoveStaticPokemon
 	end
 
