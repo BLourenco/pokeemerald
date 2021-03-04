@@ -3090,6 +3090,11 @@ Route120_Text_ChipIntro: @ 829EBAF
 	.string "ruins that are rumored to possibly\l"
 	.string "exist according to legend?$"
 
+Route120_Text_ChipIntroRuinsOpened:
+	.string "Who might you be?\p"
+	.string "Are you perhaps here for the ancient\n"
+	.string "ruins that suddenly opened recently?$"
+
 Route120_Text_ChipDefeat: @ 829EC25
 	.string "What a disgraceful setback…$"
 
@@ -3097,6 +3102,12 @@ Route120_Text_ChipPostBattle: @ 829EC41
 	.string "That giant rock… I would like to\n"
 	.string "believe it may indeed contain ancient\l"
 	.string "ruins. But I see no entrance.$"
+
+Route120_Text_ChipPostBattleRuinsOpened:
+	.string "That giant rock… It really did contain\n"
+	.string "ancient ruins!\p"
+	.string "Um… maybe you should check it out first?\n"
+	.string "You know, just to make sure it's safe.$"
 
 Route120_Text_ClarissaIntro: @ 829ECA6
 	.string "Why am I carrying this parasol?\p"
