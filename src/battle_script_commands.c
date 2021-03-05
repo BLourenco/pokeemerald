@@ -2334,8 +2334,7 @@ static void Cmd_waitmessage(void)
         }
         else
         {
-            u16 toWait = T2_READ_16(gBattlescriptCurrInstr + 1);
-            if (++gPauseCounterBattle >= toWait)
+            if ((JOY_NEW(A_BUTTON | B_BUTTON)) || ++gPauseCounterBattle >= T2_READ_16(gBattlescriptCurrInstr + 1)) //tx_optionsPlus
             {
                 gPauseCounterBattle = 0;
                 gBattlescriptCurrInstr += 3;
