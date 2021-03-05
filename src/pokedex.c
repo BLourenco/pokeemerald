@@ -1074,7 +1074,7 @@ static const struct WindowTemplate sPokemonList_WindowTemplate[] =
 
 static const u8 sText_No000[] = _("{NO}000");
 static const u8 sCaughtBall_Gfx[] = INCBIN_U8("graphics/pokedex/caught_ball.4bpp");
-static const u8 sText_TenDashes[] = _("----------");
+static const u8 sText_TenDashes[] = _("---------");
 
 ALIGNED(4) static const u8 gExpandedPlaceholder_PokedexDescription[] = _("");
 
