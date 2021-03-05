@@ -1023,12 +1023,12 @@
 #define FLAG_HIDE_ROUTE_120_KECLEON_1                               0x3D6
 #define FLAG_HIDE_RUSTURF_TUNNEL_WANDA                              0x3D7
 #define FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WANDA                0x3D8
-#define FLAG_HIDE_ROUTE_120_KECLEON_2                               0x3D9
-#define FLAG_HIDE_ROUTE_120_KECLEON_3                               0x3DA
-#define FLAG_HIDE_ROUTE_120_KECLEON_4                               0x3DB
-#define FLAG_HIDE_ROUTE_120_KECLEON_5                               0x3DC
-#define FLAG_HIDE_ROUTE_119_KECLEON_1                               0x3DD
-#define FLAG_HIDE_ROUTE_119_KECLEON_2                               0x3DE
+#define FLAG_UNUSED_0x3D9                                           0x3D9 // Unused
+#define FLAG_UNUSED_0x3DA                                           0x3DA // Unused
+#define FLAG_UNUSED_0x3DB                                           0x3DB // Unused
+#define FLAG_UNUSED_0x3DC                                           0x3DC // Unused
+#define FLAG_UNUSED_0x3DD                                           0x3DD // Unused
+#define FLAG_UNUSED_0x3DE                                           0x3DE // Unused
 #define FLAG_HIDE_ROUTE_101_BOY                                     0x3DF
 #define FLAG_HIDE_WEATHER_INSTITUTE_2F_AQUA_GRUNT_M                 0x3E0
 #define FLAG_HIDE_LILYCOVE_POKEMON_CENTER_CONTEST_LADY_MON          0x3E1
@@ -1589,12 +1589,12 @@
 #define FLAG_DEFEATED_FOONGUS_1_ROUTE_119           (DAILY_FLAGS_START + 0x15)
 #define FLAG_DEFEATED_FOONGUS_2_ROUTE_119           (DAILY_FLAGS_START + 0x16)
 #define FLAG_DEFEATED_FOONGUS_3_ROUTE_119           (DAILY_FLAGS_START + 0x17)
-#define FLAG_UNUSED_0x938                           (DAILY_FLAGS_START + 0x18) // Unused Flag
-#define FLAG_UNUSED_0x939                           (DAILY_FLAGS_START + 0x19) // Unused Flag
-#define FLAG_UNUSED_0x93A                           (DAILY_FLAGS_START + 0x1A) // Unused Flag
-#define FLAG_UNUSED_0x93B                           (DAILY_FLAGS_START + 0x1B) // Unused Flag
-#define FLAG_UNUSED_0x93C                           (DAILY_FLAGS_START + 0x1C) // Unused Flag
-#define FLAG_UNUSED_0x93D                           (DAILY_FLAGS_START + 0x1D) // Unused Flag
+#define FLAG_HIDE_ROUTE_120_KECLEON_2               (DAILY_FLAGS_START + 0x18)
+#define FLAG_HIDE_ROUTE_120_KECLEON_3               (DAILY_FLAGS_START + 0x19)
+#define FLAG_HIDE_ROUTE_120_KECLEON_4               (DAILY_FLAGS_START + 0x1A)
+#define FLAG_HIDE_ROUTE_120_KECLEON_5               (DAILY_FLAGS_START + 0x1B)
+#define FLAG_HIDE_ROUTE_119_KECLEON_1               (DAILY_FLAGS_START + 0x1C)
+#define FLAG_HIDE_ROUTE_119_KECLEON_2               (DAILY_FLAGS_START + 0x1D) 
 #define FLAG_UNUSED_0x93E                           (DAILY_FLAGS_START + 0x1E) // Unused Flag
 #define FLAG_UNUSED_0x93F                           (DAILY_FLAGS_START + 0x1F) // Unused Flag
 #define FLAG_UNUSED_0x940                           (DAILY_FLAGS_START + 0x20) // Unused Flag
