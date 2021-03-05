@@ -635,6 +635,7 @@ extern const u8 gText_EVO_TRADE_SPECIFIC_MON[];
 extern const u8 gText_EVO_SPECIFIC_MAP[];
 extern const u8 gText_EVO_NONE[];
 extern const u8 gText_FORMS_NONE[];
+extern const u8 gText_EVO_ITEM_HOLD[];
 
 
 // birch dex rating text
