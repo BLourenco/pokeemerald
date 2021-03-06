@@ -290,8 +290,8 @@
       "dest_warp_id": 1
     },
     {
-      "x": 33,
-      "y": 19,
+      "x": 30,
+      "y": 28,
       "elevation": 0,
       "dest_map": "MAP_RUSTBORO_CITY_HOUSE1",
       "dest_warp_id": 0
@@ -304,8 +304,8 @@
       "dest_warp_id": 0
     },
     {
-      "x": 30,
-      "y": 28,
+      "x": 26,
+      "y": 46,
       "elevation": 0,
       "dest_map": "MAP_RUSTBORO_CITY_HOUSE2",
       "dest_warp_id": 0
@@ -318,10 +318,10 @@
       "dest_warp_id": 0
     },
     {
-      "x": 26,
-      "y": 46,
+      "x": 33,
+      "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_RUSTBORO_CITY_HOUSE3",
+      "dest_map": "MAP_SLATEPORT_CITY_BATTLE_TENT_LOBBY",
       "dest_warp_id": 0
     }
   ],

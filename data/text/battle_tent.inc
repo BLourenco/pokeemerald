@@ -214,7 +214,7 @@ VerdanturfTown_BattleTentLobby_Text_PresentYouWithPrize: @ 82C57CD
 
 SlateportCity_BattleTentLobby_Text_WelcomeToBattleTent: @ 82C5810
 	.string "Welcome to the Battle Tent\n"
-	.string "Slateport Site!\p"
+	.string "Rustboro Site!\p"
 	.string "I am your guide to the Battle Swap\n"
 	.string "Tournament.$"
 
@@ -223,7 +223,7 @@ SlateportCity_BattleTentLobby_Text_TakeChallenge: @ 82C586A
 	.string "Swap challenge?$"
 
 SlateportCity_BattleTentLobby_Text_ExplainSlateportTent: @ 82C589C
-	.string "Here at the Slateport Battle Tent,\n"
+	.string "Here at the Rustboro Battle Tent,\n"
 	.string "we hold Battle Swap events\l"
 	.string "using rental Pokémon.\p"
 	.string "First, you will be loaned three\n"
@@ -351,7 +351,7 @@ SlateportCity_BattleTentLobby_Text_ExplainSwapNotes: @ 82C60C0
 	.string "even when swaps are made.$"
 
 SlateportCity_BattleTentLobby_Text_ExplainMonRules: @ 82C61FE
-	.string "The Pokémon of the Slateport\n"
+	.string "The Pokémon of the Rustboro\n"
 	.string "Battle Tent are all rentals.\p"
 	.string "All rental Pokémon are kept at\n"
 	.string "Level 30.$"

@@ -304,7 +304,9 @@ SlateportCity_BattleTentLobby_Text_IllTryUsingBugMons: @ 8208D27
 
 SlateportCity_BattleTentLobby_Text_BattleEvenWithoutToughMons: @ 8208DA6
 	.string "You can battle all you want here even\n"
-	.string "if you don't have any tough Pokémon.$"
+	.string "if you don't have any tough Pokémon.\p"
+	.string "Students from the Pokémon Trainer's\n"
+	.string "School come here often to practice.$"
 
 SlateportCity_BattleTentLobby_Text_NiceIfMoreSelection: @ 8208DF1
 	.string "Wouldn't it be nice if they had more of\n"
