@@ -852,3 +852,14 @@ gTileset_OutsideShip::
 	.4byte gMetatiles_OutsideShip
 	.4byte gMetatileAttributes_OutsideShip
 	.4byte NULL
+
+	.align 2
+gTileset_Verdanturf::
+	.byte TRUE @ is compressed
+	.byte TRUE @ is secondary
+	.2byte 0
+	.4byte gTilesetTiles_Verdanturf
+	.4byte gTilesetPalettes_Verdanturf
+	.4byte gMetatiles_Verdanturf
+	.4byte gMetatileAttributes_Verdanturf
+	.4byte NULL

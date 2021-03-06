@@ -55,8 +55,8 @@ VerdanturfTown_EventScript_WandasHouseSign:: @ 81EB5E2
 	msgbox VerdanturfTown_Text_WandasHouse, MSGBOX_SIGN
 	end
 
-VerdanturfTown_EventScript_BattleTentSign:: @ 81EB5EB
-	msgbox VerdanturfTown_Text_BattleTentSign, MSGBOX_SIGN
+VerdanturfTown_EventScript_ContestHallSign:: @ 81EB5EB
+	msgbox VerdanturfTown_Text_ContestHallSign, MSGBOX_SIGN
 	end
 
 VerdanturfTown_EventScript_RusturfTunnelSign:: @ 81EB5F4
@@ -115,9 +115,10 @@ VerdanturfTown_Text_TownSign: @ 81EB9C4
 VerdanturfTown_Text_WandasHouse: @ 81EBA11
 	.string "Wanda's House$"
 
-VerdanturfTown_Text_BattleTentSign: @ 81EBA1F
-	.string "Battle Tent Verdanturf Site\n"
-	.string "“Feast Your Eyes on Battles!”$"
+VerdanturfTown_Text_ContestHallSign: @ 81EBA1F
+	.string "Pokémon Contests\n"
+	.string "Super Rank Registration\p"
+	.string "“Burst on to the Pokémon scene!”$"
 
 VerdanturfTown_Text_RusturfTunnelSign: @ 81EBA59
 	.string "Rusturf Tunnel\n"

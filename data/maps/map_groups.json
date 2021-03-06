@@ -132,7 +132,9 @@
     "LavaridgeTown_House",
     "LavaridgeTown_Mart",
     "LavaridgeTown_PokemonCenter_1F",
-    "LavaridgeTown_PokemonCenter_2F"
+    "LavaridgeTown_PokemonCenter_2F",
+    "LavaridgeTown_ContestLobby",
+    "LavaridgeTown_ContestHall"
   ],
   "gMapGroup5": [
     "FallarborTown_Mart",
@@ -153,7 +155,9 @@
     "VerdanturfTown_PokemonCenter_2F",
     "VerdanturfTown_WandasHouse",
     "VerdanturfTown_FriendshipRatersHouse",
-    "VerdanturfTown_House"
+    "VerdanturfTown_House",
+    "VerdanturfTown_ContestLobby",
+    "VerdanturfTown_ContestHall"
   ],
   "gMapGroup7": [
     "PacifidlogTown_PokemonCenter_1F",
@@ -187,7 +191,9 @@
     "SlateportCity_House",
     "SlateportCity_PokemonCenter_1F",
     "SlateportCity_PokemonCenter_2F",
-    "SlateportCity_Mart"
+    "SlateportCity_Mart",
+    "SlateportCity_ContestLobby",
+    "SlateportCity_ContestHall"
   ],
   "gMapGroup10": [
     "MauvilleCity_Gym",

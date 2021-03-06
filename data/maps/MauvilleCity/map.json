@@ -128,7 +128,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WATTSON",
-      "x": 29,
+      "x": 28,
       "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -209,7 +209,7 @@
       "dest_warp_id": 0
     },
     {
-      "x": 32,
+      "x": 19,
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_MAUVILLE_CITY_HOUSE1",
@@ -223,10 +223,10 @@
       "dest_warp_id": 0
     },
     {
-      "x": 19,
+      "x": 32,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_MAUVILLE_CITY_HOUSE2",
+      "dest_map": "MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY",
       "dest_warp_id": 0
     }
   ],

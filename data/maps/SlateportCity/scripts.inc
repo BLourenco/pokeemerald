@@ -291,6 +291,10 @@ SlateportCity_EventScript_BattleTentSign:: @ 81DCF36
 	msgbox SlateportCity_Text_BattleTentSign, MSGBOX_SIGN
 	end
 
+SlateportCity_EventScript_ContestHallSign::
+	msgbox SlateportCity_Text_ContestHallSign, MSGBOX_SIGN
+	end
+
 SlateportCity_EventScript_SternsShipyardSign:: @ 81DCF3F
 	lockall
 	goto_if_set FLAG_SYS_GAME_CLEAR, SlateportCity_EventScript_SternsShipyardFerryComplete
@@ -1255,8 +1259,13 @@ SlateportCity_Text_PleaseComeWithMe: @ 81DE8A0
 	.string "Please, come with me!$"
 
 SlateportCity_Text_BattleTentSign: @ 81DE8BC
-	.string "Battle Tent Slateport Site\n"
+	.string "Battle Tent Rustboro Site\n"
 	.string "“Find it! The ultimate Pokémon!”$"
+
+SlateportCity_Text_ContestHallSign:
+	.string "Pokémon Contest Hall\n"
+	.string "Normal Rank Registration\l"
+	.string "“Let it burn! Pokémon Trainers!”$"
 
 SlateportCity_Text_SternsShipyardWantedSign: @ 81DE8F8
 	.string "Stern's Shipyard\p"

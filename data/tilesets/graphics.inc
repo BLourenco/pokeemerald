@@ -1769,3 +1769,23 @@ gTilesetPalettes_OutsideShip::
 	.align 2
 gTilesetTiles_OutsideShip::
 	.incbin "data/tilesets/secondary/outsideship/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_Verdanturf::
+	.incbin "data/tilesets/secondary/verdanturf/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/verdanturf/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/verdanturf/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/verdanturf/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/verdanturf/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/verdanturf/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/verdanturf/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/verdanturf/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/verdanturf/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/verdanturf/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/verdanturf/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/verdanturf/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/verdanturf/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_Verdanturf::
+	.incbin "data/tilesets/secondary/verdanturf/tiles.4bpp.lz"

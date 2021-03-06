@@ -101,6 +101,8 @@
 #define MAP_LAVARIDGE_TOWN_MART              (4 | (4 << 8))
 #define MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F (5 | (4 << 8))
 #define MAP_LAVARIDGE_TOWN_POKEMON_CENTER_2F (6 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_CONTEST_LOBBY     (7 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_CONTEST_HALL      (8 | (4 << 8))
 
 // Map Group 5
 #define MAP_FALLARBOR_TOWN_MART                    (0 | (5 << 8))
@@ -122,6 +124,8 @@
 #define MAP_VERDANTURF_TOWN_WANDAS_HOUSE            (6 | (6 << 8))
 #define MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE (7 | (6 << 8))
 #define MAP_VERDANTURF_TOWN_HOUSE                   (8 | (6 << 8))
+#define MAP_VERDANTURF_TOWN_CONTEST_LOBBY           (9 | (6 << 8))
+#define MAP_VERDANTURF_TOWN_CONTEST_HALL            (10 | (6 << 8))
 
 // Map Group 7
 #define MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F (0 | (7 << 8))
@@ -156,6 +160,8 @@
 #define MAP_SLATEPORT_CITY_POKEMON_CENTER_1F       (11 | (9 << 8))
 #define MAP_SLATEPORT_CITY_POKEMON_CENTER_2F       (12 | (9 << 8))
 #define MAP_SLATEPORT_CITY_MART                    (13 | (9 << 8))
+#define MAP_SLATEPORT_CITY_CONTEST_LOBBY           (14 | (9 << 8))
+#define MAP_SLATEPORT_CITY_CONTEST_HALL            (15 | (9 << 8))
 
 // Map Group 10
 #define MAP_MAUVILLE_CITY_GYM               (0 | (10 << 8))
@@ -624,7 +630,5 @@
 #define MAP_DRY_ASHLANDS_HOUSE (0 | (34 << 8))
 
 #define MAP_GROUPS_COUNT 35
-
-// static const u8 MAP_GROUP_COUNT[] = {63, 5, 6, 6, 7, 8, 9, 7, 7, 14, 8, 18, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 127, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 0};
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

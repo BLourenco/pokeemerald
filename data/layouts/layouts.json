@@ -147,7 +147,7 @@
       "width": 20,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Verdanturf",
       "border_filepath": "data/layouts/VerdanturfTown/border.bin",
       "blockdata_filepath": "data/layouts/VerdanturfTown/map.bin"
     },
@@ -4670,6 +4670,26 @@
       "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/DewfordCape_DevonLab_2F/border.bin",
       "blockdata_filepath": "data/layouts/DewfordCape_DevonLab_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SLATEPORT_CITY_CONTEST_HALL_LOBBY",
+      "name": "SlateportCity_ContestLobby_Layout",
+      "width": 15,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Contest",
+      "border_filepath": "data/layouts/SlateportCity_ContestLobby/border.bin",
+      "blockdata_filepath": "data/layouts/SlateportCity_ContestLobby/map.bin"
+    },
+    {
+      "id": "LAYOUT_SLATEPORT_CITY_CONTEST_HALL",
+      "name": "SlateportCity_ContestHall_Layout",
+      "width": 21,
+      "height": 18,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Contest",
+      "border_filepath": "data/layouts/SlateportCity_ContestHall/border.bin",
+      "blockdata_filepath": "data/layouts/SlateportCity_ContestHall/map.bin"
     }
   ]
 }

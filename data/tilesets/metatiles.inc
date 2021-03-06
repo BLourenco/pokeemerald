@@ -572,3 +572,10 @@ gMetatiles_OutsideShip::
 	.align 1
 gMetatileAttributes_OutsideShip::
 	.incbin "data/tilesets/secondary/outsideship/metatile_attributes.bin"
+	.align 1
+gMetatiles_Verdanturf::
+	.incbin "data/tilesets/secondary/verdanturf/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_Verdanturf::
+	.incbin "data/tilesets/secondary/verdanturf/metatile_attributes.bin"

@@ -1119,3 +1119,15 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/DewfordCape_DevonLab_B1F/scripts.inc"
 
 	.include "data/maps/DewfordCape_DevonLab_2F/scripts.inc"
+
+	.include "data/maps/SlateportCity_ContestLobby/scripts.inc"
+
+	.include "data/maps/SlateportCity_ContestHall/scripts.inc"
+
+	.include "data/maps/VerdanturfTown_ContestLobby/scripts.inc"
+
+	.include "data/maps/LavaridgeTown_ContestLobby/scripts.inc"
+
+	.include "data/maps/VerdanturfTown_ContestHall/scripts.inc"
+
+	.include "data/maps/LavaridgeTown_ContestHall/scripts.inc"
