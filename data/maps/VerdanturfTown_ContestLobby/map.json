@@ -1,7 +1,7 @@
 {
   "id": "MAP_VERDANTURF_TOWN_CONTEST_LOBBY",
   "name": "VerdanturfTown_ContestLobby",
-  "layout": "LAYOUT_SLATEPORT_CITY_CONTEST_HALL_LOBBY",
+  "layout": "LAYOUT_CONTEST_LOBBY_SMALL",
   "music": "MUS_CONTEST_LOBBY",
   "region_map_section": "MAPSEC_VERDANTURF_TOWN",
   "requires_flash": false,

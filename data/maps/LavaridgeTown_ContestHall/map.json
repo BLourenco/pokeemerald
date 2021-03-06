@@ -1,7 +1,7 @@
 {
   "id": "MAP_LAVARIDGE_TOWN_CONTEST_HALL",
   "name": "LavaridgeTown_ContestHall",
-  "layout": "LAYOUT_SLATEPORT_CITY_CONTEST_HALL",
+  "layout": "LAYOUT_CONTEST_HALL_SMALL",
   "music": "MUS_CONTEST_LOBBY",
   "region_map_section": "MAPSEC_LAVARIDGE_TOWN",
   "requires_flash": false,
