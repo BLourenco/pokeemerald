@@ -12,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
@@ -461,14 +461,16 @@
       "dest_warp_id": 3
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
       "x": 27,
       "y": 16,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "LilycoveCity_ContestHall_EventScript_BeautyStageSign"
     },
     {
@@ -476,7 +478,7 @@
       "x": 39,
       "y": 28,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "LilycoveCity_ContestHall_EventScript_CuteStageSign"
     },
     {
@@ -484,7 +486,7 @@
       "x": 11,
       "y": 28,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "LilycoveCity_ContestHall_EventScript_SmartStageSign"
     },
     {
@@ -492,7 +494,7 @@
       "x": 15,
       "y": 28,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "LilycoveCity_ContestHall_EventScript_SmartStageSign"
     },
     {
@@ -500,7 +502,7 @@
       "x": 23,
       "y": 16,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "LilycoveCity_ContestHall_EventScript_BeautyStageSign"
     },
     {
@@ -508,7 +510,7 @@
       "x": 35,
       "y": 28,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "LilycoveCity_ContestHall_EventScript_CuteStageSign"
     }
   ]

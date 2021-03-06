@@ -1,3 +1,6 @@
+.set LOCALID_EXPERT_M, 4
+.set LOCALID_BOY, 5
+
 LavaridgeTown_ContestLobby_MapScripts::
 	.byte 0
 

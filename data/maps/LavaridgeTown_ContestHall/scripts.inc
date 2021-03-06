@@ -1,6 +1,94 @@
 LavaridgeTown_ContestHall_MapScripts::
 	.byte 0
 
+LavaridgeTown_ContestHall_EventScript_NinjaBoy::
+	lockall
+	faceplayer
+	msgbox LavaridgeTown_ContestHall_Text_MyPapaIsContestJudge, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LavaridgeTown_ContestHall_EventScript_FatMan1::
+	lockall
+	faceplayer
+	msgbox LavaridgeTown_ContestHall_Text_AdviceForContests, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LavaridgeTown_ContestHall_EventScript_Boy1::
+	lockall
+	faceplayer
+	msgbox LavaridgeTown_ContestHall_Text_BattleAndContestAlike, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LavaridgeTown_ContestHall_EventScript_Maniac::
+	lockall
+	faceplayer
+	msgbox LavaridgeTown_ContestHall_Text_MyMonBetterThanThatLot, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LavaridgeTown_ContestHall_EventScript_Hiker::
+	lockall
+	faceplayer
+	msgbox LavaridgeTown_ContestHall_Text_GetUrgeToMoveWithMon, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LavaridgeTown_ContestHall_EventScript_Boy2::
+	lockall
+	faceplayer
+	msgbox LavaridgeTown_ContestHall_Text_MonLooksOnTopOfGame, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LavaridgeTown_ContestHall_EventScript_Girl::
+	lockall
+	faceplayer
+	msgbox LavaridgeTown_ContestHall_Text_ItsAppealTime, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LavaridgeTown_ContestHall_EventScript_Man::
+	lockall
+	faceplayer
+	msgbox LavaridgeTown_ContestHall_Text_DidntPayAttentionToAppeal, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LavaridgeTown_ContestHall_EventScript_Boy3::
+	lockall
+	faceplayer
+	msgbox LavaridgeTown_ContestHall_Text_RewardWithSageAdvice, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LavaridgeTown_ContestHall_EventScript_FatMan2::
+	lockall
+	faceplayer
+	msgbox LavaridgeTown_ContestHall_Text_MoreFreakedOutThanMon, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LavaridgeTown_ContestHall_EventScript_Woman::
+	lockall
+	faceplayer
+	msgbox LavaridgeTown_ContestHall_Text_MCStepUpTakePartInContest, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LavaridgeTown_ContestHall_EventScript_ContestJudge::
+	lockall
+	faceplayer
+	msgbox LavaridgeTown_ContestHall_Text_JudgeWouldntDoToMissContest, MSGBOX_DEFAULT
+	releaseall
+	end
+
+LavaridgeTown_ContestHall_EventScript_HyperRankStageSign::
+	msgbox LavaridgeTown_ContestHall_Text_HyperRankStage, MSGBOX_SIGN
+	end
+
 LavaridgeTown_ContestHall_Text_AdviceForContests: @ 820906B
 	.string "Want a tasty little bit of advice\n"
 	.string "for Contests?\p"
@@ -50,8 +138,8 @@ LavaridgeTown_ContestHall_Text_JudgeWouldntDoToMissContest: @ 82094A1
 	.string "I see that you're a Trainer!\p"
 	.string "Then, it just wouldn't do for you\n"
 	.string "to miss a Pokémon Contest!\p"
-	.string "Get a Contest Pass in Verdanturf\n"
-	.string "City and enter anytime!$"
+	.string "Speak with the Receptionist in\n"
+	.string "the lobby and enter anytime!$"
 
 LavaridgeTown_ContestHall_Text_ItsAppealTime: @ 820954E
 	.string "It's appeal time!\n"

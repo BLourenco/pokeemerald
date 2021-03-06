@@ -22,7 +22,7 @@ SlateportCity_ContestHall_EventScript_Boy::
 	releaseall
 	end
 
-SlateportCity_ContestHall_EventScript_NormalRankStageSign:
+SlateportCity_ContestHall_EventScript_NormalRankStageSign::
 	msgbox SlateportCity_ContestHall_Text_NormalRankStage, MSGBOX_SIGN
 	end
 

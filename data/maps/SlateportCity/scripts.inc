@@ -241,7 +241,7 @@ SlateportCity_EventScript_RichBoy:: @ 81DCEB8
 	faceplayer
 	compare VAR_SLATEPORT_CITY_STATE, 1
 	call_if_eq SlateportCity_EventScript_RichBoySternInterview
-	msgbox SlateportCity_Text_GoingToCompeteInBattleTent, MSGBOX_DEFAULT
+	msgbox SlateportCity_Text_IveWaitedSoLongForThis, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1041,10 +1041,11 @@ SlateportCity_Text_BuyBricksSoDecorWontGetDirty: @ 81DD999
 	.string "Dolls and Cushions won't get dirty\l"
 	.string "when I leave them out.$"
 
-SlateportCity_Text_GoingToCompeteInBattleTent: @ 81DDA34
-	.string "Wroooar! I'm going to compete in\n"
-	.string "the Battle Tent, too!\p"
-	.string "But before that, I need to catch\n"
+SlateportCity_Text_IveWaitedSoLongForThis: @ 81DDA34
+	.string "Yeah! I've waited so long for this!\n"
+	.string "Pokémon Contests!\l"
+	.string "I'm going to enter!\p"
+	.string "But before I do, I have to catch\n"
 	.string "some Pokémon!$"
 
 SlateportCity_Text_BushedHikingFromMauville: @ 81DDA9A
@@ -1265,7 +1266,7 @@ SlateportCity_Text_BattleTentSign: @ 81DE8BC
 SlateportCity_Text_ContestHallSign:
 	.string "Pokémon Contest Hall\n"
 	.string "Normal Rank Registration\l"
-	.string "“Let it burn! Pokémon Trainers!”$"
+	.string "“Gather here, all ye Pokémon Trainers!”$"
 
 SlateportCity_Text_SternsShipyardWantedSign: @ 81DE8F8
 	.string "Stern's Shipyard\p"

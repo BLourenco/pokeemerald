@@ -292,6 +292,10 @@ LavaridgeTown_EventScript_HerbShopSign:: @ 81EA7B7
 	msgbox LavaridgeTown_Text_HerbShopSign, MSGBOX_SIGN
 	end
 
+LavaridgeTown_EventScript_ContestHallSign:: @ 81EA7B7
+	msgbox LavaridgeTown_Text_ContestHallSign, MSGBOX_SIGN
+	end
+
 LavaridgeTown_Text_MayNiceBadgesTakeThis: @ 81EA7C0
 	.string "{RIVAL}: {PLAYER}{KUN}! Long time no see!\p"
 	.string "Oh? While I visited the hot springs,\n"
@@ -422,4 +426,9 @@ LavaridgeTown_Text_GymSign: @ 81EB178
 LavaridgeTown_Text_HerbShopSign: @ 81EB1CB
 	.string "Pokémon Herb Shop\n"
 	.string "“Bitter taste--better cure!”$"
+
+LavaridgeTown_Text_ContestHallSign:
+	.string "Pokémon Contests\n"
+	.string "Hyper Rank Registration\l"
+	.string "“Let it burn! Pokémon Trainers”$"
 
