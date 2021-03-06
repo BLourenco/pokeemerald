@@ -4,6 +4,7 @@
 .set LOCALID_GRUNT, 10
 .set LOCALID_RIVAL, 14
 .set LOCALID_SCIENTIST, 15
+.set LOCALID_SCOTT, 17
 
 RustboroCity_MapScripts:: @ 81E06BD
 	map_script MAP_SCRIPT_ON_TRANSITION, RustboroCity_OnTransition
@@ -1044,6 +1045,57 @@ RustboroCity_EventScript_Boy1:: @ 81E1236
 	msgbox RustboroCity_Text_YouCanHave2On2Battle, MSGBOX_NPC
 	end
 
+RustboroCity_EventScript_ScottBattleTentScene::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+	opendoor 27, 45
+	waitdooranim
+	addobject LOCALID_SCOTT
+	applymovement OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PushPlayerDown
+	applymovement LOCALID_SCOTT, RustboroCity_Movement_ScottExitBattleTent
+	waitmovement 0
+	closedoor 27, 45
+	waitdooranim
+	msgbox RustboroCity_Text_ScottOutsideBattleTent, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerWatchScottExit
+	applymovement LOCALID_SCOTT, RustboroCity_Movement_ScottExitAfterBattleTent
+	waitmovement 0
+	removeobject LOCALID_SCOTT
+	addvar VAR_SCOTT_STATE, 1
+	setflag FLAG_MET_SCOTT_RUSTBORO
+	releaseall
+	end
+
+RustboroCity_Movement_PushPlayerDown:
+	lock_facing_direction
+	walk_down
+	unlock_facing_direction
+	step_end
+
+RustboroCity_Movement_PlayerWatchScottExit:
+	delay_16
+	walk_in_place_fastest_left
+	step_end
+
+RustboroCity_Movement_ScottExitBattleTent:
+	delay_8
+	walk_down
+	step_end
+
+RustboroCity_Movement_ScottExitAfterBattleTent:
+	walk_left
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
 RustboroCity_Text_WeShortenItToDevon: @ 81E123F
 	.string "The Devon Corporation…\n"
 	.string "We all just shorten it to Devon.\p"
@@ -1333,3 +1385,21 @@ RustboroCity_Text_YouCanHave2On2Battle: @ 81E249D
 	.string "they'll both challenge you.\p"
 	.string "Don't you think it'd be cool if you\n"
 	.string "could beat two Trainers by yourself?$"
+
+RustboroCity_Text_ScottOutsideBattleTent:
+	.string "Oh, pardon me…\p"
+	.string "Wait a second… Didn't we meet before?\n"
+	.string "I think back in Petalburg City.\p"
+	.string "Let me introduce myself.\n"
+	.string "My name's Scott.\p"
+	.string "I've been traveling everywhere in\n"
+	.string "search of outstanding Trainers.\p"
+	.string "More specifically, I'm looking for\n"
+	.string "Pokémon battle experts.\p"
+	.string "Let me guess--you're going to take\n"
+	.string "the Battle Tent challenge?\p"
+	.string "Yeah! That's a good idea!\n"
+	.string "That's a really great idea!\p"
+	.string "After all, an aspiring Trainer is\n"
+	.string "the perfect fit for the Battle Tent!\p"
+	.string "Give it your best effort!$"

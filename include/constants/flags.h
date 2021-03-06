@@ -1023,7 +1023,7 @@
 #define FLAG_HIDE_ROUTE_120_KECLEON_1                               0x3D6
 #define FLAG_HIDE_RUSTURF_TUNNEL_WANDA                              0x3D7
 #define FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WANDA                0x3D8
-#define FLAG_UNUSED_0x3D9                                           0x3D9 // Unused
+#define FLAG_HIDE_RUSTBORO_CITY_SCOTT                               0x3D9
 #define FLAG_UNUSED_0x3DA                                           0x3DA // Unused
 #define FLAG_UNUSED_0x3DB                                           0x3DB // Unused
 #define FLAG_UNUSED_0x3DC                                           0x3DC // Unused
