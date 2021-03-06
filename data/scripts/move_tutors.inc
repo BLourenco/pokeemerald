@@ -49,7 +49,7 @@ MoveTutor_EventScript_EchoedVoiceReceived:: @ 82C8044
 	release
 	end
 
-LavaridgeTown_House_EventScript_NaturePowerTM:: @ 82C804E
+VerdanturfTown_EventScript_NaturePowerTM:: @ 82C804E
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_TM96, MoveTutor_EventScript_NaturePowerReceived

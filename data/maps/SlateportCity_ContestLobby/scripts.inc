@@ -27,10 +27,10 @@ SlateportCity_ContestLobby_EventScript_BerryBlender1::
 	goto BerryBlender_EventScript_DeclineBlender1
 	end
 
-SlateportCity_ContestLobby_EventScript_Expert::
+SlateportCity_ContestLobby_EventScript_Expert_M::
 	lockall
 	faceplayer
-	msgbox SlateportCity_ContestLobby_Text_Expert, MSGBOX_DEFAULT
+	msgbox SlateportCity_ContestLobby_Text_Expert_M, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -48,13 +48,6 @@ SlateportCity_ContestLobby_EventScript_Boy2::
 	releaseall
 	end
 
-SlateportCity_ContestLobby_EventScript_Girl::
-	lockall
-	faceplayer
-	msgbox SlateportCity_ContestLobby_Text_Girl, MSGBOX_DEFAULT
-	releaseall
-	end
-
 SlateportCity_ContestLobby_Text_LadyGaveMePokeblockCase:
 	.string "Yippee!\p"
 	.string "The lady at the reception counter\n"
@@ -65,7 +58,7 @@ SlateportCity_ContestLobby_Text_MakePokeblocksDifferentBerries:
 	.string "When you make a {POKEBLOCK}, everyone\n"
 	.string "has to put in a different Berry.$"
 
-SlateportCity_ContestLobby_Text_Expert:
+SlateportCity_ContestLobby_Text_Expert_M:
 	.string "I love making {POKEBLOCK}s.\p"
 	.string "I always have some Berries with me.\p"
 	.string "If you'd like, we could make some\n"
@@ -87,5 +80,3 @@ SlateportCity_ContestLobby_Text_Boy2:
 	.string "took a look around the Contest hall.\p"
 	.string "Getting up on that big stage…\n"
 	.string "It's going to be tense!$"
-
-SlateportCity_ContestLobby_Text_Girl:

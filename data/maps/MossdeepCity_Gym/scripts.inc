@@ -21,7 +21,7 @@ MossdeepCity_Gym_EventScript_CheckSwitch3:: @ 8220824
 	end
 
 MossdeepCity_Gym_EventScript_CheckSwitch4:: @ 8220833
-	goto_if_set FLAG_MOSSDEEP_GYM_SWITCH_4, MossdeepCity_Gym_EventScript_SetSwitch4Metatiles
+	goto_if_set FLAG_RECEIVED_SMEARGLE, MossdeepCity_Gym_EventScript_SetSwitch4Metatiles
 	end
 
 @ All the below set metatile scripts are leftover from RS and are functionally unused
@@ -180,8 +180,8 @@ MossdeepCity_Gym_EventScript_ClearSwitch3:: @ 8220A78
 
 MossdeepCity_Gym_EventScript_Switch4:: @ 8220A9D
 	lockall
-	goto_if_set FLAG_MOSSDEEP_GYM_SWITCH_4, MossdeepCity_Gym_EventScript_ClearSwitch4
-	setflag FLAG_MOSSDEEP_GYM_SWITCH_4
+	goto_if_set FLAG_RECEIVED_SMEARGLE, MossdeepCity_Gym_EventScript_ClearSwitch4
+	setflag FLAG_RECEIVED_SMEARGLE
 	applymovement OBJ_EVENT_ID_PLAYER, MossdeepCity_Gym_Movement_WaitAfterSwitchUse
 	waitmovement 0
 	setmetatile 1, 23, METATILE_RS_MossdeepGym_RedArrow_Up, 0
@@ -190,7 +190,7 @@ MossdeepCity_Gym_EventScript_Switch4:: @ 8220A9D
 	end
 
 MossdeepCity_Gym_EventScript_ClearSwitch4:: @ 8220ACC
-	clearflag FLAG_MOSSDEEP_GYM_SWITCH_4
+	clearflag FLAG_RECEIVED_SMEARGLE
 	applymovement OBJ_EVENT_ID_PLAYER, MossdeepCity_Gym_Movement_WaitAfterSwitchUse
 	waitmovement 0
 	setmetatile 1, 23, METATILE_RS_MossdeepGym_RedArrow_Right, 0

@@ -115,17 +115,14 @@
 #define MAP_FALLARBOR_TOWN_MOVE_RELEARNERS_HOUSE   (7 | (5 << 8))
 
 // Map Group 6
-#define MAP_MAUVILLE_CITY_BATTLE_TENT_LOBBY         (0 | (6 << 8))
-#define MAP_MAUVILLE_CITY_BATTLE_TENT_CORRIDOR      (1 | (6 << 8))
-#define MAP_MAUVILLE_CITY_BATTLE_TENT_BATTLE_ROOM   (2 | (6 << 8))
-#define MAP_VERDANTURF_TOWN_MART                    (3 | (6 << 8))
-#define MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F       (4 | (6 << 8))
-#define MAP_VERDANTURF_TOWN_POKEMON_CENTER_2F       (5 | (6 << 8))
-#define MAP_VERDANTURF_TOWN_WANDAS_HOUSE            (6 | (6 << 8))
-#define MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE (7 | (6 << 8))
-#define MAP_VERDANTURF_TOWN_HOUSE                   (8 | (6 << 8))
-#define MAP_VERDANTURF_TOWN_CONTEST_LOBBY           (9 | (6 << 8))
-#define MAP_VERDANTURF_TOWN_CONTEST_HALL            (10 | (6 << 8))
+#define MAP_VERDANTURF_TOWN_MART                    (0 | (6 << 8))
+#define MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F       (1 | (6 << 8))
+#define MAP_VERDANTURF_TOWN_POKEMON_CENTER_2F       (2 | (6 << 8))
+#define MAP_VERDANTURF_TOWN_WANDAS_HOUSE            (3 | (6 << 8))
+#define MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE (4 | (6 << 8))
+#define MAP_VERDANTURF_TOWN_HOUSE                   (5 | (6 << 8))
+#define MAP_VERDANTURF_TOWN_CONTEST_LOBBY           (6 | (6 << 8))
+#define MAP_VERDANTURF_TOWN_CONTEST_HALL            (7 | (6 << 8))
 
 // Map Group 7
 #define MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F (0 | (7 << 8))
@@ -161,14 +158,17 @@
 #define MAP_SLATEPORT_CITY_CONTEST_HALL       (12 | (9 << 8))
 
 // Map Group 10
-#define MAP_MAUVILLE_CITY_GYM               (0 | (10 << 8))
-#define MAP_MAUVILLE_CITY_BIKE_SHOP         (1 | (10 << 8))
-#define MAP_MAUVILLE_CITY_HOUSE1            (2 | (10 << 8))
-#define MAP_MAUVILLE_CITY_GAME_CORNER       (3 | (10 << 8))
-#define MAP_MAUVILLE_CITY_HOUSE2            (4 | (10 << 8))
-#define MAP_MAUVILLE_CITY_POKEMON_CENTER_1F (5 | (10 << 8))
-#define MAP_MAUVILLE_CITY_POKEMON_CENTER_2F (6 | (10 << 8))
-#define MAP_MAUVILLE_CITY_MART              (7 | (10 << 8))
+#define MAP_MAUVILLE_CITY_GYM                     (0 | (10 << 8))
+#define MAP_MAUVILLE_CITY_BIKE_SHOP               (1 | (10 << 8))
+#define MAP_MAUVILLE_CITY_HOUSE1                  (2 | (10 << 8))
+#define MAP_MAUVILLE_CITY_GAME_CORNER             (3 | (10 << 8))
+#define MAP_MAUVILLE_CITY_HOUSE2                  (4 | (10 << 8))
+#define MAP_MAUVILLE_CITY_POKEMON_CENTER_1F       (5 | (10 << 8))
+#define MAP_MAUVILLE_CITY_POKEMON_CENTER_2F       (6 | (10 << 8))
+#define MAP_MAUVILLE_CITY_MART                    (7 | (10 << 8))
+#define MAP_MAUVILLE_CITY_BATTLE_TENT_LOBBY       (8 | (10 << 8))
+#define MAP_MAUVILLE_CITY_BATTLE_TENT_CORRIDOR    (9 | (10 << 8))
+#define MAP_MAUVILLE_CITY_BATTLE_TENT_BATTLE_ROOM (10 | (10 << 8))
 
 // Map Group 11
 #define MAP_RUSTBORO_CITY_DEVON_CORP_1F           (0 | (11 << 8))
@@ -631,6 +631,6 @@
 
 #define MAP_GROUPS_COUNT 35
 
-// static const u8 MAP_GROUP_COUNT[] = {63, 5, 6, 6, 9, 8, 11, 7, 7, 13, 8, 21, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 127, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 0};
+// static const u8 MAP_GROUP_COUNT[] = {63, 5, 6, 6, 9, 8, 8, 7, 7, 13, 11, 21, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 127, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 0};
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H
