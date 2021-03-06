@@ -180,9 +180,6 @@
   "gMapGroup9": [
     "SlateportCity_SternsShipyard_1F",
     "SlateportCity_SternsShipyard_2F",
-    "SlateportCity_BattleTentLobby",
-    "SlateportCity_BattleTentCorridor",
-    "SlateportCity_BattleTentBattleRoom",
     "SlateportCity_NameRatersHouse",
     "SlateportCity_PokemonFanClub",
     "SlateportCity_OceanicMuseum_1F",
@@ -223,7 +220,10 @@
     "RustboroCity_Flat2_2F",
     "RustboroCity_Flat2_3F",
     "RustboroCity_House3",
-    "RustboroCity_DevonCorp_B1F"
+    "RustboroCity_DevonCorp_B1F",
+    "RustboroCity_BattleTentLobby",
+    "RustboroCity_BattleTentCorridor",
+    "RustboroCity_BattleTentBattleRoom"
   ],
   "gMapGroup12": [
     "FortreeCity_House1",

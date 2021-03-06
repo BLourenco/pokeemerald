@@ -146,22 +146,19 @@
 #define MAP_PETALBURG_CITY_MART              (6 | (8 << 8))
 
 // Map Group 9
-#define MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F      (0 | (9 << 8))
-#define MAP_SLATEPORT_CITY_STERNS_SHIPYARD_2F      (1 | (9 << 8))
-#define MAP_SLATEPORT_CITY_BATTLE_TENT_LOBBY       (2 | (9 << 8))
-#define MAP_SLATEPORT_CITY_BATTLE_TENT_CORRIDOR    (3 | (9 << 8))
-#define MAP_SLATEPORT_CITY_BATTLE_TENT_BATTLE_ROOM (4 | (9 << 8))
-#define MAP_SLATEPORT_CITY_NAME_RATERS_HOUSE       (5 | (9 << 8))
-#define MAP_SLATEPORT_CITY_POKEMON_FAN_CLUB        (6 | (9 << 8))
-#define MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F       (7 | (9 << 8))
-#define MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_2F       (8 | (9 << 8))
-#define MAP_SLATEPORT_CITY_HARBOR                  (9 | (9 << 8))
-#define MAP_SLATEPORT_CITY_HOUSE                   (10 | (9 << 8))
-#define MAP_SLATEPORT_CITY_POKEMON_CENTER_1F       (11 | (9 << 8))
-#define MAP_SLATEPORT_CITY_POKEMON_CENTER_2F       (12 | (9 << 8))
-#define MAP_SLATEPORT_CITY_MART                    (13 | (9 << 8))
-#define MAP_SLATEPORT_CITY_CONTEST_LOBBY           (14 | (9 << 8))
-#define MAP_SLATEPORT_CITY_CONTEST_HALL            (15 | (9 << 8))
+#define MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F (0 | (9 << 8))
+#define MAP_SLATEPORT_CITY_STERNS_SHIPYARD_2F (1 | (9 << 8))
+#define MAP_SLATEPORT_CITY_NAME_RATERS_HOUSE  (2 | (9 << 8))
+#define MAP_SLATEPORT_CITY_POKEMON_FAN_CLUB   (3 | (9 << 8))
+#define MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F  (4 | (9 << 8))
+#define MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_2F  (5 | (9 << 8))
+#define MAP_SLATEPORT_CITY_HARBOR             (6 | (9 << 8))
+#define MAP_SLATEPORT_CITY_HOUSE              (7 | (9 << 8))
+#define MAP_SLATEPORT_CITY_POKEMON_CENTER_1F  (8 | (9 << 8))
+#define MAP_SLATEPORT_CITY_POKEMON_CENTER_2F  (9 | (9 << 8))
+#define MAP_SLATEPORT_CITY_MART               (10 | (9 << 8))
+#define MAP_SLATEPORT_CITY_CONTEST_LOBBY      (11 | (9 << 8))
+#define MAP_SLATEPORT_CITY_CONTEST_HALL       (12 | (9 << 8))
 
 // Map Group 10
 #define MAP_MAUVILLE_CITY_GYM               (0 | (10 << 8))
@@ -174,24 +171,27 @@
 #define MAP_MAUVILLE_CITY_MART              (7 | (10 << 8))
 
 // Map Group 11
-#define MAP_RUSTBORO_CITY_DEVON_CORP_1F     (0 | (11 << 8))
-#define MAP_RUSTBORO_CITY_DEVON_CORP_2F     (1 | (11 << 8))
-#define MAP_RUSTBORO_CITY_DEVON_CORP_3F     (2 | (11 << 8))
-#define MAP_RUSTBORO_CITY_GYM               (3 | (11 << 8))
-#define MAP_RUSTBORO_CITY_POKEMON_SCHOOL    (4 | (11 << 8))
-#define MAP_RUSTBORO_CITY_POKEMON_CENTER_1F (5 | (11 << 8))
-#define MAP_RUSTBORO_CITY_POKEMON_CENTER_2F (6 | (11 << 8))
-#define MAP_RUSTBORO_CITY_MART              (7 | (11 << 8))
-#define MAP_RUSTBORO_CITY_FLAT1_1F          (8 | (11 << 8))
-#define MAP_RUSTBORO_CITY_FLAT1_2F          (9 | (11 << 8))
-#define MAP_RUSTBORO_CITY_HOUSE1            (10 | (11 << 8))
-#define MAP_RUSTBORO_CITY_CUTTERS_HOUSE     (11 | (11 << 8))
-#define MAP_RUSTBORO_CITY_HOUSE2            (12 | (11 << 8))
-#define MAP_RUSTBORO_CITY_FLAT2_1F          (13 | (11 << 8))
-#define MAP_RUSTBORO_CITY_FLAT2_2F          (14 | (11 << 8))
-#define MAP_RUSTBORO_CITY_FLAT2_3F          (15 | (11 << 8))
-#define MAP_RUSTBORO_CITY_HOUSE3            (16 | (11 << 8))
-#define MAP_RUSTBORO_CITY_DEVON_CORP_B1F    (17 | (11 << 8))
+#define MAP_RUSTBORO_CITY_DEVON_CORP_1F           (0 | (11 << 8))
+#define MAP_RUSTBORO_CITY_DEVON_CORP_2F           (1 | (11 << 8))
+#define MAP_RUSTBORO_CITY_DEVON_CORP_3F           (2 | (11 << 8))
+#define MAP_RUSTBORO_CITY_GYM                     (3 | (11 << 8))
+#define MAP_RUSTBORO_CITY_POKEMON_SCHOOL          (4 | (11 << 8))
+#define MAP_RUSTBORO_CITY_POKEMON_CENTER_1F       (5 | (11 << 8))
+#define MAP_RUSTBORO_CITY_POKEMON_CENTER_2F       (6 | (11 << 8))
+#define MAP_RUSTBORO_CITY_MART                    (7 | (11 << 8))
+#define MAP_RUSTBORO_CITY_FLAT1_1F                (8 | (11 << 8))
+#define MAP_RUSTBORO_CITY_FLAT1_2F                (9 | (11 << 8))
+#define MAP_RUSTBORO_CITY_HOUSE1                  (10 | (11 << 8))
+#define MAP_RUSTBORO_CITY_CUTTERS_HOUSE           (11 | (11 << 8))
+#define MAP_RUSTBORO_CITY_HOUSE2                  (12 | (11 << 8))
+#define MAP_RUSTBORO_CITY_FLAT2_1F                (13 | (11 << 8))
+#define MAP_RUSTBORO_CITY_FLAT2_2F                (14 | (11 << 8))
+#define MAP_RUSTBORO_CITY_FLAT2_3F                (15 | (11 << 8))
+#define MAP_RUSTBORO_CITY_HOUSE3                  (16 | (11 << 8))
+#define MAP_RUSTBORO_CITY_DEVON_CORP_B1F          (17 | (11 << 8))
+#define MAP_RUSTBORO_CITY_BATTLE_TENT_LOBBY       (18 | (11 << 8))
+#define MAP_RUSTBORO_CITY_BATTLE_TENT_CORRIDOR    (19 | (11 << 8))
+#define MAP_RUSTBORO_CITY_BATTLE_TENT_BATTLE_ROOM (20 | (11 << 8))
 
 // Map Group 12
 #define MAP_FORTREE_CITY_HOUSE1            (0 | (12 << 8))
@@ -631,6 +631,6 @@
 
 #define MAP_GROUPS_COUNT 35
 
-// static const u8 MAP_GROUP_COUNT[] = {63, 5, 6, 6, 9, 8, 11, 7, 7, 16, 8, 18, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 127, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 0};
+// static const u8 MAP_GROUP_COUNT[] = {63, 5, 6, 6, 9, 8, 11, 7, 7, 13, 8, 21, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 127, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 0};
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

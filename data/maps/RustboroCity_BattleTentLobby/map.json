@@ -1,6 +1,6 @@
 {
-  "id": "MAP_SLATEPORT_CITY_BATTLE_TENT_LOBBY",
-  "name": "SlateportCity_BattleTentLobby",
+  "id": "MAP_RUSTBORO_CITY_BATTLE_TENT_LOBBY",
+  "name": "RustboroCity_BattleTentLobby",
   "layout": "LAYOUT_BATTLE_TENT_LOBBY",
   "music": "MUS_B_TOWER_RS",
   "region_map_section": "MAPSEC_RUSTBORO_CITY",
@@ -24,7 +24,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SlateportCity_BattleTentLobby_EventScript_Attendant",
+      "script": "RustboroCity_BattleTentLobby_EventScript_Attendant",
       "flag": "0"
     },
     {
@@ -37,7 +37,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SlateportCity_BattleTentLobby_EventScript_TormentGiver",
+      "script": "RustboroCity_BattleTentLobby_EventScript_TormentGiver",
       "flag": "0"
     },
     {
@@ -50,7 +50,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SlateportCity_BattleTentLobby_EventScript_Man",
+      "script": "RustboroCity_BattleTentLobby_EventScript_Man",
       "flag": "0"
     },
     {
@@ -63,7 +63,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SlateportCity_BattleTentLobby_EventScript_Girl",
+      "script": "RustboroCity_BattleTentLobby_EventScript_Girl",
       "flag": "0"
     },
     {
@@ -76,7 +76,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SlateportCity_BattleTentLobby_EventScript_Woman",
+      "script": "RustboroCity_BattleTentLobby_EventScript_Woman",
       "flag": "0"
     }
   ],
@@ -106,7 +106,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SlateportCity_BattleTentLobby_EventScript_RulesBoard"
+      "script": "RustboroCity_BattleTentLobby_EventScript_RulesBoard"
     }
   ]
 }

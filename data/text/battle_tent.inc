@@ -212,17 +212,17 @@ VerdanturfTown_BattleTentLobby_Text_PresentYouWithPrize: @ 82C57CD
 	.string "For the feat of your 3-win streak,\n"
 	.string "we present you with this prize.$"
 
-SlateportCity_BattleTentLobby_Text_WelcomeToBattleTent: @ 82C5810
+RustboroCity_BattleTentLobby_Text_WelcomeToBattleTent: @ 82C5810
 	.string "Welcome to the Battle Tent\n"
 	.string "Rustboro Site!\p"
 	.string "I am your guide to the Battle Swap\n"
 	.string "Tournament.$"
 
-SlateportCity_BattleTentLobby_Text_TakeChallenge: @ 82C586A
+RustboroCity_BattleTentLobby_Text_TakeChallenge: @ 82C586A
 	.string "Would you like to take the Battle\n"
 	.string "Swap challenge?$"
 
-SlateportCity_BattleTentLobby_Text_ExplainSlateportTent: @ 82C589C
+RustboroCity_BattleTentLobby_Text_ExplainSlateportTent: @ 82C589C
 	.string "Here at the Rustboro Battle Tent,\n"
 	.string "we hold Battle Swap events\l"
 	.string "using rental Pokémon.\p"
@@ -240,27 +240,27 @@ SlateportCity_BattleTentLobby_Text_ExplainSlateportTent: @ 82C589C
 	.string "If you don't save before interrupting,\n"
 	.string "you will be disqualified.$"
 
-SlateportCity_BattleTentLobby_Text_LookForwardToNextVisit: @ 82C5AA5
+RustboroCity_BattleTentLobby_Text_LookForwardToNextVisit: @ 82C5AA5
 	.string "We look forward to your next visit.$"
 
 @ Unused
-SlateportCity_BattleTentLobby_Text_WhichLevelMode: @ 82C5AC9
+RustboroCity_BattleTentLobby_Text_WhichLevelMode: @ 82C5AC9
 	.string "Which level do you wish to challenge?\n"
 	.string "Level 50 or Level 100?$"
 
-SlateportCity_BattleTentLobby_Text_SaveBeforeChallenge: @ 82C5B06
+RustboroCity_BattleTentLobby_Text_SaveBeforeChallenge: @ 82C5B06
 	.string "Before you begin your challenge,\n"
 	.string "I need to save data. Is that okay?$"
 
 @ Unused
-SlateportCity_BattleTentLobby_Text_HoldMonsForSafekeeping: @ 82C5B4A
+RustboroCity_BattleTentLobby_Text_HoldMonsForSafekeeping: @ 82C5B4A
 	.string "Okay, I will hold your Pokémon for\n"
 	.string "safekeeping while you compete.$"
 
-SlateportCity_BattleTentLobby_Text_StepThisWay: @ 82C5B8C
+RustboroCity_BattleTentLobby_Text_StepThisWay: @ 82C5B8C
 	.string "Please step this way.$"
 
-SlateportCity_BattleTentLobby_Text_ReturnRentalMonsSaveResults: @ 82C5BA2
+RustboroCity_BattleTentLobby_Text_ReturnRentalMonsSaveResults: @ 82C5BA2
 	.string "Thank you for participating!\p"
 	.string "I will return your Pokémon in exchange\n"
 	.string "for our rental Pokémon.\p"
@@ -268,11 +268,11 @@ SlateportCity_BattleTentLobby_Text_ReturnRentalMonsSaveResults: @ 82C5BA2
 	.string "Please wait.$"
 
 @ Unused
-SlateportCity_BattleTentLobby_Text_ReturnMonsExchangeRentals: @ 82C5C30
+RustboroCity_BattleTentLobby_Text_ReturnMonsExchangeRentals: @ 82C5C30
 	.string "I will return your Pokémon in exchange\n"
 	.string "for our rental Pokémon.$"
 
-SlateportCity_BattleTentLobby_Text_WonThreeMatchesReturnMons: @ 82C5C6F
+RustboroCity_BattleTentLobby_Text_WonThreeMatchesReturnMons: @ 82C5C6F
 	.string "Congratulations!\n"
 	.string "You've won three straight matches!\p"
 	.string "I will return your Pokémon in exchange\n"
@@ -280,65 +280,65 @@ SlateportCity_BattleTentLobby_Text_WonThreeMatchesReturnMons: @ 82C5C6F
 	.string "I must also save your event results.\n"
 	.string "Please wait.$"
 
-SlateportCity_BattleTentLobby_Text_AwardYouThisPrize: @ 82C5D14
+RustboroCity_BattleTentLobby_Text_AwardYouThisPrize: @ 82C5D14
 	.string "In recognition of your 3-win streak,\n"
 	.string "we award you this prize.$"
 
-SlateportCity_BattleTentLobby_Text_NoRoomInBagMakeRoom: @ 82C5D52
+RustboroCity_BattleTentLobby_Text_NoRoomInBagMakeRoom: @ 82C5D52
 	.string "Oh?\n"
 	.string "You seem to have no room for this.\p"
 	.string "Please make room in your Bag and\n"
 	.string "let me know.$"
 
-SlateportCity_BattleTentLobby_Text_BeenWaitingForYou: @ 82C5DA7
+RustboroCity_BattleTentLobby_Text_BeenWaitingForYou: @ 82C5DA7
 	.string "We've been waiting for you!\p"
 	.string "Before we resume your challenge,\n"
 	.string "I must save the game.$"
 
-SlateportCity_BattleTentLobby_Text_DidntSaveBeforeQuitting: @ 82C5DFA
+RustboroCity_BattleTentLobby_Text_DidntSaveBeforeQuitting: @ 82C5DFA
 	.string "I'm sorry to say this, but you didn't\n"
 	.string "save before you quit playing last time.\p"
 	.string "As a result, you have been disqualified\n"
 	.string "from your challenge.$"
 
 @ Unused
-SlateportCity_BattleTentLobby_Text_ReturnPersonalMons: @ 82C5E85
+RustboroCity_BattleTentLobby_Text_ReturnPersonalMons: @ 82C5E85
 	.string "We'll return your personal Pokémon.$"
 
 @ Unused
-SlateportCity_BattleTentLobby_Text_ReceivedPrize: @ 82C5EA9
+RustboroCity_BattleTentLobby_Text_ReceivedPrize: @ 82C5EA9
 	.string "{PLAYER} received the prize\n"
 	.string "{STR_VAR_1}.$"
 
 @ Unused
-SlateportCity_BattleTentLobby_Text_RulesAreListed: @ 82C5EC3
+RustboroCity_BattleTentLobby_Text_RulesAreListed: @ 82C5EC3
 	.string "The Battle Swap rules are listed.$"
 
 @ Unused
-SlateportCity_BattleTentLobby_Text_ReadWhichHeading: @ 82C5EE5
+RustboroCity_BattleTentLobby_Text_ReadWhichHeading: @ 82C5EE5
 	.string "Which heading do you want to read?$"
 
-SlateportCity_BattleTentLobby_Text_ExplainBasicRules: @ 82C5F08
+RustboroCity_BattleTentLobby_Text_ExplainBasicRules: @ 82C5F08
 	.string "In a Battle Swap event, you may use\n"
 	.string "only three Pokémon.\p"
 	.string "Whether you are renting or swapping,\n"
 	.string "your team may not have two or more\l"
 	.string "of the same Pokémon.$"
 
-SlateportCity_BattleTentLobby_Text_ExplainSwapPartnerRules: @ 82C5F9D
+RustboroCity_BattleTentLobby_Text_ExplainSwapPartnerRules: @ 82C5F9D
 	.string "You may swap Pokémon only with\n"
 	.string "the Trainer you have just defeated.\p"
 	.string "You may swap for only those Pokémon\n"
 	.string "used by the beaten Trainer.$"
 
-SlateportCity_BattleTentLobby_Text_ExplainSwapNumberRules: @ 82C6020
+RustboroCity_BattleTentLobby_Text_ExplainSwapNumberRules: @ 82C6020
 	.string "After every battle you win, you may\n"
 	.string "swap for one of your defeated\l"
 	.string "opponent's Pokémon.\p"
 	.string "You will not be able to swap Pokémon\n"
 	.string "with the third Trainer in the event.$"
 
-SlateportCity_BattleTentLobby_Text_ExplainSwapNotes: @ 82C60C0
+RustboroCity_BattleTentLobby_Text_ExplainSwapNotes: @ 82C60C0
 	.string "There are two key points to be aware\n"
 	.string "of when swapping Pokémon.\p"
 	.string "First, when swapping, you can't check\n"
@@ -350,7 +350,7 @@ SlateportCity_BattleTentLobby_Text_ExplainSwapNotes: @ 82C60C0
 	.string "This sequence remains unchanged\n"
 	.string "even when swaps are made.$"
 
-SlateportCity_BattleTentLobby_Text_ExplainMonRules: @ 82C61FE
+RustboroCity_BattleTentLobby_Text_ExplainMonRules: @ 82C61FE
 	.string "The Pokémon of the Rustboro\n"
 	.string "Battle Tent are all rentals.\p"
 	.string "All rental Pokémon are kept at\n"

@@ -1,6 +1,6 @@
 {
-  "id": "MAP_SLATEPORT_CITY_BATTLE_TENT_CORRIDOR",
-  "name": "SlateportCity_BattleTentCorridor",
+  "id": "MAP_RUSTBORO_CITY_BATTLE_TENT_CORRIDOR",
+  "name": "RustboroCity_BattleTentCorridor",
   "layout": "LAYOUT_BATTLE_TENT_CORRIDOR",
   "music": "MUS_B_TOWER_RS",
   "region_map_section": "MAPSEC_RUSTBORO_CITY",
