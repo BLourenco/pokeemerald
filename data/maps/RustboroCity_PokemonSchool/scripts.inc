@@ -220,7 +220,7 @@ RustboroCity_PokemonSchool_Text_ExplainPoison: @ 821411A
 
 RustboroCity_PokemonSchool_Text_ExplainParalysis: @ 82141D8
 	.string "If a Pokémon becomes paralyzed,\n"
-	.string "its Speed drops.\p"
+	.string "its Speed is cut in half.\p"
 	.string "It may also not be able to move while\n"
 	.string "it is in battle.\p"
 	.string "Paralysis remains after battle.\n"
@@ -228,14 +228,15 @@ RustboroCity_PokemonSchool_Text_ExplainParalysis: @ 82141D8
 
 RustboroCity_PokemonSchool_Text_ExplainSleep: @ 821427D
 	.string "If a Pokémon falls asleep, it will be\n"
-	.string "unable to attack.\p"
+	.string "unable to attack for 1-3 turns.\p"
 	.string "A Pokémon may wake up on its own,\n"
 	.string "but if a battle ends while it is\l"
 	.string "sleeping, it will stay asleep.\p"
 	.string "Wake it up using an Awakening.$"
 
 RustboroCity_PokemonSchool_Text_ExplainBurn: @ 8214336
-	.string "A burn reduces Attack power, and it\n"
+	.string "A burn reduces the damage of a\n"
+	.string "Pokémon's physical moves by half, and\l"
 	.string "steadily reduces the victim's HP.\p"
 	.string "A burn lingers after battle.\n"
 	.string "Cure a burn using a Burn Heal.$"
@@ -243,7 +244,11 @@ RustboroCity_PokemonSchool_Text_ExplainBurn: @ 8214336
 RustboroCity_PokemonSchool_Text_ExplainFreeze: @ 82143B8
 	.string "If a Pokémon is frozen, it becomes\n"
 	.string "completely helpless.\p"
-	.string "It will remain frozen after battle.\n"
+	.string "It has a 20% chance to thaw out every\n"
+	.string "turn. If hit by a Fire-type move, the\l"
+	.string "frozen Pokémon will thaw out instantly.\p"
+	.string "A frozen Pokémon will remain frozen\n"
+	.string "after battle.\p"
 	.string "Thaw it out using an Ice Heal.$"
 
 RustboroCity_PokemonSchool_Text_StudentsWhoDontStudyGetQuickClaw: @ 8214433
