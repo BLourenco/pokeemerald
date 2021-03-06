@@ -3863,13 +3863,13 @@
     },
     {
       "id": "LAYOUT_VERDANTURF_TOWN_BATTLE_TENT_BATTLE_ROOM",
-      "name": "VerdanturfTown_BattleTentBattleRoom_Layout",
+      "name": "MauvilleCity_BattleTentBattleRoom_Layout",
       "width": 13,
       "height": 9,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_BattleTent",
-      "border_filepath": "data/layouts/VerdanturfTown_BattleTentBattleRoom/border.bin",
-      "blockdata_filepath": "data/layouts/VerdanturfTown_BattleTentBattleRoom/map.bin"
+      "border_filepath": "data/layouts/MauvilleCity_BattleTentBattleRoom/border.bin",
+      "blockdata_filepath": "data/layouts/MauvilleCity_BattleTentBattleRoom/map.bin"
     },
     {
       "id": "LAYOUT_MIRAGE_TOWER_4F",

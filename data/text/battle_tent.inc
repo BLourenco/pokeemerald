@@ -117,17 +117,17 @@ FallarborTown_BattleTentLobby_Text_LookingForwardToArrival: @ 82C504C
 	.string "Before I show you to the Battle Tent,\n"
 	.string "I must save the game. Please wait.$"
 
-VerdanturfTown_BattleTentLobby_Text_WelcomeToBattleTent: @ 82C50C3
+MauvilleCity_BattleTentLobby_Text_WelcomeToBattleTent: @ 82C50C3
 	.string "I welcome you to the Battle Tent\n"
 	.string "Verdanturf Site!\p"
 	.string "Here, the Trainer's trust toward\n"
 	.string "Pokémon is tested.$"
 
-VerdanturfTown_BattleTentLobby_Text_TakeChallenge: @ 82C5129
+MauvilleCity_BattleTentLobby_Text_TakeChallenge: @ 82C5129
 	.string "Do you wish to take the Verdanturf\n"
 	.string "Battle Tent challenge?$"
 
-VerdanturfTown_BattleTentLobby_Text_ExplainVerdanturfTent: @ 82C5163
+MauvilleCity_BattleTentLobby_Text_ExplainVerdanturfTent: @ 82C5163
 	.string "In the Verdanturf Battle Tent,\n"
 	.string "there is one crucial rule that must\l"
 	.string "be obeyed.\p"
@@ -147,17 +147,17 @@ VerdanturfTown_BattleTentLobby_Text_ExplainVerdanturfTent: @ 82C5163
 	.string "If you don't save before interrupting,\n"
 	.string "you will be disqualified.$"
 
-VerdanturfTown_BattleTentLobby_Text_ReturnFortified: @ 82C539A
+MauvilleCity_BattleTentLobby_Text_ReturnFortified: @ 82C539A
 	.string "When you have fortified your heart\n"
 	.string "and Pokémon, you must return.$"
 
 @ Unused
-VerdanturfTown_BattleTentLobby_Text_WhichLevelMode: @ 82C53DB
+MauvilleCity_BattleTentLobby_Text_WhichLevelMode: @ 82C53DB
 	.string "There are two levels of difficulty,\n"
 	.string "Level 50 and Open Level.\l"
 	.string "Which is your choice of a challenge?$"
 
-VerdanturfTown_BattleTentLobby_Text_NotEnoughValidMonsLv50: @ 82C543D
+MauvilleCity_BattleTentLobby_Text_NotEnoughValidMonsLv50: @ 82C543D
 	.string "Sigh…\p"
 	.string "You do not have the three Pokémon\n"
 	.string "required for the challenge.\p"
@@ -169,7 +169,7 @@ VerdanturfTown_BattleTentLobby_Text_NotEnoughValidMonsLv50: @ 82C543D
 	.string "Come back when you have made\n"
 	.string "your preparations.$"
 
-VerdanturfTown_BattleTentLobby_Text_NotEnoughValidMonsLvOpen: @ 82C5538
+MauvilleCity_BattleTentLobby_Text_NotEnoughValidMonsLvOpen: @ 82C5538
 	.string "Sigh…\p"
 	.string "You do not have the three Pokémon\n"
 	.string "required for the challenge.\p"
@@ -181,34 +181,34 @@ VerdanturfTown_BattleTentLobby_Text_NotEnoughValidMonsLvOpen: @ 82C5538
 	.string "Come back when you have made\n"
 	.string "your preparations.$"
 
-VerdanturfTown_BattleTentLobby_Text_SelectThreeMons: @ 82C5633
+MauvilleCity_BattleTentLobby_Text_SelectThreeMons: @ 82C5633
 	.string "Good. Now, you must select your\n"
 	.string "three Pokémon.$"
 
-VerdanturfTown_BattleTentLobby_Text_SaveBeforeChallenge: @ 82C5662
+MauvilleCity_BattleTentLobby_Text_SaveBeforeChallenge: @ 82C5662
 	.string "I must save before I show you to\n"
 	.string "the Battle Tent. Is that okay?$"
 
-VerdanturfTown_BattleTentLobby_Text_NowFollowMe: @ 82C56A2
+MauvilleCity_BattleTentLobby_Text_NowFollowMe: @ 82C56A2
 	.string "Good.\n"
 	.string "Now, follow me.$"
 
-VerdanturfTown_BattleTentLobby_Text_ResultsWillBeRecorded: @ 82C56B8
+MauvilleCity_BattleTentLobby_Text_ResultsWillBeRecorded: @ 82C56B8
 	.string "I feel privileged for having seen\n"
 	.string "your Pokémon's exploits.\p"
 	.string "The results will be recorded.\n"
 	.string "I must ask you to briefly wait.$"
 
-VerdanturfTown_BattleTentLobby_Text_AchievedThreeWinStreak: @ 82C5731
+MauvilleCity_BattleTentLobby_Text_AchievedThreeWinStreak: @ 82C5731
 	.string "To achieve a 3-win streak…\p"
 	.string "The bonds that bind your heart with\n"
 	.string "your Pokémon seem firm and true.$"
 
-VerdanturfTown_BattleTentLobby_Text_FeatWillBeRecorded: @ 82C5791
+MauvilleCity_BattleTentLobby_Text_FeatWillBeRecorded: @ 82C5791
 	.string "Your feat will be recorded.\n"
 	.string "I must ask you to briefly wait.$"
 
-VerdanturfTown_BattleTentLobby_Text_PresentYouWithPrize: @ 82C57CD
+MauvilleCity_BattleTentLobby_Text_PresentYouWithPrize: @ 82C57CD
 	.string "For the feat of your 3-win streak,\n"
 	.string "we present you with this prize.$"
 
@@ -357,16 +357,16 @@ RustboroCity_BattleTentLobby_Text_ExplainMonRules: @ 82C61FE
 	.string "Level 30.$"
 
 @ Unused
-VerdanturfTown_BattleTentLobby_Text_RulesAreListed2: @ 82C6261
+MauvilleCity_BattleTentLobby_Text_RulesAreListed2: @ 82C6261
 	.string "The Verdanturf Battle Tent\n"
 	.string "rules are listed.$"
 
 @ Unused
-VerdanturfTown_BattleTentLobby_Text_ReadWhichHeading: @ 82C628E
+MauvilleCity_BattleTentLobby_Text_ReadWhichHeading: @ 82C628E
 	.string "Which heading do you want to read?$"
 
 @ Unused
-VerdanturfTown_BattleTentLobby_Text_ExplainBasicRules: @ 82C62B1
+MauvilleCity_BattleTentLobby_Text_ExplainBasicRules: @ 82C62B1
 	.string "Here at the Verdanturf Battle Tent,\n"
 	.string "Pokémon are required to think and\l"
 	.string "battle by themselves.\p"
@@ -375,7 +375,7 @@ VerdanturfTown_BattleTentLobby_Text_ExplainBasicRules: @ 82C62B1
 	.string "depending on their nature.$"
 
 @ Unused
-VerdanturfTown_BattleTentLobby_Text_ExplainNatureRules: @ 82C636D
+MauvilleCity_BattleTentLobby_Text_ExplainNatureRules: @ 82C636D
 	.string "Depending on its nature, a Pokémon\n"
 	.string "may prefer to attack no matter what.\p"
 	.string "Another Pokémon may prefer to protect\n"
@@ -389,7 +389,7 @@ VerdanturfTown_BattleTentLobby_Text_ExplainNatureRules: @ 82C636D
 	.string "it has trouble using.$"
 
 @ Unused
-VerdanturfTown_BattleTentLobby_Text_ExplainMoveRules: @ 82C64BA
+MauvilleCity_BattleTentLobby_Text_ExplainMoveRules: @ 82C64BA
 	.string "There are offensive moves that inflict\n"
 	.string "direct damage on the foe.\p"
 	.string "There are defensive moves that are\n"
@@ -403,7 +403,7 @@ VerdanturfTown_BattleTentLobby_Text_ExplainMoveRules: @ 82C64BA
 	.string "these three categories.$"
 
 @ Unused
-VerdanturfTown_BattleTentLobby_Text_ExplainUnderpoweredRules: @ 82C6612
+MauvilleCity_BattleTentLobby_Text_ExplainUnderpoweredRules: @ 82C6612
 	.string "When not under command by its Trainer,\n"
 	.string "a Pokémon may be unable to effectively\l"
 	.string "use certain moves.\p"
@@ -414,7 +414,7 @@ VerdanturfTown_BattleTentLobby_Text_ExplainUnderpoweredRules: @ 82C6612
 	.string "be unable to live up to its potential.$"
 
 @ Unused
-VerdanturfTown_BattleTentLobby_Text_ExplainWhenInDangerRules: @ 82C671E
+MauvilleCity_BattleTentLobby_Text_ExplainWhenInDangerRules: @ 82C671E
 	.string "Depending on its nature, a Pokémon may\n"
 	.string "start using moves that don't match its\l"
 	.string "nature when it is in trouble.\p"
@@ -428,6 +428,6 @@ BattleTentLobby_Text_ExplainLevelRules: @ 82C67CD
 	.string "However, no Trainer you face will\n"
 	.string "have any Pokémon below Level 30.$"
 
-VerdanturfTown_BattleTentLobby_Text_RulesAreListed: @ 82C6878
+MauvilleCity_BattleTentLobby_Text_RulesAreListed: @ 82C6878
 	.string "The Verdanturf Battle Tent\n"
 	.string "rules are listed.$"

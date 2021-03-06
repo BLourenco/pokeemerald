@@ -147,9 +147,6 @@
     "FallarborTown_MoveRelearnersHouse"
   ],
   "gMapGroup6": [
-    "VerdanturfTown_BattleTentLobby",
-    "VerdanturfTown_BattleTentCorridor",
-    "VerdanturfTown_BattleTentBattleRoom",
     "VerdanturfTown_Mart",
     "VerdanturfTown_PokemonCenter_1F",
     "VerdanturfTown_PokemonCenter_2F",
@@ -200,7 +197,10 @@
     "MauvilleCity_House2",
     "MauvilleCity_PokemonCenter_1F",
     "MauvilleCity_PokemonCenter_2F",
-    "MauvilleCity_Mart"
+    "MauvilleCity_Mart",
+    "MauvilleCity_BattleTentLobby",
+    "MauvilleCity_BattleTentCorridor",
+    "MauvilleCity_BattleTentBattleRoom"
   ],
   "gMapGroup11": [
     "RustboroCity_DevonCorp_1F",
