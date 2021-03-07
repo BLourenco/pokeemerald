@@ -14,173 +14,426 @@
 .set LOCALID_CONTESTANT_4, 14
 .set LOCALID_ARTIST, 15
 
-@ Either ends or returns to EventScript_ContestReceptionist after submitting a contest entry
-LilycoveCity_ContestLobby_EventScript_SpeakToContestReceptionist:: @ 8279CC5
+ContestLobby_EventScript_ContestReceptionist::
+	special ClearLinkContestFlags
+	call ContestLobby_EventScript_SpeakToContestReceptionist
+	call ContestLobby_EventScript_LeadToContestHall
+	special SetContestTrainerGfxIds
+	call ContestLobby_EventScript_SetPlayerGfx
+	call ContestLobby_EventScript_SetContestType
+	call ContestLobby_EventScript_WarpToContestHall
+	waitstate
+	end
+
+@ Either ends or returns to (City/Town)_ContestLobby_EventScript_ContestReceptionist after submitting a contest entry
+ContestLobby_EventScript_SpeakToContestReceptionist:: @ 8279CC5
 	lock
 	faceplayer
-	call_if_set FLAG_RECEIVED_POKEBLOCK_CASE, LilycoveCity_ContestLobby_EventScript_ReceptionWelcome
-	call_if_unset FLAG_RECEIVED_POKEBLOCK_CASE, LilycoveCity_ContestLobby_EventScript_GivePokeblockCase
-	goto LilycoveCity_ContestLobby_EventScript_AskEnterContest
+	call_if_set FLAG_RECEIVED_POKEBLOCK_CASE, ContestLobby_EventScript_ReceptionWelcome
+	call_if_unset FLAG_RECEIVED_POKEBLOCK_CASE, ContestLobby_EventScript_GivePokeblockCase
+	goto ContestLobby_EventScript_AskEnterContest
 	end
 
-LilycoveCity_ContestLobby_EventScript_ReceptionWelcome:: @ 8279CEA
-	msgbox LilycoveCity_ContestLobby_Text_ContestReception, MSGBOX_DEFAULT
+ContestLobby_EventScript_ReceptionWelcome:: @ 8279CEA
+	switch VAR_CONTEST_LOBBY_MAP
+	case MAP_SLATEPORT_CITY_CONTEST_LOBBY, ContestLobby_EventScript_ReceptionWelcomeSlateport
+	case MAP_VERDANTURF_TOWN_CONTEST_LOBBY, ContestLobby_EventScript_ReceptionWelcomeVerdanturf
+	case MAP_LAVARIDGE_TOWN_CONTEST_LOBBY, ContestLobby_EventScript_ReceptionWelcomeLavaridge
+	case MAP_LILYCOVE_CITY_CONTEST_LOBBY, ContestLobby_EventScript_ReceptionWelcomeLilycove
 	return
 
-LilycoveCity_ContestLobby_EventScript_GivePokeblockCase:: @ 8279CF3
-	msgbox LilycoveCity_ContestLobby_Text_ReceptionDontHavePokeblockCase, MSGBOX_DEFAULT
+ContestLobby_EventScript_ReceptionWelcomeSlateport::
+	msgbox ContestLobby_Text_ContestReceptionNormalRank, MSGBOX_DEFAULT
+	return
+
+ContestLobby_EventScript_ReceptionWelcomeVerdanturf::
+	msgbox ContestLobby_Text_ContestReceptionSuperRank, MSGBOX_DEFAULT
+	return
+
+ContestLobby_EventScript_ReceptionWelcomeLavaridge::
+	msgbox ContestLobby_Text_ContestReceptionHyperRank, MSGBOX_DEFAULT
+	return
+
+ContestLobby_EventScript_ReceptionWelcomeLilycove::
+	msgbox ContestLobby_Text_ContestReception, MSGBOX_DEFAULT
+	return
+
+ContestLobby_EventScript_GivePokeblockCase:: @ 8279CF3
+	msgbox ContestLobby_Text_ReceptionDontHavePokeblockCase, MSGBOX_DEFAULT
 	giveitem ITEM_POKEBLOCK_CASE
 	setflag FLAG_RECEIVED_POKEBLOCK_CASE
-	msgbox LilycoveCity_ContestLobby_Text_NowThatWeveClearedThatUp, MSGBOX_DEFAULT
+	msgbox ContestLobby_Text_NowThatWeveClearedThatUp, MSGBOX_DEFAULT
 	return
 
-LilycoveCity_ContestLobby_EventScript_AskEnterContest:: @ 8279D5A
-	message LilycoveCity_ContestLobby_Text_EnterContest1
-	waitmessage
-	multichoice 0, 0, MULTI_ENTERINFO, 0
-	switch VAR_RESULT
-	case 0, LilycoveCity_ContestLobby_EventScript_ChooseContestRank
-	case 1, LilycoveCity_ContestLobby_EventScript_ContestInfo
-	case 2, LilycoveCity_ContestLobby_EventScript_CancelEnterContest
-	case MULTI_B_PRESSED, LilycoveCity_ContestLobby_EventScript_CancelEnterContest
+ContestLobby_EventScript_AskEnterContest:: @ 8279D5A
+	switch VAR_CONTEST_LOBBY_MAP
+	case MAP_SLATEPORT_CITY_CONTEST_LOBBY, ContestLobby_EventScript_AskEnterContestNormalRank
+	case MAP_VERDANTURF_TOWN_CONTEST_LOBBY, ContestLobby_EventScript_AskEnterContestSuperRank
+	case MAP_LAVARIDGE_TOWN_CONTEST_LOBBY, ContestLobby_EventScript_AskEnterContestHyperRank
+	case MAP_LILYCOVE_CITY_CONTEST_LOBBY, ContestLobby_EventScript_AskEnterContestAnyRank
 	end
 
-LilycoveCity_ContestLobby_EventScript_ContestInfo:: @ 8279D97
-	message LilycoveCity_ContestLobby_Text_WhichTopic1
+ContestLobby_EventScript_AskEnterContestShowMenu::
+	multichoice 0, 0, MULTI_ENTERINFO, 0
+	switch VAR_RESULT
+	case 0, ContestLobby_EventScript_ChooseContestRank
+	case 1, ContestLobby_EventScript_ContestInfo
+	case 2, ContestLobby_EventScript_CancelEnterContest
+	case MULTI_B_PRESSED, ContestLobby_EventScript_CancelEnterContest
+	end
+
+ContestLobby_EventScript_AskEnterContestNormalRank::
+	message ContestLobby_Text_EnterContestNormalRank
+	waitmessage
+	goto ContestLobby_EventScript_AskEnterContestShowMenu
+	return
+
+ContestLobby_EventScript_AskEnterContestSuperRank::
+	message ContestLobby_Text_EnterContestSuperRank
+	waitmessage
+	goto ContestLobby_EventScript_AskEnterContestShowMenu
+	return
+
+ContestLobby_EventScript_AskEnterContestHyperRank::
+	message ContestLobby_Text_EnterContestHyperRank
+	waitmessage
+	goto ContestLobby_EventScript_AskEnterContestShowMenu
+	return
+
+ContestLobby_EventScript_AskEnterContestAnyRank::
+	message ContestLobby_Text_EnterContestAnyRank
+	waitmessage
+	goto ContestLobby_EventScript_AskEnterContestShowMenu
+	return
+
+ContestLobby_EventScript_ContestInfo:: @ 8279D97
+	message ContestLobby_Text_WhichTopic
 	waitmessage
 	multichoice 0, 0, MULTI_CONTEST_INFO, 0
 	switch VAR_RESULT
-	case 0, LilycoveCity_ContestLobby_EventScript_ExplainContests
-	case 1, LilycoveCity_ContestLobby_EventScript_ExplainContestTypes
-	case 2, LilycoveCity_ContestLobby_EventScript_ExplainContestRanks
-	case 3, LilycoveCity_ContestLobby_EventScript_AskEnterContest
-	case MULTI_B_PRESSED, LilycoveCity_ContestLobby_EventScript_AskEnterContest
+	case 0, ContestLobby_EventScript_ExplainContests
+	case 1, ContestLobby_EventScript_ExplainContestTypes
+	case 2, ContestLobby_EventScript_ExplainContestRanks
+	case 3, ContestLobby_EventScript_AskEnterContest
+	case MULTI_B_PRESSED, ContestLobby_EventScript_AskEnterContest
 	end
 
-LilycoveCity_ContestLobby_EventScript_ExplainContests:: @ 8279DDF
-	msgbox LilycoveCity_ContestLobby_Text_ExplainContests, MSGBOX_DEFAULT
-	goto LilycoveCity_ContestLobby_EventScript_ContestInfo
+ContestLobby_EventScript_ExplainContests:: @ 8279DDF
+	msgbox ContestLobby_Text_ExplainContests, MSGBOX_DEFAULT
+	goto ContestLobby_EventScript_ContestInfo
 	end
 
-LilycoveCity_ContestLobby_EventScript_ExplainContestTypes:: @ 8279DED
-	msgbox LilycoveCity_ContestLobby_Text_ExplainContestTypes, MSGBOX_DEFAULT
-	goto LilycoveCity_ContestLobby_EventScript_ContestInfo
+ContestLobby_EventScript_ExplainContestTypes:: @ 8279DED
+	msgbox ContestLobby_Text_ExplainContestTypes, MSGBOX_DEFAULT
+	goto ContestLobby_EventScript_ContestInfo
 	end
 
-LilycoveCity_ContestLobby_EventScript_ExplainContestRanks:: @ 8279DFB
-	msgbox LilycoveCity_ContestLobby_Text_ExplainContestRanks, MSGBOX_DEFAULT
-	goto LilycoveCity_ContestLobby_EventScript_ContestInfo
+ContestLobby_EventScript_ExplainContestRanks:: @ 8279DFB
+	msgbox ContestLobby_Text_ExplainContestRanks, MSGBOX_DEFAULT
+	goto ContestLobby_EventScript_ContestInfo
 	end
 
-LilycoveCity_ContestLobby_EventScript_CancelEnterContest:: @ 8279E09
-	msgbox LilycoveCity_ContestLobby_Text_ParticipateAnotherTime, MSGBOX_DEFAULT
+ContestLobby_EventScript_CancelEnterContest:: @ 8279E09
+	msgbox ContestLobby_Text_ParticipateAnotherTime, MSGBOX_DEFAULT
 	release
 	end
 
-LilycoveCity_ContestLobby_EventScript_ChooseContestMon:: @ 8279E13
-	msgbox LilycoveCity_ContestLobby_Text_EnterWhichPokemon1, MSGBOX_DEFAULT
+ContestLobby_EventScript_ChooseContestMon:: @ 8279E13
+	msgbox ContestLobby_Text_EnterWhichPokemon, MSGBOX_DEFAULT
 	choosecontestmon
 	compare VAR_0x8004, 255
-	goto_if_eq LilycoveCity_ContestLobby_EventScript_CancelEnterContest
+	goto_if_eq ContestLobby_EventScript_CancelEnterContest
 	special TryEnterContestMon
 	compare VAR_RESULT, CANT_ENTER_CONTEST
-	goto_if_eq LilycoveCity_ContestLobby_EventScript_CantEnterLowRank
+	goto_if_eq ContestLobby_EventScript_CantEnterLowRank
 	compare VAR_RESULT, CAN_ENTER_CONTEST_EQUAL_RANK
-	goto_if_eq LilycoveCity_ContestLobby_EventScript_EnterMon
+	goto_if_eq ContestLobby_EventScript_EnterMon
 	compare VAR_RESULT, CAN_ENTER_CONTEST_HIGH_RANK
-	goto_if_eq LilycoveCity_ContestLobby_EventScript_ConfirmEntryAlreadyWon
+	goto_if_eq ContestLobby_EventScript_ConfirmEntryAlreadyWon
 	compare VAR_RESULT, CANT_ENTER_CONTEST_EGG
-	goto_if_eq LilycoveCity_ContestLobby_EventScript_CantEnterEgg
+	goto_if_eq ContestLobby_EventScript_CantEnterEgg
 	compare VAR_RESULT, CANT_ENTER_CONTEST_FAINTED
-	goto_if_eq LilycoveCity_ContestLobby_EventScript_CantEnterFainted
+	goto_if_eq ContestLobby_EventScript_CantEnterFainted
 	end
 
-LilycoveCity_ContestLobby_EventScript_ChooseContestRank:: @ 8279E62
-	message LilycoveCity_ContestLobby_Text_EnterWhichRank
+ContestLobby_EventScript_ChooseContestRank:: @ 8279E62
+	switch VAR_CONTEST_LOBBY_MAP
+	case MAP_SLATEPORT_CITY_CONTEST_LOBBY, 	ContestLobby_EventScript_EnterNormalRank
+	case MAP_VERDANTURF_TOWN_CONTEST_LOBBY, ContestLobby_EventScript_EnterSuperRank
+	case MAP_LAVARIDGE_TOWN_CONTEST_LOBBY, 	ContestLobby_EventScript_EnterHyperRank
+	message ContestLobby_Text_EnterWhichRank
 	waitmessage
 	multichoice 0, 0, MULTI_CONTEST_RANK, 0
 	switch VAR_RESULT
-	case 0, LilycoveCity_ContestLobby_EventScript_EnterNormalRank
-	case 1, LilycoveCity_ContestLobby_EventScript_EnterSuperRank
-	case 2, LilycoveCity_ContestLobby_EventScript_EnterHyperRank
-	case 3, LilycoveCity_ContestLobby_EventScript_EnterMasterRank
-	case 4, LilycoveCity_ContestLobby_EventScript_CancelEnterContest
-	case MULTI_B_PRESSED, LilycoveCity_ContestLobby_EventScript_CancelEnterContest
+	case 0, ContestLobby_EventScript_EnterNormalRank
+	case 1, ContestLobby_EventScript_EnterSuperRank
+	case 2, ContestLobby_EventScript_EnterHyperRank
+	case 3, ContestLobby_EventScript_EnterMasterRank
+	case 4, ContestLobby_EventScript_CancelEnterContest
+	case MULTI_B_PRESSED, ContestLobby_EventScript_CancelEnterContest
 	end
 
-LilycoveCity_ContestLobby_EventScript_EnterNormalRank:: @ 8279EB5
+ContestLobby_EventScript_EnterNormalRank:: @ 8279EB5
 	setvar VAR_CONTEST_RANK, CONTEST_RANK_NORMAL
-	goto LilycoveCity_ContestLobby_EventScript_ChooseContestType
+	goto ContestLobby_EventScript_ChooseContestType
 	end
 
-LilycoveCity_ContestLobby_EventScript_EnterSuperRank:: @ 8279EC0
+ContestLobby_EventScript_EnterSuperRank:: @ 8279EC0
 	setvar VAR_CONTEST_RANK, CONTEST_RANK_SUPER
-	goto LilycoveCity_ContestLobby_EventScript_ChooseContestType
+	goto ContestLobby_EventScript_ChooseContestType
 	end
 
-LilycoveCity_ContestLobby_EventScript_EnterHyperRank:: @ 8279ECB
+ContestLobby_EventScript_EnterHyperRank:: @ 8279ECB
 	setvar VAR_CONTEST_RANK, CONTEST_RANK_HYPER
-	goto LilycoveCity_ContestLobby_EventScript_ChooseContestType
+	goto ContestLobby_EventScript_ChooseContestType
 	end
 
-LilycoveCity_ContestLobby_EventScript_EnterMasterRank:: @ 8279ED6
+ContestLobby_EventScript_EnterMasterRank:: @ 8279ED6
 	setvar VAR_CONTEST_RANK, CONTEST_RANK_MASTER
-	goto LilycoveCity_ContestLobby_EventScript_ChooseContestType
+	goto ContestLobby_EventScript_ChooseContestType
 	end
 
 @ The multichoice selection IDs are equal to the CATEGORY values
 @ So rather than list the cases they just copy VAR_RESULT for a valid selection into VAR_CONTEST_CATEGORY
-LilycoveCity_ContestLobby_EventScript_ChooseContestType:: @ 8279EE1
-	message LilycoveCity_ContestLobby_Text_EnterWhichContest1
+ContestLobby_EventScript_ChooseContestType:: @ 8279EE1
+	message ContestLobby_Text_EnterWhichContest
 	waitmessage
 	multichoice 0, 0, MULTI_CONTEST_TYPE, 0
 	switch VAR_RESULT
-	case 5, LilycoveCity_ContestLobby_EventScript_CancelEnterContest
-	case MULTI_B_PRESSED, LilycoveCity_ContestLobby_EventScript_CancelEnterContest
+	case 5, ContestLobby_EventScript_CancelEnterContest
+	case MULTI_B_PRESSED, ContestLobby_EventScript_CancelEnterContest
 	copyvar VAR_CONTEST_CATEGORY, VAR_RESULT
-	goto LilycoveCity_ContestLobby_EventScript_ChooseContestMon
+	goto ContestLobby_EventScript_ChooseContestMon
 	end
 
-LilycoveCity_ContestLobby_EventScript_CantEnterLowRank:: @ 8279F12
-	msgbox LilycoveCity_ContestLobby_Text_MonNotQualifiedForRank, MSGBOX_DEFAULT
-	goto LilycoveCity_ContestLobby_EventScript_ChooseContestMon
+ContestLobby_EventScript_CantEnterLowRank:: @ 8279F12
+	msgbox ContestLobby_Text_MonNotQualifiedForRank, MSGBOX_DEFAULT
+	goto ContestLobby_EventScript_ChooseContestMon
 	release
 	end
 
 @ Unused
-LilycoveCity_ContestLobby_EventScript_ConfirmEntry:: @ 8279F21
-	msgbox LilycoveCity_ContestLobby_Text_ConfirmContestMon, MSGBOX_YESNO
+ContestLobby_EventScript_ConfirmEntry:: @ 8279F21
+	msgbox ContestLobby_Text_ConfirmContestMon, MSGBOX_YESNO
 	switch VAR_RESULT
-	case NO, LilycoveCity_ContestLobby_EventScript_ChooseContestMon
-	case YES, LilycoveCity_ContestLobby_EventScript_EnterMon
+	case NO, ContestLobby_EventScript_ChooseContestMon
+	case YES, ContestLobby_EventScript_EnterMon
 	end
 
-LilycoveCity_ContestLobby_EventScript_ConfirmEntryAlreadyWon:: @ 8279F45
-	msgbox LilycoveCity_ContestLobby_Text_AlreadyWonEnterAnyway, MSGBOX_YESNO
+ContestLobby_EventScript_ConfirmEntryAlreadyWon:: @ 8279F45
+	msgbox ContestLobby_Text_AlreadyWonEnterAnyway, MSGBOX_YESNO
 	switch VAR_RESULT
-	case NO, LilycoveCity_ContestLobby_EventScript_ChooseContestMon
-	case YES, LilycoveCity_ContestLobby_EventScript_EnterMon
+	case NO, ContestLobby_EventScript_ChooseContestMon
+	case YES, ContestLobby_EventScript_EnterMon
 	end
 
-LilycoveCity_ContestLobby_EventScript_CantEnterEgg:: @ 8279F69
-	msgbox LilycoveCity_ContestLobby_Text_EggCannotTakePart, MSGBOX_DEFAULT
-	goto LilycoveCity_ContestLobby_EventScript_ChooseContestMon
+ContestLobby_EventScript_CantEnterEgg:: @ 8279F69
+	msgbox ContestLobby_Text_EggCannotTakePart, MSGBOX_DEFAULT
+	goto ContestLobby_EventScript_ChooseContestMon
 	release
 	end
 
-LilycoveCity_ContestLobby_EventScript_CantEnterFainted:: @ 8279F78
-	msgbox LilycoveCity_ContestLobby_Text_MonInNoConditionForContest, MSGBOX_DEFAULT
-	goto LilycoveCity_ContestLobby_EventScript_ChooseContestMon
+ContestLobby_EventScript_CantEnterFainted:: @ 8279F78
+	msgbox ContestLobby_Text_MonInNoConditionForContest, MSGBOX_DEFAULT
+	goto ContestLobby_EventScript_ChooseContestMon
 	release
 	end
 
-@ The return here is back to LilycoveCity_ContestLobby_EventScript_ContestReceptionist
-LilycoveCity_ContestLobby_EventScript_EnterMon:: @ 8279F87
-	msgbox LilycoveCity_ContestLobby_Text_YourMonIsEntryNum4, MSGBOX_DEFAULT
+@ The return here is back to ContestLobby_EventScript_ContestReceptionist
+ContestLobby_EventScript_EnterMon:: @ 8279F87
+	msgbox ContestLobby_Text_YourMonIsEntryNum4, MSGBOX_DEFAULT
 	closemessage
 	releaseall
 	setvar VAR_CONTEST_HALL_STATE, 1
 	return
+
+ContestLobby_EventScript_SetContestType:: @ 821A585
+	switch VAR_CONTEST_RANK
+	case CONTEST_RANK_NORMAL, ContestLobby_EventScript_SetNormalContestType
+	case CONTEST_RANK_SUPER, ContestLobby_EventScript_SetSuperContestType
+	case CONTEST_RANK_HYPER, ContestLobby_EventScript_SetHyperContestType
+	case CONTEST_RANK_MASTER, ContestLobby_EventScript_SetMasterContestType
+	return
+
+ContestLobby_EventScript_SetNormalContestType:: @ 821A5B7
+	setvar VAR_CONTEST_TYPE, CONTEST_TYPE_NPC_NORMAL
+	return
+
+ContestLobby_EventScript_SetSuperContestType:: @ 821A5BD
+	setvar VAR_CONTEST_TYPE, CONTEST_TYPE_NPC_SUPER
+	return
+
+ContestLobby_EventScript_SetHyperContestType:: @ 821A5C3
+	setvar VAR_CONTEST_TYPE, CONTEST_TYPE_NPC_HYPER
+	return
+
+ContestLobby_EventScript_SetMasterContestType:: @ 821A5C9
+	setvar VAR_CONTEST_TYPE, CONTEST_TYPE_NPC_MASTER
+	return
+
+ContestLobby_EventScript_WarpToContestHall:: @ 821A5EF
+	setflag FLAG_ENTERED_CONTEST
+	switch VAR_CONTEST_CATEGORY
+	case CONTEST_CATEGORY_COOL, ContestLobby_EventScript_WarpToCoolContestHall
+	case CONTEST_CATEGORY_BEAUTY, ContestLobby_EventScript_WarpToBeautyContestHall
+	case CONTEST_CATEGORY_CUTE, ContestLobby_EventScript_WarpToCuteContestHall
+	case CONTEST_CATEGORY_SMART, ContestLobby_EventScript_WarpToSmartContestHall
+	case CONTEST_CATEGORY_TOUGH, ContestLobby_EventScript_WarpToToughContestHall
+	return
+
+ContestLobby_EventScript_WarpToCoolContestHall:: @ 821A62F
+	setwarp MAP_CONTEST_HALL_COOL, 255, 7, 5
+	special DoContestHallWarp
+	waitstate
+	return
+
+ContestLobby_EventScript_WarpToBeautyContestHall:: @ 821A63C
+	setwarp MAP_CONTEST_HALL_BEAUTY, 255, 7, 5
+	special DoContestHallWarp
+	waitstate
+	return
+
+ContestLobby_EventScript_WarpToCuteContestHall:: @ 821A649
+	setwarp MAP_CONTEST_HALL_CUTE, 255, 7, 5
+	special DoContestHallWarp
+	waitstate
+	return
+
+ContestLobby_EventScript_WarpToSmartContestHall:: @ 821A656
+	setwarp MAP_CONTEST_HALL_SMART, 255, 7, 5
+	special DoContestHallWarp
+	waitstate
+	return
+
+ContestLobby_EventScript_WarpToToughContestHall:: @ 821A663
+	setwarp MAP_CONTEST_HALL_TOUGH, 255, 7, 5
+	special DoContestHallWarp
+	waitstate
+	return
+
+ContestLobby_EventScript_LeadToContestHall::
+	lockall
+	compare VAR_CONTEST_LOBBY_MAP, MAP_LILYCOVE_CITY_CONTEST_LOBBY
+	call_if_ne ContestLobby_EventScript_ReceptionistApproachCounter_SmallLobby
+	compare VAR_CONTEST_LOBBY_MAP, MAP_LILYCOVE_CITY_CONTEST_LOBBY
+	call_if_eq ContestLobby_EventScript_ReceptionistApproachCounter_LargeLobby
+	playse SE_BRIDGE_WALK
+	compare VAR_CONTEST_LOBBY_MAP, MAP_LILYCOVE_CITY_CONTEST_LOBBY
+	call_if_ne ContestLobby_EventScript_OpenCounterFlap_SmallLobby
+	compare VAR_CONTEST_LOBBY_MAP, MAP_LILYCOVE_CITY_CONTEST_LOBBY
+	call_if_eq ContestLobby_EventScript_OpenCounterFlap_LargeLobby
+	special DrawWholeMapView
+	applymovement LOCALID_RECEPTIONIST, ContestLobby_Movement_ReceptionistExitCounter
+	waitmovement 0
+	playse SE_BRIDGE_WALK
+	compare VAR_CONTEST_LOBBY_MAP, MAP_LILYCOVE_CITY_CONTEST_LOBBY
+	call_if_ne ContestLobby_EventScript_CloseCounterFlap_SmallLobby
+	compare VAR_CONTEST_LOBBY_MAP, MAP_LILYCOVE_CITY_CONTEST_LOBBY
+	call_if_eq ContestLobby_EventScript_CloseCounterFlap_LargeLobby
+	special DrawWholeMapView
+	delay 20
+	applymovement LOCALID_RECEPTIONIST, ContestLobby_Movement_ReceptionistFacePlayer
+	waitmovement 0
+	compare VAR_CONTEST_LOBBY_MAP, MAP_LILYCOVE_CITY_CONTEST_LOBBY
+	call_if_ne ContestLobby_EventScript_PlayerTurnToReceptionist
+	compare VAR_CONTEST_LOBBY_MAP, MAP_LILYCOVE_CITY_CONTEST_LOBBY
+	call_if_eq ContestLobby_EventScript_PlayerApproachReceptionist
+	msgbox ContestLobby_Text_ComeThroughHere, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_RECEPTIONIST, ContestLobby_Movement_ReceptionistWalkToContestHall
+	applymovement OBJ_EVENT_ID_PLAYER, ContestLobby_Movement_PlayerWalkToContestHall
+	waitmovement 0
+	releaseall
+	return
+
+ContestLobby_EventScript_PlayerTurnToReceptionist::
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
+	waitmovement 0
+	return
+
+ContestLobby_EventScript_PlayerApproachReceptionist::
+	applymovement OBJ_EVENT_ID_PLAYER, ContestLobby_Movement_PlayerApproachReceptionist
+	waitmovement 0
+	return
+
+ContestLobby_EventScript_ReceptionistApproachCounter_SmallLobby::
+	applymovement LOCALID_RECEPTIONIST, ContestLobby_Movement_ReceptionistApproachCounter_SmallLobby
+	waitmovement 0
+	return
+
+ContestLobby_EventScript_ReceptionistApproachCounter_LargeLobby::
+	applymovement LOCALID_RECEPTIONIST, ContestLobby_Movement_ReceptionistApproachCounter_LargeLobby
+	waitmovement 0
+	return
+
+ContestLobby_EventScript_OpenCounterFlap_SmallLobby::
+	setmetatile 4, 2, METATILE_Contest_WallShadow, 1
+	setmetatile 4, 3, METATILE_Contest_FloorShadow, 1
+	return
+
+ContestLobby_EventScript_OpenCounterFlap_LargeLobby::
+	setmetatile 12, 2, METATILE_Contest_WallShadow, 1
+	setmetatile 12, 3, METATILE_Contest_FloorShadow, 1
+	return
+
+ContestLobby_EventScript_CloseCounterFlap_SmallLobby::
+	setmetatile 4, 2, METATILE_Contest_CounterFlap_Top, 1
+	setmetatile 4, 3, METATILE_Contest_CounterFlap_Bottom, 1
+	return
+
+ContestLobby_EventScript_CloseCounterFlap_LargeLobby::
+	setmetatile 12, 2, METATILE_Contest_CounterFlap_Top, 1
+	setmetatile 12, 3, METATILE_Contest_CounterFlap_Bottom, 1
+	return
+
+ContestLobby_Movement_PlayerWalkToContestHall: @ 821A6E8
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	delay_8
+	set_invisible
+	step_end
+
+ContestLobby_Movement_PlayerApproachReceptionist: @ 821A6F2
+	walk_in_place_fastest_left
+	walk_left
+	step_end
+
+ContestLobby_Movement_ReceptionistApproachCounter_LargeLobby:
+	walk_left
+	walk_left
+	walk_in_place_fastest_down
+	step_end
+
+ContestLobby_Movement_ReceptionistApproachCounter_SmallLobby:
+	walk_left
+	walk_in_place_fastest_down
+	step_end
+
+ContestLobby_Movement_ReceptionistExitCounter: @ 821A6F9
+	walk_down
+	walk_down
+	walk_in_place_fastest_up
+	step_end
+
+ContestLobby_Movement_ReceptionistWalkToContestHall: @ 821A6FD
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	delay_8
+	set_invisible
+	step_end
+
+ContestLobby_Movement_ReceptionistFacePlayer: @ 821A706
+	walk_in_place_fastest_right
+	step_end
 
 ContestHall_EventScript_DoContest:: @ 8279F97
 	special LinkContestTryShowWirelessIndicator
@@ -1396,17 +1649,17 @@ ContestHall_EventScript_CheckIfContestWithRSPlayer:: @ 827AD80
 ContestHall_EventScript_RetRSPlayer:: @ 827AD91
 	return
 
-LilycoveCity_ContestLobby_EventScript_DelayIfContestWithRSPlayer:: @ 827AD92
+ContestLobby_EventScript_DelayIfContestWithRSPlayer:: @ 827AD92
 	specialvar VAR_RESULT, IsContestWithRSPlayer
 	compare VAR_RESULT, TRUE
-	goto_if_eq LilycoveCity_ContestLobby_EventScript_DelayForRSPlayer
+	goto_if_eq ContestLobby_EventScript_DelayForRSPlayer
 	return
 
-LilycoveCity_ContestLobby_EventScript_DelayForRSPlayer:: @ 827ADA3
+ContestLobby_EventScript_DelayForRSPlayer:: @ 827ADA3
 	delay 9
 	return
 
-LilycoveCity_ContestLobby_Text_ReceptionDontHavePokeblockCase: @ 827ADA7
+ContestLobby_Text_ReceptionDontHavePokeblockCase: @ 827ADA7
 	.string "Hello!\p"
 	.string "This is the reception counter for\n"
 	.string "Pokémon Contests.\p"
@@ -1415,32 +1668,59 @@ LilycoveCity_ContestLobby_Text_ReceptionDontHavePokeblockCase: @ 827ADA7
 	.string "In that case, we need to provide you\n"
 	.string "with this!$"
 
-LilycoveCity_ContestLobby_Text_NowThatWeveClearedThatUp: @ 827AE47
+ContestLobby_Text_NowThatWeveClearedThatUp: @ 827AE47
 	.string "Okay, now that we've cleared that\n"
 	.string "up…\p"
 	.string "Hello!\p"
 	.string "This is the reception counter for\n"
 	.string "Pokémon Contests.$"
 
-LilycoveCity_ContestLobby_Text_ContestReception: @ 827AEA8
+ContestLobby_Text_ContestReceptionNormalRank:
 	.string "Hello!\p"
 	.string "This is the reception counter for\n"
-	.string "Pokémon Contests.$"
+	.string "Normal Rank Pokémon Contests.$"
+
+ContestLobby_Text_ContestReceptionSuperRank:
+	.string "Hello!\p"
+	.string "This is the reception counter for\n"
+	.string "Super Rank Pokémon Contests.$"
+
+ContestLobby_Text_ContestReceptionHyperRank:
+	.string "Hello!\p"
+	.string "This is the reception counter for\n"
+	.string "Hyper Rank Pokémon Contests.$"
+
+ContestLobby_Text_ContestReception: @ 827AEA8
+	.string "Hello!\p"
+	.string "This is the reception counter for\n"
+	.string "Pokémon Contests of any Rank.$"
 
 @ Unused
-LilycoveCity_ContestLobby_Text_CounterOnlyFor4PlayerContests: @ 827AEE3
+ContestLobby_Text_CounterOnlyFor4PlayerContests: @ 827AEE3
 	.string "Hello!\p"
 	.string "This reception counter is only\n"
 	.string "for 4-player Pokémon Contests.$"
 
-LilycoveCity_ContestLobby_Text_EnterContest1: @ 827AF28
+ContestLobby_Text_EnterContestNormalRank:
 	.string "Would you like to enter your Pokémon\n"
-	.string "in our Contests?$"
+	.string "in a Normal Rank Contest?$"
 
-LilycoveCity_ContestLobby_Text_WhichTopic1: @ 827AF5E
+ContestLobby_Text_EnterContestSuperRank:
+	.string "Would you like to enter your Pokémon\n"
+	.string "in a Super Rank Contest?$"
+
+ContestLobby_Text_EnterContestHyperRank:
+	.string "Would you like to enter your Pokémon\n"
+	.string "in a Hyper Rank Contest?$"
+
+ContestLobby_Text_EnterContestAnyRank:
+	.string "Would you like to enter your Pokémon\n"
+	.string "in our Contest?$"
+
+ContestLobby_Text_WhichTopic: @ 827AF5E
 	.string "Which topic would you like?$"
 
-LilycoveCity_ContestLobby_Text_ExplainContests: @ 827AF7A
+ContestLobby_Text_ExplainContests: @ 827AF7A
 	.string "A Pokémon Contest involves four\n"
 	.string "Trainers entering one Pokémon each\l"
 	.string "in competitive judging.\p"
@@ -1459,14 +1739,14 @@ LilycoveCity_ContestLobby_Text_ExplainContests: @ 827AF7A
 	.string "The Pokémon garnering the highest\n"
 	.string "score is declared the winner.$"
 
-LilycoveCity_ContestLobby_Text_ExplainContestTypes: @ 827B17D
+ContestLobby_Text_ExplainContestTypes: @ 827B17D
 	.string "There are five kinds of Contests.\p"
 	.string "Cool, Beauty, Cute, Smart, and\n"
 	.string "Tough are the five categories.\p"
 	.string "Choose the Contest that is right for\n"
 	.string "the Pokémon you plan to enter.$"
 
-LilycoveCity_ContestLobby_Text_ExplainContestRanks: @ 827B221
+ContestLobby_Text_ExplainContestRanks: @ 827B221
 	.string "There are four ranks of Pokémon\n"
 	.string "Contests.\p"
 	.string "Normal, Super, Hyper, and Master\n"
@@ -1484,55 +1764,55 @@ LilycoveCity_ContestLobby_Text_ExplainContestRanks: @ 827B221
 	.string "may compete in the Master Rank as\l"
 	.string "often as its Trainer wants.$"
 
-LilycoveCity_ContestLobby_Text_EnterWhichRank: @ 827B3FF
+ContestLobby_Text_EnterWhichRank: @ 827B3FF
 	.string "Which Rank would you like to enter?$"
 
-LilycoveCity_ContestLobby_Text_EnterWhichContest1: @ 827B423
+ContestLobby_Text_EnterWhichContest: @ 827B423
 	.string "Which Contest would you like to enter?$"
 
-LilycoveCity_ContestLobby_Text_EnterWhichPokemon1: @ 827B44A
+ContestLobby_Text_EnterWhichPokemon: @ 827B44A
 	.string "Which Pokémon would you like to enter?$"
 
-LilycoveCity_ContestLobby_Text_MonNotQualifiedForRank: @ 827B471
+ContestLobby_Text_MonNotQualifiedForRank: @ 827B471
 	.string "I'm terribly sorry, but your Pokémon\n"
 	.string "is not qualified to compete at this\l"
 	.string "Rank yet…$"
 
-LilycoveCity_ContestLobby_Text_EggCannotTakePart: @ 827B4C4
+ContestLobby_Text_EggCannotTakePart: @ 827B4C4
 	.string "I'm sorry, but an Egg cannot take part\n"
 	.string "in a Pokémon Contest.$"
 
-LilycoveCity_ContestLobby_Text_MonInNoConditionForContest: @ 827B501
+ContestLobby_Text_MonInNoConditionForContest: @ 827B501
 	.string "Your Pokémon appears to be in no\n"
 	.string "condition to take part in a Contest…$"
 
-LilycoveCity_ContestLobby_Text_AlreadyWonEnterAnyway: @ 827B547
+ContestLobby_Text_AlreadyWonEnterAnyway: @ 827B547
 	.string "Oh, but that Ribbon…\p"
 	.string "Your Pokémon has won this Contest\n"
 	.string "before, hasn't it?\p"
 	.string "Would you like to enter it in this\n"
 	.string "Contest anyway?$"
 
-LilycoveCity_ContestLobby_Text_ConfirmContestMon: @ 827B5C4
+ContestLobby_Text_ConfirmContestMon: @ 827B5C4
 	.string "Is that your Contest Pokémon?$"
 
-LilycoveCity_ContestLobby_Text_YourMonIsEntryNum4: @ 827B5E2
+ContestLobby_Text_YourMonIsEntryNum4: @ 827B5E2
 	.string "Okay, your Pokémon will be entered\n"
 	.string "in this Contest.\p"
 	.string "Your Pokémon is Entry No. 4.\n"
 	.string "The Contest will begin shortly.$"
 
-LilycoveCity_ContestLobby_Text_ComeThroughHere: @ 827B653
+ContestLobby_Text_ComeThroughHere: @ 827B653
 	.string "Please come in through here.\n"
 	.string "Good luck!$"
 
-LilycoveCity_ContestLobby_Text_PokemonWonWeHavePrize: @ 827B67B
+ContestLobby_Text_PokemonWonWeHavePrize: @ 827B67B
 	.string "Congratulations! Your Pokémon is the\n"
 	.string "Contest winner!\p"
 	.string "We have your prize right here.\n"
 	.string "Please, right this way!$"
 
-LilycoveCity_ContestLobby_Text_ComeBackForPrizeLater: @ 827B6E7
+ContestLobby_Text_ComeBackForPrizeLater: @ 827B6E7
 	.string "Please come back for your prize\n"
 	.string "later on.$"
 
@@ -1632,19 +1912,19 @@ ContestHall_Text_OnlyRegister4Players: @ 827BC82
 	.string "four may enter the same Contest.\p"
 	.string "Would you like to take part?$"
 
-LilycoveCity_ContestLobby_Text_ProgressWillBeSaved: @ 827BD17
+ContestLobby_Text_ProgressWillBeSaved: @ 827BD17
 	.string "Before entering a Contest, your\n"
 	.string "progress will be saved.$"
 
-LilycoveCity_ContestLobby_Text_ParticipateAnotherTime: @ 827BD4F
+ContestLobby_Text_ParticipateAnotherTime: @ 827BD4F
 	.string "We hope you will participate another\n"
 	.string "time.$"
 
-LilycoveCity_ContestLobby_Text_EnterContest2: @ 827BD7A
+ContestLobby_Text_EnterContest2: @ 827BD7A
 	.string "Would you like to enter a Contest?$"
 
 @ Unused
-LilycoveCity_ContestLobby_Text_Explain4PlayerContest: @ 827BD9D
+ContestLobby_Text_Explain4PlayerContest: @ 827BD9D
 	.string "When four players are ready, connect\n"
 	.string "over a Game Link cable, and register\l"
 	.string "with me, please.\p"
@@ -1656,82 +1936,82 @@ LilycoveCity_ContestLobby_Text_Explain4PlayerContest: @ 827BD9D
 	.string "apply.$"
 
 @ Unused
-LilycoveCity_ContestLobby_Text_EnterWhichContest2: @ 827BE9E
+ContestLobby_Text_EnterWhichContest2: @ 827BE9E
 	.string "Which Contest would you like to enter?$"
 
 @ Unused
-LilycoveCity_ContestLobby_Text_EnterWhichPokemon2: @ 827BEC5
+ContestLobby_Text_EnterWhichPokemon2: @ 827BEC5
 	.string "Which Pokémon would you like to enter?$"
 
-LilycoveCity_ContestLobby_Text_Transmitting: @ 827BEEC
+ContestLobby_Text_Transmitting: @ 827BEEC
 	.string "Transmitting…$"
 
-LilycoveCity_ContestLobby_Text_TransmissionError: @ 827BEFA
+ContestLobby_Text_TransmissionError: @ 827BEFA
 	.string "Transmission error…$"
 
-LilycoveCity_ContestLobby_Text_PlayersChoseDifferentContest: @ 827BF0E
+ContestLobby_Text_PlayersChoseDifferentContest: @ 827BF0E
 	.string "You may have chosen a different\n"
 	.string "Contest than another player.$"
 
-LilycoveCity_ContestLobby_Text_PlayersMadeDifferentChoice: @ 827BF4B
+ContestLobby_Text_PlayersMadeDifferentChoice: @ 827BF4B
 	.string "You may have made a different\n"
 	.string "choice than another player.$"
 
-LilycoveCity_ContestLobby_Text_PleaseWaitBButtonCancel: @ 827BF85
+ContestLobby_Text_PleaseWaitBButtonCancel: @ 827BF85
 	.string "Please wait.\n"
 	.string "… … B Button: Cancel$"
 
 @ Unused
-LilycoveCity_ContestLobby_Text_ParticipateAnotherTime2: @ 827BFA7
+ContestLobby_Text_ParticipateAnotherTime2: @ 827BFA7
 	.string "We hope you will participate another\n"
 	.string "time.$"
 
 @ Unused
-LilycoveCity_ContestLobby_Text_TransmissionErrorTryAgain: @ 827BFD2
+ContestLobby_Text_TransmissionErrorTryAgain: @ 827BFD2
 	.string "Transmission error.\n"
 	.string "Please try again.$"
 
-LilycoveCity_ContestLobby_Text_YourMonIsEntryNumX: @ 827BFF8
+ContestLobby_Text_YourMonIsEntryNumX: @ 827BFF8
 	.string "Your Pokémon will be entered in\n"
 	.string "the Contest.\p"
 	.string "Your Pokémon is Entry No. {STR_VAR_2}.$"
 
-LilycoveCity_ContestLobby_Text_ContestBeginShortly: @ 827C043
+ContestLobby_Text_ContestBeginShortly: @ 827C043
 	.string "The Contest will begin shortly.$"
 
-LilycoveCity_ContestLobby_Text_LinkContestReception: @ 827C063
+ContestLobby_Text_LinkContestReception: @ 827C063
 	.string "Welcome! This is the Pokémon Contest\n"
 	.string "link reception counter.\p"
 	.string "You may enter Contests together with\n"
 	.string "one or more friends.$"
 
-LilycoveCity_ContestLobby_Text_WhichTopic2: @ 827C0DA
+ContestLobby_Text_WhichTopic2: @ 827C0DA
 	.string "Which topic would you like?$"
 
-LilycoveCity_ContestLobby_Text_EnterContest3: @ 827C0F6
+ContestLobby_Text_EnterContest3: @ 827C0F6
 	.string "Would you like to enter a Contest?$"
 
-LilycoveCity_ContestLobby_Text_EnterWhichContest3: @ 827C119
+ContestLobby_Text_EnterWhichContest3: @ 827C119
 	.string "Which Contest would you like to enter?$"
 
-LilycoveCity_ContestLobby_Text_MonInNoCondition2: @ 827C140
+ContestLobby_Text_MonInNoCondition2: @ 827C140
 	.string "Your Pokémon appears to be in no\n"
 	.string "condition to take part in a Contest…$"
 
-LilycoveCity_ContestLobby_Text_EggCannotTakePart2: @ 827C186
+ContestLobby_Text_EggCannotTakePart2: @ 827C186
 	.string "I'm sorry, but an Egg cannot take part\n"
 	.string "in a Pokémon Contest.$"
 
-LilycoveCity_ContestLobby_Text_EnterWhichPokemon3: @ 827C1C3
+ContestLobby_Text_EnterWhichPokemon3: @ 827C1C3
 	.string "Which Pokémon would you like to enter?$"
 
-LilycoveCity_ContestLobby_Text_PleaseDecideLinkLeader: @ 827C1EA
+ContestLobby_Text_PleaseDecideLinkLeader: @ 827C1EA
 	.string "Please decide which of you will\n"
 	.string "become the Group Leader.\p"
 	.string "The other players must then choose\n"
 	.string "“Join Group.”$"
 
-LilycoveCity_ContestLobby_Text_PlayerAt4PCounterUseGMode: @ 827C254
+ContestLobby_Text_PlayerAt4PCounterUseGMode: @ 827C254
 	.string "At least one player has entered using\n"
 	.string "the 4-player reception counter.\p"
 	.string "There must be four players connected\n"
@@ -1740,7 +2020,7 @@ LilycoveCity_ContestLobby_Text_PlayerAt4PCounterUseGMode: @ 827C254
 	.string "select G-Mode (Global Mode),\l"
 	.string "then register to enter again, please.$"
 
-LilycoveCity_ContestLobby_Text_ExplainLinkContest: @ 827C340
+ContestLobby_Text_ExplainLinkContest: @ 827C340
 	.string "This is a Contest for two to four\n"
 	.string "players linked using a Wireless\l"
 	.string "Adapter or a GBA Game Link cable.\p"
@@ -1761,7 +2041,7 @@ LilycoveCity_ContestLobby_Text_ExplainLinkContest: @ 827C340
 	.string "After that, a Contest will start in\n"
 	.string "the usual manner.$"
 
-LilycoveCity_ContestLobby_Text_ExplainEMode: @ 827C5B1
+ContestLobby_Text_ExplainEMode: @ 827C5B1
 	.string "In E-Mode (Emerald Mode),\n"
 	.string "a Link Contest can be held with\l"
 	.string "two to four players. Each player must\l"
@@ -1775,7 +2055,7 @@ LilycoveCity_ContestLobby_Text_ExplainEMode: @ 827C5B1
 	.string "Please be aware that E-Mode is not\n"
 	.string "available in Pokémon Ruby or Sapphire.$"
 
-LilycoveCity_ContestLobby_Text_ExplainGMode: @ 827C742
+ContestLobby_Text_ExplainGMode: @ 827C742
 	.string "G-Mode (Global Mode) is specifically\n"
 	.string "for four players who are linked using\l"
 	.string "GBA Game Link cables.\p"
@@ -1786,14 +2066,14 @@ LilycoveCity_ContestLobby_Text_ExplainGMode: @ 827C742
 	.string "enter through the 4-player reception\l"
 	.string "counter (Pokémon Ruby or Sapphire).$"
 
-LilycoveCity_ContestLobby_Text_NoWirelessAdapterInGMode: @ 827C879
+ContestLobby_Text_NoWirelessAdapterInGMode: @ 827C879
 	.string "I'm terribly sorry.\p"
 	.string "G-Mode does not function\n"
 	.string "with Wireless Adapters.\p"
 	.string "Please select E-Mode or try\n"
 	.string "again using a GBA Game Link cable.$"
 
-LilycoveCity_ContestLobby_Text_WhichContestMode: @ 827C8FD
+ContestLobby_Text_WhichContestMode: @ 827C8FD
 	.string "Which Contest Mode would you like\n"
 	.string "to enter?$"
 

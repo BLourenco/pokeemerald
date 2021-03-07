@@ -409,52 +409,53 @@ ContestHall_EventScript_CreateWirelessContestAudience:: @ 823BD86
 
 ContestHall_EventScript_SetExitWarp:: @ 823BE44
 	special ClearLinkContestFlags
-	switch VAR_CONTEST_TYPE
-	case CONTEST_TYPE_NPC_NORMAL, ContestHall_EventScript_SetExitWarpNormalContest
-	case CONTEST_TYPE_NPC_SUPER, ContestHall_EventScript_SetExitWarpSuperContest
-	case CONTEST_TYPE_NPC_HYPER, ContestHall_EventScript_SetExitWarpHyperContest
-	case CONTEST_TYPE_NPC_MASTER, ContestHall_EventScript_SetExitWarpMasterContest
-	case CONTEST_TYPE_LINK, ContestHall_EventScript_SetExitWarpLinkContest
-	return
+	compare VAR_CONTEST_TYPE, CONTEST_TYPE_LINK
+	goto_if_eq ContestHall_EventScript_SetExitWarpLilycoveLobbyLink
+	switch VAR_CONTEST_LOBBY_MAP
+	case MAP_SLATEPORT_CITY_CONTEST_LOBBY,  ContestHall_EventScript_SetExitWarpSlateportLobby
+	case MAP_VERDANTURF_TOWN_CONTEST_LOBBY, ContestHall_EventScript_SetExitWarpVerdanturfLobby
+	case MAP_LAVARIDGE_TOWN_CONTEST_LOBBY,  ContestHall_EventScript_SetExitWarpLavaridgeLobby
+	case MAP_LILYCOVE_CITY_CONTEST_LOBBY,  ContestHall_EventScript_SetExitWarpLilycoveLobby
+	return	
 
-ContestHall_EventScript_SetExitWarpNormalContest:: @ 823BE84
+ContestHall_EventScript_SetExitWarpSlateportLobby::
+	warp MAP_SLATEPORT_CITY_CONTEST_LOBBY, 255, 5, 4
+	waitstate
+	end
+
+ContestHall_EventScript_SetExitWarpVerdanturfLobby::
+	warp MAP_VERDANTURF_TOWN_CONTEST_LOBBY, 255, 5, 4
+	waitstate
+	end
+
+ContestHall_EventScript_SetExitWarpLavaridgeLobby::
+	warp MAP_LAVARIDGE_TOWN_CONTEST_LOBBY, 255, 5, 4
+	waitstate
+	end
+
+ContestHall_EventScript_SetExitWarpLilycoveLobby::
 	warp MAP_LILYCOVE_CITY_CONTEST_LOBBY, 255, 14, 4
 	waitstate
 	end
 
-ContestHall_EventScript_SetExitWarpSuperContest:: @ 823BE8E
-	warp MAP_LILYCOVE_CITY_CONTEST_LOBBY, 255, 14, 4
-	waitstate
-	end
-
-ContestHall_EventScript_SetExitWarpHyperContest:: @ 823BE98
-	warp MAP_LILYCOVE_CITY_CONTEST_LOBBY, 255, 14, 4
-	waitstate
-	end
-
-ContestHall_EventScript_SetExitWarpMasterContest:: @ 823BEA2
-	warp MAP_LILYCOVE_CITY_CONTEST_LOBBY, 255, 14, 4
-	waitstate
-	end
-
-ContestHall_EventScript_SetExitWarpLinkContest:: @ 823BEAC
+ContestHall_EventScript_SetExitWarpLilycoveLobbyLink::
 	warp MAP_LILYCOVE_CITY_CONTEST_LOBBY, 255, 15, 4
 	waitstate
 	end
 
-LilycoveCity_ContestLobby_EventScript_SetPlayerGfx:: @ 823BEB6
+ContestLobby_EventScript_SetPlayerGfx:: @ 823BEB6
 	checkplayergender
 	compare VAR_RESULT, MALE
-	goto_if_eq LilycoveCity_ContestLobby_EventScript_SetPlayerGfxBrendan
+	goto_if_eq ContestLobby_EventScript_SetPlayerGfxBrendan
 	compare VAR_RESULT, FEMALE
-	goto_if_eq LilycoveCity_ContestLobby_EventScript_SetPlayerGfxMay
+	goto_if_eq ContestLobby_EventScript_SetPlayerGfxMay
 	return
 
-LilycoveCity_ContestLobby_EventScript_SetPlayerGfxBrendan:: @ 823BECE
+ContestLobby_EventScript_SetPlayerGfxBrendan:: @ 823BECE
 	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
 	return
 
-LilycoveCity_ContestLobby_EventScript_SetPlayerGfxMay:: @ 823BED4
+ContestLobby_EventScript_SetPlayerGfxMay:: @ 823BED4
 	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
 	return
 

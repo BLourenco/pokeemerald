@@ -1,3 +1,4 @@
+.set LOCALID_RECEPTIONIST, 1
 .set LOCALID_EXPERT_M, 2
 
 SlateportCity_ContestLobby_MapScripts::
@@ -49,21 +50,8 @@ SlateportCity_ContestLobby_EventScript_Boy2::
 	end
 
 SlateportCity_ContestLobby_EventScript_ContestReceptionist::
-	call LilycoveCity_ContestLobby_EventScript_SpeakToContestReceptionist
-	call LilycoveCity_ContestLobby_EventScript_LeadToContestHall
-	special SetContestTrainerGfxIds
-	call LilycoveCity_ContestLobby_EventScript_SetPlayerGfx
-	call LilycoveCity_ContestLobby_EventScript_SetContestType
-	call LilycoveCity_ContestLobby_EventScript_WarpToContestHall
-	waitstate
-	end
-
-SlateportCity_ContestLobby_EventScript_SpeakToContestReceptionist::
-	lock
-	faceplayer
-	call_if_set FLAG_RECEIVED_POKEBLOCK_CASE, LilycoveCity_ContestLobby_EventScript_ReceptionWelcome
-	call_if_unset FLAG_RECEIVED_POKEBLOCK_CASE, LilycoveCity_ContestLobby_EventScript_GivePokeblockCase
-	goto LilycoveCity_ContestLobby_EventScript_AskEnterContest
+	setvar VAR_CONTEST_LOBBY_MAP, MAP_SLATEPORT_CITY_CONTEST_LOBBY
+	goto ContestLobby_EventScript_ContestReceptionist
 	end
 
 SlateportCity_ContestLobby_Text_LadyGaveMePokeblockCase:

@@ -100,6 +100,11 @@ VerdanturfTown_ContestLobby_EventScript_BerryBlender2::
 	goto BerryBlender_EventScript_DeclineBlender2
 	end
 
+VerdanturfTown_ContestLobby_EventScript_ContestReceptionist::
+	setvar VAR_CONTEST_LOBBY_MAP, MAP_VERDANTURF_TOWN_CONTEST_LOBBY
+	goto ContestLobby_EventScript_ContestReceptionist
+	end
+
 VerdanturfTown_ContestLobby_Text_Lass:
 	.string "Hi, are you making any {POKEBLOCK}s?\p"
 	.string "You should come by with a bunch of\n"
