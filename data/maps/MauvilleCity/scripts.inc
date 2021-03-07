@@ -53,6 +53,10 @@ MauvilleCity_EventScript_BikeShopSign:: @ 81DF3E9
 MauvilleCity_EventScript_GameCornerSign:: @ 81DF3F2
 	msgbox MauvilleCity_Text_GameCornerSign, MSGBOX_SIGN
 	end
+	
+MauvilleCity_EventScript_BattleTentSign::
+	msgbox MauvilleCity_Text_BattleTentSign, MSGBOX_SIGN
+	end
 
 MauvilleCity_EventScript_SchoolKidM:: @ 81DF3FB
 	lock
@@ -674,6 +678,10 @@ MauvilleCity_Text_BikeShopSign: @ 81E0504
 MauvilleCity_Text_GameCornerSign: @ 81E053C
 	.string "“The play spot for all!”\n"
 	.string "Mauville Game Corner$"
+
+MauvilleCity_Text_BattleTentSign:
+	.string "Battle Tent Mauville Site\n"
+	.string "“Feast your eyes on battles!”$"
 
 MauvilleCity_Text_ExplainTV: @ 81E056A
 	.string "Hi, do you check out TV at all?\p"

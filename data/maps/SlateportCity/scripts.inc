@@ -288,10 +288,6 @@ SlateportCity_EventScript_Woman1AquaGone:: @ 81DCF2C
 	release
 	end
 
-SlateportCity_EventScript_BattleTentSign:: @ 81DCF36
-	msgbox SlateportCity_Text_BattleTentSign, MSGBOX_SIGN
-	end
-
 SlateportCity_EventScript_ContestHallSign::
 	msgbox SlateportCity_Text_ContestHallSign, MSGBOX_SIGN
 	end
@@ -1259,10 +1255,6 @@ SlateportCity_Text_FromHarborTryingToTakeSub: @ 81DE860
 SlateportCity_Text_PleaseComeWithMe: @ 81DE8A0
 	.string "{PLAYER}{KUN}!\n"
 	.string "Please, come with me!$"
-
-SlateportCity_Text_BattleTentSign: @ 81DE8BC
-	.string "Battle Tent Rustboro Site\n"
-	.string "“Find it! The ultimate Pokémon!”$"
 
 SlateportCity_Text_ContestHallSign:
 	.string "Pokémon Contest Hall\n"

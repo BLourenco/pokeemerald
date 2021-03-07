@@ -227,6 +227,10 @@ RustboroCity_EventScript_CuttersHouseSign:: @ 81E0919
 	msgbox RustboroCity_Text_CuttersHouse, MSGBOX_SIGN
 	end
 
+RustboroCity_EventScript_BattleTentSign::
+	msgbox RustboroCity_Text_BattleTentSign, MSGBOX_SIGN
+	end
+
 RustboroCity_EventScript_LittleBoy:: @ 81E0922
 	lock
 	faceplayer
@@ -1403,3 +1407,7 @@ RustboroCity_Text_ScottOutsideBattleTent:
 	.string "After all, an aspiring Trainer is\n"
 	.string "the perfect fit for the Battle Tent!\p"
 	.string "Give it your best effort!$"
+
+RustboroCity_Text_BattleTentSign:
+	.string "Battle Tent Rustboro Site\n"
+	.string "“Find it! The ultimate Pokémon!”$"
