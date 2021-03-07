@@ -23,7 +23,7 @@ VerdanturfTown_PokemonCenter_1F_EventScript_Gentleman:: @ 8202748
 	end
 
 VerdanturfTown_PokemonCenter_1F_EventScript_ExpertM:: @ 8202751
-	msgbox VerdanturfTown_PokemonCenter_1F_Text_VisitForBattleTent, MSGBOX_NPC
+	msgbox VerdanturfTown_PokemonCenter_1F_Text_VisitForContestHall, MSGBOX_NPC
 	end
 
 VerdanturfTown_PokemonCenter_1F_Text_FaithInYourPokemon: @ 820275A
@@ -34,10 +34,10 @@ VerdanturfTown_PokemonCenter_1F_Text_FaithInYourPokemon: @ 820275A
 	.string "in their battling Pokémon can win\l"
 	.string "through to the very end.$"
 
-VerdanturfTown_PokemonCenter_1F_Text_VisitForBattleTent: @ 820280B
+VerdanturfTown_PokemonCenter_1F_Text_VisitForContestHall: @ 820280B
 	.string "The reason why anyone would visit\n"
 	.string "Verdanturf…\p"
-	.string "It's the Battle Tent. It goes without\n"
+	.string "It's the Contest Hall. It goes without\n"
 	.string "saying.\p"
 	.string "Or is there somebody here that you\n"
 	.string "came to see?$"

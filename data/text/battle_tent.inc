@@ -119,16 +119,16 @@ FallarborTown_BattleTentLobby_Text_LookingForwardToArrival: @ 82C504C
 
 MauvilleCity_BattleTentLobby_Text_WelcomeToBattleTent: @ 82C50C3
 	.string "I welcome you to the Battle Tent\n"
-	.string "Verdanturf Site!\p"
+	.string "Mauville Site!\p"
 	.string "Here, the Trainer's trust toward\n"
 	.string "Pokémon is tested.$"
 
 MauvilleCity_BattleTentLobby_Text_TakeChallenge: @ 82C5129
-	.string "Do you wish to take the Verdanturf\n"
+	.string "Do you wish to take the Mauville\n"
 	.string "Battle Tent challenge?$"
 
-MauvilleCity_BattleTentLobby_Text_ExplainVerdanturfTent: @ 82C5163
-	.string "In the Verdanturf Battle Tent,\n"
+MauvilleCity_BattleTentLobby_Text_ExplainMauvilleTent: @ 82C5163
+	.string "In the Mauville Battle Tent,\n"
 	.string "there is one crucial rule that must\l"
 	.string "be obeyed.\p"
 	.string "Trainers are permitted only to switch\n"
@@ -222,7 +222,7 @@ RustboroCity_BattleTentLobby_Text_TakeChallenge: @ 82C586A
 	.string "Would you like to take the Battle\n"
 	.string "Swap challenge?$"
 
-RustboroCity_BattleTentLobby_Text_ExplainSlateportTent: @ 82C589C
+RustboroCity_BattleTentLobby_Text_ExplainRustboroTent: @ 82C589C
 	.string "Here at the Rustboro Battle Tent,\n"
 	.string "we hold Battle Swap events\l"
 	.string "using rental Pokémon.\p"
@@ -358,7 +358,7 @@ RustboroCity_BattleTentLobby_Text_ExplainMonRules: @ 82C61FE
 
 @ Unused
 MauvilleCity_BattleTentLobby_Text_RulesAreListed2: @ 82C6261
-	.string "The Verdanturf Battle Tent\n"
+	.string "The Mauville Battle Tent\n"
 	.string "rules are listed.$"
 
 @ Unused
@@ -367,7 +367,7 @@ MauvilleCity_BattleTentLobby_Text_ReadWhichHeading: @ 82C628E
 
 @ Unused
 MauvilleCity_BattleTentLobby_Text_ExplainBasicRules: @ 82C62B1
-	.string "Here at the Verdanturf Battle Tent,\n"
+	.string "Here at the Mauville Battle Tent,\n"
 	.string "Pokémon are required to think and\l"
 	.string "battle by themselves.\p"
 	.string "Unlike in the wild, Pokémon that live\n"
@@ -429,5 +429,5 @@ BattleTentLobby_Text_ExplainLevelRules: @ 82C67CD
 	.string "have any Pokémon below Level 30.$"
 
 MauvilleCity_BattleTentLobby_Text_RulesAreListed: @ 82C6878
-	.string "The Verdanturf Battle Tent\n"
+	.string "The Mauville Battle Tent\n"
 	.string "rules are listed.$"

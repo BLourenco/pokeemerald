@@ -31,7 +31,7 @@ VerdanturfTown_EventScript_Man:: @ 81EB5A8
 	end
 
 VerdanturfTown_EventScript_Camper:: @ 81EB5B1
-	msgbox VerdanturfTown_Text_MakeBattleTentDebut, MSGBOX_NPC
+	msgbox VerdanturfTown_Text_ImFeelingConfident, MSGBOX_NPC
 	end
 
 VerdanturfTown_EventScript_Boy:: @ 81EB5BA
@@ -86,11 +86,14 @@ VerdanturfTown_Text_AirCleanHere: @ 81EB736
 	.string "Living here should do wonders for even\l"
 	.string "frail and sickly people.$"
 
-VerdanturfTown_Text_MakeBattleTentDebut: @ 81EB7E2
-	.string "My Pokémon and I, we've been riding\n"
-	.string "a hot winning streak.\p"
-	.string "So I decided to make my Battle Tent\n"
-	.string "debut in this town.$"
+VerdanturfTown_Text_ImFeelingConfident: @ 81EB7E2
+	.string "I'm feeling a little confident about the\n"
+	.string "cuteness of my Pokémon after it won a\l"
+	.string "Normal Rank Cute Contest earned a\l"
+	.string "Cute Ribbon.\p"
+	.string "I want to try and win a Super Rank\n"
+	.string "Cute Contest now, so that's why\l"
+	.string "I'm here.$"
 
 VerdanturfTown_Text_GuyTryingToBustThroughCave: @ 81EB854
 	.string "Did you see the cave next to the\n"

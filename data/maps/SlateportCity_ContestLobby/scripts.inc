@@ -48,6 +48,26 @@ SlateportCity_ContestLobby_EventScript_Boy2::
 	releaseall
 	end
 
+SlateportCity_ContestLobby_EventScript_ContestReceptionist::
+	call LilycoveCity_ContestLobby_EventScript_SpeakToContestReceptionist
+	call LilycoveCity_ContestLobby_EventScript_LeadToContestHall
+	special SetContestTrainerGfxIds
+	call LilycoveCity_ContestLobby_EventScript_SetPlayerGfx
+	call LilycoveCity_ContestLobby_EventScript_SetContestType
+	call LilycoveCity_ContestLobby_EventScript_WarpToContestHall
+	waitstate
+	end
+
+SlateportCity_ContestLobby_EventScript_SpeakToContestReceptionist::
+	lock
+	faceplayer
+	compare VAR_CONTEST_PRIZE_PICKUP, 0
+	goto_if_ne LilycoveCity_ContestLobby_EventScript_PickUpPrize
+	call_if_set FLAG_RECEIVED_POKEBLOCK_CASE, LilycoveCity_ContestLobby_EventScript_ReceptionWelcome
+	call_if_unset FLAG_RECEIVED_POKEBLOCK_CASE, LilycoveCity_ContestLobby_EventScript_GivePokeblockCase
+	goto LilycoveCity_ContestLobby_EventScript_AskEnterContest
+	end
+
 SlateportCity_ContestLobby_Text_LadyGaveMePokeblockCase:
 	.string "Yippee!\p"
 	.string "The lady at the reception counter\n"

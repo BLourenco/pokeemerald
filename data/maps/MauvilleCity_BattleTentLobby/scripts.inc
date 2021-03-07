@@ -168,7 +168,7 @@ MauvilleCity_BattleTentLobby_EventScript_EnterChallenge:: @ 82019AE
 	end
 
 MauvilleCity_BattleTentLobby_EventScript_ExplainChallenge:: @ 82019DB
-	msgbox MauvilleCity_BattleTentLobby_Text_ExplainVerdanturfTent, MSGBOX_DEFAULT
+	msgbox MauvilleCity_BattleTentLobby_Text_ExplainMauvilleTent, MSGBOX_DEFAULT
 	goto MauvilleCity_BattleTentLobby_EventScript_AskEnterChallenge
 
 MauvilleCity_BattleTentLobby_EventScript_NotEnoughValidMons:: @ 82019E8

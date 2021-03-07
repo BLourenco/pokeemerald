@@ -176,7 +176,7 @@ RustboroCity_BattleTentLobby_Movement_PlayerEnterDoor: @ 8208A03
 	step_end
 
 RustboroCity_BattleTentLobby_EventScript_ExplainChallenge:: @ 8208A07
-	msgbox RustboroCity_BattleTentLobby_Text_ExplainSlateportTent, MSGBOX_DEFAULT
+	msgbox RustboroCity_BattleTentLobby_Text_ExplainRustboroTent, MSGBOX_DEFAULT
 	goto RustboroCity_BattleTentLobby_EventScript_AskEnterChallenge
 
 RustboroCity_BattleTentLobby_EventScript_CancelChallengeSaveFailed:: @ 8208A14

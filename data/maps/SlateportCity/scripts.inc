@@ -374,7 +374,7 @@ SlateportCity_EventScript_PokefanF:: @ 81DCFF7
 	end
 
 SlateportCity_EventScript_Man2:: @ 81DD000
-	msgbox SlateportCity_Text_BattleTentBuiltRecently, MSGBOX_NPC
+	msgbox SlateportCity_Text_ContestHallOpenedRecently, MSGBOX_NPC
 	end
 
 SlateportCity_EventScript_AquaGrunt1:: @ 81DD009
@@ -920,29 +920,6 @@ SlateportCity_EventScript_NotEnoughBerryPowder:: @ 81DD5CE
 	goto SlateportCity_EventScript_ChooseBerryPowderItem
 	end
 
-SlateportCity_EventScript_ScottBattleTentScene:: @ 81DD5DC
-	lockall
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
-	waitmovement 0
-	opendoor 10, 12
-	waitdooranim
-	addobject LOCALID_SCOTT
-	applymovement OBJ_EVENT_ID_PLAYER, SlateportCity_Movement_PushPlayerDown
-	applymovement LOCALID_SCOTT, SlateportCity_Movement_ScottExitBattleTent
-	waitmovement 0
-	closedoor 10, 12
-	waitdooranim
-	msgbox SlateportCity_Text_TakingBattleTentChallenge, MSGBOX_DEFAULT
-	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, SlateportCity_Movement_PlayerWatchScottExit
-	applymovement LOCALID_SCOTT, SlateportCity_Movement_ScottExitAfterBattleTent
-	waitmovement 0
-	removeobject LOCALID_SCOTT
-	addvar VAR_SCOTT_STATE, 1
-	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 3
-	releaseall
-	end
-
 SlateportCity_Movement_PushPlayerDown: @ 81DD630
 	lock_facing_direction
 	walk_down
@@ -1157,13 +1134,11 @@ SlateportCity_Text_CantChangeTradeMonName: @ 81DE16C
 	.string "The original Trainer's love for that\n"
 	.string "Pokémon is in the nickname.$"
 
-SlateportCity_Text_BattleTentBuiltRecently: @ 81DE1EC
-	.string "Recently, a Battle Tent was built\n"
-	.string "in Slateport.\p"
-	.string "Gyms are fun, but the Battle Tent's\n"
-	.string "awesome in its own way.\p"
-	.string "You should go find tough Pokémon\n"
-	.string "for the Battle Tent!$"
+SlateportCity_Text_ContestHallOpenedRecently: @ 81DE1EC
+	.string "A Pokémon Contest Hall opened in\n"
+	.string "Slateport recently.\p"
+	.string "I plan on entering after I improve the\n"
+	.string "condition of my Pokémon.$"
 
 SlateportCity_Text_CaptSternBeingInterviewed: @ 81DE28E
 	.string "I was hoping that it was a famous star\n"
@@ -1401,14 +1376,3 @@ SlateportCity_Text_KeepEyeOnTrainersBeSeeingYou: @ 81DF1D3
 	.string "So, I'll be off to roam other towns\n"
 	.string "a bit more.\p"
 	.string "Be seeing you, {PLAYER}{KUN}!$"
-
-SlateportCity_Text_TakingBattleTentChallenge: @ 81DF28C
-	.string "Scott: Oh, hey!\n"
-	.string "If it isn't {PLAYER}{KUN}!\p"
-	.string "{PLAYER}{KUN}, let me guess--you're going\n"
-	.string "to take the Battle Tent challenge?\p"
-	.string "Yeah! That's a good idea!\n"
-	.string "That's a really great idea!\p"
-	.string "After all, a tough Trainer is\n"
-	.string "the perfect fit for the Battle Tent!\p"
-	.string "Give it your best effort!$"

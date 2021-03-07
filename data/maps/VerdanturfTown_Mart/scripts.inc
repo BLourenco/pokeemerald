@@ -37,7 +37,7 @@ VerdanturfTown_Mart_EventScript_Boy:: @ 82025BA
 	end
 
 VerdanturfTown_Mart_EventScript_ExpertF:: @ 82025C3
-	msgbox VerdanturfTown_Mart_Text_NoStrategyGuidesForBattleTent, MSGBOX_NPC
+	msgbox VerdanturfTown_Mart_Text_NoStrategyGuidesForContests, MSGBOX_NPC
 	end
 
 VerdanturfTown_Mart_EventScript_Lass:: @ 82025CC
@@ -50,11 +50,11 @@ VerdanturfTown_Mart_Text_XSpecialIsCrucial: @ 82025D5
 	.string "It jacks up the power of some moves\n"
 	.string "even though it's only for one battle.$"
 
-VerdanturfTown_Mart_Text_NoStrategyGuidesForBattleTent: @ 820264C
+VerdanturfTown_Mart_Text_NoStrategyGuidesForContests: @ 820264C
 	.string "They don't seem to sell any winning\n"
-	.string "strategy guides for the Battle Tent…\p"
+	.string "strategy guides for Contests…\p"
 	.string "It seems one must rely on one's\n"
-	.string "own wits after all…$"
+	.string "own creativity after all…$"
 
 VerdanturfTown_Mart_Text_NestBallOnWeakenedPokemon: @ 82026C9
 	.string "The Nest Ball works better on\n"
