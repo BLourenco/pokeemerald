@@ -3,7 +3,12 @@
 .set LOCALID_BLENDER_GIRL, 7
 
 LavaridgeTown_ContestLobby_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LavaridgeTown_ContestLobby_OnTransition
 	.byte 0
+
+LavaridgeTown_ContestLobby_OnTransition:
+	call ContestLobby_EventScript_TryShowContestReporter
+	end
 
 LavaridgeTown_ContestLobby_EventScript_Man::
 	lockall

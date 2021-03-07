@@ -2,7 +2,12 @@
 .set LOCALID_EXPERT_M, 2
 
 SlateportCity_ContestLobby_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SlateportCity_ContestLobby_OnTransition
 	.byte 0
+
+SlateportCity_ContestLobby_OnTransition:
+	call ContestLobby_EventScript_TryShowContestReporter
+	end
 
 SlateportCity_ContestLobby_EventScript_LittleGirl::
 	lockall

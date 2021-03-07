@@ -2,7 +2,12 @@
 .set LOCALID_BLENDER_TWIN, 6
 
 VerdanturfTown_ContestLobby_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, VerdanturfTown_ContestLobby_OnTransition
 	.byte 0
+
+VerdanturfTown_ContestLobby_OnTransition:
+	call ContestLobby_EventScript_TryShowContestReporter
+	end
 
 VerdanturfTown_ContestLobby_EventScript_Lass::
 	lockall

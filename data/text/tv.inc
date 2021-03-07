@@ -1,4 +1,4 @@
-LilycoveCity_ContestLobby_Text_InterviewRequest: @ 827EF15
+ContestLobby_Text_InterviewRequest: @ 827EF15
 	.string "Oh, hello! You were in a Pokémon\n"
 	.string "Contest, weren't you?\l"
 	.string "It's easy to tell from your Pokémon.\p"
@@ -7,13 +7,13 @@ LilycoveCity_ContestLobby_Text_InterviewRequest: @ 827EF15
 	.string "If I may, would you be willing to answer\n"
 	.string "a few questions?$"
 
-LilycoveCity_ContestLobby_Text_DescribeContest: @ 827EFE7
+ContestLobby_Text_DescribeContest: @ 827EFE7
 	.string "Oh, you will?\n"
 	.string "Thank you.\p"
 	.string "Briefly, how would you describe the\n"
 	.string "Contest you just entered?$"
 
-LilycoveCity_ContestLobby_Text_WhatImageWhenYouHearX: @ 827F03E
+ContestLobby_Text_WhatImageWhenYouHearX: @ 827F03E
 	.string "Ah, I see.\n"
 	.string "That's a very edifying comment.\p"
 	.string "You get a good feel for what\n"
@@ -22,7 +22,7 @@ LilycoveCity_ContestLobby_Text_WhatImageWhenYouHearX: @ 827F03E
 	.string "When you hear the word “{STR_VAR_2},”\n"
 	.string "what image do you get?$"
 
-LilycoveCity_ContestLobby_Text_ThatsAllForInterview: @ 827F0EC
+ContestLobby_Text_ThatsAllForInterview: @ 827F0EC
 	.string "I see!\p"
 	.string "So that's how you imagine the concept\n"
 	.string "of “{STR_VAR_2}” to be.\p"
@@ -34,12 +34,12 @@ LilycoveCity_ContestLobby_Text_ThatsAllForInterview: @ 827F0EC
 	.string "make it to television.\l"
 	.string "I hope you'll look forward to it!$"
 
-LilycoveCity_ContestLobby_Text_PleaseDoShareStoryWithMe: @ 827F1EF
+ContestLobby_Text_PleaseDoShareStoryWithMe: @ 827F1EF
 	.string "Oh, too bad…\p"
 	.string "Well, if you come across a good story,\n"
 	.string "please do share it with me.$"
 
-LilycoveCity_ContestLobby_Text_LookingForwardToNextContest: @ 827F23F
+ContestLobby_Text_LookingForwardToNextContest: @ 827F23F
 	.string "I'll be looking forward to your next\n"
 	.string "Pokémon Contest.$"
 

@@ -12,7 +12,7 @@ LilycoveCity_ContestLobby_MapScripts:: @ 821A211
 @ Some scripts for this room are split into data/scripts/contest_hall and data/scripts/berry_blender
 
 LilycoveCity_ContestLobby_OnTransition: @ 821A21C
-	call LilycoveCity_ContestLobby_EventScript_TryShowContestReporter
+	call ContestLobby_EventScript_TryShowContestReporter
 	call LilycoveCity_ContestLobby_EventScript_TryShowBlendMaster
 	end
 

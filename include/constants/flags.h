@@ -840,8 +840,8 @@
 #define FLAG_HIDE_ROUTE_111_GABBY_AND_TY_3                          0x31F
 #define FLAG_HIDE_LUGIA                                             0x320
 #define FLAG_HIDE_HO_OH                                             0x321
-#define FLAG_HIDE_LILYCOVE_CONTEST_HALL_REPORTER                    0x322
-#define FLAG_HIDE_SLATEPORT_CITY_CONTEST_REPORTER                   0x323
+#define FLAG_HIDE_CONTEST_HALL_REPORTER                             0x322
+#define FLAG_HIDE_SLATEPORT_CITY_CONTEST_REPORTER                   0x323 // Set but never read.
 #define FLAG_HIDE_MAUVILLE_CITY_WALLY                               0x324
 #define FLAG_HIDE_MAUVILLE_CITY_WALLYS_UNCLE                        0x325
 #define FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WALLY                0x326
