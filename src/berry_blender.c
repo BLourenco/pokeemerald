@@ -1226,7 +1226,7 @@ static void InitLocalPlayers(u8 opponentsNum)
         sBerryBlender->numPlayers = 2;
         StringCopy(gLinkPlayers[0].name, gSaveBlock2Ptr->playerName);
 
-        if (!FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER))
+        if (!FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER) && gMapHeader.regionMapSectionId == MAPSEC_LILYCOVE_CITY) // Don't use the name "Master" when blending in Slateport
             StringCopy(gLinkPlayers[1].name, sBlenderOpponentsNames[BLENDER_MASTER]);
         else
             StringCopy(gLinkPlayers[1].name, sBlenderOpponentsNames[BLENDER_MISTER]);
