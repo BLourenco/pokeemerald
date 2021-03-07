@@ -18,8 +18,6 @@
 LilycoveCity_ContestLobby_EventScript_SpeakToContestReceptionist:: @ 8279CC5
 	lock
 	faceplayer
-	compare VAR_CONTEST_PRIZE_PICKUP, 0
-	goto_if_ne LilycoveCity_ContestLobby_EventScript_PickUpPrize
 	call_if_set FLAG_RECEIVED_POKEBLOCK_CASE, LilycoveCity_ContestLobby_EventScript_ReceptionWelcome
 	call_if_unset FLAG_RECEIVED_POKEBLOCK_CASE, LilycoveCity_ContestLobby_EventScript_GivePokeblockCase
 	goto LilycoveCity_ContestLobby_EventScript_AskEnterContest
@@ -35,27 +33,6 @@ LilycoveCity_ContestLobby_EventScript_GivePokeblockCase:: @ 8279CF3
 	setflag FLAG_RECEIVED_POKEBLOCK_CASE
 	msgbox LilycoveCity_ContestLobby_Text_NowThatWeveClearedThatUp, MSGBOX_DEFAULT
 	return
-
-LilycoveCity_ContestLobby_EventScript_PickUpPrize:: @ 8279D13
-	msgbox LilycoveCity_ContestLobby_Text_PokemonWonWeHavePrize, MSGBOX_DEFAULT
-	switch VAR_CONTEST_PRIZE_PICKUP
-	case 4, LilycoveCity_ContestLobby_EventScript_GiveLuxuryBallAtCounter
-	end
-
-LilycoveCity_ContestLobby_EventScript_GiveLuxuryBallAtCounter:: @ 8279D2C
-	giveitem ITEM_LUXURY_BALL
-	compare VAR_RESULT, FALSE
-	goto_if_eq LilycoveCity_ContestLobby_EventScript_NoRoomForLuxuryBallAtCounter
-	setvar VAR_CONTEST_PRIZE_PICKUP, 0
-	closemessage
-	release
-	end
-
-LilycoveCity_ContestLobby_EventScript_NoRoomForLuxuryBallAtCounter:: @ 8279D4B
-	call Common_EventScript_BagIsFull
-	msgbox LilycoveCity_ContestLobby_Text_ComeBackForPrizeLater, MSGBOX_DEFAULT
-	release
-	end
 
 LilycoveCity_ContestLobby_EventScript_AskEnterContest:: @ 8279D5A
 	message LilycoveCity_ContestLobby_Text_EnterContest1
@@ -1110,8 +1087,6 @@ ContestHall_EventScript_VObjectAudienceLookAround:: @ 827AA6F
 ContestHall_EventScript_GiveWinnerPrize:: @ 827AB36
 	compare VAR_CONTEST_TYPE, CONTEST_TYPE_LINK
 	goto_if_eq ContestHall_EventScript_EndLinkContest
-	call ContestHall_EventScript_CheckShouldSkipPrize
-	goto_if_set FLAG_TEMP_2, ContestHall_EventScript_SkipPrize
 	lockall
 	msgbox ContestHall_Text_AcceptYourPrize, MSGBOX_DEFAULT
 	releaseall
@@ -1124,37 +1099,6 @@ ContestHall_EventScript_GiveWinnerPrize:: @ 827AB36
 	special ShouldReadyContestArtist
 	compare VAR_0x8004, TRUE
 	goto_if_eq ContestHall_EventScript_SetReadyForContestArtist
-	return
-
-ContestHall_EventScript_SkipPrize:: @ 827AB82
-	lockall
-	msgbox ContestHall_Text_CongratsPleaseCompeteAgain, MSGBOX_DEFAULT
-	releaseall
-	delay 90
-	special ShouldReadyContestArtist
-	compare VAR_0x8004, TRUE
-	goto_if_eq ContestHall_EventScript_SetReadyForContestArtist
-	return
-
-ContestHall_EventScript_CheckShouldSkipPrize:: @ 827AB9E
-	specialvar VAR_RESULT, HasMonWonThisContestBefore
-	compare VAR_RESULT, TRUE
-	goto_if_eq ContestHall_EventScript_CheckPlayerWon
-	return
-
-ContestHall_EventScript_CheckPlayerWon:: @ 827ABAF
-	special GetContestWinnerId
-	compare VAR_0x8005, 3
-	goto_if_eq ContestHall_EventScript_CheckRankIsMaster
-	return
-
-ContestHall_EventScript_CheckRankIsMaster:: @ 827ABBE
-	compare VAR_CONTEST_RANK, CONTEST_RANK_MASTER
-	goto_if_eq ContestHall_EventScript_DontSkipPrize
-	setflag FLAG_TEMP_2
-	return
-
-ContestHall_EventScript_DontSkipPrize:: @ 827ABCD
 	return
 
 @ This flag is never read
@@ -1235,27 +1179,12 @@ ContestHall_EventScript_GiveContestPrizes:: @ 827AC77
 	call_if_eq ContestHall_EventScript_SetSketchFlag
 	specialvar VAR_RESULT, HasMonWonThisContestBefore
 	compare VAR_RESULT, FALSE
-	goto_if_eq ContestHall_EventScript_ReceiveContestRibbon
-	compare VAR_CONTEST_RANK, CONTEST_RANK_MASTER
-	goto_if_eq ContestHall_EventScript_GiveLuxuryBall
-	lockall
-	msgbox ContestHall_Text_CongratsPleaseCompeteAgain, MSGBOX_DEFAULT
-	releaseall
-	return
-
-ContestHall_EventScript_NoRoomForLuxuryBall:: @ 827ACA8
-	lockall
-	call Common_EventScript_BagIsFull
-	msgbox ContestHall_Text_PickUpPrizeAtCounterLater, MSGBOX_DEFAULT
-	releaseall
-	setvar VAR_CONTEST_PRIZE_PICKUP, 4
-	return
-
-ContestHall_EventScript_GiveLuxuryBall:: @ 827ACBD
-	giveitem ITEM_LUXURY_BALL
+	call_if_eq ContestHall_EventScript_ReceiveContestRibbon
+	msgbox ContestHall_Text_PleaseAcceptThisBerry, MSGBOX_DEFAULT
+	special GetContestPrize
+	giveitem VAR_RESULT
 	compare VAR_RESULT, FALSE
-	goto_if_eq ContestHall_EventScript_NoRoomForLuxuryBall
-	lockall
+	call_if_eq Common_EventScript_BagIsFull
 	msgbox ContestHall_Text_CongratsPleaseCompeteAgain, MSGBOX_DEFAULT
 	releaseall
 	return
@@ -1904,3 +1833,6 @@ ContestHall_Text_SecondStageOfJudging: @ 827CAD0
 ContestHall_Text_LetsAppeal: @ 827CB55
 	.string "Let's see a little enthusiasm!\n"
 	.string "Let's appeal!$"
+
+ContestHall_Text_PleaseAcceptThisBerry:
+	.string "Please accept this Berry.$"

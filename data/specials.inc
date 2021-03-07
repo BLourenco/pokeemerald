@@ -552,3 +552,4 @@ gSpecials:: @ 81DBA64
 	def_special FossilScientistOpenBagMenu
 	def_special IsItemFossil
 	def_special SetTotemBoost
+	def_special GetContestPrize
