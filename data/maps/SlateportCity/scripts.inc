@@ -107,6 +107,7 @@ SlateportCity_EventScript_ScottScene:: @ 81DCD1C
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 2
 	addvar VAR_SCOTT_STATE, 1
+	clearflag FLAG_HIDE_MAUVILLE_BATTLE_TENT_SCOTT
 	releaseall
 	end
 

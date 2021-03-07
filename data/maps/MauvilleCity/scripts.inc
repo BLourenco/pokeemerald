@@ -178,6 +178,8 @@ MauvilleCity_EventScript_DefeatedWally:: @ 81DF593
 	compare VAR_FACING, DIR_EAST
 	call_if_eq MauvilleCity_EventScript_ScottExitEast
 	removeobject LOCALID_SCOTT
+	setflag FLAG_HIDE_MAUVILLE_BATTLE_TENT_SCOTT
+	clearflag FLAG_HIDE_FALLARBOR_TOWN_BATTLE_TENT_SCOTT
 	releaseall
 	end
 
@@ -188,7 +190,6 @@ MauvilleCity_EventScript_ScottApproachPlayerNorth:: @ 81DF5F3
 	return
 
 MauvilleCity_EventScript_ScottApproachPlayerEast:: @ 81DF601
-	setobjectxyperm LOCALID_SCOTT, 12, 13
 	addobject LOCALID_SCOTT
 	applymovement LOCALID_SCOTT, MauvilleCity_Movement_ScottApproachPlayerEast
 	waitmovement 0
@@ -292,13 +293,13 @@ MauvilleCity_Movement_PlayerWatchWallyExitEast2: @ 81DF6D0
 
 MauvilleCity_Movement_PlayerWatchScottExitNorth: @ 81DF6D5
 	delay_16
-	walk_in_place_fastest_left
+	walk_in_place_fastest_right
 	step_end
 
 MauvilleCity_Movement_PlayerWatchScottExitEast: @ 81DF6D8
 	delay_16
 	delay_16
-	walk_in_place_fastest_left
+	walk_in_place_fastest_right
 	step_end
 
 MauvilleCity_Movement_PlayerWatchWallyExitEast1: @ 81DF6DC
@@ -369,12 +370,10 @@ MauvilleCity_Movement_WallysUncleExitEast2: @ 81DF703
 	step_end
 
 MauvilleCity_Movement_ScottApproachPlayerNorth: @ 81DF70D
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	walk_left
 	walk_left
 	walk_left
@@ -383,11 +382,10 @@ MauvilleCity_Movement_ScottApproachPlayerNorth: @ 81DF70D
 	step_end
 
 MauvilleCity_Movement_ScottApproachPlayerEast: @ 81DF719
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	walk_left
 	walk_left
 	walk_left
@@ -397,28 +395,26 @@ MauvilleCity_Movement_ScottApproachPlayerEast: @ 81DF719
 	step_end
 
 MauvilleCity_Movement_ScottExitNorth: @ 81DF725
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	step_end
 
 MauvilleCity_Movement_ScottExitEast: @ 81DF72F
 	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	step_end
 
 MauvilleCity_EventScript_Wattson:: @ 81DF73A
