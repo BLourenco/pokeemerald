@@ -1,3 +1,6 @@
+.set LOCALID_BLENDER_MAN, 4
+.set LOCALID_BLENDER_TWIN, 6
+
 VerdanturfTown_ContestLobby_MapScripts::
 	.byte 0
 
@@ -83,6 +86,18 @@ VerdanturfTown_ContestLobby_EventScript_ArtistSmeargleGiftDecline::
 VerdanturfTown_ContestLobby_EventScript_TakeCareOfSmeargle::
 	msgbox VerdanturfTown_ContestLobby_Text_TakeCareOfSmeargle, MSGBOX_DEFAULT
 	releaseall
+	end
+
+VerdanturfTown_ContestLobby_EventScript_BerryBlender2::
+	lockall
+	setvar NUM_OPPONENTS, 2
+	applymovement LOCALID_BLENDER_TWIN, Common_Movement_FaceOriginalDirection
+	applymovement LOCALID_BLENDER_MAN, BerryBlender_Movement_BlendLeaderWalkInPlace
+	waitmovement 0
+	msgbox BerryBlender_Text_WantToBlendPokeblocksWithUs, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq BerryBlender_EventScript_TryUseBerryBlender2
+	goto BerryBlender_EventScript_DeclineBlender2
 	end
 
 VerdanturfTown_ContestLobby_Text_Lass:

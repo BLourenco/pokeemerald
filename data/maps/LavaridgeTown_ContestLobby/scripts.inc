@@ -1,5 +1,6 @@
-.set LOCALID_EXPERT_M, 4
-.set LOCALID_BOY, 5
+.set LOCALID_BLENDER_WOMAN, 4
+.set LOCALID_BLENDER_BOY, 5
+.set LOCALID_BLENDER_GIRL, 7
 
 LavaridgeTown_ContestLobby_MapScripts::
 	.byte 0
@@ -52,16 +53,17 @@ LavaridgeTown_ContestLobby_EventScript_Woman::
 	releaseall
 	end
 
-LavaridgeTown_ContestLobby_EventScript_BerryBlender2::
+LavaridgeTown_ContestLobby_EventScript_BerryBlender3::
 	lockall
-	setvar NUM_OPPONENTS, 2
-	applymovement LOCALID_BOY, Common_Movement_FaceOriginalDirection
-	applymovement LOCALID_EXPERT_M, BerryBlender_Movement_BlendLeaderWalkInPlace
+	setvar NUM_OPPONENTS, 3
+	applymovement LOCALID_BLENDER_BOY, Common_Movement_FaceOriginalDirection
+	applymovement LOCALID_BLENDER_GIRL, Common_Movement_FaceOriginalDirection
+	applymovement LOCALID_BLENDER_WOMAN, BerryBlender_Movement_BlendLeaderWalkInPlace
 	waitmovement 0
 	msgbox BerryBlender_Text_WantToBlendPokeblocksWithUs, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	goto_if_eq BerryBlender_EventScript_TryUseBerryBlender2
-	goto BerryBlender_EventScript_DeclineBlender2
+	goto_if_eq BerryBlender_EventScript_TryUseBlender3
+	goto BerryBlender_EventScript_DeclineBlender3
 	end
 
 LavaridgeTown_ContestLobby_Text_Man:
