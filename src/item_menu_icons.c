@@ -394,12 +394,14 @@ static const struct CompressedTilesPal sBerryPicTable[] =
     [ITEM_TO_BERRY(ITEM_BABIRI_BERRY) - 1] = {gBerryPic_Babiri, gBerryPalette_Babiri},
     [ITEM_TO_BERRY(ITEM_CHILAN_BERRY) - 1] = {gBerryPic_Chilan, gBerryPalette_Chilan},
     [ITEM_TO_BERRY(ITEM_ROSELI_BERRY) - 1] = {gBerryPic_Roseli, gBerryPalette_Roseli},
-    [ITEM_TO_BERRY(ITEM_MICLE_BERRY)  - 1] = {},
-    [ITEM_TO_BERRY(ITEM_CUSTAP_BERRY) - 1] = {},
-    [ITEM_TO_BERRY(ITEM_JABOCA_BERRY) - 1] = {},
-    [ITEM_TO_BERRY(ITEM_ROWAP_BERRY)  - 1] = {},
-    [ITEM_TO_BERRY(ITEM_KEE_BERRY)    - 1] = {},
-    [ITEM_TO_BERRY(ITEM_MARANGA_BERRY)- 1] = {},
+
+    // Unimplemented
+    [ITEM_TO_BERRY(ITEM_MICLE_BERRY)  - 1] = {gBerryPic_Enigma, gBerryPalette_Enigma},
+    [ITEM_TO_BERRY(ITEM_CUSTAP_BERRY) - 1] = {gBerryPic_Enigma, gBerryPalette_Enigma},
+    [ITEM_TO_BERRY(ITEM_JABOCA_BERRY) - 1] = {gBerryPic_Enigma, gBerryPalette_Enigma},
+    [ITEM_TO_BERRY(ITEM_ROWAP_BERRY)  - 1] = {gBerryPic_Enigma, gBerryPalette_Enigma},
+    [ITEM_TO_BERRY(ITEM_KEE_BERRY)    - 1] = {gBerryPic_Enigma, gBerryPalette_Enigma},
+    [ITEM_TO_BERRY(ITEM_MARANGA_BERRY)- 1] = {gBerryPic_Enigma, gBerryPalette_Enigma},
 };
 
 const struct CompressedSpriteSheet gBerryCheckCircleSpriteSheet =

@@ -30,31 +30,31 @@
 #define GAME_LANGUAGE (LANGUAGE_ENGLISH)
 
 // capacities of various saveblock objects
-#define DAYCARE_MON_COUNT 2
-#define POKEBLOCKS_COUNT 40
-#define OBJECT_EVENTS_COUNT 16
-#define BERRY_TREES_COUNT 128
-#define MAIL_COUNT 16
-#define SECRET_BASES_COUNT 20
-#define TV_SHOWS_COUNT 25
-#define POKE_NEWS_COUNT 16
-#define PC_ITEMS_COUNT 50
-#define BAG_ITEMS_COUNT 73
-#define BAG_KEYITEMS_COUNT 60
-#define BAG_POKEBALLS_COUNT 27
-#define BAG_TMHM_COUNT 128
-#define BAG_BERRIES_COUNT 61
-#define BAG_MEDICINE_COUNT 34
-#define BAG_COMPETITIVE_COUNT 233
-#define BAG_TRAINING_COUNT 60
-#define OBJECT_EVENT_TEMPLATES_COUNT 64
-#define DECOR_MAX_SECRET_BASE 16
-#define DECOR_MAX_PLAYERS_HOUSE 12
-#define APPRENTICE_COUNT 4
-#define APPRENTICE_MAX_QUESTIONS 9
-#define MAX_REMATCH_ENTRIES 100 // only REMATCH_TABLE_ENTRIES (78) are used
-#define NUM_CONTEST_WINNERS 14
-#define UNION_ROOM_KB_ROW_COUNT 10
+#define DAYCARE_MON_COUNT                 2
+#define POKEBLOCKS_COUNT                 40
+#define OBJECT_EVENTS_COUNT              16
+#define BERRY_TREES_COUNT               128
+#define MAIL_COUNT                       16
+#define SECRET_BASES_COUNT               20
+#define TV_SHOWS_COUNT                   25
+#define POKE_NEWS_COUNT                  16
+#define PC_ITEMS_COUNT                   50
+#define BAG_ITEMS_COUNT                  73
+#define BAG_KEYITEMS_COUNT               60
+#define BAG_POKEBALLS_COUNT              27
+#define BAG_TMHM_COUNT                  128
+#define BAG_BERRIES_COUNT                67
+#define BAG_MEDICINE_COUNT               34
+#define BAG_COMPETITIVE_COUNT           233
+#define BAG_TRAINING_COUNT               60
+#define OBJECT_EVENT_TEMPLATES_COUNT     64
+#define DECOR_MAX_SECRET_BASE            16
+#define DECOR_MAX_PLAYERS_HOUSE          12
+#define APPRENTICE_COUNT                  4
+#define APPRENTICE_MAX_QUESTIONS          9
+#define MAX_REMATCH_ENTRIES             100 // only REMATCH_TABLE_ENTRIES (78) are used
+#define NUM_CONTEST_WINNERS              14
+#define UNION_ROOM_KB_ROW_COUNT          10
 
 #define PYRAMID_BAG_ITEMS_COUNT 10
 #define HALL_FACILITIES_COUNT 9 // 7 facilities for single mode + tower double mode + tower multi mode.

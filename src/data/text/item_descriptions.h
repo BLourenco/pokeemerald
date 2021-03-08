@@ -891,7 +891,7 @@ static const u8 sStarfBerryDesc[] = _(
     "stat in a pinch.");
 
 static const u8 sEnigmaBerryDesc[] = _(
-    "Pokéblock ingredient.\n"
+    "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
     "to grow a mystery.");
 
