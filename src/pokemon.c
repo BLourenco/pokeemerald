@@ -7873,3 +7873,15 @@ u16 MonTryLearningNewMoveEvolution(struct Pokemon *mon, bool8 firstMove)
     }
     return 0;
 }
+
+void ResetMonConditionAndSheen(void)
+{
+    u32 arg = 0;
+
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_COOL,   &arg);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_BEAUTY, &arg);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_CUTE,   &arg);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SMART,  &arg);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_TOUGH,  &arg);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SHEEN,  &arg);
+}

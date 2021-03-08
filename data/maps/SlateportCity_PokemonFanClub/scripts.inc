@@ -266,6 +266,45 @@ SlateportCity_PokemonFanClub_EventScript_Azumarill:: @ 820A220
 	release
 	end
 
+SlateportCity_PokemonFanClub_EventScript_ConditionResetter::
+	lock
+	faceplayer
+	msgbox SlateportCity_PokemonFanClub_Text_ConditionResetter, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq SlateportCity_PokemonFanClub_EventScript_ConditionResetterDecline
+	msgbox SlateportCity_PokemonFanClub_Text_ConditionResetterWhichMon, MSGBOX_DEFAULT
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, 255
+	goto_if_ne SlateportCity_PokemonFanClub_EventScript_ConditionResetterTryDoReset
+	compare VAR_0x8004, 255
+	goto_if_eq SlateportCity_PokemonFanClub_EventScript_ConditionResetterDecline
+	end
+
+SlateportCity_PokemonFanClub_EventScript_ConditionResetterTryDoReset::
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	compare VAR_RESULT, SPECIES_EGG
+	goto_if_eq SlateportCity_PokemonFanClub_EventScript_CantResetEgg
+	special BufferMonNickname
+	msgbox SlateportCity_PokemonFanClub_Text_ConditionResetterAreYouSure, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq SlateportCity_PokemonFanClub_EventScript_ConditionResetterDecline
+	playse SE_REPEL
+	special ResetMonConditionAndSheen
+	msgbox SlateportCity_PokemonFanClub_Text_ConditionResetterResetComplete, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_PokemonFanClub_EventScript_ConditionResetterDecline::
+	msgbox SlateportCity_PokemonFanClub_Text_ConditionResetterDecline, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_PokemonFanClub_EventScript_CantResetEgg::
+	msgbox SlateportCity_PokemonFanClub_Text_CantResetEgg, MSGBOX_DEFAULT
+	release
+	end
+
 SlateportCity_PokemonFanClub_Text_MeetChairman: @ 820A233
 	.string "Er-hem! I am the Chairman of the\n"
 	.string "Pokémon Fan Club!\p"
@@ -426,3 +465,33 @@ SlateportCity_PokemonFanClub_Text_Zigzagoon: @ 820AD6E
 SlateportCity_PokemonFanClub_Text_Azumarill: @ 820AD80
 	.string "Azumarill: Marimari?$"
 
+SlateportCity_PokemonFanClub_Text_ConditionResetter:
+	.string "Hello there!\n"
+	.string "I'm the Condition Resetter.\p"
+	.string "If you wish, I can reset the Condition\n"
+	.string "of your Pokémon.\p"
+	.string "This will also cause the Pokémon's\n"
+	.string "Sheen to reset as well, allowing you\l"
+	.string "feed it more {POKEBLOCK}s.\p"
+	.string "What do you say?$"
+
+SlateportCity_PokemonFanClub_Text_ConditionResetterWhichMon:
+	.string "Which Pokémon's Condition and Sheen\n"
+	.string "would you like me to reset?$"
+
+SlateportCity_PokemonFanClub_Text_ConditionResetterAreYouSure:
+	.string "Are you sure you wish to reset\n"
+	.string "{STR_VAR_1}'s Condition and Sheen?$"
+
+SlateportCity_PokemonFanClub_Text_ConditionResetterResetComplete:
+	.string "There you go!\p"
+	.string "Your {STR_VAR_1}'s Condition and Sheen\n"
+	.string "have been reset!$"
+
+SlateportCity_PokemonFanClub_Text_ConditionResetterDecline:
+	.string "Very well, then.\n"
+	.string "Come back if you change your mind.$"
+
+SlateportCity_PokemonFanClub_Text_CantResetEgg:
+	.string "Sorry, I can't reset the Condition\n"
+	.string "of an Egg!$"

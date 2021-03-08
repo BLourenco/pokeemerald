@@ -553,3 +553,4 @@ gSpecials:: @ 81DBA64
 	def_special IsItemFossil
 	def_special SetTotemBoost
 	def_special GetContestPrize
+	def_special ResetMonConditionAndSheen
