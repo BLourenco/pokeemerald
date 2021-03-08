@@ -113,10 +113,10 @@ FallarborTown_BattleTentLobby_EventScript_Attendant:: @ 8200001
 FallarborTown_BattleTentLobby_EventScript_AskEnterChallenge:: @ 8200021
 	message FallarborTown_BattleTentLobby_Text_TakeChallenge
 	waitmessage
-	multichoice 17, 6, MULTI_CHALLENGEINFO, 0
+	multichoice 0, 0, MULTI_CHALLENGEINFO, 0
 	switch VAR_RESULT
 	case 0, FallarborTown_BattleTentLobby_EventScript_TryEnterChallenge
-	case 1, FallarborTown_BattleTentLobby_EventScript_ExplainChallenge
+	case 1, FallarborTown_BattleTentLobby_EventScript_BattleTentInfo
 	case 2, FallarborTown_BattleTentLobby_EventScript_CancelChallenge
 	case MULTI_B_PRESSED, FallarborTown_BattleTentLobby_EventScript_CancelChallenge
 
@@ -166,9 +166,24 @@ FallarborTown_BattleTentLobby_EventScript_EnterChallenge:: @ 820013C
 	waitstate
 	end
 
+FallarborTown_BattleTentLobby_EventScript_BattleTentInfo::
+	message BattleTentLobby_Text_WhichTopic
+	waitmessage
+	multichoice 0, 0, MULTI_BATTLE_TENT_INFO, 0
+	switch VAR_RESULT
+	case 0, FallarborTown_BattleTentLobby_EventScript_ExplainChallenge
+	case 1, FallarborTown_BattleTentLobby_EventScript_ExplainPrizes
+	case 2, FallarborTown_BattleTentLobby_EventScript_AskEnterChallenge
+	case MULTI_B_PRESSED, FallarborTown_BattleTentLobby_EventScript_AskEnterChallenge
+	end
+
 FallarborTown_BattleTentLobby_EventScript_ExplainChallenge:: @ 8200169
 	msgbox FallarborTown_BattleTentLobby_Text_ExplainFallarborTent, MSGBOX_DEFAULT
-	goto FallarborTown_BattleTentLobby_EventScript_AskEnterChallenge
+	goto FallarborTown_BattleTentLobby_EventScript_BattleTentInfo
+
+FallarborTown_BattleTentLobby_EventScript_ExplainPrizes::
+	msgbox FallarborTown_BattleTentLobby_Text_ExplainFallarborTentPrizes, MSGBOX_DEFAULT
+	goto FallarborTown_BattleTentLobby_EventScript_BattleTentInfo
 
 FallarborTown_BattleTentLobby_EventScript_NotEnoughValidMons:: @ 8200176
 	switch VAR_RESULT

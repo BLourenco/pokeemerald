@@ -114,10 +114,10 @@ MauvilleCity_BattleTentLobby_EventScript_Attendant:: @ 8201873
 MauvilleCity_BattleTentLobby_EventScript_AskEnterChallenge:: @ 8201893
 	message MauvilleCity_BattleTentLobby_Text_TakeChallenge
 	waitmessage
-	multichoice 17, 6, MULTI_CHALLENGEINFO, 0
+	multichoice 0, 0, MULTI_CHALLENGEINFO, 0
 	switch VAR_RESULT
 	case 0, MauvilleCity_BattleTentLobby_EventScript_TryEnterChallenge
-	case 1, MauvilleCity_BattleTentLobby_EventScript_ExplainChallenge
+	case 1, MauvilleCity_BattleTentLobby_EventScript_BattleTentInfo
 	case 2, MauvilleCity_BattleTentLobby_EventScript_CancelChallenge
 	case MULTI_B_PRESSED, MauvilleCity_BattleTentLobby_EventScript_CancelChallenge
 
@@ -167,9 +167,24 @@ MauvilleCity_BattleTentLobby_EventScript_EnterChallenge:: @ 82019AE
 	waitstate
 	end
 
-MauvilleCity_BattleTentLobby_EventScript_ExplainChallenge:: @ 82019DB
+MauvilleCity_BattleTentLobby_EventScript_BattleTentInfo::
+	message BattleTentLobby_Text_WhichTopic
+	waitmessage
+	multichoice 0, 0, MULTI_BATTLE_TENT_INFO, 0
+	switch VAR_RESULT
+	case 0, MauvilleCity_BattleTentLobby_EventScript_ExplainChallenge
+	case 1, MauvilleCity_BattleTentLobby_EventScript_ExplainPrizes
+	case 2, MauvilleCity_BattleTentLobby_EventScript_AskEnterChallenge
+	case MULTI_B_PRESSED, MauvilleCity_BattleTentLobby_EventScript_AskEnterChallenge
+	end
+
+MauvilleCity_BattleTentLobby_EventScript_ExplainChallenge:: @ 8200169
 	msgbox MauvilleCity_BattleTentLobby_Text_ExplainMauvilleTent, MSGBOX_DEFAULT
-	goto MauvilleCity_BattleTentLobby_EventScript_AskEnterChallenge
+	goto MauvilleCity_BattleTentLobby_EventScript_BattleTentInfo
+
+MauvilleCity_BattleTentLobby_EventScript_ExplainPrizes::
+	msgbox MauvilleCity_BattleTentLobby_Text_ExplainMauvilleTentPrizes, MSGBOX_DEFAULT
+	goto MauvilleCity_BattleTentLobby_EventScript_BattleTentInfo
 
 MauvilleCity_BattleTentLobby_EventScript_NotEnoughValidMons:: @ 82019E8
 	switch VAR_RESULT

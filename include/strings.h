@@ -1421,6 +1421,8 @@ extern const u8 gText_Info2[];
 extern const u8 gText_WhatsAContest[];
 extern const u8 gText_TypesOfContests[];
 extern const u8 gText_Ranks[];
+extern const u8 gText_Prizes[];
+extern const u8 gText_ExplainChallenge[];
 extern const u8 gText_Decoration2[];
 extern const u8 gText_PackUp[];
 extern const u8 gText_Registry[];

@@ -114,7 +114,8 @@ ContestLobby_EventScript_ContestInfo:: @ 8279D97
 	case 0, ContestLobby_EventScript_ExplainContests
 	case 1, ContestLobby_EventScript_ExplainContestTypes
 	case 2, ContestLobby_EventScript_ExplainContestRanks
-	case 3, ContestLobby_EventScript_AskEnterContest
+	case 3, ContestLobby_EventScript_ExplainContestPrizes
+	case 4, ContestLobby_EventScript_AskEnterContest
 	case MULTI_B_PRESSED, ContestLobby_EventScript_AskEnterContest
 	end
 
@@ -130,6 +131,11 @@ ContestLobby_EventScript_ExplainContestTypes:: @ 8279DED
 
 ContestLobby_EventScript_ExplainContestRanks:: @ 8279DFB
 	msgbox ContestLobby_Text_ExplainContestRanks, MSGBOX_DEFAULT
+	goto ContestLobby_EventScript_ContestInfo
+	end
+
+ContestLobby_EventScript_ExplainContestPrizes::
+	msgbox ContestLobby_Text_ExplainContestPrizes, MSGBOX_DEFAULT
 	goto ContestLobby_EventScript_ContestInfo
 	end
 
@@ -1763,6 +1769,23 @@ ContestLobby_Text_ExplainContestRanks: @ 827B221
 	.string "A Pokémon that won in the Master Rank\n"
 	.string "may compete in the Master Rank as\l"
 	.string "often as its Trainer wants.$"
+
+ContestLobby_Text_ExplainContestPrizes:
+	.string "If you manage to win a Contest,\n"
+	.string "you'll earn some prizes!\p"
+	.string "For each Contest Category and Rank,\n"
+	.string "your Pokémon will earn a unique Ribbon.\p"
+	.string "Additionally, you'll win a specific\n"
+	.string "Berry.\p"
+	.string "The Berry you recieve depends on the\n"
+	.string "Category and Rank of the Contest.\p"
+	.string "Winning higher Ranks will reward you\n"
+	.string "with rarer Berries.\p"
+	.string "You'll find that these Berries are\n"
+	.string "paticularly useful for Berry Blending.\p"
+	.string "Win some Contests, earn Berries, and\n"
+	.string "blend them to improve your Pokémon's\l"
+	.string "Condition to help win higher Ranks!$"
 
 ContestLobby_Text_EnterWhichRank: @ 827B3FF
 	.string "Which Rank would you like to enter?$"

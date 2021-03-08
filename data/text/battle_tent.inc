@@ -1,3 +1,6 @@
+BattleTentLobby_Text_WhichTopic:
+	.string "What topic do you wish to learn about?$"
+
 FallarborTown_BattleTentLobby_Text_WelcomeToBattleTent: @ 82C47EB
 	.string "I welcome you to the Battle Tent\n"
 	.string "Fallabor Site!\p"
@@ -27,10 +30,19 @@ FallarborTown_BattleTentLobby_Text_ExplainFallarborTent: @ 82C48AC
 	.string "If you wish to interrupt your challenge,\n"
 	.string "please save the game.\p"
 	.string "If you don't save, you will not be able\n"
-	.string "to continue with your challenge.\p"
+	.string "to continue with your challenge.$"
+
+FallarborTown_BattleTentLobby_Text_ExplainFallarborTentPrizes:
 	.string "If you pull off the feat of beating\n"
 	.string "three Trainers in succession,\l"
-	.string "we will present you with a fine prize.$"
+	.string "we will present you with a fine prize.\p"
+	.string "In this Battle Tent, you will earn one\n"
+	.string "of eighteen different Berries.\p"
+	.string "Each of these Berries have the special\n"
+	.string "effect of reducing incoming damage if\l"
+	.string "it would be super effective.\p"
+	.string "Using these Berries in the right\n"
+	.string "situation can make all the difference!$"
 
 FallarborTown_BattleTentLobby_Text_SaveBeforeChallenge: @ 82C4B35
 	.string "Before showing you to the Battle\n"
@@ -139,13 +151,23 @@ MauvilleCity_BattleTentLobby_Text_ExplainMauvilleTent: @ 82C5163
 	.string "to their nature and battle on their own.\p"
 	.string "You must put your trust in your\n"
 	.string "Pokémon and watch over them.\p"
-	.string "If you achieve the honor of beating\n"
-	.string "three Trainers in succession,\l"
-	.string "we will present you with a prize.\p"
 	.string "If you want to interrupt your\n"
 	.string "challenge, please save the game.\p"
 	.string "If you don't save before interrupting,\n"
 	.string "you will be disqualified.$"
+
+MauvilleCity_BattleTentLobby_Text_ExplainMauvilleTentPrizes:
+	.string "If you achieve the honor of beating\n"
+	.string "three Trainers in succession,\l"
+	.string "we will present you with a Mint.\p"
+	.string "These Mints come in a variety of\n"
+	.string "scents and have a lasting effect on\l"
+	.string "any Pokémon that smells one.\p"
+	.string "Depending on the Mint, the Pokémon's\n"
+	.string "stats will be affected differently.\p"
+	.string "With the right Mint, your Pokémon's\n"
+	.string "stats can better align with their\l"
+	.string "natural strengths!$"
 
 MauvilleCity_BattleTentLobby_Text_ReturnFortified: @ 82C539A
 	.string "When you have fortified your heart\n"
@@ -239,6 +261,29 @@ RustboroCity_BattleTentLobby_Text_ExplainRustboroTent: @ 82C589C
 	.string "challenge, please save the game.\p"
 	.string "If you don't save before interrupting,\n"
 	.string "you will be disqualified.$"
+
+RustboroCity_BattleTentLobby_Text_ExplainRustboroTentPrizes:
+	.string "If you win three battles in a row,\n"
+	.string "you'll win one of two prizes.\p"
+	.string "The first is a Heart Scale. It doesn't\n"
+	.string "do much on its own, but I hear there's\l"
+	.string "a collector out in Fallarbor who may be\l"
+	.string "interested in them.\p"
+	.string "Rumor is, if you bring him a Heart Scale,\n"
+	.string "he'll teach one of your Pokémon a move\l"
+	.string "it could normally only inherit from its\l"
+	.string "parents. Don't ask me how he does it!\p"
+	.string "The second possible prize is called an\n"
+	.string "Ability Capsule.\p"
+	.string "Using this item on a Pokémon can change\n"
+	.string "its Ability!\p"
+	.string "It can only be used on a Pokémon species\n"
+	.string "that is known to have two common\l"
+	.string "abilities.\p"
+	.string "It cannot be used on a Pokémon that has\n"
+	.string "a Hidden Ability.\p"
+	.string "Take full advantage of your Pokémon's\n"
+	.string "Abilities!$"
 
 RustboroCity_BattleTentLobby_Text_LookForwardToNextVisit: @ 82C5AA5
 	.string "We look forward to your next visit.$"

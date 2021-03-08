@@ -100,10 +100,10 @@ RustboroCity_BattleTentLobby_EventScript_Attendant:: @ 82088AA
 RustboroCity_BattleTentLobby_EventScript_AskEnterChallenge:: @ 82088CA
 	message RustboroCity_BattleTentLobby_Text_TakeChallenge
 	waitmessage
-	multichoice 17, 6, MULTI_CHALLENGEINFO, 0
+	multichoice 0, 0, MULTI_CHALLENGEINFO, 0
 	switch VAR_RESULT
 	case 0, RustboroCity_BattleTentLobby_EventScript_TryEnterChallenge
-	case 1, RustboroCity_BattleTentLobby_EventScript_ExplainChallenge
+	case 1, RustboroCity_BattleTentLobby_EventScript_BattleTentInfo
 	case 2, RustboroCity_BattleTentLobby_EventScript_CancelChallenge
 	case MULTI_B_PRESSED, RustboroCity_BattleTentLobby_EventScript_CancelChallenge
 
@@ -138,6 +138,25 @@ RustboroCity_BattleTentLobby_EventScript_EnterChallenge:: @ 82089AC
 	setvar VAR_TEMP_0, 0
 	waitstate
 	end
+
+RustboroCity_BattleTentLobby_EventScript_BattleTentInfo::
+	message BattleTentLobby_Text_WhichTopic
+	waitmessage
+	multichoice 0, 0, MULTI_BATTLE_TENT_INFO, 0
+	switch VAR_RESULT
+	case 0, RustboroCity_BattleTentLobby_EventScript_ExplainChallenge
+	case 1, RustboroCity_BattleTentLobby_EventScript_ExplainPrizes
+	case 2, RustboroCity_BattleTentLobby_EventScript_AskEnterChallenge
+	case MULTI_B_PRESSED, RustboroCity_BattleTentLobby_EventScript_AskEnterChallenge
+	end
+
+RustboroCity_BattleTentLobby_EventScript_ExplainChallenge:: @ 8200169
+	msgbox RustboroCity_BattleTentLobby_Text_ExplainRustboroTent, MSGBOX_DEFAULT
+	goto RustboroCity_BattleTentLobby_EventScript_BattleTentInfo
+
+RustboroCity_BattleTentLobby_EventScript_ExplainPrizes::
+	msgbox RustboroCity_BattleTentLobby_Text_ExplainRustboroTentPrizes, MSGBOX_DEFAULT
+	goto RustboroCity_BattleTentLobby_EventScript_BattleTentInfo
 
 RustboroCity_BattleTentLobby_EventScript_WalkToDoor:: @ 82089C9
 	applymovement LOCALID_ATTENDANT, RustboroCity_BattleTentLobby_Movement_AttendantWalkToDoor
@@ -174,10 +193,6 @@ RustboroCity_BattleTentLobby_Movement_PlayerEnterDoor: @ 8208A03
 	walk_up
 	set_invisible
 	step_end
-
-RustboroCity_BattleTentLobby_EventScript_ExplainChallenge:: @ 8208A07
-	msgbox RustboroCity_BattleTentLobby_Text_ExplainRustboroTent, MSGBOX_DEFAULT
-	goto RustboroCity_BattleTentLobby_EventScript_AskEnterChallenge
 
 RustboroCity_BattleTentLobby_EventScript_CancelChallengeSaveFailed:: @ 8208A14
 	frontier_set FRONTIER_DATA_CHALLENGE_STATUS, 0
