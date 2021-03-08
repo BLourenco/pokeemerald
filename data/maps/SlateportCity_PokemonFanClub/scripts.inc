@@ -277,8 +277,8 @@ SlateportCity_PokemonFanClub_Text_MeetChairman: @ 820A233
 	.string "Pokémon Contests.\p"
 	.string "They're events where one can show off\n"
 	.string "Pokémon for the world to see!\p"
-	.string "However, they're held in far-off towns,\n"
-	.string "so I cannot participate often enough.\p"
+	.string "All of us here are big fans of\n"
+	.string "Contests and raising Pokémon!\p"
 	.string "That is why we gather here to show\n"
 	.string "off our Pokémon, and have others\l"
 	.string "show us theirs.$"
@@ -292,7 +292,7 @@ SlateportCity_PokemonFanClub_Text_AllowMeToExamineYourPokemon: @ 820A445
 	.string "Er-hem! I see you've participated in\n"
 	.string "a Pokémon Contest!\p"
 	.string "Please! Allow me to examine how you\n"
-	.string "have raised your Pokémon.\p"
+	.string "have raised your Pokémon's Condition.\p"
 	.string "It delights me no end to see Pokémon\n"
 	.string "raised by other Trainers.\p"
 	.string "The happy expressions of Pokémon\n"
@@ -307,7 +307,7 @@ SlateportCity_PokemonFanClub_Text_AllowMeToExamineYourPokemon: @ 820A445
 	.string "your Pokémon has grown!$"
 
 SlateportCity_PokemonFanClub_Text_HowIsYourPokemonGrowing: @ 820A62A
-	.string "How is your Pokémon growing?\n"
+	.string "How is your Pokémon's Condition?\n"
 	.string "Allow me to examine it.$"
 
 SlateportCity_PokemonFanClub_Text_HmHmISee: @ 820A65F
@@ -333,33 +333,47 @@ SlateportCity_PokemonFanClub_Text_MonMostImpressiveGiveItThis: @ 820A795
 	.string "Your {STR_VAR_1}, it is growing in\n"
 	.string "a most impressive manner!\l"
 	.string "It is one fine specimen!\p"
-	.string "But! If you were to give it this,\n"
-	.string "it would grow even better! Indeed!$"
+	.string "Please! Take this scarf!$"
 
 SlateportCity_PokemonFanClub_Text_ExplainRedScarf: @ 820A827
-	.string "Let a Pokémon hold that Red Scarf.\p"
+	.string "Let a Pokémon hold that Red Scarf\n"
+	.string "during a Cool Contest.\p"
 	.string "Everyone will recognize the coolness\n"
-	.string "of that Pokémon!$"
+	.string "of that Pokémon, and it will be more\l"
+	.string "popular with the audience during\l"
+	.string "Primary judging.$"
 
 SlateportCity_PokemonFanClub_Text_ExplainBlueScarf: @ 820A880
-	.string "Let a Pokémon hold that Blue Scarf.\p"
+	.string "Let a Pokémon hold that Blue Scarf\n"
+	.string "during a Beauty Contest.\p"
 	.string "Its beauty will be accentuated much\n"
-	.string "more than now!$"
+	.string "more than now, and it will be more\l"
+	.string "popular with the audience during\l"
+	.string "Primary judging.$"
 
 SlateportCity_PokemonFanClub_Text_ExplainPinkScarf: @ 820A8D7
-	.string "Let a Pokémon hold that Pink Scarf.\p"
+	.string "Let a Pokémon hold that Pink Scarf\n"
+	.string "during a Cute Contest.\p"
 	.string "It will draw out the cuteness of\n"
-	.string "the Pokémon some more!$"
+	.string "the Pokémon some more, and it will be\l"
+	.string "more popular with the audience during\l"
+	.string "Primary judging.$"
 
 SlateportCity_PokemonFanClub_Text_ExplainGreenScarf: @ 820A933
-	.string "Let a Pokémon hold that Green Scarf.\p"
+	.string "Let a Pokémon hold that Green Scarf\n"
+	.string "during a Smart Contest.\p"
 	.string "That will enhance the\n"
-	.string "smartness of Pokémon!$"
+	.string "cleverness of Pokémon, and it will be\l"
+	.string "more popular with the audience during\l"
+	.string "Primary judging.$"
 
 SlateportCity_PokemonFanClub_Text_ExplainYellowScarf: @ 820A984
-	.string "Let a Pokémon hold that Yellow Scarf.\p"
+	.string "Let a Pokémon hold that Yellow Scarf\n"
+	.string "during a Tough Contest.\p"
 	.string "It will bolster your Pokémon's\n"
-	.string "toughness so much more!$"
+	.string "toughness so much more, and it will be\l"
+	.string "more popular with the audience during\l"
+	.string "Primary judging.$"
 
 SlateportCity_PokemonFanClub_Text_NothingElseToGiveYou: @ 820A9E1
 	.string "I'm sorry, but I've nothing else to\n"
