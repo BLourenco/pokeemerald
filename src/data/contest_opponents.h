@@ -195,20 +195,29 @@ const struct ContestWinner gDefaultContestWinners[] =
     {
         .personality = 0,
         .trainerId = 0xFFFF,
-        .species = SPECIES_LOUDRED,
-        .contestCategory = CONTEST_CATEGORY_BEAUTY,
-        .monName = _("Louded"),
-        .trainerName = _("Bryant"),
-        .contestRank = CONTEST_RANK_HYPER
+        .species = SPECIES_MAKUHITA,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .monName = _("Mahita"),
+        .trainerName = _("Morris"),
+        .contestRank = CONTEST_RANK_NORMAL
     },
     {
         .personality = 0,
         .trainerId = 0xFFFF,
-        .species = SPECIES_DELCATTY,
-        .contestCategory = CONTEST_CATEGORY_CUTE,
-        .monName = _("Kitsy"),
-        .trainerName = _("Omar"),
-        .contestRank = CONTEST_RANK_MASTER
+        .species = SPECIES_BRELOOM,
+        .contestCategory = CONTEST_CATEGORY_BEAUTY,
+        .monName = _("Brelo"),
+        .trainerName = _("Liana"),
+        .contestRank = CONTEST_RANK_SUPER
+    },
+    {
+        .personality = 0,
+        .trainerId = 0xFFFF,
+        .species = SPECIES_PELIPPER,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .monName = _("Pelep"),
+        .trainerName = _("Tiera"),
+        .contestRank = CONTEST_RANK_HYPER
     }
 };
 

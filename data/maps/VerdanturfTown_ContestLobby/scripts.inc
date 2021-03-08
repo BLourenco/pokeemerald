@@ -110,6 +110,13 @@ VerdanturfTown_ContestLobby_EventScript_ContestReceptionist::
 	goto ContestLobby_EventScript_ContestReceptionist
 	end
 
+VerdanturfTown_ContestLobby_EventScript_ContestWinner::
+	lockall
+	fadescreen FADE_TO_BLACK
+	showcontestwinner CONTEST_WINNER_VERDANTURF_HALL
+	releaseall
+	end
+
 VerdanturfTown_ContestLobby_Text_Lass:
 	.string "Hi, are you making any {POKEBLOCK}s?\p"
 	.string "You should come by with a bunch of\n"

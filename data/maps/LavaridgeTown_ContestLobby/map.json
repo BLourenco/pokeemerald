@@ -169,6 +169,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LilycoveCity_ContestLobby_EventScript_BerryBlenderSpeedRecords"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LavaridgeTown_ContestLobby_EventScript_ContestWinner"
     }
   ]
 }

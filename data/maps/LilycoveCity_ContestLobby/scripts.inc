@@ -367,42 +367,42 @@ LilycoveCity_ContestLobby_EventScript_NinjaBoy:: @ 821A735
 LilycoveCity_ContestLobby_EventScript_ContestWinner1:: @ 821A73E
 	lockall
 	fadescreen FADE_TO_BLACK
-	showcontestwinner CONTEST_WINNER_HALL_1
+	showcontestwinner CONTEST_WINNER_LILYCOVE_HALL_1
 	releaseall
 	end
 
 LilycoveCity_ContestLobby_EventScript_ContestWinner2:: @ 821A745
 	lockall
 	fadescreen FADE_TO_BLACK
-	showcontestwinner CONTEST_WINNER_HALL_2
+	showcontestwinner CONTEST_WINNER_LILYCOVE_HALL_2
 	releaseall
 	end
 
 LilycoveCity_ContestLobby_EventScript_ContestWinner3:: @ 821A74C
 	lockall
 	fadescreen FADE_TO_BLACK
-	showcontestwinner CONTEST_WINNER_HALL_3
+	showcontestwinner CONTEST_WINNER_LILYCOVE_HALL_3
 	releaseall
 	end
 
 LilycoveCity_ContestLobby_EventScript_ContestWinner4:: @ 821A753
 	lockall
 	fadescreen FADE_TO_BLACK
-	showcontestwinner CONTEST_WINNER_HALL_4
+	showcontestwinner CONTEST_WINNER_LILYCOVE_HALL_4
 	releaseall
 	end
 
 LilycoveCity_ContestLobby_EventScript_ContestWinner5:: @ 821A75A
 	lockall
 	fadescreen FADE_TO_BLACK
-	showcontestwinner CONTEST_WINNER_HALL_5
+	showcontestwinner CONTEST_WINNER_LILYCOVE_HALL_5
 	releaseall
 	end
 
 LilycoveCity_ContestLobby_EventScript_ContestWinner6:: @ 821A761
 	lockall
 	fadescreen FADE_TO_BLACK
-	showcontestwinner CONTEST_WINNER_HALL_6
+	showcontestwinner CONTEST_WINNER_LILYCOVE_HALL_6
 	releaseall
 	end
 

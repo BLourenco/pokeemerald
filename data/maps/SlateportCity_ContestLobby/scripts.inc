@@ -59,6 +59,13 @@ SlateportCity_ContestLobby_EventScript_ContestReceptionist::
 	goto ContestLobby_EventScript_ContestReceptionist
 	end
 
+SlateportCity_ContestLobby_EventScript_ContestWinner::
+	lockall
+	fadescreen FADE_TO_BLACK
+	showcontestwinner CONTEST_WINNER_SLATEPORT_HALL
+	releaseall
+	end
+
 SlateportCity_ContestLobby_Text_LadyGaveMePokeblockCase:
 	.string "Yippee!\p"
 	.string "The lady at the reception counter\n"

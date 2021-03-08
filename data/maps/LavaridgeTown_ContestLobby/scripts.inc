@@ -76,6 +76,13 @@ LavaridgeTown_ContestLobby_EventScript_ContestReceptionist::
 	goto ContestLobby_EventScript_ContestReceptionist
 	end
 
+LavaridgeTown_ContestLobby_EventScript_ContestWinner::
+	lockall
+	fadescreen FADE_TO_BLACK
+	showcontestwinner CONTEST_WINNER_LAVARIDGE_HALL
+	releaseall
+	end
+
 LavaridgeTown_ContestLobby_Text_Man:
 	.string "I want to raise a Pokémon that's\n"
 	.string "the ultimate in “great” for both\l"

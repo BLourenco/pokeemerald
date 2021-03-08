@@ -290,7 +290,7 @@ static void PrintContestPaintingCaption(u8 contestType, bool8 arg1)
         return;
 
     category = gContestPaintingWinner->contestCategory;
-    if (contestType < 8)
+    if (contestType < NUM_TOTAL_CONTEST_HALL_WINNERS)
     {
         BufferContestName(gStringVar1, category);
         StringAppend(gStringVar1, gText_Space);
@@ -464,7 +464,7 @@ static void LoadContestPaintingFrame(u8 contestWinnerId, bool8 arg1)
         for (x = 0; x < 16; x++)
             VRAM_PICTURE_DATA(x + 7, 2) = (*gContestMonPixels)[2][7];
     }
-    else if (contestWinnerId < 8)
+    else if (contestWinnerId < NUM_TOTAL_CONTEST_HALL_WINNERS)
     {
         RLUnCompVram(gPictureFrameTiles_5, (void *)VRAM);
         RLUnCompVram(gPictureFrameTilemap_5, (void *)(BG_SCREEN_ADDR(12)));

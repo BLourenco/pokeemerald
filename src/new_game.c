@@ -118,7 +118,7 @@ void ClearAllContestWinnerPics(void)
     s32 i;
 
     ClearContestWinnerPicsInContestHall();
-    for (i = 8; i < 13; i++)
+    for (i = NUM_TOTAL_CONTEST_HALL_WINNERS; i < NUM_CONTEST_WINNERS; i++)
         gSaveBlock1Ptr->contestWinners[i] = sContestWinnerPicDummy;
 }
 

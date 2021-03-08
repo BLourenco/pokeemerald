@@ -5583,7 +5583,24 @@ bool8 sub_80DEDA8(u8 rank)
     }
     if (rank != 0xFE)
     {
-        u8 id = sub_80DEFA8(rank, 1);
+        u16 hall = VarGet(VAR_CONTEST_LOBBY_MAP);
+        u8 id;
+
+        switch (hall)
+        {
+            case MAP_SLATEPORT_CITY_CONTEST_LOBBY:
+                id = CONTEST_WINNER_SLATEPORT_HALL - 1;
+                break;
+            case MAP_VERDANTURF_TOWN_CONTEST_LOBBY:
+                id = CONTEST_WINNER_VERDANTURF_HALL - 1;
+                break;
+            case MAP_LAVARIDGE_TOWN_CONTEST_LOBBY:
+                id = CONTEST_WINNER_LAVARIDGE_HALL - 1;
+                break;
+            default:
+                id = sub_80DEFA8(rank, 1);
+                break;
+        }
 
         gSaveBlock1Ptr->contestWinners[id].personality = gContestMons[i].personality;
         gSaveBlock1Ptr->contestWinners[id].species = gContestMons[i].species;
@@ -5624,7 +5641,7 @@ u8 sub_80DEFA8(u8 rank, u8 b)
     case CONTEST_RANK_MASTER:
         if (b != 0)
         {
-            for (i = NUM_CONTEST_HALL_WINNERS - 1; i >= 1; i--)
+            for (i = NUM_LILYCOVE_CONTEST_HALL_WINNERS - 1; i >= 1; i--)
                 memcpy(&gSaveBlock1Ptr->contestWinners[i], &gSaveBlock1Ptr->contestWinners[i - 1], sizeof(struct ContestWinner));
         }
         return 0;
@@ -5650,7 +5667,7 @@ void ClearContestWinnerPicsInContestHall(void)
 {
     s32 i;
 
-    for (i = 0; i < 8; i++)
+    for (i = 0; i < NUM_TOTAL_CONTEST_HALL_WINNERS; i++)
         gSaveBlock1Ptr->contestWinners[i] = gDefaultContestWinners[i];
 }
 

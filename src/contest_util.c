@@ -640,7 +640,7 @@ static void Task_ShowContestResults(u8 taskId)
             sub_80DEDA8(gSpecialVar_ContestRank);
             sub_80DEDA8(0xFE);
             gUnknown_02039F5C = TRUE;
-            gUnknown_02039F5D = sub_80DEFA8(0xFE, 0);
+            gUnknown_02039F5D = VarGet(VAR_CONTEST_LOBBY_MAP) == MAP_LILYCOVE_CITY_CONTEST_LOBBY ? sub_80DEFA8(0xFE, 0) : 0;
             TryGainNewFanFromCounter(FANCOUNTER_FINISHED_CONTEST);
             gTasks[taskId].func = Task_AnnouncePreliminaryResults;
         }
@@ -2333,9 +2333,9 @@ u8 CountPlayerContestPaintings(void)
     int i;
     u8 count = 0;
 
-    for (i = 0; i < 5; i++)
+    for (i = 0; i < NUM_MUSEUM_CONTEST_WINNERS; i++)
     {
-        if (gSaveBlock1Ptr->contestWinners[8 + i].species)
+        if (gSaveBlock1Ptr->contestWinners[NUM_TOTAL_CONTEST_HALL_WINNERS + i].species)
             count++;
     }
 
