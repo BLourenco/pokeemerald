@@ -159,7 +159,7 @@ static const u8 sBerryDescriptionPart2_Jaboca[] = _("will pop if not handled car
 static const u8 sBerryDescriptionPart1_Rowap[] = _("A very rare Berry. It's so sour");
 static const u8 sBerryDescriptionPart2_Rowap[] = _("that it can make people cry.");
 static const u8 sBerryDescriptionPart1_Kee[] = _("A rare Berry. First it tastes spicy,");
-static const u8 sBerryDescriptionPart2_Kee[] = _("followed by extreme bitterness");
+static const u8 sBerryDescriptionPart2_Kee[] = _("followed by extreme bitterness.");
 static const u8 sBerryDescriptionPart1_Maranga[] = _("A rare Berry. Its outside is bitter,");
 static const u8 sBerryDescriptionPart2_Maranga[] = _("but its inside is like a sweet drink.");
 

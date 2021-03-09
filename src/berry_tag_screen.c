@@ -549,13 +549,13 @@ static void Task_HandleInput(u8 taskId)
 static void TryChangeDisplayedBerry(u8 taskId, s8 toMove)
 {
     s16 *data = gTasks[taskId].data;
-    s16 currPocketPosition = gBagPositionStruct.scrollPosition[3] + gBagPositionStruct.cursorPosition[3];
+    s16 currPocketPosition = gBagPositionStruct.scrollPosition[POCKET_BERRIES - 1] + gBagPositionStruct.cursorPosition[POCKET_BERRIES - 1];
     u32 newPocketPosition = currPocketPosition + toMove;
     if (newPocketPosition < BAG_BERRIES_COUNT && BagGetItemIdByPocketPosition(POCKET_BERRIES, newPocketPosition) != 0)
     {
-        if (toMove < 0)
+        if (toMove < 0) // Move up
             data[1] = 2;
-        else
+        else            // Move down
             data[1] = 1;
 
         data[0] = 0;
@@ -567,8 +567,8 @@ static void TryChangeDisplayedBerry(u8 taskId, s8 toMove)
 
 static void HandleBagCursorPositionChange(s8 toMove)
 {
-    u16 *scrollPos = &gBagPositionStruct.scrollPosition[3];
-    u16 *cursorPos = &gBagPositionStruct.cursorPosition[3];
+    u16 *scrollPos = &gBagPositionStruct.scrollPosition[POCKET_BERRIES - 1];
+    u16 *cursorPos = &gBagPositionStruct.cursorPosition[POCKET_BERRIES - 1];
     if (toMove > 0)
     {
         if (*cursorPos < 4 || BagGetItemIdByPocketPosition(POCKET_BERRIES, *scrollPos + 8) == 0)
