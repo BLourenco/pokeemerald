@@ -1195,17 +1195,33 @@ void Task_HandleChooseMonInput(u8 taskId)
 
         switch (PartyMenuButtonHandler(slotPtr))
         {
-        case 1: // Selected mon
+        case A_BUTTON: // Selected mon
             HandleChooseMonSelection(taskId, slotPtr);
             break;
-        case 2: // Selected Cancel
+        case B_BUTTON: // Selected Cancel
             HandleChooseMonCancel(taskId, slotPtr);
             break;
-        case 8: // Start button
+        case START_BUTTON: // Start button
             if (sPartyMenuInternal->chooseHalf)
             {
                 PlaySE(SE_SELECT);
                 MoveCursorToConfirm();
+            }
+            break;
+        case SELECT_BUTTON:
+            if (GetPartyMenuType() == PARTY_MENU_TYPE_FIELD 
+                && GetMonData(&gPlayerParty[1], MON_DATA_SPECIES) != SPECIES_NONE)
+            {
+                switch (gPartyMenu.action)
+                {
+                    case PARTY_ACTION_CHOOSE_MON:
+                        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[2]);
+                        sCursorOptions[MENU_SWITCH].func(taskId);
+                        break;
+                    case PARTY_ACTION_SWITCH:
+                        HandleChooseMonSelection(taskId, slotPtr);
+                        break;
+                }
             }
             break;
         }
@@ -1418,7 +1434,10 @@ static u16 PartyMenuButtonHandler(s8 *slotPtr)
     }
 
     if (JOY_NEW(START_BUTTON))
-        return 8;
+        return START_BUTTON;
+
+    if (JOY_NEW(SELECT_BUTTON))
+        return SELECT_BUTTON;
 
     if (movementDir)
     {
@@ -1428,7 +1447,7 @@ static u16 PartyMenuButtonHandler(s8 *slotPtr)
 
     // Pressed Cancel
     if ((JOY_NEW(A_BUTTON)) && *slotPtr == PARTY_SIZE + 1)
-        return 2;
+        return B_BUTTON;
 
     return JOY_NEW(A_BUTTON | B_BUTTON);
 }
