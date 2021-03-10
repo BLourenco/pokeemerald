@@ -41,7 +41,7 @@ Route117_PokemonDayCare_EventScript_DeclineEgg::
 	end
 
 Route117_PokemonDayCare_Text_HaveEggWillYouTakeIt:
-	.string "I left my Pokémon at the Day care,\n"
+	.string "I left my Pokémon at the Day Care,\n"
 	.string "and when I came back, there was an Egg!\p"
 	.string "Problem is, I don't think I can take\n"
 	.string "care of it. I'm just too busy!\p"
