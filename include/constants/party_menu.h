@@ -206,6 +206,16 @@
 #define PARTY_ACTION_REUSABLE_ITEM      14  // Unused. The only reusable items are handled separately
 #define PARTY_ACTION_SWITCH_ITEMS       15
 
+#define PARTY_SLOT_1            0
+#define PARTY_SLOT_2            1
+#define PARTY_SLOT_3            2
+#define PARTY_SLOT_4            3
+#define PARTY_SLOT_5            4
+#define PARTY_SLOT_6            5
+
+#define PARTY_SLOT_CONFIRM_BUTTON   PARTY_SIZE
+#define PARTY_SLOT_CANCEL_BUTTON    PARTY_SIZE + 1
+
 // IDs for DisplayPartyMenuStdMessage, to display the message at the bottom of the party menu
 #define PARTY_MSG_CHOOSE_MON                0
 #define PARTY_MSG_CHOOSE_MON_OR_CANCEL      1
