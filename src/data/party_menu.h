@@ -71,12 +71,12 @@ static const struct PartyMenuBoxInfoRects sPartyBoxInfoRects[] =
         BlitBitmapToPartyWindow_Equal, 
         {
             //The below are the x, y, width, and height for each of the following info
-            33,  2, 40, 13, // Nickname
-            11, 25, 32,  8, // Level 85,  1, 32,  8,
-           100,  2,  8,  8, // Gender 79,  1,  8,  8, 
-            70, 25, 24,  8, // HP
-            85, 25, 24,  8, // Max HP
-            48, 18, 56,  3  // Colored HP bar (Bar BG is part of the tiles)
+            33,  3, 40, 13, // Nickname
+            92,  3, 32,  8, // Level
+            85,  3,  8,  8, // Gender
+            78, 24, 24,  8, // HP
+            93, 24, 24,  8, // Max HP
+            56, 19, 56,  3  // Colored HP bar (Bar BG is part of the tiles)
         }, 
         41, 13, 64, 16      // Description text (e.g. "No use.", "Able", "Not able", "First", "Second", "Third")
     },//
@@ -90,12 +90,12 @@ static const u8 sPartyMenuSpriteCoords[PARTY_LAYOUT_COUNT][PARTY_SIZE][4 * 2] =
 {
     [PARTY_LAYOUT_SINGLE] = 
     {
-        { 24,  14,  14,  33,  64,  33,  21,  15},
-        {136,  22, 126,  41, 176,  41, 133,  23},
-        { 24,  54,  14,  73,  64,  73,  21,  55},
-        {136,  62, 126,  81, 176,  81, 133,  63},
-        { 24,  94,  14, 113,  64, 113,  21,  95},
-        {136, 102, 126, 121, 176, 121, 133, 103},
+        { 20,  14,  14,  33,  64,  33,  14,  15},
+        {140,  22, 126,  41, 176,  41, 134,  23},
+        { 20,  54,  14,  73,  64,  73,  14,  55},
+        {140,  62, 126,  81, 176,  81, 134,  63},
+        { 20,  94,  14, 113,  64, 113,  14,  95},
+        {140, 102, 126, 121, 176, 121, 134, 103},
     },
     [PARTY_LAYOUT_DOUBLE] = 
     {
@@ -213,9 +213,9 @@ static const struct WindowTemplate sSinglePartyMenuWindowTemplate_Equal[] = //Cu
 {
     {//Slot 0 left
         .bg = 0,
-        .tilemapLeft = 1,
+        .tilemapLeft = 0,
         .tilemapTop = 0,
-        .width = 14,
+        .width = 15,
         .height = 5,
         .paletteNum = 3,
         .baseBlock = 0x63,
@@ -224,46 +224,46 @@ static const struct WindowTemplate sSinglePartyMenuWindowTemplate_Equal[] = //Cu
         .bg = 0,
         .tilemapLeft = 15,
         .tilemapTop = 1,
-        .width = 14,
+        .width = 15,
         .height = 5,
         .paletteNum = 4,
-        .baseBlock = 0xA9,
+        .baseBlock = 0xAE,
     },
     {//Slot 2 left
         .bg = 0,
-        .tilemapLeft = 1,
+        .tilemapLeft = 0,
         .tilemapTop = 5,
-        .width = 14,
+        .width = 15,
         .height = 5,
         .paletteNum = 5,
-        .baseBlock = 0xEF, //0xDF,
+        .baseBlock = 0xF9,
     },
     {//Slot 3 right
         .bg = 0,
         .tilemapLeft = 15,
         .tilemapTop = 6,
-        .width = 14,
+        .width = 15,
         .height = 5,
         .paletteNum = 6,
-        .baseBlock = 0x135, //0x115,
+        .baseBlock = 0x144,
     },
     {//Slot 4 left
         .bg = 0,
-        .tilemapLeft = 1,
+        .tilemapLeft = 0,
         .tilemapTop = 10,
-        .width = 14,
+        .width = 15,
         .height = 5,
         .paletteNum = 7,
-        .baseBlock = 0x17B, //0x14B,
+        .baseBlock = 0x18F,
     },
     {//Slot 5 right
         .bg = 0,
         .tilemapLeft = 15,
         .tilemapTop = 11,
-        .width = 14,
+        .width = 15,
         .height = 5,
         .paletteNum = 8,
-        .baseBlock = 0x1C1, //0x181,
+        .baseBlock = 0x1DA,
     },
     {
         .bg = 2,
@@ -272,7 +272,7 @@ static const struct WindowTemplate sSinglePartyMenuWindowTemplate_Equal[] = //Cu
         .width = 28,
         .height = 4,
         .paletteNum = 14,
-        .baseBlock = 0x21F, //0x1DF,
+        .baseBlock = 0x231,//225
     },
     DUMMY_WIN_TEMPLATE
 };//
@@ -490,7 +490,7 @@ static const struct WindowTemplate sCancelButtonWindowTemplate_equal =
     .width = 6,
     .height = 2,
     .paletteNum = 3,
-    .baseBlock = 0x207, //0x1C7,  //Custom party menu
+    .baseBlock = 0x225, //0x1C7,  //Custom party menu
 };
 
 static const struct WindowTemplate sMultiCancelButtonWindowTemplate =
@@ -512,7 +512,7 @@ static const struct WindowTemplate sMultiCancelButtonWindowTemplate_equal =
     .width = 6,
     .height = 2,
     .paletteNum = 3,
-    .baseBlock = 0x207,
+    .baseBlock = 0x225,
 };
 
 static const struct WindowTemplate sConfirmButtonWindowTemplate =
@@ -533,7 +533,7 @@ static const struct WindowTemplate sConfirmButtonWindowTemplate_equal =
     .width = 6,
     .height = 2,
     .paletteNum = 3,
-    .baseBlock = 0x213, //0x1D3,  //Custom party menu
+    .baseBlock = 0x231,
 };
 
 static const struct WindowTemplate sDefaultPartyMsgWindowTemplate =
@@ -710,23 +710,23 @@ static const u8 sEmptySlotTileNums[] = {21, 22, 22, 22, 22, 22, 22, 22, 22, 22, 
 
 
  //Custom party menu
-static const u8 sEqualMainSlotTileNums[] =      {24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26,
-                                                 32, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 34,
-                                                 32, 33, 33, 33, 52, 53, 51, 51, 51, 51, 51, 51, 51, 54,
-                                                 40, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 42,
-                                                 55, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 57};
+static const u8 sEqualMainSlotTileNums[] =      {24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26,
+                                                 32, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 34,
+                                                 32, 33, 33, 33, 33, 52, 53, 51, 51, 51, 51, 51, 51, 51, 54,
+                                                 40, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 42,
+                                                 55, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 57};
 
-static const u8 sEqualMainSlotTileNums_Egg[] =  {24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26,
-                                                 32, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 34,
-                                                 32, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 34,
-                                                 40, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 42,
-                                                 55, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 57};
+static const u8 sEqualMainSlotTileNums_Egg[] =  {24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26,
+                                                 32, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 34,
+                                                 32, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 34,
+                                                 40, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 42,
+                                                 55, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 57};
 
-static const u8 sEqualEmptySlotTileNums[] = {21, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 23,
-                                             30, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 31,
-                                             30, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 31,
-                                             30, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 31,
-                                             37, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 39};
+static const u8 sEqualEmptySlotTileNums[] = {21, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 23,
+                                             30, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 31,
+                                             30, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 31,
+                                             30, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 31,
+                                             37, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 39};
 //
 // Palette offsets
 static const u8 sGenderPalOffsets[] = {11, 12};

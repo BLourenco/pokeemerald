@@ -84,10 +84,10 @@
 #define PARTY_PAL_NO_MON       (1 << 6)
 #define PARTY_PAL_UNUSED       (1 << 7)
 
-#define MENU_DIR_DOWN     1
-#define MENU_DIR_UP      -1
-#define MENU_DIR_RIGHT    2
-#define MENU_DIR_LEFT    -2
+#define MENU_DIR_DOWN     2
+#define MENU_DIR_UP      -2
+#define MENU_DIR_RIGHT    1
+#define MENU_DIR_LEFT    -1
 
 enum
 {
@@ -435,7 +435,7 @@ static void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCurs
         sPartyMenuInternal->messageId = messageId;
         sPartyMenuInternal->task = task;
         sPartyMenuInternal->exitCallback = NULL;
-        sPartyMenuInternal->lastSelectedSlot = PARTY_SLOT_1;
+        sPartyMenuInternal->lastSelectedSlot = PARTY_SLOT_MON_1;
         sPartyMenuInternal->spriteIdConfirmPokeball = 0x7F;
         sPartyMenuInternal->spriteIdCancelPokeball = 0x7F;
 
@@ -739,7 +739,7 @@ static void InitPartyMenuBoxes(u8 layout)
     {
         sPartyMenuBoxes[i].infoRects = &sPartyBoxInfoRects[PARTY_BOX_RIGHT_COLUMN];
         if (layout == PARTY_LAYOUT_SINGLE)  //Custom party menu
-            sPartyMenuBoxes[i].infoRects = &sPartyBoxInfoRects[PARTY_BOX_EQUAL_COLUMN]; //
+            sPartyMenuBoxes[i].infoRects = &sPartyBoxInfoRects[PARTY_BOX_EQUAL_COLUMN];
         sPartyMenuBoxes[i].spriteCoords = sPartyMenuSpriteCoords[layout][i];
         sPartyMenuBoxes[i].windowId = i;
         sPartyMenuBoxes[i].monSpriteId = 0xFF;
@@ -749,7 +749,7 @@ static void InitPartyMenuBoxes(u8 layout)
     }
     // The first party mon goes in the left column
     if (layout != PARTY_LAYOUT_SINGLE) //Custom party menu
-    sPartyMenuBoxes[0].infoRects = &sPartyBoxInfoRects[PARTY_BOX_LEFT_COLUMN];
+        sPartyMenuBoxes[0].infoRects = &sPartyBoxInfoRects[PARTY_BOX_LEFT_COLUMN];
 
     if (layout == PARTY_LAYOUT_MULTI_SHOWCASE)
         sPartyMenuBoxes[3].infoRects = &sPartyBoxInfoRects[PARTY_BOX_LEFT_COLUMN];
@@ -1484,12 +1484,13 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
         case MENU_DIR_UP:
             switch (*slotPtr)
             {
-                case PARTY_SLOT_1:
-                case PARTY_SLOT_2:
+                case PARTY_SLOT_MON_1:
+                case PARTY_SLOT_MON_2:
                     SetSlotPtr(slotPtr, PARTY_SLOT_CANCEL_BUTTON);
                     break;
                 case PARTY_SLOT_CONFIRM_BUTTON:
                     SetSlotPtr(slotPtr, GetLastMonSlotInLastColumnSingleLayout());
+                    break;
                 case PARTY_SLOT_CANCEL_BUTTON:
                     if (sPartyMenuInternal->chooseHalf)
                         SetSlotPtr(slotPtr, PARTY_SLOT_CONFIRM_BUTTON);
@@ -1506,9 +1507,9 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
             {
                 case PARTY_SLOT_CANCEL_BUTTON:
                     if (sPartyMenuInternal->lastSelectedSlot % 2 == 0) // Slots 0, 2, 4 (Left side)
-                        SetSlotPtr(slotPtr, PARTY_SLOT_1);
+                        SetSlotPtr(slotPtr, PARTY_SLOT_MON_1);
                     else
-                        SetSlotPtr(slotPtr, PARTY_SLOT_2);
+                        SetSlotPtr(slotPtr, PARTY_SLOT_MON_2);
                     break;
                 case PARTY_SLOT_CONFIRM_BUTTON:
                     SetSlotPtr(slotPtr, PARTY_SLOT_CANCEL_BUTTON);
@@ -1533,7 +1534,7 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
             switch (*slotPtr)
             {
                 case PARTY_SLOT_CANCEL_BUTTON:
-                    SetSlotPtr(slotPtr, PARTY_SLOT_1);
+                    SetSlotPtr(slotPtr, PARTY_SLOT_MON_1);
                     break;
                 default:
                     if (*slotPtr == PARTY_SLOT_LAST_MON)
@@ -1553,7 +1554,7 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
         case MENU_DIR_LEFT:
             switch (*slotPtr)
             {
-                case PARTY_SLOT_1:
+                case PARTY_SLOT_MON_1:
                     SetSlotPtr(slotPtr, PARTY_SLOT_CANCEL_BUTTON);
                     break;
                 case PARTY_SLOT_CANCEL_BUTTON:
@@ -1701,7 +1702,7 @@ static void SetSlotPtr(s8 *slotPtr, s8 slotId)
         
         SetSlotPtr(slotPtr, newSlotId); // Try again in the new slot
     }
-    else if (slotId < PARTY_SLOT_1)
+    else if (slotId < PARTY_SLOT_MON_1)
     {
         SetSlotPtr(slotPtr, PARTY_SLOT_CANCEL_BUTTON);
     }
@@ -1721,27 +1722,27 @@ static s8 GetLastMonSlotInLastColumnSingleLayout()
 {
     switch (sPartyMenuInternal->lastSelectedSlot)
     {
-        case PARTY_SLOT_1:
-        case PARTY_SLOT_3:
-        case PARTY_SLOT_5:
+        case PARTY_SLOT_MON_1:
+        case PARTY_SLOT_MON_3:
+        case PARTY_SLOT_MON_5:
             if (gPlayerPartyCount >= 5)
-                return PARTY_SLOT_5;
+                return PARTY_SLOT_MON_5;
             else if (gPlayerPartyCount >= 3)
-                return PARTY_SLOT_3;
+                return PARTY_SLOT_MON_3;
             else
-                return PARTY_SLOT_1;
+                return PARTY_SLOT_MON_1;
             break;
-        case PARTY_SLOT_2:
-        case PARTY_SLOT_4:
-        case PARTY_SLOT_6:
+        case PARTY_SLOT_MON_2:
+        case PARTY_SLOT_MON_4:
+        case PARTY_SLOT_MON_6:
             if (gPlayerPartyCount == 6)
-                return PARTY_SLOT_6;
+                return PARTY_SLOT_MON_6;
             else if (gPlayerPartyCount >= 4)
-                return PARTY_SLOT_4;
+                return PARTY_SLOT_MON_4;
             else if (gPlayerPartyCount >= 2)
-                return PARTY_SLOT_2;
+                return PARTY_SLOT_MON_2;
             else
-                return PARTY_SLOT_1;
+                return PARTY_SLOT_MON_1;
             break;
         default:
             return gPlayerPartyCount - 1;
@@ -2232,7 +2233,7 @@ static u16* GetPartyMenuPalBufferPtr(u8 paletteId)
     return &sPartyMenuInternal->palBuffer[paletteId];
 }
 
-static void BlitBitmapToPartyWindow(u8 windowId, const u8 *b, u8 c, u8 x, u8 y, u8 width, u8 height)
+static void BlitBitmapToPartyWindow(u8 windowId, const u8 *slotTileNums, u8 c, u8 x, u8 y, u8 width, u8 height)
 {
     u8 *pixels = AllocZeroed(height * width * 32);
     u8 i, j;
@@ -2242,7 +2243,7 @@ static void BlitBitmapToPartyWindow(u8 windowId, const u8 *b, u8 c, u8 x, u8 y, 
         for (i = 0; i < height; i++)
         {
             for (j = 0; j < width; j++)
-                CpuCopy16(GetPartyMenuBgTile(b[x + j + ((y + i) * c)]), &pixels[(i * width + j) * 32], 32);
+                CpuCopy16(GetPartyMenuBgTile(slotTileNums[x + j + ((y + i) * c)]), &pixels[(i * width + j) * 32], 32);
         }
         BlitBitmapToWindow(windowId, pixels, x * 8, y * 8, width * 8, height * 8);
         Free(pixels);
@@ -2278,7 +2279,7 @@ static void BlitBitmapToPartyWindow_RightColumn(u8 windowId, u8 x, u8 y, u8 widt
 static void DrawEmptySlot(u8 windowId)
 {
     if (gPartyMenu.layout == PARTY_LAYOUT_SINGLE) //Custom party menu
-        BlitBitmapToPartyWindow(windowId, sEqualEmptySlotTileNums, 14, 0, 0, 14, 5);//
+        BlitBitmapToPartyWindow(windowId, sEqualEmptySlotTileNums, 15, 0, 0, 15, 5);//
     else
         BlitBitmapToPartyWindow(windowId, sEmptySlotTileNums, 18, 0, 0, 18, 3);
 }
@@ -2288,18 +2289,18 @@ static void BlitBitmapToPartyWindow_Equal(u8 windowId, u8 x, u8 y, u8 width, u8 
 {
     if (width == 0 && height == 0)
     {
-        width = 14;
+        width = 15;
         height = 5;
     }
     if (isEgg == FALSE)
-        BlitBitmapToPartyWindow(windowId, sEqualMainSlotTileNums, 14, x, y, width, height);
+        BlitBitmapToPartyWindow(windowId, sEqualMainSlotTileNums, 15, x, y, width, height);
     else
-        BlitBitmapToPartyWindow(windowId, sEqualMainSlotTileNums_Egg, 14, x, y, width, height);
+        BlitBitmapToPartyWindow(windowId, sEqualMainSlotTileNums_Egg, 15, x, y, width, height);
 }
 
 static void DrawEmptySlot_Equal(u8 windowId)
 {
-    BlitBitmapToPartyWindow(windowId, sEqualEmptySlotTileNums, 14, 0, 0, 14, 5);
+    BlitBitmapToPartyWindow(windowId, sEqualEmptySlotTileNums, 15, 0, 0, 15, 5);
 }//
 
 #define LOAD_PARTY_BOX_PAL(paletteIds, paletteOffsets)                                    \
@@ -2964,11 +2965,8 @@ static void SwitchSelectedMons(u8 taskId)
         tSlot1Top = GetWindowAttribute(windowIds[0], WINDOW_TILEMAP_TOP);
         tSlot1Width = GetWindowAttribute(windowIds[0], WINDOW_WIDTH);
         tSlot1Height = GetWindowAttribute(windowIds[0], WINDOW_HEIGHT);
-        tSlot1BaseBlock = GetWindowAttribute(windowIds[0], WINDOW_BASE_BLOCK);  //Custom party menu
         tSlot1Offset = 0;
-        if (gPartyMenu.layout == PARTY_LAYOUT_SINGLE && (tSlot1BaseBlock == 0x63 || tSlot1BaseBlock == 0xEF || tSlot1BaseBlock == 0x17B))  //Custom party menu
-            tSlot1SlideDir = -1;
-        else if (tSlot1Width == 10) //
+        if (tSlot1Left < 10)
             tSlot1SlideDir = -1;
         else
             tSlot1SlideDir = 1;
@@ -2977,11 +2975,8 @@ static void SwitchSelectedMons(u8 taskId)
         tSlot2Top = GetWindowAttribute(windowIds[1], WINDOW_TILEMAP_TOP);
         tSlot2Width = GetWindowAttribute(windowIds[1], WINDOW_WIDTH);
         tSlot2Height = GetWindowAttribute(windowIds[1], WINDOW_HEIGHT);
-        tSlot2BaseBlock = GetWindowAttribute(windowIds[1], WINDOW_BASE_BLOCK);  //Custom party menu
         tSlot2Offset = 0;
-        if (gPartyMenu.layout == PARTY_LAYOUT_SINGLE && (tSlot2BaseBlock == 0x63 || tSlot2BaseBlock == 0xEF || tSlot2BaseBlock == 0x17B)) //Custom party menu
-            tSlot2SlideDir = -1;
-        else if (tSlot2Width == 10)//
+        if (tSlot2Left < 10)
             tSlot2SlideDir = -1;
         else
             tSlot2SlideDir = 1;
@@ -3073,7 +3068,7 @@ static void SlidePartyMenuBoxOneStep(u8 taskId)
 static void Task_SlideSelectedSlotsOffscreen(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
-    u16 slidingSlotPositions[2];
+    s8 slidingSlotPositions[2];
 
     SlidePartyMenuBoxOneStep(taskId);
     SlidePartyMenuBoxSpritesOneStep(taskId);
@@ -3082,8 +3077,32 @@ static void Task_SlideSelectedSlotsOffscreen(u8 taskId)
     slidingSlotPositions[0] = tSlot1Left + tSlot1Offset;
     slidingSlotPositions[1] = tSlot2Left + tSlot2Offset;
 
+    bool8 slot1OffScreen = FALSE;
+    bool8 slot2OffScreen = FALSE;
+    u8 buffer = 2;
+
+    // Check if first selected slot is offscreen
+    if (tSlot1SlideDir == 1) // Sliding to the right
+    {
+        slot1OffScreen = slidingSlotPositions[0] > tSlot1Left + tSlot1Width + buffer;
+    }
+    else if (tSlot1SlideDir == -1) // Sliding to the left
+    {
+        slot1OffScreen = slidingSlotPositions[0] < tSlot1Left - tSlot1Width - buffer;
+    }
+
+    // Check if second selected slot is offscreen
+    if (tSlot2SlideDir == 1) // Sliding to the right
+    {
+        slot2OffScreen = slidingSlotPositions[1] > tSlot2Left + tSlot2Width + buffer;
+    }
+    else if (tSlot2SlideDir == -1) // Sliding to the left
+    {
+        slot2OffScreen = slidingSlotPositions[1] < tSlot2Left - tSlot2Width - buffer;
+    }
+
     // Both slots have slid offscreen
-    if ((slidingSlotPositions[0] > 25 && slidingSlotPositions[1] > 25) && count > 25)  //Custom party menu 33 before
+    if (slot1OffScreen && slot2OffScreen)
     {
         tSlot1SlideDir *= -1;
         tSlot2SlideDir *= -1;
