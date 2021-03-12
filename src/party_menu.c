@@ -270,6 +270,7 @@ static void CB2_ShowPokemonSummaryScreen(void);
 static void UpdatePartyToBattleOrder(void);
 void CB2_ReturnToPartyMenuFromSummaryScreen(void);
 static void SlidePartyMenuBoxOneStep(u8);
+static bool8 IsPartyMenuBoxSpriteOffscreen(s8, s16, s16, s16);
 static void Task_SlideSelectedSlotsOffscreen(u8);
 static void SwitchPartyMon(void);
 static void Task_SlideSelectedSlotsOnscreen(u8);
@@ -3062,7 +3063,14 @@ static void SlidePartyMenuBoxOneStep(u8 taskId)
     if (tSlot2SlideDir != 0)
         MoveAndBufferPartySlot(sSlot2TilemapBuffer, tSlot2Left + tSlot2Offset, tSlot2Top, tSlot2Width, tSlot2Height, tSlot2SlideDir);
     ScheduleBgCopyTilemapToVram(0);
-    (count)++;  //Custom party menu
+}
+
+static bool8 IsPartyMenuBoxSpriteOffscreen(s8 slidingSlotPosition, s16 slotSlideDir, s16 slotLeft, s16 slotWidth)
+{
+    slotWidth *= slotSlideDir;
+    s16 threshold = slotLeft + slotWidth;
+
+    return abs(slidingSlotPosition) > abs(threshold);
 }
 
 static void Task_SlideSelectedSlotsOffscreen(u8 taskId)
@@ -3077,32 +3085,9 @@ static void Task_SlideSelectedSlotsOffscreen(u8 taskId)
     slidingSlotPositions[0] = tSlot1Left + tSlot1Offset;
     slidingSlotPositions[1] = tSlot2Left + tSlot2Offset;
 
-    bool8 slot1OffScreen = FALSE;
-    bool8 slot2OffScreen = FALSE;
-    u8 buffer = 2;
-
-    // Check if first selected slot is offscreen
-    if (tSlot1SlideDir == 1) // Sliding to the right
-    {
-        slot1OffScreen = slidingSlotPositions[0] > tSlot1Left + tSlot1Width + buffer;
-    }
-    else if (tSlot1SlideDir == -1) // Sliding to the left
-    {
-        slot1OffScreen = slidingSlotPositions[0] < tSlot1Left - tSlot1Width - buffer;
-    }
-
-    // Check if second selected slot is offscreen
-    if (tSlot2SlideDir == 1) // Sliding to the right
-    {
-        slot2OffScreen = slidingSlotPositions[1] > tSlot2Left + tSlot2Width + buffer;
-    }
-    else if (tSlot2SlideDir == -1) // Sliding to the left
-    {
-        slot2OffScreen = slidingSlotPositions[1] < tSlot2Left - tSlot2Width - buffer;
-    }
-
     // Both slots have slid offscreen
-    if (slot1OffScreen && slot2OffScreen)
+    if (IsPartyMenuBoxSpriteOffscreen(slidingSlotPositions[0], tSlot1SlideDir, tSlot1Left, tSlot1Width) 
+        && IsPartyMenuBoxSpriteOffscreen(slidingSlotPositions[1], tSlot2SlideDir, tSlot2Left, tSlot2Width))
     {
         tSlot1SlideDir *= -1;
         tSlot2SlideDir *= -1;
