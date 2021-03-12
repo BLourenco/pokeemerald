@@ -4237,11 +4237,11 @@ static void AnimateSelectedPartyIcon(u8 spriteId, u8 animNum)
         if (gSprites[spriteId].pos1.x == 16)
         {
             gSprites[spriteId].pos2.x = 0;
-            gSprites[spriteId].pos2.y = -4;
+            gSprites[spriteId].pos2.y = 0;
         }
         else
         {
-            gSprites[spriteId].pos2.x = -4;
+            gSprites[spriteId].pos2.x = 0;
             gSprites[spriteId].pos2.y = 0;
         }
         gSprites[spriteId].callback = SpriteCB_UpdatePartyMonIcon;
@@ -6150,7 +6150,7 @@ static u8 GetPartyLayoutFromBattleType(void)
         return PARTY_LAYOUT_SINGLE;
     if (IsMultiBattle() == TRUE)
         return PARTY_LAYOUT_MULTI;
-    return PARTY_LAYOUT_DOUBLE;
+    return PARTY_LAYOUT_SINGLE; // Use the new DS-style single layout for both singles and doubles.
 }
 
 void OpenPartyMenuInBattle(u8 partyAction)
