@@ -723,9 +723,9 @@ static const u8 sEqualMainSlotTileNums_Egg[] =  {24, 25, 25, 25, 25, 25, 25, 25,
                                                  55, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 57};
 
 static const u8 sEqualEmptySlotTileNums[] = {21, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 23,
-                                             30,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 31,
-                                             30,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 31,
-                                             30,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 31,
+                                             30, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 31,
+                                             30, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 31,
+                                             30, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 31,
                                              37, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 39};
 //
 // Palette offsets
@@ -733,7 +733,7 @@ static const u8 sGenderPalOffsets[] = {11, 12};
 static const u8 sHPBarPalOffsets[] = {9, 10};
 static const u8 sPartyBoxPalOffsets1[] = {4, 5, 6};
 static const u8 sPartyBoxPalOffsets2[] = {1, 7, 8};
-static const u8 sPartyBoxNoMonPalOffsets[] = {1, 11, 12};
+static const u8 sPartyBoxNoMonPalOffsets[] = {1, 4, 5};
 
 // Palette ids
 static const u8 sGenderMalePalIds[] = {59, 60};
@@ -753,7 +753,7 @@ static const u8 sPartyBoxMultiPalIds2[] = {65, 71, 72};
 static const u8 sPartyBoxFaintedPalIds2[] = {81, 87, 88};
 static const u8 sPartyBoxCurrSelectionPalIds2[] = {97, 103, 104};
 static const u8 sPartyBoxSelectedForActionPalIds2[] = {161, 167, 168};
-static const u8 sPartyBoxNoMonPalIds[] = {17, 27, 28};
+static const u8 sPartyBoxNoMonPalIds[] = {17, 20, 21};
 
 static const u8 *const sActionStringTable[] =
 {
