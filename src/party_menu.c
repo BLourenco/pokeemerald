@@ -29,6 +29,7 @@
 #include "graphics.h"
 #include "international_string_util.h"
 #include "item.h"
+#include "item_icon.h"
 #include "item_menu.h"
 #include "item_use.h"
 #include "link.h"
@@ -3272,9 +3273,10 @@ static void Task_GiveHoldItem(u8 taskId)
     if (!gPaletteFade.active)
     {
         item = gSpecialVar_ItemId;
-        DisplayGaveHeldItemMessage(&gPlayerParty[gPartyMenu.slotId], item, FALSE, 0);
+        DisplayGaveHeldItemMessage(&gPlayerParty[gPartyMenu.slotId], item, TRUE, 0);
         GiveItemToMon(&gPlayerParty[gPartyMenu.slotId], item);
         RemoveBagItem(item, 1);
+        CreatePartyMonHeldItemSprite(&gPlayerParty[gPartyMenu.slotId], &sPartyMenuBoxes[gPartyMenu.slotId]);
         gTasks[taskId].func = Task_UpdateHeldItemSprite;
     }
 }
@@ -3323,6 +3325,7 @@ static void Task_HandleSwitchItemsYesNoInput(u8 taskId)
         {
             GiveItemToMon(&gPlayerParty[gPartyMenu.slotId], gSpecialVar_ItemId);
             DisplaySwitchedHeldItemMessage(gSpecialVar_ItemId, sPartyMenuItemId, TRUE);
+            CreatePartyMonHeldItemSprite(&gPlayerParty[gPartyMenu.slotId], &sPartyMenuBoxes[gPartyMenu.slotId]);
             gTasks[taskId].func = Task_UpdateHeldItemSprite;
         }
         break;
@@ -3463,6 +3466,8 @@ static void SwitchSelectedMonsItems(u8 taskId)
         // swap the held items
         SetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_HELD_ITEM, &item2);
         SetMonData(&gPlayerParty[gPartyMenu.slotId2], MON_DATA_HELD_ITEM, &item1);
+
+        SwitchMenuBoxSprites(&sPartyMenuBoxes[gPartyMenu.slotId].itemSpriteId, &sPartyMenuBoxes[gPartyMenu.slotId2].itemSpriteId);
 
         // update the held item icons
         UpdatePartyMonHeldItemSprite(
@@ -4272,20 +4277,41 @@ static void CreatePartyMonHeldItemSprite(struct Pokemon *mon, struct PartyMenuBo
 {
     if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE)
     {
-        menuBox->itemSpriteId = CreateSprite(&sSpriteTemplate_HeldItem, menuBox->spriteCoords[2], menuBox->spriteCoords[3], 0);
-        UpdatePartyMonHeldItemSprite(mon, menuBox);
+        CreatePartyMonHeldItemSpriteParameterized(GetMonData(mon, MON_DATA_SPECIES), GetMonData(mon, MON_DATA_HELD_ITEM), menuBox);
     }
 }
+
+#define ITEM_SPRITE_TAG 0x2722
 
 static void CreatePartyMonHeldItemSpriteParameterized(u16 species, u16 item, struct PartyMenuBox *menuBox)
 {
     if (species != SPECIES_NONE)
     {
-        menuBox->itemSpriteId = CreateSprite(&sSpriteTemplate_HeldItem, menuBox->spriteCoords[2], menuBox->spriteCoords[3], 0);
-        gSprites[menuBox->itemSpriteId].oam.priority = 0;
+        u16 tag = ITEM_SPRITE_TAG + menuBox->windowId;
+
+        // Delete any existing sprite for this MenuBox
+        FreeSpriteTilesByTag(tag);
+        FreeSpritePaletteByTag(tag);
+        FreeSpriteOamMatrix(&gSprites[menuBox->itemSpriteId]);
+        DestroySprite(&gSprites[menuBox->itemSpriteId]);
+
+        // Create the new sprite
+        u8 itemSpriteId = AddItemIconSprite(tag, tag, item);
+        if (itemSpriteId != MAX_SPRITES)
+        {
+            menuBox->itemSpriteId = itemSpriteId;
+
+            // The 24x24 item sprites are loaded as 32x32 but aren't centered, so offset by +4
+            gSprites[menuBox->itemSpriteId].pos2.x = menuBox->spriteCoords[2] + 4;
+            gSprites[menuBox->itemSpriteId].pos2.y = menuBox->spriteCoords[3] + 4;
+
+            gSprites[menuBox->itemSpriteId].oam.priority = 1; // Keeps the sprite below menu windows
+        }
         ShowOrHideHeldItemSprite(item, menuBox);
     }
 }
+
+#undef ITEM_SPRITE_TAG
 
 static void UpdatePartyMonHeldItemSprite(struct Pokemon *mon, struct PartyMenuBox *menuBox)
 {
@@ -4294,18 +4320,7 @@ static void UpdatePartyMonHeldItemSprite(struct Pokemon *mon, struct PartyMenuBo
 
 static void ShowOrHideHeldItemSprite(u16 item, struct PartyMenuBox *menuBox)
 {
-    if (item == ITEM_NONE)
-    {
-        gSprites[menuBox->itemSpriteId].invisible = TRUE;
-    }
-    else
-    {
-        if (ItemIsMail(item))
-            StartSpriteAnim(&gSprites[menuBox->itemSpriteId], 1);
-        else
-            StartSpriteAnim(&gSprites[menuBox->itemSpriteId], 0);
-        gSprites[menuBox->itemSpriteId].invisible = FALSE;
-    }
+    gSprites[menuBox->itemSpriteId].invisible = (item == ITEM_NONE);
 }
 
 void LoadHeldItemIcons(void)
@@ -5780,7 +5795,7 @@ static void GiveItemToSelectedMon(u8 taskId)
     if (!gPaletteFade.active)
     {
         item = gPartyMenu.bagItem;
-        DisplayGaveHeldItemMessage(&gPlayerParty[gPartyMenu.slotId], item, FALSE, 1);
+        DisplayGaveHeldItemMessage(&gPlayerParty[gPartyMenu.slotId], item, TRUE, 1);
         GiveItemToMon(&gPlayerParty[gPartyMenu.slotId], item);
         RemoveItemToGiveFromBag(item);
         gTasks[taskId].func = Task_UpdateHeldItemSpriteAndClosePartyMenu;
@@ -5793,7 +5808,7 @@ static void Task_UpdateHeldItemSpriteAndClosePartyMenu(u8 taskId)
 
     if (IsPartyMenuTextPrinterActive() != TRUE)
     {
-        UpdatePartyMonHeldItemSprite(&gPlayerParty[slot], &sPartyMenuBoxes[slot]);
+        CreatePartyMonHeldItemSprite(&gPlayerParty[slot], &sPartyMenuBoxes[slot]);
         Task_ClosePartyMenu(taskId);
     }
 }
