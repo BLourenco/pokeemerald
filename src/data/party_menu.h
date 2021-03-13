@@ -78,7 +78,7 @@ static const struct PartyMenuBoxInfoRects sPartyBoxInfoRects[] =
             93, 24, 24,  8, // Max HP
             56, 19, 56,  3  // Colored HP bar (Bar BG is part of the tiles)
         }, 
-        41, 13, 64, 16      // Description text (e.g. "No use.", "Able", "Not able", "First", "Second", "Third")
+        49, 18, 64, 16      // Description text (e.g. "No use.", "Able", "Not able", "First", "Second", "Third")
     },//
 };
 
@@ -272,7 +272,7 @@ static const struct WindowTemplate sSinglePartyMenuWindowTemplate_Equal[] = //Cu
         .width = 28,
         .height = 4,
         .paletteNum = 14,
-        .baseBlock = 0x231,//225
+        .baseBlock = 0x23F,//225
     },
     DUMMY_WIN_TEMPLATE
 };//
