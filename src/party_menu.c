@@ -2945,9 +2945,6 @@ static void CursorCb_Switch(u8 taskId)
 #define tSlot2Offset   data[9]
 #define tSlot1SlideDir data[10]
 #define tSlot2SlideDir data[11]
-#define tSlot1BaseBlock data[12] //C
-#define tSlot2BaseBlock data[13]
-#define count           data[14]
 
 static void SwitchSelectedMons(u8 taskId)
 {
@@ -2992,7 +2989,6 @@ static void SwitchSelectedMons(u8 taskId)
         AnimatePartySlot(gPartyMenu.slotId2, 1);
         SlidePartyMenuBoxOneStep(taskId);
         gTasks[taskId].func = Task_SlideSelectedSlotsOffscreen;
-        count = 0;  //Custom party menu
     }
 }
 
