@@ -377,7 +377,7 @@ static const struct TilemapCtrl sContestMoveTilemapCtrl =
 {
     gSummaryScreenAppealJam_Tilemap, 0, 10, 7, 0, 45
 };
-static const s8 sMultiBattleOrder[] = {0, 2, 3, 1, 4, 5};
+static const s8 sMultiBattleOrder[] = {0, 2, 4, 1, 3, 5};
 static const struct WindowTemplate sSummaryTemplate[] =
 {
     [PSS_LABEL_WINDOW_POKEMON_INFO_TITLE] = {
@@ -3359,7 +3359,7 @@ static bool8 IsInGamePartnerMon(void)
 {
     if ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER) && gMain.inBattle)
     {
-        if (sMonSummaryScreen->curMonIndex == 1 || sMonSummaryScreen->curMonIndex == 4 || sMonSummaryScreen->curMonIndex == 5)
+        if (sMonSummaryScreen->curMonIndex == 1 || sMonSummaryScreen->curMonIndex == 3 || sMonSummaryScreen->curMonIndex == 5)
             return TRUE;
     }
     return FALSE;

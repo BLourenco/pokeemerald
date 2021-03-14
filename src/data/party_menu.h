@@ -108,21 +108,21 @@ static const u8 sPartyMenuSpriteCoords[PARTY_LAYOUT_COUNT][PARTY_SIZE][4 * 2] =
     },
     [PARTY_LAYOUT_MULTI] = 
     {
-        { 16,  24,  35,  35,  33,  52,  16,  18},
-        { 16,  80,  35,  91,  33, 108,  16,  74},
-        {104,  26, 121,  36, 185,  36, 102,  33},
-        {104,  50, 121,  60, 185,  60, 102,  57},
-        {104,  82, 121,  92, 185,  92, 102,  89},
-        {104, 106, 121, 116, 185, 116, 102, 113},
+        { 16,  16,  28,  28,  56,  32,  14,  15},
+        {136,  24, 148,  36, 176,  40, 134,  23},
+        { 16,  56,  28,  68,  56,  72,  14,  55},
+        {136,  64, 148,  76, 176,  80, 134,  63},
+        { 16,  96,  28, 108,  56, 112,  14,  95},
+        {136, 104, 148, 116, 176, 120, 134, 103},
     },
     [PARTY_LAYOUT_MULTI_SHOWCASE] = 
     {
-        { 16,  32,  35,  43,  33,  60,  16,  26},
-        {104,  34, 121,  44, 185,  44, 102,  41},
-        {104,  58, 121,  68, 185,  68, 102,  65},
-        { 16, 104,  35, 115,  33, 116,  16,  98},
-        {104, 106, 121, 116, 185, 115, 102, 113},
-        {104, 130, 121, 140, 185, 139, 102, 137},
+        { 16,  16,  28,  28,  56,  32,  14,  15},
+        { 16,  56,  28,  68,  56,  72,  14,  55},
+        { 16,  96,  28, 108,  56, 112,  14,  95},
+        {136,  24, 148,  36, 176,  40, 134,  23},
+        {136,  64, 148,  76, 176,  80, 134,  63},
+        {136, 104, 148, 116, 176, 120, 134, 103},
     },
 };
 
@@ -272,7 +272,7 @@ static const struct WindowTemplate sSinglePartyMenuWindowTemplate_Equal[] = //Cu
         .width = 28,
         .height = 4,
         .paletteNum = 14,
-        .baseBlock = 0x23F,//225
+        .baseBlock = 0x23F,
     },
     DUMMY_WIN_TEMPLATE
 };//
@@ -347,59 +347,59 @@ static const struct WindowTemplate sDoublePartyMenuWindowTemplate[] =
 
 static const struct WindowTemplate sMultiPartyMenuWindowTemplate[] =
 {
-    {
+    {//Slot 0 left
         .bg = 0,
-        .tilemapLeft = 1,
-        .tilemapTop = 1,
-        .width = 10,
-        .height = 7,
+        .tilemapLeft = 0,
+        .tilemapTop = 0,
+        .width = 15,
+        .height = 5,
         .paletteNum = 3,
         .baseBlock = 0x63,
     },
-    {
+    {//Slot 1 right
         .bg = 0,
-        .tilemapLeft = 1,
-        .tilemapTop = 8,
-        .width = 10,
-        .height = 7,
+        .tilemapLeft = 15,
+        .tilemapTop = 1,
+        .width = 15,
+        .height = 5,
         .paletteNum = 4,
-        .baseBlock = 0xA9,
+        .baseBlock = 0xAE,
     },
-    {
+    {//Slot 2 left
         .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 2,
-        .width = 18,
-        .height = 3,
-        .paletteNum = 5,
-        .baseBlock = 0xEF,
-    },
-    {
-        .bg = 0,
-        .tilemapLeft = 12,
+        .tilemapLeft = 0,
         .tilemapTop = 5,
-        .width = 18,
-        .height = 3,
+        .width = 15,
+        .height = 5,
+        .paletteNum = 5,
+        .baseBlock = 0xF9,
+    },
+    {//Slot 3 right
+        .bg = 0,
+        .tilemapLeft = 15,
+        .tilemapTop = 6,
+        .width = 15,
+        .height = 5,
         .paletteNum = 6,
-        .baseBlock = 0x125,
+        .baseBlock = 0x144,
     },
-    {
+    {//Slot 4 left
         .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 9,
-        .width = 18,
-        .height = 3,
+        .tilemapLeft = 0,
+        .tilemapTop = 10,
+        .width = 15,
+        .height = 5,
         .paletteNum = 7,
-        .baseBlock = 0x15B,
+        .baseBlock = 0x18F,
     },
-    {
+    {//Slot 5 right
         .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 12,
-        .width = 18,
-        .height = 3,
+        .tilemapLeft = 15,
+        .tilemapTop = 11,
+        .width = 15,
+        .height = 5,
         .paletteNum = 8,
-        .baseBlock = 0x191,
+        .baseBlock = 0x1DA,
     },
     {
         .bg = 2,
@@ -408,66 +408,75 @@ static const struct WindowTemplate sMultiPartyMenuWindowTemplate[] =
         .width = 28,
         .height = 4,
         .paletteNum = 14,
-        .baseBlock = 0x1DF,
+        .baseBlock = 0x23F,
     },
     DUMMY_WIN_TEMPLATE
 };
 
 static const struct WindowTemplate sShowcaseMultiPartyMenuWindowTemplate[] =
 {
-    {
+    {//Slot 0 left
         .bg = 0,
-        .tilemapLeft = 1,
-        .tilemapTop = 2,
-        .width = 10,
-        .height = 7,
+        .tilemapLeft = 0,
+        .tilemapTop = 0,
+        .width = 15,
+        .height = 5,
         .paletteNum = 3,
         .baseBlock = 0x63,
     },
-    {
+    {//Slot 1 right
         .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 3,
-        .width = 18,
-        .height = 3,
-        .paletteNum = 5,
-        .baseBlock = 0xA9,
+        .tilemapLeft = 0,//15
+        .tilemapTop = 5,//5
+        .width = 15,
+        .height = 5,
+        .paletteNum = 5,//4
+        .baseBlock = 0xAE,//AE
     },
-    {
+    {//Slot 2 left
         .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 6,
-        .width = 18,
-        .height = 3,
-        .paletteNum = 6,
-        .baseBlock = 0xDF,
+        .tilemapLeft = 0,//0
+        .tilemapTop = 10,//5
+        .width = 15,
+        .height = 5,
+        .paletteNum = 7,//5
+        .baseBlock = 0xF9,
+    },
+    {//Slot 3 right
+        .bg = 2,
+        .tilemapLeft = 15,
+        .tilemapTop = 1,
+        .width = 15,
+        .height = 5,
+        .paletteNum = 4,
+        .baseBlock = 0x144,
+    },
+    {//Slot 4 left
+        .bg = 2,
+        .tilemapLeft = 15,//0
+        .tilemapTop = 6,//20
+        .width = 15,
+        .height = 5,
+        .paletteNum = 6,//7
+        .baseBlock = 0x18F,
+    },
+    {//Slot 5 right
+        .bg = 2,
+        .tilemapLeft = 15,
+        .tilemapTop = 11,
+        .width = 15,
+        .height = 5,
+        .paletteNum = 8,
+        .baseBlock = 0x1DA,
     },
     {
         .bg = 2,
         .tilemapLeft = 1,
-        .tilemapTop = 11,
-        .width = 10,
-        .height = 7,
-        .paletteNum = 4,
-        .baseBlock = 0x115,
-    },
-    {
-        .bg = 2,
-        .tilemapLeft = 12,
-        .tilemapTop = 12,
-        .width = 18,
-        .height = 3,
-        .paletteNum = 7,
-        .baseBlock = 0x16B,
-    },
-    {
-        .bg = 2,
-        .tilemapLeft = 12,
         .tilemapTop = 15,
-        .width = 18,
-        .height = 3,
-        .paletteNum = 8,
-        .baseBlock = 0x1A1,
+        .width = 28,
+        .height = 4,
+        .paletteNum = 14,
+        .baseBlock = 0x23F,
     },
     DUMMY_WIN_TEMPLATE
 };
@@ -490,7 +499,7 @@ static const struct WindowTemplate sCancelButtonWindowTemplate_equal =
     .width = 6,
     .height = 2,
     .paletteNum = 3,
-    .baseBlock = 0x225, //0x1C7,  //Custom party menu
+    .baseBlock = 0x225,
 };
 
 static const struct WindowTemplate sMultiCancelButtonWindowTemplate =
