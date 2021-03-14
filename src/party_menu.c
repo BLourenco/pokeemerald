@@ -437,7 +437,7 @@ static void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCurs
         sPartyMenuInternal->messageId = messageId;
         sPartyMenuInternal->task = task;
         sPartyMenuInternal->exitCallback = NULL;
-        sPartyMenuInternal->lastSelectedSlot = PARTY_SLOT_MON_1;
+        sPartyMenuInternal->lastSelectedSlot = PARTY_MENU_SLOT_MON_1;
         sPartyMenuInternal->spriteIdConfirmPokeball = 0x7F;
         sPartyMenuInternal->spriteIdCancelPokeball = 0x7F;
 
@@ -456,8 +456,8 @@ static void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCurs
 
         if (!keepCursorPos)
             gPartyMenu.slotId = 0;
-        else if (gPartyMenu.slotId == PARTY_SLOT_CONFIRM_BUTTON
-                || gPartyMenu.slotId == PARTY_SLOT_CANCEL_BUTTON
+        else if (gPartyMenu.slotId == PARTY_MENU_SLOT_CONFIRM_BUTTON
+                || gPartyMenu.slotId == PARTY_MENU_SLOT_CANCEL_BUTTON
                 || GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES) == SPECIES_NONE)
             gPartyMenu.slotId = 0;
 
@@ -1059,14 +1059,14 @@ void AnimatePartySlot(u8 slot, u8 animNum)
             PartyMenuStartSpriteAnim(sPartyMenuBoxes[slot].pokeballSpriteId, animNum);
         }
         return;
-    case PARTY_SLOT_CONFIRM_BUTTON:
+    case PARTY_MENU_SLOT_CONFIRM_BUTTON:
         if (animNum == 0)
             SetBgTilemapPalette(1, 23, 16, 7, 2, 1);
         else
             SetBgTilemapPalette(1, 23, 16, 7, 2, 2);
         spriteId = sPartyMenuInternal->spriteIdConfirmPokeball;
         break;
-    case PARTY_SLOT_CANCEL_BUTTON:
+    case PARTY_MENU_SLOT_CANCEL_BUTTON:
         // The position of the Cancel button changes if Confirm is present
         if (!sPartyMenuInternal->chooseHalf)
         {
@@ -1116,9 +1116,9 @@ static u8 GetPartyBoxPaletteFlags(u8 slot, u8 animNum)
 static bool8 PartyBoxPal_ParnterOrDisqualifiedInArena(u8 slot)
 {
     if (gPartyMenu.layout == PARTY_LAYOUT_MULTI 
-        && (slot == PARTY_SLOT_MON_2
-         || slot == PARTY_SLOT_MON_4
-         || slot == PARTY_SLOT_MON_6))
+        && (slot == PARTY_MENU_SLOT_MON_2
+         || slot == PARTY_MENU_SLOT_MON_4
+         || slot == PARTY_MENU_SLOT_MON_6))
         return TRUE;
 
     if (slot < MULTI_PARTY_SIZE && (gBattleTypeFlags & BATTLE_TYPE_ARENA) && gMain.inBattle && (gBattleStruct->arenaLostPlayerMons >> GetPartyIdFromBattleSlot(slot) & 1))
@@ -1250,7 +1250,7 @@ static s8* GetCurrentPartySlotPtr(void)
 
 static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
 {
-    if (*slotPtr == PARTY_SLOT_CONFIRM_BUTTON)
+    if (*slotPtr == PARTY_MENU_SLOT_CONFIRM_BUTTON)
     {
         gPartyMenu.task(taskId);
     }
@@ -1359,9 +1359,9 @@ static void HandleChooseMonCancel(u8 taskId, s8 *slotPtr)
         if (DisplayCancelChooseMonYesNo(taskId) != TRUE)
         {
             if (!MenuHelpers_LinkSomething())
-                gSpecialVar_0x8004 = PARTY_SLOT_CANCEL_BUTTON;
+                gSpecialVar_0x8004 = PARTY_MENU_SLOT_CANCEL_BUTTON;
             gPartyMenuUseExitCallback = FALSE;
-            *slotPtr = PARTY_SLOT_CANCEL_BUTTON;
+            *slotPtr = PARTY_MENU_SLOT_CANCEL_BUTTON;
             Task_ClosePartyMenu(taskId);
         }
         break;
@@ -1402,7 +1402,7 @@ static void Task_HandleCancelChooseMonYesNoInput(u8 taskId)
     {
     case 0:
         gPartyMenuUseExitCallback = FALSE;
-        gPartyMenu.slotId = PARTY_SLOT_CANCEL_BUTTON;
+        gPartyMenu.slotId = PARTY_MENU_SLOT_CANCEL_BUTTON;
         ClearSelectedPartyOrder();
         Task_ClosePartyMenu(taskId);
         break;
@@ -1445,7 +1445,7 @@ static u16 PartyMenuButtonHandler(s8 *slotPtr)
     }
     
     if (JOY_NEW(A_BUTTON | START_BUTTON | SELECT_BUTTON)
-        && *slotPtr == PARTY_SLOT_CANCEL_BUTTON)
+        && *slotPtr == PARTY_MENU_SLOT_CANCEL_BUTTON)
         return B_BUTTON;
 
     return JOY_NEW(A_BUTTON | B_BUTTON | START_BUTTON | SELECT_BUTTON);
@@ -1466,9 +1466,6 @@ static void UpdateCurrentPartySelection(s8 *slotPtr, s8 movementDir)
     }
 }
 
-#define PARTY_SLOT_LAST_MON (gPlayerPartyCount - 1)
-#define PARTY_SLOT_SECOND_LAST_MON (gPlayerPartyCount - 2)
-
 static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
 {
     switch (movementDir)
@@ -1476,16 +1473,16 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
         case MENU_DIR_UP:
             switch (*slotPtr)
             {
-                case PARTY_SLOT_MON_1:
-                case PARTY_SLOT_MON_2:
-                    SetSlotPtr(slotPtr, PARTY_SLOT_CANCEL_BUTTON);
+                case PARTY_MENU_SLOT_MON_1:
+                case PARTY_MENU_SLOT_MON_2:
+                    SetSlotPtr(slotPtr, PARTY_MENU_SLOT_CANCEL_BUTTON);
                     break;
-                case PARTY_SLOT_CONFIRM_BUTTON:
+                case PARTY_MENU_SLOT_CONFIRM_BUTTON:
                     SetSlotPtr(slotPtr, GetLastMonSlotInLastColumnSingleLayout());
                     break;
-                case PARTY_SLOT_CANCEL_BUTTON:
+                case PARTY_MENU_SLOT_CANCEL_BUTTON:
                     if (sPartyMenuInternal->chooseHalf)
-                        SetSlotPtr(slotPtr, PARTY_SLOT_CONFIRM_BUTTON);
+                        SetSlotPtr(slotPtr, PARTY_MENU_SLOT_CONFIRM_BUTTON);
                     else
                         SetSlotPtr(slotPtr, GetLastMonSlotInLastColumnSingleLayout());
                     break;
@@ -1497,14 +1494,14 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
         case MENU_DIR_DOWN:
             switch (*slotPtr)
             {
-                case PARTY_SLOT_CANCEL_BUTTON:
+                case PARTY_MENU_SLOT_CANCEL_BUTTON:
                     if (sPartyMenuInternal->lastSelectedSlot % 2 == 0) // Slots 0, 2, 4 (Left side)
-                        SetSlotPtr(slotPtr, PARTY_SLOT_MON_1);
+                        SetSlotPtr(slotPtr, PARTY_MENU_SLOT_MON_1);
                     else
-                        SetSlotPtr(slotPtr, PARTY_SLOT_MON_2);
+                        SetSlotPtr(slotPtr, PARTY_MENU_SLOT_MON_2);
                     break;
-                case PARTY_SLOT_CONFIRM_BUTTON:
-                    SetSlotPtr(slotPtr, PARTY_SLOT_CANCEL_BUTTON);
+                case PARTY_MENU_SLOT_CONFIRM_BUTTON:
+                    SetSlotPtr(slotPtr, PARTY_MENU_SLOT_CANCEL_BUTTON);
                     break;
                 default:
                     SetSlotPtr(slotPtr, (*slotPtr + 2));
@@ -1514,8 +1511,8 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
         case MENU_DIR_RIGHT:
             switch (*slotPtr)
             {
-                case PARTY_SLOT_CANCEL_BUTTON:
-                    SetSlotPtr(slotPtr, PARTY_SLOT_MON_1);
+                case PARTY_MENU_SLOT_CANCEL_BUTTON:
+                    SetSlotPtr(slotPtr, PARTY_MENU_SLOT_MON_1);
                     break;
                 default:
                     SetSlotPtr(slotPtr, (*slotPtr + 1));
@@ -1525,12 +1522,12 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
         case MENU_DIR_LEFT:
             switch (*slotPtr)
             {
-                case PARTY_SLOT_MON_1:
-                    SetSlotPtr(slotPtr, PARTY_SLOT_CANCEL_BUTTON);
+                case PARTY_MENU_SLOT_MON_1:
+                    SetSlotPtr(slotPtr, PARTY_MENU_SLOT_CANCEL_BUTTON);
                     break;
-                case PARTY_SLOT_CANCEL_BUTTON:
+                case PARTY_MENU_SLOT_CANCEL_BUTTON:
                     if (sPartyMenuInternal->chooseHalf)
-                        SetSlotPtr(slotPtr, PARTY_SLOT_CONFIRM_BUTTON);
+                        SetSlotPtr(slotPtr, PARTY_MENU_SLOT_CONFIRM_BUTTON);
                     else
                         SetSlotPtr(slotPtr, (*slotPtr - 1));
                     break;
@@ -1542,9 +1539,6 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
     }
 }
 
-#undef PARTY_SLOT_LAST_MON
-#undef PARTY_SLOT_SECOND_LAST_MON
-
 static void UpdatePartySelectionDoubleLayout(s8 *slotPtr, s8 movementDir)
 {
     // newSlot is used temporarily as a movement direction during its later assignment
@@ -1555,19 +1549,19 @@ static void UpdatePartySelectionDoubleLayout(s8 *slotPtr, s8 movementDir)
     case MENU_DIR_UP:
         if (*slotPtr == 0)
         {
-            *slotPtr = PARTY_SLOT_CANCEL_BUTTON;
+            *slotPtr = PARTY_MENU_SLOT_CANCEL_BUTTON;
             break;
         }
-        else if (*slotPtr == PARTY_SLOT_CONFIRM_BUTTON)
+        else if (*slotPtr == PARTY_MENU_SLOT_CONFIRM_BUTTON)
         {
             *slotPtr = gPlayerPartyCount - 1;
             break;
         }
-        else if (*slotPtr == PARTY_SLOT_CANCEL_BUTTON)
+        else if (*slotPtr == PARTY_MENU_SLOT_CANCEL_BUTTON)
         {
             if (sPartyMenuInternal->chooseHalf)
             {
-                *slotPtr = PARTY_SLOT_CONFIRM_BUTTON;
+                *slotPtr = PARTY_MENU_SLOT_CONFIRM_BUTTON;
                 break;
             }
             (*slotPtr)--;
@@ -1577,11 +1571,11 @@ static void UpdatePartySelectionDoubleLayout(s8 *slotPtr, s8 movementDir)
             *slotPtr = newSlot;
         break;
     case MENU_DIR_DOWN:
-        if (*slotPtr == PARTY_SLOT_CONFIRM_BUTTON)
+        if (*slotPtr == PARTY_MENU_SLOT_CONFIRM_BUTTON)
         {
-            *slotPtr = PARTY_SLOT_CANCEL_BUTTON;
+            *slotPtr = PARTY_MENU_SLOT_CANCEL_BUTTON;
         }
-        else if (*slotPtr == PARTY_SLOT_CANCEL_BUTTON)
+        else if (*slotPtr == PARTY_MENU_SLOT_CANCEL_BUTTON)
         {
             *slotPtr = 0;
         }
@@ -1591,9 +1585,9 @@ static void UpdatePartySelectionDoubleLayout(s8 *slotPtr, s8 movementDir)
             if (newSlot == -1)
             {
                 if (sPartyMenuInternal->chooseHalf)
-                    *slotPtr = PARTY_SLOT_CONFIRM_BUTTON;
+                    *slotPtr = PARTY_MENU_SLOT_CONFIRM_BUTTON;
                 else
-                    *slotPtr = PARTY_SLOT_CANCEL_BUTTON;
+                    *slotPtr = PARTY_MENU_SLOT_CANCEL_BUTTON;
             }
             else
             {
@@ -1647,7 +1641,7 @@ static s8 GetNewSlotDoubleLayout(s8 slotId, s8 movementDir)
     while (TRUE)
     {
         slotId += movementDir;
-        if ((u8)slotId == PARTY_SLOT_CONFIRM_BUTTON || (u8)slotId == PARTY_SLOT_CANCEL_BUTTON)
+        if ((u8)slotId == PARTY_MENU_SLOT_CONFIRM_BUTTON || (u8)slotId == PARTY_MENU_SLOT_CANCEL_BUTTON)
             return -1;
         if (GetMonData(&gPlayerParty[slotId], MON_DATA_SPECIES) != SPECIES_NONE)
             return slotId;
@@ -1658,7 +1652,7 @@ static void SetSlotPtr(s8 *slotPtr, s8 slotId)
 {
     // Empty slot
     if ((slotId < PARTY_SIZE && GetMonData(&gPlayerParty[slotId], MON_DATA_SPECIES) == SPECIES_NONE)
-        || (slotId == PARTY_SLOT_CONFIRM_BUTTON && !sPartyMenuInternal->chooseHalf))
+        || (slotId == PARTY_MENU_SLOT_CONFIRM_BUTTON && !sPartyMenuInternal->chooseHalf))
     {
         s8 dir = slotId - *slotPtr;
         s8 newSlotId = slotId + dir;
@@ -1667,22 +1661,22 @@ static void SetSlotPtr(s8 *slotPtr, s8 slotId)
         if (newSlotId >= PARTY_SIZE)
         {
             if (sPartyMenuInternal->chooseHalf)
-                newSlotId = PARTY_SLOT_CONFIRM_BUTTON;
+                newSlotId = PARTY_MENU_SLOT_CONFIRM_BUTTON;
             else
-                newSlotId = PARTY_SLOT_CANCEL_BUTTON;
+                newSlotId = PARTY_MENU_SLOT_CANCEL_BUTTON;
         }
         
         *slotPtr = slotId;
         SetSlotPtr(slotPtr, newSlotId); // Try again in the next slot
     }
-    else if (slotId < PARTY_SLOT_MON_1)
+    else if (slotId < PARTY_MENU_SLOT_MON_1)
     {
-        SetSlotPtr(slotPtr, PARTY_SLOT_CANCEL_BUTTON);
+        SetSlotPtr(slotPtr, PARTY_MENU_SLOT_CANCEL_BUTTON);
     }
     else
     {
-        if (*slotPtr != PARTY_SLOT_CONFIRM_BUTTON
-            && *slotPtr != PARTY_SLOT_CANCEL_BUTTON)
+        if (*slotPtr != PARTY_MENU_SLOT_CONFIRM_BUTTON
+            && *slotPtr != PARTY_MENU_SLOT_CANCEL_BUTTON)
         {
             sPartyMenuInternal->lastSelectedSlot = *slotPtr;
         }
@@ -1695,30 +1689,30 @@ static s8 GetLastMonSlotInLastColumnSingleLayout()
 {
     switch (sPartyMenuInternal->lastSelectedSlot)
     {
-        case PARTY_SLOT_MON_1:
-        case PARTY_SLOT_MON_3:
-        case PARTY_SLOT_MON_5:
-            if (GetMonData(&gPlayerParty[PARTY_SLOT_MON_5], MON_DATA_SPECIES) != SPECIES_NONE)
-                return PARTY_SLOT_MON_5;
-            else if (GetMonData(&gPlayerParty[PARTY_SLOT_MON_3], MON_DATA_SPECIES) != SPECIES_NONE)
-                return PARTY_SLOT_MON_3;
+        case PARTY_MENU_SLOT_MON_1:
+        case PARTY_MENU_SLOT_MON_3:
+        case PARTY_MENU_SLOT_MON_5:
+            if (GetMonData(&gPlayerParty[PARTY_MENU_SLOT_MON_5], MON_DATA_SPECIES) != SPECIES_NONE)
+                return PARTY_MENU_SLOT_MON_5;
+            else if (GetMonData(&gPlayerParty[PARTY_MENU_SLOT_MON_3], MON_DATA_SPECIES) != SPECIES_NONE)
+                return PARTY_MENU_SLOT_MON_3;
             else
-                return PARTY_SLOT_MON_1;
+                return PARTY_MENU_SLOT_MON_1;
             break;
-        case PARTY_SLOT_MON_2:
-        case PARTY_SLOT_MON_4:
-        case PARTY_SLOT_MON_6:
-            if (GetMonData(&gPlayerParty[PARTY_SLOT_MON_6], MON_DATA_SPECIES) != SPECIES_NONE)
-                return PARTY_SLOT_MON_6;
-            else if (GetMonData(&gPlayerParty[PARTY_SLOT_MON_4], MON_DATA_SPECIES) != SPECIES_NONE)
-                return PARTY_SLOT_MON_4;
-            else if (GetMonData(&gPlayerParty[PARTY_SLOT_MON_2], MON_DATA_SPECIES) != SPECIES_NONE)
-                return PARTY_SLOT_MON_2;
+        case PARTY_MENU_SLOT_MON_2:
+        case PARTY_MENU_SLOT_MON_4:
+        case PARTY_MENU_SLOT_MON_6:
+            if (GetMonData(&gPlayerParty[PARTY_MENU_SLOT_MON_6], MON_DATA_SPECIES) != SPECIES_NONE)
+                return PARTY_MENU_SLOT_MON_6;
+            else if (GetMonData(&gPlayerParty[PARTY_MENU_SLOT_MON_4], MON_DATA_SPECIES) != SPECIES_NONE)
+                return PARTY_MENU_SLOT_MON_4;
+            else if (GetMonData(&gPlayerParty[PARTY_MENU_SLOT_MON_2], MON_DATA_SPECIES) != SPECIES_NONE)
+                return PARTY_MENU_SLOT_MON_2;
             else
-                return PARTY_SLOT_MON_1;
+                return PARTY_MENU_SLOT_MON_1;
             break;
         default:
-            return PARTY_SLOT_MON_1;
+            return PARTY_MENU_SLOT_MON_1;
             break;
     }
 }
@@ -2046,7 +2040,7 @@ static void Task_HandleCancelParticipationYesNoInput(u8 taskId)
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {
     case 0:
-        gSpecialVar_0x8004 = PARTY_SLOT_CANCEL_BUTTON;
+        gSpecialVar_0x8004 = PARTY_MENU_SLOT_CANCEL_BUTTON;
         Task_ClosePartyMenu(taskId);
         break;
     case MENU_B_PRESSED:
@@ -6158,9 +6152,9 @@ static bool8 TrySwitchInPokemon(void)
 
     // In a multi battle, slots 1, 3, and 5 are the partner's pokemon
     if (IsMultiBattle() == TRUE 
-        && (slot == PARTY_SLOT_MON_2
-         || slot == PARTY_SLOT_MON_4 
-         || slot == PARTY_SLOT_MON_6))
+        && (slot == PARTY_MENU_SLOT_MON_2
+         || slot == PARTY_MENU_SLOT_MON_4 
+         || slot == PARTY_MENU_SLOT_MON_6))
     {
         StringCopy(gStringVar1, GetTrainerPartnerName());
         StringExpandPlaceholders(gStringVar4, gText_CantSwitchWithAlly);
@@ -6224,20 +6218,23 @@ static void BufferBattlePartyOrder(u8 *partyBattleOrder, u8 flankId)
 
     if (IsMultiBattle() == TRUE)
     {
-        // Party ids are packed in 4 bits at a time
-        // Each index contains a byte,  with 4 bits respresenting the player and the other for the partner
-        // i.e. the party id order below would be 0, 3, 5, 4, 2, 1, and the two parties would be 0,5,4 and 3,2,1
+        // When player and partner mons are loaded, the player's are loaded into 
+        // the first 3 slots, and the partner's into the last 3 slots
+        // partyBattleOrder has 3 bytes, one per index
+        // Each byte holds the positions of 2 Pokemon, each using 4 bits
+        // The first byte are the lead Mons, the last two bytes are
+        // the rest.
         if (flankId != 0)
         {
-            partyBattleOrder[0] = 0 | (3 << 4);
-            partyBattleOrder[1] = 1 | (4 << 4);
-            partyBattleOrder[2] = 2 | (5 << 4);
+            partyBattleOrder[0] = (PARTY_MENU_SLOT_MON_4 << 4) | PARTY_MENU_SLOT_MON_1;
+            partyBattleOrder[1] = (PARTY_MENU_SLOT_MON_5 << 4) | PARTY_MENU_SLOT_MON_2;
+            partyBattleOrder[2] = (PARTY_MENU_SLOT_MON_6 << 4) | PARTY_MENU_SLOT_MON_3;
         }
         else
         {
-            partyBattleOrder[0] = 3 | (0 << 4);
-            partyBattleOrder[1] = 4 | (1 << 4);
-            partyBattleOrder[2] = 5 | (2 << 4);
+            partyBattleOrder[0] = (PARTY_MENU_SLOT_MON_1 << 4) | PARTY_MENU_SLOT_MON_4; // Slot 1 Mon (player's first) and Slot 4 Mon (Partner's first) are the leads, put them in the first two slots
+            partyBattleOrder[1] = (PARTY_MENU_SLOT_MON_2 << 4) | PARTY_MENU_SLOT_MON_5;
+            partyBattleOrder[2] = (PARTY_MENU_SLOT_MON_3 << 4) | PARTY_MENU_SLOT_MON_6;
         }
         return;
     }
@@ -6300,15 +6297,15 @@ static void BufferBattlePartyOrderBySide(u8 *partyBattleOrder, u8 flankId, u8 ba
     {
         if (flankId != 0)
         {
-            partyBattleOrder[0] = 0 | (3 << 4);
-            partyBattleOrder[1] = 1 | (4 << 4);
-            partyBattleOrder[2] = 2 | (5 << 4);
+            partyBattleOrder[0] = (PARTY_MENU_SLOT_MON_4 << 4) | PARTY_MENU_SLOT_MON_1;
+            partyBattleOrder[1] = (PARTY_MENU_SLOT_MON_5 << 4) | PARTY_MENU_SLOT_MON_2;
+            partyBattleOrder[2] = (PARTY_MENU_SLOT_MON_6 << 4) | PARTY_MENU_SLOT_MON_3;
         }
         else
         {
-            partyBattleOrder[0] = 3 | (0 << 4);
-            partyBattleOrder[1] = 4 | (1 << 4);
-            partyBattleOrder[2] = 5 | (2 << 4);
+            partyBattleOrder[0] = (PARTY_MENU_SLOT_MON_1 << 4) | PARTY_MENU_SLOT_MON_4;
+            partyBattleOrder[1] = (PARTY_MENU_SLOT_MON_2 << 4) | PARTY_MENU_SLOT_MON_5;
+            partyBattleOrder[2] = (PARTY_MENU_SLOT_MON_3 << 4) | PARTY_MENU_SLOT_MON_6;
         }
         return;
     }
