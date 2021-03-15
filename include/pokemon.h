@@ -104,6 +104,8 @@ struct BoxPokemon
     u8 unused:5;
     u8 otName[PLAYER_NAME_LENGTH];
     u8 markings;
+    u32 status;
+    u16 hp;
     u16 checksum;
     u16 unknown;
 
@@ -117,10 +119,8 @@ struct BoxPokemon
 struct Pokemon
 {
     struct BoxPokemon box;
-    u32 status;
     u8 level;
     u8 mail;
-    u16 hp;
     u16 maxHP;
     u16 attack;
     u16 defense;
