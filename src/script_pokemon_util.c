@@ -16,6 +16,7 @@
 #include "party_menu.h"
 #include "pokedex.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "random.h"
 #include "script.h"
 #include "sprite.h"
@@ -28,34 +29,57 @@
 static void CB2_ReturnFromChooseHalfParty(void);
 static void CB2_ReturnFromChooseBattleFrontierParty(void);
 
-void HealPlayerParty(void)
+void HealBoxMon(struct BoxPokemon *boxMon, u16 maxHP)
 {
-    u8 i, j;
+    u8 i;
     u8 ppBonuses;
     u8 arg[4];
 
-    // restore HP.
+    // This was causing party mons to faint instead of fully heal
+    //u16 maxHP = GetBoxMonData(boxMon, MON_DATA_MAX_HP);
+    arg[0] = maxHP;
+    arg[1] = maxHP >> 8;
+    SetBoxMonData(boxMon, MON_DATA_HP, arg);
+    ppBonuses = GetBoxMonData(boxMon, MON_DATA_PP_BONUSES);
+
+    // restore PP.
+    for(i = 0; i < MAX_MON_MOVES; i++)
+    {
+        arg[0] = CalculatePPWithBonus(GetBoxMonData(boxMon, MON_DATA_MOVE1 + i), ppBonuses, i);
+        SetBoxMonData(boxMon, MON_DATA_PP1 + i, arg);
+    }
+
+    // since status is u32, the four 0 assignments here are probably for safety to prevent undefined data from reaching SetMonData.
+    arg[0] = 0;
+    arg[1] = 0;
+    arg[2] = 0;
+    arg[3] = 0;
+    SetBoxMonData(boxMon, MON_DATA_STATUS, arg);
+}
+
+void HealPlayerParty(void)
+{
+    u8 i, j;
+    u16 maxHP;
+
+    // Heal Party
     for(i = 0; i < gPlayerPartyCount; i++)
     {
-        u16 maxHP = GetMonData(&gPlayerParty[i], MON_DATA_MAX_HP);
-        arg[0] = maxHP;
-        arg[1] = maxHP >> 8;
-        SetMonData(&gPlayerParty[i], MON_DATA_HP, arg);
-        ppBonuses = GetMonData(&gPlayerParty[i], MON_DATA_PP_BONUSES);
+        maxHP = GetMonData(&gPlayerParty[i], MON_DATA_MAX_HP);
+        HealBoxMon(&gPlayerParty[i].box, maxHP);
+    }
 
-        // restore PP.
-        for(j = 0; j < MAX_MON_MOVES; j++)
+    // Heal all Pokemon in PC Storage
+    for(i = 0; i < TOTAL_BOXES_COUNT; i++)
+    {
+        for (j = 0; j < IN_BOX_COUNT; j++)
         {
-            arg[0] = CalculatePPWithBonus(GetMonData(&gPlayerParty[i], MON_DATA_MOVE1 + j), ppBonuses, j);
-            SetMonData(&gPlayerParty[i], MON_DATA_PP1 + j, arg);
+            if (GetMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SPECIES) != SPECIES_NONE)
+            {
+                maxHP = GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_MAX_HP);
+                HealBoxMon(&gPokemonStoragePtr->boxes[i][j], maxHP);
+            }
         }
-
-        // since status is u32, the four 0 assignments here are probably for safety to prevent undefined data from reaching SetMonData.
-        arg[0] = 0;
-        arg[1] = 0;
-        arg[2] = 0;
-        arg[3] = 0;
-        SetMonData(&gPlayerParty[i], MON_DATA_STATUS, arg);
     }
 }
 
