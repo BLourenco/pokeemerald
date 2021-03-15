@@ -1320,16 +1320,14 @@ void set_callback3_to_bag(u8 taskId)
 
 static u8 GetSwitchBagPocketDirection(void)
 {
-    u8 LRKeys;
     if (gBagMenu->pocketSwitchDisabled)
         return SWITCH_POCKET_NONE;
-    LRKeys = GetLRKeysPressed();
-    if ((JOY_NEW(DPAD_LEFT)) || LRKeys == MENU_L_PRESSED)
+    if (JOY_NEW(DPAD_LEFT))
     {
         PlaySE(SE_SELECT);
         return SWITCH_POCKET_LEFT;
     }
-    if ((JOY_NEW(DPAD_RIGHT)) || LRKeys == MENU_R_PRESSED)
+    if (JOY_NEW(DPAD_RIGHT))
     {
         PlaySE(SE_SELECT);
         return SWITCH_POCKET_RIGHT;
@@ -1781,7 +1779,7 @@ void Task_HandleOutOfBattleItemMenuInput(u8 taskId)
                 ChangeListMenuCursorPosition(MENU_CURSOR_DELTA_NONE, MENU_CURSOR_DELTA_DOWN);
             }
         }
-        else if ((JOY_NEW(DPAD_LEFT)) || GetLRKeysPressed() == MENU_L_PRESSED)
+        else if (JOY_NEW(DPAD_LEFT))
         {
             if ((cursorPos & 1) && sub_81ACDFC(cursorPos - 1))
             {
@@ -1789,7 +1787,7 @@ void Task_HandleOutOfBattleItemMenuInput(u8 taskId)
                 ChangeListMenuCursorPosition(MENU_CURSOR_DELTA_LEFT, MENU_CURSOR_DELTA_NONE);
             }
         }
-        else if ((JOY_NEW(DPAD_RIGHT)) || GetLRKeysPressed() == MENU_R_PRESSED)
+        else if (JOY_NEW(DPAD_RIGHT))
         {
             if (!(cursorPos & 1) && sub_81ACDFC(cursorPos + 1))
             {

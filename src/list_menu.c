@@ -428,6 +428,16 @@ s32 ListMenu_ProcessInput(u8 listTaskId)
         ListMenuChangeSelection(list, TRUE, 1, TRUE);
         return LIST_NOTHING_CHOSEN;
     }
+    else if (JOY_NEW(L_BUTTON))
+    {
+        ListMenuChangeSelection(list, TRUE, 255, FALSE);
+        return LIST_NOTHING_CHOSEN;
+    }
+    else if (JOY_NEW(R_BUTTON))
+    {
+        ListMenuChangeSelection(list, TRUE, 255, TRUE);
+        return LIST_NOTHING_CHOSEN;
+    }
     else // try to move by one window scroll
     {
         bool16 rightButton, leftButton;
@@ -442,11 +452,6 @@ s32 ListMenu_ProcessInput(u8 listTaskId)
             // note: JOY_REPEAT won't match here
             leftButton = gMain.newAndRepeatedKeys & DPAD_LEFT;
             rightButton = gMain.newAndRepeatedKeys & DPAD_RIGHT;
-            break;
-        case LIST_MULTIPLE_SCROLL_L_R:
-            // same as above
-            leftButton = gMain.newAndRepeatedKeys & L_BUTTON;
-            rightButton = gMain.newAndRepeatedKeys & R_BUTTON;
             break;
         }
 
