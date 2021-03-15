@@ -188,6 +188,7 @@
 #define PARTY_MENU_TYPE_SPIN_TRADE                10 // Unused beta for Gen IV's Spin Trade
 #define PARTY_MENU_TYPE_MINIGAME                  11
 #define PARTY_MENU_TYPE_STORE_PYRAMID_HELD_ITEMS  12
+#define PARTY_MENU_TYPE_FIELD_NO_PC_ACCESS        13
 
 #define PARTY_ACTION_CHOOSE_MON         0
 #define PARTY_ACTION_SEND_OUT           1
@@ -215,6 +216,7 @@
 
 #define PARTY_MENU_SLOT_CONFIRM_BUTTON   PARTY_SIZE
 #define PARTY_MENU_SLOT_CANCEL_BUTTON    PARTY_SIZE + 1
+#define PARTY_MENU_SLOT_PC_BUTTON        PARTY_MENU_SLOT_CANCEL_BUTTON
 
 // IDs for DisplayPartyMenuStdMessage, to display the message at the bottom of the party menu
 #define PARTY_MSG_CHOOSE_MON                0

@@ -9404,6 +9404,8 @@ extern const u32 gPartyMenuPokeballSmall_Gfx[];
 extern const u32 gStatusPal_Icons[];
 extern const u32 gPartyMenuPokeball_Pal[];
 extern const u32 gStatusPal_Icons[];
+extern const u32 gPartyMenuPC_Gfx[];
+extern const u32 gPartyMenuPC_Pal[];
 
 // Roulette
 extern const u32 gRouletteMenu_Gfx[];

@@ -1640,6 +1640,9 @@ const u32 gPartyMenuPokeball_Gfx[] = INCBIN_U32("graphics/interface/party_menu_p
 const u32 gPartyMenuPokeballSmall_Gfx[] = INCBIN_U32("graphics/interface/party_menu_pokeball_small.4bpp.lz"); //unused
 const u32 gPartyMenuPokeball_Pal[] = INCBIN_U32("graphics/interface/party_menu_pokeball.gbapal.lz");
 
+const u32 gPartyMenuPC_Gfx[] = INCBIN_U32("graphics/interface/party_menu_pc.4bpp.lz");
+const u32 gPartyMenuPC_Pal[] = INCBIN_U32("graphics/interface/party_menu_pc.gbapal.lz");
+
 const u32 gStatusGfx_Icons[] = INCBIN_U32("graphics/interface/status_icons.4bpp.lz");
 const u32 gStatusPal_Icons[] = INCBIN_U32("graphics/interface/status_icons.gbapal.lz");
 

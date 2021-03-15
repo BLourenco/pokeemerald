@@ -1137,6 +1137,63 @@ static const struct SpriteTemplate sSpriteTemplate_MenuPokeball =
     .callback = SpriteCallbackDummy,
 };
 
+static const struct OamData sOamData_MenuPC =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .mosaic = 0,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(32x32),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(32x32),
+    .tileNum = 0,
+    .priority = 1,
+    .paletteNum = 0,
+    .affineParam = 0
+};
+
+static const union AnimCmd sPCAnim_Off[] =
+{
+    ANIMCMD_FRAME(0, 0),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sPCAnim_On[] =
+{
+    ANIMCMD_FRAME(16, 0),
+    ANIMCMD_END
+};
+
+static const union AnimCmd *const sSpriteAnimTable_MenuPC[] =
+{
+    sPCAnim_Off,
+    sPCAnim_On
+};
+
+static const struct CompressedSpriteSheet sSpriteSheet_MenuPC =
+{
+    gPartyMenuPC_Gfx, 0x400, 1203
+};
+
+static const struct CompressedSpritePalette sSpritePalette_MenuPC =
+{
+    gPartyMenuPC_Pal, 1203
+};
+
+// Used for the pc sprite on PC button
+static const struct SpriteTemplate sSpriteTemplate_MenuPC =
+{
+    .tileTag = 1203,
+    .paletteTag = 1203,
+    .oam = &sOamData_MenuPC,
+    .anims = sSpriteAnimTable_MenuPC,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy,
+};
+
 static const struct OamData sOamData_MenuPokeballSmall =
 {
     .y = 0,

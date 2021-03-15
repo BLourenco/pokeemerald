@@ -168,6 +168,7 @@ static bool8 AllocPartyMenuBgGfx(void);
 static void InitPartyMenuWindows(u8);
 static void InitPartyMenuBoxes(u8);
 static void LoadPartyMenuPokeballGfx(void);
+static void LoadPartyMenuPCGfx(void);
 static void LoadPartyMenuAilmentGfx(void);
 static bool8 CreatePartyMonSpritesLoop(void);
 static bool8 RenderPartyMenuBoxes(void);
@@ -216,6 +217,7 @@ static void CreatePartyMonStatusSprite(struct Pokemon *, struct PartyMenuBox *);
 static u8 CreateSmallPokeballButtonSprite(u8, u8);
 static void DrawCancelConfirmButtons(void);
 static u8 CreatePokeballButtonSprite(u8, u8);
+static u8 CreatePCButtonSprite(u8, u8);
 static void AnimateSelectedPartyIcon(u8, u8);
 static void PartyMenuStartSpriteAnim(u8, u8);
 static u8 GetPartyBoxPaletteFlags(u8, u8);
@@ -223,7 +225,7 @@ static bool8 PartyBoxPal_ParnterOrDisqualifiedInArena(u8);
 static u8 GetPartyIdFromBattleSlot(u8);
 static void Task_ClosePartyMenuAndSetCB2(u8);
 static void UpdatePartyToFieldOrder(void);
-static void MoveCursorToConfirm(void);
+static void MoveCursorToSlot(u8);
 static void HandleChooseMonCancel(u8, s8*);
 static void HandleChooseMonSelection(u8, s8*);
 static u16 PartyMenuButtonHandler(s8*);
@@ -255,6 +257,7 @@ static void SetSlotPtr(s8*, s8);
 static s8 GetLastMonSlotInLastColumnSingleLayout(void);
 static void PartyMenuPrintText(const u8*);
 static void Task_PrintAndWaitForText(u8);
+static bool8 IsPokemonBoxLinkAvailable(void);
 static bool16 IsMonAllowedInPokemonJump(struct Pokemon*);
 static bool16 IsMonAllowedInDodrioBerryPicking(struct Pokemon*);
 static void Task_CancelParticipationYesNo(u8);
@@ -413,6 +416,7 @@ static bool8 SetUpFieldMove_Surf(void);
 static bool8 SetUpFieldMove_Fly(void);
 static bool8 SetUpFieldMove_Waterfall(void);
 static bool8 SetUpFieldMove_Dive(void);
+static void UsePokemonBoxLink(u8);
 
 // static const data
 #include "data/pokemon/tutor_learnsets.h"
@@ -455,11 +459,10 @@ static void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCurs
             sPartyMenuInternal->windowId[i] = 0xFF;
 
         if (!keepCursorPos)
-            gPartyMenu.slotId = 0;
-        else if (gPartyMenu.slotId == PARTY_MENU_SLOT_CONFIRM_BUTTON
-                || gPartyMenu.slotId == PARTY_MENU_SLOT_CANCEL_BUTTON
-                || GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES) == SPECIES_NONE)
-            gPartyMenu.slotId = 0;
+            gPartyMenu.slotId = PARTY_MENU_SLOT_MON_1;
+        else if (gPartyMenu.slotId < PARTY_SIZE
+                && GetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_SPECIES) == SPECIES_NONE)
+            gPartyMenu.slotId = PARTY_MENU_SLOT_MON_1;
 
         gTextFlags.autoScroll = 0;
         CalculatePlayerPartyCount();
@@ -562,49 +565,53 @@ static bool8 ShowPartyMenu(void)
         gMain.state++;
         break;
     case 13:
-        LoadPartyMenuAilmentGfx();
+        LoadPartyMenuPCGfx();
         gMain.state++;
         break;
     case 14:
-        LoadMonIconPalettes();
+        LoadPartyMenuAilmentGfx();
         gMain.state++;
         break;
     case 15:
+        LoadMonIconPalettes();
+        gMain.state++;
+        break;
+    case 16:
         if (CreatePartyMonSpritesLoop())
         {
             sPartyMenuInternal->data[0] = 0;
             gMain.state++;
         }
         break;
-    case 16:
+    case 17:
         if (RenderPartyMenuBoxes())
         {
             sPartyMenuInternal->data[0] = 0;
             gMain.state++;
         }
         break;
-    case 17:
+    case 18:
         CreateCancelConfirmPokeballSprites();
         gMain.state++;
         break;
-    case 18:
+    case 19:
         CreateCancelConfirmWindows(sPartyMenuInternal->chooseHalf);
         gMain.state++;
         break;
-    case 19:
+    case 20:
         gMain.state++;
         break;
-    case 20:
+    case 21:
         CreateTask(sPartyMenuInternal->task, 0);
         DisplayPartyMenuStdMessage(sPartyMenuInternal->messageId);
         gMain.state++;
         break;
-    case 21:
+    case 22:
         BlendPalettes(0xFFFFFFFF, 16, 0);
         gPaletteFade.bufferTransferDisabled = FALSE;
         gMain.state++;
         break;
-    case 22:
+    case 23:
         BeginNormalPaletteFade(0xFFFFFFFF, 0, 16, 0, RGB_BLACK);
         gMain.state++;
         break;
@@ -1039,7 +1046,10 @@ static void CreateCancelConfirmPokeballSprites(void)
         }
         else
         {
-            sPartyMenuInternal->spriteIdCancelPokeball = CreatePokeballButtonSprite(198, 148);
+            if (IsPokemonBoxLinkAvailable())
+                sPartyMenuInternal->spriteIdCancelPokeball = CreatePCButtonSprite(198, 148);
+            else
+                sPartyMenuInternal->spriteIdCancelPokeball = CreatePokeballButtonSprite(198, 148);
         }
         AnimatePartySlot(gPartyMenu.slotId, 1);
     }
@@ -1201,11 +1211,15 @@ void Task_HandleChooseMonInput(u8 taskId)
         case B_BUTTON: // Selected Cancel
             HandleChooseMonCancel(taskId, slotPtr);
             break;
+        case R_BUTTON:
+            MoveCursorToSlot(PARTY_MENU_SLOT_PC_BUTTON);
+            UsePokemonBoxLink(taskId);
+            break;
         case START_BUTTON: // Start button
             if (sPartyMenuInternal->chooseHalf)
             {
                 PlaySE(SE_SELECT);
-                MoveCursorToConfirm();
+                MoveCursorToSlot(PARTY_MENU_SLOT_CONFIRM_BUTTON);
             }
             else if (GetPartyMenuType() == PARTY_MENU_TYPE_FIELD 
                     && GetMonData(&gPlayerParty[1], MON_DATA_SPECIES) != SPECIES_NONE)
@@ -1446,7 +1460,15 @@ static u16 PartyMenuButtonHandler(s8 *slotPtr)
     
     if (JOY_NEW(A_BUTTON | START_BUTTON | SELECT_BUTTON)
         && *slotPtr == PARTY_MENU_SLOT_CANCEL_BUTTON)
-        return B_BUTTON;
+    {
+        if (IsPokemonBoxLinkAvailable())
+            return R_BUTTON;
+        else
+            return B_BUTTON;
+    }
+
+    if (JOY_NEW(R_BUTTON) && IsPokemonBoxLinkAvailable())
+        return R_BUTTON;
 
     return JOY_NEW(A_BUTTON | B_BUTTON | START_BUTTON | SELECT_BUTTON);
 }
@@ -1980,6 +2002,13 @@ static void SetPartyMonsAllowedInMinigame(void)
     }
 }
 
+static bool8 IsPokemonBoxLinkAvailable(void)
+{
+    return gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD
+            && !(gMapHeader.flags & MAP_ALLOW_ESCAPING)
+            && !FlagGet(FLAG_SYS_FORCE_POKEMON_BOX_LINK_UNAVAILABLE);
+}
+
 static bool16 IsMonAllowedInPokemonJump(struct Pokemon *mon)
 {
     if (GetMonData(mon, MON_DATA_IS_EGG) != TRUE && IsSpeciesAllowedInPokemonJump(GetMonData(mon, MON_DATA_SPECIES)))
@@ -2170,11 +2199,10 @@ static void CreateCancelConfirmWindows(bool8 chooseHalf)
         }
         FillWindowPixelBuffer(cancelWindowId, PIXEL_FILL(0));
 
-        // Branches are functionally identical. Second branch is never reached, Spin Trade wasnt fully implemented
-        if (gPartyMenu.menuType != PARTY_MENU_TYPE_SPIN_TRADE)
+        if (IsPokemonBoxLinkAvailable())
         {
-            mainOffset = GetStringCenterAlignXOffset(0, gText_Cancel, 48);
-            AddTextPrinterParameterized3(cancelWindowId, 0, mainOffset + offset, 1, sFontColorTable[0], -1, gText_Cancel);
+            mainOffset = GetStringCenterAlignXOffset(0, gText_PC, 48);
+            AddTextPrinterParameterized3(cancelWindowId, 0, mainOffset + offset, 1, sFontColorTable[0], -1, gText_PC);
         }
         else
         {
@@ -3749,7 +3777,7 @@ static void CursorCb_Enter(u8 taskId)
             gSelectedOrderFromParty[i] = gPartyMenu.slotId + 1;
             DisplayPartyPokemonDescriptionText(i + PARTYBOX_DESC_FIRST, &sPartyMenuBoxes[gPartyMenu.slotId], 1);
             if (i == (maxBattlers - 1))
-                MoveCursorToConfirm();
+                MoveCursorToSlot(PARTY_MENU_SLOT_CONFIRM_BUTTON);
             DisplayPartyMenuStdMessage(PARTY_MSG_CHOOSE_MON);
             gTasks[taskId].func = Task_HandleChooseMonInput;
             return;
@@ -3762,10 +3790,10 @@ static void CursorCb_Enter(u8 taskId)
     gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
 }
 
-static void MoveCursorToConfirm(void)
+static void MoveCursorToSlot(u8 slotId)
 {
     AnimatePartySlot(gPartyMenu.slotId, 0);
-    gPartyMenu.slotId = PARTY_SIZE;
+    gPartyMenu.slotId = slotId;
     AnimatePartySlot(gPartyMenu.slotId, 1);
 }
 
@@ -4362,6 +4390,14 @@ static u8 CreatePokeballButtonSprite(u8 x, u8 y)
     return spriteId;
 }
 
+static u8 CreatePCButtonSprite(u8 x, u8 y)
+{
+    u8 spriteId = CreateSprite(&sSpriteTemplate_MenuPC, x, y, 8);
+
+    gSprites[spriteId].oam.priority = 2;
+    return spriteId;
+}
+
 // For Confirm and Cancel when both are present
 static u8 CreateSmallPokeballButtonSprite(u8 x, u8 y)
 {
@@ -4398,6 +4434,12 @@ static void LoadPartyMenuPokeballGfx(void)
     LoadCompressedSpriteSheet(&sSpriteSheet_MenuPokeball);
     LoadCompressedSpriteSheet(&sSpriteSheet_MenuPokeballSmall);
     LoadCompressedSpritePalette(&sSpritePalette_MenuPokeball);
+}
+
+static void LoadPartyMenuPCGfx(void)
+{
+    LoadCompressedSpriteSheet(&sSpriteSheet_MenuPC);
+    LoadCompressedSpritePalette(&sSpritePalette_MenuPC);
 }
 
 static void CreatePartyMonStatusSprite(struct Pokemon *mon, struct PartyMenuBox *menuBox)
@@ -4461,7 +4503,7 @@ void CB2_ShowPartyMenuForItemUse(void)
     }
     else
     {
-        menuType = PARTY_MENU_TYPE_FIELD;
+        menuType = PARTY_MENU_TYPE_FIELD_NO_PC_ACCESS;
         partyLayout = PARTY_LAYOUT_SINGLE;
     }
 
@@ -4645,7 +4687,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
         PlaySE(SE_SELECT);
         DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
         ScheduleBgCopyTilemapToVram(2);
-        if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD)
+        if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD_NO_PC_ACCESS)
             gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         else
             gTasks[taskId].func = task;
@@ -4681,7 +4723,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
             GetMedicineItemEffectMessage(item);
             DisplayPartyMenuMessage(gStringVar4, TRUE);
             ScheduleBgCopyTilemapToVram(2);
-            if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(item, 1))
+            if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD_NO_PC_ACCESS && CheckBagHasItem(item, 1))
                 gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
             else
                 gTasks[taskId].func = task;
@@ -4796,7 +4838,7 @@ static void Task_DisplayHPRestoredMessage(u8 taskId)
     DisplayPartyMenuMessage(gStringVar4, FALSE);
     ScheduleBgCopyTilemapToVram(2);
     HandleBattleLowHpMusicChange();
-    if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+    if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD_NO_PC_ACCESS && CheckBagHasItem(gSpecialVar_ItemId, 1))
         gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
     else
         gTasks[taskId].func = Task_ClosePartyMenuAfterText;
@@ -5706,7 +5748,7 @@ void CB2_PartyMenuFromStartMenu(void)
 void CB2_ChooseMonToGiveItem(void)
 {
     MainCallback callback = (InBattlePyramid() == FALSE) ? CB2_ReturnToBagMenu : CB2_ReturnToPyramidBagMenu;
-    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_GIVE_ITEM, FALSE, PARTY_MSG_GIVE_TO_WHICH_MON, Task_HandleChooseMonInput, callback);
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD_NO_PC_ACCESS, PARTY_LAYOUT_SINGLE, PARTY_ACTION_GIVE_ITEM, FALSE, PARTY_MSG_GIVE_TO_WHICH_MON, Task_HandleChooseMonInput, callback);
     gPartyMenu.bagItem = gSpecialVar_ItemId;
 }
 
@@ -5886,7 +5928,7 @@ static bool8 ReturnGiveItemToBagOrPC(u16 item)
 
 void ChooseMonToGiveMailFromMailbox(void)
 {
-    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_GIVE_MAILBOX_MAIL, FALSE, PARTY_MSG_GIVE_TO_WHICH_MON, Task_HandleChooseMonInput, Mailbox_ReturnToMailListAfterDeposit);
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD_NO_PC_ACCESS, PARTY_LAYOUT_SINGLE, PARTY_ACTION_GIVE_MAILBOX_MAIL, FALSE, PARTY_MSG_GIVE_TO_WHICH_MON, Task_HandleChooseMonInput, Mailbox_ReturnToMailListAfterDeposit);
 }
 
 static void TryGiveMailToSelectedMon(u8 taskId)
@@ -6101,7 +6143,7 @@ void ChooseMonForTradingBoard(u8 menuType, MainCallback callback)
 
 void ChooseMonForMoveTutor(void)
 {
-    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_MOVE_TUTOR, FALSE, PARTY_MSG_TEACH_WHICH_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldContinueScriptPlayMapMusic);
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD_NO_PC_ACCESS, PARTY_LAYOUT_SINGLE, PARTY_ACTION_MOVE_TUTOR, FALSE, PARTY_MSG_TEACH_WHICH_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldContinueScriptPlayMapMusic);
 }
 
 void ChooseMonForWirelessMinigame(void)
@@ -6783,4 +6825,20 @@ void IsLastMonThatKnowsSurf(void)
         if (AnyStorageMonWithMove(move) != TRUE)
             gSpecialVar_Result = TRUE;
     }
+}
+
+static void UsePokemonBoxLink(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    FlagSet(FLAG_SYS_REMOTE_PC_ACTIVE);
+    sPartyMenuInternal->exitCallback = Cb2_EnterPSSFromPartyMenu;
+    Task_ClosePartyMenu(taskId);
+}
+
+void CB2_ReturnToPartyMenuFromPSS(void)
+{
+    gPaletteFade.bufferTransferDisabled = TRUE;
+    gPartyMenu.slotId = PARTY_MENU_SLOT_PC_BUTTON;
+    FlagClear(FLAG_SYS_REMOTE_PC_ACTIVE);
+    InitPartyMenu(gPartyMenu.menuType, KEEP_PARTY_LAYOUT, gPartyMenu.action, TRUE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, gPartyMenu.exitCallback);
 }

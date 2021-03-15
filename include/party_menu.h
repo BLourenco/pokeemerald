@@ -95,6 +95,7 @@ void MoveDeleterForgetMove(void);
 void BufferMoveDeleterNicknameAndMove(void);
 void GetNumMovesSelectedMonHas(void);
 void MoveDeleterChooseMoveToForget(void);
+void CB2_ReturnToPartyMenuFromPSS(void);
 
 bool8 CanLearnTutorMove(u16, u8);
 

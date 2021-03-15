@@ -1342,7 +1342,7 @@
 #define FLAG_SYS_POKEMON_GET                         (SYSTEM_FLAGS + 0x0) // FLAG_0x868
 #define FLAG_SYS_POKEDEX_GET                         (SYSTEM_FLAGS + 0x1)
 #define FLAG_SYS_POKENAV_GET                         (SYSTEM_FLAGS + 0x2)
-#define FLAG_UNUSED_0x863                            (SYSTEM_FLAGS + 0x3) // Unused Flag
+#define FLAG_SYS_FORCE_POKEMON_BOX_LINK_UNAVAILABLE  (SYSTEM_FLAGS + 0x3)
 #define FLAG_SYS_GAME_CLEAR                          (SYSTEM_FLAGS + 0x4)
 #define FLAG_SYS_CHAT_USED                           (SYSTEM_FLAGS + 0x5)
 #define FLAG_SYS_HIPSTER_MEET                        (SYSTEM_FLAGS + 0x6)
@@ -1405,7 +1405,7 @@
 #define FLAG_SYS_CLOCK_SET                          (SYSTEM_FLAGS + 0x35)
 #define FLAG_SYS_NATIONAL_DEX                       (SYSTEM_FLAGS + 0x36)
 #define FLAG_SYS_AUTO_WIN_BATTLES                   (SYSTEM_FLAGS + 0x37)
-#define FLAG_SYS_UNUSED_0x898                       (SYSTEM_FLAGS + 0x38) // Unused Flag
+#define FLAG_SYS_REMOTE_PC_ACTIVE                   (SYSTEM_FLAGS + 0x38)
 #define FLAG_SYS_UNUSED_0x899                       (SYSTEM_FLAGS + 0x39) // Unused Flag
 #define FLAG_SYS_SHOAL_TIDE                         (SYSTEM_FLAGS + 0x3A)
 #define FLAG_SYS_RIBBON_GET                         (SYSTEM_FLAGS + 0x3B)

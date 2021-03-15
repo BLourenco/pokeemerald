@@ -22,6 +22,7 @@
 #include "naming_screen.h"
 #include "overworld.h"
 #include "palette.h"
+#include "party_menu.h"
 #include "pc_screen_effect.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
@@ -1878,6 +1879,20 @@ static void Cb2_ExitPSS(void)
     SetMainCallback2(CB2_ReturnToField);
 }
 
+static void Cb2_ExitPSSAndReturnToPartyMenu(void)
+{
+    gFieldCallback = CB2_ReturnToPartyMenuFromPSS; 
+
+    // https://www.pokecommunity.com/showpost.php?p=10127351&postcount=48
+    // The three lines from the else block of FieldCb_ReturnToPcMenu
+    // Adding this here fixes the Summary Screen issue
+    SetVBlankCallback(CB2_ReturnToPartyMenuFromPSS);
+    FadeInFromBlack();
+    DisableInterrupts(FLAG_SYS_REMOTE_PC_ACTIVE);
+
+    SetMainCallback2(CB2_ReturnToField);
+}
+
 static s16 StorageSystemGetNextMonIndex(struct BoxPokemon *box, s8 startIdx, u8 stopIdx, u8 mode)
 {
     s16 i;
@@ -2164,6 +2179,27 @@ static void Cb2_EnterPSS(u8 boxOption)
     else
     {
         sPSSData->boxOption = boxOption;
+        sPSSData->isReshowingPSS = FALSE;
+        sMovingItemId = ITEM_NONE;
+        sPSSData->state = 0;
+        sPSSData->taskId = CreateTask(Cb_InitPSS, 3);
+        sLastUsedBox = StorageGetCurrentBox();
+        SetMainCallback2(Cb2_PSS);
+    }
+}
+
+void Cb2_EnterPSSFromPartyMenu(void)
+{
+    ResetTasks();
+    sCurrentBoxOption = PSS_BOX_OPTION_MOVE_MON;
+    sPSSData = Alloc(sizeof(*sPSSData));
+    if (sPSSData == NULL)
+    {
+        SetMainCallback2(Cb2_ExitPSSAndReturnToPartyMenu);
+    }
+    else
+    {
+        sPSSData->boxOption = PSS_BOX_OPTION_MOVE_MON;
         sPSSData->isReshowingPSS = FALSE;
         sMovingItemId = ITEM_NONE;
         sPSSData->state = 0;
@@ -3872,7 +3908,10 @@ static void Cb_ChangeScreen(u8 taskId)
     case SCREEN_CHANGE_EXIT_BOX:
     default:
         FreePSSData();
-        SetMainCallback2(Cb2_ExitPSS);
+        if (FlagGet(FLAG_SYS_REMOTE_PC_ACTIVE)) // If accessed from Party Menu
+            SetMainCallback2(Cb2_ExitPSSAndReturnToPartyMenu);
+        else
+            SetMainCallback2(Cb2_ExitPSS);
         break;
     case SCREEN_CHANGE_SUMMARY_SCREEN:
         boxMons = sPSSData->field_218C.box;

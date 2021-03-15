@@ -185,6 +185,7 @@ const u8 gMenuText_Confirm[] = _("Confirm");
 const u8 gMenuText_Walk[] = _("Walk");
 const u8 gText_Cancel[] = _("Cancel");
 const u8 gText_Cancel2[] = _("Cancel");
+const u8 gText_PC[] = _("PC ");
 const u8 gMenuText_Show[] = _("Show");
 const u8 gText_EmptyString2[] = _("");
 const u8 gText_Cancel7[] = _("Cancel"); // Unused

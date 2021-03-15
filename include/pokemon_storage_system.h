@@ -15,6 +15,11 @@ COLUMNS     0   1   2   3   4   5
             24  25  26  27  28  29
 */
 
+#define PSS_BOX_OPTION_WITHDRAW  0
+#define PSS_BOX_OPTION_DEPOSIT   1
+#define PSS_BOX_OPTION_MOVE_MON  2
+#define PSS_BOX_OPTION_MOVE_ITEM 3
+
 struct PokemonStorage
 {
     /*0x0000*/ u8 currentBox;
@@ -72,5 +77,6 @@ u8 *GetWaldaPhrasePtr(void);
 void SetWaldaPhrase(const u8 *src);
 bool32 IsWaldaPhraseEmpty(void);
 u8 CountPartyNonEggMons(void);
+void Cb2_EnterPSSFromPartyMenu(void);
 
 #endif // GUARD_POKEMON_STORAGE_SYSTEM_H
