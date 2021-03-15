@@ -58,7 +58,6 @@ struct SpeciesItem
 };
 
 // this file's functions
-static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon);
 static union PokemonSubstruct *GetSubstruct(struct BoxPokemon *boxMon, u8 substructType);
 static void EncryptBoxMon(struct BoxPokemon *boxMon);
 static void DecryptBoxMon(struct BoxPokemon *boxMon);
@@ -2978,7 +2977,6 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     u8 speciesName[POKEMON_NAME_LENGTH + 1];
     u32 personality;
     u32 value;
-    u16 checksum;
     u32 shinyValue;
 
     ZeroBoxMonData(boxMon);
@@ -3540,30 +3538,6 @@ void CreateObedientEnemyMon(void)
         heldItem[1] = itemId >> 8;
         SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, heldItem);
     }
-}
-
-static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
-{
-    u16 checksum = 0;
-    union PokemonSubstruct *substruct0 = GetSubstruct(boxMon, 0);
-    union PokemonSubstruct *substruct1 = GetSubstruct(boxMon, 1);
-    union PokemonSubstruct *substruct2 = GetSubstruct(boxMon, 2);
-    union PokemonSubstruct *substruct3 = GetSubstruct(boxMon, 3);
-    s32 i;
-
-    for (i = 0; i < 6; i++)
-        checksum += substruct0->raw[i];
-
-    for (i = 0; i < 6; i++)
-        checksum += substruct1->raw[i];
-
-    for (i = 0; i < 6; i++)
-        checksum += substruct2->raw[i];
-
-    for (i = 0; i < 6; i++)
-        checksum += substruct3->raw[i];
-
-    return checksum;
 }
 
 #define CALC_STAT(base, iv, ev, statIndex, field)               \
@@ -4173,13 +4147,13 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
         retVal = boxMon->status;
         break;
     case MON_DATA_HP:
-        retVal = boxMon->hp;
+        retVal = substruct0->hp;
         break;
     case MON_DATA_CHECKSUM:
-        retVal = boxMon->checksum;
+        retVal = 0;
         break;
     case MON_DATA_ENCRYPT_SEPARATOR:
-        retVal = boxMon->unknown;
+        retVal = 0;
         break;
     case MON_DATA_SPECIES:
         retVal = boxMon->isBadEgg ? SPECIES_EGG : substruct0->species;
@@ -4508,6 +4482,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     case MON_DATA_SANITY_IS_EGG:
         SET8(boxMon->isEgg);
         break;
+    case MON_DATA_STATUS:
+        SET16(boxMon->status);
+        break;
     case MON_DATA_OT_NAME:
     {
         s32 i;
@@ -4518,17 +4495,11 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     case MON_DATA_MARKINGS:
         SET8(boxMon->markings);
         break;
-    case MON_DATA_STATUS:
-        SET32(boxMon->status);
-        break;
-    case MON_DATA_HP:
-        SET16(boxMon->hp);
-        break;
     case MON_DATA_CHECKSUM:
-        SET16(boxMon->checksum);
+        // Do nothing.
         break;
     case MON_DATA_ENCRYPT_SEPARATOR:
-        SET16(boxMon->unknown);
+        // Do nothing.
         break;
     case MON_DATA_SPECIES:
     {
@@ -4614,14 +4585,17 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     case MON_DATA_MET_GAME:
         SET8(substruct3->metGame);
         break;
+    case MON_DATA_OT_GENDER:
+        SET8(substruct3->otGender);
+        break;
     case MON_DATA_POKEBALL:
     {
         u8 pokeball = *data;
         substruct0->pokeball = pokeball;
         break;
     }
-    case MON_DATA_OT_GENDER:
-        SET8(substruct3->otGender);
+    case MON_DATA_HP:
+        SET16(substruct0->hp);
         break;
     case MON_DATA_HP_IV:
         SET8(substruct3->hpIV);

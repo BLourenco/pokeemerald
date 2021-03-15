@@ -18,7 +18,7 @@ struct PokemonSubstruct0
     /*0x08*/ u8 ppBonuses;
     /*0x09*/ u8 friendship;
     /*0x0A*/ u16 pokeball:5; //31 balls
-             u16 filler:11;
+             u16 hp:11; // Just enough to store DMAX Blissey's HP
 }; /* size = 12 */
 
 struct PokemonSubstruct1
@@ -98,16 +98,13 @@ struct BoxPokemon
     u32 otId;
     u8 nickname[POKEMON_NAME_LENGTH];
     u8 language;
-    u8 isBadEgg:1;
-    u8 hasSpecies:1;
-    u8 isEgg:1;
-    u8 unused:5;
+    u16 isBadEgg:1;
+    u16 hasSpecies:1;
+    u16 isEgg:1;
+    u16 status:12;
+    u16 unused:1; // Unused
     u8 otName[PLAYER_NAME_LENGTH];
     u8 markings;
-    u32 status;
-    u16 hp;
-    u16 checksum;
-    u16 unknown;
 
     union
     {
