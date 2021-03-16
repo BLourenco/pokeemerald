@@ -499,19 +499,26 @@ struct SaveBlock2
     /*0x10*/ u8 playTimeMinutes;
     /*0x11*/ u8 playTimeSeconds;
     /*0x12*/ u8 playTimeVBlanks;
-    /*0x13*/ u8 optionsButtonMode;  // OPTIONS_BUTTON_MODE_[NORMAL/LR/L_EQUALS_A]
-    /*0x14*/ u16 optionsTextSpeed:3; // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
-    /*0x14*/ u16 optionsWindowFrameType:5; // Specifies one of the 20 decorative borders for text boxes
-    /*0x15*/ u16 optionsUnitSystem:1;   //tx_optionsPlus
-    /*0x15*/ u16 optionsBattleStyle:1; // OPTIONS_BATTLE_STYLE_[SHIFT/SET]
-    /*0x15*/ u16 optionsBattleSceneOff:1; // whether battle animations are disabled
-    /*0x15*/ u16 regionMapZoom:1; // whether the map is zoomed in
-    /*0x15*/ u16 optionsHpBarSpeed:4;   //tx_optionsPlus
-    /*0x16*/ u16 optionsExpBarSpeed:4;  //tx_optionsPlus
-    /*0x16*/ u16 optionsSound:2;        //tx_optionsPlus
-             u16 expShare:1; // whether EXP. Share is On
-    /*0x16*/ u16 padding:1;             //tx_optionsPlus FREE SPACE (Oringinally had 2 bits of padding for 2 double options or one four options)
-    /*0x18*/ struct Pokedex pokedex;
+    /*0x13*/ u32 optionsButtonMode:1;           // OPTIONS_BUTTON_MODE_[NORMAL/L_EQUALS_A]
+             u32 optionsTextSpeed:2;            // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST/INSTANT]
+             u32 optionsWindowFrameType:5;      // Specifies one of the 20 decorative borders for text boxes
+             u32 optionsUnitSystem:1;           // OPTIONS_UNIT_SYSTEM_[IMPERIAL/METRIC] (tx_optionsPlus)
+             u32 optionsBattleStyle:1;          // OPTIONS_BATTLE_STYLE_[SHIFT/SET]
+             u32 optionsBattleAnimations:1;     // whether battle animations are disabled
+             u32 regionMapZoom:1;               // PokeNav Hoenn Map zoom level
+             u32 optionsHpBarSpeed:4;           // 0 - 10, where 10 = Instant (tx_optionsPlus)
+             u32 optionsExpBarSpeed:4;          // 0 - 10, where 10 = Instant (tx_optionsPlus)
+             u32 optionsSpeakers:1;             // OPTIONS_SPEAKERS_[MONO/STEREO]
+             u32 optionsMusic:1;                // Enable/Disable music (tx_optionsPlus)
+             u32 optionsSFX:1;                  // Enable/Disable SFX   (tx_optionsPlus)
+             u32 optionsItemHeaders:2;          // OPTIONS_ITEM_HEADERS_[NEVER_SHOW/ONLY_NEW_ITEMS/ALWAYS_SHOW]
+             u32 optionsAutoRun:1;              // Sets default movement mode (walk/run). Hold B to use other movement mode.
+             u32 optionsAutoFieldMoves:1;        // When enabled, the player will automatically use a field move when colliding with an interactable tile/object.
+             u32 optionsPokeNavCallFilter:2;    
+             u32 optionsClockFormat:1;
+             u32 expShare:1;
+             u32 filler:1;
+    /*0x17*/ struct Pokedex pokedex;
     /*0x90*/ u8 filler_90[0x7];
     /*0x98*/ struct Time localTimeOffset;
     /*0xA0*/ struct Time lastBerryTreeUpdate;

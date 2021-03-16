@@ -95,15 +95,22 @@ static void InitPlayerTrainerId(void)
 // L=A isnt set here for some reason.
 static void SetDefaultOptions(void)
 {
-    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST; //tx_optionsPlus
+    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
     gSaveBlock2Ptr->optionsWindowFrameType = 0;
-    gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_STEREO;
+    gSaveBlock2Ptr->optionsSpeakers = OPTIONS_SPEAKERS_STEREO;
     gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
-    gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
+    gSaveBlock2Ptr->optionsBattleAnimations = TRUE;
     gSaveBlock2Ptr->regionMapZoom = FALSE;
-    gSaveBlock2Ptr->optionsUnitSystem = 1;  //tx_optionsPlus
-    gSaveBlock2Ptr->optionsHpBarSpeed = 0;  //tx_optionsPlus
-    gSaveBlock2Ptr->optionsExpBarSpeed = 0; //tx_optionsPlus
+    gSaveBlock2Ptr->optionsUnitSystem = OPTIONS_UNIT_SYSTEM_IMPERIAL;  //tx_optionsPlus
+    gSaveBlock2Ptr->optionsHpBarSpeed = 3;  //tx_optionsPlus
+    gSaveBlock2Ptr->optionsExpBarSpeed = 3; //tx_optionsPlus
+    gSaveBlock2Ptr->optionsMusic = TRUE; //tx_optionsPlus
+    gSaveBlock2Ptr->optionsSFX = TRUE; //tx_optionsPlus
+    gSaveBlock2Ptr->optionsItemHeaders = OPTIONS_ITEM_HEADERS_ONLY_NEW_ITEMS;
+    gSaveBlock2Ptr->optionsAutoRun = FALSE;
+    gSaveBlock2Ptr->optionsAutoFieldMoves = FALSE;
+    gSaveBlock2Ptr->optionsPokeNavCallFilter = OPTIONS_MATCH_CALL_FILTER_ALLOW_ALL;
+    gSaveBlock2Ptr->optionsClockFormat = OPTIONS_CLOCK_FORMAT_AM_PM;
 }
 
 static void ClearPokedexFlags(void)

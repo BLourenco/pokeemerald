@@ -39,7 +39,7 @@ struct MatchCallState
     u32 minutes;
     u16 trainerId;
     u8 stepCounter;
-    u8 triggeredFromScript;
+    u8 callIntent;
 };
 
 struct MatchCallTrainerTextInfo
@@ -109,6 +109,9 @@ static void PopulateSpeciesFromTrainerLocation(int, u8 *);
 static void PopulateSpeciesFromTrainerParty(int, u8 *);
 static void PopulateBattleFrontierFacilityName(int, u8 *);
 static void PopulateBattleFrontierStreak(int, u8 *);
+static int GetMatchCallIntent(int);
+static bool32 IsEligibleRematchTrainerOnSameRoute(int);
+static bool32 IsEligibleRematchTrainerOnDifferentRoute(int);
 
 #define TEXT_ID(topic, id) (((topic) << 8) | ((id) & 0xFF))
 
@@ -1041,19 +1044,46 @@ static bool32 SelectMatchCallTrainer(void)
 {
     u32 matchCallId;
     u32 numRegistered = GetNumRegisteredNPCs();
+    
+    // Don't have anyone registered
     if (!numRegistered)
         return FALSE;
 
     gMatchCallState.trainerId = GetActiveMatchCallTrainerId(Random() % numRegistered);
-    gMatchCallState.triggeredFromScript = 0;
+
+    // Randomly selected last enum, invalid
     if (gMatchCallState.trainerId == REMATCH_TABLE_ENTRIES)
         return FALSE;
 
     matchCallId = GetTrainerMatchCallId(gMatchCallState.trainerId);
+
+    // Check Call filter
+    switch (gSaveBlock2Ptr->optionsPokeNavCallFilter)
+    {
+        case OPTIONS_MATCH_CALL_FILTER_ALLOW_SCRIPTED_ONLY:
+            if (GetMatchCallIntent(matchCallId) == MATCH_CALL_INTENT_REMATCH_NOTIFICATION)
+                return FALSE;
+            // fallthrough
+        case OPTIONS_MATCH_CALL_FILTER_ALLOW_SCRIPTED_AND_REMATCH_NOTIF:
+            if (GetMatchCallIntent(matchCallId) == MATCH_CALL_INTENT_CHAT)
+                return FALSE;
+    }
+
+    // Trainer is trying to call for a chat while on the same route
     if (GetRematchTrainerLocation(matchCallId) == gMapHeader.regionMapSectionId && !TrainerIsEligibleForRematch(matchCallId))
         return FALSE;
 
     return TRUE;
+}
+
+static int GetMatchCallIntent(int matchCallId)
+{
+    // Same checks used during call to generate message
+    if (IsEligibleRematchTrainerOnSameRoute(matchCallId)
+        || IsEligibleRematchTrainerOnDifferentRoute(matchCallId))
+        return MATCH_CALL_INTENT_REMATCH_NOTIFICATION;
+    else
+        return MATCH_CALL_INTENT_CHAT;
 }
 
 static u32 GetNumRegisteredNPCs(void)
@@ -1099,7 +1129,7 @@ bool32 TryStartMatchCall(void)
 
 void StartMatchCallFromScript(const u8 *message)
 {
-    gMatchCallState.triggeredFromScript = 1;
+    gMatchCallState.callIntent = MATCH_CALL_INTENT_SCRIPTED_CALL;
     StartMatchCall();
 }
 
@@ -1110,7 +1140,7 @@ bool32 IsMatchCallTaskActive(void)
 
 static void StartMatchCall(void)
 {
-    if (!gMatchCallState.triggeredFromScript)
+    if (gMatchCallState.callIntent != MATCH_CALL_INTENT_SCRIPTED_CALL)
     {
         ScriptContext2_Enable();
         FreezeObjectEvents();
@@ -1239,7 +1269,7 @@ static bool32 sub_81962D8(u8 taskId)
     if (!ExecuteMatchCallTextPrinter(taskData[2]))
     {
         FillWindowPixelBuffer(taskData[2], PIXEL_FILL(8));
-        if (!gMatchCallState.triggeredFromScript)
+        if (gMatchCallState.callIntent != MATCH_CALL_INTENT_SCRIPTED_CALL)
             SelectMatchCallMessage(gMatchCallState.trainerId, gStringVar4);
 
         InitMatchCallTextPrinter(taskData[2], gStringVar4);
@@ -1284,7 +1314,7 @@ static bool32 sub_81963F0(u8 taskId)
     if (!IsDma3ManagerBusyWithBgCopy() && !IsSEPlaying())
     {
         ChangeBgY(0, 0, 0);
-        if (!gMatchCallState.triggeredFromScript)
+        if (gMatchCallState.callIntent != MATCH_CALL_INTENT_SCRIPTED_CALL)
         {
             LoadMessageBoxAndBorderGfx();
             playerObjectId = GetObjectEventIdByLocalIdAndMap(OBJ_EVENT_ID_PLAYER, 0, 0);
@@ -1412,6 +1442,20 @@ static u32 sub_8196774(int arg0)
     return REMATCH_TABLE_ENTRIES;
 }
 
+static bool32 IsEligibleRematchTrainerOnSameRoute(int matchCallId)
+{
+    return TrainerIsEligibleForRematch(matchCallId)
+        && GetRematchTrainerLocation(matchCallId) == gMapHeader.regionMapSectionId;
+}
+
+static bool32 IsEligibleRematchTrainerOnDifferentRoute(int matchCallId)
+{
+    // Not sure what this function actually does, but it must be true
+    // for the call to be about a rematch while on a 
+    // different route
+    return sub_8196D74(matchCallId);
+}
+
 bool32 SelectMatchCallMessage(int trainerId, u8 *str)
 {
     u32 matchCallId;
@@ -1420,12 +1464,11 @@ bool32 SelectMatchCallMessage(int trainerId, u8 *str)
 
     matchCallId = GetTrainerMatchCallId(trainerId);
     gBattleFrontierStreakInfo.facilityId = 0;
-    if (TrainerIsEligibleForRematch(matchCallId)
-     && GetRematchTrainerLocation(matchCallId) == gMapHeader.regionMapSectionId)
+    if (IsEligibleRematchTrainerOnSameRoute(matchCallId))
     {
         matchCallText = GetSameRouteMatchCallText(matchCallId, str);
     }
-    else if (sub_8196D74(matchCallId))
+    else if (IsEligibleRematchTrainerOnDifferentRoute(matchCallId))
     {
         matchCallText = GetDifferentRouteMatchCallText(matchCallId, str);
         retVal = TRUE;

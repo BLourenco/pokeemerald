@@ -1060,7 +1060,9 @@ void DrawHeaderBox(void)
     else
         dst = gStringVar1;
     
-    if (GetSetItemObtained(item, FLAG_GET_OBTAINED))
+    if ((GetSetItemObtained(item, FLAG_GET_OBTAINED)
+        || gSaveBlock2Ptr->optionsItemHeaders == OPTIONS_ITEM_HEADERS_NEVER_SHOW)
+        && gSaveBlock2Ptr->optionsItemHeaders != OPTIONS_ITEM_HEADERS_ALWAYS_SHOW)
     {
         ShowItemIconSprite(item, FALSE, handleFlash);
         return; //no box if item obtained previously
@@ -1086,13 +1088,21 @@ void HideHeaderBox(void)
 {
     DestroyItemIconSprite();
     
-    if (!GetSetItemObtained(gSpecialVar_0x8006, FLAG_GET_OBTAINED))
+    // Header box only exists if haven't seen item before or
+    // the is set to always show
+    if ((!GetSetItemObtained(gSpecialVar_0x8006, FLAG_GET_OBTAINED)
+        || gSaveBlock2Ptr->optionsItemHeaders == OPTIONS_ITEM_HEADERS_ALWAYS_SHOW)
+        && gSaveBlock2Ptr->optionsItemHeaders != OPTIONS_ITEM_HEADERS_NEVER_SHOW)
     {
-        //header box only exists if haven't seen item before
-        GetSetItemObtained(gSpecialVar_0x8006, FLAG_SET_OBTAINED);
         ClearStdWindowAndFrameToTransparent(sHeaderBoxWindowId, FALSE);
         CopyWindowToVram(sHeaderBoxWindowId, 3);
         RemoveWindow(sHeaderBoxWindowId);
+    }
+
+    // Mark item as obtained regardless of whether the header shows
+    if (!GetSetItemObtained(gSpecialVar_0x8006, FLAG_GET_OBTAINED))
+    {
+        GetSetItemObtained(gSpecialVar_0x8006, FLAG_SET_OBTAINED);
     }
 }
 

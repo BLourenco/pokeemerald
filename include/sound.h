@@ -46,5 +46,6 @@ bool8 IsBGMPlaying(void);
 bool8 IsSpecialSEPlaying(void);
 
 extern bool8 gDisableMusic; //tx_optionsPlus
+extern bool8 gDisableSFX; //tx_optionsPlus
 
 #endif // GUARD_SOUND_H

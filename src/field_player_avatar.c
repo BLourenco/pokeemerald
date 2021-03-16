@@ -640,28 +640,19 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
 
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
     {
-        // if (FlagGet(FLAG_SYS_DEXNAV_SEARCH) && (heldKeys & A_BUTTON))
-        // {
-        //     gPlayerAvatar.creeping = TRUE;
-        //     PlayerGoSpeed1(direction);
-        // }
-        // else 
-        if (heldKeys & B_BUTTON)
+        // !A != !B is a "logical exclusive or" check. A and B must be different.
+        if (!(heldKeys & B_BUTTON) != !gSaveBlock2Ptr->optionsAutoRun)
         {
-            gPlayerAvatar.creeping = FALSE;
             PlayerGoSpeed4(direction);
         }
         else
         {
-            gPlayerAvatar.creeping = FALSE;
             PlayerGoSpeed2(direction);
         }
         return;
     }
 
-    // if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER) && (heldKeys & B_BUTTON) && FlagGet(FLAG_SYS_B_DASH)
-    //  && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0)
-    if ((heldKeys & B_BUTTON))
+    if (!(heldKeys & B_BUTTON) != !gSaveBlock2Ptr->optionsAutoRun)
     {
         if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER))
         {
@@ -675,19 +666,6 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
             return;
         }
         
-    }
-    else if (FlagGet(FLAG_SYS_DEXNAV_SEARCH))
-    {
-        // if (heldKeys & A_BUTTON)
-        // {
-        //     gPlayerAvatar.creeping = TRUE;
-        //     PlayerGoSlow(direction);
-        // }
-        // else
-        {
-            gPlayerAvatar.creeping = FALSE;
-            PlayerGoSpeed1(direction);
-        }
     }
     else
     {

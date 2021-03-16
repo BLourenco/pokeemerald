@@ -27,6 +27,7 @@ static u16 sFanfareCounter;
 
 // iwram common
 bool8 gDisableMusic;
+bool8 gDisableSFX;
 
 extern struct MusicPlayerInfo gMPlayInfo_BGM;
 extern struct MusicPlayerInfo gMPlayInfo_SE1;
@@ -65,7 +66,8 @@ static const struct Fanfare sFanfares[] = {
 
 void InitMapMusic(void)
 {
-    gDisableMusic = (gSaveBlock2Ptr->optionsSound == 2);
+    gDisableMusic = (gSaveBlock2Ptr->optionsMusic == FALSE);
+    gDisableSFX = (gSaveBlock2Ptr->optionsSFX == FALSE);
     ResetMapMusic();
 }
 
@@ -306,7 +308,7 @@ bool8 IsBGMStopped(void)
 
 void PlayCry1(u16 species, s8 pan)
 {
-    if (gDisableMusic)
+    if (gDisableSFX)
         return;
     m4aMPlayVolumeControl(&gMPlayInfo_BGM, 0xFFFF, 85);
     PlayCryInternal(species, pan, CRY_VOLUME, 10, 0);
@@ -316,14 +318,14 @@ void PlayCry1(u16 species, s8 pan)
 
 void PlayCry2(u16 species, s8 pan, s8 volume, u8 priority)
 {
-    if (gDisableMusic)
+    if (gDisableSFX)
         return;
     PlayCryInternal(species, pan, volume, priority, 0);
 }
 
 void PlayCry3(u16 species, s8 pan, u8 mode)
 {
-    if (gDisableMusic)
+    if (gDisableSFX)
         return;
     if (mode == 1)
     {
@@ -340,7 +342,7 @@ void PlayCry3(u16 species, s8 pan, u8 mode)
 
 void PlayCry4(u16 species, s8 pan, u8 mode)
 {
-    if (gDisableMusic)
+    if (gDisableSFX)
         return;
     if (mode == 1)
     {
@@ -356,7 +358,7 @@ void PlayCry4(u16 species, s8 pan, u8 mode)
 
 void PlayCry6(u16 species, s8 pan, u8 mode) // not present in R/S
 {
-    if (gDisableMusic)
+    if (gDisableSFX)
         return;
     if (mode == 1)
     {
@@ -372,7 +374,7 @@ void PlayCry6(u16 species, s8 pan, u8 mode) // not present in R/S
 
 void PlayCry5(u16 species, u8 mode)
 {
-    if (gDisableMusic)
+    if (gDisableSFX)
         return;
     m4aMPlayVolumeControl(&gMPlayInfo_BGM, 0xFFFF, 85);
     PlayCryInternal(species, 0, CRY_VOLUME, 10, mode);
@@ -550,14 +552,14 @@ void PlayBGM(u16 songNum)
 
 void PlaySE(u16 songNum)
 {
-    if (gDisableMusic)
+    if (gDisableSFX)
         return;
     m4aSongNumStart(songNum);
 }
 
 void PlaySE12WithPanning(u16 songNum, s8 pan)
 {
-    if (gDisableMusic)
+    if (gDisableSFX)
         return;
     m4aSongNumStart(songNum);
     m4aMPlayImmInit(&gMPlayInfo_SE1);
@@ -568,7 +570,7 @@ void PlaySE12WithPanning(u16 songNum, s8 pan)
 
 void PlaySE1WithPanning(u16 songNum, s8 pan)
 {
-    if (gDisableMusic)
+    if (gDisableSFX)
         return;
     m4aSongNumStart(songNum);
     m4aMPlayImmInit(&gMPlayInfo_SE1);
@@ -577,7 +579,7 @@ void PlaySE1WithPanning(u16 songNum, s8 pan)
 
 void PlaySE2WithPanning(u16 songNum, s8 pan)
 {
-    if (gDisableMusic)
+    if (gDisableSFX)
         return;
     m4aSongNumStart(songNum);
     m4aMPlayImmInit(&gMPlayInfo_SE2);
