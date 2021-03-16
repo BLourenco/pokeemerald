@@ -14,6 +14,7 @@
 #include "event_scripts.h"
 #include "field_message_box.h"
 #include "field_screen_effect.h"
+#include "gym_leader_rematch.h"
 #include "international_string_util.h"
 #include "item.h"
 #include "item_icon.h"
@@ -1133,9 +1134,33 @@ static void DebugAction_Flags_SwitchPokeNav(u8 taskId)
     if(FlagGet(FLAG_SYS_POKENAV_GET))
     {
         FlagClear(FLAG_SYS_POKENAV_GET);
+        FlagClear(FLAG_RECEIVED_POKENAV);
+        FlagClear(FLAG_ADDED_MATCH_CALL_TO_POKENAV);
+        FlagClear(FLAG_HAS_MATCH_CALL);
+
+        u32 i;
+        for (i = 0; i < REMATCH_SPECIAL_TRAINER_START; i++)
+        {
+            FlagClear(FLAG_MATCH_CALL_REGISTERED + i);
+            FlagClear(TRAINER_FLAGS_START + i);
+        }
+
         PlaySE(SE_PC_OFF);
-    }else{
+    }
+    else
+    {
         FlagSet(FLAG_SYS_POKENAV_GET);
+        FlagSet(FLAG_RECEIVED_POKENAV);
+        FlagSet(FLAG_ADDED_MATCH_CALL_TO_POKENAV);
+        FlagSet(FLAG_HAS_MATCH_CALL);
+
+        u32 i;
+        for (i = 0; i < REMATCH_SPECIAL_TRAINER_START; i++)
+        {
+            FlagSet(FLAG_MATCH_CALL_REGISTERED + i);
+            FlagSet(TRAINER_FLAGS_START + i);
+        }
+
         PlaySE(SE_PC_LOGIN);
     }
 }
