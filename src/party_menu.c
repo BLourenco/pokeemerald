@@ -1461,7 +1461,8 @@ static u16 PartyMenuButtonHandler(s8 *slotPtr)
     if (JOY_NEW(A_BUTTON | START_BUTTON | SELECT_BUTTON)
         && *slotPtr == PARTY_MENU_SLOT_CANCEL_BUTTON)
     {
-        if (IsPokemonBoxLinkAvailable())
+        if (IsPokemonBoxLinkAvailable()
+            && gPartyMenu.action == PARTY_ACTION_CHOOSE_MON)
             return R_BUTTON;
         else
             return B_BUTTON;
