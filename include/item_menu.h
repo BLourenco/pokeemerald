@@ -35,9 +35,12 @@
 #define ITEMMENUACTION_CONFIRM_2    13
 #define ITEMMENUACTION_BY_NAME      14
 #define ITEMMENUACTION_BY_TYPE      15
-#define ITEMMENUACTION_BY_QUANTITY    16
+#define ITEMMENUACTION_BY_QUANTITY  16
 #define ITEMMENUACTION_BY_NUMBER    17
-#define ITEMMENUACTION_DUMMY        18
+#define ITEMMENUACTION_SELECT_BUTTON 18
+#define ITEMMENUACTION_L_BUTTON     19
+#define ITEMMENUACTION_R_BUTTON     20
+#define ITEMMENUACTION_DUMMY        21
 
 // Exported type declarations
 struct BagStruct
@@ -94,7 +97,7 @@ void SetInitialScrollAndCursorPositions(u8 pocketId);
 void CB2_ReturnToBagMenuPocket(void);
 void CB2_BagMenuFromStartMenu(void);
 u8 GetItemListPosition(u8 pocketId);
-bool8 UseRegisteredKeyItemOnField(void);
+bool8 UseRegisteredKeyItemOnField(u8 button);
 void CB2_GoToSellMenu(void);
 void GoToBagMenu(u8 bagMenuType, u8 pocketId, void ( *postExitMenuMainCallback2)());
 void DoWallyTutorialBagMenu(void);

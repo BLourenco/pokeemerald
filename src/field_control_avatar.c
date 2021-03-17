@@ -82,8 +82,8 @@ void FieldClearPlayerInput(struct FieldInput *input)
     input->heldDirection2 = FALSE;
     input->tookStep = FALSE;
     input->pressedBButton = FALSE;
-    input->input_field_1_0 = FALSE;
-    input->input_field_1_1 = FALSE;
+    input->pressedLButton = FALSE;
+    input->pressedRButton = FALSE;
     input->input_field_1_2 = FALSE;
     input->input_field_1_3 = FALSE;
     input->pressedRButton = FALSE;
@@ -108,6 +108,8 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
                 input->pressedAButton = TRUE;
             if (newKeys & B_BUTTON)
                 input->pressedBButton = TRUE;
+            if (newKeys & L_BUTTON)
+                input->pressedLButton = TRUE;
             if (newKeys & R_BUTTON)
                 input->pressedRButton = TRUE;
         }
@@ -138,11 +140,11 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
 
 
     //DEBUG
-    if (heldKeys & R_BUTTON) 
+    if (heldKeys & B_BUTTON) 
     {
         if(input->pressedSelectButton)
         {
-            input->input_field_1_0 = TRUE;
+            input->pressedLButton = TRUE;
             input->pressedSelectButton = FALSE;
         }else if(input->pressedStartButton) 
         {
@@ -154,7 +156,7 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
     {
         if(input->pressedSelectButton)
         {
-            input->input_field_1_1 = TRUE;
+            input->pressedRButton = TRUE;
             input->pressedSelectButton = FALSE;
         }else if(input->pressedStartButton) 
         {
@@ -227,7 +229,12 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         }
         return TRUE;
     }
-    if (input->pressedSelectButton && UseRegisteredKeyItemOnField() == TRUE)
+    
+    if (input->pressedSelectButton && UseRegisteredKeyItemOnField(0))
+        return TRUE;
+    else if (input->pressedLButton && UseRegisteredKeyItemOnField(1))
+        return TRUE;
+    else if (input->pressedRButton && UseRegisteredKeyItemOnField(2))
         return TRUE;
     
     if (input->tookStep && TryFindHiddenPokemon())
@@ -235,15 +242,6 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     
     if (input->pressedRButton && TryStartDexnavSearch())
         return TRUE;
-
-#if DEBUG
-    if (input->input_field_1_2)
-    {
-        PlaySE(SE_WIN_OPEN);
-        Debug_ShowMainMenu();
-        return TRUE;
-    }
-#endif
 
 #if DEBUG
     if (input->input_field_1_2)
