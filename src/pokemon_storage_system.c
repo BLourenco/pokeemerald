@@ -304,7 +304,7 @@ enum
 {
     BOX_OPTION_WITHDRAW,
     BOX_OPTION_DEPOSIT,
-    BOX_OPTION_MOVE_MONS,
+    BOX_OPTION_MOVE_POKEMON,
     BOX_OPTION_MOVE_ITEMS,
     BOX_OPTION_EXIT,
 };
@@ -2453,7 +2453,7 @@ static void Cb_MainPSS(u8 taskId)
             sPSSData->state = 1;
             break;
         case 5:
-            if (sPSSData->boxOption != BOX_OPTION_MOVE_MONS && sPSSData->boxOption != BOX_OPTION_MOVE_ITEMS)
+            if (sPSSData->boxOption != BOX_OPTION_MOVE_POKEMON && sPSSData->boxOption != BOX_OPTION_MOVE_ITEMS)
             {
                 PrintStorageActionText(PC_TEXT_WHICH_ONE_WILL_TAKE);
                 sPSSData->state = 3;
@@ -2465,7 +2465,7 @@ static void Cb_MainPSS(u8 taskId)
             }
             break;
         case 6:
-            if (sPSSData->boxOption == BOX_OPTION_MOVE_MONS)
+            if (sPSSData->boxOption == BOX_OPTION_MOVE_POKEMON)
             {
                 if (IsMonBeingMoved() && ItemIsMail(sPSSData->cursorMonItem))
                     sPSSData->state = 5;
@@ -7048,7 +7048,7 @@ static u8 InBoxInput_Normal(void)
             if (!sCanOnlyMove)
                 return 8;
 
-            if (sPSSData->boxOption != BOX_OPTION_MOVE_MONS || sIsMonBeingMoved == TRUE)
+            if (sPSSData->boxOption != BOX_OPTION_MOVE_POKEMON || sIsMonBeingMoved == TRUE)
             {
                 switch (sub_80CFF98(0))
                 {
@@ -7579,7 +7579,7 @@ static bool8 sub_80CFA84(void)
         else
             return FALSE;
         break;
-    case BOX_OPTION_MOVE_MONS:
+    case BOX_OPTION_MOVE_POKEMON:
         if (sIsMonBeingMoved)
         {
             if (var0)
@@ -7601,7 +7601,7 @@ static bool8 sub_80CFA84(void)
     }
 
     SetMenuText(6);
-    if (sPSSData->boxOption == BOX_OPTION_MOVE_MONS)
+    if (sPSSData->boxOption == BOX_OPTION_MOVE_POKEMON)
     {
         if (!sBoxCursorArea)
             SetMenuText(2);
