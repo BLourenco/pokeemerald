@@ -94,16 +94,24 @@ void LoadObjectReflectionPalette(struct ObjectEvent *objectEvent, struct Sprite 
 
 void LoadSpecialReflectionPalette(struct Sprite *sprite)
 {
-    struct SpritePalette reflectionPalette;
+    // Old implementation created and loaded a tinted palette
+    // struct SpritePalette reflectionPalette;
 
-    CpuCopy16(&gPlttBufferUnfaded[0x100 + sprite->oam.paletteNum * 16], gReflectionPaletteBuffer, 32);
-    TintPalette_CustomTone(gReflectionPaletteBuffer, 16, Q_8_8(1.0), Q_8_8(1.0), Q_8_8(3.5));
-    reflectionPalette.data = gReflectionPaletteBuffer;
-    reflectionPalette.tag = GetSpritePaletteTagByPaletteNum(sprite->oam.paletteNum) + 0x1000;
-    LoadSpritePalette(&reflectionPalette);
-    sprite->oam.paletteNum = IndexOfSpritePaletteTag(reflectionPalette.tag);
-    UpdatePaletteGammaType(sprite->oam.paletteNum, GAMMA_ALT);
-    UpdateSpritePaletteWithWeather(sprite->oam.paletteNum);
+    // CpuCopy16(&gPlttBufferUnfaded[0x100 + sprite->oam.paletteNum * 16], gReflectionPaletteBuffer, 32);
+    // TintPalette_CustomTone(gReflectionPaletteBuffer, 16, Q_8_8(1.0), Q_8_8(1.0), Q_8_8(3.5));
+    // reflectionPalette.data = gReflectionPaletteBuffer;
+    // reflectionPalette.tag = GetSpritePaletteTagByPaletteNum(sprite->oam.paletteNum) + 0x1000;
+    // LoadSpritePalette(&reflectionPalette);
+    // sprite->oam.paletteNum = IndexOfSpritePaletteTag(reflectionPalette.tag);
+    // UpdatePaletteGammaType(sprite->oam.paletteNum, GAMMA_ALT);
+    // UpdateSpritePaletteWithWeather(sprite->oam.paletteNum);
+
+    // New implementation uses the same palette slot and blends it
+    // Stolen from Move Items mode in the PSS
+    sprite->oam.objMode = ST_OAM_OBJ_BLEND;
+    SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL);
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(15, 5));
+    //SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_BG_ALL_ON | DISPCNT_OBJ_1D_MAP);
 }
 
 static void UpdateObjectReflectionSprite(struct Sprite *reflectionSprite)

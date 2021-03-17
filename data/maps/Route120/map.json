@@ -638,7 +638,7 @@
     },
     {
       "type": "weather",
-      "x": 12,
+      "x": 14,
       "y": 64,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_RAIN"
@@ -722,28 +722,28 @@
     },
     {
       "type": "weather",
-      "x": 10,
+      "x": 5,
       "y": 75,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY_CLOUDS"
     },
     {
       "type": "weather",
-      "x": 11,
+      "x": 6,
       "y": 75,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY_CLOUDS"
     },
     {
       "type": "weather",
-      "x": 12,
+      "x": 7,
       "y": 75,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY_CLOUDS"
     },
     {
       "type": "weather",
-      "x": 13,
+      "x": 8,
       "y": 75,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY_CLOUDS"
