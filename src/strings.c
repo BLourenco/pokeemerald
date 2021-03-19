@@ -299,13 +299,13 @@ const u8 gText_TrainingPocket[] = _("Training");
 
 const u8 *const gPocketNamesStringsTable[] =
 {
-    gText_ItemsPocket,
     gText_MedicinePocket,
     gText_PokeBallsPocket,
-    gText_CompetitivePocket,
-    gText_BerriesPocket,
-    gText_TrainingPocket,
+    gText_ItemsPocket,
     gText_TMHMPocket,
+    gText_BerriesPocket,
+    gText_CompetitivePocket,
+    gText_TrainingPocket,
     gText_KeyItemsPocket
 };
 
