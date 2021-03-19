@@ -584,6 +584,8 @@ extern const u8 gText_Stats_EVSpAtk[];
 extern const u8 gText_Stats_EVSpDef[];
 extern const u8 gText_Stats_MoveSelectedMax[];
 extern const u8 gText_Stats_MoveLevel[];
+extern const u8 gText_Stats_MoveLevelUpon[];
+extern const u8 gText_Stats_MoveLevelEvo[];
 extern const u8 gText_Stats_Gender_0[];
 extern const u8 gText_Stats_Gender_12_5[];
 extern const u8 gText_Stats_Gender_25[];

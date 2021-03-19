@@ -6559,9 +6559,18 @@ static void PrintMoveNameAndInfo(u8 taskId, bool8 toggle)
                     level = 0xFF;
             }
         #endif
-        ConvertIntToDecimalStringN(gStringVar1, level, STR_CONV_MODE_LEFT_ALIGN, 3); //Move learn lvl
-        PrintInfoScreenTextSmall(gText_Stats_MoveLevel, moves_x + 113, moves_y + 3); //Level text
-        PrintInfoScreenTextSmall(gStringVar1, moves_x + 113, moves_y + 14); //Print level
+
+        if (level == 0) // Learn upon evolution
+        {
+            PrintInfoScreenTextSmall(gText_Stats_MoveLevelUpon, moves_x + 113, moves_y + 3); // "Upon"
+            PrintInfoScreenTextSmall(gText_Stats_MoveLevelEvo, moves_x + 113, moves_y + 14); // "Evo"
+        }
+        else
+        {
+            ConvertIntToDecimalStringN(gStringVar1, level, STR_CONV_MODE_LEFT_ALIGN, 3); //Move learn lvl
+            PrintInfoScreenTextSmall(gText_Stats_MoveLevel, moves_x + 113, moves_y + 3); //Level text
+            PrintInfoScreenTextSmall(gStringVar1, moves_x + 113, moves_y + 14); //Print level
+        }
         item = ITEM_EXP_SHARE;
     }
     else if (selected < (numEggMoves + numLevelUpMoves + numTMHMMoves))
