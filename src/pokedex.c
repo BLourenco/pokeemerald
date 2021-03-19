@@ -6415,16 +6415,25 @@ static void Task_HandleStatsScreenInput(u8 taskId)
     }
 
     //Change moves
-    if (JOY_REPEAT(DPAD_UP) && sPokedexView->moveSelected > 0)
+    if (JOY_REPEAT(DPAD_UP))
     {
-        sPokedexView->moveSelected -= 1;
+        if (sPokedexView->moveSelected > 0)
+            sPokedexView->moveSelected -= 1;
+        else
+            sPokedexView->moveSelected = sPokedexView->moveMax - 1;
+
         PlaySE(SE_SELECT);
         DestroyMoveIcon(taskId);
         PrintMoveNameAndInfo(taskId, FALSE);
     }
-    if (JOY_REPEAT(DPAD_DOWN) && sPokedexView->moveSelected < sPokedexView->moveMax -1 )
+
+    if (JOY_REPEAT(DPAD_DOWN))
     {
-        sPokedexView->moveSelected = sPokedexView->moveSelected + 1;
+        if (sPokedexView->moveSelected < sPokedexView->moveMax -1)
+            sPokedexView->moveSelected = sPokedexView->moveSelected + 1;
+        else
+            sPokedexView->moveSelected = 0;
+        
         PlaySE(SE_SELECT);
         DestroyMoveIcon(taskId);
         PrintMoveNameAndInfo(taskId, FALSE);
@@ -6539,7 +6548,8 @@ static void PrintMoveNameAndInfo(u8 taskId, bool8 toggle)
         move = sStatsMovesEgg[sPokedexView->moveSelected];
         StringCopy(gStringVar3, gMoveNames[move]);
         StringCopy(gStringVar4, gMoveDescriptionPointers[(move - 1)]);
-        PrintInfoScreenTextSmall(gText_ThreeDashes, moves_x + 113, moves_y + 9);
+        PrintInfoScreenTextSmall(gText_Stats_MoveReq_Egg, moves_x + 112, moves_y + 3);
+        PrintInfoScreenTextSmall(gText_Stats_MoveReq_Move, moves_x + 112, moves_y + 14);
         item = ITEM_LUCKY_EGG;
     }
     else if (selected < (numEggMoves + numLevelUpMoves))
@@ -6562,16 +6572,16 @@ static void PrintMoveNameAndInfo(u8 taskId, bool8 toggle)
 
         if (level == 0) // Learn upon evolution
         {
-            PrintInfoScreenTextSmall(gText_Stats_MoveLevelUpon, moves_x + 113, moves_y + 3); // "Upon"
-            PrintInfoScreenTextSmall(gText_Stats_MoveLevelEvo, moves_x + 113, moves_y + 14); // "Evo"
+            PrintInfoScreenTextSmall(gText_Stats_MoveReq_Upon, moves_x + 112, moves_y + 3); // "Upon"
+            PrintInfoScreenTextSmall(gText_Stats_MoveReq_Evo, moves_x + 112, moves_y + 14); // "Evo"
         }
         else
         {
             ConvertIntToDecimalStringN(gStringVar1, level, STR_CONV_MODE_LEFT_ALIGN, 3); //Move learn lvl
-            PrintInfoScreenTextSmall(gText_Stats_MoveLevel, moves_x + 113, moves_y + 3); //Level text
-            PrintInfoScreenTextSmall(gStringVar1, moves_x + 113, moves_y + 14); //Print level
+            PrintInfoScreenTextSmall(gText_Stats_MoveReq_Lvl, moves_x + 112, moves_y + 3); //Level text
+            PrintInfoScreenTextSmall(gStringVar1, moves_x + 112, moves_y + 14); //Print level
         }
-        item = ITEM_EXP_SHARE;
+        item = ITEM_RARE_CANDY;
     }
     else if (selected < (numEggMoves + numLevelUpMoves + numTMHMMoves))
     {
@@ -6579,7 +6589,7 @@ static void PrintMoveNameAndInfo(u8 taskId, bool8 toggle)
         StringCopy(gStringVar3, gMoveNames[move]);
         StringCopy(gStringVar4, gMoveDescriptionPointers[(move - 1)]);
         CopyItemName(sStatsMovesTMHM_ID[(selected-numEggMoves-numLevelUpMoves)], gStringVar1); //TM name
-        PrintInfoScreenTextSmall(gStringVar1, moves_x + 113, moves_y + 9);
+        PrintInfoScreenTextSmall(gStringVar1, moves_x + 112, moves_y + 9);
         item = sStatsMovesTMHM_ID[(selected-numEggMoves-numLevelUpMoves)];
     }
     else if (selected < (numEggMoves + numLevelUpMoves + numTMHMMoves + numTutorMoves))
@@ -6587,7 +6597,8 @@ static void PrintMoveNameAndInfo(u8 taskId, bool8 toggle)
         move = sStatsMovesTutor[sPokedexView->moveSelected - numEggMoves - numLevelUpMoves - numTMHMMoves];
         StringCopy(gStringVar3, gMoveNames[move]);
         StringCopy(gStringVar4, gMoveDescriptionPointers[(move - 1)]);
-        PrintInfoScreenTextSmall(gText_ThreeDashes, moves_x + 113, moves_y + 9);
+        PrintInfoScreenTextSmall(gText_Stats_MoveReq_Move, moves_x + 112, moves_y + 3);
+        PrintInfoScreenTextSmall(gText_Stats_MoveReq_Tutor, moves_x + 112, moves_y + 14);
         item = ITEM_TEACHY_TV;
     }
     else
