@@ -2538,6 +2538,7 @@ extern const u8 gText_Take[];
 extern const u8 gText_Mail[];
 extern const u8 gText_Take2[];
 extern const u8 gText_Read2[];
+extern const u8 gText_Relearn[];
 extern const u8 gText_Cancel2[];
 extern const u8 gText_Shift[];
 extern const u8 gText_SendOut[];

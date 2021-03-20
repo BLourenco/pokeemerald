@@ -40,6 +40,7 @@
 #include "menu_helpers.h"
 #include "menu_specialized.h"
 #include "metatile_behavior.h"
+#include "move_relearner.h"
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
@@ -400,6 +401,7 @@ static void CursorCb_TakeItem(u8);
 static void CursorCb_MoveItem(u8);
 static void CursorCb_Mail(u8);
 static void CursorCb_Read(u8);
+static void CursorCb_Relearn(u8);
 static void CursorCb_TakeMail(u8);
 static void CursorCb_Nickname(u8);
 static void CursorCb_Cancel2(u8);
@@ -2722,11 +2724,16 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     {
         if (GetMonData(&mons[1], MON_DATA_SPECIES) != SPECIES_NONE)
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SWITCH);
+
         if (ItemIsMail(GetMonData(&mons[slotId], MON_DATA_HELD_ITEM)))
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_MAIL);
         else
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_ITEM);
-    }    
+
+        if (GetMonData(&mons[slotId], MON_DATA_SPECIES2) != SPECIES_EGG
+            && GetNumberOfRelearnableMoves(&gPlayerParty[slotId]) != 0)
+            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_RELEARN);
+    }
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_NICKNAME);
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_CANCEL1);
 }
@@ -3720,6 +3727,15 @@ static void Task_HandleLoseMailMessageYesNoInput(u8 taskId)
         gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         break;
     }
+}
+
+static void CursorCb_Relearn(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    gSpecialVar_0x8004 = gPartyMenu.slotId;
+    gSpecialVar_0x8006 = LEARNSET_TYPE_LEVEL_UP;
+    sPartyMenuInternal->exitCallback = CB2_InitLearnMove;
+    Task_ClosePartyMenu(taskId);
 }
 
 static void CursorCb_Cancel2(u8 taskId)

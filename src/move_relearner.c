@@ -4,6 +4,7 @@
 #include "bg.h"
 #include "contest_effect.h"
 #include "data.h"
+#include "daycare.h"
 #include "event_data.h"
 #include "field_screen_effect.h"
 #include "gpu_regs.h"
@@ -15,6 +16,7 @@
 #include "menu_specialized.h"
 #include "overworld.h"
 #include "palette.h"
+#include "party_menu.h"
 #include "pokemon_summary_screen.h"
 #include "script.h"
 #include "sound.h"
@@ -155,6 +157,7 @@
 static EWRAM_DATA struct
 {
     u8 state;
+    u8 learnsetType;
     u8 heartSpriteIds[16];                               /*0x001*/
     u16 movesToLearn[MAX_RELEARNER_MOVES];               /*0x01A*/
     u8 partyMon;                                         /*0x044*/
@@ -344,7 +347,7 @@ static void CreateLearnableMovesList(void);
 static void CreateUISprites(void);
 static void CB2_MoveRelearnerMain(void);
 static void Task_WaitForFadeOut(u8 taskId);
-static void CB2_InitLearnMove(void);
+//static void CB2_InitLearnMove(void);
 static void CB2_InitLearnMoveReturnFromSelectMove(void);
 static void InitMoveRelearnerBackgroundLayers(void);
 static void AddScrollArrows(void);
@@ -381,7 +384,7 @@ static void Task_WaitForFadeOut(u8 taskId)
     }
 }
 
-static void CB2_InitLearnMove(void)
+void CB2_InitLearnMove(void)
 {
     ResetSpriteData();
     FreeAllSpritePalettes();
@@ -389,6 +392,7 @@ static void CB2_InitLearnMove(void)
     ClearScheduledBgCopiesToVram();
     sMoveRelearnerStruct = AllocZeroed(sizeof(*sMoveRelearnerStruct));
     sMoveRelearnerStruct->partyMon = gSpecialVar_0x8004;
+    sMoveRelearnerStruct->learnsetType = gSpecialVar_0x8006;
     SetVBlankCallback(VBlankCB_MoveRelearner);
 
     InitMoveRelearnerBackgroundLayers();
@@ -419,6 +423,7 @@ static void CB2_InitLearnMoveReturnFromSelectMove(void)
     sMoveRelearnerStruct->state = MENU_STATE_FADE_FROM_SUMMARY_SCREEN;
     sMoveRelearnerStruct->partyMon = gSpecialVar_0x8004;
     sMoveRelearnerStruct->moveSlot = gSpecialVar_0x8005;
+    sMoveRelearnerStruct->learnsetType = gSpecialVar_0x8006;
     SetVBlankCallback(VBlankCB_MoveRelearner);
 
     InitMoveRelearnerBackgroundLayers();
@@ -672,7 +677,10 @@ static void DoMoveRelearnerMain(void)
         if (!gPaletteFade.active)
         {
             FreeMoveRelearnerResources();
-            SetMainCallback2(CB2_ReturnToField);
+            // if (sMoveRelearnerStruct->learnsetType == LEARNSET_TYPE_EGG)
+                SetMainCallback2(CB2_ReturnToField);
+            // else if (sMoveRelearnerStruct->learnsetType == LEARNSET_TYPE_LEVEL_UP)
+            //     SetMainCallback2(CB2_ReturnToPartyMenuFromNicknameScreen);
         }
         break;
     case MENU_STATE_FADE_FROM_SUMMARY_SCREEN:
@@ -903,7 +911,10 @@ static void CreateLearnableMovesList(void)
     s32 i;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
 
-    sMoveRelearnerStruct->numMenuChoices = GetMoveRelearnerMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
+    if (sMoveRelearnerStruct->learnsetType == LEARNSET_TYPE_LEVEL_UP)
+        sMoveRelearnerStruct->numMenuChoices = GetMoveRelearnerMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
+    else if (sMoveRelearnerStruct->learnsetType == LEARNSET_TYPE_EGG)
+        sMoveRelearnerStruct->numMenuChoices = GetEggMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
 
     for (i = 0; i < sMoveRelearnerStruct->numMenuChoices; i++)
     {

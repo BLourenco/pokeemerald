@@ -39,6 +39,7 @@ FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon:: @ 82013D6
 
 FallarborTown_MoveRelearnersHouse_EventScript_ChooseMove:: @ 820140C
 	msgbox FallarborTown_MoveRelearnersHouse_Text_TeachWhichMove, MSGBOX_DEFAULT
+	setvar VAR_0x8006, 0 @ 1 = Egg Move list
 	special TeachMoveRelearnerMove
 	waitstate
 	compare VAR_0x8004, 0

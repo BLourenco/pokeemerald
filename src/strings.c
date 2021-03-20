@@ -388,6 +388,7 @@ const u8 gText_Enter[] = _("Enter");
 const u8 gText_NoEntry[] = _("No entry");
 const u8 gText_Take2[] = _("Take");
 const u8 gText_Read2[] = _("Read");
+const u8 gText_Relearn[] = _("Relearn");
 const u8 gText_Trade4[] = _("Trade");
 const u8 gText_HP3[] = _("HP");
 const u8 gText_SpAtk3[] = _("Sp. Atk");
