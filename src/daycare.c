@@ -411,7 +411,7 @@ static void ClearAllDaycareData(struct DayCare *daycare)
 // Determines what the species of an Egg would be based on the given species.
 // It determines this by working backwards through the evolution chain of the
 // given species.
-static u16 GetEggSpecies(u16 species)
+u16 GetEggSpecies(u16 species)
 {
     int i, j, k;
     bool8 found;
@@ -1511,3 +1511,44 @@ static u8 ModifyBreedingScoreForOvalCharm(u8 score)
     return score;
 }
 
+u8 GetMoveRelearnerEggMoves(struct Pokemon *mon, u16 *eggMoves)
+{
+    u16 eggMoveIdx = 0;
+    u16 learnedMoves[4];
+    u8 numEggMoves = 0;
+    u16 species = GetEggSpecies(GetMonData(mon, MON_DATA_SPECIES2, 0));
+    u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
+    int i, j, k;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+        learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
+
+    for (i = 0; i < ARRAY_COUNT(gEggMoves) - 1; i++)
+    {
+        if (gEggMoves[i] == species + EGG_MOVES_SPECIES_OFFSET)
+        {
+            eggMoveIdx = i + 1;
+            break;
+        }
+    }
+
+    for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
+    {
+        if (gEggMoves[eggMoveIdx + i] > EGG_MOVES_SPECIES_OFFSET)
+            break;
+
+        for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != gEggMoves[eggMoveIdx + i]; j++)
+            ;
+
+        if (j == MAX_MON_MOVES)
+        {
+            for (k = 0; k < numEggMoves && eggMoves[k] != gEggMoves[eggMoveIdx + i]; k++)
+                ;
+
+            if (k == numEggMoves)
+                eggMoves[numEggMoves++] = gEggMoves[eggMoveIdx + i];
+        }
+    }
+
+    return numEggMoves;
+}

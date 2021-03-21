@@ -39,7 +39,7 @@ FallarborTown_MoveRelearnersHouse_EventScript_ChooseMon:: @ 82013D6
 
 FallarborTown_MoveRelearnersHouse_EventScript_ChooseMove:: @ 820140C
 	msgbox FallarborTown_MoveRelearnersHouse_Text_TeachWhichMove, MSGBOX_DEFAULT
-	setvar VAR_0x8006, 0 @ 1 = Egg Move list
+	setvar VAR_0x8006, 1 @ 1 = Egg Move list
 	special TeachMoveRelearnerMove
 	waitstate
 	compare VAR_0x8004, 0
@@ -65,11 +65,11 @@ FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale:: @ 8201452
 	end
 
 FallarborTown_MoveRelearnersHouse_Text_ImTheMoveTutor: @ 820145C
-	.string "I'm the Move Tutor.\p"
-	.string "I know all the moves that Pokémon\n"
-	.string "learn--every one of them--and I can\l"
-	.string "teach Pokémon those moves.\p"
-	.string "I can teach a move to a Pokémon\n"
+	.string "I'm the Egg Move Tutor.\p"
+	.string "I know all the Egg Moves that Pokémon\n"
+	.string "can inherit through breeding, and I\l"
+	.string "can teach Pokémon those moves.\p"
+	.string "I can teach an Egg Move to a Pokémon\n"
 	.string "of yours if you'd like.\p"
 	.string "I'll do it for a Heart Scale.\n"
 	.string "I'm collecting those now.$"
@@ -78,28 +78,29 @@ FallarborTown_MoveRelearnersHouse_Text_ThatsAHeartScaleWantMeToTeachMove: @ 8201
 	.string "Oh! That's it! That's an honest to\n"
 	.string "goodness Heart Scale!\p"
 	.string "Let me guess, you want me to teach\n"
-	.string "a move?$"
+	.string "an Egg Move?$"
 
 FallarborTown_MoveRelearnersHouse_Text_TutorWhichMon: @ 82015A5
 	.string "Which Pokémon needs tutoring?$"
 
 FallarborTown_MoveRelearnersHouse_Text_TeachWhichMove: @ 82015C3
-	.string "Which move should I teach?$"
+	.string "Which Egg Move should I teach?$"
 
 FallarborTown_MoveRelearnersHouse_Text_DontHaveMoveToTeachPokemon: @ 82015DE
 	.string "Sorry…\p"
-	.string "It doesn't appear as if I have any move\n"
-	.string "I can teach that Pokémon.$"
+	.string "It doesn't appear as if I have any Egg\n"
+	.string "Moves I can teach that Pokémon.$"
 
 FallarborTown_MoveRelearnersHouse_Text_HandedOverHeartScale: @ 8201627
 	.string "{PLAYER} handed over one Heart Scale\n"
 	.string "in exchange.$"
 
 FallarborTown_MoveRelearnersHouse_Text_ComeBackWithHeartScale: @ 8201653
-	.string "If your Pokémon need to learn a move,\n"
-	.string "come back with a Heart Scale.$"
+	.string "If your Pokémon need to learn an Egg\n"
+	.string "Move, come back with a Heart Scale.$"
 
 FallarborTown_MoveRelearnersHouse_Text_CantTeachEgg: @ 8201697
-	.string "Hunh? There isn't a single move that\n"
-	.string "I can teach an Egg.$"
+	.string "I think you're mistaken.\p"
+	.string "When I say I teach Egg Moves, I don't\n"
+	.string "mean I teach moves to Eggs.$"
 

@@ -676,11 +676,11 @@ static void DoMoveRelearnerMain(void)
     case MENU_STATE_RETURN_TO_FIELD:
         if (!gPaletteFade.active)
         {
-            FreeMoveRelearnerResources();
-            // if (sMoveRelearnerStruct->learnsetType == LEARNSET_TYPE_EGG)
+            if (sMoveRelearnerStruct->learnsetType == LEARNSET_TYPE_EGG)
                 SetMainCallback2(CB2_ReturnToField);
-            // else if (sMoveRelearnerStruct->learnsetType == LEARNSET_TYPE_LEVEL_UP)
-            //     SetMainCallback2(CB2_ReturnToPartyMenuFromNicknameScreen);
+            else if (sMoveRelearnerStruct->learnsetType == LEARNSET_TYPE_LEVEL_UP)
+                SetMainCallback2(CB2_ReturnToPartyMenuFromNicknameScreen);
+            FreeMoveRelearnerResources();
         }
         break;
     case MENU_STATE_FADE_FROM_SUMMARY_SCREEN:
@@ -914,7 +914,7 @@ static void CreateLearnableMovesList(void)
     if (sMoveRelearnerStruct->learnsetType == LEARNSET_TYPE_LEVEL_UP)
         sMoveRelearnerStruct->numMenuChoices = GetMoveRelearnerMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
     else if (sMoveRelearnerStruct->learnsetType == LEARNSET_TYPE_EGG)
-        sMoveRelearnerStruct->numMenuChoices = GetEggMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
+        sMoveRelearnerStruct->numMenuChoices = GetMoveRelearnerEggMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
 
     for (i = 0; i < sMoveRelearnerStruct->numMenuChoices; i++)
     {

@@ -12,6 +12,7 @@
 #include "contest.h"
 #include "data.h"
 #include "decompress.h"
+#include "daycare.h"
 #include "easy_chat.h"
 #include "event_data.h"
 #include "evolution_scene.h"
@@ -882,7 +883,8 @@ static void DisplayPartyPokemonDataForContest(u8 slot)
 
 static void DisplayPartyPokemonDataForRelearner(u8 slot)
 {
-    if (GetNumberOfRelearnableMoves(&gPlayerParty[slot]) == 0)
+    u16 *eggMoves;
+    if (GetMoveRelearnerEggMoves(&gPlayerParty[slot], eggMoves) == 0)
         DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
     else
         DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_ABLE_2);
@@ -6710,11 +6712,12 @@ static void Task_ChooseMonForMoveRelearner(u8 taskId)
 
 static void CB2_ChooseMonForMoveRelearner(void)
 {
+    u16 *dummy;
     gSpecialVar_0x8004 = GetCursorSelectionMonId();
     if (gSpecialVar_0x8004 >= PARTY_SIZE)
         gSpecialVar_0x8004 = 0xFF;
     else
-        gSpecialVar_0x8005 = GetNumberOfRelearnableMoves(&gPlayerParty[gSpecialVar_0x8004]);
+        gSpecialVar_0x8005 = GetMoveRelearnerEggMoves(&gPlayerParty[gSpecialVar_0x8004], dummy);
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);
 }
