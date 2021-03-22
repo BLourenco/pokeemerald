@@ -736,6 +736,7 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
     u8 buffer[0x20];
     const u8 *str;
 
+    MoveRelearnerShowHideTypeAndCategory(chosenMove);
     FillWindowPixelBuffer(0, PIXEL_FILL(1));
     str = gText_MoveRelearnerBattleMoves;
     x = GetStringCenterAlignXOffset(1, str, 0x80);
@@ -757,8 +758,8 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
         return;
     }
     move = &gBattleMoves[chosenMove];
-    str = gTypeNames[move->type];
-    AddTextPrinterParameterized(0, 1, str, 4, 0x19, TEXT_SPEED_FF, NULL);
+    // str = gTypeNames[move->type];
+    // AddTextPrinterParameterized(0, 1, str, 4, 0x19, TEXT_SPEED_FF, NULL);
 
     x = 4 + GetStringWidth(1, gText_MoveRelearnerPP, 0);
     ConvertIntToDecimalStringN(buffer, move->pp, STR_CONV_MODE_LEFT_ALIGN, 2);
@@ -816,9 +817,9 @@ static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove)
         return;
     }
 
-    move = &gContestMoves[chosenMove];
-    str = gContestMoveTypeTextPointers[move->contestCategory];
-    AddTextPrinterParameterized(1, 1, str, 4, 0x19, TEXT_SPEED_FF, NULL);
+    // move = &gContestMoves[chosenMove];
+    // str = gContestMoveTypeTextPointers[move->contestCategory];
+    // AddTextPrinterParameterized(1, 1, str, 4, 0x19, TEXT_SPEED_FF, NULL);
 
     str = gContestEffectDescriptionPointers[move->effect];
     AddTextPrinterParameterized(1, 7, str, 0, 0x41, TEXT_SPEED_FF, NULL);

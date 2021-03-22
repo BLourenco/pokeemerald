@@ -5,9 +5,11 @@
 #include "contest_effect.h"
 #include "data.h"
 #include "daycare.h"
+#include "decompress.h"
 #include "event_data.h"
 #include "field_screen_effect.h"
 #include "gpu_regs.h"
+#include "graphics.h"
 #include "move_relearner.h"
 #include "list_menu.h"
 #include "malloc.h"
@@ -159,6 +161,8 @@ static EWRAM_DATA struct
     u8 state;
     u8 learnsetType;
     u8 heartSpriteIds[16];                               /*0x001*/
+    u8 typeSpriteId;
+    u8 categorySpriteId;
     u16 movesToLearn[MAX_RELEARNER_MOVES];               /*0x01A*/
     u8 partyMon;                                         /*0x044*/
     u8 moveSlot;                                         /*0x045*/
@@ -309,6 +313,129 @@ static const union AnimCmd *const sHeartSpriteAnimationCommands[] =
     [JAM_HEART_FULL] = sHeartSprite_JamFullFrame,
 };
 
+// different from pokemon_summary_screen
+#define TYPE_ICON_PAL_NUM_0     13
+#define TYPE_ICON_PAL_NUM_1     14
+#define TYPE_ICON_PAL_NUM_2     15
+static const u8 sMoveTypeToOamPaletteNum[NUMBER_OF_MON_TYPES + CONTEST_CATEGORIES_COUNT] =
+{
+    [TYPE_NORMAL] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_FIGHTING] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_FLYING] = TYPE_ICON_PAL_NUM_1,
+    [TYPE_POISON] = TYPE_ICON_PAL_NUM_1,
+    [TYPE_GROUND] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_ROCK] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_BUG] = TYPE_ICON_PAL_NUM_2,
+    [TYPE_GHOST] = TYPE_ICON_PAL_NUM_1,
+    [TYPE_STEEL] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_MYSTERY] = TYPE_ICON_PAL_NUM_2,
+    [TYPE_FIRE] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_WATER] = TYPE_ICON_PAL_NUM_1,
+    [TYPE_GRASS] = TYPE_ICON_PAL_NUM_2,
+    [TYPE_ELECTRIC] = TYPE_ICON_PAL_NUM_0,
+    [TYPE_PSYCHIC] = TYPE_ICON_PAL_NUM_1,
+    [TYPE_ICE] = TYPE_ICON_PAL_NUM_1,
+    [TYPE_DRAGON] = TYPE_ICON_PAL_NUM_2,
+    [TYPE_DARK] = TYPE_ICON_PAL_NUM_0,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_COOL] = TYPE_ICON_PAL_NUM_0,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_BEAUTY] = TYPE_ICON_PAL_NUM_1,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_CUTE] = TYPE_ICON_PAL_NUM_1,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_SMART] = TYPE_ICON_PAL_NUM_2,
+    [NUMBER_OF_MON_TYPES + CONTEST_CATEGORY_TOUGH] = TYPE_ICON_PAL_NUM_0,
+    #ifdef TYPE_FAIRY
+    [TYPE_FAIRY] = TYPE_ICON_PAL_NUM_1, //based on battle_engine
+    #endif
+};
+static const u8 sMoveCategoryToOamPaletteNum[3] =
+{
+    [SPLIT_PHYSICAL] = TYPE_ICON_PAL_NUM_0,
+    [SPLIT_SPECIAL] = TYPE_ICON_PAL_NUM_2,
+    [SPLIT_STATUS] = TYPE_ICON_PAL_NUM_0,
+};
+
+#define TAG_SPLIT_ICONS 30004
+
+static const u16 sSplitIcons_Pal[] = INCBIN_U16("graphics/interface/split_icons.gbapal");
+static const u32 sSplitIcons_Gfx[] = INCBIN_U32("graphics/interface/split_icons.4bpp.lz");
+
+static const struct OamData sOamData_SplitIcons =
+{
+    .size = SPRITE_SIZE(16x16),
+    .shape = SPRITE_SHAPE(16x16),
+    .priority = 0,
+};
+
+static const struct CompressedSpriteSheet sSpriteSheet_SplitIcons =
+{
+    .data = sSplitIcons_Gfx,
+    .size = 16*16*3/2,
+    .tag = TAG_SPLIT_ICONS,
+};
+
+static const struct SpritePalette sSpritePal_SplitIcons =
+{
+    .data = sSplitIcons_Pal,
+    .tag = TAG_SPLIT_ICONS
+};
+
+static const union AnimCmd sSpriteAnim_SplitIcon0[] =
+{
+    ANIMCMD_FRAME(0, 0),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_SplitIcon1[] =
+{
+    ANIMCMD_FRAME(4, 0),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_SplitIcon2[] =
+{
+    ANIMCMD_FRAME(8, 0),
+    ANIMCMD_END
+};
+
+static const union AnimCmd *const sSpriteAnimTable_SplitIcons[] =
+{
+    sSpriteAnim_SplitIcon0,
+    sSpriteAnim_SplitIcon1,
+    sSpriteAnim_SplitIcon2,
+};
+
+static const struct SpriteTemplate sSpriteTemplate_SplitIcons =
+{
+    .tileTag = TAG_SPLIT_ICONS,
+    .paletteTag = TAG_SPLIT_ICONS,
+    .oam = &sOamData_SplitIcons,
+    .anims = sSpriteAnimTable_SplitIcons,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy
+};
+static void SetTypeIconPosAndPal(u8 typeId, u8 x, u8 y, u8 spriteArrayId)
+{
+    struct Sprite *sprite;
+        
+    sprite = &gSprites[sMoveRelearnerStruct->typeSpriteId];
+    StartSpriteAnim(sprite, typeId);
+    sprite->oam.paletteNum = sMoveTypeToOamPaletteNum[typeId];
+    sprite->pos1.x = x + 16;
+    sprite->pos1.y = y + 8;
+    gSprites[spriteArrayId].invisible = FALSE;
+}
+static void SetCategoryIconPosAndPal(u8 categoryId, u8 x, u8 y, u8 spriteArrayId)
+{
+    struct Sprite *sprite;
+        
+    sprite = &gSprites[sMoveRelearnerStruct->categorySpriteId];
+    StartSpriteAnim(sprite, categoryId);
+    sprite->oam.paletteNum = 3;
+    sprite->pos1.x = x + 16;
+    sprite->pos1.y = y + 8;
+    gSprites[spriteArrayId].invisible = FALSE;
+}
+
 static const struct SpriteTemplate sConstestMoveHeartSprite =
 {
     .tileTag = 5525,
@@ -345,6 +472,7 @@ static const struct BgTemplate sMoveRelearnerMenuBackgroundTemplates[] =
 static void DoMoveRelearnerMain(void);
 static void CreateLearnableMovesList(void);
 static void CreateUISprites(void);
+static void CreateTypeIconSprites(void);
 static void CB2_MoveRelearnerMain(void);
 static void Task_WaitForFadeOut(u8 taskId);
 //static void CB2_InitLearnMove(void);
@@ -808,6 +936,7 @@ static void HandleInput(bool8 showContest)
 
         ScheduleBgCopyTilemapToVram(1);
         MoveRelearnerShowHideHearts(GetCurrentSelectedMove());
+        MoveRelearnerShowHideTypeAndCategory(GetCurrentSelectedMove());
         break;
     case LIST_CANCEL:
         PlaySE(SE_SELECT);
@@ -874,6 +1003,10 @@ static void CreateUISprites(void)
     {
         gSprites[sMoveRelearnerStruct->heartSpriteIds[i]].invisible = TRUE;
     }
+
+    sMoveRelearnerStruct->typeSpriteId = 0xFF;
+    sMoveRelearnerStruct->categorySpriteId = 0xFF;
+    CreateTypeIconSprites();
 }
 
 static void AddScrollArrows(void)
@@ -984,4 +1117,50 @@ void MoveRelearnerShowHideHearts(s32 moveId)
             gSprites[sMoveRelearnerStruct->heartSpriteIds[i + 8]].invisible = FALSE;
         }
     }
+}
+
+static void CreateTypeIconSprites(void)
+{
+    LoadCompressedSpriteSheet(&gSpriteSheet_MoveTypes);
+    LoadCompressedPalette(gMoveTypes_Pal, 0x1D0, 0x60);
+
+    if (sMoveRelearnerStruct->typeSpriteId == 0xFF)
+        sMoveRelearnerStruct->typeSpriteId = CreateSprite(&gSpriteTemplate_MoveTypes, 10, 10, 2);    
+
+    gSprites[sMoveRelearnerStruct->typeSpriteId].invisible = TRUE;
+
+    LoadCompressedSpriteSheet(&sSpriteSheet_SplitIcons); //Physical/Special Split from BE
+    LoadSpritePalette(&sSpritePal_SplitIcons); //Physical/Special Split from BE
+
+    if (sMoveRelearnerStruct->categorySpriteId == 0xFF)
+        sMoveRelearnerStruct->categorySpriteId = CreateSprite(&sSpriteTemplate_SplitIcons, 10, 10, 2);    
+
+    gSprites[sMoveRelearnerStruct->categorySpriteId].invisible = TRUE;
+}
+
+void MoveRelearnerShowHideTypeAndCategory(s32 moveId)
+{
+    u16 type, category;
+    u16 i;
+
+    gSprites[sMoveRelearnerStruct->typeSpriteId].invisible = moveId == LIST_CANCEL;
+    gSprites[sMoveRelearnerStruct->categorySpriteId].invisible = moveId == LIST_CANCEL || sMoveRelearnerMenuSate.showContestInfo;
+
+    if (moveId != LIST_CANCEL)
+    {
+        if (sMoveRelearnerMenuSate.showContestInfo)
+        {
+            type = gContestMoves[moveId].contestCategory + NUMBER_OF_MON_TYPES;
+        }
+        else
+        {
+            type = gBattleMoves[moveId].type;
+            category = gBattleMoves[moveId].split;
+            StartSpriteAnim(&gSprites[sMoveRelearnerStruct->categorySpriteId], category);
+            SetCategoryIconPosAndPal(category, 34, 32, sMoveRelearnerStruct->categorySpriteId);
+        }
+        
+        StartSpriteAnim(&gSprites[sMoveRelearnerStruct->typeSpriteId], type);
+        SetTypeIconPosAndPal(type, 10, 32, sMoveRelearnerStruct->typeSpriteId);
+    }    
 }
