@@ -2403,7 +2403,7 @@ static void DisplayPartyPokemonLevelCheck(struct Pokemon *mon, struct PartyMenuB
         //if (ailment == AILMENT_NONE || ailment == AILMENT_PKRS)
         {
             if (c != 0)
-                menuBox->infoRects->blitFunc(menuBox->windowId, menuBox->infoRects->dimensions[4] >> 3, (menuBox->infoRects->dimensions[5] >> 3) + 1, menuBox->infoRects->dimensions[6] >> 3, menuBox->infoRects->dimensions[7] >> 3, FALSE);
+                menuBox->infoRects->blitFunc(menuBox->windowId, (menuBox->infoRects->dimensions[4] >> 3) + 1, menuBox->infoRects->dimensions[5] >> 3, menuBox->infoRects->dimensions[6] >> 3, (menuBox->infoRects->dimensions[7] >> 3) + 1, FALSE);
             if (c != 2)
                 DisplayPartyPokemonLevel(GetMonData(mon, MON_DATA_LEVEL), menuBox);
         }
@@ -2456,7 +2456,7 @@ static void DisplayPartyPokemonHPCheck(struct Pokemon *mon, struct PartyMenuBox 
     if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE)
     {
         if (c != 0)
-            menuBox->infoRects->blitFunc(menuBox->windowId, menuBox->infoRects->dimensions[12] >> 3, (menuBox->infoRects->dimensions[13] >> 3) + 1, menuBox->infoRects->dimensions[14] >> 3, menuBox->infoRects->dimensions[15] >> 3, FALSE);
+            menuBox->infoRects->blitFunc(menuBox->windowId, menuBox->infoRects->dimensions[12] >> 3, menuBox->infoRects->dimensions[13] >> 3, menuBox->infoRects->dimensions[14] >> 3, (menuBox->infoRects->dimensions[15] >> 3) + 1, FALSE);
         if (c != 2)
             DisplayPartyPokemonHP(GetMonData(mon, MON_DATA_HP), menuBox);
     }
@@ -2477,7 +2477,7 @@ static void DisplayPartyPokemonMaxHPCheck(struct Pokemon *mon, struct PartyMenuB
     if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE)
     {
         if (c != 0)
-            menuBox->infoRects->blitFunc(menuBox->windowId, (menuBox->infoRects->dimensions[16] >> 3) + 1, (menuBox->infoRects->dimensions[17] >> 3) + 1, menuBox->infoRects->dimensions[18] >> 3, menuBox->infoRects->dimensions[19] >> 3, FALSE);
+            menuBox->infoRects->blitFunc(menuBox->windowId, (menuBox->infoRects->dimensions[16] >> 3) + 1, menuBox->infoRects->dimensions[17] >> 3, menuBox->infoRects->dimensions[18] >> 3, (menuBox->infoRects->dimensions[19] >> 3) + 1, FALSE);
         if (c != 2)
             DisplayPartyPokemonMaxHP(GetMonData(mon, MON_DATA_MAX_HP), menuBox);
     }
@@ -2537,7 +2537,7 @@ static void DisplayPartyPokemonDescriptionText(u8 stringID, struct PartyMenuBox 
     {
         int width = ((menuBox->infoRects->descTextLeft % 8) + menuBox->infoRects->descTextWidth + 7) / 8;
         int height = ((menuBox->infoRects->descTextTop % 8) + menuBox->infoRects->descTextHeight + 7) / 8;
-        menuBox->infoRects->blitFunc(menuBox->windowId, menuBox->infoRects->descTextLeft >> 3, /*menuBox->infoRects->descTextTop >> 3*/2, width, height, TRUE); // Ugly work-around with potentially unintended consequences...
+        menuBox->infoRects->blitFunc(menuBox->windowId, menuBox->infoRects->descTextLeft >> 3, menuBox->infoRects->descTextTop >> 3, width, height, TRUE);
     }
     if (c != 2)
         AddTextPrinterParameterized3(menuBox->windowId, 1, menuBox->infoRects->descTextLeft, menuBox->infoRects->descTextTop, sFontColorTable[0], 0, sDescriptionStringTable[stringID]);
