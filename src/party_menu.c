@@ -4550,7 +4550,7 @@ void CB2_ShowPartyMenuForItemUse(void)
         task = Task_HandleChooseMonInput;
     }
 
-    InitPartyMenu(menuType, partyLayout, PARTY_ACTION_USE_ITEM, TRUE, msgId, task, callback);
+    InitPartyMenu(menuType, partyLayout, PARTY_ACTION_USE_ITEM, FALSE, msgId, task, callback);
 }
 
 static void CB2_ReturnToBagMenu(void)
