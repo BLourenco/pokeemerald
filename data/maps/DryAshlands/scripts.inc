@@ -188,6 +188,7 @@ DryAshlands_EventScript_MayDefeated:: @ 81EF84A
 	@ msgbox DryAshlands_Text_MayTakeThis, MSGBOX_DEFAULT
 	@ call DryAshlands_EventScript_GiveItemfinder
 	@ msgbox DryAshlands_Text_MayExplainItemfinder, MSGBOX_DEFAULT
+	msgbox DryAshlands_Text_MayGoingToSeeProfCozmo, MSGBOX_DEFAULT
 	goto DryAshlands_EventScript_RivalExit
 	end
 
@@ -218,6 +219,7 @@ DryAshlands_EventScript_BrendanDefeated:: @ 81EF8C4
 	@ msgbox DryAshlands_Text_BrendanTakeThis, MSGBOX_DEFAULT
 	@ call DryAshlands_EventScript_GiveItemfinder
 	@ msgbox DryAshlands_Text_BrendanExplainItemfinder, MSGBOX_DEFAULT
+	msgbox DryAshlands_Text_BrendanGoingToSeeProfCozmo, MSGBOX_DEFAULT
 	goto DryAshlands_EventScript_RivalExit
 	end
 
@@ -278,28 +280,78 @@ DryAshlands_Text_ToughWaterPokemon:
 	.string "Pokémon you find elsewhere in Hoenn.$"
 
 DryAshlands_Text_MayLetsBattle:
-	.string "{RIVAL}: Hi, {PLAYER}{KUN}, let's battle!$"
+	.string "{RIVAL}: Oh! Hi, {PLAYER}{KUN}!\p"
+	.string "I'm not surprised to see you here.\p"
+	.string "There's some hardy Pokémon here\n"
+	.string "that'd really bolster your team.\p"
+	.string "Speaking of which, are they up for a\n"
+	.string "battle? My Pokémon are raring to go!\p"
+	.string "All right!\n"
+	.string "Here we come!$"
 
 DryAshlands_Text_MayDefeated:
-	.string "Yikes!\n"
-	.string "You're better than I expected!$"
+	.string "Wow!\n"
+	.string "Very impressive!$"
+
+DryAshlands_Text_MayGoingToSeeProfCozmo:
+	.string "You've really become a lot stronger\n"
+	.string "since last time we battled, {PLAYER}{KUN}.\p"
+	.string "I think your dad is going to be very\n"
+	.string "proud to see how far you've come.\p"
+	.string "Anyways, I'm actually headed for\n"
+	.string "Fallarbor Town to meet Prof. Cozmo.\p"
+	.string "He's an expert on meteorites. He\n"
+	.string "spends a lot of time in Meteor Falls\l"
+	.string "searching for them.\p"
+	.string "I'm hoping to learn what he knows about\n"
+	.string "the Pokémon that live there.\p"
+	.string "I've heard there are Pokémon that came\n"
+	.string "here from space! Can you believe it?\p"
+	.string "Well, it was nice seeing you again,\n"
+	.string "{PLAYER}{KUN}.\p"
+	.string "Bye!$"
 
 DryAshlands_Text_MayTakeThis: 
 	.string "{RIVAL}: {PLAYER}{KUN}, take this.$"
 
-DryAshlands_Text_MayExplainItemfinder: @ 81EFD58
+DryAshlands_Text_MayExplainItem:
 	.string "{RIVAL}: That's an item.$"
 
-DryAshlands_Text_BrendanLetsBattle: @ 81EFE3F
-	.string "{RIVAL}: Hey, {PLAYER}, let's battle!$"
+DryAshlands_Text_BrendanLetsBattle:
+	.string "{RIVAL}: Oh! Hey, {PLAYER}!\p"
+	.string "I'm not surprised to see you here.\p"
+	.string "There's some hardy Pokémon here\n"
+	.string "that'd really bolster your team.\p"
+	.string "Speaking of which, are they up for a\n"
+	.string "battle? My Pokémon are raring to go!\p"
+	.string "All right!\n"
+	.string "Here we come!$"
 
-DryAshlands_Text_BrendanDefeated: @ 81EFEB4
-	.string "Hmm…\n"
-	.string "You're pretty good.$"
+DryAshlands_Text_BrendanDefeated:
+	.string "Wow!\n"
+	.string "Very impressive!$"
 
-DryAshlands_Text_BrendanTakeThis: @ 81EFECD
+DryAshlands_Text_BrendanGoingToSeeProfCozmo:
+	.string "You've really become a lot tougher\n"
+	.string "since last time we battled, {PLAYER}.\p"
+	.string "I think your dad is going to be very\n"
+	.string "proud to see how far you've come.\p"
+	.string "Anyways, I'm actually headed for\n"
+	.string "Fallarbor Town to meet Prof. Cozmo.\p"
+	.string "He's an expert on meteorites. He\n"
+	.string "spends a lot of time in Meteor Falls\l"
+	.string "searching for them.\p"
+	.string "I'm hoping to learn what he knows about\n"
+	.string "the Pokémon that live there.\p"
+	.string "I've heard there are Pokémon that came\n"
+	.string "here from space! Can you believe it?\p"
+	.string "Well, it was nice seeing you again,\n"
+	.string "{PLAYER}.\p"
+	.string "See ya!$"
+
+DryAshlands_Text_BrendanTakeThis:
 	.string "{RIVAL}: {PLAYER}, take this.$"
 
-DryAshlands_Text_BrendanExplainItemfinder: @ 81EFF1C
+DryAshlands_Text_BrendanExplainItem:
 	.string "{RIVAL}: That's an item.$"
 
