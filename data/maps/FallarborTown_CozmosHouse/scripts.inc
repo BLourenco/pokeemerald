@@ -107,9 +107,12 @@ FallarborTown_CozmosHouse_Text_MayIHaveMeteorite: @ 8201249
 	.string "How about in exchange for this TM?$"
 
 FallarborTown_CozmosHouse_Text_CozmoWentToMeteorFalls: @ 82012BC
-	.string "Prof. Cozmo went off to Meteor Falls\n"
-	.string "on Route 114 with some people from\l"
-	.string "Team Magma.$"
+	.string "Are you here to see Prof. Cozmo?\p"
+	.string "Sorry, but you just missed him.\n"
+	.string "Someone came by asking to join him on\l"
+	.string "his next outing to Meteor Falls.\p"
+	.string "They'll be out there for a while if\n"
+	.string "you want to go find them.$"
 
 FallarborTown_CozmosHouse_Text_FeelSorryForCozmo: @ 8201310
 	.string "Poor Prof. Cozmo…\n"
