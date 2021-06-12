@@ -12598,4 +12598,108 @@ static const struct TrainerMonNoItemDefaultMoves sParty_DinaAndJim[] = {
     }
 };
 
+static const struct TrainerMonItemCustomMoves sParty_RivalMeteorFallsTreecko[] = {
+    {
+    .iv = 0,
+    .lvl = 27,
+    .species = SPECIES_COMBUSKEN,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_FLAME_CHARGE, MOVE_DOUBLE_KICK, MOVE_PECK, MOVE_QUICK_ATTACK}
+    },
+    {
+    .iv = 0,
+    .lvl = 25,
+    .species = SPECIES_LOMBRE,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_BUBBLE_BEAM, MOVE_NATURE_POWER, MOVE_ABSORB, MOVE_FAKE_OUT}
+    },
+    {
+    .iv = 0,
+    .lvl = 25,
+    .species = SPECIES_PELIPPER,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_BRINE, MOVE_WING_ATTACK, MOVE_MIST, MOVE_PROTECT}
+    }
+};
 
+static const struct TrainerMonItemCustomMoves sParty_RivalMeteorFallsTorchic[] = {
+    {
+    .iv = 0,
+    .lvl = 27,
+    .species = SPECIES_MARSHTOMP,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_MUD_SHOT, MOVE_ROCK_TOMB, MOVE_WATER_GUN, MOVE_TACKLE}
+    },
+    {
+    .iv = 0,
+    .lvl = 25,
+    .species = SPECIES_SLUGMA,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_FLAME_BURST, MOVE_ANCIENT_POWER, MOVE_CLEAR_SMOG, MOVE_YAWN}
+    },
+    {
+    .iv = 0,
+    .lvl = 25,
+    .species = SPECIES_LOMBRE,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_BUBBLE_BEAM, MOVE_NATURE_POWER, MOVE_ABSORB, MOVE_FAKE_OUT}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_RivalMeteorFallsMudkip[] = {
+    {
+    .iv = 0,
+    .lvl = 27,
+    .species = SPECIES_GROVYLE,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_LEAF_BLADE, MOVE_ROCK_TOMB, MOVE_QUICK_ATTACK, MOVE_LEER}
+    },
+    {
+    .iv = 0,
+    .lvl = 25,
+    .species = SPECIES_SLUGMA,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_FLAME_BURST, MOVE_ANCIENT_POWER, MOVE_CLEAR_SMOG, MOVE_YAWN}
+    },
+    {
+    .iv = 0,
+    .lvl = 25,
+    .species = SPECIES_PELIPPER,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_BRINE, MOVE_WING_ATTACK, MOVE_MIST, MOVE_PROTECT}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_MagmaGruntMeteorFalls[] = {
+    {
+    .iv = 0,
+    .lvl = 25,
+    .species = SPECIES_GOLBAT,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_AIR_CUTTER, MOVE_SWIFT, MOVE_BITE, MOVE_CONFUSE_RAY}
+    },
+    {
+    .iv = 0,
+    .lvl = 27,
+    .species = SPECIES_GROWLITHE,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_FIRE_FANG, MOVE_REVERSAL, MOVE_TAKE_DOWN, MOVE_HELPING_HAND}
+    }
+};
+
+static const struct TrainerMonItemCustomMoves sParty_MagmaAdminCourtneyMeteorFalls[] = {
+    {
+    .iv = 0,
+    .lvl = 27,
+    .species = SPECIES_SALANDIT,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_FLAME_BURST, MOVE_DRAGON_RAGE, MOVE_ATTRACT, MOVE_POISON_GAS}
+    },
+    {
+    .iv = 0,
+    .lvl = 29,
+    .species = SPECIES_PONYTA,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_FLAME_CHARGE, MOVE_STOMP, MOVE_TAKE_DOWN, MOVE_SUNNY_DAY}
+    }
+};

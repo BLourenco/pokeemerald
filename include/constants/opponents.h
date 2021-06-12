@@ -877,10 +877,17 @@
 #define TRAINER_OTTO                         868
 #define TRAINER_REID                         869
 #define TRAINER_DINA_AND_JIM                 870
-#define TRAINER_UNUSED_871                   871
+#define TRAINER_BRENDAN_METEOR_FALLS_MUDKIP  871
+#define TRAINER_BRENDAN_METEOR_FALLS_TREECKO 872
+#define TRAINER_BRENDAN_METEOR_FALLS_TORCHIC 873
+#define TRAINER_MAY_METEOR_FALLS_MUDKIP      874
+#define TRAINER_MAY_METEOR_FALLS_TREECKO     875
+#define TRAINER_MAY_METEOR_FALLS_TORCHIC     876
+#define TRAINER_MAGMA_GRUNT_METEOR_FALLS     877
+#define TRAINER_MAGMA_ADMIN_COURTNEY_METEOR_FALLS 878
+#define TRAINER_UNUSED_879                   879
 
-
-#define TRAINERS_COUNT                       872
-#define MAX_TRAINERS_COUNT                   872
+#define TRAINERS_COUNT                       880
+#define MAX_TRAINERS_COUNT                   880
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

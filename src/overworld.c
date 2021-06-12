@@ -1045,6 +1045,18 @@ static bool16 NoMusicInSotopolisWithLegendaries(struct WarpData *warp)
         return FALSE;
 }
 
+static bool16 IsInfiltratedMeteorFalls(struct WarpData *warp)
+{
+    if (VarGet(VAR_METEOR_FALLS_STATE) != 1)
+        return FALSE;
+    else if (warp->mapGroup != MAP_GROUP(METEOR_FALLS_1F_1R))
+        return FALSE;
+    else if (warp->mapNum == MAP_NUM(METEOR_FALLS_1F_1R))
+        return TRUE;
+    else
+        return FALSE;
+}
+
 static bool16 IsInfiltratedWeatherInstitute(struct WarpData *warp)
 {
     if (VarGet(VAR_WEATHER_INSTITUTE_STATE))
@@ -1089,6 +1101,8 @@ u16 GetLocationMusic(struct WarpData *warp)
         return 0xFFFF;
     else if (ShouldLegendaryMusicPlayAtLocation(warp) == TRUE)
         return MUS_ABNORMAL_WEATHER;
+    else if (IsInfiltratedMeteorFalls(warp) == TRUE)
+        return MUS_ENCOUNTER_MAGMA;
     else if (IsInflitratedSpaceCenter(warp) == TRUE)
         return MUS_ENCOUNTER_MAGMA;
     else if (IsInfiltratedWeatherInstitute(warp) == TRUE)
