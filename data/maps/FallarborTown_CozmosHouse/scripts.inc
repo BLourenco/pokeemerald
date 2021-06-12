@@ -1,5 +1,10 @@
 FallarborTown_CozmosHouse_MapScripts:: @ 8200F12
+	map_script MAP_SCRIPT_ON_TRANSITION, FallarborTown_CozmosHouse_OnTransition
 	.byte 0
+
+FallarborTown_CozmosHouse_OnTransition::
+	call Common_EventScript_SetupRivalGfxId
+	end
 
 FallarborTown_CozmosHouse_EventScript_ProfCozmo:: @ 8200F13
 	lock
@@ -52,7 +57,7 @@ FallarborTown_CozmosHouse_EventScript_CozmosWife:: @ 8200FBC
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_TM69, FallarborTown_CozmosHouse_EventScript_CozmoIsHappy
-	goto_if_set FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, FallarborTown_CozmosHouse_EventScript_CozmoIsSad
+	goto_if_set FLAG_SAVED_PROF_COZMO, FallarborTown_CozmosHouse_EventScript_CozmoIsSad
 	msgbox FallarborTown_CozmosHouse_Text_CozmoWentToMeteorFalls, MSGBOX_DEFAULT
 	release
 	end
@@ -64,6 +69,13 @@ FallarborTown_CozmosHouse_EventScript_CozmoIsSad:: @ 8200FDA
 
 FallarborTown_CozmosHouse_EventScript_CozmoIsHappy:: @ 8200FE4
 	msgbox FallarborTown_CozmosHouse_Text_CozmoIsSoHappy, MSGBOX_DEFAULT
+	release
+	end
+
+FallarborTown_CozmosHouse_EventScript_Rival::
+	lock
+	faceplayer
+	msgbox FallarborTown_CozmosHouse_Text_Rival, MSGBOX_DEFAULT
 	release
 	end
 
@@ -121,4 +133,15 @@ FallarborTown_CozmosHouse_Text_FeelSorryForCozmo: @ 8201310
 FallarborTown_CozmosHouse_Text_CozmoIsSoHappy: @ 820134B
 	.string "Look at Prof. Cozmo…\n"
 	.string "He's so happy! I think it's cute.$"
+
+FallarborTown_CozmosHouse_Text_Rival:
+	.string "{RIVAL}: Hey, {PLAYER}.\p"
+	.string "No sign of Team Magma or Team Aqua\n"
+	.string "coming back to cause trouble.\p"
+	.string "I finally got a chance to talk to\n"
+	.string "Prof. Cozmo about the Pokémon living in\l"
+	.string "Meteor Falls, but he seems distracted.\p"
+	.string "Prof. Cozmo is really upset about losing\n"
+	.string "the Meteorite…\p"
+	.string "What does Team Magma plan to do with it?$"
 

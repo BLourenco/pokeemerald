@@ -140,6 +140,8 @@ MeteorFalls_1F_1R_EventScript_DoMeteorFallsMultiBattle::
 	call_if_eq MeteorFalls_1F_1R_EventScript_GetIntoPositionFromEast
 	compare VAR_FACING, DIR_SOUTH
 	call_if_eq MeteorFalls_1F_1R_EventScript_GetIntoPositionFromNorth
+	compare VAR_FACING, DIR_NONE
+	call_if_eq MeteorFalls_1F_1R_EventScript_GetIntoPositionFromNorth
 	msgbox MeteorFalls_1F_1R_Text_CourtneyNothingCanStopTeamMagma, MSGBOX_DEFAULT
 	checkplayergender
 	compare VAR_RESULT, MALE
@@ -387,8 +389,10 @@ MeteorFalls_1F_1R_WonMultiBattle::
 	removeobject LOCALID_PROF_COZMO
 	setflag FLAG_HIDE_ROUTE_112_TEAM_MAGMA
 	setflag FLAG_MET_ARCHIE_METEOR_FALLS
-	setflag FLAG_MET_PROF_COZMO
+	setflag FLAG_SAVED_PROF_COZMO
 	setflag FLAG_HIDE_FALLARBOR_TOWN_BATTLE_TENT_SCOTT
+	clearflag FLAG_HIDE_FALLARBOR_HOUSE_PROF_COZMO
+	clearflag FLAG_HIDE_FALLARBOR_HOUSE_RIVAL
 	releaseall 
 	end
 
