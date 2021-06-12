@@ -78,6 +78,10 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "printf.h"
+#include "mgba.h"
+#include "../gflib/string_util.h" // for ConvertToAscii()
+
 #define PARTY_PAL_SELECTED     (1 << 0)
 #define PARTY_PAL_FAINTED      (1 << 1)
 #define PARTY_PAL_TO_SWITCH    (1 << 2)
@@ -207,7 +211,7 @@ static void DisplayPartyPokemonHP(u16, struct PartyMenuBox *);
 static void DisplayPartyPokemonMaxHP(u16, struct PartyMenuBox *);
 static void DisplayPartyPokemonHPBar(u16, u16, struct PartyMenuBox *);
 static void CreatePartyMonIconSpriteParameterized(u16, u32, struct PartyMenuBox *, u8);
-static void CreatePartyMonHeldItemSpriteParameterized(u16, u16, struct PartyMenuBox *);
+static void CreatePartyMonHeldItemSpriteParameterized(u16, u16, struct PartyMenuBox *, u8);
 static void CreatePartyMonPokeballSpriteParameterized(u16, struct PartyMenuBox *);
 static void CreatePartyMonStatusSpriteParameterized(u16, u8, struct PartyMenuBox *);
 // These next 4 functions are essentially redundant with the above 4
@@ -1006,7 +1010,7 @@ static void CreatePartyMonSprites(u8 slot)
         if (gMultiPartnerParty[actualSlot].species != SPECIES_NONE)
         {
             CreatePartyMonIconSpriteParameterized(gMultiPartnerParty[actualSlot].species, gMultiPartnerParty[actualSlot].personality, &sPartyMenuBoxes[slot], 0);
-            CreatePartyMonHeldItemSpriteParameterized(gMultiPartnerParty[actualSlot].species, gMultiPartnerParty[actualSlot].heldItem, &sPartyMenuBoxes[slot]);
+            CreatePartyMonHeldItemSpriteParameterized(gMultiPartnerParty[actualSlot].species, gMultiPartnerParty[actualSlot].heldItem, &sPartyMenuBoxes[slot], 0);
             CreatePartyMonPokeballSpriteParameterized(gMultiPartnerParty[actualSlot].species, &sPartyMenuBoxes[slot]);
             if (gMultiPartnerParty[actualSlot].hp == 0)
                 status = AILMENT_FNT;
@@ -4278,13 +4282,13 @@ static void CreatePartyMonHeldItemSprite(struct Pokemon *mon, struct PartyMenuBo
 {
     if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE)
     {
-        CreatePartyMonHeldItemSpriteParameterized(GetMonData(mon, MON_DATA_SPECIES), GetMonData(mon, MON_DATA_HELD_ITEM), menuBox);
+        CreatePartyMonHeldItemSpriteParameterized(GetMonData(mon, MON_DATA_SPECIES), GetMonData(mon, MON_DATA_HELD_ITEM), menuBox, 1);
     }
 }
 
 #define ITEM_SPRITE_TAG 0x2722
 
-static void CreatePartyMonHeldItemSpriteParameterized(u16 species, u16 item, struct PartyMenuBox *menuBox)
+static void CreatePartyMonHeldItemSpriteParameterized(u16 species, u16 item, struct PartyMenuBox *menuBox, u8 priority)
 {
     if (species != SPECIES_NONE)
     {
@@ -4303,10 +4307,10 @@ static void CreatePartyMonHeldItemSpriteParameterized(u16 species, u16 item, str
             menuBox->itemSpriteId = itemSpriteId;
 
             // The 24x24 item sprites are loaded as 32x32 but aren't centered, so offset by +4
-            gSprites[menuBox->itemSpriteId].pos2.x = menuBox->spriteCoords[2] + 4;
-            gSprites[menuBox->itemSpriteId].pos2.y = menuBox->spriteCoords[3] + 4;
+            gSprites[menuBox->itemSpriteId].pos1.x = menuBox->spriteCoords[2] + 4;
+            gSprites[menuBox->itemSpriteId].pos1.y = menuBox->spriteCoords[3] + 4;
 
-            gSprites[menuBox->itemSpriteId].oam.priority = 1; // Keeps the sprite below menu windows
+            gSprites[menuBox->itemSpriteId].oam.priority = priority; // Keeps the sprite below menu windows
         }
         ShowOrHideHeldItemSprite(item, menuBox);
     }
@@ -6607,9 +6611,13 @@ static void SlideMultiPartyMenuBoxSpritesOneStep(u8 taskId)
     {
         if (gMultiPartnerParty[i - MULTI_PARTY_SIZE].species != SPECIES_NONE)
         {
+            mgba_printf(MGBA_LOG_DEBUG, "mon.x %d", gSprites[sPartyMenuBoxes[i].monSpriteId].pos2.x);
             MoveMultiPartyMenuBoxSprite(sPartyMenuBoxes[i].monSpriteId, tXPos - 8);
+            mgba_printf(MGBA_LOG_DEBUG, "item.x %d", gSprites[sPartyMenuBoxes[i].itemSpriteId].pos2.x);
             MoveMultiPartyMenuBoxSprite(sPartyMenuBoxes[i].itemSpriteId, tXPos - 8);
+            mgba_printf(MGBA_LOG_DEBUG, "ball.x %d", gSprites[sPartyMenuBoxes[i].pokeballSpriteId].pos2.x);
             MoveMultiPartyMenuBoxSprite(sPartyMenuBoxes[i].pokeballSpriteId, tXPos - 8);
+            mgba_printf(MGBA_LOG_DEBUG, "status.x %d", gSprites[sPartyMenuBoxes[i].statusSpriteId].pos2.x);
             MoveMultiPartyMenuBoxSprite(sPartyMenuBoxes[i].statusSpriteId, tXPos - 8);
         }
     }
