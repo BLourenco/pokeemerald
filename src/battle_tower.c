@@ -1547,6 +1547,7 @@ static u8 GetFrontierTrainerFacilityClass(u16 trainerId)
 void GetFrontierTrainerName(u8 *dst, u16 trainerId)
 {
     s32 i = 0;
+    u8 trainerName[(PLAYER_NAME_LENGTH * 3) + 1];
     SetFacilityPtrsGetLevel();
 
     if (trainerId == TRAINER_EREADER)
@@ -1567,9 +1568,11 @@ void GetFrontierTrainerName(u8 *dst, u16 trainerId)
             dst[i] = gTrainers[TRAINER_STEVEN].trainerName[i];
     }
     else if (trainerId >= TRAINER_CUSTOM_PARTNER)
-    {
-        for (i = 0; gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].trainerName[i] != EOS; i++)
-            dst[i] = gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].trainerName[i];
+    {        
+        BattleStringExpandPlaceholders(gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].trainerName, trainerName);
+
+        for (i = 0; trainerName[i] != EOS; i++)
+            dst[i] = trainerName[i];
     }
     else if (trainerId < FRONTIER_TRAINERS_COUNT)
     {
@@ -3155,8 +3158,18 @@ static void FillPartnerParty(u16 trainerId)
             }
             }
 
-            StringCopy(trainerName, gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].trainerName);
+            BattleStringExpandPlaceholders(gTrainers[trainerId - TRAINER_CUSTOM_PARTNER].trainerName, trainerName);
             SetMonData(&gPlayerParty[i + 3], MON_DATA_OT_NAME, trainerName);
+
+            if (trainerId - TRAINER_CUSTOM_PARTNER >= TRAINER_BRENDAN_METEOR_FALLS_MUDKIP
+                && trainerId - TRAINER_CUSTOM_PARTNER <= TRAINER_MAY_METEOR_FALLS_TORCHIC)
+            {
+                u8 otGender = MALE;
+                if (gSaveBlock2Ptr->playerGender == MALE)
+                    otGender = FEMALE;
+
+                SetMonData(&gPlayerParty[i + 3], MON_DATA_OT_GENDER, &otGender);
+            }
         }
     }
     else if (trainerId == TRAINER_EREADER)

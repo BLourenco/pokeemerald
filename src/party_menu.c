@@ -78,10 +78,6 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
-#include "printf.h"
-#include "mgba.h"
-#include "../gflib/string_util.h" // for ConvertToAscii()
-
 #define PARTY_PAL_SELECTED     (1 << 0)
 #define PARTY_PAL_FAINTED      (1 << 1)
 #define PARTY_PAL_TO_SWITCH    (1 << 2)
@@ -6611,13 +6607,9 @@ static void SlideMultiPartyMenuBoxSpritesOneStep(u8 taskId)
     {
         if (gMultiPartnerParty[i - MULTI_PARTY_SIZE].species != SPECIES_NONE)
         {
-            mgba_printf(MGBA_LOG_DEBUG, "mon.x %d", gSprites[sPartyMenuBoxes[i].monSpriteId].pos2.x);
             MoveMultiPartyMenuBoxSprite(sPartyMenuBoxes[i].monSpriteId, tXPos - 8);
-            mgba_printf(MGBA_LOG_DEBUG, "item.x %d", gSprites[sPartyMenuBoxes[i].itemSpriteId].pos2.x);
             MoveMultiPartyMenuBoxSprite(sPartyMenuBoxes[i].itemSpriteId, tXPos - 8);
-            mgba_printf(MGBA_LOG_DEBUG, "ball.x %d", gSprites[sPartyMenuBoxes[i].pokeballSpriteId].pos2.x);
             MoveMultiPartyMenuBoxSprite(sPartyMenuBoxes[i].pokeballSpriteId, tXPos - 8);
-            mgba_printf(MGBA_LOG_DEBUG, "status.x %d", gSprites[sPartyMenuBoxes[i].statusSpriteId].pos2.x);
             MoveMultiPartyMenuBoxSprite(sPartyMenuBoxes[i].statusSpriteId, tXPos - 8);
         }
     }
