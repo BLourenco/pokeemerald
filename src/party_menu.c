@@ -4310,7 +4310,7 @@ static void CreatePartyMonHeldItemSpriteParameterized(u16 species, u16 item, str
             gSprites[menuBox->itemSpriteId].pos1.x = menuBox->spriteCoords[2] + 4;
             gSprites[menuBox->itemSpriteId].pos1.y = menuBox->spriteCoords[3] + 4;
 
-            gSprites[menuBox->itemSpriteId].oam.priority = priority; // Keeps the sprite below menu windows
+            gSprites[menuBox->itemSpriteId].oam.priority = priority; // determines whether the sprite appears above/below other elements, like the party menu box, or menu window
         }
         ShowOrHideHeldItemSprite(item, menuBox);
     }
