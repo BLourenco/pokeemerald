@@ -143,5 +143,6 @@ FallarborTown_CozmosHouse_Text_Rival:
 	.string "Meteor Falls, but he seems distracted.\p"
 	.string "Prof. Cozmo is really upset about losing\n"
 	.string "the Meteorite…\p"
-	.string "What does Team Magma plan to do with it?$"
+	.string "What does Team Magma plan to do with it\n"
+	.string "at Mt. Chimney?$"
 
