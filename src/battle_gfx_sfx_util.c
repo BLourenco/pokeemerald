@@ -1,7 +1,7 @@
 #include "global.h"
 #include "battle.h"
 #include "battle_controllers.h"
-#include "battle_ai_script_commands.h"
+#include "battle_ai_main.h"
 #include "battle_anim.h"
 #include "constants/battle_anim.h"
 #include "battle_interface.h"
@@ -41,7 +41,7 @@ extern const struct SpriteTemplate gSpriteTemplate_EnemyShadow;
 static u8 GetBattlePalaceMoveGroup(u16 move);
 static u16 GetBattlePalaceTarget(void);
 static void SpriteCB_TrainerSlideVertical(struct Sprite *sprite);
-static bool8 ShouldAnimBeDoneRegardlessOfSubsitute(u8 animId);
+static bool8 ShouldAnimBeDoneRegardlessOfSubstitute(u8 animId);
 static void Task_ClearBitWhenBattleTableAnimDone(u8 taskId);
 static void Task_ClearBitWhenSpecialAnimDone(u8 taskId);
 static void ClearSpritesBattlerHealthboxAnimData(void);
@@ -445,7 +445,7 @@ bool8 TryHandleLaunchBattleTableAnimation(u8 activeBattler, u8 atkBattler, u8 de
         return TRUE;
     }
     if (gBattleSpritesDataPtr->battlerData[activeBattler].behindSubstitute
-        && !ShouldAnimBeDoneRegardlessOfSubsitute(tableId))
+        && !ShouldAnimBeDoneRegardlessOfSubstitute(tableId))
     {
         return TRUE;
     }
@@ -487,7 +487,7 @@ static void Task_ClearBitWhenBattleTableAnimDone(u8 taskId)
 
 #undef tBattlerId
 
-static bool8 ShouldAnimBeDoneRegardlessOfSubsitute(u8 animId)
+static bool8 ShouldAnimBeDoneRegardlessOfSubstitute(u8 animId)
 {
     switch (animId)
     {
@@ -920,8 +920,8 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool8 notTransform
     else
     {
         src = gMonSpritesGfxPtr->sprites.ptr[position];
-        dst = (void *)(VRAM + 0x10000 + gSprites[gBattlerSpriteIds[battlerAtk]].oam.tileNum * 32);
-        DmaCopy32(3, src, dst, 0x800);
+        dst = (void *)(OBJ_VRAM0 + gSprites[gBattlerSpriteIds[battlerAtk]].oam.tileNum * 32);
+        DmaCopy32(3, src, dst, MON_PIC_SIZE);
         paletteOffset = 0x100 + battlerAtk * 16;
         lzPaletteData = GetMonSpritePalFromSpeciesAndPersonality(targetSpecies, otId, personalityValue);
         LZDecompressWram(lzPaletteData, gDecompressionBuffer);
@@ -971,7 +971,7 @@ void BattleLoadSubstituteOrMonSpriteGfx(u8 battlerId, bool8 loadMonSprite)
 
         for (i = 1; i < 4; i++)
         {
-            Dma3CopyLarge32_(gMonSpritesGfxPtr->sprites.ptr[position], &gMonSpritesGfxPtr->sprites.byte[position][0x800 * i], 0x800);
+            Dma3CopyLarge32_(gMonSpritesGfxPtr->sprites.ptr[position], &gMonSpritesGfxPtr->sprites.byte[position][MON_PIC_SIZE * i], MON_PIC_SIZE);
         }
 
         palOffset = (battlerId * 16) + 0x100;
@@ -1216,8 +1216,8 @@ void AllocateMonSpritesGfx(void)
 
         for (j = 0; j < 4; j++)
         {
-            gMonSpritesGfxPtr->field_74[i][j].data = gMonSpritesGfxPtr->sprites.ptr[i] + (j * 0x800);
-            gMonSpritesGfxPtr->field_74[i][j].size = 0x800;
+            gMonSpritesGfxPtr->field_74[i][j].data = gMonSpritesGfxPtr->sprites.ptr[i] + (j * MON_PIC_SIZE);
+            gMonSpritesGfxPtr->field_74[i][j].size = MON_PIC_SIZE;
         }
 
         gMonSpritesGfxPtr->templates[i].images = gMonSpritesGfxPtr->field_74[i];

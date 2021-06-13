@@ -62,7 +62,7 @@ SlateportCity_ContestLobby_EventScript_ContestReceptionist::
 SlateportCity_ContestLobby_EventScript_ContestWinner::
 	lockall
 	fadescreen FADE_TO_BLACK
-	showcontestwinner CONTEST_WINNER_SLATEPORT_HALL
+	showcontestpainting CONTEST_WINNER_SLATEPORT_HALL
 	releaseall
 	end
 

@@ -42,15 +42,17 @@
 #define MAX_TRAINER_ITEMS 4
 
 // array entries for battle communication
-#define MULTIUSE_STATE          0x0
-#define CURSOR_POSITION         0x1
-#define TASK_ID                 0x1 // task Id and cursor position share the same field
-#define SPRITES_INIT_STATE1     0x1 // shares the Id as well
-#define SPRITES_INIT_STATE2     0x2
-#define ACTIONS_CONFIRMED_COUNT 0x4
-#define MULTISTRING_CHOOSER     0x5
-#define MSG_DISPLAY             0x7
-#define BATTLE_COMMUNICATION_ENTRIES_COUNT  0x8
+#define MULTIUSE_STATE          0
+#define CURSOR_POSITION         1
+#define TASK_ID                 1 // task Id and cursor position share the same field
+#define SPRITES_INIT_STATE1     1 // shares the Id as well
+#define SPRITES_INIT_STATE2     2
+#define MOVE_EFFECT_BYTE        3
+#define ACTIONS_CONFIRMED_COUNT 4
+#define MULTISTRING_CHOOSER     5
+#define MISS_TYPE               6
+#define MSG_DISPLAY             7
+#define BATTLE_COMMUNICATION_ENTRIES_COUNT  8
 
 #define BATTLE_BUFFER_LINK_SIZE 0x1000
 
@@ -140,6 +142,8 @@ struct ProtectStruct
     u32 usedGravityPreventedMove:1;
     u32 powderSelfDmg:1;
     u32 usedThroatChopPreventedMove:1;
+    u32 micle:1;
+    u32 custap:1;    // also quick claw
     u32 physicalDmg;
     u32 specialDmg;
     u8 physicalBattlerId;
@@ -235,8 +239,35 @@ struct AI_SavedBattleMon
     u16 species;
 };
 
+struct AiLogicData
+{
+    //attacker data
+    u16 atkAbility;
+    u16 atkItem;
+    u16 atkHoldEffect;
+    u8 atkParam;
+    u16 atkSpecies;
+    // target data
+    u16 defAbility;
+    u16 defItem;
+    u16 defHoldEffect;
+    u8 defParam;
+    u16 defSpecies;
+    // attacker partner data
+    u8 battlerAtkPartner;
+    u16 partnerMove;
+    u16 atkPartnerAbility;
+    u16 atkPartnerHoldEffect;
+    bool32 targetSameSide;
+    // target partner data
+    u8 battlerDefPartner;
+    u16 defPartnerAbility;
+    u16 defPartnerHoldEffect;
+};
+
 struct AI_ThinkingStruct
 {
+    struct AiLogicData data;
     u8 aiState;
     u8 movesetIndex;
     u16 moveConsidered;
@@ -289,10 +320,13 @@ struct BattleResources
     struct StatsArray* beforeLvlUp;
     struct AI_ThinkingStruct *ai;
     struct BattleHistory *battleHistory;
-    struct BattleScriptsStack *AI_ScriptsStack;
     u8 bufferA[MAX_BATTLERS_COUNT][0x200];
     u8 bufferB[MAX_BATTLERS_COUNT][0x200];
 };
+
+#define AI_THINKING_STRUCT ((struct AI_ThinkingStruct *)(gBattleResources->ai))
+#define AI_DATA ((struct AiLogicData *)(&gBattleResources->ai->data))
+#define BATTLE_HISTORY ((struct BattleHistory *)(gBattleResources->battleHistory))
 
 struct BattleResults
 {
@@ -405,6 +439,15 @@ struct BattleTvMovePoints
     s16 points[2][PARTY_SIZE * 4];
 };
 
+struct LinkBattlerHeader
+{
+    u8 versionSignatureLo;
+    u8 versionSignatureHi;
+    u8 vsScreenHealthFlagsLo;
+    u8 vsScreenHealthFlagsHi;
+    struct BattleEnigmaBerry battleEnigmaBerry;
+};
+
 struct MegaEvolutionData
 {
     u8 toEvolve; // As flags using gBitTable.
@@ -446,7 +489,7 @@ struct BattleStruct
     u8 switchInAbilitiesCounter;
     u8 faintedActionsState;
     u8 faintedActionsBattlerId;
-    u16 expValue;
+    u32 expValue;
     u8 field_52;
     u8 sentInPokes;
     bool8 selectionScriptFinished[MAX_BATTLERS_COUNT];
@@ -495,14 +538,14 @@ struct BattleStruct
     u8 givenExpMons; // Bits for enemy party's pokemon that gave exp to player's party.
     u16 lastTakenMoveFrom[MAX_BATTLERS_COUNT][MAX_BATTLERS_COUNT]; // a 2-D array [target][attacker]
     u16 castformPalette[MAX_BATTLERS_COUNT][16];
-    u8 field_180; // weird field, used in battle_main.c, once accessed as an array of u32 overwriting the field below
-    u8 field_181;
-    u8 vsScreenHealthFlagsLo;
-    u8 vsScreenHealthFlagsHi; // Last bit is 'has frontier pass'
-    struct BattleEnigmaBerry battleEnigmaBerry;
+    union {
+        struct LinkBattlerHeader linkBattlerHeader;
+        u32 battleVideo[2];
+    } multiBuffer;
     u8 wishPerishSongState;
     u8 wishPerishSongBattlerId;
     bool8 overworldWeatherDone;
+    bool8 terrainDone;
     u8 atkCancellerTracker;
     struct BattleTvMovePoints tvMovePoints;
     struct BattleTv tv;
@@ -542,6 +585,7 @@ struct BattleStruct
     u8 sameMoveTurns[MAX_BATTLERS_COUNT]; // For Metronome, number of times the same moves has been SUCCESFULLY used.
     u16 moveEffect2; // For Knock Off
     u16 changedSpecies[PARTY_SIZE]; // For Zygarde or future forms when multiple mons can change into the same pokemon.
+    u8 quickClawBattlerId;
 };
 
 #define GET_MOVE_TYPE(move, typeArg)                        \
@@ -613,6 +657,7 @@ struct BattleScripting
     u16 multihitMoveEffect;
     u8 illusionNickHack; // To properly display nick in STRINGID_ENEMYABOUTTOSWITCHPKMN.
     bool8 fixedPopup;   // force ability popup to stick until manually called back
+    u16 abilityPopupOverwrite;
 };
 
 // rom_80A5C6C

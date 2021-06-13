@@ -27,7 +27,7 @@ void sub_801AFD8(void)
     #ifndef FREE_MYSTERY_EVENT_BUFFERS
     CpuFill32(0, &gSaveBlock1Ptr->unk_322C, sizeof(gSaveBlock1Ptr->unk_322C));
     sub_801B180();
-    sub_811F8BC();
+    InitQuestionnaireWords();
     #endif
 }
 
@@ -59,10 +59,10 @@ struct MysteryEventStruct *sub_801B044(void)
     #endif
 }
 
-u16 *sub_801B058(void)
+u16 *GetQuestionnaireWordsPtr(void)
 {
     #ifndef FREE_MYSTERY_EVENT_BUFFERS
-    return gSaveBlock1Ptr->unk_322C.unk_338;
+    return gSaveBlock1Ptr->unk_322C.questionnaireWords;
     #endif
 }
 
@@ -401,8 +401,8 @@ void sub_801B580(struct MEventStruct_Unk1442CC *data, bool32 a1)
     }
 
     #ifndef FREE_MYSTERY_EVENT_BUFFERS
-    for (i = 0; i < 4; i++)
-        data->unk_16[i] = gSaveBlock1Ptr->unk_322C.unk_338[i];
+    for (i = 0; i < NUM_QUESTIONNAIRE_WORDS; i++)
+        data->unk_16[i] = gSaveBlock1Ptr->unk_322C.questionnaireWords[i];
 
     CopyTrainerId(data->unk_4C, gSaveBlock2Ptr->playerTrainerId);
     StringCopy(data->unk_45, gSaveBlock2Ptr->playerName);
@@ -463,7 +463,7 @@ u32 sub_801B708(const u16 *a0, const struct MEventStruct_Unk1442CC *a1, const vo
 bool32 MEventStruct_Unk1442CC_CompareField_unk_16(const struct MEventStruct_Unk1442CC *a0, const u16 *a1)
 {
     int i;
-    for (i = 0; i < 4; i++)
+    for (i = 0; i < NUM_QUESTIONNAIRE_WORDS; i++)
     {
         if (a0->unk_16[i] != a1[i])
             return FALSE;

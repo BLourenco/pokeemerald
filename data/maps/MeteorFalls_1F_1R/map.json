@@ -223,7 +223,7 @@
       "elevation": 3,
       "var": "VAR_METEOR_FALLS_STATE",
       "var_value": "0",
-      "script": "MeteorFalls_1F_1R_EventScript_MagmaStealsMeteoriteScene2"
+      "script": "MeteorFalls_1F_1R_EventScript_MagmaStealsMeteoriteScene"
     }
   ],
   "bg_events": [

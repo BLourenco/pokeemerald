@@ -1,6 +1,6 @@
 #include "global.h"
 #include "battle.h"
-#include "battle_ai_script_commands.h"
+#include "battle_ai_main.h"
 #include "battle_anim.h"
 #include "battle_controllers.h"
 #include "battle_message.h"
@@ -1220,15 +1220,14 @@ void BtlController_EmitHealthBarUpdate(u8 bufferId, u16 hpValue)
     PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 4);
 }
 
-
-void BtlController_EmitExpUpdate(u8 bufferId, u8 partyId, u32 expPoints)
+void BtlController_EmitExpUpdate(u8 bufferId, u8 partyId, s32 expPoints)
 {
     sBattleBuffersTransferData[0] = CONTROLLER_EXPUPDATE;
     sBattleBuffersTransferData[1] = partyId;
-    sBattleBuffersTransferData[2] = (s32)expPoints;
-    sBattleBuffersTransferData[3] = ((s32)expPoints & 0x0000FF00) >> 8;
-    sBattleBuffersTransferData[4] = ((s32)expPoints & 0x00FF0000) >> 16;
-    sBattleBuffersTransferData[5] = ((s32)expPoints & 0xFF000000) >> 24;
+    sBattleBuffersTransferData[2] = expPoints;
+    sBattleBuffersTransferData[3] = (expPoints & 0x0000FF00) >> 8;
+    sBattleBuffersTransferData[4] = (expPoints & 0x00FF0000) >> 16;
+    sBattleBuffersTransferData[5] = (expPoints & 0xFF000000) >> 24;
     PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 6);
 }
 
@@ -1317,13 +1316,15 @@ void BtlController_EmitCmd32(u8 bufferId, u16 size, void *data)
     PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, size + 3);
 }
 
-void BtlController_EmitTwoReturnValues(u8 bufferId, u8 arg1, u16 arg2)
+void BtlController_EmitTwoReturnValues(u8 bufferId, u8 arg1, u32 arg2)
 {
     sBattleBuffersTransferData[0] = CONTROLLER_TWORETURNVALUES;
     sBattleBuffersTransferData[1] = arg1;
     sBattleBuffersTransferData[2] = arg2;
-    sBattleBuffersTransferData[3] = (arg2 & 0xFF00) >> 8;
-    PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 4);
+    sBattleBuffersTransferData[3] = (arg2 & 0x0000FF00) >> 8;
+    sBattleBuffersTransferData[4] = (arg2 & 0x00FF0000) >> 16;
+    sBattleBuffersTransferData[5] = (arg2 & 0xFF000000) >> 24;
+    PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 6);
 }
 
 void BtlController_EmitChosenMonReturnValue(u8 bufferId, u8 partyId, u8 *battlePartyOrder)
@@ -1398,12 +1399,12 @@ void BtlController_EmitHitAnimation(u8 bufferId)
     PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 4);
 }
 
-void BtlController_EmitCmd42(u8 bufferId)
+void BtlController_EmitCantSwitch(u8 bufferId)
 {
-    sBattleBuffersTransferData[0] = CONTROLLER_42;
-    sBattleBuffersTransferData[1] = CONTROLLER_42;
-    sBattleBuffersTransferData[2] = CONTROLLER_42;
-    sBattleBuffersTransferData[3] = CONTROLLER_42;
+    sBattleBuffersTransferData[0] = CONTROLLER_CANTSWITCH;
+    sBattleBuffersTransferData[1] = CONTROLLER_CANTSWITCH;
+    sBattleBuffersTransferData[2] = CONTROLLER_CANTSWITCH;
+    sBattleBuffersTransferData[3] = CONTROLLER_CANTSWITCH;
     PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 4);
 }
 

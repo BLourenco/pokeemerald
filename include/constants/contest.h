@@ -23,7 +23,9 @@
 #define CONTEST_TYPE_NPC_MASTER  (CONTEST_RANK_MASTER + 1)
 #define CONTEST_TYPE_LINK        (CONTEST_RANK_LINK + 1)
 
-#define CONTEST_WINNER_ARTIST 0  // Winner shown by the artist, painting not necessarily saved
+// IDs below - 1 are indexes into gSaveBlock1Ptr->contestWinners[]
+// CONTEST_WINNER_ARTIST is for the winner of the most recent contest, and is not saved.
+#define CONTEST_WINNER_ARTIST 0
 #define CONTEST_WINNER_LILYCOVE_HALL_1 1
 #define CONTEST_WINNER_LILYCOVE_HALL_2 2
 #define CONTEST_WINNER_LILYCOVE_HALL_3 3
@@ -43,6 +45,14 @@
 #define NUM_TOTAL_CONTEST_HALL_WINNERS    9
 #define NUM_MUSEUM_CONTEST_WINNERS        5
 // NUM_CONTEST_WINNERS in constants/global.h
+
+#define MUSEUM_CONTEST_WINNERS_START (CONTEST_WINNER_MUSEUM_COOL - 1)
+
+#define CONTEST_SAVE_FOR_MUSEUM ((u8)-1)
+#define CONTEST_SAVE_FOR_ARTIST ((u8)-2)
+
+// The number of possible captions for a Contest painting, per category
+#define NUM_PAINTING_CAPTIONS 3
 
 #define CANT_ENTER_CONTEST             0
 #define CAN_ENTER_CONTEST_EQUAL_RANK   1

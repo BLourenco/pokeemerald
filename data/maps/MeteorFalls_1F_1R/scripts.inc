@@ -36,10 +36,10 @@ MeteorFalls_1F_1R_EventScript_OpenStevensCave:: @ 822BD3A
 	setmetatile 5, 2, METATILE_MeteorFalls_CaveEntrance_Right, 1
 	return
 
-MeteorFalls_1F_1R_EventScript_MagmaStealsMeteoriteScene2::
+MeteorFalls_1F_1R_EventScript_MagmaStealsMeteoriteScene::
 	lockall
 	setvar VAR_METEOR_FALLS_STATE, 1
-	playbgm MUS_ENCOUNTER_MAGMA, 1
+	playbgm MUS_ENCOUNTER_MAGMA, TRUE
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
 	waitmovement 0
 	delay 30
@@ -285,7 +285,7 @@ MeteorFalls_1F_1R_WonMultiBattle::
 	addobject LOCALID_ARCHIE
 	addobject LOCALID_AQUA_GRUNT_1
 	addobject LOCALID_AQUA_GRUNT_2
-	playbgm MUS_ENCOUNTER_AQUA, 0
+	playbgm MUS_ENCOUNTER_AQUA, FALSE
 	applymovement LOCALID_ARCHIE, MeteorFalls_1F_1R_Movement_TeamAquaArrive
 	applymovement LOCALID_AQUA_GRUNT_1, MeteorFalls_1F_1R_Movement_TeamAquaArrive
 	applymovement LOCALID_AQUA_GRUNT_2, MeteorFalls_1F_1R_Movement_TeamAquaArrive

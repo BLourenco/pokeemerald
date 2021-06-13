@@ -74,7 +74,7 @@ ContestLobby_EventScript_AskEnterContest:: @ 8279D5A
 	end
 
 ContestLobby_EventScript_AskEnterContestShowMenu::
-	multichoice 0, 0, MULTI_ENTERINFO, 0
+	multichoice 0, 0, MULTI_ENTERINFO, FALSE
 	switch VAR_RESULT
 	case 0, ContestLobby_EventScript_ChooseContestRank
 	case 1, ContestLobby_EventScript_ContestInfo
@@ -109,7 +109,7 @@ ContestLobby_EventScript_AskEnterContestAnyRank::
 ContestLobby_EventScript_ContestInfo:: @ 8279D97
 	message ContestLobby_Text_WhichTopic
 	waitmessage
-	multichoice 0, 0, MULTI_CONTEST_INFO, 0
+	multichoice 0, 0, MULTI_CONTEST_INFO, FALSE
 	switch VAR_RESULT
 	case 0, ContestLobby_EventScript_ExplainContests
 	case 1, ContestLobby_EventScript_ExplainContestTypes
@@ -169,7 +169,7 @@ ContestLobby_EventScript_ChooseContestRank:: @ 8279E62
 	case MAP_LAVARIDGE_TOWN_CONTEST_LOBBY, 	ContestLobby_EventScript_EnterHyperRank
 	message ContestLobby_Text_EnterWhichRank
 	waitmessage
-	multichoice 0, 0, MULTI_CONTEST_RANK, 0
+	multichoice 0, 0, MULTI_CONTEST_RANK, FALSE
 	switch VAR_RESULT
 	case 0, ContestLobby_EventScript_EnterNormalRank
 	case 1, ContestLobby_EventScript_EnterSuperRank
@@ -204,7 +204,7 @@ ContestLobby_EventScript_EnterMasterRank:: @ 8279ED6
 ContestLobby_EventScript_ChooseContestType:: @ 8279EE1
 	message ContestLobby_Text_EnterWhichContest
 	waitmessage
-	multichoice 0, 0, MULTI_CONTEST_TYPE, 0
+	multichoice 0, 0, MULTI_CONTEST_TYPE, FALSE
 	switch VAR_RESULT
 	case 5, ContestLobby_EventScript_CancelEnterContest
 	case MULTI_B_PRESSED, ContestLobby_EventScript_CancelEnterContest
@@ -1152,7 +1152,7 @@ ContestHall_EventScript_ContestResults:: @ 827A8A5
 	setvar VAR_TEMP_9, 1
 	showcontestresults
 	setvar VAR_TEMP_9, 0
-	playbgm MUS_CONTEST_WINNER, 0
+	playbgm MUS_CONTEST_WINNER, FALSE
 	return
 
 ContestHall_EventScript_ThatsItForJudging:: @ 827A8FB

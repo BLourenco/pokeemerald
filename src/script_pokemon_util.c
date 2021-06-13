@@ -23,7 +23,6 @@
 #include "string_util.h"
 #include "tv.h"
 #include "constants/items.h"
-#include "constants/tv.h"
 #include "constants/battle_frontier.h"
 
 static void CB2_ReturnFromChooseHalfParty(void);

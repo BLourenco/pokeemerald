@@ -482,13 +482,13 @@ static const struct Subsprite sSubsprites_HofMonitorBig[] =
 
 static const struct SubspriteTable sSubspriteTable_HofMonitorBig = subsprite_table(sSubsprites_HofMonitorBig);
 
-const union AnimCmd gSpriteAnim_855C2CC[] =
+const union AnimCmd sAnim_Static[] =
 {
     ANIMCMD_FRAME(.imageValue = 0, .duration = 1),
     ANIMCMD_JUMP(0)
 };
 
-const union AnimCmd gSpriteAnim_855C2D4[] =
+const union AnimCmd sAnim_Flicker[] =
 {
     ANIMCMD_FRAME(.imageValue = 0, .duration = 16),
     ANIMCMD_FRAME(.imageValue = 1, .duration = 16),
@@ -501,15 +501,16 @@ const union AnimCmd gSpriteAnim_855C2D4[] =
     ANIMCMD_END
 };
 
-const union AnimCmd *const gSpriteAnimTable_855C2F8[] =
+// Flicker on and off, for the Pokéballs / monitors during the PokéCenter heal effect
+const union AnimCmd *const sAnims_Flicker[] =
 {
-    gSpriteAnim_855C2CC,
-    gSpriteAnim_855C2D4
+    sAnim_Static,
+    sAnim_Flicker
 };
 
-static const union AnimCmd *const sAnimTable_HofMonitor[] =
+static const union AnimCmd *const sAnims_HofMonitor[] =
 {
-    gSpriteAnim_855C2CC
+    sAnim_Static
 };
 
 static const struct SpriteTemplate sSpriteTemplate_PokeballGlow =
@@ -517,7 +518,7 @@ static const struct SpriteTemplate sSpriteTemplate_PokeballGlow =
     .tileTag = 0xFFFF,
     .paletteTag = FLDEFF_PAL_TAG_POKEBALL_GLOW,
     .oam = &sOam_8x8,
-    .anims = gSpriteAnimTable_855C2F8,
+    .anims = sAnims_Flicker,
     .images = sPicTable_PokeballGlow,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_PokeballGlow
@@ -528,7 +529,7 @@ static const struct SpriteTemplate sSpriteTemplate_PokecenterMonitor =
     .tileTag = 0xFFFF,
     .paletteTag = FLDEFF_PAL_TAG_GENERAL_0,
     .oam = &sOam_16x16,
-    .anims = gSpriteAnimTable_855C2F8,
+    .anims = sAnims_Flicker,
     .images = sPicTable_PokecenterMonitor,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_PokecenterMonitor
@@ -539,7 +540,7 @@ static const struct SpriteTemplate sSpriteTemplate_HofMonitorBig =
     .tileTag = 0xFFFF,
     .paletteTag = FLDEFF_PAL_TAG_HOF_MONITOR,
     .oam = &sOam_16x16,
-    .anims = sAnimTable_HofMonitor,
+    .anims = sAnims_HofMonitor,
     .images = sPicTable_HofMonitorBig,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_HallOfFameMonitor
@@ -550,7 +551,7 @@ static const struct SpriteTemplate sSpriteTemplate_HofMonitorSmall =
     .tileTag = 0xFFFF,
     .paletteTag = FLDEFF_PAL_TAG_HOF_MONITOR,
     .oam = &sOam_32x16,
-    .anims = sAnimTable_HofMonitor,
+    .anims = sAnims_HofMonitor,
     .images = sPicTable_HofMonitorSmall,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_HallOfFameMonitor
@@ -970,8 +971,8 @@ void MultiplyPaletteRGBComponents(u16 i, u8 r, u8 g, u8 b)
     curBlue  -= ((curBlue  * b) >> 4);
     
     color  = curRed;
-    color |= curGreen <<  5;
-    color |= curBlue  << 10;
+    color |= (curGreen <<  5);
+    color |= (curBlue  << 10);
     
     gPlttBufferFaded[i] = color;
 }
@@ -3055,7 +3056,7 @@ static void SurfFieldEffect_End(struct Task *task)
         gPlayerAvatar.preventStep = FALSE;
         gPlayerAvatar.flags &= ~PLAYER_AVATAR_FLAG_5;
         ObjectEventSetHeldMovement(objectEvent, GetFaceDirectionMovementAction(objectEvent->movementDirection));
-        SetSurfBobState(objectEvent->fieldEffectSpriteId, 1);
+        SetSurfBlob_BobState(objectEvent->fieldEffectSpriteId, BOB_PLAYER_AND_MON);
         UnfreezeObjectEvents();
         ScriptContext2_Disable();
         FieldEffectActiveListRemove(FLDEFF_USE_SURF);
@@ -3209,8 +3210,8 @@ static void FlyOutFieldEffect_BirdLeaveBall(struct Task *task)
         struct ObjectEvent *objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
         if (task->tAvatarFlags & PLAYER_AVATAR_FLAG_SURFING)
         {
-            SetSurfBobState(objectEvent->fieldEffectSpriteId, 2);
-            SetSurfBobWhileFlyingOutState(objectEvent->fieldEffectSpriteId, 0);
+            SetSurfBlob_BobState(objectEvent->fieldEffectSpriteId, BOB_JUST_MON);
+            SetSurfBlob_DontSyncAnim(objectEvent->fieldEffectSpriteId, FALSE);
         }
         task->tBirdSpriteId = CreateFlyBirdSprite(); // Does "leave ball" animation by default
         task->tState++;
@@ -3479,7 +3480,7 @@ static void FlyInFieldEffect_BirdSwoopDown(struct Task *task)
         SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
         if (task->tAvatarFlags & PLAYER_AVATAR_FLAG_SURFING)
         {
-            SetSurfBobState(objectEvent->fieldEffectSpriteId, 0);
+            SetSurfBlob_BobState(objectEvent->fieldEffectSpriteId, BOB_NONE);
         }
         ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_SURFING));
         CameraObjectReset2();
@@ -3588,7 +3589,7 @@ static void FlyInFieldEffect_End(struct Task *task)
         if (task->tAvatarFlags & PLAYER_AVATAR_FLAG_SURFING)
         {
             state = PLAYER_AVATAR_STATE_SURFING;
-            SetSurfBobState(objectEvent->fieldEffectSpriteId, 1);
+            SetSurfBlob_BobState(objectEvent->fieldEffectSpriteId, BOB_PLAYER_AND_MON);
         }
         ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(state));
         ObjectEventTurn(objectEvent, DIR_SOUTH);
@@ -3710,8 +3711,8 @@ static void DestroyDeoxysRockEffect_RockFragments(s16* data, u8 taskId)
     {
         struct Sprite *sprite = &gSprites[gObjectEvents[tObjectEventId].spriteId];
         gObjectEvents[tObjectEventId].invisible = TRUE;
-        BlendPalettes(0x0000FFFF, 0x10, RGB_WHITE);
-        BeginNormalPaletteFade(0x0000FFFF, 0, 0x10, 0, RGB_WHITE);
+        BlendPalettes(PALETTES_BG, 0x10, RGB_WHITE);
+        BeginNormalPaletteFade(PALETTES_BG, 0, 0x10, 0, RGB_WHITE);
         CreateDeoxysRockFragments(sprite);
         PlaySE(SE_THUNDER);
         StartEndingDeoxysRockCameraShake(tCameraTaskId);
@@ -3860,16 +3861,8 @@ static void Task_MoveDeoxysRock(u8 taskId)
         case 0:
             data[4] = sprite->pos1.x << 4;
             data[5] = sprite->pos1.y << 4;
-
-            // UB: Possible divide by zero
-            #ifdef UBFIX
-            #define DIVISOR (data[8] ? data[8] : 1);
-            #else
-            #define DIVISOR (data[8])
-            #endif
-
-            data[6] = (data[2] * 16 - data[4]) / DIVISOR;
-            data[7] = (data[3] * 16 - data[5]) / DIVISOR;
+            data[6] = SAFE_DIV(data[2] * 16 - data[4], data[8]);
+            data[7] = SAFE_DIV(data[3] * 16 - data[5], data[8]);
             data[0]++;
         case 1:
             if (data[8] != 0)

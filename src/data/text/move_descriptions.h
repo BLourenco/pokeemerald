@@ -962,7 +962,7 @@ static const u8 sRainDanceDescription[] = _(
     "type moves for 5 turns.");
 
 static const u8 sSunnyDayDescription[] = _(
-    "Boosts the power of FIRE-\n"
+    "Boosts the power of Fire-\n"
     "type moves for 5 turns.");
 
 static const u8 sCrunchDescription[] = _(
@@ -1426,8 +1426,8 @@ static const u8 sGRAVITYDescription[] = _(
     "negating levitation.");
 
 static const u8 sMIRACLE_EYEDescription[] = _(
-    "Makes GHOSTS and evasive\n"
-    "foes easier to hit.");
+    "Negate evasiveness and\n"
+    "Dark-type's immunities.");
 
 static const u8 sWAKE_UP_SLAPDescription[] = _(
     "Powerful against sleeping\n"
@@ -1718,8 +1718,8 @@ static const u8 sDEFOGDescription[] = _(
     "lowers evasion.");
 
 static const u8 sTRICK_ROOMDescription[] = _(
-	"Slower Pokémon get to move\n"
-	"first for 5 turns.");
+    "Slower Pokémon get to move\n"
+    "first for 5 turns.");
 
 static const u8 sDRACO_METEORDescription[] = _(
     "Casts comets onto the foe.\n"
@@ -2182,8 +2182,8 @@ static const u8 sBELCHDescription[] = _(
     "Must eat a Berry to use it.");
 
 static const u8 sROTOTILLERDescription[] = _(
-	"Ups the Attack and Sp. Atk\n"
-	"of Grass-type Pokémon.");
+    "Ups the Attack and Sp. Atk\n"
+    "of Grass-type Pokémon.");
 
 static const u8 sSTICKY_WEBDescription[] = _(
     "Weaves a sticky net that\n"
@@ -2242,8 +2242,8 @@ static const u8 sCRAFTY_SHIELDDescription[] = _(
     "one turn.");
 
 static const u8 sFLOWER_SHIELDDescription[] = _(
-	"Raises the Defense of\n"
-	"Grass-type Pokémon.");
+    "Raises the Defense of\n"
+    "Grass-type Pokémon.");
 
 static const u8 sGRASSY_TERRAINDescription[] = _(
     "The ground turns to grass\n"
@@ -2314,8 +2314,8 @@ static const u8 sSPIKY_SHIELDDescription[] = _(
     "the foe if struck.");
 
 static const u8 sAROMATIC_MISTDescription[] = _(
-	"Raises the Sp. Def of a\n"
-	"partner Pokémon.");
+    "Raises the Sp. Def of a\n"
+    "partner Pokémon.");
 
 static const u8 sEERIE_IMPULSEDescription[] = _(
     "Exposes the foe to a pulse\n"
@@ -2431,7 +2431,7 @@ static const u8 sSPARKLING_ARIADescription[] = _(
 
 static const u8 sICE_HAMMERDescription[] = _(
     "Swings the fist to strike.\n"
-    "Lowers the user's SPEED.");
+    "Lowers the user's Speed.");
 
 static const u8 sFLORAL_HEALINGDescription[] = _(
     "Restores an ally's HP.\n"
@@ -2454,8 +2454,8 @@ static const u8 sLEAFAGEDescription[] = _(
     "small leaves.");
 
 static const u8 sSPOTLIGHTDescription[] = _(
-	"Makes the foe attack the\n"
-	"spotlighted Pokémon.");
+    "Makes the foe attack the\n"
+    "spotlighted Pokémon.");
 
 static const u8 sTOXIC_THREADDescription[] = _(
     "Attacks with a thread that\n"
