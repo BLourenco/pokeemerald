@@ -121,7 +121,6 @@ static void UpdateObjectEventVisibility(struct ObjectEvent *, struct Sprite *);
 static void MakeObjectTemplateFromObjectEventTemplate(struct ObjectEventTemplate *, struct SpriteTemplate *, const struct SubspriteTable **);
 static void GetObjectEventMovingCameraOffset(s16 *, s16 *);
 static struct ObjectEventTemplate *GetObjectEventTemplateByLocalIdAndMap(u8, u8, u8);
-//static void LoadObjectEventPalette(u16);
 static void RemoveObjectEventIfOutsideView(struct ObjectEvent *);
 static void SpawnObjectEventOnReturnToField(u8, s16, s16);
 static void SetPlayerAvatarObjectEventIdAndObjectId(u8, u8);
@@ -152,8 +151,6 @@ static void DestroyLevitateMovementTask(u8);
 static bool8 NpcTakeStep(struct Sprite *sprite);
 
 static const struct SpriteFrameImage sPicTable_PechaBerryTree[];
-
-static void StartSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction);
 
 static const struct SpriteTemplate sCameraSpriteTemplate = {
     .tileTag = 0,
@@ -1233,6 +1230,7 @@ static u8 TrySetupObjectEventSprite(struct ObjectEventTemplate *objectEventTempl
     sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
     sprite->pos1.x += 8;
     sprite->pos1.y += 16 + sprite->centerToCornerVecY;
+    sprite->oam.paletteNum = IndexOfSpritePaletteTag(spriteTemplate->paletteTag);
     sprite->coordOffsetEnabled = TRUE;
     sprite->sObjEventId = objectEventId;
     objectEvent->spriteId = spriteId;
@@ -1371,7 +1369,11 @@ u8 CreateObjectSprite(u8 graphicsId, u8 objectEventId, s16 x, s16 y, u8 z, u8 di
 
     graphicsInfo = GetObjectEventGraphicsInfo(graphicsId);
     MakeObjectTemplateFromObjectEventGraphicsInfo(graphicsId, UpdateObjectEventSprite, &spriteTemplate, &subspriteTables);
-    *(u16 *)&spriteTemplate.paletteTag = 0xFFFF;
+    if (spriteTemplate.paletteTag != 0xFFFF)
+    {
+        LoadObjectEventPalette(spriteTemplate.paletteTag);
+        UpdatePaletteGammaType(IndexOfSpritePaletteTag(spriteTemplate.paletteTag), GAMMA_ALT);
+    }
     x += 7;
     y += 7;
     SetSpritePosToOffsetMapCoords(&x, &y, 8, 16);
@@ -1382,18 +1384,10 @@ u8 CreateObjectSprite(u8 graphicsId, u8 objectEventId, s16 x, s16 y, u8 z, u8 di
         sprite->centerToCornerVecX = -(graphicsInfo->width >> 1);
         sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
         sprite->pos1.y += sprite->centerToCornerVecY;
-        sprite->oam.paletteNum = graphicsInfo->paletteSlot;
-        if (sprite->oam.paletteNum >= 16)
-        {
-            sprite->oam.paletteNum -= 16;
-        }
+        sprite->oam.paletteNum = IndexOfSpritePaletteTag(spriteTemplate.paletteTag);
         sprite->coordOffsetEnabled = TRUE;
         sprite->sObjEventId = objectEventId;
         sprite->data[1] = z;
-        if (graphicsInfo->paletteSlot >= 16)
-        {
-            _PatchObjectPalette(graphicsInfo->paletteTag, graphicsInfo->paletteSlot | 0xf0);
-        }
         if (subspriteTables != NULL)
         {
             SetSubspriteTables(sprite, subspriteTables);
@@ -1536,7 +1530,7 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
         if (subspriteTables != NULL)
             SetSubspriteTables(sprite, subspriteTables);
 
-        sprite->oam.paletteNum = IndexOfSpritePaletteTag(spriteTemplate.paletteTag);;
+        sprite->oam.paletteNum = IndexOfSpritePaletteTag(spriteTemplate.paletteTag);
         sprite->coordOffsetEnabled = TRUE;
         sprite->sObjEventId = objectEventId;
         objectEvent->spriteId = i;

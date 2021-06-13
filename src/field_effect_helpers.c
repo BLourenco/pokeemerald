@@ -72,9 +72,9 @@ static s16 GetReflectionVerticalOffset(struct ObjectEvent *objectEvent)
     return GetObjectEventGraphicsInfo(objectEvent->graphicsId)->height - 2;
 }
 
-#define OBJ_EVENT_PAL_TAG_10 0x1102
+#define OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION 0x1102
 
-void LoadObjectReflectionPalette(struct ObjectEvent *objectEvent, struct Sprite *reflectionSprite)
+static void LoadObjectReflectionPalette(struct ObjectEvent *objectEvent, struct Sprite *reflectionSprite)
 {
     u8 bridgeType;
     u16 bridgeReflectionVerticalOffsets[] = { 12, 28, 44 };
@@ -84,8 +84,8 @@ void LoadObjectReflectionPalette(struct ObjectEvent *objectEvent, struct Sprite 
         // When walking on a bridge high above water (Route 120), the reflection is a solid dark blue color.
         // This is so the sprite blends in with the dark water metatile underneath the bridge.
         reflectionSprite->sReflectionVerticalOffset = bridgeReflectionVerticalOffsets[bridgeType - 1];
-        LoadObjectEventPalette(OBJ_EVENT_PAL_TAG_10);
-        reflectionSprite->oam.paletteNum = IndexOfSpritePaletteTag(OBJ_EVENT_PAL_TAG_10);
+        LoadObjectEventPalette(OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION);
+        reflectionSprite->oam.paletteNum = IndexOfSpritePaletteTag(OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION);
         UpdatePaletteGammaType(reflectionSprite->oam.paletteNum, GAMMA_NORMAL);
         UpdateSpritePaletteWithWeather(reflectionSprite->oam.paletteNum);
     }
