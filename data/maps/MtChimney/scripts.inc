@@ -3,6 +3,8 @@
 .set LOCALID_TABITHA, 3
 .set LOCALID_MAGMA_GRUNT_2, 22
 .set LOCALID_MAGMA_GRUNT_1, 29
+.set LOCALID_FLANNERY, 34
+.set LOCALID_STEVEN, 36
 
 
 MtChimney_MapScripts:: @ 822EDC1
@@ -62,13 +64,17 @@ MtChimney_EventScript_Maxie:: @ 822EE0B
 	setflag FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA
 	fadescreen FADE_FROM_BLACK
 	setobjectxyperm LOCALID_ARCHIE, 10, 12
+	setobjectxyperm LOCALID_FLANNERY, 10, 13
 	addobject LOCALID_ARCHIE
+	addobject LOCALID_FLANNERY
 	compare VAR_FACING, DIR_EAST
-	call_if_eq MtChimney_EventScript_ArchieApproachPlayerEast
+	call_if_eq MtChimney_EventScript_ArchieAndFlanneryApproachPlayerEast
 	compare VAR_FACING, DIR_NORTH
-	call_if_eq MtChimney_EventScript_ArchieApproachPlayerNorth
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
-	waitmovement 0
+	call_if_eq MtChimney_EventScript_ArchieAndFlanneryApproachPlayerNorth
+	compare VAR_FACING, DIR_EAST
+	call_if_eq MtChimney_EventScript_PlayerFaceArchieEast
+	compare VAR_FACING, DIR_NORTH
+	call_if_eq MtChimney_EventScript_PlayerFaceArchieNorth
 	msgbox MtChimney_Text_ArchieThankYou, MSGBOX_DEFAULT
 	closemessage
 	compare VAR_FACING, DIR_EAST
@@ -76,6 +82,75 @@ MtChimney_EventScript_Maxie:: @ 822EE0B
 	compare VAR_FACING, DIR_NORTH
 	call_if_eq MtChimney_EventScript_ArchieExitNorth
 	removeobject LOCALID_ARCHIE
+	applymovement LOCALID_FLANNERY, Common_Movement_FaceRight
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox MtChimney_Text_FlanneryThankYou, MSGBOX_DEFAULT
+	closemessage	
+	setfieldeffectargument 0, 1
+	dofieldeffect FLDEFF_NPCFLY_OUT
+	delay 15
+	addobject LOCALID_STEVEN
+	waitfieldeffect FLDEFF_NPCFLY_OUT
+	delay 30
+	applymovement LOCALID_FLANNERY, Common_Movement_FaceLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	playse SE_PIN
+	applymovement LOCALID_FLANNERY, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_FLANNERY, Common_Movement_Delay48
+	waitmovement 0
+	applymovement LOCALID_STEVEN, MtChimney_Movement_StevenApproachFlannery
+	waitmovement 0
+	compare VAR_FACING, DIR_EAST
+	call_if_eq MtChimney_EventScript_StevenAndFlanneryFaceEachOtherEast
+	compare VAR_FACING, DIR_NORTH
+	call_if_eq MtChimney_EventScript_StevenAndFlanneryFaceEachOtherNorth
+	msgbox MtChimney_Text_StevenArrival, MSGBOX_DEFAULT
+	closemessage
+	msgbox MtChimney_Text_FlanneryGreetsSteven, MSGBOX_DEFAULT
+	closemessage
+	msgbox MtChimney_Text_StevenDontCallMeSir, MSGBOX_DEFAULT
+	closemessage
+	msgbox MtChimney_Text_FlanneryReally, MSGBOX_DEFAULT
+	closemessage
+	delay 30	
+	applymovement LOCALID_FLANNERY, Common_Movement_FaceRight
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox MtChimney_Text_FlanneryDeparts, MSGBOX_DEFAULT
+	closemessage
+	compare VAR_FACING, DIR_EAST
+	call_if_eq MtChimney_EventScript_FlanneryDepartsEast
+	compare VAR_FACING, DIR_NORTH
+	call_if_eq MtChimney_EventScript_FlanneryDepartsNorth
+	removeobject LOCALID_FLANNERY	
+	compare VAR_FACING, DIR_EAST
+	call_if_eq MtChimney_EventScript_StevenApproachPlayerEast
+	compare VAR_FACING, DIR_NORTH
+	call_if_eq MtChimney_EventScript_StevenApproachPlayerNorth
+	msgbox MtChimney_Text_StevenSoWeMeetAgain, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_STEVEN, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox MtChimney_Text_StevenPondering, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_STEVEN, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox MtChimney_Text_StevenYouShouldTakeThatMeteorite, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	applymovement LOCALID_STEVEN, MtChimney_Movement_StevenStepBackForTakeOff
+	waitmovement 0
+	msgbox MtChimney_Text_StevenDeparts, MSGBOX_DEFAULT
+	closemessage
+	setfieldeffectargument 0, 1
+	dofieldeffect FLDEFF_NPCFLY_OUT
+	delay 15
+	removeobject LOCALID_STEVEN
+	waitfieldeffect FLDEFF_NPCFLY_OUT
 	setflag FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA
 	setflag FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY
 	setflag FLAG_HIDE_METEOR_FALLS_1F_1R_COZMO
@@ -84,23 +159,79 @@ MtChimney_EventScript_Maxie:: @ 822EE0B
 	releaseall
 	end
 
-MtChimney_EventScript_ArchieApproachPlayerEast:: @ 822EEC7
+MtChimney_EventScript_ArchieAndFlanneryApproachPlayerEast:: @ 822EEC7
+	applymovement LOCALID_FLANNERY, MtChimney_Movement_FlanneryApproachPlayerEast
 	applymovement LOCALID_ARCHIE, MtChimney_Movement_ArchieApproachPlayerEast
 	waitmovement 0
 	return
 
-MtChimney_EventScript_ArchieApproachPlayerNorth:: @ 822EED2
+MtChimney_EventScript_ArchieAndFlanneryApproachPlayerNorth:: @ 822EED2
+	applymovement LOCALID_FLANNERY, MtChimney_Movement_FlanneryApproachPlayerNorth
 	applymovement LOCALID_ARCHIE, MtChimney_Movement_ArchieApproachPlayerNorth
 	waitmovement 0
 	return
 
+MtChimney_EventScript_PlayerFaceArchieEast:
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	return
+
+MtChimney_EventScript_PlayerFaceArchieNorth:
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+	return
+
 MtChimney_EventScript_ArchieExitEast:: @ 822EEDD
+	applymovement LOCALID_FLANNERY, Common_Movement_FaceDown
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
 	applymovement LOCALID_ARCHIE, MtChimney_Movement_ArchieExitEast
 	waitmovement 0
 	return
 
 MtChimney_EventScript_ArchieExitNorth:: @ 822EEE8
+	applymovement LOCALID_FLANNERY, Common_Movement_FaceLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
 	applymovement LOCALID_ARCHIE, MtChimney_Movement_ArchieExitNorth
+	waitmovement 0
+	return
+
+MtChimney_EventScript_StevenAndFlanneryFaceEachOtherEast:
+	applymovement LOCALID_STEVEN, Common_Movement_FaceUp
+	applymovement LOCALID_FLANNERY, Common_Movement_FaceDown
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	return
+
+MtChimney_EventScript_StevenAndFlanneryFaceEachOtherNorth:
+	applymovement LOCALID_FLANNERY, Common_Movement_FaceLeft
+	waitmovement 0
+	return
+
+MtChimney_EventScript_FlanneryDepartsEast:
+	applymovement OBJ_EVENT_ID_PLAYER, MtChimney_Movement_PlayerWatchesFlanneryExitEast
+	applymovement LOCALID_STEVEN, MtChimney_Movement_StevenWatchesFlanneryExitEast
+	applymovement LOCALID_FLANNERY, MtChimney_Movement_FlanneryExitEast
+	waitmovement 0
+	return
+
+MtChimney_EventScript_FlanneryDepartsNorth:
+	applymovement OBJ_EVENT_ID_PLAYER, MtChimney_Movement_PlayerWatchesFlanneryExitNorth
+	applymovement LOCALID_STEVEN, MtChimney_Movement_StevenWatchesFlanneryExitNorth
+	applymovement LOCALID_FLANNERY, MtChimney_Movement_FlanneryExitNorth
+	waitmovement 0
+	return
+
+MtChimney_EventScript_StevenApproachPlayerEast:
+	applymovement LOCALID_STEVEN, MtChimney_Movement_StevenApproachPlayerEast
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	return
+
+MtChimney_EventScript_StevenApproachPlayerNorth:
+	applymovement LOCALID_STEVEN, MtChimney_Movement_StevenApproachPlayerNorth
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
 	waitmovement 0
 	return
 
@@ -154,13 +285,14 @@ MtChimney_Movement_ArchieApproachPlayerEast: @ 822EF83
 	walk_up
 	walk_up
 	walk_up
-	walk_up
 	walk_right
+	walk_right
+	face_up
 	step_end
 
 MtChimney_Movement_ArchieExitEast: @ 822EF8B
 	walk_left
-	walk_down
+	walk_left
 	walk_down
 	walk_down
 	walk_down
@@ -175,13 +307,17 @@ MtChimney_Movement_ArchieApproachPlayerNorth: @ 822EF94
 	walk_up
 	walk_up
 	walk_up
+	walk_up
 	walk_right
 	walk_right
+	walk_right
+	face_down
 	step_end
 
 MtChimney_Movement_ArchieExitNorth: @ 822EF9C
 	walk_left
 	walk_left
+	walk_left
 	walk_down
 	walk_down
 	walk_down
@@ -191,162 +327,19 @@ MtChimney_Movement_ArchieExitNorth: @ 822EF9C
 	walk_down
 	step_end
 
-MtChimney_Movement_Unused1: @ 822EFA6
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_down
-	step_end
-
-MtChimney_Movement_Unused2: @ 822EFB8
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_down
-	step_end
-
-MtChimney_Movement_Unused3: @ 822EFC1
+MtChimney_Movement_FlanneryApproachPlayerEast:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
 	walk_right
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_down
-	walk_down
-	walk_down
-	walk_down
 	step_end
 
-MtChimney_Movement_Unused4: @ 822EFD0
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
+MtChimney_Movement_FlanneryExitEast:
 	walk_left
-	walk_left
-	walk_down
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_down
-	step_end
-
-MtChimney_Movement_Unused5: @ 822EFE9
-	delay_16
-	delay_16
-	delay_16
-	walk_down
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_down
-	step_end
-
-MtChimney_Movement_Unused6: @ 822EFF4
-	delay_16
-	walk_left
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
-
-MtChimney_Movement_Unused7: @ 822F004
-	delay_16
-	walk_left
-	walk_left
-	walk_down
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_down
-	step_end
-
-MtChimney_Movement_Unused8: @ 822F015
-	delay_16
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_in_place_fastest_down
-	step_end
-
-MtChimney_Movement_Unused9: @ 822F01D
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
-
-MtChimney_Movement_Unused10: @ 822F02B
-	walk_down
-	step_end
-
-MtChimney_Movement_Unused11: @ 822F02D
 	walk_down
 	walk_down
 	walk_down
@@ -356,11 +349,23 @@ MtChimney_Movement_Unused11: @ 822F02D
 	walk_down
 	step_end
 
-MtChimney_Movement_Unused12: @ 822F035
-	delay_16
-	delay_16
-	walk_in_place_fastest_left
-	delay_16
+MtChimney_Movement_FlanneryApproachPlayerNorth:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	step_end
+
+MtChimney_Movement_FlanneryExitNorth:
+	walk_up
+	walk_left
+	walk_left
+	walk_down
+	walk_down
 	walk_down
 	walk_down
 	walk_down
@@ -368,30 +373,55 @@ MtChimney_Movement_Unused12: @ 822F035
 	walk_down
 	step_end
 
-MtChimney_Movement_Unused13: @ 822F03F
+MtChimney_Movement_PlayerWatchesFlanneryExitEast:
 	delay_16
 	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	walk_in_place_fastest_left
-	delay_16
-	walk_down
-	walk_down
+	face_down
 	step_end
 
-MtChimney_Movement_Unused14: @ 822F04A
-	lock_facing_direction
-	walk_fast_left
-	unlock_facing_direction
+MtChimney_Movement_PlayerWatchesFlanneryExitNorth:
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	face_down
+	step_end
+
+MtChimney_Movement_StevenWatchesFlanneryExitEast:
+	delay_16
+	face_left
+	delay_16
+	face_down
+	step_end
+
+MtChimney_Movement_StevenWatchesFlanneryExitNorth:
+	delay_16
+	face_up
+	delay_16
+	delay_16
+	face_left
+	delay_16
+	face_down
+	step_end
+
+MtChimney_Movement_StevenApproachFlannery:
+	walk_right
+	step_end
+
+MtChimney_Movement_StevenApproachPlayerEast:
+	walk_right
+	face_up
+	step_end
+
+MtChimney_Movement_StevenApproachPlayerNorth:
+	walk_right
+	step_end
+
+MtChimney_Movement_StevenStepBackForTakeOff:
+	walk_left
+	walk_left
 	face_right
-	step_end
-
-MtChimney_Movement_Unused15: @ 822F04F
-	walk_left
-	walk_in_place_fastest_right
-	delay_16
 	step_end
 
 MtChimney_EventScript_BusyAquaGrunt1:: @ 822F053
@@ -446,6 +476,14 @@ MtChimney_EventScript_MagmaPoochyena:: @ 822F0D2
 
 MtChimney_EventScript_AquaPoochyena:: @ 822F0DB
 	msgbox MtChimney_Text_Bushaa, MSGBOX_SIGN
+	end
+
+MtChimney_EventScript_Torkoal::
+	msgbox MtChimney_Text_Torkoal, MSGBOX_SIGN
+	end
+
+MtChimney_EventScript_Ponyta::
+	msgbox MtChimney_Text_Ponyta, MSGBOX_SIGN
 	end
 
 MtChimney_EventScript_MeteoriteMachine:: @ 822F0E4
@@ -544,6 +582,14 @@ MtChimney_EventScript_SawyerRematch:: @ 822F253
 	msgbox MtChimney_Text_SawyerPostRematch, MSGBOX_AUTOCLOSE
 	end
 
+MtChimney_EventScript_FlanneryBusyFighting::
+	msgbox MtChimney_Text_FlanneryBusyFighting, MSGBOX_SIGN
+	return
+
+MtChimney_EventScript_CourtneyBusyFighting::
+	msgbox MtChimney_Text_CourtneyBusyFighting, MSGBOX_SIGN
+	return
+
 MtChimney_Text_MeteoriteWillActivateVolcano: @ 822F26A
 	.string "The power contained in the Meteorite…\p"
 	.string "By amplifying its power with this\n"
@@ -564,11 +610,16 @@ MtChimney_Text_MaxieIntro: @ 822F32E
 	.string "It must be you he meant.\p"
 	.string "Humph! So you're thinking of\n"
 	.string "interfering with us, Team Magma?\p"
-	.string "Now you listen.\n"
-	.string "Long ago, living things used the\l"
-	.string "land to live and grow.\p"
+	.string "Now listen carefully.\p"
+	.string "People rely on the land to grow our\n"
+	.string "food and house our families.\p"
 	.string "That is why land is all important!\n"
 	.string "It is the cradle of all!\p"
+	.string "But as the population of people and\n"
+	.string "Pokémon continue to grow, the land\l"
+	.string "does not.\p"
+	.string "If we do not act, the future of Hoenn\n"
+	.string "will be in jeopardy!\p"
 	.string "That is why Team Magma is dedicated\n"
 	.string "to the expansion of the land mass.\p"
 	.string "It is for further advancement of\n"
@@ -596,10 +647,11 @@ MtChimney_Text_MaxieYouHaventSeenLastOfMagma: @ 822F5F7
 
 MtChimney_Text_TabithaIntro: @ 822F6AA
 	.string "Hehehe!\p"
-	.string "So you've come all the way here!\p"
-	.string "But you're too late!\n"
-	.string "I've already delivered the Meteorite\l"
-	.string "from Meteor Falls to the Boss!$"
+	.string "So you've come all the way here!\n"
+	.string "But you're too late!\p"
+	.string "Courtney already delivered the\n"
+	.string "Meteorite from Meteor Falls\l"
+	.string "to the Boss!$"
 
 MtChimney_Text_TabithaDefeat: @ 822F72C
 	.string "Hehehe…\p"
@@ -630,8 +682,7 @@ MtChimney_Text_Grunt2PostBattle: @ 822F859
 
 MtChimney_Text_Grunt1Intro: @ 822F8B6
 	.string "If there were more land, I'd be able\n"
-	.string "to get a big house of my own!\p"
-	.string "I'm going to build it on hardened lava!$"
+	.string "to get a big house of my own!$"
 
 MtChimney_Text_Grunt1Defeat: @ 822F921
 	.string "My dream of a big house…$"
@@ -697,6 +748,84 @@ MtChimney_Text_ArchieThankYou: @ 822FC3D
 	.string "our pursuit of Team Magma.\p"
 	.string "{PLAYER}, we shall meet again!$"
 
+MtChimney_Text_FlanneryThankYou:
+	.string "Flannery: {PLAYER}, was it?\p"
+	.string "Thanks a ton!\n"
+	.string "Oh, I mean…\p"
+	.string "On behalf of… uh… the people\n"
+	.string "of Lavaridge, I, Flannery… um……$"
+
+MtChimney_Text_StevenArrival:
+	.string "Steven: Flannery!\n"
+	.string "I'm sorry I didn't get here sooner.\p"
+	.string "I came as soon as I got word.\n"
+	.string "What's happened? Are you all right?$"
+
+MtChimney_Text_FlanneryGreetsSteven:
+	.string "Flannery: I'm okay, Steven.\n"
+	.string "I mean, sir!\p"
+	.string "Mt. Chimney was swarming with these\n"
+	.string "people calling themselves Team Magma.\p"
+	.string "If it wasn't for {PLAYER}, I'm not\n"
+	.string "sure what they would have done.$"
+
+MtChimney_Text_StevenDontCallMeSir:
+	.string "Steven: Flannery, you don't have\n"
+	.string "to call me “sir”.\p"
+	.string "But nevermind, I'm just glad to\n"
+	.string "know you're all right.\p"
+	.string "You fulfilled your duties as\n"
+	.string "Lavaridge Gym Leader well.\p"
+	.string "Your grandfather would be proud.$"
+
+MtChimney_Text_FlanneryReally:
+	.string "Flannery: R-really?\p"
+	.string "… … … … … …\n"
+	.string "… … … … … …\p"
+	.string "Thank you, Steven.\n"
+	.string "That means a lot.$"
+
+MtChimney_Text_FlanneryDeparts:
+	.string "Flannery: {PLAYER}.\n"
+	.string "You really impressed me.\p"
+	.string "I, Flannery, of Lavaridge Town,\n"
+	.string "um… formally invite you to\l"
+	.string "challenge me at my Gym.\p"
+	.string "Uh… well… see you then!$"
+
+MtChimney_Text_StevenSoWeMeetAgain:
+	.string "Steven: So, we meet again,\n"
+	.string "{PLAYER}.\p"
+	.string "I knew I recognized the potential\n"
+	.string "in you as a Trainer when we first\l"
+	.string "met in Granite Cave.\p"
+	.string "I must ask, though.\n"
+	.string "This Team Magma…\p"
+	.string "Do you know what they were\n"
+	.string "attempting to acomplish here?\p"
+	.string "… … … … … …\n"
+	.string "… … … … … …\p"
+	.string "I see. That Meteorite was stolen\n"
+	.string "and used to power that machine in\l"
+	.string "an attempt to… awaken something.$"
+
+MtChimney_Text_StevenPondering:
+	.string "Steven: Hmmm…\p"
+	.string "Could they be referring to that\n"
+	.string "old Hoenn legend?$"
+
+MtChimney_Text_StevenYouShouldTakeThatMeteorite:
+	.string "Steven: {PLAYER}, you should return\n"
+	.string "that Meteorite to where it came from.\p"
+	.string "I'll need to see if I can learn more\n"
+	.string "about what Team Magma is up to.\p"
+	.string "You should watch out for them as well,\n"
+	.string "who knows where they'll pop up next.\p"
+	.string "Good luck on your journey, {PLAYER}.$"
+
+MtChimney_Text_StevenDeparts:
+	.string "Steven: Until we meet again…$"
+
 MtChimney_Text_MagmaOutnumbersUs: @ 822FD1F
 	.string "Darn… Team Magma outnumbers us!\n"
 	.string "We can't keep up with them!$"
@@ -713,6 +842,12 @@ MtChimney_Text_MagmasNameSimilar: @ 822FDA1
 
 MtChimney_Text_Bushaa: @ 822FDFC
 	.string "Bushaa!$"
+
+MtChimney_Text_Torkoal:
+	.string "Torr!$"
+
+MtChimney_Text_Ponyta:
+	.string "Heeh heeh heeh!$"
 
 MtChimney_Text_LavaCookiesJust200: @ 822FE04
 	.string "Lava Cookies are Mt. Chimney's local\n"
@@ -855,3 +990,12 @@ MtChimney_Text_SawyerPostRematch: @ 8230614
 	.string "Actually, it really is hot here.\n"
 	.string "I'm overdressed for these parts.$"
 
+MtChimney_Text_FlanneryBusyFighting:
+	.string "Flannery: Stop this… no, wait.\p"
+	.string "Team Magma, as Lavaridge Gym Leader,\n"
+	.string "I… uh… demand you depart Mt. Chimney\l"
+	.string "at once!$"
+
+MtChimney_Text_CourtneyBusyFighting:
+	.string "Courtney: C'mon, Ponyta! Let's turn\n"
+	.string "up the heat!$"

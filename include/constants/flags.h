@@ -765,9 +765,7 @@
 #define FLAG_HIDE_PETALBURG_CITY_WALLY                              0x2D6
 #define FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_INVISIBLE_NINJA_BOY   0x2D7
 #define FLAG_HIDE_PETALBURG_CITY_WALLYS_MOM                         0x2D8
-
 #define FLAG_HIDE_DRY_ASHLANDS_RIVAL                                0x2D9
-
 #define FLAG_HIDE_LILYCOVE_FAN_CLUB_INTERVIEWER                     0x2DA
 #define FLAG_HIDE_RUSTBORO_CITY_AQUA_GRUNT                          0x2DB
 #define FLAG_HIDE_RUSTBORO_CITY_DEVON_EMPLOYEE_1                    0x2DC
@@ -804,7 +802,7 @@
 #define FLAG_HIDE_DEOXYS                                            0x2FB
 #define FLAG_HIDE_BIRTH_ISLAND_DEOXYS_TRIANGLE                      0x2FC
 #define FLAG_HIDE_MAUVILLE_CITY_SCOTT                               0x2FD
-#define FLAG_HIDE_MAUVILLE_BATTLE_TENT_SCOTT                             0x2FE
+#define FLAG_HIDE_MAUVILLE_BATTLE_TENT_SCOTT                        0x2FE
 #define FLAG_HIDE_FALLARBOR_TOWN_BATTLE_TENT_SCOTT                  0x2FF
 #define FLAG_HIDE_ROUTE_111_VICTOR_WINSTRATE                        0x300
 #define FLAG_HIDE_ROUTE_111_VICTORIA_WINSTRATE                      0x301
@@ -1025,7 +1023,7 @@
 #define FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WANDA                0x3D8
 #define FLAG_HIDE_RUSTBORO_CITY_SCOTT                               0x3D9
 #define FLAG_HIDE_METEOR_FALLS_RIVAL                                0x3DA
-#define FLAG_UNUSED_0x3DB                                           0x3DB // Unused
+#define FLAG_HIDE_MT_CHIMNEY_STEVEN                                 0x3DB
 #define FLAG_UNUSED_0x3DC                                           0x3DC // Unused
 #define FLAG_UNUSED_0x3DD                                           0x3DD // Unused
 #define FLAG_UNUSED_0x3DE                                           0x3DE // Unused
