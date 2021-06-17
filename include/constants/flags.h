@@ -1024,7 +1024,7 @@
 #define FLAG_HIDE_RUSTBORO_CITY_SCOTT                               0x3D9
 #define FLAG_HIDE_METEOR_FALLS_RIVAL                                0x3DA
 #define FLAG_HIDE_MT_CHIMNEY_STEVEN                                 0x3DB
-#define FLAG_UNUSED_0x3DC                                           0x3DC // Unused
+#define FLAG_HIDE_TRAINER_SCHOOL_ROXANNE                            0x3DC
 #define FLAG_UNUSED_0x3DD                                           0x3DD // Unused
 #define FLAG_UNUSED_0x3DE                                           0x3DE // Unused
 #define FLAG_HIDE_ROUTE_101_BOY                                     0x3DF

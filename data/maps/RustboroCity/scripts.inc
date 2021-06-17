@@ -9,6 +9,7 @@
 RustboroCity_MapScripts:: @ 81E06BD
 	map_script MAP_SCRIPT_ON_TRANSITION, RustboroCity_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, RustboroCity_OnFrame
+	map_script MAP_SCRIPT_ON_LOAD, RustboroCity_OnLoad
 	.byte 0
 
 RustboroCity_OnTransition: @ 81E06C8
@@ -38,6 +39,36 @@ RustboroCity_EventScript_HideMapNamePopup:: @ 81E0707
 RustboroCity_OnFrame: @ 81E070B
 	map_script_2 VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_EventScript_ScientistAddMatchCall
 	.2byte 0
+
+RustboroCity_OnLoad:
+	call_if_unset FLAG_HIDE_TRAINER_SCHOOL_ROXANNE, RustboroCity_EventScript_LockGymDoor
+	call_if_set FLAG_HIDE_TRAINER_SCHOOL_ROXANNE, RustboroCity_EventScript_UnlockGymDoor
+	end
+
+RustboroCity_EventScript_LockGymDoor::
+	setmetatile 27, 19, METATILE_Rustboro_Door_Gym_Locked, 1
+	return
+
+RustboroCity_EventScript_UnlockGymDoor::
+	setmetatile 27, 19, METATILE_General_Door_Gym, 1
+	return
+
+RustboroCity_EventScript_GymDoorSign::
+	lockall
+	goto_if_set FLAG_HIDE_TRAINER_SCHOOL_ROXANNE, RustboroCity_EventScript_TheDoorIsOpen
+	goto RustboroCity_EventScript_TheDoorIsLocked
+	end
+
+RustboroCity_EventScript_TheDoorIsOpen::
+	msgbox RustboroCity_Text_TheDoorIsOpen, MSGBOX_DEFAULT
+	releaseall
+	end
+
+RustboroCity_EventScript_TheDoorIsLocked::
+	msgbox RustboroCity_Text_TheDoorIsLocked, MSGBOX_DEFAULT
+	releaseall
+	end
+
 
 RustboroCity_EventScript_ScientistAddMatchCall:: @ 81E0715
 	lockall
@@ -1411,3 +1442,16 @@ RustboroCity_Text_ScottOutsideBattleTent:
 RustboroCity_Text_BattleTentSign:
 	.string "Battle Tent Rustboro Site\n"
 	.string "“Find it! The ultimate Pokémon!”$"
+
+RustboroCity_Text_TheDoorIsOpen:
+	.string "The Gym is open.$"
+
+RustboroCity_Text_TheDoorIsLocked:
+	.string "The Gym doors are locked.\n"
+	.string "There's a note on the door:\p"
+	.string "“Classes at the Pokémon Trainer's\n"
+	.string "School are currently in session.\p"
+	.string "The Gym will re-open once classes\n"
+	.string "are done for the day.”\l"
+	.string "                                                    -Roxanne$"
+

@@ -59,7 +59,14 @@ RustboroCity_PokemonSchool_EventScript_GameboyKid2:: @ 8213F68
 	end
 
 RustboroCity_PokemonSchool_EventScript_RichBoy:: @ 8213F71
+	goto_if_set FLAG_RECEIVED_QUICK_CLAW, RustboroCity_PokemonSchool_EventScript_GaveQuickClaw
 	msgbox RustboroCity_PokemonSchool_Text_PokemontCantUseManMadeItems, MSGBOX_NPC
+	closemessage
+	giveitem ITEM_QUICK_CLAW
+	compare VAR_RESULT, 0
+	goto_if_eq Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_QUICK_CLAW
+	goto RustboroCity_PokemonSchool_EventScript_GaveQuickClaw
 	end
 
 RustboroCity_PokemonSchool_EventScript_Lass:: @ 8213F7A
@@ -74,22 +81,25 @@ RustboroCity_PokemonSchool_EventScript_StudentNotebook:: @ 8213F8C
 	msgbox RustboroCity_PokemonSchool_Text_StudentsNotes, MSGBOX_SIGN
 	end
 
-RustboroCity_PokemonSchool_EventScript_Teacher:: @ 8213F95
+RustboroCity_PokemonSchool_EventScript_Roxanne:: @ 8213F95
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_QUICK_CLAW, RustboroCity_PokemonSchool_EventScript_GaveQuickClaw
 	compare VAR_FACING, DIR_EAST
 	call_if_eq RustboroCity_PokemonSchool_EventScript_TeacherCheckOnStudentsEast
 	compare VAR_FACING, DIR_WEST
 	call_if_eq RustboroCity_PokemonSchool_EventScript_TeacherCheckOnStudentsWest
-	msgbox RustboroCity_PokemonSchool_Text_StudentsWhoDontStudyGetQuickClaw, MSGBOX_DEFAULT
-	giveitem ITEM_QUICK_CLAW
-	compare VAR_RESULT, 0
-	goto_if_eq Common_EventScript_ShowBagIsFull
+	msgbox RustboroCity_PokemonSchool_Text_Roxanne, MSGBOX_DEFAULT
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_WalkInPlaceFastestDown
 	waitmovement 0
-	setflag FLAG_RECEIVED_QUICK_CLAW
+	msgbox RustboroCity_PokemonSchool_Text_RoxanneClassDismissed, MSGBOX_DEFAULT
+	closemessage
+	compare VAR_FACING, DIR_EAST
+	call_if_eq Rustboro_PokemonSchool_EventScript_RoxanneDepartEast
+	compare VAR_FACING, DIR_WEST
+	call_if_eq Rustboro_PokemonSchool_EventScript_RoxanneDepartWest
+	removeobject VAR_LAST_TALKED
+	setflag FLAG_HIDE_TRAINER_SCHOOL_ROXANNE
 	release
 	end
 
@@ -106,10 +116,18 @@ RustboroCity_PokemonSchool_EventScript_TeacherCheckOnStudentsWest:: @ 8213FF0
 RustboroCity_PokemonSchool_EventScript_GaveQuickClaw:: @ 8213FFB
 	msgbox RustboroCity_PokemonSchool_Text_ExplainQuickClaw, MSGBOX_DEFAULT
 	closemessage
-	applymovement VAR_LAST_TALKED, Common_Movement_WalkInPlaceFastestDown
-	waitmovement 0
 	release
 	end
+
+Rustboro_PokemonSchool_EventScript_RoxanneDepartEast:
+	applymovement VAR_LAST_TALKED, Rustboro_PokemonSchool_Movement_RoxanneDepartEast
+	waitmovement 0
+	return
+
+Rustboro_PokemonSchool_EventScript_RoxanneDepartWest:
+	applymovement VAR_LAST_TALKED, Rustboro_PokemonSchool_Movement_RoxanneDepartWest
+	waitmovement 0
+	return
 
 RustboroCity_PokemonSchool_Movement_TeacherCheckOnStudentsWest: @ 8214010
 	walk_left
@@ -161,6 +179,29 @@ RustboroCity_PokemonSchool_Movement_TeacherCheckOnStudentsEast: @ 8214027
 	walk_up
 	walk_left
 	walk_left
+	step_end
+
+Rustboro_PokemonSchool_Movement_RoxanneDepartEast:
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Rustboro_PokemonSchool_Movement_RoxanneDepartWest:
+	walk_left
+	walk_down
+	walk_down
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end
 
 RustboroCity_PokemonSchool_EventScript_Scott:: @ 8214040
@@ -264,8 +305,31 @@ RustboroCity_PokemonSchool_Text_ExplainQuickClaw: @ 82144C8
 	.string "before its opponent.\p"
 	.string "There are many other items that are\n"
 	.string "meant to be held by Pokémon.\p"
-	.string "Just those alone will give you many\n"
-	.string "topics to study!$"
+	.string "Experiment to find what works best\n"
+	.string "for each Pokémon and situation.$"
+
+RustboroCity_PokemonSchool_Text_Roxanne:
+	.string "It's important for students to keep\n"
+	.string "up with their studies.\p"
+	.string "If you want to become a strong Trainer,\n"
+	.string "you'll have to take advantage of things\l"
+	.string "like held items and status conditions.\p"
+	.string "… … … … … …\n"
+	.string "… … … … … …\p"
+	.string "Oh! You look like you've already started\n"
+	.string "your journey as a Pokémon Trainer.\p"
+	.string "In that case, you'll want to challenge\n"
+	.string "the Gym Leaders across Hoenn.\p"
+	.string "You're looking at one of those\n"
+	.string "Gym Leaders right now.\p"
+	.string "My name is Roxanne.\n"
+	.string "It's a pleasure to meet you!\p"
+	.string "Come by the Rustboro Gym whenever\n"
+	.string "you're ready and we'll see what you got.$"
+
+RustboroCity_PokemonSchool_Text_RoxanneClassDismissed:
+	.string "All right, everyone, that's it for today.\n"
+	.string "Class dismissed!$"
 
 RustboroCity_PokemonSchool_Text_TradingRightNow: @ 821459F
 	.string "I'm trading Pokémon with my friend\n"
@@ -278,7 +342,8 @@ RustboroCity_PokemonSchool_Text_AlwaysWantedSeedot: @ 82145CD
 RustboroCity_PokemonSchool_Text_PokemontCantUseManMadeItems: @ 8214604
 	.string "Pokémon can hold items, but they\n"
 	.string "don't know what to do with man-made\l"
-	.string "items like Potion and Antidote.$"
+	.string "items like Potion and Antidote.\p"
+	.string "Here, try letting your Pokémon hold this.$"
 
 RustboroCity_PokemonSchool_Text_ConfusedPokemonAttacksItself: @ 8214669
 	.string "You know how some Pokémon moves can\n"
