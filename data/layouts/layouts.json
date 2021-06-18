@@ -4690,6 +4690,16 @@
       "secondary_tileset": "gTileset_Contest",
       "border_filepath": "data/layouts/ContestHall_Small/border.bin",
       "blockdata_filepath": "data/layouts/ContestHall_Small/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEBUG_OBJECT_EVENT_SPRITE_GALLERY",
+      "name": "Debug_ObjectEventSpriteGallery_Layout",
+      "width": 13,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Debug_ObjectEventSpriteGallery/border.bin",
+      "blockdata_filepath": "data/layouts/Debug_ObjectEventSpriteGallery/map.bin"
     }
   ]
 }

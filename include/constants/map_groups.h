@@ -629,8 +629,11 @@
 // gMapGroup_IndoorDryAshlands
 #define MAP_DRY_ASHLANDS_HOUSE (0 | (34 << 8))
 
-#define MAP_GROUPS_COUNT 35
+// gMapGroup_Debug
+#define MAP_DEBUG_OBJECT_EVENT_SPRITE_GALLERY (0 | (35 << 8))
 
-// static const u8 MAP_GROUP_COUNT[] = {63, 5, 6, 6, 9, 8, 8, 7, 7, 13, 11, 21, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 127, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 0};
+#define MAP_GROUPS_COUNT 36
+
+// static const u8 MAP_GROUP_COUNT[] = {63, 5, 6, 6, 9, 8, 8, 7, 7, 13, 11, 21, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 127, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 1, 0};
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

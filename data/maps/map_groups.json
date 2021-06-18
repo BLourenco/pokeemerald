@@ -35,7 +35,8 @@
     "gMapGroup_IndoorRoute123",
     "gMapGroup_IndoorRoute119",
     "gMapGroup_IndoorRoute124",
-    "gMapGroup_IndoorDryAshlands"
+    "gMapGroup_IndoorDryAshlands",
+    "gMapGroup_Debug"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -660,5 +661,8 @@
   ],
   "gMapGroup_IndoorDryAshlands": [
     "DryAshlands_House"
+  ],
+  "gMapGroup_Debug": [
+    "Debug_ObjectEventSpriteGallery"
   ]
 }
