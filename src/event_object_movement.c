@@ -472,6 +472,10 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_DRAKE                   0x112D
 #define OBJ_EVENT_PAL_TAG_MAXIE                   0x112E
 #define OBJ_EVENT_PAL_TAG_ARCHIE                  0x112F
+#define OBJ_EVENT_PAL_TAG_ANABEL                  0x1130
+#define OBJ_EVENT_PAL_TAG_GRETA                   0x1131
+#define OBJ_EVENT_PAL_TAG_SPENSER                 0x1132
+#define OBJ_EVENT_PAL_TAG_TUCKER                  0x1133
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/field_effects/field_effect_object_template_pointers.h"
@@ -530,6 +534,10 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Drake,                 OBJ_EVENT_PAL_TAG_DRAKE},
     {gObjectEventPal_Maxie,                 OBJ_EVENT_PAL_TAG_MAXIE},
     {gObjectEventPal_Archie,                OBJ_EVENT_PAL_TAG_ARCHIE},
+    {gObjectEventPal_Anabel,                OBJ_EVENT_PAL_TAG_ANABEL},
+    {gObjectEventPal_Greta,                 OBJ_EVENT_PAL_TAG_GRETA},
+    {gObjectEventPal_Spenser,               OBJ_EVENT_PAL_TAG_SPENSER},
+    {gObjectEventPal_Tucker,                OBJ_EVENT_PAL_TAG_TUCKER},
     {NULL,                                  0x0000},
 };
 
