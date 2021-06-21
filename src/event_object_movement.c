@@ -481,6 +481,14 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_STEVEN                  0x1136
 #define OBJ_EVENT_PAL_TAG_WALLACE                 0x1137
 #define OBJ_EVENT_PAL_TAG_WALLY                   0x1138
+#define OBJ_EVENT_PAL_TAG_FISHERMAN               0x1139
+#define OBJ_EVENT_PAL_TAG_MAN_3                   0x113A
+#define OBJ_EVENT_PAL_TAG_SAILOR                  0x113B
+#define OBJ_EVENT_PAL_TAG_SCHOOL_KID_M            0x113C
+#define OBJ_EVENT_PAL_TAG_WOMAN_5                 0x113D
+#define OBJ_EVENT_PAL_TAG_RED                     0x113E
+#define OBJ_EVENT_PAL_TAG_LEAF                    0x113F
+#define OBJ_EVENT_PAL_TAG_POKEFAN_F               0x1140
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/field_effects/field_effect_object_template_pointers.h"
@@ -548,6 +556,14 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Steven,                OBJ_EVENT_PAL_TAG_STEVEN},
     {gObjectEventPal_Wallace,               OBJ_EVENT_PAL_TAG_WALLACE},
     {gObjectEventPal_Wally,                 OBJ_EVENT_PAL_TAG_WALLY},
+    {gObjectEventPal_Fisherman,             OBJ_EVENT_PAL_TAG_FISHERMAN},
+    {gObjectEventPal_Man3,                  OBJ_EVENT_PAL_TAG_MAN_3},
+    {gObjectEventPal_Sailor,                OBJ_EVENT_PAL_TAG_SAILOR},
+    {gObjectEventPal_SchoolKidM,            OBJ_EVENT_PAL_TAG_SCHOOL_KID_M},
+    {gObjectEventPal_Woman5,                OBJ_EVENT_PAL_TAG_WOMAN_5},
+    {gObjectEventPal_Red,                   OBJ_EVENT_PAL_TAG_RED},
+    {gObjectEventPal_Leaf,                  OBJ_EVENT_PAL_TAG_LEAF},
+    {gObjectEventPal_PokefanF,              OBJ_EVENT_PAL_TAG_POKEFAN_F},
     {NULL,                                  0x0000},
 };
 
