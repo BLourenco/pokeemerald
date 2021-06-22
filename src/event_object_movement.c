@@ -490,6 +490,8 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_LEAF                    0x113F
 #define OBJ_EVENT_PAL_TAG_POKEFAN_F               0x1140
 #define OBJ_EVENT_PAL_TAG_RAYQUAZA                0x1141
+#define OBJ_EVENT_PAL_TAG_KYOGRE_SLEEPING         0x1142
+#define OBJ_EVENT_PAL_TAG_GROUDON_SLEEPING        0x1143
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/field_effects/field_effect_object_template_pointers.h"
@@ -525,8 +527,10 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_SSTidal,               OBJ_EVENT_PAL_TAG_SSTIDAL},
     {gObjectEventPal_Kyogre,                OBJ_EVENT_PAL_TAG_KYOGRE},
     {gObjectEventPal_KyogreReflection,      OBJ_EVENT_PAL_TAG_KYOGRE_REFLECTION},
+    {gObjectEventPal_KyogreSleeping,        OBJ_EVENT_PAL_TAG_KYOGRE_SLEEPING},
     {gObjectEventPal_Groudon,               OBJ_EVENT_PAL_TAG_GROUDON},
     {gObjectEventPal_GroudonReflection,     OBJ_EVENT_PAL_TAG_GROUDON_REFLECTION},
+    {gObjectEventPal_GroudonSleeping,       OBJ_EVENT_PAL_TAG_GROUDON_SLEEPING},
     {gObjectEventPal_SubmarineShadow,       OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW},
     {gObjectEventPal_Poochyena,             OBJ_EVENT_PAL_TAG_POOCHYENA},
     {gObjectEventPal_RedLeaf,               OBJ_EVENT_PAL_TAG_RED_LEAF},
