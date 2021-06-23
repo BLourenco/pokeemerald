@@ -492,6 +492,9 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_RAYQUAZA                0x1141
 #define OBJ_EVENT_PAL_TAG_KYOGRE_SLEEPING         0x1142
 #define OBJ_EVENT_PAL_TAG_GROUDON_SLEEPING        0x1143
+#define OBJ_EVENT_PAL_TAG_REGIROCK                0x1144
+#define OBJ_EVENT_PAL_TAG_REGICE                  0x1145
+#define OBJ_EVENT_PAL_TAG_REGISTEEL               0x1146
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/field_effects/field_effect_object_template_pointers.h"
@@ -570,6 +573,9 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Leaf,                  OBJ_EVENT_PAL_TAG_LEAF},
     {gObjectEventPal_PokefanF,              OBJ_EVENT_PAL_TAG_POKEFAN_F},
     {gObjectEventPal_Rayquaza,              OBJ_EVENT_PAL_TAG_RAYQUAZA},
+    {gObjectEventPal_Regirock,              OBJ_EVENT_PAL_TAG_REGIROCK},
+    {gObjectEventPal_Regice,                OBJ_EVENT_PAL_TAG_REGICE},
+    {gObjectEventPal_Registeel,             OBJ_EVENT_PAL_TAG_REGISTEEL},
     {NULL,                                  0x0000},
 };
 
