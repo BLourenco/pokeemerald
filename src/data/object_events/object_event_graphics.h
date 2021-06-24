@@ -205,6 +205,7 @@ const u16 gObjectEventPal_Rayquaza[] = INCBIN_U16("graphics/object_events/palett
 const u32 gObjectEventPic_Zigzagoon[] = INCBIN_U32("graphics/object_events/pics/pokemon/zigzagoon.4bpp");
 const u16 gObjectEventPal_Zigzagoon[] = INCBIN_U16("graphics/object_events/palettes/zigzagoon.gbapal");
 const u32 gObjectEventPic_Pikachu[] = INCBIN_U32("graphics/object_events/pics/pokemon/pikachu.4bpp");
+const u16 gObjectEventPal_Pikachu[] = INCBIN_U16("graphics/object_events/palettes/pikachu.gbapal");
 const u32 gObjectEventPic_Azumarill[] = INCBIN_U32("graphics/object_events/pics/pokemon/azumarill.4bpp");
 const u16 gObjectEventPal_Azumarill[] = INCBIN_U16("graphics/object_events/palettes/azumarill.gbapal");
 const u32 gObjectEventPic_Wingull[] = INCBIN_U32("graphics/object_events/pics/pokemon/wingull.4bpp");
