@@ -389,6 +389,7 @@ const u32 gObjectEventPic_Scott[] = INCBIN_U32("graphics/object_events/pics/peop
 const u16 gObjectEventPal_Scott[] = INCBIN_U16("graphics/object_events/palettes/scott.gbapal");
 const u32 gObjectEventPic_Statue[] = INCBIN_U32("graphics/object_events/pics/misc/statue.4bpp");
 const u32 gObjectEventPic_Kirlia[] = INCBIN_U32("graphics/object_events/pics/pokemon/kirlia.4bpp");
+const u16 gObjectEventPal_Kirlia[] = INCBIN_U16("graphics/object_events/palettes/kirlia.gbapal");
 const u32 gObjectEventPic_Dusclops[] = INCBIN_U32("graphics/object_events/pics/pokemon/dusclops.4bpp");
 const u16 gObjectEventPal_Dusclops[] = INCBIN_U16("graphics/object_events/palettes/dusclops.gbapal");
 const u32 gObjectEventPic_MysteryEventDeliveryman[] = INCBIN_U32("graphics/object_events/pics/people/mystery_event_deliveryman.4bpp");
