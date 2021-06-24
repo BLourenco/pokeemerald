@@ -6,7 +6,7 @@ Debug_ObjectEventSpriteGallery_OnTransition::
 	copyvar VAR_OBJ_GFX_ID_1, VAR_DEBUG
 	compare VAR_OBJ_GFX_ID_1, 0
 	goto_if_lt Debug_ObjectEventSpriteGallery_SetMin
-	compare VAR_OBJ_GFX_ID_1, 241
+	compare VAR_OBJ_GFX_ID_1, 243
 	goto_if_gt Debug_ObjectEventSpriteGallery_SetMax
 	return
 
@@ -15,7 +15,7 @@ Debug_ObjectEventSpriteGallery_SetMin::
 	end
 
 Debug_ObjectEventSpriteGallery_SetMax::
-	setvar VAR_OBJ_GFX_ID_1, 241
+	setvar VAR_OBJ_GFX_ID_1, 243
 	end
 
 Debug_ObjectEventSpriteGallery_IncOne::

@@ -489,6 +489,24 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_RED                     0x113E
 #define OBJ_EVENT_PAL_TAG_LEAF                    0x113F
 #define OBJ_EVENT_PAL_TAG_POKEFAN_F               0x1140
+#define OBJ_EVENT_PAL_TAG_RAYQUAZA                0x1141
+#define OBJ_EVENT_PAL_TAG_KYOGRE_SLEEPING         0x1142
+#define OBJ_EVENT_PAL_TAG_GROUDON_SLEEPING        0x1143
+#define OBJ_EVENT_PAL_TAG_REGIROCK                0x1144
+#define OBJ_EVENT_PAL_TAG_REGICE                  0x1145
+#define OBJ_EVENT_PAL_TAG_REGISTEEL               0x1146
+#define OBJ_EVENT_PAL_TAG_LATIAS                  0x1147
+#define OBJ_EVENT_PAL_TAG_LATIOS                  0x1148
+#define OBJ_EVENT_PAL_TAG_AZURILL                 0x1149
+#define OBJ_EVENT_PAL_TAG_WINGULL                 0x114A
+#define OBJ_EVENT_PAL_TAG_KECLEON                 0x114B
+#define OBJ_EVENT_PAL_TAG_AZUMARILL               0x114C
+#define OBJ_EVENT_PAL_TAG_DUSCLOPS                0x114D
+#define OBJ_EVENT_PAL_TAG_KIRLIA                  0x114E
+#define OBJ_EVENT_PAL_TAG_PIKACHU                 0x114F
+#define OBJ_EVENT_PAL_TAG_SKITTY                  0x1150
+#define OBJ_EVENT_PAL_TAG_SUDOWOODO               0x1151
+#define OBJ_EVENT_PAL_TAG_MEW                     0x1152
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/field_effects/field_effect_object_template_pointers.h"
@@ -516,7 +534,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_QuintyPlumpReflection, OBJ_EVENT_PAL_TAG_QUINTY_PLUMP_REFLECTION},
     {gObjectEventPal_Truck,                 OBJ_EVENT_PAL_TAG_TRUCK},
     {gObjectEventPal_Vigoroth,              OBJ_EVENT_PAL_TAG_VIGOROTH},
-    {gObjectEventPal_EnemyZigzagoon,        OBJ_EVENT_PAL_TAG_ZIGZAGOON},
+    {gObjectEventPal_Zigzagoon,             OBJ_EVENT_PAL_TAG_ZIGZAGOON},
     {gObjectEventPal_May,                   OBJ_EVENT_PAL_TAG_MAY},
     {gObjectEventPal_MayReflection,         OBJ_EVENT_PAL_TAG_MAY_REFLECTION},
     {gObjectEventPal_MovingBox,             OBJ_EVENT_PAL_TAG_MOVING_BOX},
@@ -524,8 +542,10 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_SSTidal,               OBJ_EVENT_PAL_TAG_SSTIDAL},
     {gObjectEventPal_Kyogre,                OBJ_EVENT_PAL_TAG_KYOGRE},
     {gObjectEventPal_KyogreReflection,      OBJ_EVENT_PAL_TAG_KYOGRE_REFLECTION},
+    {gObjectEventPal_KyogreSleeping,        OBJ_EVENT_PAL_TAG_KYOGRE_SLEEPING},
     {gObjectEventPal_Groudon,               OBJ_EVENT_PAL_TAG_GROUDON},
     {gObjectEventPal_GroudonReflection,     OBJ_EVENT_PAL_TAG_GROUDON_REFLECTION},
+    {gObjectEventPal_GroudonSleeping,       OBJ_EVENT_PAL_TAG_GROUDON_SLEEPING},
     {gObjectEventPal_SubmarineShadow,       OBJ_EVENT_PAL_TAG_SUBMARINE_SHADOW},
     {gObjectEventPal_Poochyena,             OBJ_EVENT_PAL_TAG_POOCHYENA},
     {gObjectEventPal_RedLeaf,               OBJ_EVENT_PAL_TAG_RED_LEAF},
@@ -564,6 +584,22 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Red,                   OBJ_EVENT_PAL_TAG_RED},
     {gObjectEventPal_Leaf,                  OBJ_EVENT_PAL_TAG_LEAF},
     {gObjectEventPal_PokefanF,              OBJ_EVENT_PAL_TAG_POKEFAN_F},
+    {gObjectEventPal_Rayquaza,              OBJ_EVENT_PAL_TAG_RAYQUAZA},
+    {gObjectEventPal_Regirock,              OBJ_EVENT_PAL_TAG_REGIROCK},
+    {gObjectEventPal_Regice,                OBJ_EVENT_PAL_TAG_REGICE},
+    {gObjectEventPal_Registeel,             OBJ_EVENT_PAL_TAG_REGISTEEL},
+    {gObjectEventPal_Latias,                OBJ_EVENT_PAL_TAG_LATIAS},
+    {gObjectEventPal_Latios,                OBJ_EVENT_PAL_TAG_LATIOS},
+    {gObjectEventPal_Azurill,               OBJ_EVENT_PAL_TAG_AZURILL},
+    {gObjectEventPal_Wingull,               OBJ_EVENT_PAL_TAG_WINGULL},
+    {gObjectEventPal_Kecleon,               OBJ_EVENT_PAL_TAG_KECLEON},
+    {gObjectEventPal_Azumarill,             OBJ_EVENT_PAL_TAG_AZUMARILL},
+    {gObjectEventPal_Dusclops,              OBJ_EVENT_PAL_TAG_DUSCLOPS},
+    {gObjectEventPal_Kirlia,                OBJ_EVENT_PAL_TAG_KIRLIA},
+    {gObjectEventPal_Pikachu,               OBJ_EVENT_PAL_TAG_PIKACHU},
+    {gObjectEventPal_Skitty,                OBJ_EVENT_PAL_TAG_SKITTY},
+    {gObjectEventPal_Sudowoodo,             OBJ_EVENT_PAL_TAG_SUDOWOODO},
+    {gObjectEventPal_Mew,                   OBJ_EVENT_PAL_TAG_MEW},
     {NULL,                                  0x0000},
 };
 
