@@ -206,6 +206,7 @@ const u16 gObjectEventPal_Zigzagoon[] = INCBIN_U16("graphics/object_events/palet
 const u32 gObjectEventPic_Pikachu[] = INCBIN_U32("graphics/object_events/pics/pokemon/pikachu.4bpp");
 const u32 gObjectEventPic_Azumarill[] = INCBIN_U32("graphics/object_events/pics/pokemon/azumarill.4bpp");
 const u32 gObjectEventPic_Wingull[] = INCBIN_U32("graphics/object_events/pics/pokemon/wingull.4bpp");
+const u16 gObjectEventPal_Wingull[] = INCBIN_U16("graphics/object_events/palettes/wingull.gbapal");
 const u32 gObjectEventPic_TuberMSwimming[] = INCBIN_U32("graphics/object_events/pics/people/tuber_m_swimming.4bpp");
 const u32 gObjectEventPic_Azurill[] = INCBIN_U32("graphics/object_events/pics/pokemon/azurill.4bpp");
 const u16 gObjectEventPal_Azurill[] = INCBIN_U16("graphics/object_events/palettes/azurill.gbapal");
