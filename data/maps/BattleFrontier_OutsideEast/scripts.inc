@@ -127,7 +127,7 @@ BattleFrontier_OutsideEast_EventScript_TriathleteM:: @ 8242CE1
 
 BattleFrontier_OutsideEast_EventScript_Sudowoodo:: @ 8242CEA
 	lock
-	faceplayer
+	@faceplayer
 	waitse
 	playse SE_SUDOWOODO_SHAKE
 	applymovement LOCALID_SUDOWOODO, BattleFrontier_OutsideEast_Movement_SudowoodoShake
@@ -137,7 +137,7 @@ BattleFrontier_OutsideEast_EventScript_Sudowoodo:: @ 8242CEA
 
 BattleFrontier_OutsideEast_EventScript_WaterSudowoodo:: @ 8242CFC
 	lock
-	faceplayer
+	@faceplayer
 	special DoWateringBerryTreeAnim
 	waitstate
 	waitse
@@ -172,7 +172,7 @@ BattleFrontier_OutsideEast_EventScript_DefeatedSudowoodo:: @ 8242D60
 	end
 
 BattleFrontier_OutsideEast_Movement_SudowoodoShake: @ 8242D69
-	face_right
+	face_up
 	delay_8
 	face_down
 	delay_8
@@ -180,7 +180,7 @@ BattleFrontier_OutsideEast_Movement_SudowoodoShake: @ 8242D69
 	delay_8
 	face_down
 	delay_8
-	face_right
+	face_up
 	delay_8
 	face_down
 	delay_8

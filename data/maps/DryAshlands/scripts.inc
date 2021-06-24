@@ -62,7 +62,7 @@ DryAshlands_EventScript_Cormac::
 	end
 DryAshlands_EventScript_Sudowoodo:: @ 8242CEA
 	lock
-	faceplayer
+	@faceplayer
 	waitse
 	playse SE_SUDOWOODO_SHAKE
 	applymovement LOCALID_SUDOWOODO, DryAshlands_Movement_SudowoodoShake
@@ -72,7 +72,7 @@ DryAshlands_EventScript_Sudowoodo:: @ 8242CEA
 
 DryAshlands_EventScript_WaterSudowoodo:: @ 8242CFC
 	lock
-	faceplayer
+	@faceplayer
 	special DoWateringBerryTreeAnim
 	waitstate
 	waitse
@@ -107,7 +107,7 @@ DryAshlands_EventScript_DefeatedSudowoodo:: @ 8242D60
 	end
 
 DryAshlands_Movement_SudowoodoShake: @ 8242D69
-	face_right
+	face_up
 	delay_8
 	face_down
 	delay_8
@@ -115,7 +115,7 @@ DryAshlands_Movement_SudowoodoShake: @ 8242D69
 	delay_8
 	face_down
 	delay_8
-	face_right
+	face_up
 	delay_8
 	face_down
 	delay_8
