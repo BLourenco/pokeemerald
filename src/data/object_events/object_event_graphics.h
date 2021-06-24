@@ -197,6 +197,7 @@ const u16 gObjectEventPal_Regice[] = INCBIN_U16("graphics/object_events/palettes
 const u32 gObjectEventPic_Registeel[] = INCBIN_U32("graphics/object_events/pics/pokemon/registeel.4bpp");
 const u16 gObjectEventPal_Registeel[] = INCBIN_U16("graphics/object_events/palettes/registeel.gbapal");
 const u32 gObjectEventPic_Skitty[] = INCBIN_U32("graphics/object_events/pics/pokemon/skitty.4bpp");
+const u16 gObjectEventPal_Skitty[] = INCBIN_U16("graphics/object_events/palettes/skitty.gbapal");
 const u32 gObjectEventPic_Kecleon[] = INCBIN_U32("graphics/object_events/pics/pokemon/kecleon.4bpp");
 const u16 gObjectEventPal_Kecleon[] = INCBIN_U16("graphics/object_events/palettes/kecleon.gbapal");
 const u32 gObjectEventPic_Rayquaza[] = INCBIN_U32("graphics/object_events/pics/pokemon/rayquaza.4bpp");
