@@ -242,8 +242,11 @@
 #define OBJ_EVENT_GFX_TORKOAL                    238
 #define OBJ_EVENT_GFX_PONYTA                     239
 #define OBJ_EVENT_GFX_CARVANHA                   240
+#define OBJ_EVENT_GFX_DEOXYS_ATTACK              241
+#define OBJ_EVENT_GFX_DEOXYS_DEFENSE             242
+#define OBJ_EVENT_GFX_DEOXYS_SPEED               243
 
-#define NUM_OBJ_EVENT_GFX                        241
+#define NUM_OBJ_EVENT_GFX                        244
 
 
 // These are dynamic object gfx ids.
