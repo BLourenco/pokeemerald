@@ -356,6 +356,3 @@ Text_WantToHeadbutt::
 
 Text_FailHeadbutt::
 	.string "Nothing fell out.$"
-
-@Text_CantHeadbutt:
-@	.string "maybe u can headbutt this"

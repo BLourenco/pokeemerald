@@ -1,9 +1,14 @@
 .set LOCALID_GRUNT, 3
 .set LOCALID_DEVON_EMPLOYEE, 4
-.set LOCALID_HEADBUTT_GIRL, 14
+.set LOCALID_RIVAL, 14
 
 PetalburgWoods_MapScripts:: @ 822DFD6
+	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgWoods_OnTransition
 	.byte 0
+
+PetalburgWoods_OnTransition:
+	call Common_EventScript_SetupRivalGfxId
+	end
 
 PetalburgWoods_EventScript_DevonResearcherLeft:: @ 822DFD7
 	lockall
@@ -341,111 +346,100 @@ PetalburgWoods_EventScript_HeadbuttGirlTrigger3:: @ 81EF763
 PetalburgWoods_EventScript_HeadbuttGirlScene::
 	lockall
 	faceplayer
-	applymovement LOCALID_HEADBUTT_GIRL, Common_Movement_WalkInPlaceFastestDown
+	applymovement LOCALID_RIVAL, Common_Movement_WalkInPlaceFastestDown
 	waitmovement 0
 	playse SE_PIN
-	applymovement LOCALID_HEADBUTT_GIRL, Common_Movement_ExclamationMark
+	applymovement LOCALID_RIVAL, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement LOCALID_HEADBUTT_GIRL, Common_Movement_Delay48
+	applymovement LOCALID_RIVAL, Common_Movement_Delay48
 	waitmovement 0
 	delay 30
-	compare VAR_0x8008, 1
-	call_if_eq PetalburgWoods_EventScript_HeadbuttGirlApproachPlayer1
-	compare VAR_0x8008, 2
-	call_if_eq PetalburgWoods_EventScript_HeadbuttGirlApproachPlayer2
-	compare VAR_0x8008, 3
-	call_if_eq PetalburgWoods_EventScript_HeadbuttGirlApproachPlayer3	
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
-    waitmovement 0
-	msgbox PetalburgWoods_Text_ExplainHeadbuttTrees, MSGBOX_DEFAULT
+	waitmovement 0
+	msgbox PetalburgWoods_Text_RivalGreetsPlayer, MSGBOX_DEFAULT
 	closemessage
 	compare VAR_0x8008, 1
-	call_if_eq PetalburgWoods_EventScript_HeadbuttGirlExit1
+	call_if_eq PetalburgWoods_EventScript_PlayerApproachRival1
 	compare VAR_0x8008, 2
-	call_if_eq PetalburgWoods_EventScript_HeadbuttGirlExit2
+	call_if_eq PetalburgWoods_EventScript_PlayerApproachRival2
 	compare VAR_0x8008, 3
-	call_if_eq PetalburgWoods_EventScript_HeadbuttGirlExit3
+	call_if_eq PetalburgWoods_EventScript_PlayerApproachRival3
+	msgbox PetalburgWoods_Text_RivalExplainsHeadbuttTrees, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+    waitmovement 0
+	applymovement LOCALID_RIVAL, PetalburgWoods_Movement_RivalExit
+	waitmovement 0
 	setvar VAR_PETALBURG_WOODS_STATE, 1
-	removeobject LOCALID_HEADBUTT_GIRL
+	removeobject LOCALID_RIVAL
 	releaseall
 	end
 
-PetalburgWoods_EventScript_HeadbuttGirlApproachPlayer1:: @ 81EF94E
-	applymovement LOCALID_HEADBUTT_GIRL, PetalburgWoods_Movement_HeadbuttGirlApproachPlayer1
+PetalburgWoods_EventScript_PlayerApproachRival1::
+	applymovement LOCALID_RIVAL, PetalburgWoods_Movement_RivalStepBack1
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_PlayerApproachRival1
 	waitmovement 0
 	return
 
-PetalburgWoods_EventScript_HeadbuttGirlApproachPlayer2:: @ 81EF959
-	applymovement LOCALID_HEADBUTT_GIRL, PetalburgWoods_Movement_HeadbuttGirlApproachPlayer2
+PetalburgWoods_EventScript_PlayerApproachRival2::
+	applymovement LOCALID_RIVAL, PetalburgWoods_Movement_RivalStepBack2
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_PlayerApproachRival2
 	waitmovement 0
 	return
 
-PetalburgWoods_EventScript_HeadbuttGirlApproachPlayer3:: @ 81EF964
-	applymovement LOCALID_HEADBUTT_GIRL, PetalburgWoods_Movement_HeadbuttGirlApproachPlayer3
+PetalburgWoods_EventScript_PlayerApproachRival3::
+	applymovement LOCALID_RIVAL, PetalburgWoods_Movement_RivalStepBack3
+	applymovement OBJ_EVENT_ID_PLAYER, PetalburgWoods_Movement_PlayerApproachRival3
 	waitmovement 0
 	return
 
-PetalburgWoods_EventScript_HeadbuttGirlExit1:: @ 81EF96F
-	applymovement LOCALID_HEADBUTT_GIRL, PetalburgWoods_Movement_HeadbuttGirlExit1
-	waitmovement 0
-	return
-
-PetalburgWoods_EventScript_HeadbuttGirlExit2:: @ 81EF96F
-	applymovement LOCALID_HEADBUTT_GIRL, PetalburgWoods_Movement_HeadbuttGirlExit2
-	waitmovement 0
-	return
-
-PetalburgWoods_EventScript_HeadbuttGirlExit3:: @ 81EF96F
-	applymovement LOCALID_HEADBUTT_GIRL, PetalburgWoods_Movement_HeadbuttGirlExit3
-	waitmovement 0
-	return
-
-PetalburgWoods_Movement_HeadbuttGirlApproachPlayer1: @ 81EF9A8
+PetalburgWoods_Movement_PlayerApproachRival1:
+	walk_up
+	face_left
 	step_end
 
-PetalburgWoods_Movement_HeadbuttGirlApproachPlayer2: @ 81EF9AC
+PetalburgWoods_Movement_PlayerApproachRival2:
+	walk_up
+	walk_up
+	face_left
+	step_end
+
+PetalburgWoods_Movement_PlayerApproachRival3:
+	walk_up
+	walk_up
+	walk_up
+	face_left
+	step_end
+
+PetalburgWoods_Movement_RivalStepBack1:
+	walk_left
+	face_right
+	step_end
+
+PetalburgWoods_Movement_RivalStepBack2:
+	delay_16
+	walk_left
+	face_right
+	step_end
+
+PetalburgWoods_Movement_RivalStepBack3:
+	delay_16
+	delay_16
+	walk_left
+	face_right
+	step_end
+
+PetalburgWoods_Movement_RivalExit:
 	walk_down
-	step_end
-
-PetalburgWoods_Movement_HeadbuttGirlApproachPlayer3: @ 81EF9AE
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	walk_down
 	walk_down
-	step_end
-
-PetalburgWoods_Movement_HeadbuttGirlExit1: @ 81EF9BA
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
-
-PetalburgWoods_Movement_HeadbuttGirlExit2: @ 81EF9BA
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
-
-PetalburgWoods_Movement_HeadbuttGirlExit3: @ 81EF9BA
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
+	walk_down
+	walk_down
 	step_end
 
 PetalburgWoods_Text_NotAOneToBeFound: @ 822E332
@@ -604,17 +598,27 @@ PetalburgWoods_Text_TrainerTipsPP: @ 822ED07
 	.string "If a Pokémon runs out of PP, it must be\n"
 	.string "taken to a Pokémon Center.$"
 
-PetalburgWoods_Text_ExplainHeadbuttTrees:
-	.string "Hey! Do you see this tree behind me?\p"
-	.string "It may not be obvious looking at it,\n"
-	.string "but it's home to many Pokémon that\l"
-	.string "you won't find just walking through\l"
-	.string "the tall grass.\p"
-	.string "If you go up to it, you can send out\n"
-	.string "any of your Pokémon to Headbutt it,\l"
-	.string "and you may knock a Pokémon out of it!\p"
-	.string "No matter how much you Headbutt it,\n"
-	.string "Pokémon continue to fall out.\p"
-	.string "Keep trying over an over, because you\n"
-	.string "can find about half a dozen different\l"
-	.string "Pokémon in each area they're found.$"
+PetalburgWoods_Text_RivalGreetsPlayer:
+	.string "{RIVAL}: Hey, {PLAYER}!\p"
+	.string "Want a small tip?\n"
+	.string "Come check this out!$"
+
+PetalburgWoods_Text_RivalExplainsHeadbuttTrees:
+	.string "You see this tree?\p"
+	.string "There's Pokémon hiding in there that\n"
+	.string "you won't find in the tall grass.\p"
+	.string "If you let any Pokémon Headbutt it,\n"
+	.string "a wild Pokémon is sure to fall out!\p"
+	.string "I really do mean any Pokémon. They\n"
+	.string "can Headbutt a tree without knowing\l"
+	.string "how to use Headbutt in battle.\p"
+	.string "Pretty neat, huh?\p"
+	.string "Be on the look out for these trees\n"
+	.string "all around Hoenn.\p"
+	.string "The Pokémon you can find in them\n"
+	.string "will vary between locations!\p"
+	.string "Now, I've got to head back to\n"
+	.string "Petalburg City.\p"
+	.string "I've been catching so many Pokémon\n"
+	.string "that I've run out of Poké Balls!\p"
+	.string "See you around, {PLAYER}!$"

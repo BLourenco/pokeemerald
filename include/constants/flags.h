@@ -1071,7 +1071,7 @@
 #define FLAG_ITEM_ROUTE_120_NUGGET                                  0x406
 #define FLAG_ITEM_ROUTE_120_FULL_HEAL                               0x407
 #define FLAG_ITEM_ROUTE_123_CALCIUM                                 0x408
-#define FLAG_HIDE_PETALBURG_WOODS_HEADBUTT_GIRL                     0x409 // leftover from R/S. In Emerald this is a hidden item and uses a different flag
+#define FLAG_HIDE_PETALBURG_WOODS_RIVAL                             0x409 // leftover from R/S. In Emerald this is a hidden item and uses a different flag
 #define FLAG_ITEM_ROUTE_127_ZINC                                    0x40A
 #define FLAG_ITEM_ROUTE_127_CARBOS                                  0x40B
 #define FLAG_ITEM_ROUTE_132_RARE_CANDY                              0x40C
