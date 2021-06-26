@@ -167,26 +167,7 @@ SootopolisCity_EventScript_SetOutsideGymObjPos:: @ 81E5871
 	setobjectxyperm LOCALID_STEVEN, 29, 33
 	setobjectxyperm LOCALID_MAXIE, 33, 35
 	setobjectxyperm LOCALID_ARCHIE, 34, 35
-	compare VAR_SOOTOPOLIS_WALLACE_STATE, 0
-	call_if_eq SootopolisCity_EventScript_SetWallaceMiddle
-	compare VAR_SOOTOPOLIS_WALLACE_STATE, 1
-	call_if_eq SootopolisCity_EventScript_SetWallaceRight
-	compare VAR_SOOTOPOLIS_WALLACE_STATE, 2
-	call_if_eq SootopolisCity_EventScript_SetWallaceLeft
-	return
-
-SootopolisCity_EventScript_SetWallaceMiddle:: @ 81E58AF
 	setobjectxyperm LOCALID_WALLACE, 31, 33
-	setobjectmovementtype LOCALID_WALLACE, MOVEMENT_TYPE_FACE_DOWN
-	return
-
-SootopolisCity_EventScript_SetWallaceRight:: @ 81E58BB
-	setobjectxyperm LOCALID_WALLACE, 32, 33
-	setobjectmovementtype LOCALID_WALLACE, MOVEMENT_TYPE_FACE_DOWN
-	return
-
-SootopolisCity_EventScript_SetWallaceLeft:: @ 81E58C7
-	setobjectxyperm LOCALID_WALLACE, 30, 33
 	setobjectmovementtype LOCALID_WALLACE, MOVEMENT_TYPE_FACE_DOWN
 	return
 
@@ -947,7 +928,16 @@ SootopolisCity_EventScript_Boy1Normal:: @ 81E6141
 	end
 
 SootopolisCity_EventScript_GymSign:: @ 81E614B
-	msgbox SootopolisCity_Text_GymSign, MSGBOX_SIGN
+	call_if_unset FLAG_SYS_GAME_CLEAR, SootopolisCity_EventScript_GymSignWallace
+	call_if_set FLAG_SYS_GAME_CLEAR, SootopolisCity_EventScript_GymSignJuan
+	end
+
+SootopolisCity_EventScript_GymSignWallace::
+	msgbox SootopolisCity_Text_GymSignWallace, MSGBOX_SIGN
+	end
+
+SootopolisCity_EventScript_GymSignJuan::
+	msgbox SootopolisCity_Text_GymSignJuan, MSGBOX_SIGN
 	end
 
 SootopolisCity_EventScript_CitySign:: @ 81E6154
@@ -1456,7 +1446,7 @@ SootopolisCity_EventScript_Wallace:: @ 81E6446
 	faceplayer
 	compare VAR_SOOTOPOLIS_CITY_STATE, 5
 	goto_if_eq SootopolisCity_EventScript_GoToSkyPillar
-	goto_if_set FLAG_RECEIVED_HM07, SootopolisCity_EventScript_GoToGym
+	@goto_if_set FLAG_RECEIVED_HM07, SootopolisCity_EventScript_GoToGym
 	goto_if_set FLAG_SOOTOPOLIS_ARCHIE_MAXIE_LEAVE, SootopolisCity_EventScript_GiveWaterfall
 	msgbox SootopolisCity_Text_AquaMagmaDidntMeanHarm, MSGBOX_DEFAULT
 	release
@@ -1468,28 +1458,18 @@ SootopolisCity_EventScript_GiveWaterfall:: @ 81E646F
 	setflag FLAG_RECEIVED_HM07
 	msgbox SootopolisCity_Text_ExplainWaterfallGoToGym, MSGBOX_DEFAULT
 	closemessage
-	compare VAR_FACING, DIR_NORTH
-	call_if_eq SootopolisCity_EventScript_WallaceMoveFromGym
-	compare VAR_FACING, DIR_EAST
-	call_if_eq SootopolisCity_EventScript_WallaceMoveFromGym
-	compare VAR_FACING, DIR_WEST
-	call_if_eq SootopolisCity_EventScript_WallaceMoveFromGymWest
+	setvar VAR_0x8004, 31
+	setvar VAR_0x8005, 32
+	opendoor VAR_0x8004, VAR_0x8005
+	waitdooranim		
+	applymovement LOCALID_WALLACE, SootopolisCity_Movement_WallaceEnterGym
+	waitmovement 0
+	closedoor VAR_0x8004, VAR_0x8005
+	waitdooranim
+	removeobject LOCALID_WALLACE
+	setvar VAR_SOOTOPOLIS_WALLACE_STATE, 1
 	release
 	end
-
-SootopolisCity_EventScript_WallaceMoveFromGym:: @ 81E64B2
-	applymovement LOCALID_WALLACE, SootopolisCity_Movement_WallaceMoveFromGym
-	waitmovement 0
-	copyobjectxytoperm LOCALID_WALLACE
-	setvar VAR_SOOTOPOLIS_WALLACE_STATE, 1
-	return
-
-SootopolisCity_EventScript_WallaceMoveFromGymWest:: @ 81E64C5
-	applymovement LOCALID_WALLACE, SootopolisCity_Movement_WallaceMoveFromGymWest
-	waitmovement 0
-	copyobjectxytoperm LOCALID_WALLACE
-	setvar VAR_SOOTOPOLIS_WALLACE_STATE, 2
-	return
 
 SootopolisCity_EventScript_GoToSkyPillar:: @ 81E64D8
 	msgbox SootopolisCity_Text_HaventYouScaledSkyPillar, MSGBOX_DEFAULT
@@ -1501,14 +1481,9 @@ SootopolisCity_EventScript_GoToGym:: @ 81E64E2
 	release
 	end
 
-SootopolisCity_Movement_WallaceMoveFromGym: @ 81E64EC
-	walk_right
-	walk_in_place_fastest_down
-	step_end
-
-SootopolisCity_Movement_WallaceMoveFromGymWest: @ 81E64EF
-	walk_left
-	walk_in_place_fastest_down
+SootopolisCity_Movement_WallaceEnterGym: @ 81E64EC
+	walk_up
+	set_invisible
 	step_end
 
 SootopolisCity_EventScript_Maxie:: @ 81E64F2
@@ -1565,11 +1540,16 @@ SootopolisCity_Movement_DestroyTask:: @ 81E656D
 	destroy_extra_task
 	step_end
 
-SootopolisCity_Text_GymSign: @ 81E656F
+SootopolisCity_Text_GymSignJuan:
 	.string "Sootopolis City Pokémon Gym\n"
 	.string "Leader: Juan\p"
 	.string "“The Gym Leader with the beauty\n"
 	.string "of pure water!”$"
+
+SootopolisCity_Text_GymSignWallace:
+	.string "Sootopolis City Pokémon Gym\n"
+	.string "Leader: Wallace\p"
+	.string "“Artist, and lover of water.”$"	
 
 SootopolisCity_Text_CitySign: @ 81E65C8
 	.string "Sootopolis City\p"
@@ -1902,10 +1882,11 @@ SootopolisCity_Text_ExplainWaterfallGoToGym: @ 81E7B86
 	.string "force its way up waterfalls.\p"
 	.string "And where does one get the Rain Badge?\n"
 	.string "You know, don't you?\p"
-	.string "That's right! You have to beat\n"
+	.string "That's right! You have to beat me,\n"
 	.string "the Sootopolis Gym Leader.\p"
-	.string "When you're all set to go, step through\n"
-	.string "that door.$"
+	.string "Whenever you believe yourself to be\n"
+	.string "ready, please enter the Gym.\p"
+	.string "I'll be waiting.$"
 
 SootopolisCity_Text_DazzledByMentor: @ 81E7CBC
 	.string "Wallace: I'm sure that you will be\n"

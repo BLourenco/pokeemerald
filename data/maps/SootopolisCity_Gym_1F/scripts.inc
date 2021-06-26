@@ -1,3 +1,6 @@
+.set LOCALID_WALLACE, 1
+.set LOCALID_JUAN, 4
+
 SootopolisCity_Gym_1F_MapScripts:: @ 8224E4C
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, SootopolisCity_Gym_1F_OnFrame
 	map_script MAP_SCRIPT_ON_RESUME, SootopolisCity_Gym_1F_OnResume
@@ -7,6 +10,22 @@ SootopolisCity_Gym_1F_MapScripts:: @ 8224E4C
 
 SootopolisCity_Gym_1F_OnTransition: @ 8224E61
 	setvar VAR_ICE_STEP_COUNT, 1
+	call SootopolisCity_Gym_1F_EventScript_SetGymLeader
+	end
+
+SootopolisCity_Gym_1F_EventScript_SetGymLeader::
+	call_if_unset FLAG_SYS_GAME_CLEAR, SootopolisCity_Gym_1F_EventScript_SetGymLeaderWallace
+	call_if_set FLAG_SYS_GAME_CLEAR, SootopolisCity_Gym_1F_EventScript_SetGymLeaderJuan
+	end
+
+SootopolisCity_Gym_1F_EventScript_SetGymLeaderWallace::
+	clearflag FLAG_HIDE_SOOTOPOLIS_GYM_WALLACE
+	setflag FLAG_HIDE_SOOTOPOLIS_GYM_JUAN
+	end
+
+SootopolisCity_Gym_1F_EventScript_SetGymLeaderJuan::
+	setflag FLAG_HIDE_SOOTOPOLIS_GYM_WALLACE
+	clearflag FLAG_HIDE_SOOTOPOLIS_GYM_JUAN
 	end
 
 SootopolisCity_Gym_1F_OnResume: @ 8224E67
@@ -81,6 +100,39 @@ SootopolisCity_Gym_1F_EventScript_FallThroughIce:: @ 8224F29
 SootopolisCity_Gym_1F_Movement_FallThroughIce: @ 8224F42
 	set_invisible
 	step_end
+
+SootopolisCity_Gym_1F_EventScript_Wallace:: @ 8224F44
+	trainerbattle_single TRAINER_JUAN_1, SootopolisCity_Gym_1F_Text_WallaceIntro, SootopolisCity_Gym_1F_Text_WallaceDefeat, SootopolisCity_Gym_1F_EventScript_WallaceDefeated, NO_MUSIC
+	goto_if_unset FLAG_RECEIVED_TM55, SootopolisCity_Gym_1F_EventScript_GiveScald2
+	goto_if_unset FLAG_BADGE06_GET, SootopolisCity_Gym_1F_EventScript_GoGetFortreeBadge
+	msgbox SootopolisCity_Gym_1F_Text_WallacePostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+SootopolisCity_Gym_1F_EventScript_WallaceDefeated:: @ 8224F82
+	message SootopolisCity_Gym_1F_Text_ReceivedRainBadge
+	waitmessage
+	call Common_EventScript_PlayGymBadgeFanfare
+	msgbox SootopolisCity_Gym_1F_Text_ExplainRainBadgeTakeThis, MSGBOX_DEFAULT
+	setflag FLAG_DEFEATED_SOOTOPOLIS_GYM
+	setflag FLAG_BADGE08_GET
+	setflag FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS
+	setflag FLAG_HIDE_SOOTOPOLIS_CITY_STEVEN
+	setvar VAR_SOOTOPOLIS_CITY_STATE, 7
+	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_MAN_1
+	setvar VAR_0x8008, 8
+	call Common_EventScript_SetGymTrainers
+	call SootopolisCity_Gym_1F_EventScript_GiveScald
+	closemessage
+	delay 30
+	playfanfare MUS_REGISTER_MATCH_CALL
+	msgbox SootopolisCity_Gym_1F_Text_RegisteredWallace, MSGBOX_DEFAULT
+	waitfanfare
+	closemessage
+	delay 30
+	@setflag FLAG_ENABLE_WALLACE_MATCH_CALL
+	release
+	end
 
 SootopolisCity_Gym_1F_EventScript_Juan:: @ 8224F44
 	trainerbattle_single TRAINER_JUAN_1, SootopolisCity_Gym_1F_Text_JuanIntro, SootopolisCity_Gym_1F_Text_JuanDefeat, SootopolisCity_Gym_1F_EventScript_JuanDefeated, NO_MUSIC
@@ -172,9 +224,20 @@ SootopolisCity_Gym_1F_EventScript_RightGymStatue:: @ 822506F
 	end
 
 SootopolisCity_Gym_1F_EventScript_GymStatueCertified:: @ 822507F
-	msgbox SootopolisCity_Gym_1F_Text_GymStatueCertified, MSGBOX_DEFAULT
+	call_if_unset FLAG_SYS_GAME_CLEAR, SootopolisCity_Gym_1F_EventScript_GymStatueCertifiedWallace
+	call_if_set FLAG_SYS_GAME_CLEAR, SootopolisCity_Gym_1F_EventScript_GymStatueCertifiedJuan
+	end
+
+SootopolisCity_Gym_1F_EventScript_GymStatueCertifiedWallace::
+	msgbox SootopolisCity_Gym_1F_Text_GymStatueCertifiedWallace, MSGBOX_DEFAULT
 	releaseall
 	end
+
+SootopolisCity_Gym_1F_EventScript_GymStatueCertifiedJuan::
+	msgbox SootopolisCity_Gym_1F_Text_GymStatueCertifiedJuan, MSGBOX_DEFAULT
+	releaseall
+	end
+
 
 SootopolisCity_Gym_1F_EventScript_GymStatue:: @ 8225089
 	msgbox SootopolisCity_Gym_1F_Text_GymStatue, MSGBOX_DEFAULT
@@ -184,9 +247,9 @@ SootopolisCity_Gym_1F_EventScript_GymStatue:: @ 8225089
 SootopolisCity_Gym_1F_Text_GymGuideAdvice: @ 8225093
 	.string "Yo! How's it going, Champion-\n"
 	.string "bound {PLAYER}?\p"
-	.string "Sootopolis's Gym Leader Juan is\n"
+	.string "Sootopolis's Gym Leader Wallace is\n"
 	.string "a master of Water-type Pokémon.\p"
-	.string "And, to get to Juan, an icy floor\n"
+	.string "And, to get to Wallace, an icy floor\n"
 	.string "will hamper your progress…\p"
 	.string "Listen, I'm sorry, but that's all the\n"
 	.string "advice that I have for you.\p"
@@ -194,11 +257,37 @@ SootopolisCity_Gym_1F_Text_GymGuideAdvice: @ 8225093
 	.string "go for it yourself!$"
 
 SootopolisCity_Gym_1F_Text_GymGuidePostVictory: @ 82251AF
-	.string "Yow! You've beaten even Juan, who\n"
+	.string "Yow! You've beaten even Wallace, who\n"
 	.string "was supposedly the best in all Hoenn!\p"
 	.string "Okay! Check out your Trainer Card.\p"
 	.string "If you've gotten all the Badges, you're\n"
 	.string "set for the Pokémon League challenge!$"
+
+SootopolisCity_Gym_1F_Text_WallaceIntro::
+	.string "Allow me to formally introduce\n"
+	.string "myself.\p"
+	.string "I am Wallace.\n"
+	.string "The Gym Leader of Sootopolis.\p"
+	.string "There's something about you...\n"
+	.string "A difference in your demeanor.\p"
+	.string "I think I sense that in you.\p"
+	.string "What happened atop Sky Pillar,\n"
+	.string "and what you did, I will likely\l"
+	.string "learn through our upcoming battle.\p"
+	.string "Now, show me. Show me the power you\n"
+	.string "wield with your Pokémon.\p"
+	.string "And I, in turn, shall present you with\n"
+	.string "a performance of illusions in water\l"
+	.string "by me and my Pokémon!$"
+
+SootopolisCity_Gym_1F_Text_WallaceDefeat:: @ 818F282
+	.string "Bravo.\p"
+	.string "I realize now your authenticity and\n"
+	.string "magnificence as a Pokémon Trainer.\p"
+	.string "I find much joy in having met you and\n"
+	.string "your Pokémon.\p"
+	.string "You have proven yourself worthy of\n"
+	.string "the Rain Badge. Accept it.$"
 
 SootopolisCity_Gym_1F_Text_JuanIntro: @ 8225268
 	.string "Let me ask you.\n"
@@ -240,7 +329,7 @@ SootopolisCity_Gym_1F_Text_JuanDefeat: @ 8225432
 
 SootopolisCity_Gym_1F_Text_ReceivedRainBadge: @ 8225598
 	.string "{PLAYER} received the Rain Badge\n"
-	.string "from Juan.$"
+	.string "from Wallace.$"
 
 SootopolisCity_Gym_1F_Text_ExplainRainBadgeTakeThis: @ 82255BE
 	.string "Having the Rain Badge shall assure you\n"
@@ -257,13 +346,19 @@ SootopolisCity_Gym_1F_Text_ExplainScald: @ 82256C1
 	.string "contains Scald.\p"
 	.string "In use, it will occasionally burn\n"
 	.string "the target with boiling-hot water.\p"
+	.string "A burned foe has their Attack cut,\n"
+	.string "so Scald is also a defensive move.\p"
 	.string "… … … … … …$"
+
+SootopolisCity_Gym_1F_Text_RegisteredWallace:
+	.string "Registered Gym Leader Wallace\n"
+	.string "in the PokéNav.$"
 
 SootopolisCity_Gym_1F_Text_RegisteredJuan: @ 822574D
 	.string "Registered Gym Leader Juan\n"
 	.string "in the PokéNav.$"
 
-SootopolisCity_Gym_1F_Text_JuanPostBattle: @ 8225778
+SootopolisCity_Gym_1F_Text_WallacePostBattle: @ 8225778
 	.string "The Trainers who have gathered all\n"
 	.string "the Gym Badges of Hoenn should make\l"
 	.string "way to the ultimate destination.\p"
@@ -272,6 +367,9 @@ SootopolisCity_Gym_1F_Text_JuanPostBattle: @ 8225778
 	.string "of Hoenn, to the island Ever Grande.\p"
 	.string "There, you shall find the Pokémon\n"
 	.string "League.$"
+
+SootopolisCity_Gym_1F_Text_JuanPostBattle: @ 8225778
+	.string "TO DO$"
 
 SootopolisCity_Gym_1F_Text_GoGetFortreeBadge: @ 8225865
 	.string "There remains but one Badge to\n"
@@ -283,7 +381,12 @@ SootopolisCity_Gym_1F_Text_GoGetFortreeBadge: @ 8225865
 SootopolisCity_Gym_1F_Text_GymStatue: @ 82258FA
 	.string "Sootopolis City Pokémon Gym$"
 
-SootopolisCity_Gym_1F_Text_GymStatueCertified: @ 8225916
+SootopolisCity_Gym_1F_Text_GymStatueCertifiedWallace: @ 8225916
+	.string "Sootopolis City Pokémon Gym\p"
+	.string "Wallace's certified Trainers:\n"
+	.string "{PLAYER}$"
+
+SootopolisCity_Gym_1F_Text_GymStatueCertifiedJuan: @ 8225916
 	.string "Sootopolis City Pokémon Gym\p"
 	.string "Juan's certified Trainers:\n"
 	.string "{PLAYER}$"

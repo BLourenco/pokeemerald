@@ -4700,6 +4700,16 @@
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Debug_ObjectEventSpriteGallery/border.bin",
       "blockdata_filepath": "data/layouts/Debug_ObjectEventSpriteGallery/map.bin"
+    },
+    {
+      "id": "LAYOUT_EVER_GRANDE_CITY_CHAMPIONS_ROOM_STEVEN",
+      "name": "EverGrandeCity_ChampionsRoom_Steven_Layout",
+      "width": 13,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/EverGrandeCity_ChampionsRoom_Steven/border.bin",
+      "blockdata_filepath": "data/layouts/EverGrandeCity_ChampionsRoom_Steven/map.bin"
     }
   ]
 }

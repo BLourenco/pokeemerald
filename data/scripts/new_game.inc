@@ -288,5 +288,6 @@ EventScript_ResetAllMapFlags:: @ 82715DE
 	setflag FLAG_ITEM_ALTERING_CAVE_SHINY_STONE
 	setflag FLAG_ITEM_ALTERING_CAVE_TM_120
 	setflag FLAG_HIDE_MT_CHIMNEY_STEVEN
+	setflag FLAG_HIDE_SOOTOPOLIS_GYM_JUAN
 	call EventScript_ResetAllBerries
 	end

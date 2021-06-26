@@ -1025,8 +1025,8 @@
 #define FLAG_HIDE_METEOR_FALLS_RIVAL                                0x3DA
 #define FLAG_HIDE_MT_CHIMNEY_STEVEN                                 0x3DB
 #define FLAG_HIDE_TRAINER_SCHOOL_ROXANNE                            0x3DC
-#define FLAG_UNUSED_0x3DD                                           0x3DD // Unused
-#define FLAG_UNUSED_0x3DE                                           0x3DE // Unused
+#define FLAG_HIDE_SOOTOPOLIS_GYM_JUAN                               0x3DD
+#define FLAG_HIDE_SOOTOPOLIS_GYM_WALLACE                            0x3DE
 #define FLAG_HIDE_ROUTE_101_BOY                                     0x3DF
 #define FLAG_HIDE_WEATHER_INSTITUTE_2F_AQUA_GRUNT_M                 0x3E0
 #define FLAG_HIDE_LILYCOVE_POKEMON_CENTER_CONTEST_LADY_MON          0x3E1

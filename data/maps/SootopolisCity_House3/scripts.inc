@@ -4,9 +4,25 @@ SootopolisCity_House3_MapScripts:: @ 8226B71
 SootopolisCity_House3_EventScript_Woman:: @ 8226B72
 	lock
 	faceplayer
+	call_if_unset FLAG_SYS_GAME_CLEAR, SootopolisCity_House3_EventScript_WallaceHasManyFansDoYou
+	call_if_set FLAG_SYS_GAME_CLEAR, SootopolisCity_House3_EventScript_JuanHasManyFansDoYou
+	end
+
+SootopolisCity_House3_EventScript_WallaceHasManyFansDoYou::
+	msgbox SootopolisCity_House3_Text_WallaceHasManyFansDoYou, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq SootopolisCity_House3_EventScript_HaveFans
+	goto SootopolisCity_House3_EventScript_ThatsLonesome
+	end
+
+SootopolisCity_House3_EventScript_JuanHasManyFansDoYou::
 	msgbox SootopolisCity_House3_Text_JuanHasManyFansDoYou, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq SootopolisCity_House3_EventScript_HaveFans
+	goto SootopolisCity_House3_EventScript_ThatsLonesome
+	end
+
+SootopolisCity_House3_EventScript_ThatsLonesome::	
 	msgbox SootopolisCity_House3_Text_LonesomeTryWorkingHarder, MSGBOX_DEFAULT
 	release
 	end
@@ -19,6 +35,11 @@ SootopolisCity_House3_EventScript_HaveFans:: @ 8226B91
 SootopolisCity_House3_EventScript_Girl:: @ 8226B9B
 	msgbox SootopolisCity_House3_Text_TrainerFanClubWasWild, MSGBOX_NPC
 	end
+
+SootopolisCity_House3_Text_WallaceHasManyFansDoYou:
+	.string "You're a Pokémon Trainer, aren't you?\p"
+	.string "Sootopolis's Wallace has many fans.\n"
+	.string "Do you have any?$"
 
 SootopolisCity_House3_Text_JuanHasManyFansDoYou: @ 8226BA4
 	.string "You're a Pokémon Trainer, aren't you?\p"
