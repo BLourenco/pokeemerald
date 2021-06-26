@@ -10,6 +10,7 @@ LilycoveCity_DepartmentStore_5F_OnWarp: @ 821FF80
 	map_script_2 VAR_SOOTOPOLIS_CITY_STATE, 1, LilycoveCity_DepartmentStore_5F_EventScript_BlockRoofStairs
 	map_script_2 VAR_SOOTOPOLIS_CITY_STATE, 2, LilycoveCity_DepartmentStore_5F_EventScript_BlockRoofStairs
 	map_script_2 VAR_SOOTOPOLIS_CITY_STATE, 3, LilycoveCity_DepartmentStore_5F_EventScript_BlockRoofStairs
+	map_script_2 VAR_SOOTOPOLIS_CITY_STATE, 4, LilycoveCity_DepartmentStore_5F_EventScript_BlockRoofStairs
 	.2byte 0
 
 LilycoveCity_DepartmentStore_5F_EventScript_BlockRoofStairs:: @ 821FF9A
@@ -131,7 +132,7 @@ LilycoveCity_DepartmentStore_5F_EventScript_Woman:: @ 8220075
 	waitmovement 0
 	compare VAR_SOOTOPOLIS_CITY_STATE, 0
 	goto_if_eq LilycoveCity_DepartmentStore_5F_EventScript_WomanNormal
-	compare VAR_SOOTOPOLIS_CITY_STATE, 4
+	compare VAR_SOOTOPOLIS_CITY_STATE, 5
 	goto_if_ge LilycoveCity_DepartmentStore_5F_EventScript_WomanNormal
 	goto LilycoveCity_DepartmentStore_5F_EventScript_WomanLegendaryWeather
 	end

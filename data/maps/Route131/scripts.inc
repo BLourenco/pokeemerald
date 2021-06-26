@@ -4,7 +4,7 @@ Route131_MapScripts:: @ 81F7404
 
 Route131_OnTransition: @ 81F740A
 	setflag FLAG_VISITED_ROUTE_131
-	compare VAR_SOOTOPOLIS_CITY_STATE, 4
+	compare VAR_SOOTOPOLIS_CITY_STATE, 5
 	call_if_ge Route131_EventScript_CheckSetAbnormalWeather
 	call Route131_EventScript_SetLayout
 	end

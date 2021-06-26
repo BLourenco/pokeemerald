@@ -7,9 +7,9 @@ SkyPillar_Outside_MapScripts:: @ 82392A8
 	.byte 0
 
 SkyPillar_Outside_OnTransition: @ 82392B8
-	compare VAR_SOOTOPOLIS_CITY_STATE, 3
-	call_if_eq SkyPillar_Outside_EventScript_HideMapNamePopup
 	compare VAR_SOOTOPOLIS_CITY_STATE, 4
+	call_if_eq SkyPillar_Outside_EventScript_HideMapNamePopup
+	compare VAR_SOOTOPOLIS_CITY_STATE, 5
 	call_if_ge SkyPillar_Outside_EventScript_CheckSetAbnormalWeather
 	end
 
@@ -31,7 +31,7 @@ SkyPillar_Outside_EventScript_OpenDoor:: @ 82392E7
 	return
 
 SkyPillar_Outside_OnFrame: @ 82392FA
-	map_script_2 VAR_SOOTOPOLIS_CITY_STATE, 3, SkyPillar_Outside_EventScript_WallaceScene
+	map_script_2 VAR_SOOTOPOLIS_CITY_STATE, 4, SkyPillar_Outside_EventScript_WallaceScene
 	.2byte 0
 
 SkyPillar_Outside_EventScript_WallaceScene:: @ 8239304
@@ -84,7 +84,7 @@ SkyPillar_Outside_EventScript_WallaceScene:: @ 8239304
 	playse SE_EXIT
 	fadescreenswapbuffers FADE_TO_BLACK
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
-	setvar VAR_SOOTOPOLIS_CITY_STATE, 4
+	setvar VAR_SOOTOPOLIS_CITY_STATE, 5
 	removeobject LOCALID_WALLACE
 	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE
 	fadescreenswapbuffers FADE_FROM_BLACK
