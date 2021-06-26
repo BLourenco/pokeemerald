@@ -394,6 +394,12 @@ LilycoveCity_EventScript_RivalFlyAway:: @ 81E3006
 	waitmovement 0
 	delay 50
 	setfieldeffectargument 0, 1
+	compare VAR_FACING, DIR_EAST
+	call_if_eq LilycoveCity_EventScript_RivalSetFieldEffectArgEast
+	compare VAR_FACING, DIR_NORTH
+	call_if_eq LilycoveCity_EventScript_RivalSetFieldEffectArgNorth
+	compare VAR_FACING, DIR_WEST
+	call_if_eq LilycoveCity_EventScript_RivalSetFieldEffectArgWest
 	dofieldeffect FLDEFF_NPCFLY_OUT
 	delay 15
 	removeobject VAR_LAST_TALKED
@@ -403,6 +409,27 @@ LilycoveCity_EventScript_RivalFlyAway:: @ 81E3006
 	setflag FLAG_MET_RIVAL_LILYCOVE
 	release
 	end
+
+LilycoveCity_EventScript_RivalSetFieldEffectArgEast::
+	setfieldeffectargument 1, 1 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 0 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 0 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 0 @ is y negative? 0=False, 1=True
+	return
+
+LilycoveCity_EventScript_RivalSetFieldEffectArgNorth::
+	setfieldeffectargument 1, 0 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 0 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 1 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 1 @ is y negative? 0=False, 1=True
+	return
+
+LilycoveCity_EventScript_RivalSetFieldEffectArgWest::
+	setfieldeffectargument 1, 1 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 1 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 0 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 0 @ is y negative? 0=False, 1=True
+	return
 
 LilycoveCity_EventScript_SchoolKidM:: @ 81E302D
 	lock

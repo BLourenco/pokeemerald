@@ -255,6 +255,10 @@ Route120_EventScript_StevenGiveDeconScope:: @ 81F572C
 	waitmovement 0
 	delay 50
 	setfieldeffectargument 0, 1
+	setfieldeffectargument 1, 0 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 0 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 1 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 1 @ is y negative? 0=False, 1=True
 	dofieldeffect FLDEFF_NPCFLY_OUT
 	delay 15
 	removeobject LOCALID_STEVEN

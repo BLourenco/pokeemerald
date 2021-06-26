@@ -478,9 +478,9 @@
 #define FLAG_HIDE_ROUTE_119_FOONGUS_1        0x1C1
 #define FLAG_HIDE_ROUTE_119_FOONGUS_2        0x1C2
 #define FLAG_HIDE_ROUTE_119_FOONGUS_3        0x1C3
-#define FLAG_UNUSED_0x1C4                    0x1C4 // Unused
-#define FLAG_UNUSED_0x1C5                    0x1C5 // Unused
-#define FLAG_UNUSED_0x1C6                    0x1C6 // Unused
+#define FLAG_HIDE_SOOTOPOLIS_CITY_WINONA     0x1C4
+#define FLAG_HIDE_SOOTOPOLIS_CITY_FLIER_F    0x1C5
+#define FLAG_HIDE_SOOTOPOLIS_CITY_FLIER_M    0x1C6
 #define FLAG_DEFEATED_MEW                    0x1C7
 #define FLAG_DEFEATED_LATIAS_OR_LATIOS       0x1C8
 #define FLAG_CAUGHT_LATIAS_OR_LATIOS         0x1C9
@@ -1010,9 +1010,9 @@
 #define FLAG_HIDE_LILYCOVE_CITY_RIVAL                               0x3CB
 #define FLAG_HIDE_ROUTE_120_STEVEN                                  0x3CC
 #define FLAG_HIDE_SOOTOPOLIS_CITY_STEVEN                            0x3CD
-#define FLAG_HIDE_NEW_MAUVILLE_ELECTRODE_1                            0x3CE
-#define FLAG_HIDE_NEW_MAUVILLE_ELECTRODE_2                            0x3CF
-#define FLAG_HIDE_NEW_MAUVILLE_ELECTRODE_3                            0x3D0
+#define FLAG_HIDE_NEW_MAUVILLE_ELECTRODE_1                          0x3CE
+#define FLAG_HIDE_NEW_MAUVILLE_ELECTRODE_2                          0x3CF
+#define FLAG_HIDE_NEW_MAUVILLE_ELECTRODE_3                          0x3D0
 #define FLAG_HIDE_AQUA_HIDEOUT_B1F_ELECTRODE_1                      0x3D1
 #define FLAG_HIDE_AQUA_HIDEOUT_B1F_ELECTRODE_2                      0x3D2
 #define FLAG_HIDE_OLDALE_TOWN_RIVAL                                 0x3D3

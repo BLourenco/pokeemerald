@@ -15,6 +15,9 @@
 .set LOCALID_MAXIE, 16
 .set LOCALID_ARCHIE, 17
 .set LOCALID_WALLACE, 18
+.set LOCALID_WINONA, 19
+.set LOCALID_FLIER_M, 20
+.set LOCALID_FLIER_F, 21
 
 SootopolisCity_MapScripts:: @ 81E565C
 	map_script MAP_SCRIPT_ON_LOAD, SootopolisCity_OnLoad
@@ -981,12 +984,110 @@ SootopolisCity_EventScript_StevenHelpedWallace:: @ 81E61C2
 	end
 
 SootopolisCity_EventScript_StevenLeadPlayerCaveOfOrigin:: @ 81E61CC
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, SootopolisCity_Movement_PanToStevenAndWinona
+	waitmovement 0
+	delay 30
+
+	setfieldeffectargument 0, 1
+	setfieldeffectargument 1, 5 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 1 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 1 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 1 @ is y negative? 0=False, 1=True
+	dofieldeffect FLDEFF_NPCFLY_OUT
+	delay 15
+	applymovement LOCALID_STEVEN, Common_Movement_FaceLeft
+	waitmovement 0
+	addobject LOCALID_FLIER_F
+	waitfieldeffect FLDEFF_NPCFLY_OUT
+	delay 30
+
+	setfieldeffectargument 0, 1
+	setfieldeffectargument 1, 7 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 1 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 1 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 0 @ is y negative? 0=False, 1=True
+	dofieldeffect FLDEFF_NPCFLY_OUT
+	delay 15
+	addobject LOCALID_FLIER_M
+	waitfieldeffect FLDEFF_NPCFLY_OUT
+	delay 45
+
+	setfieldeffectargument 0, 1
+	setfieldeffectargument 1, 2 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 1 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 0 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 0 @ is y negative? 0=False, 1=True
+	dofieldeffect FLDEFF_NPCFLY_OUT
+	delay 15
+	addobject LOCALID_WINONA
+	waitfieldeffect FLDEFF_NPCFLY_OUT
+	applymovement LOCALID_WINONA, SootopolisCity_Movement_WinonaApproachSteven
+	waitmovement 0
+
+	msgbox SootopolisCity_Text_WinonaReporting, MSGBOX_DEFAULT
+	closemessage
+	msgbox SootopolisCity_Text_StevenInformNearbyCities, MSGBOX_DEFAULT
+	closemessage
+	msgbox SootopolisCity_Text_WinonaWontLetYouDown, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_WINONA, SootopolisCity_Movement_WinonaStepBackToTakeOff
+	waitmovement 0
+	msgbox SootopolisCity_Text_WinonaYouHeardHim, MSGBOX_DEFAULT
+	closemessage
+
+	setfieldeffectargument 0, 1
+	setfieldeffectargument 1, 5 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 1 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 1 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 1 @ is y negative? 0=False, 1=True
+	dofieldeffect FLDEFF_NPCFLY_OUT
+	delay 15
+	removeobject LOCALID_FLIER_F
+	waitfieldeffect FLDEFF_NPCFLY_OUT
+	@delay 15
+
+	setfieldeffectargument 0, 1
+	setfieldeffectargument 1, 7 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 1 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 1 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 0 @ is y negative? 0=False, 1=True
+	dofieldeffect FLDEFF_NPCFLY_OUT
+	delay 15
+	removeobject LOCALID_FLIER_M
+	waitfieldeffect FLDEFF_NPCFLY_OUT
+	delay 30
+	
+	applymovement LOCALID_WINONA, Common_Movement_FaceRight
+	waitmovement 0
+	msgbox SootopolisCity_Text_WinonaDepart, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+
+	setfieldeffectargument 0, 1
+	setfieldeffectargument 1, 2 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 1 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 0 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 0 @ is y negative? 0=False, 1=True
+	dofieldeffect FLDEFF_NPCFLY_OUT
+	delay 15
+	removeobject LOCALID_WINONA
+	waitfieldeffect FLDEFF_NPCFLY_OUT
+	delay 30
+
+	applymovement LOCALID_STEVEN, SootopolisCity_Movement_StevenApproachesPlayer
+	applymovement OBJ_EVENT_ID_CAMERA, SootopolisCity_Movement_PanBackToPlayer
+	waitmovement 0
+
+	special RemoveCameraObject
+
 	msgbox SootopolisCity_Text_InvolvedWithCrisisComeWithMe, MSGBOX_DEFAULT
 	closemessage
-	compare VAR_FACING, DIR_WEST
-	call_if_eq SootopolisCity_EventScript_StartWalkToCaveOfOriginWest
-	compare VAR_FACING, DIR_NORTH
-	call_if_eq SootopolisCity_EventScript_StartWalkToCaveOfOriginNorth
+	call SootopolisCity_EventScript_StartWalkToCaveOfOrigin
 	msgbox SootopolisCity_Text_DoesThisMakeYourFearPokemon, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_STEVEN, SootopolisCity_Movement_StevenWalkToCaveOfOrigin
@@ -1007,20 +1108,39 @@ SootopolisCity_EventScript_StevenLeadPlayerCaveOfOrigin:: @ 81E61CC
 	waitstate
 	end
 
-SootopolisCity_EventScript_StartWalkToCaveOfOriginWest:: @ 81E6243
+SootopolisCity_EventScript_StartWalkToCaveOfOrigin::
 	applymovement LOCALID_STEVEN, SootopolisCity_Movement_StevenStartWalkToCaveOfOrigin
-	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_PlayerStartWalkToCaveOfOriginWest
+	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_PlayerStartWalkToCaveOfOrigin
 	waitmovement 0
 	return
 
-SootopolisCity_EventScript_StartWalkToCaveOfOriginNorth:: @ 81E6255
-	applymovement LOCALID_STEVEN, SootopolisCity_Movement_StevenStartWalkToCaveOfOrigin
-	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_Movement_PlayerStartWalkToCaveOfOriginNorth
-	waitmovement 0
-	return
+SootopolisCity_Movement_PanToStevenAndWinona:
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+SootopolisCity_Movement_PanBackToPlayer:
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+SootopolisCity_Movement_WinonaApproachSteven:
+	walk_right
+	walk_right
+	step_end
+
+SootopolisCity_Movement_WinonaStepBackToTakeOff:
+	walk_left
+	step_end
+
+SootopolisCity_Movement_StevenApproachesPlayer:
+	walk_down
+	walk_down
+	step_end
 
 SootopolisCity_Movement_StevenStartWalkToCaveOfOrigin: @ 81E6267
-	walk_up
 	walk_up
 	walk_up
 	walk_right
@@ -1058,46 +1178,7 @@ SootopolisCity_Movement_StevenStartWalkToCaveOfOrigin: @ 81E6267
 	walk_in_place_fastest_down
 	step_end
 
-SootopolisCity_Movement_PlayerStartWalkToCaveOfOriginWest: @ 81E628C
-	walk_left
-	walk_up
-	walk_up
-	walk_up
-	walk_right
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_left
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
-
-SootopolisCity_Movement_PlayerStartWalkToCaveOfOriginNorth: @ 81E62B0
-	walk_up
+SootopolisCity_Movement_PlayerStartWalkToCaveOfOrigin:
 	walk_up
 	walk_up
 	walk_up
@@ -1703,14 +1784,40 @@ SootopolisCity_Text_TryingMeaninglessToPokemon: @ 81E74F6
 	.string "something small, even meaningless,\l"
 	.string "to Pokémon…$"
 
+SootopolisCity_Text_WinonaReporting:
+	.string "Winona: It's not looking good.\n"
+	.string "The storm continues to grow.\p"
+	.string "We need to act quickly.$"
+
+SootopolisCity_Text_StevenInformNearbyCities:
+	.string "Steven: You're right.\p"
+	.string "You and your fliers should spread\n"
+	.string "the news.\p"
+	.string "Make sure everyone finds safe shelter,\n"
+	.string "just in case.\p"
+	.string "Start with Mossdeep, Lilycove, and\n"
+	.string "Pacifidlog, then go out from there.\p"
+	.string "Can you do this?$"
+
+SootopolisCity_Text_WinonaWontLetYouDown:
+	.string "Winona: Not a problem.\n"
+	.string "You can count on us!$"
+
+SootopolisCity_Text_WinonaYouHeardHim:
+	.string "Winona: You heard him.\n"
+	.string "Let's split up and spread out!$"
+
+SootopolisCity_Text_WinonaDepart:
+	.string "Winona: Good luck, Steven.$"
+
 SootopolisCity_Text_InvolvedWithCrisisComeWithMe: @ 81E75CB
-	.string "Steven: Those Pokémon fighting…\n"
+	.string "Steven: …{PLAYER}{KUN}.\p"
+	.string "Those Pokémon fighting…\n"
 	.string "Groudon… And Kyogre…\p"
 	.string "The two super-ancient Pokémon\n"
 	.string "were awakened from a long sleep…\p"
 	.string "And now they are smashing each other\n"
 	.string "with their uncontrollable energy…\p"
-	.string "…{PLAYER}{KUN}.\p"
 	.string "You being here now I'll take to mean\n"
 	.string "that you're prepared to become\l"
 	.string "involved in this crisis.\p"

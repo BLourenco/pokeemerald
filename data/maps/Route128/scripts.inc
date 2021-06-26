@@ -53,9 +53,14 @@ Route128_EventScript_KyogreAwakenedScene:: @ 81F6B57
 	removeobject LOCALID_ARCHIE
 	delay 100
 	setfieldeffectargument 0, 1
+	setfieldeffectargument 1, 2 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 0 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 0 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 0 @ is y negative? 0=False, 1=True
 	dofieldeffect FLDEFF_NPCFLY_OUT
-	waitfieldeffect FLDEFF_NPCFLY_OUT
+	delay 15
 	addobject LOCALID_STEVEN
+	waitfieldeffect FLDEFF_NPCFLY_OUT
 	applymovement LOCALID_STEVEN, Route128_Movement_StevenApproachPlayer
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestRight
@@ -74,6 +79,10 @@ Route128_EventScript_KyogreAwakenedScene:: @ 81F6B57
 	waitmovement 0
 	delay 50
 	setfieldeffectargument 0, 1
+	setfieldeffectargument 1, 1 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 0 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 1 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 1 @ is y negative? 0=False, 1=True
 	dofieldeffect FLDEFF_NPCFLY_OUT
 	delay 15
 	removeobject LOCALID_STEVEN

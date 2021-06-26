@@ -3106,6 +3106,12 @@ u8 FldEff_RayquazaSpotlight(void)
     return spriteId;
 }
 
+#define timer      data[2]
+#define xNegative  data[3]
+#define yNegative  data[4]
+#define xOffset    data[5]
+#define yOffset    data[6]
+
 u8 FldEff_NPCFlyOut(void)
 {
     u8 spriteId;
@@ -3118,6 +3124,10 @@ u8 FldEff_NPCFlyOut(void)
     sprite->oam.priority = 1;
     sprite->callback = SpriteCB_NPCFlyOut;
     sprite->data[1] = gFieldEffectArguments[0];
+    sprite->xOffset = gFieldEffectArguments[1];
+    sprite->xNegative = gFieldEffectArguments[2];
+    sprite->yOffset = gFieldEffectArguments[3];
+    sprite->yNegative = gFieldEffectArguments[4];
     PlaySE(SE_M_FLY);
     return spriteId;
 }
@@ -3126,9 +3136,12 @@ static void SpriteCB_NPCFlyOut(struct Sprite *sprite)
 {
     struct Sprite *npcSprite;
 
-    sprite->pos2.x = Cos(sprite->data[2], 0x8c);
-    sprite->pos2.y = Sin(sprite->data[2], 0x48);
-    sprite->data[2] = (sprite->data[2] + 4) & 0xff;
+    s8 xTileOffset = sprite->xNegative == 1 ? sprite->xOffset * -1 : sprite->xOffset;
+    s8 yTileOffset = sprite->yNegative == 1 ? sprite->yOffset * -1 : sprite->yOffset;
+
+    sprite->pos2.x = Cos(sprite->timer, 0x8c) + (xTileOffset * 16);
+    sprite->pos2.y = Sin(sprite->timer, 0x48) + (yTileOffset * 16);
+    sprite->timer = (sprite->timer + 4) & 0xff;
     if (sprite->data[0])
     {
         npcSprite = &gSprites[sprite->data[1]];
@@ -3139,9 +3152,14 @@ static void SpriteCB_NPCFlyOut(struct Sprite *sprite)
         npcSprite->pos2.y = 0;
     }
 
-    if (sprite->data[2] >= 0x80)
+    if (sprite->timer >= 0x80)
         FieldEffectStop(sprite, FLDEFF_NPCFLY_OUT);
 }
+
+#undef xDirection
+#undef yDirection
+#undef xOffset
+#undef yOffset
 
 // Task data for Task_FlyOut/FlyIn
 #define tState          data[0]

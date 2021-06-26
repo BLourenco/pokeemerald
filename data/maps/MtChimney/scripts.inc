@@ -89,6 +89,10 @@ MtChimney_EventScript_Maxie:: @ 822EE0B
 	msgbox MtChimney_Text_FlanneryThankYou, MSGBOX_DEFAULT
 	closemessage	
 	setfieldeffectargument 0, 1
+	compare VAR_FACING, DIR_EAST
+	call_if_eq MtChimney_EventScript_StevenSetFieldEffectArgsEast
+	compare VAR_FACING, DIR_NORTH
+	call_if_eq MtChimney_EventScript_StevenSetFieldEffectArgsNorth
 	dofieldeffect FLDEFF_NPCFLY_OUT
 	delay 15
 	addobject LOCALID_STEVEN
@@ -147,6 +151,10 @@ MtChimney_EventScript_Maxie:: @ 822EE0B
 	msgbox MtChimney_Text_StevenDeparts, MSGBOX_DEFAULT
 	closemessage
 	setfieldeffectargument 0, 1
+	compare VAR_FACING, DIR_EAST
+	call_if_eq MtChimney_EventScript_StevenDepartSetFieldEffectArgsEast
+	compare VAR_FACING, DIR_NORTH
+	call_if_eq MtChimney_EventScript_StevenDepartSetFieldEffectArgsNorth
 	dofieldeffect FLDEFF_NPCFLY_OUT
 	delay 15
 	removeobject LOCALID_STEVEN
@@ -171,12 +179,12 @@ MtChimney_EventScript_ArchieAndFlanneryApproachPlayerNorth:: @ 822EED2
 	waitmovement 0
 	return
 
-MtChimney_EventScript_PlayerFaceArchieEast:
+MtChimney_EventScript_PlayerFaceArchieEast::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
 	waitmovement 0
 	return
 
-MtChimney_EventScript_PlayerFaceArchieNorth:
+MtChimney_EventScript_PlayerFaceArchieNorth::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	waitmovement 0
 	return
@@ -195,40 +203,68 @@ MtChimney_EventScript_ArchieExitNorth:: @ 822EEE8
 	waitmovement 0
 	return
 
-MtChimney_EventScript_StevenAndFlanneryFaceEachOtherEast:
+MtChimney_EventScript_StevenSetFieldEffectArgsEast::
+	setfieldeffectargument 1, 2 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 1 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 1 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 0 @ is y negative? 0=False, 1=True
+	return
+
+MtChimney_EventScript_StevenSetFieldEffectArgsNorth::
+	setfieldeffectargument 1, 3 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 1 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 0 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 0 @ is y negative? 0=False, 1=True
+	return
+
+MtChimney_EventScript_StevenDepartSetFieldEffectArgsEast::	
+	setfieldeffectargument 1, 2 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 1 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 1 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 0 @ is y negative? 0=False, 1=True
+	return
+
+MtChimney_EventScript_StevenDepartSetFieldEffectArgsNorth::	
+	setfieldeffectargument 1, 2 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 1 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 0 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 0 @ is y negative? 0=False, 1=True
+	return
+
+MtChimney_EventScript_StevenAndFlanneryFaceEachOtherEast::
 	applymovement LOCALID_STEVEN, Common_Movement_FaceUp
 	applymovement LOCALID_FLANNERY, Common_Movement_FaceDown
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
 	waitmovement 0
 	return
 
-MtChimney_EventScript_StevenAndFlanneryFaceEachOtherNorth:
+MtChimney_EventScript_StevenAndFlanneryFaceEachOtherNorth::
 	applymovement LOCALID_FLANNERY, Common_Movement_FaceLeft
 	waitmovement 0
 	return
 
-MtChimney_EventScript_FlanneryDepartsEast:
+MtChimney_EventScript_FlanneryDepartsEast::
 	applymovement OBJ_EVENT_ID_PLAYER, MtChimney_Movement_PlayerWatchesFlanneryExitEast
 	applymovement LOCALID_STEVEN, MtChimney_Movement_StevenWatchesFlanneryExitEast
 	applymovement LOCALID_FLANNERY, MtChimney_Movement_FlanneryExitEast
 	waitmovement 0
 	return
 
-MtChimney_EventScript_FlanneryDepartsNorth:
+MtChimney_EventScript_FlanneryDepartsNorth::
 	applymovement OBJ_EVENT_ID_PLAYER, MtChimney_Movement_PlayerWatchesFlanneryExitNorth
 	applymovement LOCALID_STEVEN, MtChimney_Movement_StevenWatchesFlanneryExitNorth
 	applymovement LOCALID_FLANNERY, MtChimney_Movement_FlanneryExitNorth
 	waitmovement 0
 	return
 
-MtChimney_EventScript_StevenApproachPlayerEast:
+MtChimney_EventScript_StevenApproachPlayerEast::
 	applymovement LOCALID_STEVEN, MtChimney_Movement_StevenApproachPlayerEast
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
 	waitmovement 0
 	return
 
-MtChimney_EventScript_StevenApproachPlayerNorth:
+MtChimney_EventScript_StevenApproachPlayerNorth::
 	applymovement LOCALID_STEVEN, MtChimney_Movement_StevenApproachPlayerNorth
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
