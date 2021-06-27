@@ -1,6 +1,7 @@
 .set LOCALID_CHAMPION, 1
 .set LOCALID_RIVAL, 2
 .set LOCALID_BIRCH, 3
+.set LOCALID_NORMAN, 4
 
 EverGrandeCity_ChampionsRoom_MapScripts:: @ 82289EF
 	map_script MAP_SCRIPT_ON_TRANSITION, EverGrandeCity_ChampionsRoom_OnTransition
@@ -154,8 +155,19 @@ EverGrandeCity_ChampionsRoom_EventScript_BirchArrivesExitForHoF:: @ 8228B30
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	msgbox EverGrandeCity_ChampionsRoom_Text_BirchArriveRatePokedex, MSGBOX_DEFAULT
-	call ProfBirch_EventScript_RatePokedex
-	msgbox EverGrandeCity_ChampionsRoom_Text_BirchCongratulations, MSGBOX_DEFAULT
+	closemessage
+	addobject LOCALID_NORMAN
+	applymovement LOCALID_NORMAN, EverGrandeCity_ChampionsRoom_Movement_NormanArrives
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestDown
+	waitmovement 0
+	msgbox EverGrandeCity_ChampionsRoom_Text_DadArrives, MSGBOX_DEFAULT
+	checkplayergender
+	compare VAR_RESULT, MALE
+	call_if_eq EverGrandeCity_ChampionsRoom_EventScript_DadMySon
+	compare VAR_RESULT, FEMALE
+	call_if_eq EverGrandeCity_ChampionsRoom_EventScript_DadMyDaughter
+	msgbox EverGrandeCity_ChampionsRoom_Text_DadCongratulations, MSGBOX_DEFAULT	
 	applymovement LOCALID_CHAMPION, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	delay 20
@@ -187,6 +199,14 @@ EverGrandeCity_ChampionsRoom_EventScript_BirchArrivesExitForHoF:: @ 8228B30
 	waitstate
 	releaseall
 	end
+
+EverGrandeCity_ChampionsRoom_EventScript_DadMySon::
+	msgbox EverGrandeCity_ChampionsRoom_Text_DadArrivesMySon, MSGBOX_DEFAULT
+	return
+
+EverGrandeCity_ChampionsRoom_EventScript_DadMyDaughter::
+	msgbox EverGrandeCity_ChampionsRoom_Text_DadArrivesMyDaughter, MSGBOX_DEFAULT
+	return
 
 EverGrandeCity_ChampionsRoom_EventScript_MayCongratulations:: @ 8228BEB
 	msgbox EverGrandeCity_ChampionsRoom_Text_MayCongratulations, MSGBOX_DEFAULT
@@ -287,6 +307,14 @@ EverGrandeCity_ChampionsRoom_Movement_BirchArrives: @ 8228C43
 	walk_right
 	walk_up
 	walk_in_place_fastest_left
+	step_end
+
+EverGrandeCity_ChampionsRoom_Movement_NormanArrives:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
 	step_end
 
 EverGrandeCity_ChampionsRoom_Text_StevenIntroSpeech:
@@ -437,14 +465,30 @@ EverGrandeCity_ChampionsRoom_Text_BirchArriveRatePokedex: @ 82291E6
 	.string "own father at the Petalburg Gym,\l"
 	.string "I thought perhaps you had a chance…\p"
 	.string "But to think you've actually become\n"
-	.string "the Champion!\p"
-	.string "Ah, yes!\p"
-	.string "What became of your Pokédex?\n"
-	.string "Here, let me see.$"
+	.string "the Champion!$"
 
-EverGrandeCity_ChampionsRoom_Text_BirchCongratulations: @ 822934D
-	.string "Prof. Birch: Anyways,\n"
-	.string "congratulations!\p"
+EverGrandeCity_ChampionsRoom_Text_DadArrives:
+	.string "Dad: {PLAYER}!\n"
+	.string "I'm so proud of you!\p"
+	.string "Nothing makes me happier than\n"
+	.string "seeing you succeed as a Pokémon\l"
+	.string "Trainer.\p"
+	.string "I remember when you showed me your\n"
+	.string "very first Pokémon…\p"
+	.string "I remember the day you challenged your\n"
+	.string "own father to a Gym battle, and won…\p"
+	.string "And now, here you are!$"
+
+EverGrandeCity_ChampionsRoom_Text_DadArrivesMySon:
+	.string "My own son,\n"
+	.string "the Hoenn region Champion!$"
+
+EverGrandeCity_ChampionsRoom_Text_DadArrivesMyDaughter:
+	.string "My own daughter,\n"
+	.string "the Hoenn region Champion!$"
+
+EverGrandeCity_ChampionsRoom_Text_DadCongratulations:
+	.string "Congratulations, {PLAYER}!\p"
 	.string "Now, go proudly into the final room!$"
 
 EverGrandeCity_ChampionsRoom_Text_WallaceComeWithMe: @ 8229399

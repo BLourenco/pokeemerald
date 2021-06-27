@@ -1165,7 +1165,7 @@
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_MASTER_BALL                      0x464
 #define FLAG_HIDE_ROUTE_111_ROCK_1                                  0x465
 #define FLAG_HIDE_ROUTE_111_ROCK_2                                  0x466 
-#define FLAG_UNUSED_0x467                                           0x467 // UNUSED
+#define FLAG_HIDE_CHAMPIONS_ROOM_NORMAN                             0x467
 #define FLAG_ITEM_MAGMA_HIDEOUT_3F_2R_TM_35                         0x468
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A

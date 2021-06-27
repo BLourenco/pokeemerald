@@ -418,9 +418,9 @@ PlayersHouse_1F_Text_RunningShoesManual: @ 81F7F66
 PlayersHouse_1F_Text_TicketFromBrineyCameForYou: @ 81F800E
 	.string "Dad: Hm?\p"
 	.string "Hey, it's {PLAYER}!\p"
-	.string "It's been a while since I saw you,\n"
-	.string "but you look…stronger, somehow.\p"
-	.string "That's the impression I get.\n"
+	.string "Excuse me, I mean Champion {PLAYER}!\p"
+	.string "You look as strong as ever.\n"
+	.string "That's the impression I get.\p"
 	.string "But your old man hasn't given up yet!\p"
 	.string "Oh, yes, I have something for you.\n"
 	.string "This came to you from someone named\l"
