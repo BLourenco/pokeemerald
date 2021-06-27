@@ -12793,3 +12793,26 @@ static const struct TrainerMonItemCustomMoves sParty_MagmaAdminCourtneyMeteorFal
     .moves = {MOVE_FLAME_CHARGE, MOVE_STOMP, MOVE_TAKE_DOWN, MOVE_SUNNY_DAY}
     }
 };
+
+
+
+static const struct TrainerMonNoItemCustomMoves sParty_WallyRoute118[] = {
+    {
+    .iv = 150,
+    .lvl = 28,
+    .species = SPECIES_SWABLU,
+    .moves = {MOVE_AERIAL_ACE, MOVE_SAFEGUARD, MOVE_DRAGON_BREATH, MOVE_SING}
+    },
+    {
+    .iv = 150,
+    .lvl = 28,
+    .species = SPECIES_ROSELIA,
+    .moves = {MOVE_MAGICAL_LEAF, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_TOXIC}
+    },
+    {
+    .iv = 250,
+    .lvl = 29,
+    .species = SPECIES_KIRLIA,
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_CALM_MIND, MOVE_PSYCHIC, MOVE_FUTURE_SIGHT}
+    }
+};

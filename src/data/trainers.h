@@ -10274,4 +10274,18 @@ const struct Trainer gTrainers[] = {
         .partySize = ARRAY_COUNT(sParty_MagmaAdminCourtneyMeteorFalls),
         .party = {.ItemCustomMoves = sParty_MagmaAdminCourtneyMeteorFalls},
     },
+
+    [TRAINER_WALLY_ROUTE118] =
+    {
+        .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
+        .trainerClass = TRAINER_CLASS_PKMN_TRAINER_3,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_WALLY,
+        .trainerName = _("Wally"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .partySize = ARRAY_COUNT(sParty_WallyRoute118),
+        .party = {.NoItemCustomMoves = sParty_WallyRoute118},
+    },
 };

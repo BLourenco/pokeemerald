@@ -734,8 +734,9 @@
 #define TRAINER_MAGMA_ADMIN_COURTNEY_METEOR_FALLS 730
 #define TRAINER_WALLACE                           731
 #define TRAINER_STEVEN_CHAMPION                   732
+#define TRAINER_WALLY_ROUTE118                    733
 
-#define TRAINERS_COUNT                            733
+#define TRAINERS_COUNT                            734
 #define MAX_TRAINERS_COUNT                        864
 
 // NOTE: More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

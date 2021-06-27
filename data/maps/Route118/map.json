@@ -265,7 +265,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_STEVEN",
+      "graphics_id": "OBJ_EVENT_GFX_WALLY",
       "x": 44,
       "y": 7,
       "elevation": 3,
@@ -328,7 +328,7 @@
       "elevation": 3,
       "var": "VAR_ROUTE118_STATE",
       "var_value": "0",
-      "script": "Route118_EventScript_StevenTrigger0"
+      "script": "Route118_EventScript_WallyTrigger0"
     },
     {
       "type": "trigger",
@@ -337,7 +337,7 @@
       "elevation": 3,
       "var": "VAR_ROUTE118_STATE",
       "var_value": "0",
-      "script": "Route118_EventScript_StevenTrigger1"
+      "script": "Route118_EventScript_WallyTrigger1"
     },
     {
       "type": "trigger",
@@ -346,7 +346,34 @@
       "elevation": 3,
       "var": "VAR_ROUTE118_STATE",
       "var_value": "0",
-      "script": "Route118_EventScript_StevenTrigger2"
+      "script": "Route118_EventScript_WallyTrigger2"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_ROUTE118_STATE",
+      "var_value": "1",
+      "script": "Route118_EventScript_WallyTrigger3"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_ROUTE118_STATE",
+      "var_value": "1",
+      "script": "Route118_EventScript_WallyTrigger4"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_ROUTE118_STATE",
+      "var_value": "1",
+      "script": "Route118_EventScript_WallyTrigger5"
     }
   ],
   "bg_events": [

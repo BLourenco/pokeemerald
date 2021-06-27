@@ -93,6 +93,18 @@ Common_Movement_WalkUp: @ 82725C9
 	walk_up
 	step_end
 
+Common_Movement_WalkDown: @ 82725C9
+	walk_down
+	step_end
+
+Common_Movement_WalkLeft: @ 82725C9
+	walk_left
+	step_end
+
+Common_Movement_WalkRight: @ 82725C9
+	walk_right
+	step_end
+
 @ Unused
 Common_Movement_WalkUp2:: @ 82725CB
 	walk_up
