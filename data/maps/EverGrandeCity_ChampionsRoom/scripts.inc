@@ -64,14 +64,14 @@ EverGrandeCity_ChampionsRoom_Movement_PlayerApproachChampion: @ 8228A42
 EverGrandeCity_ChampionsRoom_EventScript_Steven:: @ 8228A45
 	playbgm MUS_ENCOUNTER_CHAMPION, FALSE
 	msgbox EverGrandeCity_ChampionsRoom_Text_StevenIntroSpeech, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_STEVEN, EverGrandeCity_ChampionsRoom_Text_StevenDefeat
+	trainerbattle_no_intro TRAINER_STEVEN_CHAMPION, EverGrandeCity_ChampionsRoom_Text_StevenDefeat
 	goto EverGrandeCity_ChampionsRoom_EventScript_StevenDefeated
 	end
 
 EverGrandeCity_ChampionsRoom_EventScript_Wallace:: @ 8228A45
 	playbgm MUS_ENCOUNTER_CHAMPION, FALSE
 	msgbox EverGrandeCity_ChampionsRoom_Text_WallaceIntroSpeech, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_WALLACE, EverGrandeCity_ChampionsRoom_Text_WallaceDefeat
+	trainerbattle_no_intro TRAINER_WALLACE_CHAMPION, EverGrandeCity_ChampionsRoom_Text_WallaceDefeat
 	goto EverGrandeCity_ChampionsRoom_EventScript_WallaceDefeated
 	end
 
@@ -300,7 +300,7 @@ EverGrandeCity_ChampionsRoom_Text_StevenIntroSpeech:
 	.string "That incident in Sootopolis City…\n"
 	.string "That was superb work, putting an end\l"
 	.string "to that crisis all by yourself.\p"
-	.string "Oops!\p"
+	.string "Oh, pardon me!\p"
 	.string "It wouldn't be fair to say that you\n"
 	.string "alone ended the crisis.\p"
 	.string "You overcame that difficult situation\n"

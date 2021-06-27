@@ -54,6 +54,7 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_POKEFAN_M] = {.size = 8, .y_offset = 2},
     [TRAINER_PIC_POKEFAN_F] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_YOUNGSTER] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_LEADER_WALLACE] = {.size = 8, .y_offset = 2},
     [TRAINER_PIC_CHAMPION_WALLACE] = {.size = 8, .y_offset = 2},
     [TRAINER_PIC_FISHERMAN] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_CYCLING_TRIATHLETE_M] = {.size = 8, .y_offset = 2},
@@ -94,6 +95,12 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_RS_BRENDAN] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_RS_MAY] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_MAGMA_ADMIN_F] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_MUGSHOT_ELITE_FOUR_SIDNEY] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_MUGSHOT_ELITE_FOUR_PHOEBE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_MUGSHOT_ELITE_FOUR_GLACIA] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_MUGSHOT_ELITE_FOUR_DRAKE] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_MUGSHOT_STEVEN] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_MUGSHOT_CHAMPION_WALLACE] = {.size = 8, .y_offset = 2},
 };
 
 #define TRAINER_SPRITE(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -154,6 +161,7 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(POKEFAN_M, gTrainerFrontPic_PokefanM, 0x1000),
     TRAINER_SPRITE(POKEFAN_F, gTrainerFrontPic_PokefanF, 0x800),
     TRAINER_SPRITE(YOUNGSTER, gTrainerFrontPic_Youngster, 0x800),
+    TRAINER_SPRITE(LEADER_WALLACE, gTrainerFrontPic_LeaderWallace, 0x1000),
     TRAINER_SPRITE(CHAMPION_WALLACE, gTrainerFrontPic_ChampionWallace, 0x1000),
     TRAINER_SPRITE(FISHERMAN, gTrainerFrontPic_Fisherman, 0x800),
     TRAINER_SPRITE(CYCLING_TRIATHLETE_M, gTrainerFrontPic_CyclingTriathleteM, 0x1000),
@@ -194,6 +202,12 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(RS_BRENDAN, gTrainerFrontPic_RubySapphireBrendan, 0x800),
     TRAINER_SPRITE(RS_MAY, gTrainerFrontPic_RubySapphireMay, 0x800),
     TRAINER_SPRITE(MAGMA_ADMIN_F, gTrainerFrontPic_MagmaAdminF, 0x800),
+    TRAINER_SPRITE(MUGSHOT_ELITE_FOUR_SIDNEY, gTrainerMugshot_EliteFourSidney, 0x800),
+    TRAINER_SPRITE(MUGSHOT_ELITE_FOUR_PHOEBE, gTrainerMugshot_EliteFourPhoebe, 0x800),
+    TRAINER_SPRITE(MUGSHOT_ELITE_FOUR_GLACIA, gTrainerMugshot_EliteFourGlacia, 0x800),
+    TRAINER_SPRITE(MUGSHOT_ELITE_FOUR_DRAKE, gTrainerMugshot_EliteFourDrake, 0x800),
+    TRAINER_SPRITE(MUGSHOT_STEVEN, gTrainerMugshot_Steven, 0x800),
+    TRAINER_SPRITE(MUGSHOT_CHAMPION_WALLACE, gTrainerMugshot_ChampionWallace, 0x1000),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -254,6 +268,7 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(POKEFAN_M, gTrainerPalette_PokefanM),
     TRAINER_PAL(POKEFAN_F, gTrainerPalette_PokefanF),
     TRAINER_PAL(YOUNGSTER, gTrainerPalette_Youngster),
+    TRAINER_PAL(LEADER_WALLACE, gTrainerPalette_ChampionWallace),
     TRAINER_PAL(CHAMPION_WALLACE, gTrainerPalette_ChampionWallace),
     TRAINER_PAL(FISHERMAN, gTrainerPalette_Fisherman),
     TRAINER_PAL(CYCLING_TRIATHLETE_M, gTrainerPalette_CyclingTriathleteM),
@@ -294,4 +309,10 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(RS_BRENDAN, gTrainerPalette_RubySapphireBrendan),
     TRAINER_PAL(RS_MAY, gTrainerPalette_RubySapphireMay),
     TRAINER_PAL(MAGMA_ADMIN_F, gTrainerPalette_MagmaAdminF),
+    TRAINER_PAL(MUGSHOT_ELITE_FOUR_SIDNEY, gTrainerPalette_EliteFourSidney),
+    TRAINER_PAL(MUGSHOT_ELITE_FOUR_PHOEBE, gTrainerPalette_EliteFourPhoebe),
+    TRAINER_PAL(MUGSHOT_ELITE_FOUR_GLACIA, gTrainerPalette_EliteFourGlacia),
+    TRAINER_PAL(MUGSHOT_ELITE_FOUR_DRAKE, gTrainerPalette_EliteFourDrake),
+    TRAINER_PAL(MUGSHOT_STEVEN, gTrainerPalette_Steven),
+    TRAINER_PAL(MUGSHOT_CHAMPION_WALLACE, gTrainerPalette_ChampionWallace),
 };

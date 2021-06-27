@@ -214,6 +214,10 @@ static const union AnimCmd *const sAnims_Youngster[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_LeaderWallace[] ={
+    sAnim_GeneralFrame0,
+};
+
 static const union AnimCmd *const sAnims_ChampionWallace[] ={
     sAnim_GeneralFrame0,
 };
@@ -374,6 +378,30 @@ static const union AnimCmd *const sAnims_MagmaAdminF[] ={
     sAnim_GeneralFrame0,
 };
 
+static const union AnimCmd *const sAnims_Mugshot_EliteFourSidney[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Mugshot_EliteFourPhoebe[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Mugshot_EliteFourGlacia[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Mugshot_EliteFourDrake[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Mugshot_Steven[] ={
+    sAnim_GeneralFrame0,
+};
+
+static const union AnimCmd *const sAnims_Mugshot_ChampionWallace[] ={
+    sAnim_GeneralFrame0,
+};
+
 const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
 {
     [TRAINER_PIC_HIKER] = sAnims_Hiker,
@@ -430,6 +458,7 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_POKEFAN_M] = sAnims_PokefanM,
     [TRAINER_PIC_POKEFAN_F] = sAnims_PokefanF,
     [TRAINER_PIC_YOUNGSTER] = sAnims_Youngster,
+    [TRAINER_PIC_LEADER_WALLACE] = sAnims_LeaderWallace,
     [TRAINER_PIC_CHAMPION_WALLACE] = sAnims_ChampionWallace,
     [TRAINER_PIC_FISHERMAN] = sAnims_Fisherman,
     [TRAINER_PIC_CYCLING_TRIATHLETE_M] = sAnims_CyclingTriathleteM,
@@ -470,4 +499,10 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_RS_BRENDAN] = sAnims_RubySapphireBrendan,
     [TRAINER_PIC_RS_MAY] = sAnims_RubySapphireMay,
     [TRAINER_PIC_MAGMA_ADMIN_F] = sAnims_MagmaAdminF,
+    [TRAINER_PIC_MUGSHOT_ELITE_FOUR_SIDNEY] = sAnims_Mugshot_EliteFourSidney,
+    [TRAINER_PIC_MUGSHOT_ELITE_FOUR_PHOEBE] = sAnims_Mugshot_EliteFourPhoebe,
+    [TRAINER_PIC_MUGSHOT_ELITE_FOUR_GLACIA] = sAnims_Mugshot_EliteFourGlacia,
+    [TRAINER_PIC_MUGSHOT_ELITE_FOUR_DRAKE] = sAnims_Mugshot_EliteFourDrake,
+    [TRAINER_PIC_MUGSHOT_STEVEN] = sAnims_Mugshot_Steven,
+    [TRAINER_PIC_MUGSHOT_CHAMPION_WALLACE] = sAnims_Mugshot_ChampionWallace,
 };

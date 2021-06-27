@@ -262,6 +262,7 @@
 #define MAP_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_1F  (13 | (15 << 8))
 #define MAP_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_B1F (14 | (15 << 8))
 
+// gMapGroup_IndoorEverGrande
 #define MAP_EVER_GRANDE_CITY_SIDNEYS_ROOM          (0 | (16 << 8))
 #define MAP_EVER_GRANDE_CITY_PHOEBES_ROOM          (1 | (16 << 8))
 #define MAP_EVER_GRANDE_CITY_GLACIAS_ROOM          (2 | (16 << 8))
@@ -634,6 +635,6 @@
 
 #define MAP_GROUPS_COUNT 36
 
-// static const u8 MAP_GROUP_COUNT[] = {63, 5, 6, 6, 9, 8, 8, 7, 7, 13, 11, 21, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 127, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 1, 0};
+// static const u8 MAP_GROUP_COUNT[] = {63, 5, 6, 6, 9, 8, 8, 7, 7, 13, 11, 21, 10, 23, 13, 15, 16, 2, 2, 2, 3, 1, 1, 1, 127, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 1, 0};
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

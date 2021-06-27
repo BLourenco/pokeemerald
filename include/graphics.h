@@ -6525,6 +6525,7 @@ extern const u32 gTrainerFrontPic_SrAndJr[];
 extern const u32 gTrainerFrontPic_PokefanM[];
 extern const u32 gTrainerFrontPic_PokefanF[];
 extern const u32 gTrainerFrontPic_Youngster[];
+extern const u32 gTrainerFrontPic_LeaderWallace[];
 extern const u32 gTrainerFrontPic_ChampionWallace[];
 extern const u32 gTrainerFrontPic_Fisherman[];
 extern const u32 gTrainerFrontPic_CyclingTriathleteM[];
@@ -6672,6 +6673,14 @@ extern const u8 gTrainerBackPic_Steven[];
 
 extern const u32 gTrainerBackPicPalette_Red[];
 extern const u32 gTrainerBackPicPalette_Leaf[];
+
+
+extern const u32 gTrainerMugshot_EliteFourSidney[];
+extern const u32 gTrainerMugshot_EliteFourPhoebe[];
+extern const u32 gTrainerMugshot_EliteFourGlacia[];
+extern const u32 gTrainerMugshot_EliteFourDrake[];
+extern const u32 gTrainerMugshot_Steven[];
+extern const u32 gTrainerMugshot_ChampionWallace[];
 
 // pokeblock
 extern const u32 gMenuPokeblock_Gfx[];
@@ -6885,6 +6894,7 @@ extern const u32 gBattleTerrainPalette_StadiumPhoebe[];
 extern const u32 gBattleTerrainPalette_StadiumGlacia[];
 extern const u32 gBattleTerrainPalette_StadiumDrake[];
 extern const u32 gBattleTerrainPalette_StadiumWallace[];
+extern const u32 gBattleTerrainPalette_StadiumSteven[];
 
 // my new battle terrains
 extern const u32 gBattleTerrainPalette_TallGrass_Soot[];
