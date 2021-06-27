@@ -735,8 +735,12 @@
 #define TRAINER_WALLACE                           731
 #define TRAINER_STEVEN_CHAMPION                   732
 #define TRAINER_WALLY_ROUTE118                    733
+#define TRAINER_BRAWLY_AFTER_DYNAMO_BADGE         734
+#define TRAINER_BRAWLY_AFTER_HEAT_BADGE           735
+#define TRAINER_WINONA_AFTER_MIND_BADGE           736
+#define TRAINER_WINONA_AFTER_RAIN_BADGE           737
 
-#define TRAINERS_COUNT                            734
+#define TRAINERS_COUNT                            738
 #define MAX_TRAINERS_COUNT                        864
 
 // NOTE: More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
