@@ -17,7 +17,7 @@ LittlerootTown_MaysHouse_2F_OnTransition: @ 81F92A1
 	end
 
 LittlerootTown_MaysHouse_2F_EventScript_CheckShouldUpdateMayPos:: @ 81F92CD
-	goto_if_set FLAG_MET_RIVAL_LILYCOVE, LittlerootTown_MaysHouse_2F_EventScript_TryUpdateMayPos
+	goto_if_set FLAG_MET_RIVAL_MOSSDEEP, LittlerootTown_MaysHouse_2F_EventScript_TryUpdateMayPos
 	compare VAR_BIRCH_LAB_STATE, 2
 	goto_if_ge LittlerootTown_MaysHouse_2F_EventScript_Ret
 	goto LittlerootTown_MaysHouse_2F_EventScript_TryUpdateMayPos
@@ -250,7 +250,7 @@ LittlerootTown_MaysHouse_2F_Movement_PlayerWatchMayEast: @ 81F94BB
 
 RivalsHouse_2F_EventScript_Rival:: @ 81F94C1
 	lockall
-	goto_if_set FLAG_MET_RIVAL_LILYCOVE, RivalsHouse_2F_EventScript_RivalPostLilycove
+	goto_if_set FLAG_MET_RIVAL_MOSSDEEP, RivalsHouse_2F_EventScript_RivalPostMossdeep
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq RivalsHouse_2F_EventScript_May
@@ -268,7 +268,7 @@ RivalsHouse_2F_EventScript_Brendan:: @ 81F94ED
 	releaseall
 	end
 
-RivalsHouse_2F_EventScript_RivalPostLilycove:: @ 81F94F7
+RivalsHouse_2F_EventScript_RivalPostMossdeep:: @ 81F94F7
 	applymovement VAR_LAST_TALKED, Common_Movement_FacePlayer
 	waitmovement 0
 	checkplayergender

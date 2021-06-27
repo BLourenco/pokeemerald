@@ -4,6 +4,7 @@
 .set LOCALID_GRUNT_4, 13
 .set LOCALID_MAXIE, 14
 .set LOCALID_SCOTT, 16
+.set LOCALID_RIVAL, 18
 
 MossdeepCity_MapScripts:: @ 81E4A96
 	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_OnTransition
@@ -11,6 +12,7 @@ MossdeepCity_MapScripts:: @ 81E4A96
 
 MossdeepCity_OnTransition: @ 81E4A9C
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+	call Common_EventScript_SetupRivalGfxId
 	end
 
 MossdeepCity_EventScript_PokefanF:: @ 81E4AB2
@@ -75,6 +77,162 @@ MossdeepCity_EventScript_VisitedMossdeep:: @ 81E4B38
 	setflag FLAG_VISITED_MOSSDEEP_CITY
 	setvar VAR_TEMP_1, 1
 	end
+
+MossdeepCity_EventScript_Rival:: @ 81E2DDE
+	lock
+	faceplayer
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq MossdeepCity_EventScript_May
+	compare VAR_RESULT, FEMALE
+	goto_if_eq MossdeepCity_EventScript_Brendan
+	end
+
+MossdeepCity_EventScript_May:: @ 81E2DF8
+	playbgm MUS_ENCOUNTER_MAY, TRUE
+	call_if_set FLAG_DECLINED_RIVAL_BATTLE_MOSSDEEP, MossdeepCity_EventScript_MayAskToBattleAgain
+	call_if_unset FLAG_DECLINED_RIVAL_BATTLE_MOSSDEEP, MossdeepCity_EventScript_MayAskToBattle
+	compare VAR_RESULT, NO
+	goto_if_eq MossdeepCity_EventScript_DeclineMayBattle
+	msgbox MossdeepCity_Text_MayWontBeBeaten, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, MossdeepCity_EventScript_BattleMayTreecko
+	case 1, MossdeepCity_EventScript_BattleMayTorchic
+	case 2, MossdeepCity_EventScript_BattleMayMudkip
+	end
+
+MossdeepCity_EventScript_MayAskToBattleAgain:: @ 81E2E48
+	msgbox MossdeepCity_Text_MayBattleMe, MSGBOX_YESNO
+	return
+
+MossdeepCity_EventScript_MayAskToBattle:: @ 81E2E51
+	msgbox MossdeepCity_Text_MayLookHowFarWeveCome, MSGBOX_YESNO
+	return
+
+MossdeepCity_EventScript_DeclineMayBattle:: @ 81E2E5A
+	setflag FLAG_DECLINED_RIVAL_BATTLE_MOSSDEEP
+	msgbox MossdeepCity_Text_MayBattleDeclined, MSGBOX_DEFAULT
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	release
+	end
+
+MossdeepCity_EventScript_Brendan:: @ 81E2E6B
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	call_if_set FLAG_DECLINED_RIVAL_BATTLE_MOSSDEEP, MossdeepCity_EventScript_BrendanAskToBattleAgain
+	call_if_unset FLAG_DECLINED_RIVAL_BATTLE_MOSSDEEP, MossdeepCity_EventScript_BrendanAskToBattle
+	compare VAR_RESULT, NO
+	goto_if_eq MossdeepCity_EventScript_DeclineBrendanBattle
+	msgbox MossdeepCity_Text_BrendanWontBeBeaten, MSGBOX_DEFAULT
+	switch VAR_STARTER_MON
+	case 0, MossdeepCity_EventScript_BattleBrendanTreecko
+	case 1, MossdeepCity_EventScript_BattleBrendanTorchic
+	case 2, MossdeepCity_EventScript_BattleBrendanMudkip
+	end
+
+MossdeepCity_EventScript_BrendanAskToBattleAgain:: @ 81E2EBB
+	msgbox MossdeepCity_Text_BrendanBattleMe, MSGBOX_YESNO
+	return
+
+MossdeepCity_EventScript_BrendanAskToBattle:: @ 81E2EC4
+	msgbox MossdeepCity_Text_BrendanLookHowFarWeveCome, MSGBOX_YESNO
+	return
+
+MossdeepCity_EventScript_DeclineBrendanBattle:: @ 81E2ECD
+	setflag FLAG_DECLINED_RIVAL_BATTLE_MOSSDEEP
+	msgbox MossdeepCity_Text_BrendanBattleDeclined, MSGBOX_DEFAULT
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	release
+	end
+
+MossdeepCity_EventScript_BattleMayTreecko:: @ 81E2EDE
+	trainerbattle_no_intro TRAINER_MAY_MOSSDEEP_TREECKO, MossdeepCity_Text_MayDefeat
+	goto MossdeepCity_EventScript_DefeatedMay
+	end
+
+MossdeepCity_EventScript_BattleMayTorchic:: @ 81E2EEE
+	trainerbattle_no_intro TRAINER_MAY_MOSSDEEP_TORCHIC, MossdeepCity_Text_MayDefeat
+	goto MossdeepCity_EventScript_DefeatedMay
+	end
+
+MossdeepCity_EventScript_BattleMayMudkip:: @ 81E2EFE
+	trainerbattle_no_intro TRAINER_MAY_MOSSDEEP_MUDKIP, MossdeepCity_Text_MayDefeat
+	goto MossdeepCity_EventScript_DefeatedMay
+	end
+
+MossdeepCity_EventScript_BattleBrendanTreecko:: @ 81E2F0E
+	trainerbattle_no_intro TRAINER_BRENDAN_MOSSDEEP_TREECKO, MossdeepCity_Text_BrendanDefeat
+	goto MossdeepCity_EventScript_DefeatedBrendan
+	end
+
+MossdeepCity_EventScript_BattleBrendanTorchic:: @ 81E2F1E
+	trainerbattle_no_intro TRAINER_BRENDAN_MOSSDEEP_TORCHIC, MossdeepCity_Text_BrendanDefeat
+	goto MossdeepCity_EventScript_DefeatedBrendan
+	end
+
+MossdeepCity_EventScript_BattleBrendanMudkip:: @ 81E2F2E
+	trainerbattle_no_intro TRAINER_BRENDAN_MOSSDEEP_MUDKIP, MossdeepCity_Text_BrendanDefeat
+	goto MossdeepCity_EventScript_DefeatedBrendan
+	end
+
+MossdeepCity_EventScript_DefeatedMay:: @ 81E2F3E
+	msgbox MossdeepCity_Text_MayGoingBackToLittleroot, MSGBOX_DEFAULT
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_2F_PICHU_DOLL
+	goto MossdeepCity_EventScript_RivalFlyAway
+	end
+
+MossdeepCity_EventScript_DefeatedBrendan:: @ 81E2FAA
+	msgbox MossdeepCity_Text_BrendanGoingBackToLittleroot, MSGBOX_DEFAULT
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F_SWABLU_DOLL
+	goto MossdeepCity_EventScript_RivalFlyAway
+	end
+
+MossdeepCity_EventScript_RivalFlyAway:: @ 81E3006
+	closemessage
+	applymovement VAR_LAST_TALKED, Common_Movement_WalkInPlaceFastestDown
+	waitmovement 0
+	delay 50
+	setfieldeffectargument 0, 1
+	compare VAR_FACING, DIR_EAST
+	call_if_eq MossdeepCity_EventScript_RivalSetFieldEffectArgEast
+	compare VAR_FACING, DIR_NORTH
+	call_if_eq MossdeepCity_EventScript_RivalSetFieldEffectArgNorth
+	compare VAR_FACING, DIR_WEST
+	call_if_eq MossdeepCity_EventScript_RivalSetFieldEffectArgWest
+	dofieldeffect FLDEFF_NPCFLY_OUT
+	delay 15
+	removeobject VAR_LAST_TALKED
+	waitfieldeffect FLDEFF_NPCFLY_OUT
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	setflag FLAG_MET_RIVAL_MOSSDEEP
+	release
+	end
+
+MossdeepCity_EventScript_RivalSetFieldEffectArgEast::
+	setfieldeffectargument 1, 1 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 0 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 0 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 0 @ is y negative? 0=False, 1=True
+	return
+
+MossdeepCity_EventScript_RivalSetFieldEffectArgNorth::
+	setfieldeffectargument 1, 0 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 0 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 1 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 1 @ is y negative? 0=False, 1=True
+	return
+
+MossdeepCity_EventScript_RivalSetFieldEffectArgWest::
+	setfieldeffectargument 1, 1 @ # tiles away from center on x axis, magnitude only
+	setfieldeffectargument 2, 1 @ is x negative? 0=False, 1=True
+	setfieldeffectargument 3, 0 @ # tiles away from center on y axis, magnitude only
+	setfieldeffectargument 4, 0 @ is y negative? 0=False, 1=True
+	return
+
 
 MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter:: @ 81E4B41
 	lockall
@@ -432,4 +590,123 @@ MossdeepCity_Text_SootopolisNewGymLeader: @ 81E5581
 	.string "Leader come in.\p"
 	.string "People tell me the new Leader once\n"
 	.string "mentored Wallace.$"
+
+MossdeepCity_Text_MayLookHowFarWeveCome: @ 81E3061
+	.string "{RIVAL}: Hey, {PLAYER}!\p"
+	.string "I knew you'd show up here eventually.\n"
+	.string "Look how far we've come.\p"
+	.string "Did you ever think we'd find ourselves\n"
+	.string "all the way out here, so far from home?\p"
+	.string "It's been amazing travelling around\n"
+	.string "Hoenn, finding and documenting all the\l"
+	.string "Pokémon and their habitats.\p"
+	.string "I think my father is going to be very\n"
+	.string "surprised to see just how much data\l"
+	.string "I've recorded once I get home.\p"
+	.string "That's the reason I've been waiting\n"
+	.string "for you, {PLAYER}.\p"
+	.string "I think I'm going to take a break and\n"
+	.string "head back home soon.\p"
+	.string "But before I do, I'd like to battle you.\n"
+	.string "One last time.\p"
+	.string "I want to see just how much we've both\n"
+	.string "grown since leaving home.\p"
+	.string "So, what do you say?\n"
+	.string "Are you up for a battle?$"
+
+MossdeepCity_Text_MayBattleDeclined: @ 81E318D
+	.string "{RIVAL}: Well, hurry and get ready.\p"
+	.string "I don't want to head home before I get\n"
+	.string "a chance to battle with you.$"
+
+MossdeepCity_Text_MayBattleMe: @ 81E31F5
+	.string "{RIVAL}: Are you ready for one last\n"
+	.string "battle before I head home?$"
+
+MossdeepCity_Text_MayWontBeBeaten: @ 81E3234
+	.string "{RIVAL}: My Pokémon I raised…\p"
+	.string "We're going to show you everything\n"
+	.string "we've got! Bring it on!$"
+
+MossdeepCity_Text_MayDefeat: @ 81E3275
+	.string "… … … … … … … …\p"
+	.string "I remember the battle I had with you,\n"
+	.string "{PLAYER}{KUN}, on Route 103.\p"
+	.string "That battle helped you become this\n"
+	.string "strong, {PLAYER}{KUN}, didn't it?$"
+
+MossdeepCity_Text_MayGoingBackToLittleroot: @ 81E32FB
+	.string "{RIVAL}: Thanks, {PLAYER}.\n"
+	.string "That was really fun, despite the loss.\p"
+	.string "I'm going to head back to\n"
+	.string "Littleroot now.\p"
+	.string "You should pay your folks a visit from\n"
+	.string "time to time, too.\p"
+	.string "I'm sure they really miss you.\p"
+	.string "Okay, I'm off! Good luck on the rest\n"
+	.string "of you're journey!\p"
+	.string "You're so close to challenging the\n"
+	.string "the League!\p"
+	.string "I have no doubt that you'll one day make\n"
+	.string "it, and hopefully, become Champion!\p"
+	.string "See you around, {PLAYER}!$"
+
+MossdeepCity_Text_BrendanLookHowFarWeveCome: @ 81E3608
+	.string "{RIVAL}: Hey, {PLAYER}!\p"
+	.string "I knew you'd show up here eventually.\n"
+	.string "Look how far we've come.\p"
+	.string "Did you ever think we'd find ourselves\n"
+	.string "all the way out here, so far from home?\p"
+	.string "It's been amazing travelling around\n"
+	.string "Hoenn, finding and documenting all the\l"
+	.string "Pokémon and their habitats.\p"
+	.string "I think my father is going to be very\n"
+	.string "surprised to see just how much data\l"
+	.string "I've recorded once I get home.\p"
+	.string "That's the reason I've been waiting\n"
+	.string "for you, {PLAYER}.\p"
+	.string "I think I'm going to take a break and\n"
+	.string "head back home soon.\p"
+	.string "But before I do, I'd like to battle you.\n"
+	.string "One last time.\p"
+	.string "I want to see just how much we've both\n"
+	.string "grown since leaving home.\p"
+	.string "So, what do you say?\n"
+	.string "Are you up for a battle?$"
+
+MossdeepCity_Text_BrendanBattleDeclined: @ 81E36BF
+	.string "{RIVAL}: Well, hurry and get ready.\p"
+	.string "I don't want to head home before I get\n"
+	.string "a chance to battle with you.$"
+
+MossdeepCity_Text_BrendanBattleMe: @ 81E36FA
+	.string "{RIVAL}: Are you ready for one last\n"
+	.string "battle before I head home?$"
+
+MossdeepCity_Text_BrendanWontBeBeaten: @ 81E373C
+	.string "{RIVAL}: My Pokémon I raised…\p"
+	.string "We're going to show you everything\n"
+	.string "we've got! Bring it on!$"
+
+MossdeepCity_Text_BrendanDefeat: @ 81E3777
+	.string "Humph…\n"
+	.string "You've done a lot of raising.\p"
+	.string "That stings a bit--I had a head start\n"
+	.string "on you as a Trainer…$"
+
+MossdeepCity_Text_BrendanGoingBackToLittleroot: @ 81E37D7
+	.string "{RIVAL}: Thanks, {PLAYER}.\n"
+	.string "That was really fun, despite the loss.\p"
+	.string "I'm going to head back to\n"
+	.string "Littleroot now.\p"
+	.string "You should pay your folks a visit from\n"
+	.string "time to time, too.\p"
+	.string "I'm sure they really miss you.\p"
+	.string "Okay, I'm off! Good luck on the rest\n"
+	.string "of you're journey!\p"
+	.string "You're so close to challenging the\n"
+	.string "the League!\p"
+	.string "I have no doubt that you'll one day make\n"
+	.string "it, and hopefully, become Champion!\p"
+	.string "See you around, {PLAYER}!$"
 
