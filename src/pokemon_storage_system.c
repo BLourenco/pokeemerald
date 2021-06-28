@@ -745,6 +745,10 @@ static void SpriteCB_ItemIcon_SwapToHand(struct Sprite *);
 static void SpriteCB_ItemIcon_HideParty(struct Sprite *);
 static void SpriteCB_ItemIcon_SwapToMon(struct Sprite *);
 
+// Toggle Modes
+static void ToggleBoxOption();
+static void SetAllMonIconObjMode(u8 cursorArea, u8 boxOption);
+
 // Cursor
 static void CreateCursorSprites(void);
 static void ToggleCursorAutoAction(void);
@@ -2045,7 +2049,7 @@ static void EnterPokeStorage(u8 boxOption)
     }
 }
 
-void Cb2_EnterPSSFromPartyMenu(void)
+void EnterPokeStorageFromPartyMenu(void)
 {
     ResetTasks();
     sCurrentBoxOption = PSS_BOX_OPTION_MOVE_MON;
@@ -2122,7 +2126,7 @@ static void InitStartingPosData(void)
 
 static void SetMonIconTransparency(void)
 {
-    if (sStorage->boxOption == OPTION_MOVE_ITEMS)
+    //if (sStorage->boxOption == OPTION_MOVE_ITEMS)
     {
         SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL);
         SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(7, 11));
@@ -2215,18 +2219,25 @@ static void Task_InitPokeStorage(u8 taskId)
         if (IsInitBoxActive())
             return;
 
-        if (sStorage->boxOption != OPTION_MOVE_ITEMS)
-        {
-            sStorage->markMenu.baseTileTag = GFXTAG_MARKING_MENU;
-            sStorage->markMenu.basePaletteTag = PALTAG_MARKING_MENU;
-            InitMonMarkingsMenu(&sStorage->markMenu);
-            BufferMonMarkingsMenuTiles();
-        }
-        else
-        {
-            CreateItemIconSprites();
-            InitCursorItemIcon();
-        }
+        // if (sStorage->boxOption != OPTION_MOVE_ITEMS)
+        // {
+        //     sStorage->markMenu.baseTileTag = GFXTAG_MARKING_MENU;
+        //     sStorage->markMenu.basePaletteTag = PALTAG_MARKING_MENU;
+        //     InitMonMarkingsMenu(&sStorage->markMenu);
+        //     BufferMonMarkingsMenuTiles();
+        // }
+        // else
+        // {
+        //     CreateItemIconSprites();
+        //     InitCursorItemIcon();
+        // }
+
+        sStorage->markMenu.baseTileTag = GFXTAG_MARKING_MENU;
+        sStorage->markMenu.basePaletteTag = PALTAG_MARKING_MENU;
+        InitMonMarkingsMenu(&sStorage->markMenu);
+        BufferMonMarkingsMenuTiles();
+        CreateItemIconSprites();
+        InitCursorItemIcon();
         break;
     case 10:
         SetMonIconTransparency();
@@ -3903,10 +3914,7 @@ static void InitPalettesAndSprites(void)
     LoadPalette(sInterface_Pal, 0, sizeof(sInterface_Pal));
     LoadPalette(sPkmnDataGray_Pal, 0x20, sizeof(sPkmnDataGray_Pal));
     LoadPalette(sUnknown_Pal, 0xF0, sizeof(sUnknown_Pal));
-    if (sStorage->boxOption != OPTION_MOVE_ITEMS)
-        LoadPalette(sBg_Pal, 0x30, sizeof(sBg_Pal));
-    else
-        LoadPalette(sBgMoveItems_Pal, 0x30, sizeof(sBgMoveItems_Pal));
+    LoadPalette(sBg_Pal, 0x30, sizeof(sBg_Pal));
 
     SetGpuReg(REG_OFFSET_BG1CNT, BGCNT_PRIORITY(1) | BGCNT_CHARBASE(1) | BGCNT_16COLOR | BGCNT_SCREENBASE(30));
     CreateDisplayMonSprite();
@@ -4042,20 +4050,11 @@ static void LoadDisplayMonGfx(u16 species, u32 pid)
 static void PrintDisplayMonInfo(void)
 {
     FillWindowPixelBuffer(0, PIXEL_FILL(1));
-    if (sStorage->boxOption != OPTION_MOVE_ITEMS)
-    {
-        AddTextPrinterParameterized(0, 1, sStorage->displayMonNameText, 6, 0, TEXT_SPEED_FF, NULL);
-        AddTextPrinterParameterized(0, 2, sStorage->displayMonSpeciesName, 6, 15, TEXT_SPEED_FF, NULL);
-        AddTextPrinterParameterized(0, 2, sStorage->displayMonGenderLvlText, 10, 29, TEXT_SPEED_FF, NULL);
-        AddTextPrinterParameterized(0, 0, sStorage->displayMonItemName, 6, 43, TEXT_SPEED_FF, NULL);
-    }
-    else
-    {
-        AddTextPrinterParameterized(0, 0, sStorage->displayMonItemName, 6, 0, TEXT_SPEED_FF, NULL);
-        AddTextPrinterParameterized(0, 1, sStorage->displayMonNameText, 6, 13, TEXT_SPEED_FF, NULL);
-        AddTextPrinterParameterized(0, 2, sStorage->displayMonSpeciesName, 6, 28, TEXT_SPEED_FF, NULL);
-        AddTextPrinterParameterized(0, 2, sStorage->displayMonGenderLvlText, 10, 42, TEXT_SPEED_FF, NULL);
-    }
+
+    AddTextPrinterParameterized(0, 1, sStorage->displayMonNameText, 6, 0, TEXT_SPEED_FF, NULL);
+    AddTextPrinterParameterized(0, 2, sStorage->displayMonSpeciesName, 6, 15, TEXT_SPEED_FF, NULL);
+    AddTextPrinterParameterized(0, 2, sStorage->displayMonGenderLvlText, 10, 29, TEXT_SPEED_FF, NULL);
+    AddTextPrinterParameterized(0, 0, sStorage->displayMonItemName, 6, 43, TEXT_SPEED_FF, NULL);
 
     CopyWindowToVram(0, 2);
     if (sStorage->displayMonSpecies != SPECIES_NONE)
@@ -7138,9 +7137,9 @@ static u8 InBoxInput_Normal(void)
         }
         else if (JOY_NEW(START_BUTTON))
         {
-            retVal = INPUT_MOVE_CURSOR;
-            cursorArea = CURSOR_AREA_BOX_TITLE;
-            cursorPosition = 0;
+            retVal = INPUT_NONE;
+            if (!sIsMonBeingMoved)
+                ToggleBoxOption();
             break;
         }
 
@@ -7410,6 +7409,13 @@ static u8 HandleInput_InParty(void)
                 cursorPosition = 0;
             }
             break;
+        }       
+        else if (JOY_NEW(START_BUTTON))
+        {
+            retVal = INPUT_NONE;
+            if (!sIsMonBeingMoved)
+                ToggleBoxOption();
+            break;
         }
 
         if (JOY_NEW(A_BUTTON))
@@ -7505,6 +7511,13 @@ static u8 HandleInput_OnBox(void)
             cursorArea = CURSOR_AREA_IN_BOX;
             cursorPosition = 2;
             break;
+        }        
+        else if (JOY_NEW(START_BUTTON))
+        {
+            retVal = INPUT_NONE;
+            if (!sIsMonBeingMoved)
+                ToggleBoxOption();
+            break;
         }
 
         if (JOY_HELD(DPAD_LEFT))
@@ -7574,7 +7587,7 @@ static u8 HandleInput_OnButtons(void)
             break;
         }
 
-        if (JOY_REPEAT(DPAD_DOWN | START_BUTTON))
+        if (JOY_REPEAT(DPAD_DOWN))
         {
             retVal = INPUT_MOVE_CURSOR;
             cursorArea = CURSOR_AREA_BOX_TITLE;
@@ -7595,6 +7608,13 @@ static u8 HandleInput_OnButtons(void)
             retVal = INPUT_MOVE_CURSOR;
             if (++cursorPosition > 1)
                 cursorPosition = 0;
+            break;
+        }        
+        else if (JOY_NEW(START_BUTTON))
+        {
+            retVal = INPUT_NONE;
+            if (!sIsMonBeingMoved)
+                ToggleBoxOption();
             break;
         }
 
@@ -8208,6 +8228,7 @@ static bool8 MultiMove_Start(void)
     {
     case 0:
         HideBg(0);
+        ShowBg(3); // Dirty fix for issue of BG disappearing
         sub_80D304C(0x80);
         sMultiMove->state++;
         break;
@@ -8777,7 +8798,7 @@ static void CreateItemIconSprites(void)
     struct CompressedSpriteSheet spriteSheet;
     struct SpriteTemplate spriteTemplate;
 
-    if (sStorage->boxOption == OPTION_MOVE_ITEMS)
+    //if (sStorage->boxOption == OPTION_MOVE_ITEMS)
     {
         spriteSheet.data = sItemIconGfxBuffer;
         spriteSheet.size = 0x200;
@@ -8846,8 +8867,8 @@ static void TryHideItemIconAtPos(u8 cursorArea, u8 cursorPos)
 {
     u8 id;
 
-    if (sStorage->boxOption != OPTION_MOVE_ITEMS)
-        return;
+    // if (sStorage->boxOption != OPTION_MOVE_ITEMS)
+    //     return;
 
     id = GetItemIconIdxByPosition(cursorArea, cursorPos);
     SetItemIconAffineAnim(id, ITEM_ANIM_DISAPPEAR);
@@ -10107,5 +10128,67 @@ static void UnkUtil_DmaRun(struct UnkUtilData *data)
     {
         Dma3FillLarge16_(0, data->dest, data->size);
         data->dest += 64;
+    }
+}
+
+// Modern PC Stuff
+static void ToggleBoxOption()
+{
+    PlaySE(SE_POKENAV_ON);
+    switch (sStorage->boxOption)
+    {
+        case PSS_BOX_OPTION_MOVE_MON:
+            sStorage->boxOption = PSS_BOX_OPTION_MOVE_ITEM;
+            sCurrentBoxOption = PSS_BOX_OPTION_MOVE_ITEM;
+            LoadPalette(sBgMoveItems_Pal, 0x30, sizeof(sBgMoveItems_Pal));
+            break;
+        case PSS_BOX_OPTION_MOVE_ITEM:
+            sStorage->boxOption = PSS_BOX_OPTION_MOVE_MON;
+            sCurrentBoxOption = PSS_BOX_OPTION_MOVE_MON;
+            LoadPalette(sBg_Pal, 0x30, sizeof(sBg_Pal));
+            break;
+    }
+
+    if (sCursorArea == CURSOR_AREA_IN_BOX)
+    {
+        TryHideItemIconAtPos(CURSOR_AREA_IN_BOX, sCursorPosition);
+        TryLoadItemIconAtPos(CURSOR_AREA_IN_BOX, sCursorPosition);
+    }
+    else if (sCursorArea == CURSOR_AREA_IN_PARTY)
+    {
+        TryHideItemIconAtPos(CURSOR_AREA_IN_PARTY, sCursorPosition);
+        TryLoadItemIconAtPos(CURSOR_AREA_IN_PARTY, sCursorPosition);
+    }
+
+    SetAllMonIconObjMode(sCursorArea, sStorage->boxOption);
+}
+
+static void SetAllMonIconObjMode(u8 cursorArea, u8 boxOption)
+{
+    int boxPosition;
+
+    // Update all sprites in box
+    for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
+    {
+        if (GetBoxMonDataAt(StorageGetCurrentBox(), boxPosition, MON_DATA_SPECIES2) != SPECIES_NONE)
+            if (GetBoxMonDataAt(StorageGetCurrentBox(), boxPosition, MON_DATA_HELD_ITEM) == ITEM_NONE
+                && sStorage->boxOption == PSS_BOX_OPTION_MOVE_ITEM)
+                SetBoxMonIconObjMode(boxPosition, ST_OAM_OBJ_BLEND);
+            else
+                SetBoxMonIconObjMode(boxPosition, ST_OAM_OBJ_NORMAL);
+    }
+
+    // Update all sprites in party if party menu is open
+    if (cursorArea  == CURSOR_AREA_IN_PARTY)
+    {
+        for (boxPosition = 0; boxPosition < gPlayerPartyCount; boxPosition++)
+        {
+            if (GetMonData(&gPlayerParty[boxPosition], MON_DATA_SPECIES2) != SPECIES_NONE)
+                if (GetMonData(&gPlayerParty[boxPosition], MON_DATA_HELD_ITEM) == ITEM_NONE
+                    && sStorage->boxOption == PSS_BOX_OPTION_MOVE_ITEM)
+                    SetPartyMonIconObjMode(boxPosition, ST_OAM_OBJ_BLEND);
+                else
+                    SetPartyMonIconObjMode(boxPosition, ST_OAM_OBJ_NORMAL);
+        }
     }
 }

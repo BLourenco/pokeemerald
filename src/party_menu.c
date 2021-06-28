@@ -6859,7 +6859,7 @@ static void UsePokemonBoxLink(u8 taskId)
 {
     PlaySE(SE_SELECT);
     FlagSet(FLAG_SYS_REMOTE_PC_ACTIVE);
-    sPartyMenuInternal->exitCallback = Cb2_EnterPSSFromPartyMenu;
+    sPartyMenuInternal->exitCallback = EnterPokeStorageFromPartyMenu;
     Task_ClosePartyMenu(taskId);
 }
 
