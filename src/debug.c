@@ -94,6 +94,7 @@ enum { // Give
     DEBUG_GIVE_MENU_ITEM_ALLITEMS,
     DEBUG_GIVE_MENU_ITEM_POKEMON_SIMPLE,
     DEBUG_GIVE_MENU_ITEM_POKEMON_COMPLEX,
+    DEBUG_GIVE_MENU_ITEM_POKEMON_PC_TEST,
     DEBUG_GIVE_MENU_ITEM_CHEAT,
     //DEBUG_MENU_ITEM_ACCESS_PC,
 };
@@ -209,6 +210,7 @@ static void DebugAction_Give_Pokemon_SelectAbility(u8 taskId);
 static void DebugAction_Give_Pokemon_SelectIVs(u8 taskId);
 static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId);
 static void DebugAction_Give_Pokemon_Move(u8 taskId);
+static void DebugAction_Give_Pokemon_PC_Test(u8 taskId);
 static void DebugAction_Give_CHEAT(u8 taskId);
 static void DebugAction_AccessPC(u8 taskId);
 
@@ -225,7 +227,7 @@ extern const u8 gAbilityNames[][ABILITY_NAME_LENGTH + 1];
 
 // *******************************
 //Maps per map group COPY FROM /include/constants/map_groups.h
- static const u8 MAP_GROUP_COUNT[] = {57, 5, 5, 6, 7, 8, 9, 7, 7, 14, 8, 17, 10, 23, 13, 15, 15, 2, 2, 2, 3, 1, 1, 1, 108, 61, 89, 2, 1, 13, 1, 1, 3, 1, 0};
+static const u8 MAP_GROUP_COUNT[] = {63, 5, 6, 6, 9, 8, 8, 7, 7, 13, 11, 21, 10, 23, 13, 15, 16, 2, 2, 2, 3, 1, 1, 1, 127, 61, 91, 2, 1, 13, 1, 1, 3, 1, 1, 1, 0};
 
 // Text
 // Main Menu
@@ -297,6 +299,7 @@ static const u8 gDebugText_PokemonMove_0[] =            _("Move 0: {STR_VAR_3}  
 static const u8 gDebugText_PokemonMove_1[] =            _("Move 1: {STR_VAR_3}                   \n{STR_VAR_1}           \n          \n{STR_VAR_2}");
 static const u8 gDebugText_PokemonMove_2[] =            _("Move 2: {STR_VAR_3}                   \n{STR_VAR_1}           \n          \n{STR_VAR_2}");
 static const u8 gDebugText_PokemonMove_3[] =            _("Move 3: {STR_VAR_3}                   \n{STR_VAR_1}           \n          \n{STR_VAR_2}");
+static const u8 gDebugText_Give_GivePokemonPCTest[] =   _("PC Test");
 static const u8 gDebugText_Give_GiveCHEAT[] =           _("CHEAT start");
 // static const u8 gDebugText_Give_AccessPC[] =         _("Access PC");
 
@@ -384,6 +387,7 @@ static const struct ListMenuItem sDebugMenu_Items_Give[] =
     [DEBUG_GIVE_MENU_ITEM_ALLITEMS]         = {gDebugText_Give_AllItems,            DEBUG_GIVE_MENU_ITEM_ALLITEMS},
     [DEBUG_GIVE_MENU_ITEM_POKEMON_SIMPLE]   = {gDebugText_Give_GivePokemonSimple,   DEBUG_GIVE_MENU_ITEM_POKEMON_SIMPLE},
     [DEBUG_GIVE_MENU_ITEM_POKEMON_COMPLEX]  = {gDebugText_Give_GivePokemonComplex,  DEBUG_GIVE_MENU_ITEM_POKEMON_COMPLEX},
+    [DEBUG_GIVE_MENU_ITEM_POKEMON_PC_TEST]  = {gDebugText_Give_GivePokemonPCTest,  DEBUG_GIVE_MENU_ITEM_POKEMON_PC_TEST},
     [DEBUG_GIVE_MENU_ITEM_CHEAT]            = {gDebugText_Give_GiveCHEAT,           DEBUG_GIVE_MENU_ITEM_CHEAT},
     //[DEBUG_MENU_ITEM_ACCESS_PC] = {gDebugText_AccessPC, DEBUG_MENU_ITEM_ACCESS_PC},
 };
@@ -439,6 +443,7 @@ static void (*const sDebugMenu_Actions_Give[])(u8) =
     [DEBUG_GIVE_MENU_ITEM_ALLITEMS]           = DebugAction_Give_AllItems,
     [DEBUG_GIVE_MENU_ITEM_POKEMON_SIMPLE]   = DebugAction_Give_PokemonSimple,
     [DEBUG_GIVE_MENU_ITEM_POKEMON_COMPLEX]  = DebugAction_Give_PokemonComplex,
+    [DEBUG_GIVE_MENU_ITEM_POKEMON_PC_TEST]  = DebugAction_Give_Pokemon_PC_Test,
     [DEBUG_GIVE_MENU_ITEM_CHEAT]            = DebugAction_Give_CHEAT,
     //[DEBUG_MENU_ITEM_ACCESS_PC] = DebugAction_AccessPC,
 };
@@ -1661,7 +1666,6 @@ static void DebugAction_Give_Item_SelectQuantity(u8 taskId)
     }
 }
 
-//TMs
 static void DebugAction_Give_AllItems(u8 taskId)
 {
     u16 i;
@@ -2466,6 +2470,37 @@ static void DebugAction_Give_CHEAT(u8 taskId)
     Debug_DestroyMenu(taskId);
     ScriptContext2_Enable();
     ScriptContext1_SetupScript(Debug_CheatStart);
+}
+
+static void DebugAction_Give_Pokemon_PC_Test(u8 taskId)
+{
+    u8 box, slot;
+    struct Pokemon mon;
+    u16 item;
+
+    u32 otid = gSaveBlock2Ptr->playerTrainerId[0]
+        | (gSaveBlock2Ptr->playerTrainerId[1] << 8)
+        | (gSaveBlock2Ptr->playerTrainerId[2] << 16)
+        | (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+
+    for (box = 0; box < 3; box++)
+    {
+        for (slot = 0; slot < 30; slot++)
+        {    
+            if (Random() % 2)
+            {        
+                if (Random() % 2)
+                    item = ITEM_RARE_CANDY;
+                else
+                    item = ITEM_NONE;
+
+                ScriptGiveMon(Random() % 386, 100, item, 0, 0, 0);
+            }
+        }
+    }
+
+    Debug_DestroyMenu(taskId);
+    EnableBothScriptContexts();
 }
 
 // static void DebugAction_AccessPC(u8 taskId)
