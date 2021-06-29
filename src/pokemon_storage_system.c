@@ -1562,13 +1562,13 @@ static void Task_PCMainMenu(u8 taskId)
     switch (task->tState)
     {
     case STATE_LOAD:
-        CreateMainMenu(task->tSelectedOption, &task->tWindowId);
-        LoadMessageBoxAndBorderGfx();
-        DrawDialogueFrame(0, 0);
-        FillWindowPixelBuffer(0, PIXEL_FILL(1));
-        AddTextPrinterParameterized2(0, 1, sMainMenuTexts[task->tSelectedOption].desc, TEXT_SPEED_FF, NULL, 2, 1, 3);
-        CopyWindowToVram(0, 3);
-        CopyWindowToVram(task->tWindowId, 3);
+        // CreateMainMenu(task->tSelectedOption, &task->tWindowId);
+        // LoadMessageBoxAndBorderGfx();
+        // DrawDialogueFrame(0, 0);
+        // FillWindowPixelBuffer(0, PIXEL_FILL(1));
+        // AddTextPrinterParameterized2(0, 1, sMainMenuTexts[task->tSelectedOption].desc, TEXT_SPEED_FF, NULL, 2, 1, 3);
+        // CopyWindowToVram(0, 3);
+        // CopyWindowToVram(task->tWindowId, 3);
         task->tState++;
         break;
     case STATE_FADE_IN:
@@ -1576,7 +1576,8 @@ static void Task_PCMainMenu(u8 taskId)
             task->tState++;
         break;
     case STATE_HANDLE_INPUT:
-        task->tInput = Menu_ProcessInput();
+        // task->tInput = Menu_ProcessInput();
+        task->tInput = gTasks[taskId].tSelectedOption;
         switch(task->tInput)
         {
         case MENU_NOTHING_CHOSEN:
@@ -1595,10 +1596,10 @@ static void Task_PCMainMenu(u8 taskId)
             break;
         case MENU_B_PRESSED:
         case OPTION_EXIT:
-            ClearStdWindowAndFrame(task->tWindowId, TRUE);
+            //ClearStdWindowAndFrame(task->tWindowId, TRUE);
             ScriptContext2_Disable();
             EnableBothScriptContexts();
-            RemoveWindow(task->tWindowId);
+            //RemoveWindow(task->tWindowId);
             DestroyTask(taskId);
             break;
         default:
@@ -1659,7 +1660,7 @@ static void Task_PCMainMenu(u8 taskId)
         if (!gPaletteFade.active)
         {
             CleanupOverworldWindowsAndTilemaps();
-            EnterPokeStorage(task->tInput);
+            EnterPokeStorage(PSS_BOX_OPTION_MOVE_MON);
             RemoveWindow(task->tWindowId);
             DestroyTask(taskId);
         }
@@ -1671,7 +1672,7 @@ void ShowPokemonStorageSystemPC(void)
 {
     u8 taskId = CreateTask(Task_PCMainMenu, 80);
     gTasks[taskId].tState = 0;
-    gTasks[taskId].tSelectedOption = 0;
+    gTasks[taskId].tSelectedOption = OPTION_MOVE_MONS;
     ScriptContext2_Enable();
 }
 
@@ -1683,7 +1684,7 @@ static void FieldTask_ReturnToPcMenu(void)
     SetVBlankCallback(NULL);
     taskId = CreateTask(Task_PCMainMenu, 80);
     gTasks[taskId].tState = 0;
-    gTasks[taskId].tSelectedOption = sPreviousBoxOption;
+    gTasks[taskId].tSelectedOption = OPTION_EXIT;
     Task_PCMainMenu(taskId);
     SetVBlankCallback(vblankCb);
     FadeInFromBlack();
