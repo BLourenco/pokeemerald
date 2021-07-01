@@ -12227,26 +12227,6 @@
         {
           "map": "MAP_OVERGROWN_FOREST",
           "base_label": "gOvergrownForest",
-          "hidden_mons": {
-            "encounter_rate": 0,
-            "mons": [
-              {
-                "min_level": 32,
-                "max_level": 34,
-                "species": "SPECIES_KANGASKHAN"
-              },
-              {
-                "min_level": 32,
-                "max_level": 34,
-                "species": "SPECIES_KANGASKHAN"
-              },
-              {
-                "min_level": 32,
-                "max_level": 34,
-                "species": "SPECIES_CHANSEY"
-              }
-            ]
-          },
           "headbutt_mons": {
             "encounter_rate": 180,
             "mons": [
