@@ -112,3 +112,78 @@ FallarborTown_PokemonCenter_1F_Text_PlantHardyTrees: @ 8200E8B
 	.string "seedlings of hardy trees that thrive\l"
 	.string "even in volcanic ash.$"
 
+FallarborTown_PokemonCenter_1F_EventScript_Trader::
+	lock
+	faceplayer
+	goto_if_set FLAG_FALLARBOR_TRADE_COMPLETED, FallarborTown_PokemonCenter_1F_EventScript_TradeCompleted
+	setvar VAR_0x8008, INGAME_TRADE_BLITZLE
+	copyvar VAR_0x8004, VAR_0x8008
+	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
+	copyvar VAR_0x8009, VAR_RESULT
+	msgbox FallarborTown_PokemonCenter_1F_Text_WouldYouLikeToTrade, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq FallarborTown_PokemonCenter_1F_EventScript_DeclineTrade
+	special ChoosePartyMon
+	waitstate
+	copyvar VAR_0x800A, VAR_0x8004
+	compare VAR_0x8004, 255
+	goto_if_eq FallarborTown_PokemonCenter_1F_EventScript_DeclineTrade
+	copyvar VAR_0x8005, VAR_0x800A
+	specialvar VAR_RESULT, GetTradeSpecies
+	copyvar VAR_0x800B, VAR_RESULT
+	compare VAR_RESULT, VAR_0x8009
+	goto_if_ne FallarborTown_PokemonCenter_1F_EventScript_NotRequestedMon
+	copyvar VAR_0x8004, VAR_0x8008
+	copyvar VAR_0x8005, VAR_0x800A
+	special CreateInGameTradePokemon
+	special DoInGameTradeScene
+	waitstate
+	msgbox FallarborTown_PokemonCenter_1F_Text_PromiseIllBeGoodToIt, MSGBOX_DEFAULT
+	setflag FLAG_FALLARBOR_TRADE_COMPLETED
+	release
+	end
+
+FallarborTown_PokemonCenter_1F_EventScript_DeclineTrade:: @ 826506B
+	msgbox FallarborTown_PokemonCenter_1F_Text_WellThatsFineToo, MSGBOX_DEFAULT
+	release
+	end
+
+FallarborTown_PokemonCenter_1F_EventScript_NotRequestedMon:: @ 8265075
+	bufferspeciesname 0, VAR_0x8009
+	msgbox FallarborTown_PokemonCenter_1F_Text_DontTradeForAnythingButMon, MSGBOX_DEFAULT
+	release
+	end
+
+FallarborTown_PokemonCenter_1F_EventScript_TradeCompleted:: @ 8265083
+	msgbox FallarborTown_PokemonCenter_1F_Text_SkittySoMuchCuterThanImagined, MSGBOX_DEFAULT
+	release
+	end
+
+FallarborTown_PokemonCenter_1F_Text_WouldYouLikeToTrade:
+	.string "Why hello there!\n"
+	.string "May I interest you in a trade?\p"
+	.string "I have a fine {STR_VAR_2} here that\n"
+	.string "is quite precious.\p"
+	.string "However, if you were to offer me, say,\n"
+	.string "a {STR_VAR_1}, I'd consider a trade.\p"
+	.string "What say you?\n"
+	.string "My {STR_VAR_2} for your {STR_VAR_1}?$"
+
+FallarborTown_PokemonCenter_1F_Text_PromiseIllBeGoodToIt: @ 8265128
+	.string "Splendid!\p"
+	.string "Please take good care of it!$"
+
+FallarborTown_PokemonCenter_1F_Text_DontTradeForAnythingButMon: @ 826518D
+	.string "Apologies!\n"
+	.string "But I won't accept anything\l"
+	.string "but a {STR_VAR_1}.$"
+
+FallarborTown_PokemonCenter_1F_Text_WellThatsFineToo: @ 82651CB
+	.string "Very well, then.\n"
+	.string "If you ever reconsider,\l"
+	.string "I'll be here.$"
+
+FallarborTown_PokemonCenter_1F_Text_SkittySoMuchCuterThanImagined: @ 826520E
+	.string "What a fine Pokémon Ponyta is!\n"
+	.string "So regal and elegant!\p"
+	.string "I am in awe of it!$"

@@ -1,15 +1,59 @@
 DewfordTown_House1_MapScripts:: @ 81FC3CD
 	.byte 0
 
-DewfordTown_House1_EventScript_Man:: @ 81FC3CE
-	msgbox DewfordTown_House1_Text_LotToBeSaidForLivingOnIsland, MSGBOX_NPC
+DewfordTown_House1_EventScript_Trader:: @ 82162BB
+	lock
+	faceplayer
+	goto_if_set FLAG_DEWFORD_NPC_TRADE_COMPLETED, DewfordTown_House1_EventScript_TradeCompleted
+	setvar VAR_0x8008, INGAME_TRADE_STUFFUL
+	copyvar VAR_0x8004, VAR_0x8008
+	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
+	copyvar VAR_0x8009, VAR_RESULT
+	msgbox DewfordTown_House1_Text_YouWillTradeWontYou, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq DewfordTown_House1_EventScript_DeclineTrade
+	special ChoosePartyMon
+	waitstate
+	copyvar VAR_0x800A, VAR_0x8004
+	compare VAR_0x8004, 255
+	goto_if_eq DewfordTown_House1_EventScript_DeclineTrade
+	copyvar VAR_0x8005, VAR_0x800A
+	specialvar VAR_RESULT, GetTradeSpecies
+	copyvar VAR_0x800B, VAR_RESULT
+	compare VAR_RESULT, VAR_0x8009
+	goto_if_ne DewfordTown_House1_EventScript_NotRequestedMon
+	copyvar VAR_0x8004, VAR_0x8008
+	copyvar VAR_0x8005, VAR_0x800A
+	special CreateInGameTradePokemon
+	special DoInGameTradeScene
+	waitstate
+	bufferspeciesname 0, VAR_0x8009
+	msgbox DewfordTown_House1_Text_MonYouTakeCare, MSGBOX_DEFAULT
+	setflag FLAG_DEWFORD_NPC_TRADE_COMPLETED
+	release
 	end
 
-DewfordTown_House1_EventScript_Woman:: @ 81FC3D7
-	msgbox DewfordTown_House1_Text_LifeGoesSlowlyOnIsland, MSGBOX_NPC
+DewfordTown_House1_EventScript_DeclineTrade:: @ 821633D
+	msgbox DewfordTown_House1_Text_YouWontTradeMe, MSGBOX_DEFAULT
+	release
 	end
 
-DewfordTown_House1_EventScript_Zigzagoon:: @ 81FC3E0
+DewfordTown_House1_EventScript_NotRequestedMon:: @ 8216347
+	bufferspeciesname 0, VAR_0x8009
+	msgbox DewfordTown_House1_Text_ThisIsntAMon, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_House1_EventScript_TradeCompleted:: @ 8216355
+	msgbox DewfordTown_House1_Text_GoingToMakeVolbeatStrong, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_House1_EventScript_ExpertF:: @ 821635F
+	msgbox DewfordTown_House1_Text_TradingMemoriesWithOthers, MSGBOX_NPC
+	end
+
+DewfordTown_House1_EventScript_Zigzagoon:: @ 8216368
 	lock
 	faceplayer
 	waitse
@@ -19,18 +63,39 @@ DewfordTown_House1_EventScript_Zigzagoon:: @ 81FC3E0
 	release
 	end
 
-DewfordTown_House1_Text_LotToBeSaidForLivingOnIsland: @ 81FC3F3
-	.string "There's a lot to be said for living on\n"
-	.string "a small island like this in harmony with\l"
-	.string "Pokémon and the family.$"
+DewfordTown_House1_Text_YouWillTradeWontYou: @ 821637B
+	.string "Wrooooaaar! I need it!\n"
+	.string "I have to get me a {STR_VAR_1}!\l"
+	.string "I'll do anything for it!\p"
+	.string "…Uh… Did you hear that?\n"
+	.string "My shout from the bottom of my heart?\p"
+	.string "Having heard that, you will trade\n"
+	.string "your {STR_VAR_1} for my {STR_VAR_2},\l"
+	.string "won't you?$"
 
-DewfordTown_House1_Text_LifeGoesSlowlyOnIsland: @ 81FC45B
-	.string "I left the major port of Slateport\n"
-	.string "City when I married my husband here.\p"
-	.string "Life goes by slowly on this little\n"
-	.string "island. But being surrounded by the\l"
-	.string "beautiful sea--that's happiness, too.$"
+DewfordTown_House1_Text_MonYouTakeCare: @ 8216440
+	.string "Oh, yeah, right on!\p"
+	.string "{STR_VAR_1}, welcome!\n"
+	.string "{STR_VAR_2}, you take care!$"
 
-DewfordTown_House1_Text_Zigzagoon: @ 81FC510
-	.string "Zigzagoon: Guguuh!$"
+DewfordTown_House1_Text_ThisIsntAMon: @ 8216474
+	.string "Uh, no, I don't think so.\n"
+	.string "That isn't a {STR_VAR_1}.$"
+
+DewfordTown_House1_Text_YouWontTradeMe: @ 821649F
+	.string "No? You won't trade me?\n"
+	.string "Even after I bared my heart to you?$"
+
+DewfordTown_House1_Text_GoingToMakeVolbeatStrong: @ 82164DB
+	.string "I'm going to make Tyrogue super\n"
+	.string "strong from this moment on!\p"
+	.string "I hope you do the same with Stufful!$"
+
+DewfordTown_House1_Text_TradingMemoriesWithOthers: @ 821653B
+	.string "Trading Pokémon with others…\p"
+	.string "It's as if you're trading your own\n"
+	.string "memories with other people.$"
+
+DewfordTown_House1_Text_Zigzagoon: @ 8216597
+	.string "Zigzagoon: Gumomoh?$"
 

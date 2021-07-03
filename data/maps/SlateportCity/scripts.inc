@@ -954,6 +954,83 @@ SlateportCity_EventScript_BerryCrushRankingsSign:: @ 81DD643
 	releaseall
 	end
 
+SlateportCity_EventScript_Trader::
+	lock
+	faceplayer
+	goto_if_set FLAG_SLATEPORT_NPC_TRADE_COMPLETED, SlateportCity_EventScript_TradeCompleted
+	setvar VAR_0x8008, INGAME_TRADE_DRIFLOON
+	copyvar VAR_0x8004, VAR_0x8008
+	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
+	copyvar VAR_0x8009, VAR_RESULT
+	msgbox SlateportCity_Text_WillingToTradeIt, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq SlateportCity_EventScript_DeclineTrade
+	special ChoosePartyMon
+	waitstate
+	copyvar VAR_0x800A, VAR_0x8004
+	compare VAR_0x8004, 255
+	goto_if_eq SlateportCity_EventScript_DeclineTrade
+	copyvar VAR_0x8005, VAR_0x800A
+	specialvar VAR_RESULT, GetTradeSpecies
+	copyvar VAR_0x800B, VAR_RESULT
+	compare VAR_RESULT, VAR_0x8009
+	goto_if_ne SlateportCity_EventScript_NotRequestedMon
+	copyvar VAR_0x8004, VAR_0x8008
+	copyvar VAR_0x8005, VAR_0x800A
+	special CreateInGameTradePokemon
+	special DoInGameTradeScene
+	waitstate
+	bufferspeciesname 0, VAR_0x8009
+	msgbox SlateportCity_Text_ItsSubtlyDifferentThankYou, MSGBOX_DEFAULT
+	setflag FLAG_SLATEPORT_NPC_TRADE_COMPLETED
+	release
+	end
+
+SlateportCity_EventScript_DeclineTrade:: @ 8203C93
+	msgbox SlateportCity_Text_NotDesperateOrAnything, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_NotRequestedMon:: @ 8203C9D
+	bufferspeciesname 0, VAR_0x8009
+	msgbox SlateportCity_Text_WontAcceptAnyLessThanRealMon, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_TradeCompleted:: @ 8203CAB
+	msgbox SlateportCity_Text_ReallyWantedToGetBagon, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_Text_WillingToTradeIt: @ 8203CBE
+	.string "Check out this {STR_VAR_2}!\p"
+	.string "My balloons here seemed to attract\n"
+	.string "this {STR_VAR_2} to me!\p"
+	.string "Oh, I can see that you want it!\n"
+	.string "After all, it's a rare Pokémon!\p"
+	.string "I'll tell you what. I might be willing\n"
+	.string "to trade it for a {STR_VAR_1}.$"
+
+SlateportCity_Text_ItsSubtlyDifferentThankYou: @ 8203D87
+	.string "Oh, so this is a {STR_VAR_1}?\n"
+	.string "Thank you!$"
+
+SlateportCity_Text_WontAcceptAnyLessThanRealMon: @ 8203DDE
+	.string "No, no, no! I won't accept any\n"
+	.string "less than a real {STR_VAR_1}!$"
+
+SlateportCity_Text_NotDesperateOrAnything: @ 8203E12
+	.string "Oh, so you're not going to go through\n"
+	.string "with this?\p"
+	.string "That's cool. I'm not desperate to make\n"
+	.string "a trade or anything.$"
+
+SlateportCity_Text_ReallyWantedToGetBagon: @ 8203E7F
+	.string "I know I could go looking for one\n"
+	.string "on my own, but…\p"
+	.string "But I really wanted to get a Buizel\n"
+	.string "that another Trainer caught…$"
+
 SlateportCity_Text_EnergyGuruSellWhatYouNeed: @ 81DD64A
 	.string "I'm the Energy Guru! I'll go for it and\n"
 	.string "sell you what you need!$"
