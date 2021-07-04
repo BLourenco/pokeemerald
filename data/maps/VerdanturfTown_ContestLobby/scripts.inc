@@ -38,7 +38,7 @@ VerdanturfTown_ContestLobby_EventScript_ArtistSmeargleGift::
 	compare VAR_RESULT, NO
 	goto_if_eq VerdanturfTown_ContestLobby_EventScript_ArtistSmeargleGiftDecline
 	msgbox VerdanturfTown_ContestLobby_Text_ArtistSmeargleGiftAccept, MSGBOX_DEFAULT
-	givemon SPECIES_SMEARGLE, 10, ITEM_NONE
+	givemon SPECIES_SMEARGLE, 15, ITEM_NONE
 	compare VAR_RESULT, 0
 	goto_if_eq VerdanturfTown_ContestLobby_EventScript_ReceiveSmeargleParty
 	compare VAR_RESULT, 1
@@ -53,6 +53,7 @@ VerdanturfTown_ContestLobby_EventScript_ReceiveSmeargleParty::
 	compare VAR_RESULT, YES
 	call_if_eq VerdanturfTown_ContestLobby_EventScript_NicknameSmeargle
 	setflag FLAG_RECEIVED_SMEARGLE
+	call VerdanturfTown_ContestLobby_EventScript_TakeCareOfSmeargle
 	end
 
 VerdanturfTown_ContestLobby_EventScript_NicknameSmeargle::	
@@ -71,7 +72,8 @@ VerdanturfTown_ContestLobby_EventScript_ReceiveSmearglePC::
 
 VerdanturfTown_ContestLobby_EventScript_TransferSmeargleToPC::
 	call Common_EventScript_TransferredToPC
-	setflag FLAG_RECEIVED_SMEARGLE
+	setflag FLAG_RECEIVED_SMEARGLE	
+	call VerdanturfTown_ContestLobby_EventScript_TakeCareOfSmeargle
 	end
 
 VerdanturfTown_ContestLobby_EventScript_ReceivedSmeargleFanfare::
@@ -90,6 +92,7 @@ VerdanturfTown_ContestLobby_EventScript_ArtistSmeargleGiftDecline::
 
 VerdanturfTown_ContestLobby_EventScript_TakeCareOfSmeargle::
 	msgbox VerdanturfTown_ContestLobby_Text_TakeCareOfSmeargle, MSGBOX_DEFAULT
+	closemessage
 	releaseall
 	end
 
