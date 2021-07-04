@@ -427,7 +427,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -601,7 +601,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -690,7 +690,7 @@
           "map": "MAP_ROUTE105",
           "base_label": "gRoute105",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -899,7 +899,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 29,
@@ -988,7 +988,7 @@
           "map": "MAP_ROUTE111",
           "base_label": "gRoute111",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 25,
@@ -1470,7 +1470,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -2007,7 +2007,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -2096,7 +2096,7 @@
           "map": "MAP_ROUTE124",
           "base_label": "gRoute124",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 42,
@@ -2309,7 +2309,7 @@
           "map": "MAP_RUSTURF_TUNNEL",
           "base_label": "gRusturfTunnel",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 8,
@@ -2398,7 +2398,7 @@
           "map": "MAP_GRANITE_CAVE_1F",
           "base_label": "gGraniteCave_1F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 9,
@@ -2467,7 +2467,7 @@
           "map": "MAP_GRANITE_CAVE_B1F",
           "base_label": "gGraniteCave_B1F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 10,
@@ -2556,7 +2556,7 @@
           "map": "MAP_MT_PYRE_1F",
           "base_label": "gMtPyre_1F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 36,
@@ -2783,7 +2783,7 @@
           "map": "MAP_UNDERWATER_ROUTE126",
           "base_label": "gUnderwater_Route126",
           "water_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 45,
@@ -2817,7 +2817,7 @@
           "map": "MAP_ABANDONED_SHIP_ROOMS_B1F",
           "base_label": "gAbandonedShip_Rooms_B1F",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -2906,7 +2906,7 @@
           "map": "MAP_GRANITE_CAVE_B2F",
           "base_label": "gGraniteCave_B2F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 11,
@@ -3025,7 +3025,7 @@
           "map": "MAP_FIERY_PATH",
           "base_label": "gFieryPath",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 17,
@@ -3114,7 +3114,7 @@
           "map": "MAP_METEOR_FALLS_B1F_2R",
           "base_label": "gMeteorFalls_B1F_2R",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 25,
@@ -3179,7 +3179,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -3392,7 +3392,7 @@
           "map": "MAP_ROUTE106",
           "base_label": "gRoute106",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -3481,7 +3481,7 @@
           "map": "MAP_ROUTE107",
           "base_label": "gRoute107",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -3570,7 +3570,7 @@
           "map": "MAP_ROUTE108",
           "base_label": "gRoute108",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -3723,8 +3723,7 @@
               }
             ]
           },
-          "water_mons": {
-            "encounter_rate": 4,
+          2,
             "mons": [
               {
                 "min_level": 30,
@@ -3898,7 +3897,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -3987,7 +3986,7 @@
           "map": "MAP_NEW_MAUVILLE_INSIDE",
           "base_label": "gNewMauville_Inside",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 29,
@@ -4056,7 +4055,7 @@
           "map": "MAP_ROUTE119",
           "base_label": "gRoute119",
           "land_mons": {
-            "encounter_rate": 15,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 32,
@@ -4121,7 +4120,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 32,
@@ -4275,7 +4274,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 34,
@@ -4449,7 +4448,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 35,
@@ -4538,7 +4537,7 @@
           "map": "MAP_ROUTE122",
           "base_label": "gRoute122",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 35,
@@ -4781,7 +4780,7 @@
           "map": "MAP_MT_PYRE_2F",
           "base_label": "gMtPyre_2F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 36,
@@ -4870,7 +4869,7 @@
           "map": "MAP_MT_PYRE_3F",
           "base_label": "gMtPyre_3F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 36,
@@ -4959,7 +4958,7 @@
           "map": "MAP_MT_PYRE_4F",
           "base_label": "gMtPyre_4F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 37,
@@ -5048,7 +5047,7 @@
           "map": "MAP_MT_PYRE_5F",
           "base_label": "gMtPyre_5F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 37,
@@ -5137,7 +5136,7 @@
           "map": "MAP_MT_PYRE_6F",
           "base_label": "gMtPyre_6F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 37,
@@ -5226,7 +5225,7 @@
           "map": "MAP_MT_PYRE_EXTERIOR",
           "base_label": "gMtPyre_Exterior",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 36,
@@ -5315,7 +5314,7 @@
           "map": "MAP_MT_PYRE_SUMMIT",
           "base_label": "gMtPyre_Summit",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 37,
@@ -5404,7 +5403,7 @@
           "map": "MAP_GRANITE_CAVE_STEVENS_ROOM",
           "base_label": "gGraniteCave_StevensRoom",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 9,
@@ -5473,7 +5472,7 @@
           "map": "MAP_ROUTE125",
           "base_label": "gRoute125",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 42,
@@ -5562,7 +5561,7 @@
           "map": "MAP_ROUTE126",
           "base_label": "gRoute126",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 43,
@@ -5651,7 +5650,7 @@
           "map": "MAP_ROUTE127",
           "base_label": "gRoute127",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 43,
@@ -5740,7 +5739,7 @@
           "map": "MAP_ROUTE128",
           "base_label": "gRoute128",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 43,
@@ -5829,7 +5828,7 @@
           "map": "MAP_ROUTE129",
           "base_label": "gRoute129",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 43,
@@ -5983,7 +5982,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 43,
@@ -6072,7 +6071,7 @@
           "map": "MAP_ROUTE131",
           "base_label": "gRoute131",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 43,
@@ -6161,7 +6160,7 @@
           "map": "MAP_ROUTE132",
           "base_label": "gRoute132",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 39,
@@ -6250,7 +6249,7 @@
           "map": "MAP_ROUTE133",
           "base_label": "gRoute133",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 39,
@@ -6339,7 +6338,7 @@
           "map": "MAP_ROUTE134",
           "base_label": "gRoute134",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -6517,7 +6516,7 @@
           "map": "MAP_SEAFLOOR_CAVERN_ROOM1",
           "base_label": "gSeafloorCavern_Room1",
           "land_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 44,
@@ -6586,7 +6585,7 @@
           "map": "MAP_SEAFLOOR_CAVERN_ROOM2",
           "base_label": "gSeafloorCavern_Room2",
           "land_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 44,
@@ -6655,7 +6654,7 @@
           "map": "MAP_SEAFLOOR_CAVERN_ROOM3",
           "base_label": "gSeafloorCavern_Room3",
           "land_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 44,
@@ -6724,7 +6723,7 @@
           "map": "MAP_SEAFLOOR_CAVERN_ROOM4",
           "base_label": "gSeafloorCavern_Room4",
           "land_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 44,
@@ -6793,7 +6792,7 @@
           "map": "MAP_SEAFLOOR_CAVERN_ROOM5",
           "base_label": "gSeafloorCavern_Room5",
           "land_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 44,
@@ -6862,7 +6861,7 @@
           "map": "MAP_SEAFLOOR_CAVERN_ROOM6",
           "base_label": "gSeafloorCavern_Room6",
           "land_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 44,
@@ -6927,7 +6926,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 44,
@@ -7016,7 +7015,7 @@
           "map": "MAP_SEAFLOOR_CAVERN_ROOM7",
           "base_label": "gSeafloorCavern_Room7",
           "land_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 44,
@@ -7081,7 +7080,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 44,
@@ -7170,7 +7169,7 @@
           "map": "MAP_SEAFLOOR_CAVERN_ROOM8",
           "base_label": "gSeafloorCavern_Room8",
           "land_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 44,
@@ -7239,7 +7238,7 @@
           "map": "MAP_SEAFLOOR_CAVERN_ENTRANCE",
           "base_label": "gSeafloorCavern_Entrance",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 44,
@@ -7673,7 +7672,7 @@
           "map": "MAP_NEW_MAUVILLE_ENTRANCE",
           "base_label": "gNewMauville_Entrance",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 29,
@@ -8432,7 +8431,7 @@
           "map": "MAP_METEOR_FALLS_1F_1R",
           "base_label": "gMeteorFalls_1F_1R",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 20,
@@ -8497,7 +8496,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -8586,7 +8585,7 @@
           "map": "MAP_METEOR_FALLS_1F_2R",
           "base_label": "gMeteorFalls_1F_2R",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 45,
@@ -8651,7 +8650,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 45,
@@ -8740,7 +8739,7 @@
           "map": "MAP_METEOR_FALLS_B1F_1R",
           "base_label": "gMeteorFalls_B1F_1R",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 30,
@@ -8805,7 +8804,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -8894,7 +8893,7 @@
           "map": "MAP_SHOAL_CAVE_LOW_TIDE_STAIRS_ROOM",
           "base_label": "gShoalCave_LowTideStairsRoom",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 43,
@@ -8963,7 +8962,7 @@
           "map": "MAP_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM",
           "base_label": "gShoalCave_LowTideLowerRoom",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 43,
@@ -9032,7 +9031,7 @@
           "map": "MAP_SHOAL_CAVE_LOW_TIDE_INNER_ROOM",
           "base_label": "gShoalCave_LowTideInnerRoom",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 43,
@@ -9097,7 +9096,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 43,
@@ -9186,7 +9185,7 @@
           "map": "MAP_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM",
           "base_label": "gShoalCave_LowTideEntranceRoom",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 43,
@@ -9251,7 +9250,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 43,
@@ -9340,7 +9339,7 @@
           "map": "MAP_LILYCOVE_CITY",
           "base_label": "gLilycoveCity",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 36,
@@ -9429,7 +9428,7 @@
           "map": "MAP_DEWFORD_TOWN",
           "base_label": "gDewfordTown",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -9518,7 +9517,7 @@
           "map": "MAP_SLATEPORT_CITY",
           "base_label": "gSlateportCity",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -9607,7 +9606,7 @@
           "map": "MAP_MOSSDEEP_CITY",
           "base_label": "gMossdeepCity",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 42,
@@ -9696,7 +9695,7 @@
           "map": "MAP_PACIFIDLOG_TOWN",
           "base_label": "gPacifidlogTown",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 39,
@@ -9785,7 +9784,7 @@
           "map": "MAP_EVER_GRANDE_CITY",
           "base_label": "gEverGrandeCity",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 45,
@@ -9997,7 +9996,7 @@
           "map": "MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM",
           "base_label": "gShoalCave_LowTideIceRoom",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 43,
@@ -10066,7 +10065,7 @@
           "map": "MAP_SKY_PILLAR_1F",
           "base_label": "gSkyPillar_1F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 45,
@@ -10224,7 +10223,7 @@
           "map": "MAP_SKY_PILLAR_3F",
           "base_label": "gSkyPillar_3F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 45,
@@ -10293,7 +10292,7 @@
           "map": "MAP_SKY_PILLAR_5F",
           "base_label": "gSkyPillar_5F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 33,
@@ -10615,7 +10614,7 @@
           "map": "MAP_MAGMA_HIDEOUT_1F",
           "base_label": "gMagmaHideout_1F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 39,
@@ -10704,7 +10703,7 @@
           "map": "MAP_MAGMA_HIDEOUT_2F_1R",
           "base_label": "gMagmaHideout_2F_1R",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 39,
@@ -10793,7 +10792,7 @@
           "map": "MAP_MAGMA_HIDEOUT_2F_2R",
           "base_label": "gMagmaHideout_2F_2R",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 39,
@@ -10882,7 +10881,7 @@
           "map": "MAP_MAGMA_HIDEOUT_3F_1R",
           "base_label": "gMagmaHideout_3F_1R",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 40,
@@ -10971,7 +10970,7 @@
           "map": "MAP_MAGMA_HIDEOUT_3F_2R",
           "base_label": "gMagmaHideout_3F_2R",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 40,
@@ -11060,7 +11059,7 @@
           "map": "MAP_MAGMA_HIDEOUT_4F",
           "base_label": "gMagmaHideout_4F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 40,
@@ -11149,7 +11148,7 @@
           "map": "MAP_MAGMA_HIDEOUT_3F_3R",
           "base_label": "gMagmaHideout_3F_3R",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 40,
@@ -11238,7 +11237,7 @@
           "map": "MAP_MAGMA_HIDEOUT_2F_3R",
           "base_label": "gMagmaHideout_2F_3R",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 39,
@@ -11327,7 +11326,7 @@
           "map": "MAP_MIRAGE_TOWER_1F",
           "base_label": "gMirageTower_1F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 26,
@@ -11396,7 +11395,7 @@
           "map": "MAP_MIRAGE_TOWER_2F",
           "base_label": "gMirageTower_2F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 26,
@@ -11465,7 +11464,7 @@
           "map": "MAP_MIRAGE_TOWER_3F",
           "base_label": "gMirageTower_3F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 26,
@@ -11534,7 +11533,7 @@
           "map": "MAP_MIRAGE_TOWER_4F",
           "base_label": "gMirageTower_4F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 26,
@@ -11603,7 +11602,7 @@
           "map": "MAP_DESERT_UNDERPASS",
           "base_label": "gDesertUnderpass",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 45,
@@ -11672,7 +11671,7 @@
           "map": "MAP_ARTISAN_CAVE_B1F",
           "base_label": "gArtisanCave_B1F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 40,
@@ -11741,7 +11740,7 @@
           "map": "MAP_ARTISAN_CAVE_1F",
           "base_label": "gArtisanCave_1F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 40,
@@ -11810,7 +11809,7 @@
           "map": "MAP_METEOR_FALLS_STEVENS_CAVE",
           "base_label": "gMeteorFalls_StevensCave",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 50,
@@ -11879,7 +11878,7 @@
           "map": "MAP_DEWFORD_COVE",
           "base_label": "gDewfordCove",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -12187,7 +12186,7 @@
           "map": "MAP_RUSTURF_TUNNEL_2F",
           "base_label": "gRusturfTunnel_2F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 28,
@@ -12252,7 +12251,7 @@
             ]
           },
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
@@ -12341,7 +12340,7 @@
           "map": "MAP_RUSTURF_TUNNEL_2F_BACK_ROOM",
           "base_label": "gRusturfTunnel_2F_BackRoom",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 28,
@@ -12692,7 +12691,7 @@
           "map": "MAP_ROUTE135",
           "base_label": "gRoute135",
           "water_mons": {
-            "encounter_rate": 4,
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 38,
@@ -12850,7 +12849,7 @@
           "map": "MAP_DESERT_RUINS_ENTRANCE",
           "base_label": "gDesertRuins_Entrance",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 40,
@@ -12919,7 +12918,7 @@
           "map": "MAP_ISLAND_CAVE_ENTRANCE",
           "base_label": "gIslandCave_Entrance",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 40,
@@ -12988,7 +12987,7 @@
           "map": "MAP_ANCIENT_TOMB_ENTRANCE",
           "base_label": "gAncientTomb_Entrance",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 5,
             "mons": [
               {
                 "min_level": 40,
