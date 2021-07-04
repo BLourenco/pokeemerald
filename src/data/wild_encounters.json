@@ -3723,7 +3723,8 @@
               }
             ]
           },
-          2,
+          "water_mons": {
+            "encounter_rate": 2,
             "mons": [
               {
                 "min_level": 30,
