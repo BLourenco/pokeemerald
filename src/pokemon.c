@@ -7894,6 +7894,20 @@ u8 GetFormIdFromFormSpeciesId(u16 formSpeciesId)
     return targetFormId;
 }
 
+u8 GetFormCountFromSpeciesId(u16 speciesId)
+{
+    u8 count = 0;
+
+    if (gFormSpeciesIdTables[speciesId] != NULL)
+    {
+        for (count = 0; gFormSpeciesIdTables[speciesId][count] != FORM_SPECIES_END; count++)
+        {
+            // Do nothing, I guess?
+        }
+    }
+    return count;
+}
+
 void ResetMonConditionAndSheen(void)
 {
     u32 arg = 0;

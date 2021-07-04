@@ -354,6 +354,35 @@ void CreateWildMon(u16 species, u8 level)
         break;
     }
 
+    // Special cases for mons with mutliple forms.
+    // Randomizes the form instead of having to
+    // manually slot each form into the
+    // encounter list.
+    switch (species)
+    {
+        case SPECIES_MINIOR:
+            // First 7 forms only, the rest are for its Shields Down ability
+            species = GetFormSpeciesId(species, Random() % 7);
+            break;
+        case SPECIES_SINISTEA:
+        case SPECIES_POLTEAGEIST:
+            // 10:1 ratio.
+            // Generate a number from 0-10 inclusive.
+            // 0-9 divided by 10 equals 0, Phony form.
+            // 10 divided by 10 equals 1, Authentic form.
+            species = GetFormSpeciesId(species, Random() % 11 / 10);
+            break;
+        case SPECIES_FLABEBE:
+        case SPECIES_FLOETTE:
+        case SPECIES_FLORGES:
+        case SPECIES_PUMPKABOO:
+        case SPECIES_GOURGEIST:
+        case SPECIES_TOXTRICITY:
+            // Generate randomly any form, even chance
+            species = GetFormSpeciesId(species, Random() % GetFormCountFromSpeciesId(species));
+            break;
+    }
+
     if (checkCuteCharm
         && !GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG)
         && GetMonAbility(&gPlayerParty[0]) == ABILITY_CUTE_CHARM
