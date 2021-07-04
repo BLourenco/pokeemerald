@@ -372,6 +372,8 @@ void CreateWildMon(u16 species, u8 level)
             // 10 divided by 10 equals 1, Authentic form.
             species = GetFormSpeciesId(species, Random() % 11 / 10);
             break;
+        case SPECIES_DEERLING:
+        case SPECIES_SAWSBUCK:
         case SPECIES_FLABEBE:
         case SPECIES_FLOETTE:
         case SPECIES_FLORGES:
