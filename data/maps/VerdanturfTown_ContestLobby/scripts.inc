@@ -38,6 +38,7 @@ VerdanturfTown_ContestLobby_EventScript_ArtistSmeargleGift::
 	compare VAR_RESULT, NO
 	goto_if_eq VerdanturfTown_ContestLobby_EventScript_ArtistSmeargleGiftDecline
 	msgbox VerdanturfTown_ContestLobby_Text_ArtistSmeargleGiftAccept, MSGBOX_DEFAULT
+	setvar VAR_TEMP_1, SPECIES_SMEARGLE
 	givemon SPECIES_SMEARGLE, 15, ITEM_NONE
 	compare VAR_RESULT, 0
 	goto_if_eq VerdanturfTown_ContestLobby_EventScript_ReceiveSmeargleParty

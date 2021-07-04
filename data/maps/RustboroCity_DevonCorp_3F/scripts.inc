@@ -165,6 +165,7 @@ RustboroCity_DevonCorp_3F_EventScript_MrStone:: @ 821256C
 
 RustboroCity_DevonCorp_3F_EventScript_GiveEevee:: @ 8212595
 	msgbox RustboroCity_DevonCorp_3F_Text_ThankYouForDeliveringLetter, MSGBOX_DEFAULT
+	setvar VAR_TEMP_1, SPECIES_EEVEE
 	givemon SPECIES_EEVEE, 5, ITEM_NONE
 	compare VAR_RESULT, 0
 	goto_if_eq RustboroCity_DevonCorp_3F_EventScript_ReceiveEeveeParty
