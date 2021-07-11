@@ -9,7 +9,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = 0,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 0,
         .partySize = 0,
         .party = {.NoItemDefaultMoves = NULL},
     },
@@ -94,6 +94,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_GruntAquaHideout4},
     },
 
+    // Seafloor Cavern, Room 1
     [TRAINER_GRUNT_SEAFLOOR_CAVERN_1] =
     {
         .partyFlags = 0,
@@ -104,11 +105,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_GruntSeafloorCavern1),
         .party = {.NoItemDefaultMoves = sParty_GruntSeafloorCavern1},
     },
 
+    // Seafloor Cavern, Room 1
     [TRAINER_GRUNT_SEAFLOOR_CAVERN_2] =
     {
         .partyFlags = 0,
@@ -119,11 +121,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_GruntSeafloorCavern2),
         .party = {.NoItemDefaultMoves = sParty_GruntSeafloorCavern2},
     },
 
+    // Seafloor Cavern, Room 4
     [TRAINER_GRUNT_SEAFLOOR_CAVERN_3] =
     {
         .partyFlags = 0,
@@ -134,7 +137,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_GruntSeafloorCavern3),
         .party = {.NoItemDefaultMoves = sParty_GruntSeafloorCavern3},
     },
@@ -155,6 +158,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Gabrielle1},
     },
 
+    // Petalburg Woods
     [TRAINER_GRUNT_PETALBURG_WOODS] =
     {
         .partyFlags = 0,
@@ -218,6 +222,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Ed},
     },
 
+    // Seafloor Cavern, Room 4
     [TRAINER_GRUNT_SEAFLOOR_CAVERN_4] =
     {
         .partyFlags = 0,
@@ -228,7 +233,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_GruntSeafloorCavern4),
         .party = {.NoItemDefaultMoves = sParty_GruntSeafloorCavern4},
     },
@@ -249,6 +254,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Declan},
     },
 
+    // Rusturf Tunnel, West
     [TRAINER_GRUNT_RUSTURF_TUNNEL] =
     {
         .partyFlags = 0,
@@ -520,6 +526,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_ShellyWeatherInstitute},
     },
 
+    // Seafloor Cavern, Room 3
     [TRAINER_SHELLY_SEAFLOOR_CAVERN] =
     {
         .partyFlags = 0,
@@ -530,11 +537,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_ShellySeafloorCavern),
         .party = {.NoItemDefaultMoves = sParty_ShellySeafloorCavern},
     },
 
+    // Seafloor Cavern, Room 9
     [TRAINER_ARCHIE] =
     {
         .partyFlags = 0,
@@ -545,7 +553,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_SUPER_POTION, ITEM_SUPER_POTION, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_Archie),
         .party = {.NoItemDefaultMoves = sParty_Archie},
     },
@@ -678,6 +686,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemCustomMoves = sParty_Dusty1},
     },
 
+    // Route 120
     [TRAINER_CHIP] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -688,7 +697,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_Chip),
         .party = {.NoItemCustomMoves = sParty_Chip},
     },
@@ -709,6 +718,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemCustomMoves = sParty_Foster},
     },
 
+    // Route 111, Desert
     [TRAINER_DUSTY_2] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -724,6 +734,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemCustomMoves = sParty_Dusty3},
     },
 
+    // Route 111, Desert
     [TRAINER_DUSTY_3] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -1214,7 +1225,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_HYPER_POTION, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Wilton3),
         .party = {.NoItemDefaultMoves = sParty_Wilton3},
     },
@@ -1230,7 +1241,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Wilton5),
         .party = {.NoItemDefaultMoves = sParty_Wilton5},
     },
@@ -1454,7 +1465,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_HYPER_POTION, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Brooke3),
         .party = {.NoItemDefaultMoves = sParty_Brooke3},
     },
@@ -1470,7 +1481,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Brooke5),
         .party = {.NoItemDefaultMoves = sParty_Brooke5},
     },
@@ -1555,6 +1566,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Tasha},
     },
 
+    // Mt. Pyre, 6F
     [TRAINER_VALERIE_2] =
     {
         .partyFlags = 0,
@@ -1565,11 +1577,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_Valerie3),
         .party = {.NoItemDefaultMoves = sParty_Valerie3},
     },
 
+    // Mt. Pyre, 6F
     [TRAINER_VALERIE_3] =
     {
         .partyFlags = 0,
@@ -1580,11 +1593,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Valerie5),
         .party = {.NoItemDefaultMoves = sParty_Valerie5},
     },
 
+    // Route 104, South
     [TRAINER_CINDY_1] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM,
@@ -1632,21 +1646,6 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_GruntSpaceCenter2},
     },
 
-    [TRAINER_CINDY_2] =
-    {
-        .partyFlags = F_TRAINER_PARTY_HELD_ITEM | F_TRAINER_PARTY_CUSTOM_MOVESET,
-        .trainerClass = TRAINER_CLASS_LADY,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_LADY,
-        .trainerName = _("Cindy"),
-        .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
-        .partySize = ARRAY_COUNT(sParty_Cindy2),
-        .party = {.ItemCustomMoves = sParty_Cindy2},
-    },
-
     // Sootopolis Gym
     [TRAINER_BRIANNA] =
     {
@@ -1663,6 +1662,7 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemDefaultMoves = sParty_Brianna},
     },
 
+    // S.S. Tidal, Rooms
     [TRAINER_NAOMI] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM,
@@ -1673,11 +1673,12 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Naomi),
         .party = {.ItemDefaultMoves = sParty_Naomi},
     },
 
+    // Route 104, South
     [TRAINER_CINDY_2] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM,
@@ -1688,11 +1689,12 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Cindy3),
         .party = {.ItemDefaultMoves = sParty_Cindy3},
     },
 
+    // Route 104, South
     [TRAINER_CINDY_3] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM | F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -1703,7 +1705,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Cindy6),
         .party = {.ItemCustomMoves = sParty_Cindy6},
     },
@@ -1863,11 +1865,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 4,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Jessica5),
         .party = {.NoItemCustomMoves = sParty_Jessica5},
     },
 
+    // Route 104, North
     [TRAINER_WINSTON_1] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM,
@@ -1899,6 +1902,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Mollie},
     },
 
+    // S.S. Tidal, Rooms
     [TRAINER_GARRET] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM,
@@ -1909,11 +1913,12 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Garret),
         .party = {.ItemDefaultMoves = sParty_Garret},
     },
 
+    // Route 104, North
     [TRAINER_WINSTON_2] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM,
@@ -1924,11 +1929,12 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Winston3),
         .party = {.ItemDefaultMoves = sParty_Winston3},
     },
 
+    // Route 104, North
     [TRAINER_WINSTON_3] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM | F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -1939,7 +1945,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Winston5),
         .party = {.ItemCustomMoves = sParty_Winston5},
     },
@@ -2072,7 +2078,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Dominik},
     },
 
-    // Route 106
+    // Route 106, Water
     [TRAINER_DOUGLAS] =
     {
         .partyFlags = 0,
@@ -2392,6 +2398,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Jack},
     },
 
+    // UNUSED
     [TRAINER_DUDLEY] =
     {
         .partyFlags = 0,
@@ -2402,7 +2409,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 0,
         .partySize = ARRAY_COUNT(sParty_Dudley),
         .party = {.NoItemDefaultMoves = sParty_Dudley},
     },
@@ -2455,6 +2462,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Tony5},
     },
 
+    // Dewford Gym
     [TRAINER_TAKAO] =
     {
         .partyFlags = 0,
@@ -3137,7 +3145,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 4,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Jeffrey5),
         .party = {.ItemDefaultMoves = sParty_Jeffrey5},
     },
@@ -3281,7 +3289,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 4,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Cameron5),
         .party = {.NoItemDefaultMoves = sParty_Cameron5},
     },
@@ -3398,6 +3406,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Jacki1},
     },
 
+    // Route 123, West
     [TRAINER_JACKI_2] =
     {
         .partyFlags = 0,
@@ -3413,6 +3422,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Jacki3},
     },
 
+    // Route 123, West
     [TRAINER_JACKI_3] =
     {
         .partyFlags = 0,
@@ -3444,6 +3454,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Walter1},
     },
 
+    // S.S. Tidal, Rooms
     [TRAINER_MICAH] =
     {
         .partyFlags = 0,
@@ -3454,11 +3465,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Micah),
         .party = {.NoItemDefaultMoves = sParty_Micah},
     },
 
+    // S.S. Tidal, Rooms
     [TRAINER_THOMAS] =
     {
         .partyFlags = 0,
@@ -3469,11 +3481,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Thomas),
         .party = {.NoItemDefaultMoves = sParty_Thomas},
     },
 
+    // Route 121
     [TRAINER_WALTER_2] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -3484,11 +3497,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_Walter3),
         .party = {.NoItemCustomMoves = sParty_Walter3},
     },
 
+    // Route 121
     [TRAINER_WALTER_3] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -3499,7 +3513,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Walter5),
         .party = {.NoItemCustomMoves = sParty_Walter5},
     },
@@ -3696,6 +3710,7 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMoves = sParty_Juan1},
     },
 
+    // Route 116
     [TRAINER_JERRY_1] =
     {
         .partyFlags = 0,
@@ -3743,6 +3758,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Paul},
     },
 
+    // Route 116
     [TRAINER_JERRY_2] =
     {
         .partyFlags = 0,
@@ -3753,11 +3769,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Jerry3),
         .party = {.NoItemDefaultMoves = sParty_Jerry3},
     },
 
+    // Route 116
     [TRAINER_JERRY_3] =
     {
         .partyFlags = 0,
@@ -3768,11 +3785,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Jerry5),
         .party = {.NoItemDefaultMoves = sParty_Jerry5},
     },
 
+    // Route 116
     [TRAINER_KAREN_1] =
     {
         .partyFlags = 0,
@@ -3804,6 +3822,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Georgia},
     },
 
+    // Route 116
     [TRAINER_KAREN_2] =
     {
         .partyFlags = 0,
@@ -3814,11 +3833,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Karen3),
         .party = {.NoItemDefaultMoves = sParty_Karen3},
     },
 
+    // Route 116
     [TRAINER_KAREN_3] =
     {
         .partyFlags = 0,
@@ -3829,7 +3849,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Karen5),
         .party = {.NoItemDefaultMoves = sParty_Karen5},
     },
@@ -3929,6 +3949,7 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemDefaultMoves = sParty_Miguel1},
     },
 
+    // S.S. Tidal, Rooms
     [TRAINER_COLTON] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM | F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -3939,7 +3960,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Colton),
         .party = {.ItemCustomMoves = sParty_Colton},
     },
@@ -3955,7 +3976,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Miguel3),
         .party = {.ItemDefaultMoves = sParty_Miguel3},
     },
@@ -3971,7 +3992,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Miguel5),
         .party = {.ItemDefaultMoves = sParty_Miguel5},
     },
@@ -4024,6 +4045,7 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemDefaultMoves = sParty_Bethany},
     },
 
+    // Route 110
     [TRAINER_ISABEL_1] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM,
@@ -4034,11 +4056,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 2,
         .partySize = ARRAY_COUNT(sParty_Isabel1),
         .party = {.ItemDefaultMoves = sParty_Isabel1},
     },
 
+    // Route 110
     [TRAINER_ISABEL_2] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM,
@@ -4049,11 +4072,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Isabel3),
         .party = {.ItemDefaultMoves = sParty_Isabel3},
     },
 
+    // Route 110
     [TRAINER_ISABEL_3] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM,
@@ -4064,7 +4088,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Isabel5),
         .party = {.ItemDefaultMoves = sParty_Isabel5},
     },
@@ -4096,7 +4120,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .difficultyLevelMod = 4,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Timothy3),
         .party = {.NoItemCustomMoves = sParty_Timothy3},
     },
@@ -4149,6 +4173,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Shelby1},
     },
 
+    // Mt. Chimney
     [TRAINER_SHELBY_2] =
     {
         .partyFlags = 0,
@@ -4164,6 +4189,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Shelby3},
     },
 
+    // Mt. Chimney
     [TRAINER_SHELBY_3] =
     {
         .partyFlags = 0,
@@ -4195,6 +4221,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Calvin1},
     },
 
+    // Route 104, South
     [TRAINER_BILLY] =
     {
         .partyFlags = 0,
@@ -4210,6 +4237,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Billy},
     },
 
+    // Rustboro Gym
     [TRAINER_JOSH] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -4225,6 +4253,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemCustomMoves = sParty_Josh},
     },
 
+    // Rustboro Gym
     [TRAINER_TOMMY] =
     {
         .partyFlags = 0,
@@ -4240,6 +4269,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Tommy},
     },
 
+    // Route 116
     [TRAINER_JOEY] =
     {
         .partyFlags = 0,
@@ -4346,7 +4376,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Calvin3),
         .party = {.NoItemDefaultMoves = sParty_Calvin3},
     },
@@ -4362,7 +4392,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Calvin5),
         .party = {.NoItemDefaultMoves = sParty_Calvin5},
     },
@@ -4463,6 +4493,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Andrew},
     },
 
+    // Route 104, North
     [TRAINER_IVAN] =
     {
         .partyFlags = 0,
@@ -4494,6 +4525,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Claude},
     },
 
+    // Route 106
     [TRAINER_ELLIOT_1] =
     {
         .partyFlags = 0,
@@ -4509,6 +4541,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Elliot1},
     },
 
+    // Route 106
     [TRAINER_NED] =
     {
         .partyFlags = 0,
@@ -4604,6 +4637,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Carter},
     },
 
+    // Route 106
     [TRAINER_ELLIOT_2] =
     {
         .partyFlags = 0,
@@ -4614,11 +4648,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Elliot3),
         .party = {.NoItemDefaultMoves = sParty_Elliot3},
     },
 
+    // Route 106
     [TRAINER_ELLIOT_3] =
     {
         .partyFlags = 0,
@@ -4629,7 +4664,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Elliot5),
         .party = {.NoItemDefaultMoves = sParty_Elliot5},
     },
@@ -4709,7 +4744,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Benjamin3),
         .party = {.NoItemDefaultMoves = sParty_Benjamin3},
     },
@@ -4725,7 +4760,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Benjamin5),
         .party = {.NoItemDefaultMoves = sParty_Benjamin5},
     },
@@ -4773,7 +4808,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Abigail3),
         .party = {.NoItemDefaultMoves = sParty_Abigail3},
     },
@@ -4789,7 +4824,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Abigail5),
         .party = {.NoItemDefaultMoves = sParty_Abigail5},
     },
@@ -4997,7 +5032,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 4,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Isaiah5),
         .party = {.NoItemDefaultMoves = sParty_Isaiah5},
     },
@@ -5114,6 +5149,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Katelyn5},
     },
 
+    // Meteor Falls, 1F 2R
     [TRAINER_NICOLAS_1] =
     {
         .partyFlags = 0,
@@ -5124,11 +5160,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_Nicolas1),
         .party = {.NoItemDefaultMoves = sParty_Nicolas1},
     },
 
+    // Meteor Falls, 1F 2R
     [TRAINER_NICOLAS_2] =
     {
         .partyFlags = 0,
@@ -5139,11 +5176,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_Nicolas3),
         .party = {.NoItemDefaultMoves = sParty_Nicolas3},
     },
 
+    // Meteor Falls, 1F 2R
     [TRAINER_NICOLAS_3] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM,
@@ -5154,7 +5192,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Nicolas5),
         .party = {.ItemDefaultMoves = sParty_Nicolas5},
     },
@@ -5543,6 +5581,7 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemCustomMoves = sParty_Lao5},
     },
 
+    // Dewford Gym
     [TRAINER_JOCELYN] =
     {
         .partyFlags = 0,
@@ -5558,6 +5597,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Jocelyn},
     },
 
+    // Dewford Gym
     [TRAINER_LAURA] =
     {
         .partyFlags = 0,
@@ -5765,7 +5805,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Imani},
     },
 
-    // Route 106
+    // Route 106, Water
     [TRAINER_KYLA] =
     {
         .partyFlags = 0,
@@ -6053,6 +6093,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Debra},
     },
 
+    // Route 133
     [TRAINER_LINDA] =
     {
         .partyFlags = 0,
@@ -6063,11 +6104,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_Linda),
         .party = {.NoItemDefaultMoves = sParty_Linda},
     },
 
+    // UNUSED
     [TRAINER_KAYLEE] =
     {
         .partyFlags = 0,
@@ -6078,7 +6120,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 0,
         .partySize = ARRAY_COUNT(sParty_Kaylee),
         .party = {.NoItemDefaultMoves = sParty_Kaylee},
     },
@@ -6142,7 +6184,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 4,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Jenny5),
         .party = {.NoItemDefaultMoves = sParty_Jenny5},
     },
@@ -6323,6 +6365,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_AmyAndLiv1},
     },
 
+    // Route 104, North
     [TRAINER_GINA_AND_MIA_1] =
     {
         .partyFlags = 0,
@@ -6354,6 +6397,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_MiuAndYuki},
     },
 
+    // Route 104, North
     [TRAINER_GINA_AND_MIA_2] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -6364,7 +6408,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_GinaAndMia2),
         .party = {.NoItemCustomMoves = sParty_GinaAndMia2},
     },
@@ -6380,7 +6424,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_AmyAndLiv4),
         .party = {.NoItemDefaultMoves = sParty_AmyAndLiv4},
     },
@@ -6396,7 +6440,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_AmyAndLiv6),
         .party = {.NoItemCustomMoves = sParty_AmyAndLiv6},
     },
@@ -6465,6 +6509,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Dwayne},
     },
 
+    // S.S. Tidal, Lower Deck
     [TRAINER_PHILLIP] =
     {
         .partyFlags = 0,
@@ -6475,11 +6520,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Phillip),
         .party = {.NoItemDefaultMoves = sParty_Phillip},
     },
 
+    // S.S. Tidal, Lower Deck
     [TRAINER_LEONARD] =
     {
         .partyFlags = 0,
@@ -6490,7 +6536,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Leonard),
         .party = {.NoItemDefaultMoves = sParty_Leonard},
     },
@@ -6778,7 +6824,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Edwin3),
         .party = {.NoItemDefaultMoves = sParty_Edwin3},
     },
@@ -6794,7 +6840,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Edwin5),
         .party = {.NoItemDefaultMoves = sParty_Edwin5},
     },
@@ -6815,6 +6861,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemCustomMoves = sParty_WallyVR1},
     },
 
+    // Route 103, West
     [TRAINER_BRENDAN_ROUTE_103_MUDKIP] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -6862,6 +6909,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_BrendanRoute119Mudkip},
     },
 
+    // Route 103, West
     [TRAINER_BRENDAN_ROUTE_103_TREECKO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -6909,6 +6957,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_BrendanRoute119Treecko},
     },
 
+    // Route 103, West
     [TRAINER_BRENDAN_ROUTE_103_TORCHIC] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -6956,6 +7005,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_BrendanRoute119Torchic},
     },
 
+    // Route 103, West
     [TRAINER_MAY_ROUTE_103_MUDKIP] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -7003,6 +7053,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_MayRoute119Mudkip},
     },
 
+    // Route 103, West
     [TRAINER_MAY_ROUTE_103_TREECKO] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -7050,6 +7101,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_MayRoute119Treecko},
     },
 
+    // Route 103, West
     [TRAINER_MAY_ROUTE_103_TORCHIC] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -7236,7 +7288,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Lydia3),
         .party = {.NoItemDefaultMoves = sParty_Lydia3},
     },
@@ -7252,7 +7304,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Lydia5),
         .party = {.NoItemDefaultMoves = sParty_Lydia5},
     },
@@ -7433,6 +7485,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Julio},
     },
 
+    // Seafloor Cavern, Room 3
     [TRAINER_GRUNT_SEAFLOOR_CAVERN_5] =
     {
         .partyFlags = 0,
@@ -7443,11 +7496,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_GruntSeafloorCavern5),
         .party = {.NoItemDefaultMoves = sParty_GruntSeafloorCavern5},
     },
 
+    // UNUSED
     [TRAINER_GRUNT_UNUSED] =
     {
         .partyFlags = 0,
@@ -7458,7 +7512,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 0,
         .partySize = ARRAY_COUNT(sParty_GruntUnused),
         .party = {.NoItemDefaultMoves = sParty_GruntUnused},
     },
@@ -7495,6 +7549,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_GruntJaggedPass},
     },
 
+    // Rustboro Gym
     [TRAINER_MARC] =
     {
         .partyFlags = 0,
@@ -7510,6 +7565,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Marc},
     },
 
+    // Dewford Gym
     [TRAINER_BRENDEN] =
     {
         .partyFlags = 0,
@@ -7525,6 +7581,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Brenden},
     },
 
+    // Dewford Gym
     [TRAINER_LILITH] =
     {
         .partyFlags = 0,
@@ -7540,6 +7597,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Lilith},
     },
 
+    // Dewford Gym
     [TRAINER_CRISTIAN] =
     {
         .partyFlags = 0,
@@ -7651,6 +7709,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Clarence},
     },
 
+    // UNUSED
     [TRAINER_TERRY] =
     {
         .partyFlags = 0,
@@ -7661,7 +7720,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 0,
         .partySize = ARRAY_COUNT(sParty_Terry),
         .party = {.NoItemDefaultMoves = sParty_Terry},
     },
@@ -7826,6 +7885,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Macey},
     },
 
+    // Rustboro City
     [TRAINER_BRENDAN_RUSTBORO_TREECKO] =
     {
         .partyFlags = 0,
@@ -7841,6 +7901,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_BrendanRustboroTreecko},
     },
 
+    // Rustboro City
     [TRAINER_BRENDAN_RUSTBORO_MUDKIP] =
     {
         .partyFlags = 0,
@@ -7936,6 +7997,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Jonathan},
     },
 
+    // Rustboro City
     [TRAINER_BRENDAN_RUSTBORO_TORCHIC] =
     {
         .partyFlags = 0,
@@ -7951,6 +8013,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_BrendanRustboroTorchic},
     },
 
+    // Rustboro City
     [TRAINER_MAY_RUSTBORO_MUDKIP] =
     {
         .partyFlags = 0,
@@ -7998,6 +8061,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_MaxieMtChimney},
     },
 
+    // Route 102
     [TRAINER_TIANA] =
     {
         .partyFlags = 0,
@@ -8013,6 +8077,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Tiana},
     },
 
+    // Route 104, North
     [TRAINER_HALEY_1] =
     {
         .partyFlags = 0,
@@ -8028,6 +8093,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Haley1},
     },
 
+    // Route 116
     [TRAINER_JANICE] =
     {
         .partyFlags = 0,
@@ -8059,6 +8125,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Vivi},
     },
 
+    // Route 104, North
     [TRAINER_HALEY_2] =
     {
         .partyFlags = 0,
@@ -8069,11 +8136,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Haley3),
         .party = {.NoItemDefaultMoves = sParty_Haley3},
     },
 
+    // Route 104, North
     [TRAINER_HALEY_3] =
     {
         .partyFlags = 0,
@@ -8084,7 +8152,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Haley5),
         .party = {.NoItemDefaultMoves = sParty_Haley5},
     },
@@ -8169,6 +8237,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Rick},
     },
 
+    // Petalburg Woods
     [TRAINER_LYLE] =
     {
         .partyFlags = 0,
@@ -8184,6 +8253,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Lyle},
     },
 
+    // Route 116
     [TRAINER_JOSE] =
     {
         .partyFlags = 0,
@@ -8247,6 +8317,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Kent},
     },
 
+    // Petalburg Woods
     [TRAINER_JAMES_1] =
     {
         .partyFlags = 0,
@@ -8262,6 +8333,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_James1},
     },
 
+    // Petalburg Woods
     [TRAINER_JAMES_2] =
     {
         .partyFlags = 0,
@@ -8272,11 +8344,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_James3),
         .party = {.NoItemDefaultMoves = sParty_James3},
     },
 
+    // Petalburg Woods
     [TRAINER_JAMES_3] =
     {
         .partyFlags = 0,
@@ -8287,7 +8360,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_James5),
         .party = {.NoItemDefaultMoves = sParty_James5},
     },
@@ -8371,6 +8444,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Alan},
     },
 
+    // Route 116
     [TRAINER_CLARK] =
     {
         .partyFlags = 0,
@@ -8434,6 +8508,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemCustomMoves = sParty_Mike1},
     },
 
+    // Rusturf Tunnel, Verdanturf Side
     [TRAINER_MIKE_2] =
     {
         .partyFlags = 0,
@@ -8444,7 +8519,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Mike2),
         .party = {.NoItemDefaultMoves = sParty_Mike2},
     },
@@ -8460,7 +8535,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 3,
         .partySize = ARRAY_COUNT(sParty_Trent3),
         .party = {.NoItemDefaultMoves = sParty_Trent3},
     },
@@ -8476,7 +8551,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 2,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Trent5),
         .party = {.NoItemDefaultMoves = sParty_Trent5},
     },
@@ -8497,6 +8572,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_DezAndLuke},
     },
 
+    // S.S. Tidal, Rooms
     [TRAINER_LEA_AND_JED] =
     {
         .partyFlags = 0,
@@ -8507,7 +8583,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_LeaAndJed),
         .party = {.NoItemDefaultMoves = sParty_LeaAndJed},
     },
@@ -9072,6 +9148,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemCustomMoves = sParty_MelAndPaul},
     },
 
+    // Meteor Falls, 1F 2R
     [TRAINER_JOHN_AND_JAY_1] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -9082,11 +9159,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_JohnAndJay1),
         .party = {.NoItemCustomMoves = sParty_JohnAndJay1},
     },
 
+    // Meteor Falls, 1F 2R
     [TRAINER_JOHN_AND_JAY_2] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -9097,11 +9175,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_JohnAndJay3),
         .party = {.NoItemCustomMoves = sParty_JohnAndJay3},
     },
 
+    // Meteor Falls, 1F 2R
     [TRAINER_JOHN_AND_JAY_3] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -9112,7 +9191,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_JohnAndJay5),
         .party = {.NoItemCustomMoves = sParty_JohnAndJay5},
     },
@@ -9213,6 +9292,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Chris},
     },
 
+    // Route 116
     [TRAINER_DAWSON] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM,
@@ -9228,6 +9308,7 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemDefaultMoves = sParty_Dawson},
     },
 
+    // Route 116
     [TRAINER_SARAH] =
     {
         .partyFlags = F_TRAINER_PARTY_HELD_ITEM,
@@ -9243,6 +9324,7 @@ const struct Trainer gTrainers[] = {
         .party = {.ItemDefaultMoves = sParty_Sarah},
     },
 
+    // Route 104, South
     [TRAINER_DARIAN] =
     {
         .partyFlags = 0,
@@ -10152,6 +10234,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Marlene},
     },
 
+    // Route 116
     [TRAINER_DEVAN] =
     {
         .partyFlags = 0,
@@ -10167,6 +10250,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Devan},
     },
 
+    // Route 116
     [TRAINER_JOHNSON] =
     {
         .partyFlags = 0,
@@ -10389,6 +10473,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Cristin1},
     },
 
+    // Rustboro City
     [TRAINER_MAY_RUSTBORO_TREECKO] =
     {
         .partyFlags = 0,
@@ -10404,6 +10489,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_MayRustboroTreecko},
     },
 
+    // Rustboro City
     [TRAINER_MAY_RUSTBORO_TORCHIC] =
     {
         .partyFlags = 0,
@@ -10494,7 +10580,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .difficultyLevelMod = 4,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Wattson3),
         .party = {.ItemCustomMoves = sParty_Wattson3},
     },
@@ -10526,7 +10612,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .difficultyLevelMod = 4,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Flannery3),
         .party = {.ItemCustomMoves = sParty_Flannery3},
     },
@@ -10558,7 +10644,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .difficultyLevelMod = 4,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Norman3),
         .party = {.ItemCustomMoves = sParty_Norman3},
     },
@@ -10910,7 +10996,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 3,
+        .difficultyLevelMod = 5,
         .partySize = ARRAY_COUNT(sParty_Cory5),
         .party = {.NoItemDefaultMoves = sParty_Cory5},
     },
@@ -11187,6 +11273,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Everett},
     },
 
+    // UNUSED
     [TRAINER_RED] =
     {
         .partyFlags = 0,
@@ -11197,11 +11284,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = 0,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 0,
         .partySize = ARRAY_COUNT(sParty_Red),
         .party = {.NoItemDefaultMoves = sParty_Red},
     },
 
+    // UNUSED
     [TRAINER_LEAF] =
     {
         .partyFlags = 0,
@@ -11212,11 +11300,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = 0,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 0,
         .partySize = ARRAY_COUNT(sParty_Leaf),
         .party = {.NoItemDefaultMoves = sParty_Leaf},
     },
 
+    // UNUSED
     [TRAINER_BRENDAN_PLACEHOLDER] =
     {
         .partyFlags = 0,
@@ -11227,11 +11316,12 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = 0,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 0,
         .partySize = ARRAY_COUNT(sParty_BrendanLinkPlaceholder),
         .party = {.NoItemDefaultMoves = sParty_BrendanLinkPlaceholder},
     },
 
+    // UNUSED
     [TRAINER_MAY_PLACEHOLDER] =
     {
         .partyFlags = 0,
@@ -11242,7 +11332,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = 0,
-        .difficultyLevelMod = 1,
+        .difficultyLevelMod = 0,
         .partySize = ARRAY_COUNT(sParty_MayLinkPlaceholder),
         .party = {.NoItemDefaultMoves = sParty_MayLinkPlaceholder},
     },
@@ -11407,6 +11497,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Omar},
     },
 
+    // Dewford Cape
     [TRAINER_ANTON] =
     {
         .partyFlags = 0,
@@ -11422,6 +11513,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Anton},
     },
 
+    // Dewford Cape
     [TRAINER_CURTIS] =
     {
         .partyFlags = 0,
@@ -11437,6 +11529,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Curtis},
     },
 
+    // Dewford Cape
     [TRAINER_RALPH] =
     {
         .partyFlags = 0,
@@ -11452,6 +11545,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Ralph},
     },
 
+    // Dewford Cape
     [TRAINER_OTTO] =
     {
         .partyFlags = 0,
@@ -11467,6 +11561,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Otto},
     },
 
+    // Dewford Cape
     [TRAINER_REID] =
     {
         .partyFlags = 0,
@@ -11482,6 +11577,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Reid},
     },
 
+    // Dewford Cape
     [TRAINER_DINA_AND_JIM] =
     {
         .partyFlags = 0,
