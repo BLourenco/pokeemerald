@@ -42,7 +42,7 @@ enum
     MENUITEM_AUTO_FIELD_MOVES,
     MENUITEM_MATCH_CALL_FILTER,
     MENUITEM_UNIT_SYSTEM,
-    MENUITEM_CLOCK_FORMAT,
+    MENUITEM_DIFFICULTY,
     MENUITEM_CANCEL,
     MENUITEM_COUNT,
 };
@@ -81,7 +81,7 @@ static void ItemHeaders_DrawChoices(int selection, int y, u8 textSpeed);
 static void AutoRun_DrawChoices(int selection, int y, u8 textSpeed);
 static void AutoFieldMove_DrawChoices(int selection, int y, u8 textSpeed);
 static void MatchCallFilter_DrawChoices(int selection, int y, u8 textSpeed);
-static void ClockFormat_DrawChoices(int selection, int y, u8 textSpeed);
+static void DifficultyMode_DrawChoices(int selection, int y, u8 textSpeed);
 static int FrameType_ProcessInput(int selection);
 static int FourOptions_ProcessInput(int selection);
 static int ThreeOptions_ProcessInput(int selection);
@@ -115,7 +115,7 @@ struct
     [MENUITEM_AUTO_RUN]             = {AutoRun_DrawChoices, TwoOptions_ProcessInput},
     [MENUITEM_AUTO_FIELD_MOVES]     = {AutoFieldMove_DrawChoices, TwoOptions_ProcessInput},
     [MENUITEM_MATCH_CALL_FILTER]    = {MatchCallFilter_DrawChoices, ThreeOptions_ProcessInput},
-    [MENUITEM_CLOCK_FORMAT]         = {ClockFormat_DrawChoices, TwoOptions_ProcessInput},
+    [MENUITEM_DIFFICULTY]           = {DifficultyMode_DrawChoices, ThreeOptions_ProcessInput},
     [MENUITEM_CANCEL]               = {NULL, NULL},
 };
 
@@ -144,7 +144,7 @@ static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
     [MENUITEM_AUTO_RUN]             = gText_AutoRun,
     [MENUITEM_AUTO_FIELD_MOVES]     = gText_AutoFieldMoves,
     [MENUITEM_MATCH_CALL_FILTER]    = gText_MatchCallFilter,
-    [MENUITEM_CLOCK_FORMAT]         = gText_ClockFormat,
+    [MENUITEM_DIFFICULTY]           = gText_Difficulty,
     [MENUITEM_CANCEL]               = gText_OptionMenuCancel,
 };
 
@@ -307,7 +307,7 @@ void CB2_InitOptionMenu(void)
         sOptions->sel[MENUITEM_AUTO_RUN] = gSaveBlock2Ptr->optionsAutoRun;
         sOptions->sel[MENUITEM_AUTO_FIELD_MOVES] = gSaveBlock2Ptr->optionsAutoFieldMoves;
         sOptions->sel[MENUITEM_MATCH_CALL_FILTER] = gSaveBlock2Ptr->optionsPokeNavCallFilter;
-        sOptions->sel[MENUITEM_CLOCK_FORMAT] = gSaveBlock2Ptr->optionsClockFormat;
+        sOptions->sel[MENUITEM_DIFFICULTY] = gSaveBlock2Ptr->optionsDifficulty;
 
         for (i = 0; i < 7; i++)
             DrawChoices(i, i * Y_DIFF, 0xFF);
@@ -467,7 +467,7 @@ static void Task_OptionMenuSave(u8 taskId)
     gSaveBlock2Ptr->optionsAutoRun = sOptions->sel[MENUITEM_AUTO_RUN];
     gSaveBlock2Ptr->optionsAutoFieldMoves = sOptions->sel[MENUITEM_AUTO_FIELD_MOVES];
     gSaveBlock2Ptr->optionsPokeNavCallFilter = sOptions->sel[MENUITEM_MATCH_CALL_FILTER];
-    gSaveBlock2Ptr->optionsClockFormat = sOptions->sel[MENUITEM_CLOCK_FORMAT];
+    gSaveBlock2Ptr->optionsDifficulty = sOptions->sel[MENUITEM_DIFFICULTY];
 
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
     gTasks[taskId].func = Task_OptionMenuFadeOut;
@@ -814,13 +814,21 @@ static void AutoFieldMove_DrawChoices(int selection, int y, u8 textSpeed)
     DrawOptionMenuChoice(gText_BattleAnimationsOn, GetStringRightAlignXOffset(1, gText_BattleAnimationsOn, MENU_OPTIONS_WIDTH), y, styles[1], textSpeed);
 }
 
-static void ClockFormat_DrawChoices(int selection, int y, u8 textSpeed)
+static void DifficultyMode_DrawChoices(int selection, int y, u8 textSpeed)
 {
-    u8 styles[2] = {0};
-
-    styles[selection] = 1;
-    DrawOptionMenuChoice(gText_ClockFormatAMPM, MENU_OPTIONS_X_POSITION, y, styles[0], textSpeed);
-    DrawOptionMenuChoice(gText_ClockFormat24Hr, GetStringRightAlignXOffset(1, gText_ClockFormat24Hr, MENU_OPTIONS_WIDTH), y, styles[1], textSpeed);
+    switch (selection)
+    {
+        default:
+        case OPTIONS_DIFFICULTY_EASY:
+            DrawOptionMenuChoice(gText_DifficultyEasy, MENU_OPTIONS_X_POSITION, y, 1, textSpeed);
+            break;
+        case OPTIONS_DIFFICULTY_NORMAL:
+            DrawOptionMenuChoice(gText_DifficultyNormal, MENU_OPTIONS_X_POSITION, y, 1, textSpeed);
+            break;
+        case OPTIONS_DIFFICULTY_CHALLENGE:
+            DrawOptionMenuChoice(gText_DifficultyChallenge, MENU_OPTIONS_X_POSITION, y, 1, textSpeed);
+            break;
+    }
 }
 
 static void DrawTextOption(void)

@@ -323,6 +323,9 @@ extern const u8 gText_MatchCallFilterAllowScriptedAndRematchNotifs[];
 extern const u8 gText_MatchCallFilterAllowScriptedOnly[];
 extern const u8 gText_ClockFormatAMPM[];
 extern const u8 gText_ClockFormat24Hr[];
+extern const u8 gText_DifficultyEasy[];
+extern const u8 gText_DifficultyNormal[];
+extern const u8 gText_DifficultyChallenge[];
 extern const u8 gText_Option[];
 extern const u8 gText_OptionMenu[];
 extern const u8 gText_TextSpeed[];
@@ -342,6 +345,7 @@ extern const u8 gText_AutoRun[];
 extern const u8 gText_AutoFieldMoves[];
 extern const u8 gText_MatchCallFilter[];
 extern const u8 gText_ClockFormat[];
+extern const u8 gText_Difficulty[];
 
 extern const u8 gText_MaleSymbol[];
 extern const u8 gText_FemaleSymbol[];

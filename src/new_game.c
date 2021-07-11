@@ -106,7 +106,7 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsAutoRun = FALSE;
     gSaveBlock2Ptr->optionsAutoFieldMoves = FALSE;
     gSaveBlock2Ptr->optionsPokeNavCallFilter = OPTIONS_MATCH_CALL_FILTER_ALLOW_ALL;
-    gSaveBlock2Ptr->optionsClockFormat = OPTIONS_CLOCK_FORMAT_AM_PM;
+    gSaveBlock2Ptr->optionsDifficulty = OPTIONS_DIFFICULTY_NORMAL;
 }
 
 static void ClearPokedexFlags(void)

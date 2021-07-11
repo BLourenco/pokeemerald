@@ -70,6 +70,7 @@ struct Trainer
     /*0x18*/ bool8 doubleBattle;
     /*0x1C*/ u32 aiFlags;
     /*0x20*/ u8 partySize;
+             u8 difficultyLevelMod;
     /*0x24*/ union TrainerMonPtr party;
 };
 

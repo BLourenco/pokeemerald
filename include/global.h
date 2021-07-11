@@ -524,9 +524,8 @@ struct SaveBlock2
              u32 optionsAutoRun:1;              // Sets default movement mode (walk/run). Hold B to use other movement mode.
              u32 optionsAutoFieldMoves:1;        // When enabled, the player will automatically use a field move when colliding with an interactable tile/object.
              u32 optionsPokeNavCallFilter:2;    
-             u32 optionsClockFormat:1;
+             u32 optionsDifficulty:2;
              u32 expShare:1;
-             u32 filler:1;
     /*0x17*/ struct Pokedex pokedex;
     /*0x90*/ u8 filler_90[0x7];
     /*0x98*/ struct Time localTimeOffset;
