@@ -469,7 +469,7 @@
 #define TRAINER_CATHERINE_3                       465
 #define TRAINER_JULIO                             466
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_5           467
-#define TRAINER_GRUNT_UNUSED                      468
+#define TRAINER_GRUNT_SEAFLOOR_CAVERN_6                      468
 #define TRAINER_GRUNT_MT_PYRE_4                   469
 #define TRAINER_GRUNT_JAGGED_PASS                 470
 #define TRAINER_MARC                              471

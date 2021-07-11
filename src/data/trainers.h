@@ -7496,25 +7496,25 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 5,
+        .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_GruntSeafloorCavern5),
         .party = {.NoItemDefaultMoves = sParty_GruntSeafloorCavern5},
     },
 
-    // UNUSED
-    [TRAINER_GRUNT_UNUSED] =
+    // Seafloor Cavern, Room 3
+    [TRAINER_GRUNT_SEAFLOOR_CAVERN_6] =
     {
         .partyFlags = 0,
-        .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
+        .trainerClass = TRAINER_CLASS_TEAM_AQUA,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_AQUA,
         .trainerPic = TRAINER_PIC_AQUA_GRUNT_F,
         .trainerName = _("Grunt"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .difficultyLevelMod = 0,
-        .partySize = ARRAY_COUNT(sParty_GruntUnused),
-        .party = {.NoItemDefaultMoves = sParty_GruntUnused},
+        .difficultyLevelMod = 4,
+        .partySize = ARRAY_COUNT(sParty_GruntSeafloorCavern6),
+        .party = {.NoItemDefaultMoves = sParty_GruntSeafloorCavern6},
     },
 
     // Mt. Pyre, Peak

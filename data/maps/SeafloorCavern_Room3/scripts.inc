@@ -11,6 +11,11 @@ SeafloorCavern_Room3_EventScript_Grunt5:: @ 823494F
 	msgbox SeafloorCavern_Room3_Text_Grunt5PostBattle, MSGBOX_AUTOCLOSE
 	end
 
+SeafloorCavern_Room3_EventScript_Grunt6::
+	trainerbattle_single TRAINER_GRUNT_SEAFLOOR_CAVERN_6, SeafloorCavern_Room3_Text_Grunt6Intro, SeafloorCavern_Room3_Text_Grunt6Defeat
+	msgbox SeafloorCavern_Room3_Text_Grunt6PostBattle, MSGBOX_AUTOCLOSE
+	end
+
 SeafloorCavern_Room3_Text_ShellyIntro: @ 8234966
 	.string "Ahahahaha!\p"
 	.string "How did you manage to get here without\n"
@@ -55,4 +60,17 @@ SeafloorCavern_Room3_Text_Grunt5PostBattle: @ 8234C04
 	.string "going up against our Boss.\p"
 	.string "Maybe…\n"
 	.string "You must be something…$"
+
+SeafloorCavern_Room3_Text_Grunt6Intro:
+	.string "What we're doing is going to\n"
+	.string "help everyone!\p"
+	.string "Why are you so against that?$"
+
+SeafloorCavern_Room3_Text_Grunt6Defeat:
+	.string "No way!$"
+
+SeafloorCavern_Room3_Text_Grunt6PostBattle:
+	.string "It's too late, anyways!\p"
+	.string "We're about to make our dreams\n"
+	.string "a reality!$"
 
