@@ -45,7 +45,7 @@ SlateportCity_OceanicMuseum_2F_EventScript_CaptStern:: @ 820BB00
 	applymovement LOCALID_GRUNT_1, SlateportCity_OceanicMuseum_2F_Movement_GruntApproachToBattle
 	waitmovement 0
 	msgbox SlateportCity_OceanicMuseum_2F_Text_LetMeTakeCareOfThis, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GRUNT_MUSEUM_2, SlateportCity_OceanicMuseum_2F_Text_Grunt2Defeat
+	trainerbattle_no_intro TRAINER_AQUA_ADMIN_MATT_MUSEUM, SlateportCity_OceanicMuseum_2F_Text_Grunt2Defeat
 	applymovement LOCALID_GRUNT_1, SlateportCity_OceanicMuseum_2F_Movement_GruntDefeated
 	waitmovement 0
 	applymovement LOCALID_GRUNT_1, Common_Movement_WalkInPlaceFastestDown
@@ -287,7 +287,7 @@ SlateportCity_OceanicMuseum_2F_Text_ThankYouForTheParts: @ 820BD8D
 	.string "We can prepare for our expedition now.$"
 
 SlateportCity_OceanicMuseum_2F_Text_WellTakeThoseParts: @ 820BE40
-	.string "Hehehe, hold it!\n"
+	.string "Matt: Hehehe, hold it!\n"
 	.string "We'll take those parts!$"
 
 SlateportCity_OceanicMuseum_2F_Text_SternWhoAreYou: @ 820BE69
@@ -295,7 +295,7 @@ SlateportCity_OceanicMuseum_2F_Text_SternWhoAreYou: @ 820BE69
 	.string "Who are you people?$"
 
 SlateportCity_OceanicMuseum_2F_Text_WereTeamAqua: @ 820BE93
-	.string "We're Team Aqua!\p"
+	.string "Grunt: We're Team Aqua!\p"
 	.string "Our Boss wants those parts!\n"
 	.string "Shut your yap and fork them over!$"
 
@@ -304,11 +304,11 @@ SlateportCity_OceanicMuseum_2F_Text_Grunt1Defeat: @ 820BEE2
 	.string "A kid beat me!$"
 
 SlateportCity_OceanicMuseum_2F_Text_BossGoingToBeFurious: @ 820BEFA
-	.string "Oh, man, what a disaster…\n"
+	.string "Grunt: Oh, man, what a disaster…\n"
 	.string "The Boss is going to be furious…$"
 
 SlateportCity_OceanicMuseum_2F_Text_LetMeTakeCareOfThis: @ 820BF35
-	.string "Humph, sniveling wimp!\n"
+	.string "Matt: Humph, sniveling wimp!\n"
 	.string "Let me take care of this!$"
 
 SlateportCity_OceanicMuseum_2F_Text_Grunt2Defeat: @ 820BF66
@@ -316,8 +316,8 @@ SlateportCity_OceanicMuseum_2F_Text_Grunt2Defeat: @ 820BF66
 	.string "I lost, too!$"
 
 SlateportCity_OceanicMuseum_2F_Text_MeddlingKid: @ 820BF7A
-	.string "Now what? If we don't get the parts,\n"
-	.string "we're in for it!\p"
+	.string "Matt: Now what? If we don't get the\n"
+	.string "parts, we're in for it!\p"
 	.string "Arrgh, I didn't count on being meddled\n"
 	.string "with by some meddling kid!$"
 

@@ -113,10 +113,10 @@ MagmaHideout_4F_Movement_MaxieLookAround: @ 823A680
 	delay_16
 	step_end
 
-MagmaHideout_4F_EventScript_Grunt11:: @ 823A68C
-	trainerbattle_single TRAINER_GRUNT_MAGMA_HIDEOUT_11, MagmaHideout_4F_Text_Grunt11Intro, MagmaHideout_4F_Text_Grunt11Defeat
-	msgbox MagmaHideout_4F_Text_Grunt11PostBattle, MSGBOX_AUTOCLOSE
-	end
+@ MagmaHideout_4F_EventScript_Grunt11:: @ 823A68C
+@ 	trainerbattle_single TRAINER_GRUNT_MAGMA_HIDEOUT_11, MagmaHideout_4F_Text_Grunt11Intro, MagmaHideout_4F_Text_Grunt11Defeat
+@ 	msgbox MagmaHideout_4F_Text_Grunt11PostBattle, MSGBOX_AUTOCLOSE
+@ 	end
 
 MagmaHideout_4F_EventScript_Grunt12:: @ 823A6A3
 	trainerbattle_single TRAINER_GRUNT_MAGMA_HIDEOUT_12, MagmaHideout_4F_Text_Grunt12Intro, MagmaHideout_4F_Text_Grunt12Defeat
@@ -128,37 +128,29 @@ MagmaHideout_4F_EventScript_Grunt13:: @ 823A6BA
 	msgbox MagmaHideout_4F_Text_Grunt13PostBattle, MSGBOX_AUTOCLOSE
 	end
 
+MagmaHideout_4F_EventScript_Courtney::
+	trainerbattle_single TRAINER_COURTNEY_MAGMA_HIDEOUT, MagmaHideout_4F_Text_CourtneyIntro, MagmaHideout_4F_Text_CourtneyDefeat
+	msgbox MagmaHideout_4F_Text_CourtneyPostBattle, MSGBOX_AUTOCLOSE
+	end
+
 MagmaHideout_4F_EventScript_Tabitha:: @ 823A6D1
 	trainerbattle_single TRAINER_TABITHA_MAGMA_HIDEOUT, MagmaHideout_4F_Text_TabithaIntro, MagmaHideout_4F_Text_TabithaDefeat
 	msgbox MagmaHideout_4F_Text_TabithaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-MagmaHideout_4F_Text_Grunt11Intro: @ 823A6E8
+MagmaHideout_4F_Text_Grunt12Intro: @ 823A6E8
 	.string "I want to see Groudon, too, but they\n"
 	.string "won't let me see even its tail…\p"
 	.string "It's got me feeling really frustrated.\p"
 	.string "Oh, no!\n"
 	.string "I blabbed about Groudon!$"
 
-MagmaHideout_4F_Text_Grunt11Defeat: @ 823A775
+MagmaHideout_4F_Text_Grunt12Defeat: @ 823A775
 	.string "I guess it's impossible to win if one\n"
 	.string "doesn't have a calm mind…$"
 
-MagmaHideout_4F_Text_Grunt11PostBattle: @ 823A7B5
+MagmaHideout_4F_Text_Grunt12PostBattle: @ 823A7B5
 	.string "I wonder if Groudon even has a tail?$"
-
-MagmaHideout_4F_Text_Grunt12Intro: @ 823A7DA
-	.string "Fuhahaha!\n"
-	.string "Soon! Very soon!\l"
-	.string "Our grand objective will be achieved!$"
-
-MagmaHideout_4F_Text_Grunt12Defeat: @ 823A81B
-	.string "Grrr…\n"
-	.string "I've come so far, but now this?$"
-
-MagmaHideout_4F_Text_Grunt12PostBattle: @ 823A841
-	.string "Maxie, sir!\n"
-	.string "An intruder is headed your way!$"
 
 MagmaHideout_4F_Text_Grunt13Intro: @ 823A86D
 	.string "You're not finished yet!\n"
@@ -169,6 +161,19 @@ MagmaHideout_4F_Text_Grunt13Defeat: @ 823A8A7
 
 MagmaHideout_4F_Text_Grunt13PostBattle: @ 823A8C6
 	.string "C-come on, one more match…$"
+
+MagmaHideout_4F_Text_CourtneyIntro: @ 823A7DA
+	.string "Fuhahaha!\n"
+	.string "Soon! Very soon!\l"
+	.string "Our grand objective will be achieved!$"
+
+MagmaHideout_4F_Text_CourtneyDefeat: @ 823A81B
+	.string "Grrr…\n"
+	.string "I've come so far, but now this?$"
+
+MagmaHideout_4F_Text_CourtneyPostBattle: @ 823A841
+	.string "Maxie, sir!\n"
+	.string "An intruder is headed your way!$"
 
 MagmaHideout_4F_Text_TabithaIntro: @ 823A8E1
 	.string "Hehehe!\n"

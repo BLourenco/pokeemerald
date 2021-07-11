@@ -51,7 +51,11 @@ MtPyre_Summit_EventScript_TeamAquaExits:: @ 823203C
 	call_if_eq MtPyre_Summit_EventScript_ArchieFacePlayer1
 	compare VAR_0x8008, 2
 	call_if_eq MtPyre_Summit_EventScript_ArchieFacePlayer2
-	msgbox MtPyre_Summit_Text_ArchieWeGotTheOrbLetsGo, MSGBOX_DEFAULT
+	msgbox MtPyre_Summit_Text_ArchieWeGotTheOrb, MSGBOX_DEFAULT
+	closemessage
+	trainerbattle_no_intro TRAINER_AQUA_LEADER_ARCHIE_MT_PYRE, MossdeepCity_Text_ArchieDefeat
+
+	msgbox MtPyre_Summit_Text_ArchieWerePullingOut, MSGBOX_DEFAULT
 	closemessage
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_ARCHIE
@@ -510,22 +514,48 @@ MtPyre_Summit_Text_Grunt4PostBattle: @ 82327D8
 	.string "We have a great combination going\n"
 	.string "with us members and our leader.$"
 
-MtPyre_Summit_Text_ArchieWeGotTheOrbLetsGo: @ 823281A
-	.string "Archie: Team Magma's Maxie got ahead\n"
-	.string "of us, but we also got what we wanted.\p"
+MtPyre_Summit_Text_ArchieWeGotTheOrb: @ 823281A
+	.string "Archie: It's you again.\p"
+	.string "Tell me, do you have water in your\n"
+	.string "in your ears or something?\p"
+	.string "I thought I told you not to interfere\n"
+	.string "with Team Aqua.\p"
+	.string "I thought maybe you understood when\n"
+	.string "you helped us stop Team Magma back\l"
+	.string "at Mt. Chimney.\p"
+	.string "Then I hear about some kid ruining\n"
+	.string "our plans at the Weather Institute.\p"
+	.string "And now, here you are.\n"
+	.string "But you're too late.\p"
 	.string "The Blue Orb preserved at Mt. Pyre…\n"
 	.string "I, Archie, now have it in my possession!\p"
 	.string "Fufufu… Now we can bring our ultimate\n"
 	.string "objective to fruition!\p"
+	.string "But first, you must be dealt with.\n"
+	.string "Don't say I didn't warn you!$"
+
+MossdeepCity_Text_ArchieDefeat:
+	.string "Grrr…\n"
+	.string "This isn't over.$"
+
+MtPyre_Summit_Text_ArchieWerePullingOut:
+	.string "Archie: Team Magma's Maxie got ahead\n"
+	.string "of us, but we also got what we wanted.\p"
+	.string "You're too late this time.\p"
+	.string "I'll give you one last warning, so give\n"
+	.string "you head a shake and listen up.\p"
+	.string "If I ever see you again, I won't be\n"
+	.string "holding anything back! Got it?\p"
+	.string "… … … … … …\p"
 	.string "Okay, Team!\n"
 	.string "We're pulling out!$"
 
 MtPyre_Summit_Text_BothOrbsTakenMagmaLeftThis: @ 823290E
 	.string "Oh, no…\n"
 	.string "This cannot happen…\p"
-	.string "Not only the Blue Orb, but even\n"
-	.string "the Red Orb has been taken…\p"
-	.string "The Blue Orb and Red Orb must never\n"
+	.string "Not only the Red Orb, but even\n"
+	.string "the Blue Orb has been taken…\p"
+	.string "The Red Orb and Blue Orb must never\n"
 	.string "be separated. They belong together.\p"
 	.string "What are those men trying to do with\n"
 	.string "the two Orbs?\p"

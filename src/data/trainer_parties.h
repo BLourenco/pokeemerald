@@ -223,7 +223,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GruntMuseum1[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_GruntMuseum2[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_AquaAdminMattMuseum[] = {
     {
     .iv = 0,
     .lvl = 14,
@@ -354,6 +354,24 @@ static const struct TrainerMonNoItemDefaultMoves sParty_ShellySeafloorCavern[] =
     .iv = 100,
     .lvl = 37,
     .species = SPECIES_MIGHTYENA,
+    }
+};
+
+static const struct TrainerMonNoItemDefaultMoves sParty_ArchieMtPyre[] = {
+    {
+    .iv = 150,
+    .lvl = 41,
+    .species = SPECIES_MIGHTYENA,
+    },
+    {
+    .iv = 150,
+    .lvl = 41,
+    .species = SPECIES_CROBAT,
+    },
+    {
+    .iv = 150,
+    .lvl = 43,
+    .species = SPECIES_SHARPEDO,
     }
 };
 
@@ -9786,7 +9804,7 @@ static const struct TrainerMonNoItemDefaultMoves sParty_GruntMagmaHideout10[] = 
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_GruntMagmaHideout11[] = {
+static const struct TrainerMonNoItemDefaultMoves sParty_CourtneyMagmaHideout[] = {
     {
     .iv = 0,
     .lvl = 29,

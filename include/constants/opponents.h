@@ -22,7 +22,7 @@
 #define TRAINER_GRUNT_WEATHER_INST_2              18
 #define TRAINER_GRUNT_WEATHER_INST_3              19
 #define TRAINER_GRUNT_MUSEUM_1                    20
-#define TRAINER_GRUNT_MUSEUM_2                    21
+#define TRAINER_AQUA_ADMIN_MATT_MUSEUM                    21
 #define TRAINER_GRUNT_SPACE_CENTER_1              22
 #define TRAINER_GRUNT_MT_PYRE_1                   23
 #define TRAINER_GRUNT_MT_PYRE_2                   24
@@ -613,7 +613,7 @@
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_8             609
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_9             610
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_10            611
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_11            612
+#define TRAINER_COURTNEY_MAGMA_HIDEOUT            612
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_12            613
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_13            614
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_14            615
@@ -739,8 +739,9 @@
 #define TRAINER_BRAWLY_AFTER_HEAT_BADGE           735
 #define TRAINER_WINONA_AFTER_MIND_BADGE           736
 #define TRAINER_WINONA_AFTER_RAIN_BADGE           737
+#define TRAINER_AQUA_LEADER_ARCHIE_MT_PYRE        738
 
-#define TRAINERS_COUNT                            738
+#define TRAINERS_COUNT                            739
 #define MAX_TRAINERS_COUNT                        864
 
 // NOTE: More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

@@ -335,19 +335,19 @@ const struct Trainer gTrainers[] = {
     },
 
     // Slateport City, Oceanic Museum
-    [TRAINER_GRUNT_MUSEUM_2] =
+    [TRAINER_AQUA_ADMIN_MATT_MUSEUM] =
     {
         .partyFlags = 0,
-        .trainerClass = TRAINER_CLASS_TEAM_AQUA,
+        .trainerClass = TRAINER_CLASS_AQUA_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
-        .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
-        .trainerName = _("Grunt"),
+        .trainerPic = TRAINER_PIC_AQUA_ADMIN_M,
+        .trainerName = _("Matt"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .difficultyLevelMod = 2,
-        .partySize = ARRAY_COUNT(sParty_GruntMuseum2),
-        .party = {.NoItemDefaultMoves = sParty_GruntMuseum2},
+        .partySize = ARRAY_COUNT(sParty_AquaAdminMattMuseum),
+        .party = {.NoItemDefaultMoves = sParty_AquaAdminMattMuseum},
     },
 
     // Mossdeep Space Center, 1F
@@ -9805,19 +9805,19 @@ const struct Trainer gTrainers[] = {
     },
 
     // Magma Hideout, 4F
-    [TRAINER_GRUNT_MAGMA_HIDEOUT_11] =
+    [TRAINER_COURTNEY_MAGMA_HIDEOUT] =
     {
         .partyFlags = 0,
-        .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MAGMA,
-        .trainerPic = TRAINER_PIC_MAGMA_GRUNT_M,
-        .trainerName = _("Grunt"),
+        .trainerClass = TRAINER_CLASS_MAGMA_ADMIN,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MAGMA,
+        .trainerPic = TRAINER_PIC_MAGMA_ADMIN_F,
+        .trainerName = _("Courtney"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .difficultyLevelMod = 4,
-        .partySize = ARRAY_COUNT(sParty_GruntMagmaHideout11),
-        .party = {.NoItemDefaultMoves = sParty_GruntMagmaHideout11},
+        .partySize = ARRAY_COUNT(sParty_CourtneyMagmaHideout),
+        .party = {.NoItemDefaultMoves = sParty_CourtneyMagmaHideout},
     },
 
     // Magma Hideout, 4F
@@ -11799,5 +11799,21 @@ const struct Trainer gTrainers[] = {
         .difficultyLevelMod = 4,
         .partySize = ARRAY_COUNT(sParty_WinonaAfterRainBadge),
         .party = {.ItemCustomMoves = sParty_WinonaAfterRainBadge},
+    },
+
+    // Mt. Pyre, Summit
+    [TRAINER_AQUA_LEADER_ARCHIE_MT_PYRE] =
+    {
+        .partyFlags = 0,
+        .trainerClass = TRAINER_CLASS_AQUA_LEADER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
+        .trainerPic = TRAINER_PIC_AQUA_LEADER_ARCHIE,
+        .trainerName = _("Archie"),
+        .items = {ITEM_SUPER_POTION, ITEM_SUPER_POTION, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .difficultyLevelMod = 4,
+        .partySize = ARRAY_COUNT(sParty_ArchieMtPyre),
+        .party = {.NoItemDefaultMoves = sParty_ArchieMtPyre},
     },
 };
