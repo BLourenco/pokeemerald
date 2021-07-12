@@ -3902,6 +3902,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemCustomMoves = sParty_AnnaAndMeg3},
     },
 
+    // Route 117
     [TRAINER_ANNA_AND_MEG_3] =
     {
         .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET,
@@ -8397,6 +8398,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Trent1},
     },
 
+    // Route 114
     [TRAINER_LENNY] =
     {
         .partyFlags = 0,
@@ -10188,6 +10190,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Jaiden},
     },
 
+    // Route 115
     [TRAINER_ALIX] =
     {
         .partyFlags = 0,
@@ -10203,6 +10206,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Alix},
     },
 
+    // Route 115
     [TRAINER_HELENE] =
     {
         .partyFlags = 0,
@@ -10346,6 +10350,7 @@ const struct Trainer gTrainers[] = {
         .party = {.NoItemDefaultMoves = sParty_Fabian},
     },
 
+    // Route 119
     [TRAINER_DAYTON] =
     {
         .partyFlags = 0,
