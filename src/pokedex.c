@@ -696,6 +696,12 @@ static const union AnimCmd sSpriteAnim_OwnText[] =
     ANIMCMD_END
 };
 
+static const union AnimCmd sSpriteAnim_PercentText[] =
+{
+    ANIMCMD_FRAME(152, 30),
+    ANIMCMD_END
+};
+
 static const union AnimCmd sSpriteAnim_HoennText[] =
 {
     ANIMCMD_FRAME(160, 30),
@@ -705,6 +711,48 @@ static const union AnimCmd sSpriteAnim_HoennText[] =
 static const union AnimCmd sSpriteAnim_NationalText[] =
 {
     ANIMCMD_FRAME(168, 30),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_KantoText[] =
+{
+    ANIMCMD_FRAME(200, 30),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_JohtoText[] =
+{
+    ANIMCMD_FRAME(208, 30),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_SinnohText[] =
+{
+    ANIMCMD_FRAME(216, 30),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_UnovaText[] =
+{
+    ANIMCMD_FRAME(224, 30),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_KalosText[] =
+{
+    ANIMCMD_FRAME(232, 30),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_AlolaText[] =
+{
+    ANIMCMD_FRAME(240, 30),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_GalarText[] =
+{
+    ANIMCMD_FRAME(248, 30),
     ANIMCMD_END
 };
 
@@ -863,10 +911,18 @@ static const union AnimCmd *const sSpriteAnimTable_SeenOwnText[] =
     sSpriteAnim_OwnText
 };
 
-static const union AnimCmd *const sSpriteAnimTable_HoennNationalText[] =
+static const union AnimCmd *const sSpriteAnimTable_RegionNationalText[] =
 {
+    sSpriteAnim_NationalText,
+    sSpriteAnim_KantoText,
+    sSpriteAnim_JohtoText,
     sSpriteAnim_HoennText,
-    sSpriteAnim_NationalText
+    sSpriteAnim_SinnohText,
+    sSpriteAnim_UnovaText,
+    sSpriteAnim_KalosText,
+    sSpriteAnim_AlolaText,
+    sSpriteAnim_GalarText,
+    sSpriteAnim_PercentText
 };
 
 static const union AnimCmd *const sSpriteAnimTable_HoennSeenOwnNumber[] =
@@ -959,12 +1015,12 @@ static const struct SpriteTemplate sSeenOwnTextSpriteTemplate =
     .callback = SpriteCB_SeenOwnInfo,
 };
 
-static const struct SpriteTemplate sHoennNationalTextSpriteTemplate =
+static const struct SpriteTemplate sRegionNationalTextSpriteTemplate =
 {
     .tileTag = TAG_DEX_INTERFACE,
     .paletteTag = TAG_DEX_INTERFACE,
     .oam = &sOamData_InterfaceText,
-    .anims = sSpriteAnimTable_HoennNationalText,
+    .anims = sSpriteAnimTable_RegionNationalText,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_SeenOwnInfo,
@@ -3151,7 +3207,7 @@ static void CreateInterfaceSprites(u8 page)
     if (!IsNationalPokedexEnabled() && page == PAGE_MAIN)
     {
         // Hoenn text
-        CreateSprite(&sHoennNationalTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 40 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET - 6, 1);
+        CreateSprite(&sRegionNationalTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 40 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET - 6, 1);
         // Hoenn seen
         CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 6, 1);
         // Hoenn own
@@ -3209,25 +3265,26 @@ static void CreateInterfaceSprites(u8 page)
     {
         u16 seenOwnedCount;
 
-        // Hoenn text
-        CreateSprite(&sHoennNationalTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 40 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET - 6, 1);
-        // Hoenn seen
+        // Region text
+        spriteId = CreateSprite(&sRegionNationalTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 40 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET - 6, 1);
+        StartSpriteAnim(&gSprites[spriteId], sPokedexView->dexMode);
+        // Region seen
         CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 6, 1);
         // Hoenn own
         spriteId = CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 7, 1);
         StartSpriteAnim(&gSprites[spriteId], 1);
 
-        // National text
-        spriteId = CreateSprite(&sHoennNationalTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 73 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET - 6, 1);
-        StartSpriteAnim(&gSprites[spriteId], 1);
-        // National seen
+        // Percent text
+        spriteId = CreateSprite(&sRegionNationalTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 73 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET - 6, 1);
+        StartSpriteAnim(&gSprites[spriteId], 9);
+        // Percent seen
         CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 78 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 6, 1);
-        // National own
+        // Percent own
         spriteId = CreateSprite(&sSeenOwnTextSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X, 88 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET + 6, 1);
         StartSpriteAnim(&gSprites[spriteId], 1);
 
-        // Hoenn seen value - 100s
-        seenOwnedCount = GetHoennPokedexCount(FLAG_GET_SEEN);
+        // Region seen value - 100s
+        seenOwnedCount = GetRegionPokedexCount(FLAG_GET_SEEN, sPokedexView->dexMode);
         drawNextDigit = FALSE;
         spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
         digitNum = seenOwnedCount / 100;
@@ -3237,7 +3294,7 @@ static void CreateInterfaceSprites(u8 page)
         else
             gSprites[spriteId].invisible = TRUE;
 
-        // Hoenn seen value - 10s
+        // Region seen value - 10s
         spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 8, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
         digitNum = (seenOwnedCount % 100) / 10;
         if (digitNum != 0 || drawNextDigit)
@@ -3245,13 +3302,13 @@ static void CreateInterfaceSprites(u8 page)
         else
             gSprites[spriteId].invisible = TRUE;
 
-        // Hoenn seen value - 1s
+        // Region seen value - 1s
         spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 45 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
         digitNum = (seenOwnedCount % 100) % 10;
         StartSpriteAnim(&gSprites[spriteId], digitNum);
 
-        seenOwnedCount = GetHoennPokedexCount(FLAG_GET_CAUGHT);
-        // Hoenn owned value - 100s
+        seenOwnedCount = GetRegionPokedexCount(FLAG_GET_CAUGHT, sPokedexView->dexMode);
+        // Region owned value - 100s
         drawNextDigit = FALSE;
         spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
         digitNum = seenOwnedCount / 100;
@@ -3261,7 +3318,7 @@ static void CreateInterfaceSprites(u8 page)
         else
             gSprites[spriteId].invisible = TRUE;
 
-        // Hoenn owned value - 10s
+        // Region owned value - 10s
         spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 8, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
         digitNum = (seenOwnedCount % 100) / 10;
         if (digitNum != 0 || drawNextDigit)
@@ -3269,56 +3326,58 @@ static void CreateInterfaceSprites(u8 page)
         else
             gSprites[spriteId].invisible = TRUE;
 
-        // Hoenn owned value - 1s
+        // Region owned value - 1s
         spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 55 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
         digitNum = (seenOwnedCount % 100) % 10;
         StartSpriteAnim(&gSprites[spriteId], digitNum);
 
-        //****************************
-        // National seen value - 100s
+        //****************************GetRegionPokedexTotal
+        // Percent seen value - 100s
+        seenOwnedCount = GetRegionPokedexCount(FLAG_GET_SEEN, sPokedexView->dexMode);
         drawNextDigit = FALSE;
         spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET, 78 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
-        digitNum = sPokedexView->seenCount / 100;
+        digitNum = seenOwnedCount * 100  / GetRegionPokedexTotal(sPokedexView->dexMode, FALSE) / 100;
         StartSpriteAnim(&gSprites[spriteId], digitNum);
         if (digitNum != 0)
             drawNextDigit = TRUE;
         else
             gSprites[spriteId].invisible = TRUE;
 
-        // National seen value - 10s
+        // Percent seen value - 10s
         spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 8, 78 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
-        digitNum = (sPokedexView->seenCount % 100) / 10;
+        digitNum = seenOwnedCount * 100  / GetRegionPokedexTotal(sPokedexView->dexMode, FALSE) % 100 / 10;
         if (digitNum != 0 || drawNextDigit)
             StartSpriteAnim(&gSprites[spriteId], digitNum);
         else
             gSprites[spriteId].invisible = TRUE;
 
-        // National seen value - 1s
+        // Percent seen value - 1s
         spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 78 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
-        digitNum = (sPokedexView->seenCount % 100) % 10;
+        digitNum = seenOwnedCount * 100 / GetRegionPokedexTotal(sPokedexView->dexMode, FALSE) % 100 % 10;
         StartSpriteAnim(&gSprites[spriteId], digitNum);
 
-        // National owned value - 100s
+        // Percent owned value - 100s
+        seenOwnedCount = GetRegionPokedexCount(FLAG_GET_CAUGHT, sPokedexView->dexMode);
         drawNextDigit = FALSE;
         spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET, 88 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
-        digitNum = sPokedexView->ownCount / 100;
+        digitNum = seenOwnedCount * 100  / GetRegionPokedexTotal(sPokedexView->dexMode, FALSE) / 100;
         StartSpriteAnim(&gSprites[spriteId], digitNum);
         if (digitNum != 0)
             drawNextDigit = TRUE;
         else
             gSprites[spriteId].invisible = TRUE;
 
-        // National owned value  - 10s
+        // Percent owned value  - 10s
         spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 8, 88 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
-        digitNum = (sPokedexView->ownCount % 100) / 10;
+        digitNum = seenOwnedCount * 100  / GetRegionPokedexTotal(sPokedexView->dexMode, FALSE) % 100 / 10;
         if (digitNum != 0 || drawNextDigit)
             StartSpriteAnim(&gSprites[spriteId], digitNum);
         else
             gSprites[spriteId].invisible = TRUE;
 
-        // National owned value - 1s
+        // Percent owned value - 1s
         spriteId = CreateSprite(&sNationalDexSeenOwnNumberSpriteTemplate, LIST_RIGHT_SIDE_TEXT_X + LIST_RIGHT_SIDE_TEXT_X_OFFSET + 16, 88 - LIST_RIGHT_SIDE_TEXT_Y_OFFSET, 1);
-        digitNum = (sPokedexView->ownCount % 100) % 10;
+        digitNum = seenOwnedCount * 100 / GetRegionPokedexTotal(sPokedexView->dexMode, FALSE) % 100 % 10;
         StartSpriteAnim(&gSprites[spriteId], digitNum);
     }
 
@@ -4848,6 +4907,104 @@ u16 GetHoennPokedexCount(u8 caseID)
         }
     }
     return count;
+}
+
+u16 GetRegionPokedexCount(u8 caseID, u8 region)
+{
+    u16 count = 0;
+    u16 i;
+    u16 dexStart;
+    u16 dexCount;
+
+    switch (region)
+    {
+        case DEX_MODE_NATIONAL:
+            dexStart = 0;
+            dexCount = NATIONAL_DEX_COUNT;
+            break;
+        case DEX_MODE_KANTO:
+            dexStart = 0;
+            dexCount = KANTO_DEX_COUNT;
+            break;
+        case DEX_MODE_JOHTO:
+            dexStart = KANTO_DEX_COUNT;
+            dexCount = JOHTO_DEX_COUNT;
+            break;
+        case DEX_MODE_HOENN:
+            dexStart = JOHTO_DEX_COUNT;
+            dexCount = HOENN_DEX_COUNT;
+            break;
+        case DEX_MODE_SINNOH:
+            dexStart = HOENN_DEX_COUNT;
+            dexCount = SINNOH_DEX_COUNT;
+            break;
+        case DEX_MODE_UNOVA:
+            dexStart = SINNOH_DEX_COUNT;
+            dexCount = UNOVA_DEX_COUNT;
+            break;
+        case DEX_MODE_KALOS:
+            dexStart = UNOVA_DEX_COUNT;
+            dexCount = KALOS_DEX_COUNT;
+            break;
+        case DEX_MODE_ALOLA:
+            dexStart = KALOS_DEX_COUNT;
+            dexCount = ALOLA_DEX_COUNT;
+            break;
+        case DEX_MODE_GALAR:
+            dexStart = ALOLA_DEX_COUNT;
+            dexCount = GALAR_DEX_COUNT;
+            break;
+    }
+
+    for (i = dexStart; i < dexCount; i++)
+    {
+        switch (caseID)
+        {
+        case FLAG_GET_SEEN:
+            if (GetSetPokedexFlag(i + 1, FLAG_GET_SEEN))
+                count++;
+            break;
+        case FLAG_GET_CAUGHT:
+            if (GetSetPokedexFlag(i + 1, FLAG_GET_CAUGHT))
+                count++;
+            break;
+        }
+    }
+    return count;
+}
+
+u16 GetRegionPokedexTotal(u8 region, bool8 includeUnobtainable)
+{
+    switch (region)
+    {
+        case DEX_MODE_NATIONAL:
+            return NATIONAL_DEX_COUNT;
+            break;
+        case DEX_MODE_KANTO:
+            return KANTO_DEX_COUNT;
+            break;
+        case DEX_MODE_JOHTO:
+            return JOHTO_DEX_COUNT - KANTO_DEX_COUNT;
+            break;
+        case DEX_MODE_HOENN:
+            return HOENN_DEX_COUNT - JOHTO_DEX_COUNT;
+            break;
+        case DEX_MODE_SINNOH:
+            return SINNOH_DEX_COUNT - HOENN_DEX_COUNT;
+            break;
+        case DEX_MODE_UNOVA:
+            return UNOVA_DEX_COUNT - SINNOH_DEX_COUNT;
+            break;
+        case DEX_MODE_KALOS:
+            return KALOS_DEX_COUNT - UNOVA_DEX_COUNT;
+            break;
+        case DEX_MODE_ALOLA:
+            return ALOLA_DEX_COUNT - KALOS_DEX_COUNT;
+            break;
+        case DEX_MODE_GALAR:
+            return GALAR_DEX_COUNT - ALOLA_DEX_COUNT;
+            break;
+    }
 }
 
 u16 GetKantoPokedexCount(u8 caseID)
