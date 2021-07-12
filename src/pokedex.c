@@ -1564,8 +1564,15 @@ static const u8 sSearchMovementMap_ShiftHoennDex[SEARCH_COUNT][4] =
 
 static const struct SearchOptionText sDexModeOptions[] =
 {
-    [DEX_MODE_HOENN]    = {gText_DexHoennDescription, gText_DexHoennTitle},
     [DEX_MODE_NATIONAL] = {gText_DexNatDescription,   gText_DexNatTitle},
+    [DEX_MODE_KANTO]    = {gText_DexKantoDescription, gText_DexKantoTitle},
+    [DEX_MODE_JOHTO]    = {gText_DexJohtoDescription, gText_DexJohtoTitle},
+    [DEX_MODE_HOENN]    = {gText_DexHoennDescription, gText_DexHoennTitle},
+    [DEX_MODE_SINNOH]   = {gText_DexSinnohDescription, gText_DexSinnohTitle},
+    [DEX_MODE_UNOVA]    = {gText_DexUnovaDescription, gText_DexUnovaTitle},
+    [DEX_MODE_KALOS]    = {gText_DexKalosDescription, gText_DexKalosTitle},
+    [DEX_MODE_ALOLA]    = {gText_DexAlolaDescription, gText_DexAlolaTitle},
+    [DEX_MODE_GALAR]    = {gText_DexGalarDescription, gText_DexGalarTitle},
     {},
 };
 
@@ -1637,7 +1644,19 @@ static const struct SearchOptionText sDexSearchTypeOptions[NUMBER_OF_MON_TYPES +
     {},
 };
 
-static const u8 sPokedexModes[] = {DEX_MODE_HOENN, DEX_MODE_NATIONAL};
+static const u8 sPokedexModes[] = 
+{
+    DEX_MODE_NATIONAL,
+    DEX_MODE_KANTO,
+    DEX_MODE_JOHTO,
+    DEX_MODE_HOENN,
+    DEX_MODE_SINNOH,
+    DEX_MODE_UNOVA,
+    DEX_MODE_KALOS,
+    DEX_MODE_ALOLA,
+    DEX_MODE_GALAR
+};
+
 static const u8 sOrderOptions[] =
 {
     ORDER_NUMERICAL,
@@ -2463,38 +2482,69 @@ static void CreatePokedexList(u8 dexMode, u8 order)
 #define temp_isHoennDex vars[1]
 #define temp_dexNum     vars[2]
     s32 i;
+    u32 temp_dexStart;
 
     sPokedexView->pokemonListCount = 0;
 
     switch (dexMode)
     {
     default:
-    case DEX_MODE_HOENN:
-        temp_dexCount = HOENN_DEX_COUNT;
-        temp_isHoennDex = TRUE;
-        break;
     case DEX_MODE_NATIONAL:
-        if (IsNationalPokedexEnabled())
-        {
-            temp_dexCount = NATIONAL_DEX_COUNT;
-            temp_isHoennDex = FALSE;
-        }
-        else
-        {
-            temp_dexCount = HOENN_DEX_COUNT;
-            temp_isHoennDex = TRUE;
-        }
+        temp_dexCount = NATIONAL_DEX_COUNT;
+        temp_isHoennDex = FALSE;
+        temp_dexStart = 0;
+        break;
+    case DEX_MODE_KANTO:
+        temp_dexCount = KANTO_DEX_COUNT;
+        temp_isHoennDex = FALSE;
+        temp_dexStart = 0;
+        break;
+    case DEX_MODE_JOHTO:
+        temp_dexCount = JOHTO_DEX_COUNT - KANTO_DEX_COUNT;
+        temp_isHoennDex = FALSE;
+        temp_dexStart = KANTO_DEX_COUNT;
+        break;
+    case DEX_MODE_HOENN:
+        temp_dexCount = HOENN_DEX_COUNT - JOHTO_DEX_COUNT;
+        temp_isHoennDex = TRUE;
+        temp_dexStart = JOHTO_DEX_COUNT;
+        break;
+    case DEX_MODE_SINNOH:
+        temp_dexCount = SINNOH_DEX_COUNT - HOENN_DEX_COUNT;
+        temp_isHoennDex = FALSE;
+        temp_dexStart = HOENN_DEX_COUNT;
+        break;
+    case DEX_MODE_UNOVA:
+        temp_dexCount = UNOVA_DEX_COUNT - SINNOH_DEX_COUNT;
+        temp_isHoennDex = FALSE;
+        temp_dexStart = SINNOH_DEX_COUNT;
+        break;
+    case DEX_MODE_KALOS:
+        temp_dexCount = KALOS_DEX_COUNT - UNOVA_DEX_COUNT;
+        temp_isHoennDex = FALSE;
+        temp_dexStart = UNOVA_DEX_COUNT;
+        break;
+    case DEX_MODE_ALOLA:
+        temp_dexCount = ALOLA_DEX_COUNT - KALOS_DEX_COUNT;
+        temp_isHoennDex = FALSE;
+        temp_dexStart = KALOS_DEX_COUNT;
+        break;
+    case DEX_MODE_GALAR:
+        temp_dexCount = GALAR_DEX_COUNT - ALOLA_DEX_COUNT;
+        temp_isHoennDex = FALSE;
+        temp_dexStart = ALOLA_DEX_COUNT;
         break;
     }
 
     switch (order)
     {
     case ORDER_NUMERICAL:
-        if (temp_isHoennDex)
+        if (dexMode != DEX_MODE_NATIONAL)
         {
             for (i = 0; i < temp_dexCount; i++)
             {
-                temp_dexNum = HoennToNationalOrder(i + 1);
+                // temp_dexNum = HoennToNationalOrder(i + 1);
+                temp_dexNum = i + temp_dexStart + 1;
                 sPokedexView->pokedexList[i].dexNum = temp_dexNum;
                 sPokedexView->pokedexList[i].seen = GetSetPokedexFlag(temp_dexNum, FLAG_GET_SEEN);
                 sPokedexView->pokedexList[i].owned = GetSetPokedexFlag(temp_dexNum, FLAG_GET_CAUGHT);
@@ -2708,8 +2758,8 @@ static void CreateMonDexNum(u16 entryNum, u8 left, u8 top, u16 unused)
 
     memcpy(text, sText_No000, ARRAY_COUNT(text));
     dexNum = sPokedexView->pokedexList[entryNum].dexNum;
-    if (sPokedexView->dexMode == DEX_MODE_HOENN)
-        dexNum = NationalToHoennOrder(dexNum);
+    // if (sPokedexView->dexMode == DEX_MODE_HOENN)
+    //     dexNum = NationalToHoennOrder(dexNum);
     text[2] = CHAR_0 + dexNum / 100;
     text[3] = CHAR_0 + (dexNum % 100) / 10;
     text[4] = CHAR_0 + (dexNum % 100) % 10;
@@ -5667,7 +5717,15 @@ static void Task_SelectSearchMenuItem(u8 taskId)
     cursorPos = &gTasks[taskId].data[sSearchOptions[menuItem].taskDataCursorPos];
     scrollOffset = &gTasks[taskId].data[sSearchOptions[menuItem].taskDataScrollOffset];
     gTasks[taskId].tCursorPos = *cursorPos;
-    gTasks[taskId].tScrollOffset = *scrollOffset;
+    gTasks[taskId].tScrollOffset = *scrollOffset;    
+
+    // Re-calculate the scroll offset, and then re-calculte the cursor position
+    if (gTasks[taskId].tCursorPos > 5)
+    {
+        gTasks[taskId].data[sSearchOptions[menuItem].taskDataScrollOffset] = gTasks[taskId].tCursorPos - 5;
+        gTasks[taskId].data[sSearchOptions[menuItem].taskDataCursorPos] = 5;
+    }
+
     PrintSearchParameterText(taskId);
     PrintSelectorArrow(*cursorPos);
     gTasks[taskId].func = Task_HandleSearchParameterInput;
@@ -5690,6 +5748,7 @@ static void Task_HandleSearchParameterInput(u8 taskId)
     cursorPos = &gTasks[taskId].data[sSearchOptions[menuItem].taskDataCursorPos];
     scrollOffset = &gTasks[taskId].data[sSearchOptions[menuItem].taskDataScrollOffset];
     maxOption = sSearchOptions[menuItem].numOptions - 1;
+
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_PIN);
@@ -6048,11 +6107,32 @@ static void SetDefaultSearchModeAndOrder(u8 taskId)
     switch (sPokedexView->dexModeBackup)
     {
     default:
+    case DEX_MODE_NATIONAL:
+        selected = DEX_MODE_NATIONAL;
+        break;
+    case DEX_MODE_KANTO:
+        selected = DEX_MODE_KANTO;
+        break;
+    case DEX_MODE_JOHTO:
+        selected = DEX_MODE_JOHTO;
+        break;
     case DEX_MODE_HOENN:
         selected = DEX_MODE_HOENN;
         break;
-    case DEX_MODE_NATIONAL:
-        selected = DEX_MODE_NATIONAL;
+    case DEX_MODE_SINNOH:
+        selected = DEX_MODE_SINNOH;
+        break;
+    case DEX_MODE_UNOVA:
+        selected = DEX_MODE_UNOVA;
+        break;
+    case DEX_MODE_KALOS:
+        selected = DEX_MODE_KALOS;
+        break;
+    case DEX_MODE_ALOLA:
+        selected = DEX_MODE_ALOLA;
+        break;
+    case DEX_MODE_GALAR:
+        selected = DEX_MODE_GALAR;
         break;
     }
     gTasks[taskId].tCursorPos_Mode = selected;

@@ -6,8 +6,15 @@ extern void (*gPokedexVBlankCB)(void);
 
 enum
 {
+    DEX_MODE_NATIONAL,
+    DEX_MODE_KANTO,
+    DEX_MODE_JOHTO,
     DEX_MODE_HOENN,
-    DEX_MODE_NATIONAL
+    DEX_MODE_SINNOH,
+    DEX_MODE_UNOVA,
+    DEX_MODE_KALOS,
+    DEX_MODE_ALOLA,
+    DEX_MODE_GALAR
 };
 
 enum
