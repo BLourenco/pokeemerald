@@ -1844,8 +1844,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             for (j = 0; gTrainers[trainerNum].trainerName[j] != EOS; j++)
                 nameHash += gTrainers[trainerNum].trainerName[j];
 
-            difficulty = gSaveBlock2Ptr->optionsDifficulty;
-            switch (difficulty)
+            switch (gSaveBlock2Ptr->optionsDifficulty)
             {
                 case OPTIONS_DIFFICULTY_EASY:
                     difficultyLevelMod = gTrainers[trainerNum].difficultyLevelMod * -1; // Lower level by levelMod

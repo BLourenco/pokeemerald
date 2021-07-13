@@ -18,6 +18,7 @@
 #include "constants/hold_effects.h"
 #include "constants/moves.h"
 #include "constants/items.h"
+#include "constants/trainers.h"
 
 #define AI_ACTION_DONE          0x0001
 #define AI_ACTION_FLEE          0x0002
@@ -141,6 +142,53 @@ void BattleAI_SetupFlags(void)
         AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags | gTrainers[gTrainerBattleOpponent_B].aiFlags;
     else
         AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags;
+
+    if (gSaveBlock2Ptr->optionsDifficulty == OPTIONS_DIFFICULTY_CHALLENGE)
+    {
+        if (AI_THINKING_STRUCT->aiFlags != 0) // 0 means random AI, don't change that
+        {
+            // Ensure all non-random AI are using the 3 core AI flags normally reserved for bosses and certain trainer classes.
+            AI_THINKING_STRUCT->aiFlags |= AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY;
+        }
+
+        // Improve AI of bosses
+        switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
+        {
+            case TRAINER_CLASS_MAGMA_LEADER:
+            case TRAINER_CLASS_AQUA_LEADER:
+            case TRAINER_CLASS_MAGMA_ADMIN:
+            case TRAINER_CLASS_AQUA_ADMIN:
+            case TRAINER_CLASS_LEADER:
+            case TRAINER_CLASS_ELITE_FOUR:
+            case TRAINER_CLASS_CHAMPION:
+            case TRAINER_CLASS_PKMN_TRAINER_3:
+                AI_THINKING_STRUCT->aiFlags |= AI_FLAG_HP_AWARE | AI_FLAG_SMART_SWITCHING; // These are very minor improvements...
+                break;
+            default:
+                break;
+        }
+
+        // Repeat if two opponents
+        if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+        {
+            // Improve AI of bosses
+            switch (gTrainers[gTrainerBattleOpponent_B].trainerClass)
+            {
+                case TRAINER_CLASS_MAGMA_LEADER:
+                case TRAINER_CLASS_AQUA_LEADER:
+                case TRAINER_CLASS_MAGMA_ADMIN:
+                case TRAINER_CLASS_AQUA_ADMIN:
+                case TRAINER_CLASS_LEADER:
+                case TRAINER_CLASS_ELITE_FOUR:
+                case TRAINER_CLASS_CHAMPION:
+                case TRAINER_CLASS_PKMN_TRAINER_3:
+                    AI_THINKING_STRUCT->aiFlags |= AI_FLAG_HP_AWARE | AI_FLAG_SMART_SWITCHING; // These are very minor improvements...
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 
     if (gBattleTypeFlags & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TWO_OPPONENTS) || gTrainers[gTrainerBattleOpponent_A].doubleBattle)
         AI_THINKING_STRUCT->aiFlags |= AI_FLAG_DOUBLE_BATTLE; // Act smart in doubles and don't attack your partner.
